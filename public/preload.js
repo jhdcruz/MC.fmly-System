@@ -20,12 +20,11 @@ window.addEventListener('DOMContentLoaded', () => {
   if (process.platform !== 'darwin') {
     const customTitlebar = require('custom-electron-titlebar');
     new customTitlebar.Titlebar({
-      backgroundColor: customTitlebar.Color.fromHex('#FFFFFF'),
-      titleHorizontalAlignment: "center",
+      backgroundColor: customTitlebar.Color.fromHex('#2c2c2c'),
+      icon: 'favicon.ico',
+      titleHorizontalAlignment: 'left',
       menu: null,
-      icon: "favicon.ico"
+      menuPosition: null,
     });
   }
-
-  // ...
-})
+});
