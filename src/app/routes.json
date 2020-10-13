@@ -1,0 +1,6 @@
+{
+  "DASHBOARD": "/",
+  "INVENTORY": "/inventory",
+  "REPORTS": "/reports",
+  "NOTFOUND": "*"
+}

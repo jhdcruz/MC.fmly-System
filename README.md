@@ -3,28 +3,25 @@
 <div align="center">
 <b>Status:</b>
 
-[![CodeFactor](https://www.codefactor.io/repository/github/jhdcruz/mcis/badge?s=58de08a23400a3f8b401fdee68b858cbb0732d1f)](https://www.codefactor.io/repository/github/jhdcruz/mcis) [![Build Status](https://travis-ci.com/jhdcruz/MCIS.svg?token=fiiouVpFksoACZRN1N2B&branch=master)](https://travis-ci.com/jhdcruz/MCIS)
-
-</div>
+[![CodeFactor](https://www.codefactor.io/repository/github/jhdcruz/mc-inventory-system/badge?s=7b7898544cfd6571214f45d58af62bd7fb028884)](https://www.codefactor.io/repository/github/jhdcruz/mc-inventory-system) 
 
 **Inventory System specifically built for [MC.fmly](https://www.facebook.com/MC.fmly/).**
 
+</div>
 
-## Starting Development
+-----
 
-Start the app in the `dev` environment. This starts the renderer process in [**hot-module-replacement**](https://webpack.js.org/guides/hmr-react/) mode and starts a webpack dev server that sends hot updates to the renderer process:
+**Frameworks:**
+ - React
+ - Redux 
+ - Electron
+ - Sass/Scss
+ 
+**Tools**
+ - TravisCI
+ - CodeFactor
 
-```bash
-yarn dev
-```
+ Boilerplate generated through`create-react-app`.
 
-## Packaging for Production
-
-To package apps for the local platform:
-
-```bash
-yarn package-[os]
-```
-
-> check `package.json` in `scripts` section for `package-XXXX` scripts.
-
+> Source code available at my GitHub:
+> https://github.com/jhdcruz/MC-Inventory-System

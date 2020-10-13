@@ -16,9 +16,13 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-html, body {
-  width: 100%;
-  height: 100%;
-  padding: 0;
-  margin: 0;
+import React from 'react';
+
+export default function Inventory() {
+  return (
+    <div className="home">
+      <h1>Welcome to Gravity Well Gadgets 2</h1>
+      <h2>Your One-Stop Shop for Gadgets</h2>
+    </div>
+  );
 }
