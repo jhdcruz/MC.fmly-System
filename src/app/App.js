@@ -21,12 +21,12 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Container from 'react-bulma-components/lib/components/container';
 import './App.scss';
 import routes from './routes.json';
-import Sidebar from 'components/Sidebar';
+import Sidebar from './components/Sidebar';
 
 // Routes
-import Dashboard from 'containers/Dashboard';
-import Inventory from 'containers/Inventory';
-import Reports from 'containers/Reports';
+import Dashboard from './containers/Dashboard';
+import Inventory from './containers/Inventory';
+import Reports from './containers/Reports';
 
 export default function App() {
   return (

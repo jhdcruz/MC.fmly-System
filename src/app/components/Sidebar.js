@@ -18,7 +18,7 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Menu from 'react-bulma-components/lib/components/button';
+import Menu from 'react-bulma-components/lib/components/menu';
 
 export default function Sidebar() {
   return (

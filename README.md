@@ -1,7 +1,7 @@
 # MC Inventory System
 
-<div align="center">
-<b>Status:</b>
+
+**Status:**
 
 [![CodeFactor](https://www.codefactor.io/repository/github/jhdcruz/mc-inventory-system/badge?s=7b7898544cfd6571214f45d58af62bd7fb028884)](https://www.codefactor.io/repository/github/jhdcruz/mc-inventory-system) 
 
