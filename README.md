@@ -3,7 +3,7 @@
 <div align="center">
 <b>Status:</b>
 
-[![CodeFactor](https://www.codefactor.io/repository/github/jhdcruz/mc-ims/badge?s=9cbd304f48d68f7bf9e24ffc80b24cb5f4dc577a)](https://www.codefactor.io/repository/github/jhdcruz/mc-ims) [![Build Status](https://travis-ci.com/jhdcruz/MC-IMS.svg?token=fiiouVpFksoACZRN1N2B&branch=main)](https://travis-ci.com/jhdcruz/MC-IMS)
+[![CodeFactor](https://www.codefactor.io/repository/github/jhdcruz/mcis/badge?s=58de08a23400a3f8b401fdee68b858cbb0732d1f)](https://www.codefactor.io/repository/github/jhdcruz/mcis) [![Build Status](https://travis-ci.com/jhdcruz/MCIS.svg?token=fiiouVpFksoACZRN1N2B&branch=master)](https://travis-ci.com/jhdcruz/MCIS)
 
 </div>
 
