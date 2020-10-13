@@ -17,12 +17,16 @@
  */
 
 import React from 'react';
+import Jumbotron from 'react-bootstrap/Jumbotron';
 
 export default function Dashboard() {
   return (
-    <div className="home">
-      <h1>Welcome to Gravity Well Gadgets</h1>
-      <h2>Your One-Stop Shop for Gadgets</h2>
-    </div>
+    <Jumbotron fluid style={{ color: 'whitesmoke' }}>
+      <h1>
+        Asan na ung features na pinapahanap ko?
+      </h1>
+      <h6>one-man team po ako, di po aabot kung iintayin ko matapos ung mga papers/research</h6>
+      <h6>di nmn ako nagmamadali, paalala lang, chill.</h6>
+    </Jumbotron>
   );
 }

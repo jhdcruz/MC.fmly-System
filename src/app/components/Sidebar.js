@@ -18,20 +18,64 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Menu from 'react-bulma-components/lib/components/menu';
+import Nav from 'react-bootstrap/Nav';
+import Image from 'react-bootstrap/Image';
+import styled from 'styled-components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faHome,
+  faBoxes,
+  faClipboardList,
+} from '@fortawesome/free-solid-svg-icons';
+import Brand from '../resources/img/profile.png';
+
+const SideMenu = styled.aside`
+  background-color: #2c2c2c;
+  position: fixed;
+  left: 0;
+  width: 14rem;
+  height: 100vh;
+`;
+
+const Branding = styled(Image)`
+  width: 10rem;
+  display: block;
+  margin: 1rem auto 1rem auto;
+`;
+
+const TabRoutes = styled(Link)`
+  color: #d9d9d9 !important;
+  font-size: 1.1rem;
+  padding: 0 1.7rem;
+`;
+
+const FAIcon = styled(FontAwesomeIcon)`
+  font-size: 16px;
+  margin-right: 4px;
+  text-align: center;
+`;
 
 export default function Sidebar() {
   return (
-    <Menu>
-      <Menu.List.Item>
-        <Link to="/">Dashboard</Link>
-      </Menu.List.Item>
-      <Menu.List.Item>
-        <Link to="/inventory">Inventory</Link>
-      </Menu.List.Item>
-      <Menu.List.Item>
-        <Link to="/reports">Reports</Link>
-      </Menu.List.Item>
-    </Menu>
+    <SideMenu>
+      <Nav defaultActiveKey="/" className="flex-column">
+        <Branding src={Brand} />
+        <TabRoutes to="/">
+          <Nav.Link as="li">
+            <FAIcon icon={faHome} /> Dashboard
+          </Nav.Link>
+        </TabRoutes>
+        <TabRoutes to="/inventory">
+          <Nav.Link as="li">
+            <FAIcon icon={faBoxes} /> Inventory
+          </Nav.Link>
+        </TabRoutes>
+        <TabRoutes to="/orders">
+          <Nav.Link as="li">
+            <FAIcon icon={faClipboardList} /> Orders
+          </Nav.Link>
+        </TabRoutes>
+      </Nav>
+    </SideMenu>
   );
 }

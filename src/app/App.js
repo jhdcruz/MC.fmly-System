@@ -18,9 +18,9 @@
 
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Container from 'react-bulma-components/lib/components/container';
-import './App.scss';
 import routes from './routes.json';
+import Container from 'react-bootstrap/Container';
+import './App.scss';
 import Sidebar from './components/Sidebar';
 
 // Routes
@@ -32,14 +32,16 @@ export default function App() {
   return (
     <React.Fragment>
       <Router>
-        <Container>
+        <Container fluid>
           <Sidebar />
+          <div id="pageRoutes">
           <Switch>
             <Route exact path={routes.DASHBOARD} component={Dashboard} />
             <Route path={routes.INVENTORY} component={Inventory} />
-            <Route path={routes.REPORTS} component={Reports} />
+            <Route path={routes.ORDERS} component={Reports} />
             <Route path={routes.NOTFOUND}>Something went wrong...</Route>
           </Switch>
+          </div>
         </Container>
       </Router>
     </React.Fragment>

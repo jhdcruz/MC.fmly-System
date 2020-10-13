@@ -1,4 +1,4 @@
-/*
+/*!
  *     MC Inventory Management System
  *     Copyright (C) 2020  Joshua Hero H. Dela Cruz
  *
@@ -16,16 +16,15 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+/* Custom themes here */
+$theme-colors: (
+  'primary': #eddfdb,
+  'secondary': #b4abaa,
+  'success': #4de670,
+  'danger': #e6404f,
+  'warning': #e69837,
+  'info': #45afe6,
+);
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
+/* set changes */
+@import '~bootstrap/scss/bootstrap';

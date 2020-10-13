@@ -16,13 +16,71 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-@import '~react-bulma-components/src/index.sass';
+// Global Styles
 
+// Imports obviously
+@import '~bootstrap/scss/bootstrap';
+@import 'themes';
+
+// Fonts
+@font-face {
+  font-family: 'Noto Sans';
+  src: local('Noto Sans'),
+    url('./resources/fonts/Noto_Sans/NotoSans-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Noto Sans';
+  src: local('Noto Sans'),
+    url('./resources/fonts/Noto_Sans/NotoSans-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Noto Sans';
+  src: local('Noto Sans'),
+    url('./resources/fonts/Noto_Sans/NotoSans-Italic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+}
+
+// Tag-level
 html,
 body {
+  font-family: "Noto Sans", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  background-color: #262626;
   width: 100%;
   height: 100%;
   padding: 0;
   margin: 0;
-  overflow-y: hidden;
+  overflow-y: hidden !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+// Id-level
+#pageRoutes {
+  display: block;
+  margin-left: 14.5rem;
+}
+
+// Class-level
+.container-fluid {
+  display: flex;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.jumbotron,
+.jumbotron-fluid {
+  background-color: transparent;
 }
