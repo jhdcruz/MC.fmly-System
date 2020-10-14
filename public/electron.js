@@ -16,26 +16,9 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-const { app, BrowserWindow, crashReporter } = require('electron');
+const { app, BrowserWindow } = require('electron');
 const path = require('path');
 const isDev = require('electron-is-dev');
-const Sentry = require('@sentry/electron');
-
-require('dotenv').config();
-require('@treverix/remote/main').initialize();
-
-Sentry.init({
-  dsn: process.env.SENTRY_DSN,
-});
-
-crashReporter.start({
-  productName: 'mcfmly',
-  companyName: 'deuz',
-  ignoreSystemCrashHandler: true,
-  uploadToServer: true,
-  compress: true,
-  submitURL: process.env.SENTRY_CRASHDUMP,
-});
 
 function createWindow() {
   // Create the browser window.

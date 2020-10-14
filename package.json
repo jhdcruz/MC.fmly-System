@@ -15,14 +15,12 @@
     "package-mac": "yarn postinstall &&  yarn build && electron-builder build --mac",
     "package-linux": "yarn postinstall && yarn build && electron-builder build --linux",
     "package-win": "yarn postinstall &&  yarn build && electron-builder build --win --x64",
-    "postinstall": "electron-builder install-app-deps",
-    "sentry": "node scripts/sentry-symbols.js"
+    "postinstall": "electron-builder install-app-deps"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.32",
     "@fortawesome/free-solid-svg-icons": "^5.15.1",
     "@fortawesome/react-fontawesome": "^0.1.11",
-    "@sentry/electron": "^2.0.1",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
@@ -39,8 +37,6 @@
   },
   "devDependencies": {
     "@babel/core": "7.9.0",
-    "@sentry/cli": "^1.58.0",
-    "@sentry/webpack-plugin": "^1.13.0",
     "@svgr/webpack": "4.3.3",
     "babel-eslint": "10.1.0",
     "babel-jest": "^24.9.0",
