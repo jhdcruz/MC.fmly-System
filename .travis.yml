@@ -1,5 +1,12 @@
 matrix:
   include:
+    - os: windows
+      language: node_js
+      node_js:
+        - node
+      env:
+        - set ELECTRON_CACHE=$HOME/.cache/electron
+        - set ELECTRON_BUILDER_CACHE=$HOME/.cache/electron-builder
     - os: osx
       language: node_js
       node_js:
@@ -64,6 +71,8 @@ before_script:
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sleep 3; fi
 
 script:
-  - yarn package-ci
   - yarn lint
-  - yarn tsc
+  - yarn package-ci
+
+notifications:
+  webhooks: $MS_TEAMS
