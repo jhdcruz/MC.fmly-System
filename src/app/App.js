@@ -35,12 +35,12 @@ export default function App() {
         <Container fluid>
           <Sidebar />
           <div id="pageRoutes">
-          <Switch>
-            <Route exact path={routes.DASHBOARD} component={Dashboard} />
-            <Route path={routes.INVENTORY} component={Inventory} />
-            <Route path={routes.ORDERS} component={Reports} />
-            <Route path={routes.NOTFOUND}>Something went wrong...</Route>
-          </Switch>
+            <Switch>
+              <Route exact path={routes.DASHBOARD} component={Dashboard} />
+              <Route path={routes.INVENTORY} component={Inventory} />
+              <Route path={routes.ORDERS} component={Reports} />
+              <Route path={routes.NOTFOUND}>Something went wrong...</Route>
+            </Switch>
           </div>
         </Container>
       </Router>
