@@ -10,8 +10,6 @@
 
 #### Frameworks:
 
-The system will follow the **MERN** Stack.
-
 - **Front-End**
 
   - _React_ - UI Components
@@ -23,7 +21,8 @@ The system will follow the **MERN** Stack.
   - _Express_ - Server-side Framework
 
 - **Database** (if time permits)
-  - _MongoDB_ - Document-based Database
+  - _Sequelize_ - ORM Database Handler
+  - _SQLite3_ - Embedded Database
 
 > Read more about the stack:
 > https://www.mongodb.com/mern-stack
