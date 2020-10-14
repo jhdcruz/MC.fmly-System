@@ -3,7 +3,7 @@
 
 **Status:**
 
-[![CodeFactor](https://www.codefactor.io/repository/github/jhdcruz/mc-inventory-system/badge?s=7b7898544cfd6571214f45d58af62bd7fb028884)](https://www.codefactor.io/repository/github/jhdcruz/mc-inventory-system) [![Build Status](https://travis-ci.com/jhdcruz/MCIS.svg?token=fiiouVpFksoACZRN1N2B&branch=master)](https://travis-ci.com/jhdcruz/MCIS)
+[![CodeFactor](https://www.codefactor.io/repository/github/jhdcruz/mc.fmly-system/badge?s=12c335ef55a5d9cb0a15c337d17ac27b97e843cd)](https://www.codefactor.io/repository/github/jhdcruz/mc.fmly-system) [![Build Status](https://travis-ci.com/jhdcruz/MC-Inventory-System.svg?token=fiiouVpFksoACZRN1N2B&branch=main)](https://travis-ci.com/jhdcruz/MC-Inventory-System)
 
 **Inventory System specifically built for [MC.fmly](https://www.facebook.com/MC.fmly/).**
 
