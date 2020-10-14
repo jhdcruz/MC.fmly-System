@@ -20,13 +20,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './app/App';
 import * as serviceWorker from './serviceWorker';
-import * as Sentry from '@sentry/electron';
-
-require('dotenv').config();
-
-Sentry.init({
-  dsn: process.env.SENTRY_DSN,
-});
 
 ReactDOM.render(
   <React.StrictMode>

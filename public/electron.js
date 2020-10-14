@@ -16,13 +16,26 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow, crashReporter } = require('electron');
 const path = require('path');
 const isDev = require('electron-is-dev');
-const { SentryClient } = require('@sentry/electron');
+const Sentry = require('@sentry/electron');
 
 require('dotenv').config();
 require('@treverix/remote/main').initialize();
+
+Sentry.init({
+  dsn: process.env.SENTRY_DSN,
+});
+
+crashReporter.start({
+  productName: 'mcfmly',
+  companyName: 'deuz',
+  ignoreSystemCrashHandler: true,
+  uploadToServer: true,
+  compress: true,
+  submitURL: process.env.SENTRY_CRASHDUMP,
+});
 
 function createWindow() {
   // Create the browser window.
@@ -71,9 +84,4 @@ app.on('activate', () => {
   if (BrowserWindow.getAllWindows().length === 0) {
     createWindow();
   }
-});
-
-// Sentry Integration
-SentryClient.init({
-  dsn: process.env.SENTRY_DSN,
 });
