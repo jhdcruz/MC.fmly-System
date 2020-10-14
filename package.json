@@ -9,7 +9,7 @@
     "dev": "concurrently \"cross-env BROWSER=none yarn start\" \"wait-on http://localhost:3000 && electron .\"",
     "build": "node scripts/build.js",
     "test": "echo \"Tests are for the weaks, living on the edge brotha...\"",
-    "lint": "prettier \"src/**/**.{html,scss,js,jsx}\" --write && eslint \"src/**/**/*.{js,jsx}\" && stylelint \"./src/**/**/*.{js,css,scss,sass}\\\"",
+    "lint": "prettier \"src/**/**.{html,scss,js,jsx}\" --write && eslint \"src/**/**/*.{js,jsx}\" && stylelint \"./src/**/**/*.{js,css,scss,sass}\"",
     "package-all": "yarn postinstall && yarn build && electron-builder build -mwl",
     "package-ci": "yarn postinstall && yarn build && electron-builder --publish never",
     "package-mac": "yarn postinstall &&  yarn build && electron-builder build --mac",
@@ -122,8 +122,9 @@
     "appId": "com.jhdcruz.mcims",
     "productName": "MC Inventory System",
     "files": [
-      "build/**/*",
-      "node_modules/**/*"
+      "./build/**/*",
+      "./public/electron.js",
+      "./node_modules/**/*"
     ],
     "dmg": {
       "contents": [
