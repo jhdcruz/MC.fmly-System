@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node index.js",
     "serve": "nodemon index.js --watch",
-    "lint": "prettier \"src/**/**.{js,ts,jsx}\" --write && eslint \"src/**/**/*.{js,ts,jsx}\"",
+    "lint": "prettier \"**/**.{js,ts,jsx}\" --write && eslint \"**/**/*.{js,ts,jsx}\"",
+    "lint-fix": "prettier \"**/**.{js,ts,jsx}\" --write && eslint \"**/**/*.{js,ts,jsx}\" --fix",
     "test": "echo \"Error: no test in server directory\" && exit 0"
   },
   "dependencies": {
@@ -17,7 +18,47 @@
     "mongoose": "^5.10.9"
   },
   "devDependencies": {
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-plugin-import": "^2.22.1",
     "nodemon": "^2.0.5"
+  },
+  "eslintConfig": {
+    "extends": "airbnb-base",
+    "env": {
+      "es6": true,
+      "browser": true
+    },
+    "rules": {
+      "brace-style": [
+        "error",
+        "stroustrup"
+      ],
+      "comma-dangle": [
+        "error",
+        "never"
+      ],
+      "no-unused-vars": [
+        "warn"
+      ],
+      "no-console": [
+        "off"
+      ],
+      "no-var": [
+        "off"
+      ],
+      "one-var": [
+        "off"
+      ],
+      "import/no-extraneous-dependencies": [
+        "off",
+        {
+          "devDependencies": false,
+          "optionalDependencies": false,
+          "peerDependencies": false,
+          "packageDir": "./"
+        }
+      ]
+    }
   },
   "repository": {
     "type": "git",
