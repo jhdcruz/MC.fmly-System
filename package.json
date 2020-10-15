@@ -4,8 +4,8 @@
   "license": "GPL-3.0-or-later",
   "private": true,
   "workspaces": [
-    "pending-system-client",
-    "pending-system-server"
+    "client",
+    "server"
   ],
   "scripts": {
     "start": "concurrently \"npm run serve --prefix server\" \"npm run dev --prefix client\" --kill-others-on-fail",
