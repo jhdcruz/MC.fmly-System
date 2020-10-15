@@ -1,5 +1,6 @@
 {
   "name": "pending-system",
+  "description": "MC.fmly Pending System.",
   "version": "0.1.0",
   "license": "GPL-3.0-or-later",
   "private": true,
@@ -8,24 +9,13 @@
     "server"
   ],
   "scripts": {
-    "start": "concurrently \"npm run serve --prefix server\" \"npm run dev --prefix client\" --kill-others-on-fail",
+    "start": "concurrently \"yarn workspace pending-system-server run start\" \"yarn workspace pending-system-client run dev\" --kill-others-on-fail",
     "test": "echo \"Error: no test in root directory\" && exit 0"
-  },
-  "dependencies": {
-    "cross-env": "^7.0.2",
-    "dotenv": "8.2.0",
-    "dotenv-expand": "5.1.0"
-  },
-  "devDependencies": {
-    "concurrently": "^5.3.0",
-    "eslint": "^6.6.0",
-    "prettier": "^2.1.2"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jhdcruz/MC.fmly-System.git"
   },
-  "keywords": [],
   "author": {
     "name": "Joshua Hero H. Dela Cruz | ICT301A | S.Y 2020-2021",
     "email": "jhdcruz00@gmail.com",
@@ -34,5 +24,5 @@
   "bugs": {
     "url": "https://github.com/jhdcruz/MC.fmly-System/issues"
   },
-  "homepage": "https://github.com/jhdcruz/MC.fmly-System#readme"
+  "homepage": "https://github.com/jhdcruz/MC.fmly-System"
 }
