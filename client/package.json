@@ -95,7 +95,18 @@
     "workbox-webpack-plugin": "4.3.1"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": "react-app",
+    "rules": {
+      "import/no-extraneous-dependencies": [
+        "off",
+        {
+          "devDependencies": false,
+          "optionalDependencies": false,
+          "peerDependencies": false,
+          "packageDir": "./"
+        }
+      ]
+    }
   },
   "browserslist": {
     "production": [
