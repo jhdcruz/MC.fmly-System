@@ -1,0 +1,36 @@
+{
+  "name": "pending-system-server",
+  "version": "0.1.0",
+  "license": "GPL-3.0-or-later",
+  "private": true,
+  "scripts": {
+    "start": "node index.js",
+    "serve": "nodemon index.js --watch",
+    "lint": "prettier \"src/**/**.{js,ts,jsx}\" --write && eslint \"src/**/**/*.{js,ts,jsx}\"",
+    "test": "echo \"Error: no test in server directory\" && exit 0"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "helmet": "^4.1.1",
+    "mongoose": "^5.10.9"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jhdcruz/MC.fmly-System.git"
+  },
+  "keywords": [],
+  "author": {
+    "name": "Jhdcruz",
+    "email": "jhdcruz00@gmail.com",
+    "url": "https://github.com/jhdcruz"
+  },
+  "bugs": {
+    "url": "https://github.com/jhdcruz/MC.fmly-System"
+  },
+  "homepage": "https://github.com/jhdcruz/MC.fmly-System"
+}
