@@ -11,11 +11,13 @@
     "start": "concurrently \"npm run serve --prefix server\" \"npm run dev --prefix client\" --kill-others-on-fail",
     "test": "echo \"Error: no test in root directory\" && exit 0"
   },
-  "devDependencies": {
-    "concurrently": "^5.3.0",
+  "dependencies": {
     "cross-env": "^7.0.2",
     "dotenv": "8.2.0",
-    "dotenv-expand": "5.1.0",
+    "dotenv-expand": "5.1.0"
+  },
+  "devDependencies": {
+    "concurrently": "^5.3.0",
     "eslint": "^6.6.0",
     "prettier": "^2.1.2"
   },
