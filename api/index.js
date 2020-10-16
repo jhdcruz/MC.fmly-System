@@ -46,14 +46,16 @@ api.use(bodyParser.json());
 // Routes Imports
 require('./routes/productRoutes')(api);
 
-if (process.env.NODE_ENV === 'production') {
-  api.use(express.static('client/build'));
-  api.get('/api', (req, res) => {
-    res.setHeader('Content-Type', 'text/html');
-    res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
-    res.sendFile(path.resolve(__dirname, '../client/build/index.html'));
-  });
-}
+// Deprecated in favor of vercel's static hoisting
+// api.use(express.static('client/build'));
+
+api.get('/api', (req, res) => {
+  res.setHeader('Content-Type', 'text/html');
+  res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
+
+  // Applies for local electron app
+  res.sendFile(path.resolve(__dirname, '../public/index.html'));
+});
 
 const PORT = process.env.PORT || 5000;
 api.listen(PORT, () => {
