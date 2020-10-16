@@ -16,7 +16,7 @@
     "package-mac": "yarn postinstall &&  yarn build && electron-builder build --mac",
     "package-linux": "yarn postinstall && yarn build && electron-builder build --linux",
     "package-win": "yarn postinstall &&  yarn build && electron-builder build --win --x64",
-    "postinstall": "./node_modules/.bin/electron-rebuild"
+    "rebuild": "./node_modules/.bin/electron-rebuild"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.32",
