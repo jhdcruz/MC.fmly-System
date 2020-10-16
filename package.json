@@ -13,6 +13,7 @@
     "start-electron": "concurrently \"yarn workspace server run start\" \"yarn workspace client run dev\" --kill-others-on-fail",
     "test": "echo \"Error: no test in root directory\" && exit 0"
   },
+
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jhdcruz/MC.fmly-System.git"
