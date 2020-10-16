@@ -11,11 +11,11 @@
     "build": "node scripts/build.js",
     "test": "echo \"Tests are for the weaks, living on the edge brotha...\"",
     "lint": "prettier \"src/**/**.{html,scss,js,jsx}\" --write && eslint \"src/**/**/*.{js,jsx}\" && stylelint \"./src/**/**/*.{js,css,scss,sass}\"",
-    "package-all": "yarn postinstall && yarn build && electron-builder build -mwl",
-    "package-ci": "yarn postinstall && yarn build && electron-builder --publish never",
-    "package-mac": "yarn postinstall &&  yarn build && electron-builder build --mac",
-    "package-linux": "yarn postinstall && yarn build && electron-builder build --linux",
-    "package-win": "yarn postinstall &&  yarn build && electron-builder build --win --x64",
+    "package-all": "yarn rebuild && yarn build && electron-builder build -mwl",
+    "package-ci": "yarn rebuild && yarn build && electron-builder --publish never",
+    "package-mac": "yarn rebuild &&  yarn build && electron-builder build --mac",
+    "package-linux": "yarn rebuild && yarn build && electron-builder build --linux",
+    "package-win": "yarn rebuild &&  yarn build && electron-builder build --win",
     "rebuild": "electron-builder install-app-deps"
   },
   "dependencies": {
