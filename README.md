@@ -12,17 +12,19 @@
 
 - **Front-End**
 
-  - _React_ - UI Components
+  - _React_ - UI Library
+  - `react-bootstrap` - UI Toolkit for `React`
   - _Electron_ - X-Platform Development
   - _Sass/Scss_ - Stylesheet
 
 - **Back-End** (if time permits)
 
   - _Express_ - Server-side Framework
+  - _Axios_ - HTTP Client
+  - _Mongoose_ - Object Modeling
 
 - **Database** (if time permits)
-  - _Sequelize_ - ORM Database Handler
-  - _SQLite3_ - Embedded Database
+  - _MongoDB_ - Document database 
 
 > Read more about the stack:
 > https://www.mongodb.com/mern-stack

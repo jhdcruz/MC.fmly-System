@@ -25,7 +25,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faHome,
   faBoxes,
-  faClipboardList,
+  faClipboardList
 } from '@fortawesome/free-solid-svg-icons';
 import Brand from '../resources/img/profile.png';
 

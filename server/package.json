@@ -1,0 +1,82 @@
+{
+  "name": "server",
+  "version": "0.1.0",
+  "license": "GPL-3.0-or-later",
+  "private": true,
+  "scripts": {
+    "start": "node index.js",
+    "serve": "nodemon index.js --watch",
+    "lint": "prettier \"**/**.{js,ts,jsx}\" --write && eslint \"**/**/*.{js,ts,jsx}\"",
+    "lint-fix": "prettier \"**/**.{js,ts,jsx}\" --write && eslint \"**/**/*.{js,ts,jsx}\" --fix",
+    "test": "echo \"Error: no test in server directory\" && exit 0"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cross-env": "^7.0.2",
+    "cors": "^2.8.5",
+    "dotenv": "8.2.0",
+    "dotenv-expand": "5.1.0",
+    "express": "^4.17.1",
+    "helmet": "^4.1.1",
+    "mongoose": "^5.10.9"
+  },
+  "devDependencies": {
+    "concurrently": "^5.3.0",
+    "eslint": "^6.6.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-plugin-import": "^2.22.1",
+    "prettier": "^2.1.2",
+    "nodemon": "^2.0.5"
+  },
+  "eslintConfig": {
+    "extends": "airbnb-base",
+    "env": {
+      "es6": true,
+      "browser": true
+    },
+    "rules": {
+      "brace-style": [
+        "error",
+        "stroustrup"
+      ],
+      "comma-dangle": [
+        "error",
+        "never"
+      ],
+      "no-unused-vars": [
+        "warn"
+      ],
+      "no-console": [
+        "off"
+      ],
+      "no-var": [
+        "off"
+      ],
+      "one-var": [
+        "off"
+      ],
+      "import/no-extraneous-dependencies": [
+        "off",
+        {
+          "devDependencies": false,
+          "optionalDependencies": false,
+          "peerDependencies": false
+        }
+      ]
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jhdcruz/MC.fmly-System.git"
+  },
+  "keywords": [],
+  "author": {
+    "name": "Jhdcruz",
+    "email": "jhdcruz00@gmail.com",
+    "url": "https://github.com/jhdcruz"
+  },
+  "bugs": {
+    "url": "https://github.com/jhdcruz/MC.fmly-System"
+  },
+  "homepage": "https://github.com/jhdcruz/MC.fmly-System"
+}
