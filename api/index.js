@@ -31,12 +31,14 @@ require('dotenv').config();
 
 const api = express();
 
+// Connecting to database || MongoDB Atlas
 mongoose.Promise = global.Promise;
 mongoose.connect(process.env.MONGODB_URI || process.env.MONGODB_LOCALHOST, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
 
+// Headers thingmajigs
 api.use(cors());
 api.use(helmet());
 api.use(bodyParser.json());
@@ -44,12 +46,16 @@ api.use(bodyParser.json());
 // Routes Imports
 require('./routes/productRoutes')(api);
 
-if (process.env.NODE_ENV === 'production') {
-  api.use(express.static('client/build'));
-  api.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, '../client/build/index.html'));
-  });
-}
+// Deprecated in favor of vercel's static hoisting
+// api.use(express.static('client/build'));
+
+api.get('/api', (req, res) => {
+  res.setHeader('Content-Type', 'text/html');
+  res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
+
+  // Applies for local electron app
+  res.sendFile(path.resolve(__dirname, '../public/index.html'));
+});
 
 const PORT = process.env.PORT || 5000;
 api.listen(PORT, () => {
