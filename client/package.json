@@ -111,6 +111,12 @@
           "peerDependencies": false
         }
       ]
+    },
+    "settings": {
+      "import/extensions": [
+        ".js",
+        ".jsx"
+      ]
     }
   },
   "browserslist": {

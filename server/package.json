@@ -34,6 +34,12 @@
       "es6": true,
       "browser": true
     },
+    "settings": {
+      "import/extensions": [
+        ".js",
+        ".jsx"
+      ]
+    },
     "rules": {
       "brace-style": [
         "error",
