@@ -11,7 +11,6 @@
   "scripts": {
     "start": "concurrently \"yarn workspace server run start\" \"yarn workspace client run start\" --kill-others-on-fail",
     "start-electron": "concurrently \"yarn workspace server run start\" \"yarn workspace client run dev\" --kill-others-on-fail",
-    "deploy": "yarn workspace client run build && yarn workspace server run start",
     "test": "echo \"Error: no test in root directory\" && exit 0"
   },
 
