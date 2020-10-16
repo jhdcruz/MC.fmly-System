@@ -31,12 +31,14 @@ require('dotenv').config();
 
 const api = express();
 
+// Connecting to database || MongoDB Atlas
 mongoose.Promise = global.Promise;
 mongoose.connect(process.env.MONGODB_URI || process.env.MONGODB_LOCALHOST, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
 
+// Headers thingmajigs
 api.use(cors());
 api.use(helmet());
 api.use(bodyParser.json());
@@ -46,7 +48,9 @@ require('./routes/productRoutes')(api);
 
 if (process.env.NODE_ENV === 'production') {
   api.use(express.static('client/build'));
-  api.get('*', (req, res) => {
+  api.get('/api', (req, res) => {
+    res.setHeader('Content-Type', 'text/html');
+    res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
     res.sendFile(path.resolve(__dirname, '../client/build/index.html'));
   });
 }
