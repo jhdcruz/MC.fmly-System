@@ -16,11 +16,13 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import React from 'react';
+const mongoose = require('mongoose');
 
-// Components Imports
-import InventoryTable from '../components/InventoryTable';
+const { Schema } = mongoose;
 
-export default function Dashboard() {
-  return <InventoryTable />;
-}
+const productSchema = new Schema({
+  name: String,
+  stock: String
+});
+
+mongoose.model('products', productSchema);

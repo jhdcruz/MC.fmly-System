@@ -21,30 +21,37 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const helmet = require('helmet');
+const path = require('path');
 
-const app = express();
+// Model Imports
+require('./models/Product');
 
+// configure dotenv
 require('dotenv').config();
 
-mongoose.Promise = global.Promise;
-mongoose.connect(
-  process.env.MONGODB_URI || `mongodb://localhost:5000/pending-system-server`
-);
+const api = express();
 
-app.use(cors());
-app.use(helmet());
-app.use(bodyParser.json());
+mongoose.Promise = global.Promise;
+mongoose.connect(process.env.MONGODB_URI || process.env.MONGODB_LOCALHOST, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+});
+
+api.use(cors());
+api.use(helmet());
+api.use(bodyParser.json());
+
+// Routes Imports
+require('./routes/productRoutes')(api);
 
 if (process.env.NODE_ENV === 'production') {
-  app.use(express.static('client/build'));
-
-  const path = require('path');
-  app.get('*', (req, res) => {
+  api.use(express.static('client/build'));
+  api.get('*', (req, res) => {
     res.sendFile(path.resolve(__dirname, '../client/build/index.html'));
   });
 }
 
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-  console.log(`app running on port ${PORT}`);
+api.listen(PORT, () => {
+  console.log(`api is running on port ${PORT}`);
 });

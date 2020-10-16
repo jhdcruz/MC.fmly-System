@@ -16,11 +16,11 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import React from 'react';
+import axios from 'axios';
 
-// Components Imports
-import InventoryTable from '../components/InventoryTable';
-
-export default function Dashboard() {
-  return <InventoryTable />;
-}
+export default {
+  getAll: async () => {
+    let res = await axios.get(`/api/product`);
+    return res.data || [];
+  }
+};
