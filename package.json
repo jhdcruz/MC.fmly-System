@@ -6,7 +6,7 @@
   "private": true,
   "workspaces": [
     "client",
-    "server"
+    "api"
   ],
   "scripts": {
     "start": "concurrently \"yarn workspace server run start\" \"yarn workspace client run start\" --kill-others-on-fail",
