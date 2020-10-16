@@ -47,7 +47,7 @@
     "case-sensitive-paths-webpack-plugin": "2.3.0",
     "concurrently": "5.3.0",
     "cross-env": "7.0.2",
-    "css-loader": "3.6.0",
+    "css-loader": "5.0.0",
     "custom-electron-titlebar": "3.2.5",
     "dotenv": "8.2.0",
     "dotenv-expand": "5.1.0",
