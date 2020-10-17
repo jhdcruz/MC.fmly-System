@@ -42,7 +42,6 @@ before_install:
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then export CXX="g++-8"; fi
 
 install:
-  - cd client
   - yarn --ignore-engines
   # On Linux, initialize "virtual display". See before_script
   - |
@@ -65,8 +64,8 @@ before_script:
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sleep 3; fi
 
 script:
-  - yarn lint
-  - timeout 60s yarn dev
+  - yarn workspace client lint
+  - timeout 50s yarn workspace client dev
 
 notifications:
   # will expire anyways
