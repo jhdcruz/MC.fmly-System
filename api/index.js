@@ -61,3 +61,5 @@ const PORT = process.env.PORT || 5000;
 api.listen(PORT, () => {
   console.log(`api is running on port ${PORT}`);
 });
+
+module.exports = api;
