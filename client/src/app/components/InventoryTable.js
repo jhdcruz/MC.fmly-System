@@ -18,19 +18,39 @@
 
 import React, { useEffect, useState } from 'react';
 import Table from 'react-bootstrap/Table';
-import productService from '../services/productService';
+import Spinner from 'react-bootstrap/Spinner';
+import styled from 'styled-components';
+import getProducts from '../services/productService';
+
+const FullTable = styled(Table)`
+  height: 100%;
+  width: 100%;
+  min-width: 100% !important;
+  min-height: 100%;
+  overflow-x: scroll !important;
+  overflow-y: hidden;
+`;
+
+const Loader = styled(Spinner)`
+  margin: 10px auto;
+  width: 3rem;
+  height: 3rem;
+  position: absolute;
+  right: 41%;
+  top: 40%;
+`;
 
 export default function InventoryTable() {
   const [products, setProducts] = useState(null);
 
   useEffect(() => {
     if (!products) {
-      getProducts();
+      fetchProducts();
     }
   });
 
-  const getProducts = async () => {
-    let res = await productService.getAll();
+  const fetchProducts = async () => {
+    let res = await getProducts.getAll();
     console.log(res);
     setProducts(res);
   };
@@ -38,27 +58,43 @@ export default function InventoryTable() {
   const showProduct = (product) => {
     return (
       <tr className="product" key={product.id}>
+        <td className="code" colSpan="1">
+          {product.code}
+        </td>
         <td className="name">{product.name}</td>
-        <td className="stock">{product.stock}</td>
+        <td className="stock">{product.quantity}</td>
       </tr>
     );
   };
 
+  const verifyProducts = () => {
+    return (
+      <>
+        {products && products.length >= 1 ? (
+          products.map((product) => showProduct(product))
+        ) : (
+          <Loader animation="border" role="status" />
+        )}
+      </>
+    );
+  };
+
   return (
-    <Table variant="dark" striped bordered hover>
+    <FullTable striped bordered hover responsive>
       <thead>
         <tr>
+          <th colSpan="1">#</th>
           <th>Product</th>
-          <th>Stock</th>
+          <th>Quantity</th>
         </tr>
       </thead>
       <tbody>
-        {products && products.length > 0 ? (
-          products.map((product) => showProduct(product))
+        {products && products.length === 0 ? (
+          <p> No products registered...</p>
         ) : (
-          <tr>No products registered...</tr>
+          verifyProducts()
         )}
       </tbody>
-    </Table>
+    </FullTable>
   );
 }
