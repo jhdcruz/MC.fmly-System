@@ -17,10 +17,8 @@
  */
 
 import React from 'react';
-
-// Components Imports
-import InventoryTable from '../components/InventoryTable';
+// import InventoryTable from '../components/InventoryTable';
 
 export default function Dashboard() {
-  return <InventoryTable />;
+  return <p>No content yet.</p>;
 }

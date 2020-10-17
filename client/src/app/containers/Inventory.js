@@ -17,12 +17,11 @@
  */
 
 import React from 'react';
+// import styled from 'styled-components';
+
+// Components Imports
+import InventoryTable from '../components/InventoryTable';
 
 export default function Inventory() {
-  return (
-    <div className="home">
-      <h1>Welcome to Gravity Well Gadgets 2</h1>
-      <h2>Your One-Stop Shop for Gadgets</h2>
-    </div>
-  );
+  return <InventoryTable />;
 }
