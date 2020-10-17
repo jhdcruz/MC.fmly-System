@@ -33,6 +33,7 @@ const SideMenu = styled.aside`
   background-color: #2c2c2c;
   position: fixed;
   left: 0;
+  bottom: 0;
   width: 14rem;
   height: 100vh;
 `;
