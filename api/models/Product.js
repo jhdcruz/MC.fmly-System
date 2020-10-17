@@ -21,8 +21,9 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const productSchema = new Schema({
+  code: String,
   name: String,
-  stock: String
+  quantity: String
 });
 
 mongoose.model('products', productSchema);
