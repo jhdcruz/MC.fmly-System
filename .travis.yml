@@ -66,7 +66,7 @@ before_script:
 
 script:
   - yarn lint
-  - timeout 60s yarn start-electron
+  - timeout 60s yarn dev
 
 notifications:
   # will expire anyways
