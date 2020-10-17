@@ -31,8 +31,9 @@ require('dotenv').config();
 
 const api = express();
 
-// Connecting to database || MongoDB Atlas
 mongoose.Promise = global.Promise;
+// Connecting to database || MongoDB Atlas
+// Ignore error about 'must be string...' Database URI is HIDDEN (.env)
 mongoose.connect(process.env.MONGODB_URI || process.env.MONGODB_LOCALHOST, {
   useNewUrlParser: true,
   useUnifiedTopology: true
@@ -47,7 +48,7 @@ api.use(bodyParser.json());
 require('./routes/productRoutes')(api);
 
 // Deprecated in favor of vercel's static hoisting
-// api.use(express.static('client/build'));
+// api.use(express.static('/public'));
 
 api.get('/api', (req, res) => {
   res.setHeader('Content-Type', 'text/html');
