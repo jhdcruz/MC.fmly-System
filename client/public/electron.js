@@ -31,15 +31,13 @@ function createWindow() {
     webPreferences: {
       nodeIntegration: true,
       enableRemoteModule: true,
-      preload: path.join(__dirname, 'preload.js'),
-    },
+      preload: path.join(__dirname, 'preload.js')
+    }
   });
 
-  // and load the index.html of the app.
+  // Resorted to web app due to database connection failure
   win.loadURL(
-    isDev
-      ? 'http://localhost:3000'
-      : `file://${path.join(__dirname, '../build/index.html')}`
+    isDev ? 'http://localhost:3000' : 'https://https://mc-fmly.vercel.app/'
   );
 
   if (isDev) {
