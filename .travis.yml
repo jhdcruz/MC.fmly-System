@@ -39,10 +39,10 @@ cache:
     - $HOME/.cache/electron-builder
 
 before_install:
-  - cd client
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then export CXX="g++-8"; fi
 
 install:
+  - cd client
   - yarn --ignore-engines
   # On Linux, initialize "virtual display". See before_script
   - |
@@ -60,7 +60,6 @@ install:
     fi
 
 before_script:
-  - cd client
   # On Linux, create a "virtual display". This allows browsers to work properly
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then export DISPLAY=:99.0; fi
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sleep 3; fi
