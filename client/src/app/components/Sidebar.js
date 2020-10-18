@@ -27,7 +27,7 @@ import {
   faBoxes,
   faClipboardList
 } from '@fortawesome/free-solid-svg-icons';
-import Brand from '../../resources/img/profile.png';
+import Brand from '../../assets/img/profile.png';
 
 const SideMenu = styled.aside`
   background-color: #2c2c2c;
