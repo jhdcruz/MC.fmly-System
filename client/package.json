@@ -3,11 +3,11 @@
   "version": "0.1.0",
   "license": "GPL-3.0-or-later",
   "private": true,
-  "main": "public/electron.js",
+  "main": "./build/electron.js",
   "proxy": "http://localhost:5000",
   "scripts": {
     "start": "node scripts/start.js",
-    "dev": "concurrently \"cross-env BROWSER=none yarn start\" \"wait-on http://localhost:3000 && electron .\" --kill-others-on-fail",
+    "dev": "concurrently \"cross-env BROWSER=none yarn start\" \"wait-on http://localhost:3000 && electron ./public/electron.js\" --kill-others-on-fail",
     "build": "node scripts/build.js",
     "test": "echo \"Tests are for the weaks, living on the edge brotha...\"",
     "lint": "prettier \"src/**/**.{html,scss,js,jsx}\" --write && eslint \"src/**/**/*.{js,jsx}\" && stylelint \"./src/**/**/*.{js,css,scss,sass}\"",
@@ -144,11 +144,13 @@
     "appId": "com.jhdcruz.mcims",
     "productName": "MC Inventory System",
     "files": [
+      "./build/electron.js",
       "./build/**/*",
-      "./public/electron.js",
+      "./public/**/*",
       "./node_modules/**/*"
     ],
     "dmg": {
+      "icon": "./resources/icons/icon.icns",
       "contents": [
         {
           "x": 130,
@@ -163,6 +165,7 @@
       ]
     },
     "win": {
+      "icon": "./resources/icons/icon.png",
       "target": [
         "nsis",
         "msi"
@@ -174,25 +177,25 @@
         "rpm",
         "AppImage"
       ],
-      "category": "Development"
+      "category": "Productivity"
     },
     "directories": {
-      "buildResources": "resources",
+      "buildResources": "public",
       "output": "release"
     },
     "extraResources": [
-      "./resources/**"
+      "./public/**/*"
     ],
     "publish": {
       "provider": "github",
       "owner": "Jhdcruz",
-      "repo": "https://github.com/jhdcruz/MCIS",
+      "repo": "https://github.com/jhdcruz/MC.fmly-System",
       "private": true
     }
   },
   "jest": {
     "roots": [
-      "<rootDir>/tests"
+      "<rootDir>/client/tests"
     ],
     "collectCoverageFrom": [
       "src/**/*.{js,jsx,ts,tsx}",
@@ -202,17 +205,17 @@
       "react-app-polyfill/jsdom"
     ],
     "setupFilesAfterEnv": [
-      "<rootDir>/src/setupTests.js"
+      "<rootDir>/client/src/setupTests.js"
     ],
     "testMatch": [
-      "<rootDir>/src/**/__tests__/**/*.{js,jsx,ts,tsx}",
-      "<rootDir>/src/**/*.{spec,test}.{js,jsx,ts,tsx}"
+      "<rootDir>/client/src/**/__tests__/**/*.{js,jsx,ts,tsx}",
+      "<rootDir>/client/src/**/*.{spec,test}.{js,jsx,ts,tsx}"
     ],
     "testEnvironment": "jest-environment-jsdom-fourteen",
     "transform": {
       "^.+\\.(js|jsx|ts|tsx)$": "<rootDir>/node_modules/babel-jest",
-      "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
-      "^(?!.*\\.(js|jsx|ts|tsx|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
+      "^.+\\.css$": "<rootDir>/client/config/jest/cssTransform.js",
+      "^(?!.*\\.(js|jsx|ts|tsx|css|json)$)": "<rootDir>/client/config/jest/fileTransform.js"
     },
     "transformIgnorePatterns": [
       "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|ts|tsx)$",
