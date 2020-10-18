@@ -26,7 +26,7 @@
 @font-face {
   font-family: 'Noto Sans';
   src: local('Noto Sans'),
-    url('./resources/fonts/Noto_Sans/NotoSans-Regular.ttf') format('truetype');
+    url('../resources/fonts/Noto_Sans/NotoSans-Regular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
@@ -34,7 +34,7 @@
 @font-face {
   font-family: 'Noto Sans';
   src: local('Noto Sans'),
-    url('./resources/fonts/Noto_Sans/NotoSans-Bold.ttf') format('truetype');
+    url('../resources/fonts/Noto_Sans/NotoSans-Bold.ttf') format('truetype');
   font-weight: bold;
   font-style: normal;
 }
@@ -42,7 +42,7 @@
 @font-face {
   font-family: 'Noto Sans';
   src: local('Noto Sans'),
-    url('./resources/fonts/Noto_Sans/NotoSans-Italic.ttf') format('truetype');
+    url('../resources/fonts/Noto_Sans/NotoSans-Italic.ttf') format('truetype');
   font-weight: normal;
   font-style: italic;
 }
