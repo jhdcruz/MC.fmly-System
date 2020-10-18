@@ -1,6 +1,5 @@
 {
   "name": "client",
-  "displayName": "MC.fmly Inventory System",
   "description": "MC.fmly Inventory System",
   "version": "0.1.0",
   "license": "GPL-3.0-or-later",
@@ -168,9 +167,13 @@
     "win": {
       "icon": "./resources/icon512.png",
       "target": [
-        "nsis",
-        "msi"
+        "nsis"
       ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": true,
+      "allowToChangeInstallationDirectory": true
     },
     "linux": {
       "icon": "./resources/icon.ico",
@@ -188,11 +191,14 @@
     "extraResources": [
       "./resources/**/*"
     ],
+    "extraFiles": [
+      "../LICENSE"
+    ],
     "publish": {
       "provider": "github",
       "owner": "Jhdcruz",
       "repo": "https://github.com/jhdcruz/MC.fmly-System",
-      "private": true
+      "publish": "onTag"
     }
   },
   "jest": {
