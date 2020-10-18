@@ -45,9 +45,9 @@ Boilerplate generated through ejected `create-react-app`.
 
 ## Prerequisites
 
-- `npm v6.14+` - Package manager
-- `yarn v1.22+` - Package & Project manager
-- `python3` - Rebuilding `electron` native-deps (`yarn rebuild`)
+- [`npm v6.14+`](https://nodejs.org/en/) - Package manager
+- [`yarn v1.22+`](https://yarnpkg.com/getting-started/install) - Package & Project manager
+- [`python3`](https://www.python.org/downloads/) - Rebuilding `electron` native-deps (`yarn rebuild`)
 
 **Linux**:
 
@@ -59,8 +59,8 @@ Boilerplate generated through ejected `create-react-app`.
 
 **Optional:**
 
-- `Postman` - API Testing
-- `MongoDB Compass` - MongoDB GUI
+- [`Postman`](https://www.postman.com/) - API Testing
+- [`MongoDB Compass`](https://www.mongodb.com/try/download/compass) - MongoDB GUI
 
 **Install Dependencies**
 
@@ -132,6 +132,6 @@ Output on `release/` directory.
 
 Packaging the desktop app depends on the current system you have.
 
-Running `linux || mac` on a `win` system will throw an error due to missing required tools.
+Running `linux || mac` on a `win` system can throw an error due to missing required tools.
 
 Packaging the desktop app for `linux` can be made on a `win` system inside `WSL`.
