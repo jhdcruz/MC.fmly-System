@@ -150,7 +150,7 @@
       "./node_modules/**/*"
     ],
     "dmg": {
-      "icon": "./resources/icon.icns",
+      "icon": "./resources/icon.png",
       "contents": [
         {
           "x": 130,
@@ -176,7 +176,7 @@
       "allowToChangeInstallationDirectory": true
     },
     "linux": {
-      "icon": "./resources/icon.ico",
+      "icon": "./resources/icon.png",
       "target": [
         "deb",
         "rpm",
