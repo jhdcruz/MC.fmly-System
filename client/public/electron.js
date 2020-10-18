@@ -27,6 +27,7 @@ function createWindow() {
     height: 650,
     minWidth: 1050,
     minHeight: 600,
+    icon: 'favicon.ico',
     frame: process.platform === 'darwin',
     webPreferences: {
       nodeIntegration: true,
