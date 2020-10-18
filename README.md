@@ -3,11 +3,7 @@
 
 <div align="center">
 
-**Code Quality:** [![CodeFactor](https://www.codefactor.io/repository/github/jhdcruz/mc.fmly-system/badge?s=12c335ef55a5d9cb0a15c337d17ac27b97e843cd)](https://www.codefactor.io/repository/github/jhdcruz/mc.fmly-system)
-
-**Desktop:** [![buddy pipeline](https://app.buddy.works/jhdcruz/mc-fmly-system/pipelines/pipeline/285802/badge.svg?token=88cd275c0ba0c928ef949169703e21440acb90c7d1488b5435bcfbb773fe9989 "buddy pipeline")](https://app.buddy.works/jhdcruz/mc-fmly-system/pipelines/pipeline/285802)
-
-**Web App:** [![buddy pipeline](https://app.buddy.works/jhdcruz/mc-fmly-system/pipelines/pipeline/285797/badge.svg?token=88cd275c0ba0c928ef949169703e21440acb90c7d1488b5435bcfbb773fe9989 "buddy pipeline")](https://app.buddy.works/jhdcruz/mc-fmly-system/pipelines/pipeline/285797)
+**Code Quality:** [![CodeFactor](https://www.codefactor.io/repository/github/jhdcruz/mc.fmly-system/badge?s=12c335ef55a5d9cb0a15c337d17ac27b97e843cd)](https://www.codefactor.io/repository/github/jhdcruz/mc.fmly-system) **Desktop:** [![buddy pipeline](https://app.buddy.works/jhdcruz/mc-fmly-system/pipelines/pipeline/285802/badge.svg?token=88cd275c0ba0c928ef949169703e21440acb90c7d1488b5435bcfbb773fe9989 "buddy pipeline")](https://app.buddy.works/jhdcruz/mc-fmly-system/pipelines/pipeline/285802) **Web App:** [![buddy pipeline](https://app.buddy.works/jhdcruz/mc-fmly-system/pipelines/pipeline/285797/badge.svg?token=88cd275c0ba0c928ef949169703e21440acb90c7d1488b5435bcfbb773fe9989 "buddy pipeline")](https://app.buddy.works/jhdcruz/mc-fmly-system/pipelines/pipeline/285797)
 
 </div>
 
@@ -15,30 +11,29 @@
 
 ---
 
-#### Frameworks:
+## Frameworks:
 
-- **Front-End**
+[![MERN Stack](https://webassets.mongodb.com/_com_assets/cms/mern-stack-b9q1kbudz0.png)](https://www.mongodb.com/mern-stack)
+
+**Front-End:**
 
   - _React_ - UI Library
   - `react-bootstrap` - UI Toolkit for `React`
-  - _Electron_ - X-Platform Development
+  - _Electron_ - X-Platform Desktop Integration
   - _Sass/Scss_ - Stylesheet
 
-- **Back-End** (if time permits)
+**Back-End:**
 
   - _Express_ - Server-side Framework
   - _Axios_ - HTTP Client
   - _Mongoose_ - Object Modeling
 
-- **Database** (if time permits)
+**Database:**
   - _MongoDB_ - Document database 
 
-> Read more about the stack:
-> https://www.mongodb.com/mern-stack
+### Tools
 
-#### Tools
-
-- **TravisCI** - _Continuous Integration_
+- **Buddy CI/CD** - _Continuous Integration_
 - **CodeFactor** - _Code Quality_
 - **Rollbar** - _Application Monitoring_
 - **WhiteSource Renovate** - _Automated Dependency Updates_
@@ -47,11 +42,19 @@ Boilerplate generated through `create-react-app`.
 
 ---
 
-### Prerequisites
+## Prerequisites
 
 - `npm v6.14+` - Package manager
 - `yarn v1.22+` - Package & Project manager
-- `python3` - Rebuilding `electron` native-deps
+- `python3` - Rebuilding `electron` native-deps (`yarn rebuild`)
+
+**Linux**:
+
+- Debian
+   - `dpkg`
+   - `dpkg-dev`
+- Red Hat
+   - `rpm`
 
 **Optional:**
 
@@ -81,7 +84,7 @@ Running scripts on both projects:
 > All scripts are **ideally** ran in the root directory,
 > except for `rebuild` in `client/`
 
-### Starting Project
+## Development
 
 **Web App:**
 
@@ -97,7 +100,7 @@ yarn dev
 
 If you've written your own test files, put them in `tests/` and replace the `test` script in `package.json` with `node scripts/test.js`, then run `yarn test`.
 
-### Production
+## Production
 
 > TODO: Deployment
 
@@ -107,7 +110,7 @@ If you've written your own test files, put them in `tests/` and replace the `tes
 yarn build
 ```
 
-Output on `build/` directory. Ready to deploy to hosting.
+Output on `~/public` directory. Ready to deploy to hosting.
 
 **Desktop:**
 
@@ -117,9 +120,17 @@ cd client/ && yarn rebuild && package-[os]
 
 Where `os` can be one of the ff:
 
-- `all` - all platforms (`win64`, `mac`, `linux`)
-- `win` - Windows x64
+- `all` - all platforms (`win`, `mac`, `linux`)
+- `win` - Windows x64 (`x32` architecture is not supported.)
 - `mac` - MacOS
 - `linux` - `deb`/`rpm` installer based on current linux system.
 
-> `x32` architecture is not supported.
+Output on `release/` directory.
+
+**NOTE**
+
+Packaging the desktop app depends on the current system you have.
+
+Running `linux || mac` on a `win` system will throw an error due to missing required tools.
+
+Packaging the desktop app for `linux` can be made on a `win` system inside `WSL`.
