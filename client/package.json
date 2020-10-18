@@ -1,5 +1,7 @@
 {
   "name": "client",
+  "displayName": "MC.fmly Inventory System",
+  "description": "MC.fmly Inventory System",
   "version": "0.1.0",
   "license": "GPL-3.0-or-later",
   "private": true,
@@ -141,16 +143,15 @@
     "url": "https://github.com/jhdcruz"
   },
   "build": {
-    "appId": "com.jhdcruz.mcims",
-    "productName": "MC Inventory System",
+    "appId": "com.jhdcruz.mcfmly",
+    "productName": "MC.fmly Inventory System",
     "files": [
       "./build/electron.js",
       "./build/**/*",
-      "./public/**/*",
       "./node_modules/**/*"
     ],
     "dmg": {
-      "icon": "./public/icon.icns",
+      "icon": "./resources/icon.icns",
       "contents": [
         {
           "x": 130,
@@ -165,14 +166,14 @@
       ]
     },
     "win": {
-      "icon": "./public/icon512.png",
+      "icon": "./resources/icon512.png",
       "target": [
         "nsis",
         "msi"
       ]
     },
     "linux": {
-      "icon": "./public/icon.ico",
+      "icon": "./resources/icon.ico",
       "target": [
         "deb",
         "rpm",
@@ -181,11 +182,11 @@
       "category": "Productivity"
     },
     "directories": {
-      "buildResources": "public",
+      "buildResources": "resources",
       "output": "release"
     },
     "extraResources": [
-      "./public/**/*"
+      "./resources/**/*"
     ],
     "publish": {
       "provider": "github",
