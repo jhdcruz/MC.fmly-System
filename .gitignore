@@ -17,6 +17,7 @@
 
 # production
 **/public
+**/build
 **/release
 
 # misc
