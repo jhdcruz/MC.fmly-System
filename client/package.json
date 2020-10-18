@@ -150,7 +150,7 @@
       "./node_modules/**/*"
     ],
     "dmg": {
-      "icon": "./resources/icons/icon.icns",
+      "icon": "./public/icon.icns",
       "contents": [
         {
           "x": 130,
@@ -165,13 +165,14 @@
       ]
     },
     "win": {
-      "icon": "./resources/icons/icon.png",
+      "icon": "./public/icon512.png",
       "target": [
         "nsis",
         "msi"
       ]
     },
     "linux": {
+      "icon": "./public/icon.ico",
       "target": [
         "deb",
         "rpm",
