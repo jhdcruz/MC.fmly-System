@@ -15,30 +15,31 @@
 
 [![MERN Stack](https://webassets.mongodb.com/_com_assets/cms/mern-stack-b9q1kbudz0.png)](https://www.mongodb.com/mern-stack)
 
-**Front-End:**
+### Front-End:
 
-  - _React_ - UI Library
-  - `react-bootstrap` - UI Toolkit for `React`
-  - _Electron_ - X-Platform Desktop Integration
-  - _Sass/Scss_ - Stylesheet
+  - [**React**](https://reactjs.org/) - _UI Library_
+  - [**`react-bootstrap`**](https://react-bootstrap.github.io/) - _UI Toolkit for `React`_
+  - [**Electron**](https://electronjs.org) - _X-Platform Desktop Integration_
+  - [**Sass/Scss**](https://sass-lang.com) - _Stylesheet_
 
-**Back-End:**
+### Back-End:
 
-  - _Express_ - Server-side Framework
-  - _Axios_ - HTTP Client
-  - _Mongoose_ - Object Modeling
+  - [**Express**](https://expressjs.com) - _Server-side Framework_
+  - [**Axios**](https://github.com/axios/axios) - _HTTP Client_
+  - [**Mongoose**](https:/mongoosjes.com) - _Object Modeling_
 
-**Database:**
-  - _MongoDB_ - Document database 
+### Database:
+
+  - [**MongoDB**](https://mongodb.com) - _Document database_
 
 ### Tools
 
-- **Buddy CI/CD** - _Continuous Integration_
-- **CodeFactor** - _Code Quality_
-- **Rollbar** - _Application Monitoring_
-- **WhiteSource Renovate** - _Automated Dependency Updates_
+- [**Buddy CI/CD**](https://app.buddy.works) - _Continuous Integration_
+- [**CodeFactor**](https://codefactor.io) - _Code Quality_
+- [**Rollbar**](https://rollbar.com) - _Application Monitoring_
+- [**WhiteSource Renovate**](https://renovate.whitesourcesoftware.com/) - _Automated Dependency Updates_
 
-Boilerplate generated through `create-react-app`.
+Boilerplate generated through ejected `create-react-app`.
 
 ---
 
