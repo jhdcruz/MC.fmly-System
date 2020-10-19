@@ -19,10 +19,5 @@
 import React from 'react';
 
 export default function Reports() {
-  return (
-    <div className="home">
-      <h1>Welcome to Gravity Well Gadgets 3</h1>
-      <h2>Your One-Stop Shop for Gadgets</h2>
-    </div>
-  );
+  return <h1>No content yet.</h1>;
 }

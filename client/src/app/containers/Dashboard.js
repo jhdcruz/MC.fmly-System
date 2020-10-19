@@ -20,5 +20,5 @@ import React from 'react';
 // import InventoryTable from '../components/InventoryTable';
 
 export default function Dashboard() {
-  return <p>No content yet.</p>;
+  return <h1>No content yet.</h1>;
 }
