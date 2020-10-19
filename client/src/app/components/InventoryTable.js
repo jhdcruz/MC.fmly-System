@@ -21,6 +21,7 @@ import Table from 'react-bootstrap/Table';
 import Spinner from 'react-bootstrap/Spinner';
 import styled from 'styled-components';
 import getProducts from '../services/productService';
+import showProduct from './Product';
 
 const FullTable = styled(Table)`
   height: 100%;
@@ -55,18 +56,6 @@ export default function InventoryTable() {
     setProducts(res);
   };
 
-  const showProduct = (product) => {
-    return (
-      <tr className="product" key={product.id}>
-        <td className="code" colSpan="1">
-          {product.code}
-        </td>
-        <td className="name">{product.name}</td>
-        <td className="stock">{product.quantity}</td>
-      </tr>
-    );
-  };
-
   const verifyProducts = () => {
     return (
       <>
@@ -83,8 +72,9 @@ export default function InventoryTable() {
     <FullTable striped bordered hover responsive>
       <thead>
         <tr>
-          <th colSpan="1">#</th>
+          <th colSpan="1"># Code</th>
           <th>Product</th>
+          <th>Type</th>
           <th>Quantity</th>
         </tr>
       </thead>
