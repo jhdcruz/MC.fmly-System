@@ -23,44 +23,46 @@ const cors = require('cors');
 const helmet = require('helmet');
 const path = require('path');
 
-// Model Imports
-require('./models/Product');
-
-// configure dotenv
+// set .env
 require('dotenv').config();
 
 const api = express();
+const PORT = process.env.PORT || 5000;
+
+// Model Imports
+require('./models/Product');
+
+// Routes Imports
+require('./routes/productRoutes')(api);
 
 mongoose.Promise = global.Promise;
-// Connecting to database || MongoDB Atlas
-// Ignore error about 'must be string...' Database URI is HIDDEN (.env)
-mongoose.connect(process.env.MONGODB_URI || process.env.MONGODB_LOCALHOST, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-});
 
 // Headers thingmajigs
 api.use(cors());
 api.use(helmet());
 api.use(bodyParser.json());
 
-// Routes Imports
-require('./routes/productRoutes')(api);
-
-// Deprecated in favor of vercel's static hoisting
-// api.use(express.static('/public'));
+// Connect to the Database || MongoDB Atlas
+mongoose
+  .connect(`${process.env.MONGODB_URL}` || `${process.env.MONGODB_LOCALHOST}`, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+  })
+  .then(() => {
+    api.listen(PORT);
+    console.log(`API running in port: ${PORT}`);
+  })
+  .catch((err) => {
+    console.log(err);
+  });
 
 api.get('/api', (req, res) => {
+  // Vercel's Serveless Functions settings
   res.setHeader('Content-Type', 'text/html');
   res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
-
-  // Applies for local electron app
-  res.sendFile(path.resolve(__dirname, '../public/index.html'));
 });
 
-const PORT = process.env.PORT || 5000;
-api.listen(PORT, () => {
-  console.log(`api is running on port ${PORT}`);
-});
+// Deprecated in favor of Vercel's static hoisting
+// api.use(express.static('/public'));
 
 module.exports = api;
