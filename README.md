@@ -5,7 +5,7 @@
 **Code Quality:** [![CodeFactor](https://www.codefactor.io/repository/github/jhdcruz/mc.fmly-system/badge?s=12c335ef55a5d9cb0a15c337d17ac27b97e843cd)](https://www.codefactor.io/repository/github/jhdcruz/mc.fmly-system) **Desktop:** [![buddy pipeline](https://app.buddy.works/jhdcruz/mc-fmly-system/pipelines/pipeline/285802/badge.svg?token=88cd275c0ba0c928ef949169703e21440acb90c7d1488b5435bcfbb773fe9989 "buddy pipeline")](https://app.buddy.works/jhdcruz/mc-fmly-system/pipelines/pipeline/285802) **Web App:** [![buddy pipeline](https://app.buddy.works/jhdcruz/mc-fmly-system/pipelines/pipeline/285797/badge.svg?token=88cd275c0ba0c928ef949169703e21440acb90c7d1488b5435bcfbb773fe9989 "buddy pipeline")](https://app.buddy.works/jhdcruz/mc-fmly-system/pipelines/pipeline/285797)
 
 
-**Inventory System specifically built for [MC.fmly](https://www.facebook.com/MC.fmly/).**
+<h4>**Inventory System specifically built for [MC.fmly](https://www.facebook.com/MC.fmly/).**</h4>
 
 </div>
 
