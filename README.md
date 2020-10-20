@@ -34,9 +34,11 @@
 
 ### Tools
 
+- [**Vercel**](https://vercel.com) - _Web Deployment_
 - [**Buddy CI/CD**](https://app.buddy.works) - _Continuous Integration_
 - [**CodeFactor**](https://codefactor.io) - _Code Quality_
 - [**Rollbar**](https://rollbar.com) - _Application Monitoring_
+- [**Moesif API**](https://www.moesif.com/) - _API Analytics_
 - [**WhiteSource Renovate**](https://renovate.whitesourcesoftware.com/) - _Automated Dependency Updates_
 
 Boilerplate generated through ejected `create-react-app`.
