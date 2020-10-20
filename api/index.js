@@ -52,7 +52,7 @@ moesifMiddleware.startCaptureOutgoing();
 
 // Connect to the Database || MongoDB Atlas
 mongoose
-  .connect(`${process.env.MONGODB_URL}` || `${process.env.MONGODB_LOCALHOST}`, {
+  .connect(`${process.env.MONGO_URL}` || `${process.env.MONGO_LOCALHOST}`, {
     useNewUrlParser: true,
     useUnifiedTopology: true
   })
