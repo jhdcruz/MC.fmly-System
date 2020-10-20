@@ -41,6 +41,13 @@ const Loader = styled(Spinner)`
   top: 40%;
 `;
 
+const NullItems = styled.p`
+  margin-bottom: 1rem;
+  position: absolute;
+  left: 50%;
+  top: 130px;
+`;
+
 export default function InventoryTable() {
   const [products, setProducts] = useState(null);
 
@@ -80,7 +87,7 @@ export default function InventoryTable() {
       </thead>
       <tbody>
         {products && products.length === 0 ? (
-          <p> No products registered...</p>
+          <NullItems> No products registered...</NullItems>
         ) : (
           verifyProducts()
         )}
