@@ -17,19 +17,42 @@
  */
 
 import React from 'react';
-// import styled from 'styled-components';
-// Components Imports
-import InventoryTable from '../components/InventoryTable';
-import Widget from '../components/Widget';
+import styled from 'styled-components';
 
-export default function Inventory() {
+const WidgetUI = styled.div`
+  display: inline-block;
+  margin: 1.7rem 1.5rem 1.7rem 0;
+  padding: 1rem 3rem;
+  height: max-content;
+  width: max-content;
+  background-color: white;
+  box-shadow: 0 3px 5px #888;
+  border-radius: 1.5rem;
+`;
+
+const WidgetSubject = styled.p`
+  margin: 1rem 0 0.6rem 0;
+  font-weight: bold;
+`;
+
+const WidgetAmount = styled.h3`
+  font-weight: bolder;
+  display: inline-block;
+`;
+
+const WidgetLabel = styled.label`
+  font-size: 15px;
+  margin: 0 5px;
+`;
+
+export default function Widget(props) {
   return (
     <>
-      {/*TODO: Fetch Data from Database | v2.0.0 */}
-      <Widget subject="Products" amount="200" label="left" />
-      <Widget subject="Products" amount="200" label="left" />
-      <Widget subject="Products" amount="200" label="left" />
-      <InventoryTable />
+      <WidgetUI>
+        <WidgetSubject>{props.subject}:</WidgetSubject>
+        <WidgetAmount>{props.amount}</WidgetAmount>
+        <WidgetLabel>{props.label}</WidgetLabel>
+      </WidgetUI>
     </>
   );
 }
