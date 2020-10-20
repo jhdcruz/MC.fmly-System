@@ -17,7 +17,8 @@
     "dotenv": "8.2.0",
     "express": "4.17.1",
     "helmet": "4.1.1",
-    "mongoose": "5.10.9"
+    "mongoose": "5.10.9",
+    "rollbar": "^2.19.4"
   },
   "devDependencies": {
     "concurrently": "5.3.0",

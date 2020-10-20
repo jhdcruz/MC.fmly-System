@@ -21,19 +21,20 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const helmet = require('helmet');
-const path = require('path');
+const Rollbar = require('rollbar');
 
 // set .env
 require('dotenv').config();
 
+// eslint-disable-next-line no-unused-vars
+const rollbar = new Rollbar({
+  accessToken: `${process.env.ROLLBAR_TOKEN}`,
+  captureUncaught: true,
+  captureUnhandledRejections: true
+});
+
 const api = express();
 const PORT = process.env.PORT || 5000;
-
-// Model Imports
-require('./models/Product');
-
-// Routes Imports
-require('./routes/productRoutes')(api);
 
 mongoose.Promise = global.Promise;
 
@@ -55,6 +56,12 @@ mongoose
   .catch((err) => {
     console.log(err);
   });
+
+// Model Imports
+require('./models/Product');
+
+// Routes Imports
+require('./routes/productRoutes')(api);
 
 api.get('/api', (req, res) => {
   // Vercel's Serveless Functions settings
