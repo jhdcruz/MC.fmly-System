@@ -18,10 +18,15 @@
 
 import React from 'react';
 // import styled from 'styled-components';
-
 // Components Imports
 import InventoryTable from '../components/InventoryTable';
+import InventoryControl from '../components/InventoryControl';
 
 export default function Inventory() {
-  return <InventoryTable />;
+  return (
+    <>
+      <InventoryControl />
+      <InventoryTable />
+    </>
+  );
 }
