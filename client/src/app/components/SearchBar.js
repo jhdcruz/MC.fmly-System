@@ -32,11 +32,11 @@ const ItemDivider = styled(Dropdown.Divider)`
   margin: 0;
 `;
 
-const SearchLabel = styled.label`
-  font-size: 15px;
-  margin: 0 0 0 10px;
-  padding: 5px 5px 3px 5px;
-`;
+// const SearchLabel = styled(Dropdown.Header)`
+//   font-size: 15px;
+//   margin: 0 0 0 10px;
+//   padding: 5px 5px 3px 5px;
+// `;
 
 const DropdownItem = styled(Dropdown.Item)`
   padding: 6px 15px;
@@ -54,28 +54,17 @@ export default function SearchBar() {
         <DropdownButton
           as={InputGroup.Append}
           variant="outline-secondary"
-          title={this.state.filter ? null : 'Filter'}
+          title="Filter"
           id="input-group-dropdown-2"
         >
-          <SearchLabel>Filter by:</SearchLabel>
-          <DropdownItem id="code" onClick={this.state.filter ? null : '# Code'}>
-            # Code
-          </DropdownItem>
+          <Dropdown.Header>Filter by:</Dropdown.Header>
+          <DropdownItem id="code"># Code</DropdownItem>
           <ItemDivider />
-          <DropdownItem id="name" onClick={this.state.filter ? null : 'Name'}>
-            Name
-          </DropdownItem>
+          <DropdownItem id="name">Name</DropdownItem>
           <ItemDivider />
-          <DropdownItem id="type" onClick={this.state.filter ? null : 'Type'}>
-            Type
-          </DropdownItem>
+          <DropdownItem id="type">Type</DropdownItem>
           <ItemDivider />
-          <DropdownItem
-            id="quantity"
-            onClick={this.state.filter ? null : 'Quantity'}
-          >
-            Quantity
-          </DropdownItem>
+          <DropdownItem id="quantity">Quantity</DropdownItem>
         </DropdownButton>
       </InputGroup>
     </>
