@@ -55,8 +55,8 @@ const Loader = styled(Spinner)`
 const NullItems = styled.p`
   margin-bottom: 1rem;
   position: absolute;
-  left: 50%;
-  top: 130px;
+  left: 48%;
+  top: 16rem;
 `;
 
 export default function InventoryTable() {
