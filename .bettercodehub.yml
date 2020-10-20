@@ -4,5 +4,5 @@ languages:
 component_depth: 4
 
 exclude:
-  - /client/config/*
-  - /client/scripts/*
+  - client/config/*
+  - client/scripts/*
