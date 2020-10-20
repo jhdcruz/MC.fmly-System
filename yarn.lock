@@ -9147,7 +9147,7 @@ mixin-object@^2.0.1:
   dependencies:
     minimist "^1.2.5"
 
-moesif-nodejs@^3.1.4:
+moesif-nodejs@3.1.4:
   version "3.1.4"
   resolved "https://registry.yarnpkg.com/moesif-nodejs/-/moesif-nodejs-3.1.4.tgz#d7042e30e2a7fce98c0fb7d5d908e237cee1baa0"
   integrity sha512-qO4+jrAfW5TWMRWvPq9CcRV4EIPQvRd4T0pBZpDRLCQSkNKjjOeLYTE6cO0NBYHVM1BTuOXI1WYMqi+Pi2Rwug==
