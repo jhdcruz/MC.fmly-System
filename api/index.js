@@ -22,6 +22,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const helmet = require('helmet');
 const Rollbar = require('rollbar');
+const moesif = require('moesif-nodejs');
 
 // set .env
 require('dotenv').config();
@@ -33,6 +34,10 @@ const rollbar = new Rollbar({
   captureUnhandledRejections: true
 });
 
+const moesifMiddleware = moesif({
+  applicationId: `${process.env.MOESIF_ID}`
+});
+
 const api = express();
 const PORT = process.env.PORT || 5000;
 
@@ -42,6 +47,8 @@ mongoose.Promise = global.Promise;
 api.use(cors());
 api.use(helmet());
 api.use(bodyParser.json());
+api.use(moesifMiddleware);
+moesifMiddleware.startCaptureOutgoing();
 
 // Connect to the Database || MongoDB Atlas
 mongoose
