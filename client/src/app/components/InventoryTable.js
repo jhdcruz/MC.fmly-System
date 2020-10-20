@@ -19,28 +19,39 @@
 import React, { useEffect, useState } from 'react';
 import Table from 'react-bootstrap/Table';
 import Spinner from 'react-bootstrap/Spinner';
-import styled from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 import getProducts from '../services/productService';
 import showProduct from './Product';
 
-const FullTable = styled(Table)`
+const TableContainer = createGlobalStyle`
+  div.table-responsive {
+    display: flex !important;
+  }
+`;
+
+const ProductTable = styled(Table)`
   height: 100%;
   width: 100%;
   min-width: 100% !important;
   min-height: 100%;
+  margin: 0 3.5rem 2rem 0;
   overflow-x: scroll !important;
   overflow-y: hidden;
+  background-color: white;
+  box-shadow: 0 2px 5px #888;
 `;
 
+// Loading Spinner
 const Loader = styled(Spinner)`
   margin: 10px auto;
   width: 3rem;
   height: 3rem;
   position: absolute;
   right: 41%;
-  top: 40%;
+  top: 19rem;
 `;
 
+// Shows on no products registered
 const NullItems = styled.p`
   margin-bottom: 1rem;
   position: absolute;
@@ -76,22 +87,25 @@ export default function InventoryTable() {
   };
 
   return (
-    <FullTable striped bordered hover responsive>
-      <thead>
-        <tr>
-          <th colSpan="1"># Code</th>
-          <th>Product</th>
-          <th>Type</th>
-          <th>Quantity</th>
-        </tr>
-      </thead>
-      <tbody>
-        {products && products.length === 0 ? (
-          <NullItems> No products registered...</NullItems>
-        ) : (
-          verifyProducts()
-        )}
-      </tbody>
-    </FullTable>
+    <>
+      <TableContainer />
+      <ProductTable hover responsive>
+        <thead>
+          <tr>
+            <th colSpan="1"># Code</th>
+            <th>Product</th>
+            <th>Type</th>
+            <th>Quantity</th>
+          </tr>
+        </thead>
+        <tbody>
+          {products && products.length === 0 ? (
+            <NullItems> No products registered...</NullItems>
+          ) : (
+            verifyProducts()
+          )}
+        </tbody>
+      </ProductTable>
+    </>
   );
 }
