@@ -16,9 +16,6 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import React from 'react';
-
-// Product's Product Handle
 const showProduct = (product) => {
   return (
     <tr className="product" key={product._id}>

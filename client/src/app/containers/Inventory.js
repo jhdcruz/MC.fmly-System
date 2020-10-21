@@ -16,9 +16,6 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import React from 'react';
-// import styled from 'styled-components';
-// Components Imports
 import InventoryTable from '../components/InventoryTable';
 import Widget from '../components/Widget';
 

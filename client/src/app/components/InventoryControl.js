@@ -16,7 +16,6 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import React from 'react';
 import Button from 'react-bootstrap/Button';
 import InputGroup from 'react-bootstrap/InputGroup';
 import styled from 'styled-components';
@@ -28,16 +27,16 @@ const InventoryControls = styled.div`
   margin: 5px 4rem 10px 4rem;
 `;
 
-const ButtonGroup = styled.div`
-  padding: 5px;
-  margin: 5px 5px;
-`;
-
-const Control = styled(Button)`
-  margin-right: 5px;
-  font-size: 16px;
-  border: none;
-`;
+// const ButtonGroup = styled.div`
+//   padding: 5px;
+//   margin: 5px 5px;
+// `;
+//
+// const Control = styled(Button)`
+//   margin-right: 5px;
+//   font-size: 16px;
+//   border: none;
+// `;
 
 const TableControls = styled(Button)`
   @extend Control;

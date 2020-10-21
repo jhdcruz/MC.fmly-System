@@ -21,7 +21,6 @@
  * =============================
  */
 
-import React from 'react';
 import styled from 'styled-components';
 import InputGroup from 'react-bootstrap/InputGroup';
 import FormControl from 'react-bootstrap/FormControl';

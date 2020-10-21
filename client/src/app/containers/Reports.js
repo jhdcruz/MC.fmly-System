@@ -16,8 +16,6 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import React from 'react';
-
 export default function Reports() {
   return <h1>No content yet.</h1>;
 }

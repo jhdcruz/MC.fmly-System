@@ -16,7 +16,7 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import React from 'react';
+import { Fragment } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import routes from './routes.json';
 import Container from 'react-bootstrap/Container';
@@ -30,7 +30,7 @@ import Reports from './containers/Reports';
 
 export default function App() {
   return (
-    <React.Fragment>
+    <Fragment>
       <Router>
         <Container fluid>
           <Sidebar />
@@ -44,6 +44,6 @@ export default function App() {
           </div>
         </Container>
       </Router>
-    </React.Fragment>
+    </Fragment>
   );
 }
