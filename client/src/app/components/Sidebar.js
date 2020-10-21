@@ -22,19 +22,20 @@ import Image from 'react-bootstrap/Image';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-  faHome,
   faBoxes,
-  faClipboardList
+  faClipboardList,
+  faHome
 } from '@fortawesome/free-solid-svg-icons';
 import Brand from '../../assets/img/profile.png';
 
 const SideMenu = styled.aside`
-  background-color: #2c2c2c;
+  background-color: #303030;
   position: fixed;
   left: 0;
   bottom: 0;
   width: 14rem;
   height: 100vh;
+  box-shadow: inset 0 0 30px #232323;
 `;
 
 const Branding = styled(Image)`
@@ -46,7 +47,12 @@ const Branding = styled(Image)`
 const TabRoutes = styled(Link)`
   color: #d9d9d9 !important;
   font-size: 1.1rem;
-  padding: 0 1.7rem;
+  padding: 5px 1.7rem;
+  margin: 0;
+
+  :hover {
+    background-color: #1e1e1e !important;
+  }
 `;
 
 const FAIcon = styled(FontAwesomeIcon)`
