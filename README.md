@@ -2,13 +2,13 @@
   
 # MC.fmly Inventory System
 
-#### OS Builds
+### OS Builds:
 
 | **Windows** | **Linux** (deb/rpm) | **MacOS** |
 | ----------- | ------------------- | --------- |
 | ![Windows Build](https://github.com/jhdcruz/MC.fmly-System/workflows/Windows%20Build/badge.svg?branch=main) | ![Linux Build](https://github.com/jhdcruz/MC.fmly-System/workflows/Linux%20Build/badge.svg?branch=main) | ![MacOS Build](https://github.com/jhdcruz/MC.fmly-System/workflows/MacOS%20Build/badge.svg?branch=main)
 
-#### Status
+### Status:
 
 | **Code Compliance** | **Code Quality** | **Time Spent** | **Desktop**| **Web App** |
 | --------------- | -------------| ---------- | ------- | -------- |
