@@ -23,10 +23,10 @@ const isDev = require('electron-is-dev');
 function createWindow() {
   // Create the browser window.
   const win = new BrowserWindow({
-    width: 1125,
-    height: 650,
-    minWidth: 1050,
-    minHeight: 600,
+    width: 1200,
+    height: 680,
+    minWidth: 1100,
+    minHeight: 630,
     icon: 'favicon.ico',
     frame: process.platform === 'darwin',
     webPreferences: {
