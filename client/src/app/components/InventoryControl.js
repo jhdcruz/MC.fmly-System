@@ -18,18 +18,14 @@
 
 import React from 'react';
 import Button from 'react-bootstrap/Button';
+import InputGroup from 'react-bootstrap/InputGroup';
 import styled from 'styled-components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 
 const InventoryControls = styled.div`
-  display: inline;
-
-  .left-control {
-    float: left;
-  }
-
-  .right-control {
-    float: right;
-  }
+  display: inline-block;
+  margin: 5px 4rem 10px 4rem;
 `;
 
 const ButtonGroup = styled.div`
@@ -40,22 +36,30 @@ const ButtonGroup = styled.div`
 const Control = styled(Button)`
   margin-right: 5px;
   font-size: 16px;
+  border: none;
+`;
+
+const TableControls = styled(Button)`
+  @extend Control;
+  background-color: #0091ff;
+  color: white;
+  border: none;
+  border-radius: 20px;
 `;
 
 export default function InventoryControl() {
   return (
     <>
-      <InventoryControls fluid>
-        <ButtonGroup className="left-control">
-          <Control variant="outline-primary">Add Entry</Control>
-          <Control variant="outline-secondary">Info</Control>
-        </ButtonGroup>
-      </InventoryControls>
-      <InventoryControls fluid>
-        <ButtonGroup className="right-control">
-          <Control variant="outline-primary">Add Entry</Control>
-          <Control variant="outline-secondary">Info</Control>
-        </ButtonGroup>
+      <InventoryControls classname="IControl" fluid>
+        <InputGroup className="mb-3">
+          <InputGroup.Prepend>
+            <TableControls variant="outline-primary">Add Entry</TableControls>
+            <TableControls variant="outline-secondary">Info</TableControls>
+          </InputGroup.Prepend>
+          <InputGroup.Append>
+            <FontAwesomeIcon icon={faInfoCircle} />
+          </InputGroup.Append>
+        </InputGroup>
       </InventoryControls>
     </>
   );
