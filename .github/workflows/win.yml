@@ -1,0 +1,25 @@
+name: MacOS Build
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: macos-latest
+    strategy:
+      matrix:
+        node-version: '14'
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: npm i -g yarn
+      - run: yarn
+      - run: yarn build
+      - run: cd client && yarn package-win
