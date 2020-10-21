@@ -24,23 +24,28 @@ const WidgetUI = styled.div`
   padding: 1rem 3rem;
   height: max-content;
   width: max-content;
-  background-color: white;
-  box-shadow: 0 3px 5px #888;
+  background-color: #2f2f2f;
+  box-shadow: 0 3px 5px #232323;
   border-radius: 1.5rem;
 `;
 
 const WidgetSubject = styled.p`
+  color: #c3c3c3;
+  font-size: 1.2vw;
   margin: 1rem 0 0.6rem 0;
   font-weight: bold;
 `;
 
 const WidgetAmount = styled.h3`
+  color: white;
+  font-size: 2vw;
   font-weight: bolder;
   display: inline-block;
 `;
 
 const WidgetLabel = styled.label`
-  font-size: 15px;
+  font-size: 1vw;
+  color: #a7a7a7;
   margin: 0 5px;
 `;
 
