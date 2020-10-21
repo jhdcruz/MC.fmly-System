@@ -4,7 +4,7 @@
   "version": "0.1.0",
   "license": "GPL-3.0-or-later",
   "private": true,
-  "main": "./build/electron.js",
+  "main": "./public/electron.js",
   "proxy": "http://localhost:5000",
   "scripts": {
     "start": "node scripts/start.js",
