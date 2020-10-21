@@ -24,6 +24,7 @@
 ## Frameworks:
 
 [![MERN Stack](https://webassets.mongodb.com/_com_assets/cms/mern-stack-b9q1kbudz0.png)](https://www.mongodb.com/mern-stack)
+<p align="center"><a href="https://www.mongodb.com/mern-stack">MERN Stack Architecture</a></p>
 
 ### Front-End:
 
