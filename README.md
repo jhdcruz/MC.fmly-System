@@ -59,7 +59,6 @@ Boilerplate generated through ejected `create-react-app`.
 
 - [`npm v6.14+`](https://nodejs.org/en/) - Package manager
 - [`yarn v1.22+`](https://yarnpkg.com/getting-started/install) - Package & Project manager
-- [`python3`](https://www.python.org/downloads/) - Rebuilding `electron` native-deps (`yarn rebuild`)
 
 **Linux**:
 
