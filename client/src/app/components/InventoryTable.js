@@ -21,11 +21,21 @@ import Table from 'react-bootstrap/Table';
 import Spinner from 'react-bootstrap/Spinner';
 import styled, { createGlobalStyle } from 'styled-components';
 import getProducts from '../services/productService';
-import showProduct from './Product';
+import Products from './Products';
 
 const TableContainer = createGlobalStyle`
   div.table-responsive {
     display: flex !important;
+  }
+`;
+
+const TableHeader = styled.th`
+  color: #c3c3c3;
+  border: none !important;
+
+  :hover {
+    color: #1a8ac4;
+    cursor: pointer;
   }
 `;
 
@@ -37,8 +47,14 @@ const ProductTable = styled(Table)`
   margin: 0 3.5rem 2rem 0;
   overflow-x: scroll !important;
   overflow-y: hidden;
-  background-color: white;
-  box-shadow: 0 2px 5px #888;
+  background-color: transparent;
+  border-collapse: separate;
+  border-spacing: 0 1rem;
+
+  th,
+  td {
+    vertical-align: middle !important;
+  }
 `;
 
 // Loading Spinner
@@ -53,6 +69,7 @@ const Loader = styled(Spinner)`
 
 // Shows on no products registered
 const NullItems = styled.p`
+  color: #c3c3c3;
   margin-bottom: 1rem;
   position: absolute;
   left: 48%;
@@ -64,13 +81,18 @@ export default function InventoryTable() {
 
   useEffect(() => {
     if (!products) {
-      fetchProducts();
+      fetchProducts()
+        .then((r) => {
+          console.info(r);
+        })
+        .catch((err) => {
+          console.error(err);
+        });
     }
   });
 
   const fetchProducts = async () => {
     let res = await getProducts.getAll();
-    console.log(res);
     setProducts(res);
   };
 
@@ -78,7 +100,7 @@ export default function InventoryTable() {
     return (
       <>
         {products && products.length >= 1 ? (
-          products.map((product) => showProduct(product))
+          products.map((product) => Products(product))
         ) : (
           <Loader animation="border" role="status" />
         )}
@@ -92,10 +114,10 @@ export default function InventoryTable() {
       <ProductTable hover responsive>
         <thead>
           <tr>
-            <th colSpan="1"># Code</th>
-            <th>Product</th>
-            <th>Type</th>
-            <th>Quantity</th>
+            <TableHeader colSpan="1"># Code</TableHeader>
+            <TableHeader>Product</TableHeader>
+            <TableHeader>Type</TableHeader>
+            <TableHeader>Quantity</TableHeader>
           </tr>
         </thead>
         <tbody>
