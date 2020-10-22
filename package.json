@@ -1,10 +1,10 @@
 {
-  "name": "pending-system",
-  "description": "MC.fmly Pending System.",
+  "name": "mc-fmly-inventory-system",
+  "description": "MC.fmly Inventory System.",
   "version": "0.1.0",
   "license": "GPL-3.0-or-later",
   "private": true,
-  "main": "client/public/electron.js",
+  "main": "./client/build/electron.js",
   "workspaces": [
     "client",
     "api"
@@ -13,7 +13,75 @@
     "start": "concurrently \"yarn workspace api run serve\" \"yarn workspace client run start\" --kill-others-on-fail",
     "start-electron": "concurrently \"yarn workspace api run start\" \"yarn workspace client run dev\" --kill-others-on-fail",
     "build": "yarn workspace client run build",
-    "test": "echo \"Error: no test in root directory\" && exit 0"
+    "package-all": "yarn build && cross-env NODE_PATH=./node_modules electron-builder build -mwl",
+    "package-ci": "yarn build && cross-env NODE_PATH=./node_modules electron-builder build --publish never",
+    "package-mac": "yarn build && cross-env NODE_PATH=./node_modules electron-builder build --mac",
+    "package-linux": "yarn build && cross-env NODE_PATH=./node_modules electron-builder build --linux",
+    "package-win": "yarn build && cross-env NODE_PATH=./node_modules electron-builder build --win"
+  },
+  "devDependencies": {
+    "electron-builder": "22.9.1",
+    "cross-env": "7.0.2"
+  },
+  "build": {
+    "appId": "com.jhdcruz.mcis",
+    "productName": "MC.fmly Inventory System",
+    "files": [
+      "./client/build/**/**",
+      "./node_modules/**/**"
+    ],
+    "dmg": {
+      "icon": "resources/icon.icns",
+      "contents": [
+        {
+          "x": 130,
+          "y": 220
+        },
+        {
+          "x": 410,
+          "y": 220,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ]
+    },
+    "win": {
+      "icon": "resources/icon192.png",
+      "target": [
+        "nsis"
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": true,
+      "allowToChangeInstallationDirectory": true
+    },
+    "linux": {
+      "icon": "resources/icon192.png",
+      "target": [
+        "deb",
+        "rpm"
+      ],
+      "category": "Productivity"
+    },
+    "directories": {
+      "buildResources": "resources",
+      "output": "release"
+    },
+    "extraResources": [
+      "resources/**/**",
+      "!resources/*.css"
+    ],
+    "extraFiles": [
+      "LICENSE.txt",
+      "README.md"
+    ],
+    "publish": {
+      "provider": "github",
+      "owner": "Jhdcruz",
+      "repo": "https://github.com/jhdcruz/MC.fmly-System",
+      "publish": "onTag"
+    }
   },
   "repository": {
     "type": "git",
