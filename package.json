@@ -13,11 +13,10 @@
     "start": "concurrently \"yarn workspace api run serve\" \"yarn workspace client run start\" --kill-others-on-fail",
     "start-electron": "concurrently \"yarn workspace api run start\" \"yarn workspace client run dev\" --kill-others-on-fail",
     "build": "yarn workspace client run build",
-    "package-all": "yarn build && cross-env NODE_PATH=./node_modules electron-builder build -mwl",
-    "package-ci": "yarn build && cross-env NODE_PATH=./node_modules electron-builder build --publish never",
-    "package-mac": "yarn build && cross-env NODE_PATH=./node_modules electron-builder build --mac",
-    "package-linux": "yarn build && cross-env NODE_PATH=./node_modules electron-builder build --linux",
-    "package-win": "yarn build && cross-env NODE_PATH=./node_modules electron-builder build --win"
+    "package-all": "yarn build && cross-env NODE_PATH=./node_modules electron-builder build -mwl --publish never",
+    "package-mac": "yarn build && cross-env NODE_PATH=./node_modules electron-builder build --mac --publish never",
+    "package-linux": "yarn build && cross-env NODE_PATH=./node_modules electron-builder build --linux --publish never",
+    "package-win": "yarn build && cross-env NODE_PATH=./node_modules electron-builder build --win --publish never"
   },
   "devDependencies": {
     "electron-builder": "22.9.1",
@@ -69,8 +68,7 @@
       "output": "release"
     },
     "extraResources": [
-      "resources/**/**",
-      "!resources/*.css"
+      "resources/**/**"
     ],
     "extraFiles": [
       "LICENSE.txt",
@@ -90,10 +88,10 @@
   "author": {
     "name": "Joshua Hero H. Dela Cruz | ICT301A | S.Y 2020-2021",
     "email": "jhdcruz00@gmail.com",
-    "url": "https://github.com/jhdcruz"
+    "url": "https://jhdcruz.now.sh"
   },
   "bugs": {
     "url": "https://github.com/jhdcruz/MC.fmly-System/issues"
   },
-  "homepage": "https://github.com/jhdcruz/MC.fmly-System"
+  "homepage": "./"
 }
