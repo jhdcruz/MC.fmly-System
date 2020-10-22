@@ -22,4 +22,4 @@ jobs:
       - run: npm i -g yarn
       - run: yarn
       - run: yarn build
-      - run: cd client && yarn package-mac
+      - run: yarn package-mac
