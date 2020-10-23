@@ -18,6 +18,7 @@
 
 import Button from 'react-bootstrap/Button';
 import styled from 'styled-components';
+import Badge from 'react-bootstrap/Badge';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPen, faTimes } from '@fortawesome/free-solid-svg-icons';
 
@@ -67,6 +68,11 @@ const TableData = styled.td`
   }
 `;
 
+const Tag = styled(Badge)`
+  font-size: 15px;
+  padding: 6px 10px 6px 0;
+`;
+
 const ProductActions = styled.div`
   margin: 0 auto;
   width: max-content;
@@ -88,7 +94,11 @@ const Product = (product) => {
         {product.code}
       </TableData>
       <TableData className="name">{product.name}</TableData>
-      <TableData className="type">{product.type}</TableData>
+      <TableData className="type">
+        <Tag pill variant="primary">
+          {product.type}
+        </Tag>
+      </TableData>
       <TableData className="stock">
         <p>
           {product.quantity}
