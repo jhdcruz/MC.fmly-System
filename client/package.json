@@ -170,14 +170,8 @@
     "rules": {
       "react/jsx-uses-react": "off",
       "react/react-in-jsx-scope": "off",
-      "import/no-extraneous-dependencies": [
-        "off",
-        {
-          "devDependencies": false,
-          "optionalDependencies": false,
-          "peerDependencies": false
-        }
-      ]
+      "import/no-anonymous-default-export": "off",
+      "import/no-extraneous-dependencies": "off"
     },
     "settings": {
       "import/extensions": [
