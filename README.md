@@ -28,15 +28,16 @@
 ### Front-End:
 
   - [**React**](https://reactjs.org/) - _UI Library_
-  - [**`react-bootstrap`**](https://react-bootstrap.github.io/) - _UI Toolkit for `React`_
   - [**Electron**](https://electronjs.org) - _X-Platform Desktop Integration_
   - [**Sass/Scss**](https://sass-lang.com) - _Stylesheet_
+  - [**`react-bootstrap`**](https://react-bootstrap.github.io/) - _UI Toolkit for `React`_
+  - [**`styled-components`**](https://styled-components.com/) - _ES6 Component Styling_
 
 ### Back-End:
 
   - [**Express**](https://expressjs.com) - _Server-side Framework_
   - [**Axios**](https://github.com/axios/axios) - _HTTP Client_
-  - [**Mongoose**](https:/mongoosjes.com) - _Object Modeling_
+  - [**Mongoose**](https:/mongoosejs.com) - _Object Modeling_
 
 ### Database:
 
@@ -45,7 +46,8 @@
 ### Tools
 
 - [**Vercel**](https://vercel.com) - _Web Deployment_
-- [**Buddy CI/CD**](https://app.buddy.works) - _Continuous Integration_
+- [**Buddy CI/CD**](https://app.buddy.works) - _Continuous Integration w/ API Testing `(Porting to TravisCI)`_
+- [**GitHub Actions**](https://vercel.com) - _CI/CD for Desktop App (`win`, `mac`, `linux`)_
 - [**CodeFactor**](https://codefactor.io) - _Code Quality_
 - [**Rollbar**](https://rollbar.com) - _Application Monitoring_
 - [**Moesif API**](https://www.moesif.com/) - _API Analytics_
@@ -59,8 +61,16 @@ Boilerplate generated through ejected `create-react-app`.
 
 - [`npm v6.14+`](https://nodejs.org/en/) - Package manager
 - [`yarn v1.22+`](https://yarnpkg.com/getting-started/install) - Package & Project manager
+- [`Node.js v15.0+`](https://nodejs.org/en/) - JavaScript runtime 
 
-**Linux**:
+**Windows:**
+
+Can be either of the ff:
+
+- [**`MSBuild`**](https://docs.microsoft.com/en-us/visualstudio/msbuild/msbuild)
+- [**`windows-build-tools`**](https://www.npmjs.com/package/windows-build-tools)
+
+**Linux:**
 
 - Debian
    - `dpkg`
@@ -73,7 +83,7 @@ Boilerplate generated through ejected `create-react-app`.
 - [`Postman`](https://www.postman.com/) - API Testing
 - [`MongoDB Compass`](https://www.mongodb.com/try/download/compass) - MongoDB GUI
 
-**Install Dependencies**
+## Install Dependencies
 
 ```
 yarn  # same as `yarn install`
@@ -81,7 +91,7 @@ yarn  # same as `yarn install`
 
 This will install dependencies on both `client/` and `server/`.
 
-**Running Scripts**
+### Running Scripts
 
 This project uses yarn's `workspaces` to manage the dependencies on both `client/` and `server/` by sharing the `node_modules` in both projects, reducing overall project size.
 
@@ -94,7 +104,7 @@ Running scripts on both projects:
 ```yarn workspaces run [script]```
 
 > All scripts are **ideally** ran in the root directory,
-> except for `rebuild` in `client/`
+> except when packaging the desktop app.
 
 ## Development
 
@@ -107,14 +117,14 @@ yarn start
 **Desktop:**
 
 ```bash
-yarn dev
+yarn start-electron
 ```
 
 If you've written your own test files, put them in `tests/` and replace the `test` script in `package.json` with `node scripts/test.js`, then run `yarn test`.
 
-## Production
+> Yes, I know. I didn't write any test...
 
-> TODO: Deployment
+## Production
 
 **Web App:**
 
@@ -122,12 +132,12 @@ If you've written your own test files, put them in `tests/` and replace the `tes
 yarn build
 ```
 
-Output on `~/public` directory. Ready to deploy to hosting.
+Output on `./client/build` directory. Ready to deploy to hosting.
 
 **Desktop:**
 
 ```bash
-cd client/ && yarn rebuild && package-[os]
+cd client/ && package-[os]
 ```
 
 Where `os` can be one of the ff:
