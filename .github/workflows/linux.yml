@@ -25,3 +25,8 @@ jobs:
       - run: yarn
       - run: yarn workspace client lint
       - run: yarn workspace client package-linux
+      - uses: toko-bifrost/ms-teams-deploy-card@master
+          if: always()
+          with:
+            github-token: ${{ secrets.GH_ACTION }}
+            webhook-uri: ${{ secrets.MS_TEAMS_WEBHOOK_URI }}
