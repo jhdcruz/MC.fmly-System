@@ -32,10 +32,11 @@ const SideMenu = styled.aside`
   background-color: #303030;
   position: fixed;
   left: 0;
-  bottom: 0;
+  margin: 1rem 0 1rem 1rem;
   width: 14rem;
-  height: 100vh;
-  box-shadow: inset 0 0 30px #232323;
+  height: 90vh;
+  border-radius: 2rem;
+  box-shadow: 0 0 6px #232323;
 `;
 
 const Branding = styled(Image)`
@@ -52,6 +53,7 @@ const TabRoutes = styled(Link)`
 
   :hover {
     background-color: #1e1e1e !important;
+    box-shadow: inset 0 0 15px #111111;
   }
 `;
 
