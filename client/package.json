@@ -150,7 +150,8 @@
       "output": "release"
     },
     "extraResources": [
-      "resources/**/**"
+      "resources/**/**",
+      "src/assets/fonts/**/**"
     ],
     "extraFiles": [
       "resources/LICENSE.txt"
