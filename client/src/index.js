@@ -26,7 +26,7 @@ import * as serviceWorker from './serviceWorker';
 require('dotenv').config();
 
 Sentry.init({
-  dsn: `${process.env.SENTRY_URL}`,
+  dsn: `${process.env.SENTRY_PROJECT}`,
   integrations: [new Integrations.BrowserTracing()],
   tracesSampleRate: 0.7
 });
