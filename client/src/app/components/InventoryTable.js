@@ -41,8 +41,8 @@ const TableHeader = styled.th`
 
 const ProductTable = styled(Table)`
   height: 100%;
-  width: 100%;
-  min-width: 100% !important;
+  width: 96%;
+  min-width: 96% !important;
   min-height: 100%;
   margin: 0 3.5rem 2rem 0;
   overflow-x: scroll !important;
@@ -81,13 +81,9 @@ export default function InventoryTable() {
 
   useEffect(() => {
     if (!products) {
-      fetchProducts()
-        .then((r) => {
-          console.info(r);
-        })
-        .catch((err) => {
-          console.error(err);
-        });
+      fetchProducts().catch((err) => {
+        console.error(err);
+      });
     }
   });
 
