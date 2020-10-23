@@ -63,9 +63,24 @@ body {
   height: 100%;
   padding: 0;
   margin: 0;
-  overflow-y: hidden !important;
+  overflow-x: hidden;
+  overflow-y: auto;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  ::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #222222;
+    border-radius: 20px;
+    border: 2px solid #333;
+  }
 }
 
 a {
