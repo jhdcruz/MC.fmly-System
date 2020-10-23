@@ -1,7 +1,0 @@
-component_depth: 4
-languages:
-  - javascript
-
-exclude:
-  - ./client/config/*
-  - ./client/scripts/*
