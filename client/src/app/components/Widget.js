@@ -24,8 +24,9 @@ const WidgetUI = styled.div`
   padding: 1rem 3rem;
   height: max-content;
   width: max-content;
+  align-self: center;
   background-color: #2f2f2f;
-  box-shadow: 0 3px 5px #232323;
+  box-shadow: 0 3px 6px #232323;
   border-radius: 1.5rem;
 `;
 
