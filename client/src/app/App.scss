@@ -72,11 +72,6 @@ a {
   text-decoration: none !important;
 }
 
-#RootApp {
-  // Add margin on top for electron loadURL()
-  margin-top: 1rem !important;
-}
-
 // Id-level
 #pageRoutes {
   display: block;
