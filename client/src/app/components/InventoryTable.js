@@ -99,7 +99,11 @@ export default function InventoryTable() {
     return (
       <>
         {products && products.length >= 1 ? (
-          products.map((product) => Products(product))
+          // Reverse result to prioritize new entries
+          products
+            .slice(0)
+            .reverse()
+            .map((product) => Products(product))
         ) : (
           <Loader animation="border" role="status" />
         )}
