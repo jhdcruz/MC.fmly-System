@@ -65,16 +65,19 @@ const TableData = styled.td`
   border: none !important;
 
   input {
+    font-size: 1.2vw;
     margin-right: 1rem;
     background-color: transparent;
     color: whitesmoke;
 
     ::placeholder {
       color: #c4c4c4;
+      font-size: 1.2vw;
     }
 
     :active,
     :focus {
+      font-size: 1.2vw;
       background-color: #1b1e21;
       color: whitesmoke;
     }

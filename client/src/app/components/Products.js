@@ -69,7 +69,7 @@ const TableData = styled.td`
 `;
 
 const Tag = styled(Badge)`
-  font-size: 15px;
+  font-size: 1.2vw;
   padding: 6px 10px 6px 0;
 `;
 
