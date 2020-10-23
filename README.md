@@ -45,7 +45,7 @@
 
 ### Tools
 
-- [**Vercel**](https://vercel.com) - _Web Deployment_
+- [**Vercel**](https://vercel.com) - _Web & API Deployment_
 - [**Buddy CI/CD**](https://app.buddy.works) - _Continuous Integration w/ API Testing `(Porting to TravisCI)`_
 - [**GitHub Actions**](https://vercel.com) - _CI/CD for Desktop App (`win`, `mac`, `linux`)_
 - [**CodeFactor**](https://codefactor.io) - _Code Quality_
