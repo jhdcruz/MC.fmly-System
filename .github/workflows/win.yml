@@ -2,24 +2,25 @@ name: Windows Build
 
 on:
   push:
-    branches: [main]
+    branches: [ main ]
   pull_request:
-    branches: [main]
+    branches: [ main ]
 
 jobs:
   build:
     runs-on: windows-latest
     strategy:
       matrix:
-        node-version: [15.x]
+        node-version: [ 15.x ]
 
     steps:
+      - name: Add msbuild to PATH
+        uses: microsoft/setup-msbuild@v1.0.2
       - uses: actions/checkout@v2
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - run: npm i -g windows-build-tools
       - run: npm i -g yarn
       - run: yarn
       - run: yarn workspace client lint
