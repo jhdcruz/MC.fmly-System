@@ -41,7 +41,7 @@ const SideMenu = styled.aside`
 const Branding = styled(Image)`
   width: 10rem;
   display: block;
-  margin: 1rem auto 1rem auto;
+  margin: 3rem auto 1rem auto;
 `;
 
 const TabRoutes = styled(Link)`
