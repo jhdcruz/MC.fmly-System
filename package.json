@@ -4,7 +4,6 @@
   "version": "0.1.0",
   "license": "GPL-3.0-or-later",
   "private": true,
-  "main": "./client/build/electron.js",
   "workspaces": [
     "client",
     "api"
@@ -12,74 +11,13 @@
   "scripts": {
     "start": "concurrently \"yarn workspace api run serve\" \"yarn workspace client run start\" --kill-others-on-fail",
     "start-electron": "concurrently \"yarn workspace api run start\" \"yarn workspace client run dev\" --kill-others-on-fail",
-    "build": "yarn workspace client run build",
-    "package-all": "yarn build && cross-env NODE_PATH=./node_modules electron-builder build -mwl --publish never",
-    "package-mac": "yarn build && cross-env NODE_PATH=./node_modules electron-builder build --mac --publish never",
-    "package-linux": "yarn build && cross-env NODE_PATH=./node_modules electron-builder build --linux --publish never",
-    "package-win": "yarn build && cross-env NODE_PATH=./node_modules electron-builder build --win --publish never"
+    "build": "yarn workspace client run build"
   },
   "devDependencies": {
-    "electron-builder": "22.9.1",
-    "cross-env": "7.0.2"
-  },
-  "build": {
-    "appId": "com.jhdcruz.mcis",
-    "productName": "MC.fmly Inventory System",
-    "files": [
-      "./client/build/**/**",
-      "./node_modules/**/**"
-    ],
-    "dmg": {
-      "icon": "resources/icon.icns",
-      "contents": [
-        {
-          "x": 130,
-          "y": 220
-        },
-        {
-          "x": 410,
-          "y": 220,
-          "type": "link",
-          "path": "/Applications"
-        }
-      ]
-    },
-    "win": {
-      "icon": "resources/icon192.png",
-      "target": [
-        "nsis"
-      ]
-    },
-    "nsis": {
-      "oneClick": false,
-      "perMachine": true,
-      "allowToChangeInstallationDirectory": true
-    },
-    "linux": {
-      "icon": "resources/icon192.png",
-      "target": [
-        "deb",
-        "rpm"
-      ],
-      "category": "Productivity"
-    },
-    "directories": {
-      "buildResources": "resources",
-      "output": "release"
-    },
-    "extraResources": [
-      "resources/**/**"
-    ],
-    "extraFiles": [
-      "LICENSE.txt",
-      "README.md"
-    ],
-    "publish": {
-      "provider": "github",
-      "owner": "Jhdcruz",
-      "repo": "https://github.com/jhdcruz/MC.fmly-System",
-      "publish": "onTag"
-    }
+    "cross-env": "7.0.2",
+    "concurrently": "5.3.0",
+    "eslint": "6.8.0",
+    "prettier": "2.1.2"
   },
   "repository": {
     "type": "git",
