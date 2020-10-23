@@ -1,10 +1,9 @@
 {
-  "name": "pending-system",
-  "description": "MC.fmly Pending System.",
+  "name": "mc-fmly-inventory-system",
+  "description": "MC.fmly Inventory System.",
   "version": "0.1.0",
   "license": "GPL-3.0-or-later",
   "private": true,
-  "main": "client/public/electron.js",
   "workspaces": [
     "client",
     "api"
@@ -12,8 +11,13 @@
   "scripts": {
     "start": "concurrently \"yarn workspace api run serve\" \"yarn workspace client run start\" --kill-others-on-fail",
     "start-electron": "concurrently \"yarn workspace api run start\" \"yarn workspace client run dev\" --kill-others-on-fail",
-    "build": "yarn workspace client run build",
-    "test": "echo \"Error: no test in root directory\" && exit 0"
+    "build": "yarn workspace client run build"
+  },
+  "devDependencies": {
+    "cross-env": "7.0.2",
+    "concurrently": "5.3.0",
+    "eslint": "6.8.0",
+    "prettier": "2.1.2"
   },
   "repository": {
     "type": "git",
@@ -22,10 +26,10 @@
   "author": {
     "name": "Joshua Hero H. Dela Cruz | ICT301A | S.Y 2020-2021",
     "email": "jhdcruz00@gmail.com",
-    "url": "https://github.com/jhdcruz"
+    "url": "https://jhdcruz.now.sh"
   },
   "bugs": {
     "url": "https://github.com/jhdcruz/MC.fmly-System/issues"
   },
-  "homepage": "https://github.com/jhdcruz/MC.fmly-System"
+  "homepage": "./"
 }

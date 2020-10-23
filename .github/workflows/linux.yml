@@ -2,16 +2,16 @@ name: Linux Build
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   build:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [ 14.x ]
+        node-version: [15.x]
 
     steps:
       - uses: actions/checkout@v2
@@ -19,7 +19,9 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
+      - run: sudo apt-get install --no-install-recommends -y libopenjp2-tools
+      - run: sudo apt-get install --no-install-recommends -y rpm
       - run: npm i -g yarn
       - run: yarn
-      - run: yarn build
-      - run: cd client && yarn package-linux
+      - run: yarn workspace client lint
+      - run: yarn workspace client package-linux
