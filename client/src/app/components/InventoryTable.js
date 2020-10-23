@@ -22,6 +22,9 @@ import Spinner from 'react-bootstrap/Spinner';
 import styled, { createGlobalStyle } from 'styled-components';
 import getProducts from '../services/productService';
 import Products from './Products';
+import ProductEntry from './ProductEntry';
+import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const TableContainer = createGlobalStyle`
   div.table-responsive {
@@ -110,13 +113,22 @@ export default function InventoryTable() {
       <ProductTable hover responsive>
         <thead>
           <tr>
-            <TableHeader colSpan="1"># Code</TableHeader>
-            <TableHeader>Product</TableHeader>
-            <TableHeader>Type</TableHeader>
-            <TableHeader>Quantity</TableHeader>
+            <TableHeader colSpan="1">
+              # Code <FontAwesomeIcon icon={faCaretDown} />
+            </TableHeader>
+            <TableHeader>
+              Product <FontAwesomeIcon icon={faCaretDown} />
+            </TableHeader>
+            <TableHeader>
+              Type <FontAwesomeIcon icon={faCaretDown} />
+            </TableHeader>
+            <TableHeader>
+              Quantity <FontAwesomeIcon icon={faCaretDown} />
+            </TableHeader>
           </tr>
         </thead>
         <tbody>
+          <ProductEntry />
           {products && products.length === 0 ? (
             <NullItems> No products registered...</NullItems>
           ) : (
