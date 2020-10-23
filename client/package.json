@@ -4,14 +4,24 @@
   "version": "0.1.0",
   "license": "GPL-3.0-or-later",
   "private": true,
-  "main": "./public/electron.js",
+  "main": "./build/electron.js",
   "proxy": "http://localhost:5000",
   "scripts": {
     "start": "node scripts/start.js",
     "dev": "concurrently \"cross-env BROWSER=none yarn start\" \"wait-on http://localhost:3000 && electron .\" --kill-others-on-fail",
     "build": "node scripts/build.js",
     "test": "echo \"Tests are for the weaks, living on the edge brotha...\"",
-    "lint": "prettier \"src/**/**.{html,scss,js,jsx}\" --write && eslint \"src/**/**/*.{js,jsx}\" && stylelint \"./src/**/**/*.{js,css,scss,sass}\""
+    "lint": "prettier \"src/**/**.{html,scss,js,jsx}\" --write && eslint \"src/**/**/*.{js,jsx}\" && stylelint \"./src/**/**/*.{js,css,scss,sass}\"",
+    "package-all": "yarn postinstall && yarn build && electron-builder build -mwl --publish never",
+    "package-mac": "yarn postinstall && yarn build && electron-builder build --mac --publish never",
+    "package-linux": "yarn postinstall && yarn build && electron-builder build --linux --publish never",
+    "package-win": "yarn postinstall && yarn build && electron-builder build --win --publish never",
+    "postinstall": "electron-builder install-app-deps"
+  },
+  "workspaces": {
+    "nohoist": [
+      "*"
+    ]
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "1.2.32",
@@ -23,14 +33,11 @@
     "@treverix/remote": "0.1.1",
     "axios": "0.20.0",
     "bootstrap": "4.5.3",
-    "cross-env": "7.0.2",
     "custom-electron-titlebar": "3.2.5",
     "dotenv": "8.2.0",
     "dotenv-expand": "5.1.0",
     "electron-is-dev": "1.2.0",
-    "jquery": "3.5.1",
     "node-sass": "4.14.1",
-    "popper.js": "1.16.1",
     "react": "17.0.1",
     "react-bootstrap": "1.4.0",
     "react-dom": "17.0.1",
@@ -49,12 +56,11 @@
     "babel-preset-react-app": "9.1.2",
     "camelcase": "5.3.1",
     "case-sensitive-paths-webpack-plugin": "2.3.0",
-    "concurrently": "5.3.0",
     "css-loader": "3.6.0",
     "electron": "10.1.4",
+    "electron-builder": "22.9.1",
     "electron-download": "4.1.1",
     "electron-is-dev": "1.2.0",
-    "eslint": "6.8.0",
     "eslint-config-react-app": "5.2.1",
     "eslint-loader": "3.0.4",
     "eslint-plugin-flowtype": "4.6.0",
@@ -79,7 +85,6 @@
     "postcss-normalize": "9.0.0",
     "postcss-preset-env": "6.7.0",
     "postcss-safe-parser": "4.0.1",
-    "prettier": "2.1.2",
     "react-app-polyfill": "1.0.6",
     "react-dev-utils": "10.2.1",
     "resolve": "1.18.1",
@@ -97,6 +102,65 @@
     "webpack-dev-server": "3.11.0",
     "webpack-manifest-plugin": "2.2.0",
     "workbox-webpack-plugin": "5.1.4"
+  },
+  "homepage": "./",
+  "build": {
+    "appId": "com.jhdcruz.mcis",
+    "productName": "MC.fmly Inventory System",
+    "files": [
+      "./build/**/**",
+      "./node_modules/**/**"
+    ],
+    "dmg": {
+      "icon": "resources/icon.icns",
+      "contents": [
+        {
+          "x": 130,
+          "y": 220
+        },
+        {
+          "x": 410,
+          "y": 220,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ]
+    },
+    "win": {
+      "icon": "resources/icon192.png",
+      "target": [
+        "nsis"
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": true,
+      "allowToChangeInstallationDirectory": true
+    },
+    "linux": {
+      "icon": "resources/icon192.png",
+      "target": [
+        "deb",
+        "rpm"
+      ],
+      "category": "Productivity"
+    },
+    "directories": {
+      "buildResources": "resources",
+      "output": "release"
+    },
+    "extraResources": [
+      "resources/**/**"
+    ],
+    "extraFiles": [
+      "resources/LICENSE.txt"
+    ],
+    "publish": {
+      "provider": "github",
+      "owner": "Jhdcruz",
+      "repo": "https://github.com/jhdcruz/MC.fmly-System",
+      "publish": false
+    }
   },
   "eslintConfig": {
     "extends": "react-app",
@@ -132,7 +196,6 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "./",
   "author": {
     "name": "Jhdcruz",
     "email": "jhdcruz00@gmail.com",
