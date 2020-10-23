@@ -32,7 +32,7 @@ export default function App() {
   return (
     <Fragment>
       <Router>
-        <Container i="RootApp" fluid>
+        <Container id="RootApp" fluid>
           <Sidebar />
           <div id="pageRoutes">
             <Switch>
