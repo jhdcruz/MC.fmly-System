@@ -17,8 +17,8 @@
  */
 
 const { app, BrowserWindow } = require('electron');
-const path = require('path');
 const isDev = require('electron-is-dev');
+const path = require('path');
 
 function createWindow() {
   // Create the browser window.
@@ -54,7 +54,8 @@ function createWindow() {
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
-app.whenReady()
+app
+  .whenReady()
   .then(createWindow)
   .catch((err) => {
     console.error(err);
