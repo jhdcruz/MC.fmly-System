@@ -21,18 +21,10 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const helmet = require('helmet');
-const Rollbar = require('rollbar');
 const moesif = require('moesif-nodejs');
 
 // set .env
 require('dotenv').config();
-
-// eslint-disable-next-line no-unused-vars
-const rollbar = new Rollbar({
-  accessToken: `${process.env.ROLLBAR_TOKEN}`,
-  captureUncaught: true,
-  captureUnhandledRejections: true
-});
 
 const moesifMiddleware = moesif({
   applicationId: `${process.env.MOESIF_ID}`
