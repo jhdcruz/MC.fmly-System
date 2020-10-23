@@ -39,9 +39,7 @@ function createWindow() {
 
   // Resorted to web app due to database connection failure
   win
-    .loadURL(
-      isDev ? 'http://localhost:3000' : path.resolve(__dirname, 'index.html')
-    )
+    .loadURL(isDev ? 'http://localhost:3000' : 'https://mc-fmly.vercel.app')
     .catch((err) => {
       console.error(err);
     });
