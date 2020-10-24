@@ -17,7 +17,6 @@
  */
 
 import InventoryTable from '../components/InventoryTable';
-import Widget from '../components/Widget';
 import Container from 'react-bootstrap/Container';
 import styled from 'styled-components';
 
@@ -26,19 +25,9 @@ const InventoryList = styled(Container)`
   height: 100vh;
 `;
 
-const WidgetsRow = styled.div`
-  display: flex;
-  vertical-align: middle;
-`;
-
 export default function Inventory() {
   return (
     <InventoryList>
-      <WidgetsRow>
-        <Widget subject="Products" amount="200" label="left" />
-        <Widget subject="Products" amount="200" label="left" />
-        <Widget subject="Products" amount="200" label="left" />
-      </WidgetsRow>
       <InventoryTable />
     </InventoryList>
   );
