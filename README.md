@@ -40,10 +40,9 @@
 ### Tools
 
 - [**Vercel**](https://vercel.com) - _Web & API Deployment_
-- [**Buddy CI/CD**](https://app.buddy.works) - _Continuous Integration w/ API Testing `(Porting to TravisCI)`_
 - [**GitHub Actions**](https://vercel.com) - _CI/CD for Desktop App (`win`, `mac`, `linux`)_
 - [**CodeFactor**](https://codefactor.io) - _Code Quality_
-- [**Rollbar**](https://rollbar.com) - _Application Monitoring_
+- [**Sentry**](https://sentry.io) - _Application Monitoring_
 - [**Moesif API**](https://www.moesif.com/) - _API Analytics_
 - [**WhiteSource Renovate**](https://renovate.whitesourcesoftware.com/) - _Automated Dependency Updates_
 
