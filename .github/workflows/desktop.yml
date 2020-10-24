@@ -1,0 +1,58 @@
+name: Desktop Build
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ ubuntu-latest, windows-latest, macos-latest ]
+        node: [ 15 ]
+
+    steps:
+      - name: Add MSBuild to PATH
+        uses: microsoft/setup-msbuild@v1.0.2
+      - uses: actions/checkout@v2
+        # Notify MS_TEAMS
+      - name: Send notification to MS Teams
+      - uses: toko-bifrost/ms-teams-deploy-card@master
+        if: always()
+        with:
+          github-token: ${{ secrets.GH_ACTION }}
+          webhook-uri: ${{ secrets.MS_TEAMS_WEBHOOK_URI }}
+        # Cache Dependencies
+      - name: Cache node_modules
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: ~/.yarn-cache
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: sudo apt-get install --no-install-recommends -y libopenjp2-tools
+      - run: sudo apt-get install --no-install-recommends -y rpm
+      - run: npm i -g yarn
+      - run: yarn
+      - run: yarn workspace client lint
+      - run: yarn workspace client package-ci
+        # Build Artifacts
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: os-installers
+          path: |
+            client/release/*
+      - name: Archive code coverage results
+        uses: actions/upload-artifact@v2
