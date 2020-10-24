@@ -25,6 +25,7 @@ import Products from './Products';
 import ProductEntry from './ProductEntry';
 import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Notification from './Notification';
 
 const TableContainer = createGlobalStyle`
   div.table-responsive {
@@ -140,6 +141,7 @@ export default function InventoryTable() {
           )}
         </tbody>
       </ProductTable>
+      <Notification />
     </>
   );
 }
