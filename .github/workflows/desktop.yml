@@ -21,14 +21,14 @@ jobs:
           github-token: ${{ secrets.GH_ACTION }}
           webhook-uri: ${{ secrets.MS_TEAMS_WEBHOOK_URI }}
       - name: Cache node_modules
-          uses: actions/cache@v2
-          env:
-            cache-name: cache-node-modules
-          with:
-            path: ~/.yarn-cache
-            key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
-            restore-keys: |
-              ${{ runner.os }}-build-${{ env.cache-name }}-
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: ~/.yarn-cache
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
@@ -64,14 +64,14 @@ jobs:
           github-token: ${{ secrets.GH_ACTION }}
           webhook-uri: ${{ secrets.MS_TEAMS_WEBHOOK_URI }}
       - name: Cache node_modules
-          uses: actions/cache@v2
-          env:
-            cache-name: cache-node-modules
-          with:
-            path: ~/.yarn-cache
-            key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
-            restore-keys: |
-              ${{ runner.os }}-build-${{ env.cache-name }}-
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: ~/.yarn-cache
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
@@ -102,14 +102,14 @@ jobs:
           github-token: ${{ secrets.GH_ACTION }}
           webhook-uri: ${{ secrets.MS_TEAMS_WEBHOOK_URI }}
       - name: Cache node_modules
-          uses: actions/cache@v2
-          env:
-            cache-name: cache-node-modules
-          with:
-            path: ~/.yarn-cache
-            key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
-            restore-keys: |
-              ${{ runner.os }}-build-${{ env.cache-name }}-
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: ~/.yarn-cache
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
