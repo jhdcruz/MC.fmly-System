@@ -153,11 +153,10 @@
       "output": "release"
     },
     "extraResources": [
-      "resources/**/**",
       "src/assets/fonts/**/**"
     ],
     "extraFiles": [
-      "resources/LICENSE.txt"
+      "resources/*"
     ],
     "publish": {
       "provider": "github",
