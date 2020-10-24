@@ -22,16 +22,6 @@ jobs:
         with:
           github-token: ${{ secrets.GH_ACTION }}
           webhook-uri: ${{ secrets.MS_TEAMS_WEBHOOK_URI }}
-      - uses: actions/cache@v2
-        env:
-          cache-name: cache-node-modules
-        with:
-          path: ~/.yarn-cache
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}-
-            ${{ runner.os }}-build-
-            ${{ runner.os }}-
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
@@ -43,7 +33,7 @@ jobs:
       - run: yarn workspace client lint
       - run: yarn workspace client package-ci
       - name: Upload build artifacts
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v2.2.0
         with:
           name: os-installers
           path: client/release/*
