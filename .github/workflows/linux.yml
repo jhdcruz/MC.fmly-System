@@ -1,4 +1,4 @@
-name: Desktop Build
+name: Linux Build
 
 on:
   push:
@@ -8,17 +8,12 @@ on:
 
 jobs:
   build:
-    runs-on: [ ubuntu-latest, windows-latest, macos-latest ]
+    runs-on: ubuntu-latest
     strategy:
       matrix:
-        os: ${{ matrix.os }}
-        node: [ 15 ]
+        node-version: [ 15.x ]
 
     steps:
-      - name: install required tools
-      - run: sudo apt-get install --no-install-recommends -y libopenjp2-tools
-      - run: sudo apt-get install --no-install-recommends -y rpm
-      - uses: microsoft/setup-msbuild@v1.0.2
       - uses: actions/checkout@v2
       - uses: toko-bifrost/ms-teams-deploy-card@master
         if: always()
@@ -29,12 +24,14 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
+      - run: sudo apt-get install --no-install-recommends -y libopenjp2-tools
+      - run: sudo apt-get install --no-install-recommends -y rpm
       - run: npm i -g yarn
       - run: yarn
       - run: yarn workspace client lint
-      - run: yarn workspace client package-ci
-      - name: Upload build artifacts
-      - uses: actions/upload-artifact@v2.2.0
+      - run: yarn workspace client package-linux
+      - uses: toko-bifrost/ms-teams-deploy-card@master
+        if: always()
         with:
-          name: os-installers
-          path: client/release/*
+          github-token: ${{ secrets.GH_ACTION }}
+          webhook-uri: ${{ secrets.MS_TEAMS_WEBHOOK_URI }}
