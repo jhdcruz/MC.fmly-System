@@ -67,7 +67,7 @@ const Loader = styled(Spinner)`
   height: 3rem;
   position: absolute;
   right: 41%;
-  top: 19rem;
+  top: 22rem;
 `;
 
 // Shows on no products registered
