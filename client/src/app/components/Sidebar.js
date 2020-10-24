@@ -16,6 +16,7 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Nav from 'react-bootstrap/Nav';
 import Image from 'react-bootstrap/Image';
@@ -24,9 +25,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faBoxes,
   faClipboardList,
-  faHome
+  faCog,
+  faHome,
+  faPrint
 } from '@fortawesome/free-solid-svg-icons';
 import Brand from '../../assets/img/profile.png';
+import SettingsModal from '../components/SettingsModal';
+import Button from 'react-bootstrap/Button';
 
 const SideMenu = styled.aside`
   background-color: #303030;
@@ -57,6 +62,21 @@ const TabRoutes = styled(Link)`
   }
 `;
 
+const SettingsButton = styled(Button)`
+  background-color: transparent;
+  color: #d9d9d9 !important;
+  font-size: 1.1rem;
+  padding: 0.8rem 3.1rem 10px 0;
+  margin: 0;
+  border: none;
+  vertical-align: center;
+
+  :hover {
+    background-color: #1e1e1e !important;
+    box-shadow: inset 0 0 15px #111111;
+  }
+`;
+
 const FAIcon = styled(FontAwesomeIcon)`
   font-size: 16px;
   margin-right: 4px;
@@ -64,6 +84,8 @@ const FAIcon = styled(FontAwesomeIcon)`
 `;
 
 export default function Sidebar() {
+  const [modalShow, setModalShow] = useState(false);
+
   return (
     <SideMenu>
       <Nav defaultActiveKey="/" className="flex-column">
@@ -78,11 +100,23 @@ export default function Sidebar() {
             <FAIcon icon={faBoxes} /> Inventory
           </Nav.Link>
         </TabRoutes>
+        <TabRoutes to="/printing">
+          <Nav.Link as="li">
+            <FAIcon icon={faPrint} /> Printing
+          </Nav.Link>
+        </TabRoutes>
         <TabRoutes to="/orders">
           <Nav.Link as="li">
             <FAIcon icon={faClipboardList} /> Orders
           </Nav.Link>
         </TabRoutes>
+        {/* Settings Modal */}
+        <TabRoutes onClick={() => setModalShow(true)}>
+          <Nav.Link as="li">
+            <FAIcon icon={faCog} /> Settings
+          </Nav.Link>
+        </TabRoutes>
+        <SettingsModal show={modalShow} onHide={() => setModalShow(false)} />
       </Nav>
     </SideMenu>
   );
