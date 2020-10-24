@@ -35,21 +35,21 @@ import SettingsModal from '../components/SettingsModal';
 import LockModal from '../components/LockModal';
 
 const SideMenu = styled.aside`
-  background-color: #303030;
+  background-color: #232323;
   position: fixed;
   left: 0;
   margin: 1rem 0 1rem 1rem;
   width: 14rem;
   height: 90vh;
-  border-radius: 2rem;
+  border-radius: 1.6rem;
   box-shadow: 0 0 6px #232323;
 
   #AppLockModal {
     position: fixed;
-    bottom: 2.4rem;
-    padding: 5px 3.4rem 5px 2.6rem !important;
-    border-bottom-right-radius: 8px;
-    border-bottom-left-radius: 8px;
+    bottom: 8%;
+    padding: 5px 3.5rem 5px 2.4rem !important;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
 `;
 
 const Branding = styled(Image)`
@@ -65,7 +65,7 @@ const TabRoutes = styled(Link)`
   margin: 0;
 
   :hover {
-    background-color: #1e1e1e !important;
+    background-color: #181818 !important;
     box-shadow: inset 0 0 15px #111111;
   }
 `;
