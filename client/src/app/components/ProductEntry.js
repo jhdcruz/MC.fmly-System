@@ -95,13 +95,28 @@ export default function ProductEntry() {
   return (
     <TableRow className="product">
       <TableData className="code" colSpan="1">
-        <FormControl placeholder="# Code" type="string" />
+        <FormControl
+          placeholder="# Code"
+          type="string"
+          minLength="2"
+          maxLength="13"
+        />
       </TableData>
       <TableData className="name">
-        <FormControl placeholder="Item Name" type="string" />
+        <FormControl
+          placeholder="Item Name"
+          type="string"
+          minLength="2"
+          maxLength="30"
+        />
       </TableData>
       <TableData className="type">
-        <FormControl placeholder="Type" type="string" />
+        <FormControl
+          placeholder="Type"
+          type="string"
+          minLength="2"
+          maxLength="20"
+        />
       </TableData>
       <TableData className="stock">
         <p>
