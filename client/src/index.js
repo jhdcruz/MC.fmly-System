@@ -26,9 +26,9 @@ import * as serviceWorker from './serviceWorker';
 require('dotenv').config();
 
 Sentry.init({
-  dsn: `${process.env.SENTRY_ERRMON}`,
+  dsn: process.env.SENTRY_ERRMON,
   integrations: [new Integrations.BrowserTracing()],
-  tracesSampleRate: 0.7
+  tracesSampleRate: 0.8
 });
 
 ReactDOM.render(
