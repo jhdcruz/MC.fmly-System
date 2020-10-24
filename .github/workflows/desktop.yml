@@ -8,13 +8,16 @@ on:
 
 jobs:
   build:
-    runs-on: ${{ matrix.os }}
+    runs-on: [ ubuntu-latest, windows-latest, macos-latest ]
     strategy:
       matrix:
-        os: [ ubuntu-latest, windows-latest, macos-latest ]
+        os: ${{ matrix.os }}
         node: [ 15 ]
 
     steps:
+      - name: install required tools
+      - run: sudo apt-get install --no-install-recommends -y libopenjp2-tools
+      - run: sudo apt-get install --no-install-recommends -y rpm
       - uses: microsoft/setup-msbuild@v1.0.2
       - uses: actions/checkout@v2
       - uses: toko-bifrost/ms-teams-deploy-card@master
@@ -26,8 +29,6 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - run: sudo apt-get install --no-install-recommends -y libopenjp2-tools
-      - run: sudo apt-get install --no-install-recommends -y rpm
       - run: npm i -g yarn
       - run: yarn
       - run: yarn workspace client lint
