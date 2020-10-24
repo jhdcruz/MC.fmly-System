@@ -15,19 +15,14 @@ jobs:
         node: [ 15 ]
 
     steps:
-      - name: Add MSBuild to PATH
-        uses: microsoft/setup-msbuild@v1.0.2
+      - uses: microsoft/setup-msbuild@v1.0.2
       - uses: actions/checkout@v2
-        # Notify MS_TEAMS
-      - name: Send notification to MS Teams
       - uses: toko-bifrost/ms-teams-deploy-card@master
         if: always()
         with:
           github-token: ${{ secrets.GH_ACTION }}
           webhook-uri: ${{ secrets.MS_TEAMS_WEBHOOK_URI }}
-        # Cache Dependencies
-      - name: Cache node_modules
-        uses: actions/cache@v2
+      - uses: actions/cache@v2
         env:
           cache-name: cache-node-modules
         with:
@@ -47,10 +42,8 @@ jobs:
       - run: yarn
       - run: yarn workspace client lint
       - run: yarn workspace client package-ci
-        # Build Artifacts
       - name: Upload build artifacts
-        uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v2
         with:
           name: os-installers
-          path: |
-            client/release/*
+          path: client/release/*
