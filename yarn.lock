@@ -8909,10 +8909,10 @@ mixin-object@^2.0.1:
   dependencies:
     minimist "^1.2.5"
 
-moesif-nodejs@3.1.4:
-  version "3.1.4"
-  resolved "https://registry.yarnpkg.com/moesif-nodejs/-/moesif-nodejs-3.1.4.tgz#d7042e30e2a7fce98c0fb7d5d908e237cee1baa0"
-  integrity sha512-qO4+jrAfW5TWMRWvPq9CcRV4EIPQvRd4T0pBZpDRLCQSkNKjjOeLYTE6cO0NBYHVM1BTuOXI1WYMqi+Pi2Rwug==
+moesif-nodejs@3.1.5:
+  version "3.1.5"
+  resolved "https://registry.yarnpkg.com/moesif-nodejs/-/moesif-nodejs-3.1.5.tgz#42d64959987010d7dced0b2a55c696f52c5d97ba"
+  integrity sha512-H6U9lsK57KYL/rTpX1fhmnmAPenJVWYnFkhNNsaU988IcvJv9s2g+v9bzoC1FUVnhswtaYBq70+Z1+Y2YQZJ+Q==
   dependencies:
     bytes "^3.1.0"
     card-validator "^6.2.0"
