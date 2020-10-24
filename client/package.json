@@ -12,6 +12,7 @@
     "build": "node scripts/build.js",
     "test": "echo \"Tests are for the weaks, living on the edge brotha...\"",
     "lint": "prettier \"src/**/**.{html,scss,js,jsx}\" --write && eslint \"src/**/**/*.{js,jsx}\" && stylelint \"./src/**/**/*.{js,css,scss,sass}\"",
+    "package-ci": "yarn postinstall && yarn build && electron-builder build --publish never",
     "package-all": "yarn postinstall && yarn build && electron-builder build -mwl --publish never",
     "package-mac": "yarn postinstall && yarn build && electron-builder build --mac --publish never",
     "package-linux": "yarn postinstall && yarn build && electron-builder build --linux --publish never",

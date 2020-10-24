@@ -1,5 +1,3 @@
-language: node_js
-
 jobs:
   include:
     - os: osx
@@ -72,8 +70,7 @@ before_script:
 
 script:
   - yarn workspaces run lint
-  - timeout 50s yarn start-electron
-  - cd client && package-all
-
+  - timeout 50s yarn start-electron && exit 0
+  - cd client && yarn package-ci
 #notifications:
 #  webhooks:
