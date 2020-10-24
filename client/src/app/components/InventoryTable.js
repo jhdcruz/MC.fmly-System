@@ -106,7 +106,7 @@ export default function InventoryTable() {
             .reverse()
             .map((product) => Products(product))
         ) : (
-          <Loader animation="border" role="status" />
+          <Loader variant="primary" animation="border" role="status" />
         )}
       </>
     );
@@ -141,7 +141,11 @@ export default function InventoryTable() {
           )}
         </tbody>
       </ProductTable>
-      <Notification />
+      <Notification
+        title="Notice"
+        time="Just now"
+        message="Products are loaded from a database. Notify me if you are stuck in loading."
+      />
     </>
   );
 }
