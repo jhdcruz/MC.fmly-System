@@ -26,12 +26,13 @@ import {
   faBoxes,
   faClipboardList,
   faCog,
+  faHistory,
   faHome,
-  faPrint
+  faLock
 } from '@fortawesome/free-solid-svg-icons';
 import Brand from '../../assets/img/profile.png';
 import SettingsModal from '../components/SettingsModal';
-import Button from 'react-bootstrap/Button';
+import LockModal from '../components/LockModal';
 
 const SideMenu = styled.aside`
   background-color: #303030;
@@ -42,6 +43,13 @@ const SideMenu = styled.aside`
   height: 90vh;
   border-radius: 2rem;
   box-shadow: 0 0 6px #232323;
+
+  #AppLockModal {
+    position: fixed;
+    bottom: 2.4rem;
+    padding: 5px 3.4rem 5px 2.6rem !important;
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
 `;
 
 const Branding = styled(Image)`
@@ -53,23 +61,8 @@ const Branding = styled(Image)`
 const TabRoutes = styled(Link)`
   color: #d9d9d9 !important;
   font-size: 1.1rem;
-  padding: 5px 1.7rem;
+  padding: 5px 1.7rem 5px 2.3rem;
   margin: 0;
-
-  :hover {
-    background-color: #1e1e1e !important;
-    box-shadow: inset 0 0 15px #111111;
-  }
-`;
-
-const SettingsButton = styled(Button)`
-  background-color: transparent;
-  color: #d9d9d9 !important;
-  font-size: 1.1rem;
-  padding: 0.8rem 3.1rem 10px 0;
-  margin: 0;
-  border: none;
-  vertical-align: center;
 
   :hover {
     background-color: #1e1e1e !important;
@@ -84,7 +77,8 @@ const FAIcon = styled(FontAwesomeIcon)`
 `;
 
 export default function Sidebar() {
-  const [modalShow, setModalShow] = useState(false);
+  const [settingsShow, setSettingsShow] = useState(false);
+  const [lockShow, setLockShow] = useState(false);
 
   return (
     <SideMenu>
@@ -97,26 +91,36 @@ export default function Sidebar() {
         </TabRoutes>
         <TabRoutes to="/inventory">
           <Nav.Link as="li">
-            <FAIcon icon={faBoxes} /> Inventory
+            <FAIcon icon={faHistory} /> Recent
           </Nav.Link>
         </TabRoutes>
         <TabRoutes to="/printing">
           <Nav.Link as="li">
-            <FAIcon icon={faPrint} /> Printing
+            <FAIcon icon={faBoxes} /> Catalog
           </Nav.Link>
         </TabRoutes>
         <TabRoutes to="/orders">
           <Nav.Link as="li">
-            <FAIcon icon={faClipboardList} /> Orders
+            <FAIcon icon={faClipboardList} /> Invoices
           </Nav.Link>
         </TabRoutes>
         {/* Settings Modal */}
-        <TabRoutes onClick={() => setModalShow(true)}>
+        <TabRoutes onClick={() => setSettingsShow(true)}>
           <Nav.Link as="li">
             <FAIcon icon={faCog} /> Settings
           </Nav.Link>
         </TabRoutes>
-        <SettingsModal show={modalShow} onHide={() => setModalShow(false)} />
+        <SettingsModal
+          show={settingsShow}
+          onHide={() => setSettingsShow(false)}
+        />
+        {/* AppLock Modal */}
+        <TabRoutes id="AppLockModal" onClick={() => setLockShow(true)}>
+          <Nav.Link as="li">
+            <FAIcon icon={faLock} /> Lock App
+          </Nav.Link>
+        </TabRoutes>
+        <LockModal show={lockShow} onHide={() => setLockShow(false)} />
       </Nav>
     </SideMenu>
   );
