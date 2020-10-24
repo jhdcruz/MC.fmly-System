@@ -50,7 +50,7 @@ const Alert = styled(Toast)`
   }
 `;
 
-export default function Notification() {
+export default function Notification(props) {
   const [show, setShow] = useState(true);
 
   return (
@@ -63,18 +63,17 @@ export default function Notification() {
         margin: 1 + 'rem'
       }}
       show={show}
-      delay={4000}
+      delay={4500}
       animation={true}
       autohide
     >
       <Alert.Header>
         <FontAwesomeIcon icon={faBell} className="mr-2" />
-        <strong className="mr-auto">Notice</strong>
-        <small>Just now</small>
+        <strong className="mr-auto">{props.title}</strong>
+        <small>{props.time}</small>
       </Alert.Header>
       <Alert.Body>
-        This table is connected to a database. <br />
-        Inform me if you are stuck at loading.
+        {props.message}
       </Alert.Body>
     </Alert>
   );
