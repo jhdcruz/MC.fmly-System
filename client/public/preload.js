@@ -24,7 +24,7 @@ window.addEventListener('DOMContentLoaded', () => {
       icon: 'favicon.ico',
       titleHorizontalAlignment: 'left',
       menu: null,
-      menuPosition: null,
+      menuPosition: null
     });
   }
 });
