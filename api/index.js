@@ -39,6 +39,7 @@ mongoose.Promise = global.Promise;
 api.use(cors());
 api.use(helmet());
 api.use(bodyParser.json());
+api.use(bodyParser.urlencoded({ extended: true }));
 api.use(moesifMiddleware);
 moesifMiddleware.startCaptureOutgoing();
 
@@ -60,7 +61,7 @@ mongoose
 require('./models/Product');
 
 // Routes Imports
-require('./routes/productRoutes')(api);
+require('./routes/productsRoutes')(api);
 
 api.get('/api', (req, res) => {
   // Vercel's Serveless Functions settings
