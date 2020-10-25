@@ -21,8 +21,7 @@ import Table from 'react-bootstrap/Table';
 import Spinner from 'react-bootstrap/Spinner';
 import styled, { createGlobalStyle } from 'styled-components';
 import getProducts from '../services/productService';
-import Product from './Product';
-import ProductEntry from './ProductEntry';
+import ExpandedProduct from './ExpandedProduct';
 import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Notification from './Notification';
@@ -45,7 +44,7 @@ const TableHeader = styled.th`
 
 const ProductTable = styled(Table)`
   height: 100%;
-  width: 96%;
+  width: 96% !important;
   min-width: 96% !important;
   min-height: 100%;
   margin: 0 3.5rem 2rem 0;
@@ -76,11 +75,11 @@ const NullItems = styled.p`
   color: #c3c3c3;
   margin-bottom: 1rem;
   position: absolute;
-  left: 36%;
+  left: 48%;
   top: 16rem;
 `;
 
-export default function RecentTable() {
+export default function CatalogTable() {
   const [products, setProducts] = useState(null);
 
   useEffect(() => {
@@ -100,11 +99,7 @@ export default function RecentTable() {
     return (
       <>
         {products && products.length >= 1 ? (
-          // Reverse result to prioritize new entries
-          products
-            .slice(0)
-            .reverse()
-            .map((products) => Product(products))
+          products.map((products) => ExpandedProduct(products))
         ) : (
           <Loader variant="primary" animation="border" role="status" />
         )}
@@ -118,7 +113,7 @@ export default function RecentTable() {
       <ProductTable hover responsive>
         <thead>
           <tr>
-            <TableHeader colSpan="1">
+            <TableHeader>
               # Code <FontAwesomeIcon icon={faCaretDown} />
             </TableHeader>
             <TableHeader>
@@ -130,10 +125,15 @@ export default function RecentTable() {
             <TableHeader>
               Quantity <FontAwesomeIcon icon={faCaretDown} />
             </TableHeader>
+            <TableHeader>
+              Created <FontAwesomeIcon icon={faCaretDown} />
+            </TableHeader>
+            <TableHeader>
+              Updated <FontAwesomeIcon icon={faCaretDown} />
+            </TableHeader>
           </tr>
         </thead>
         <tbody>
-          <ProductEntry />
           {products && products.length === 0 ? (
             <NullItems> No products registered...</NullItems>
           ) : (
