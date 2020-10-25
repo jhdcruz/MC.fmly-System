@@ -20,6 +20,8 @@ const { app, BrowserWindow } = require('electron');
 const isDev = require('electron-is-dev');
 const path = require('path');
 
+const singleInstance = app.requestSingleInstanceLock();
+
 function createWindow() {
   // Create the browser window.
   const win = new BrowserWindow({
@@ -74,7 +76,18 @@ app.on('activate', () => {
   if (BrowserWindow.getAllWindows().length === 0) {
     createWindow();
   } else {
-    // Persist single-instance
     app.quit();
   }
 });
+
+// Persist single instance lock
+if (!singleInstance) {
+  app.quit();
+} else {
+  app.on('second-instance', () => {
+    if (BrowserWindow) {
+      if (!BrowserWindow.isVisible()) BrowserWindow.show();
+      BrowserWindow.focus();
+    }
+  });
+}
