@@ -14,6 +14,26 @@
 
 ---
 
+## Table of Contents:
+
+- [**Tools/Languages**](#frameworks)
+  - [Frameworks](#frameworks)
+  - [Front-End](#front-end)
+  - [Back-End](#back-end)
+  - [Database](#database)
+  - [Tools](#tools)
+
+- **[Development](#prerequisites)**
+  - [Prerequisites](#prerequisites)
+  - [Installing Dependencies](#install-dependencies)
+  - [Running Scripts](#running-scripts)
+    - [Development](#development)
+        - [Web App](#web-app)
+        - [Desktop](#desktop)
+    - [Production](#production)
+        - [Web App](#web-app)
+        - [Desktop](#desktop)
+
 ## Frameworks:
 
 [![MERN Stack](https://webassets.mongodb.com/_com_assets/cms/mern-stack-b9q1kbudz0.png)](https://www.mongodb.com/mern-stack)
@@ -101,13 +121,13 @@ Running scripts on both projects:
 
 ## Development
 
-**Web App:**
+### Web App:
 
 ```bash
 yarn start
 ```
 
-**Desktop:**
+### Desktop:
 
 ```bash
 yarn start-electron
@@ -119,7 +139,7 @@ If you've written your own test files, put them in `tests/` and replace the `tes
 
 ## Production
 
-**Web App:**
+### Web App:
 
 ```bash
 yarn build
@@ -127,7 +147,7 @@ yarn build
 
 Output on `./client/build` directory. Ready to deploy to hosting.
 
-**Desktop:**
+### Desktop:
 
 ```bash
 cd client/ && package-[os]
