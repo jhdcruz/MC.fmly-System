@@ -1,5 +1,5 @@
 /*
- *     MC Inventory Management System
+ *     MC.fmly Inventory System
  *     Copyright (C) 2020  Joshua Hero H. Dela Cruz
  *
  *     This program is free software: you can redistribute it and/or modify
@@ -16,19 +16,6 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import InventoryTable from '../components/InventoryTable';
-import Container from 'react-bootstrap/Container';
-import styled from 'styled-components';
-
-const InventoryList = styled(Container)`
-  overflow-y: scroll !important;
-  height: 100vh;
-`;
-
-export default function Inventory() {
-  return (
-    <InventoryList>
-      <InventoryTable />
-    </InventoryList>
-  );
+export default function Catalog() {
+  return <h1>No content yet.</h1>;
 }

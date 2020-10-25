@@ -18,6 +18,7 @@
 
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import routes from '../routes.json';
 import Nav from 'react-bootstrap/Nav';
 import Image from 'react-bootstrap/Image';
 import styled from 'styled-components';
@@ -84,28 +85,28 @@ export default function Sidebar() {
     <SideMenu>
       <Nav defaultActiveKey="/" className="flex-column">
         <Branding src={Brand} />
-        <TabRoutes to="/">
+        <TabRoutes to={routes.DASHBOARD} draggable={false}>
           <Nav.Link as="li">
             <FAIcon icon={faHome} /> Dashboard
           </Nav.Link>
         </TabRoutes>
-        <TabRoutes to="/inventory">
+        <TabRoutes to={routes.RECENT} draggable={false}>
           <Nav.Link as="li">
             <FAIcon icon={faHistory} /> Recent
           </Nav.Link>
         </TabRoutes>
-        <TabRoutes to="/printing">
+        <TabRoutes to={routes.CATALOG} draggable={false}>
           <Nav.Link as="li">
             <FAIcon icon={faBoxes} /> Catalog
           </Nav.Link>
         </TabRoutes>
-        <TabRoutes to="/orders">
+        <TabRoutes to={routes.INVOICES} draggable={false}>
           <Nav.Link as="li">
             <FAIcon icon={faClipboardList} /> Invoices
           </Nav.Link>
         </TabRoutes>
         {/* Settings Modal */}
-        <TabRoutes onClick={() => setSettingsShow(true)}>
+        <TabRoutes onClick={() => setSettingsShow(true)} draggable={false}>
           <Nav.Link as="li">
             <FAIcon icon={faCog} /> Settings
           </Nav.Link>
@@ -115,7 +116,11 @@ export default function Sidebar() {
           onHide={() => setSettingsShow(false)}
         />
         {/* AppLock Modal */}
-        <TabRoutes id="AppLockModal" onClick={() => setLockShow(true)}>
+        <TabRoutes
+          id="AppLockModal"
+          onClick={() => setLockShow(true)}
+          draggable={false}
+        >
           <Nav.Link as="li">
             <FAIcon icon={faLock} /> Lock App
           </Nav.Link>

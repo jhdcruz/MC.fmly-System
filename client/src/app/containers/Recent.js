@@ -16,6 +16,19 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-export default function Reports() {
-  return <h1>No content yet.</h1>;
+import RecentTable from '../components/RecentTable';
+import Container from 'react-bootstrap/Container';
+import styled from 'styled-components';
+
+const RecentList = styled(Container)`
+  overflow-y: scroll !important;
+  height: 100vh;
+`;
+
+export default function Recent() {
+  return (
+    <RecentList>
+      <RecentTable />
+    </RecentList>
+  );
 }

@@ -26,8 +26,9 @@ import { AnimatedSwitch, spring } from 'react-router-transition';
 
 // Routes
 import Dashboard from './containers/Dashboard';
-import Inventory from './containers/Inventory';
-import Reports from './containers/Reports';
+import Recent from './containers/Recent';
+import Catalog from './containers/Catalog';
+import Invoices from './containers/Invoices';
 
 export default function App() {
   function mapStyles(styles) {
@@ -79,8 +80,9 @@ export default function App() {
                 className="routerContent"
               >
                 <Route exact path={routes.DASHBOARD} component={Dashboard} />
-                <Route path={routes.INVENTORY} component={Inventory} />
-                <Route path={routes.ORDERS} component={Reports} />
+                <Route path={routes.RECENT} component={Recent} />
+                <Route path={routes.CATALOG} component={Catalog} />
+                <Route path={routes.INVOICES} component={Invoices} />
                 <Route path={routes.NOTFOUND}>Something went wrong...</Route>
               </AnimatedSwitch>
             </Switch>

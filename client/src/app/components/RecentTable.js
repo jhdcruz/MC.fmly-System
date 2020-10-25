@@ -67,8 +67,8 @@ const Loader = styled(Spinner)`
   width: 3rem;
   height: 3rem;
   position: absolute;
-  right: 41%;
-  top: 22rem;
+  right: 50%;
+  top: 13rem;
 `;
 
 // Shows on no products registered
@@ -80,7 +80,7 @@ const NullItems = styled.p`
   top: 16rem;
 `;
 
-export default function InventoryTable() {
+export default function RecentTable() {
   const [products, setProducts] = useState(null);
 
   useEffect(() => {

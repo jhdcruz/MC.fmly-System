@@ -1,6 +1,7 @@
 {
   "DASHBOARD": "/",
-  "INVENTORY": "/inventory",
-  "ORDERS": "/orders",
-  "NOTFOUND": "*"
+  "RECENT": "/recent",
+  "CATALOG": "/catalog",
+  "INVOICES": "/invoices",
+  "NOTFOUND": "/*"
 }
