@@ -17,8 +17,8 @@
  */
 
 import Button from 'react-bootstrap/Button';
-import styled from 'styled-components';
 import Badge from 'react-bootstrap/Badge';
+import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPen, faTimes } from '@fortawesome/free-solid-svg-icons';
 

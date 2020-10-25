@@ -72,9 +72,7 @@ export default function Notification(props) {
         <strong className="mr-auto">{props.title}</strong>
         <small>{props.time}</small>
       </Alert.Header>
-      <Alert.Body>
-        {props.message}
-      </Alert.Body>
+      <Alert.Body>{props.message}</Alert.Body>
     </Alert>
   );
 }
