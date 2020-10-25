@@ -10,7 +10,7 @@
   ],
   "scripts": {
     "start": "concurrently \"yarn workspace api run serve\" \"yarn workspace client run start\" --kill-others-on-fail",
-    "start-electron": "concurrently \"yarn workspace api run start\" \"yarn workspace client run dev\" --kill-others-on-fail",
+    "electron": "concurrently \"yarn workspace api run start\" \"yarn workspace client run dev\" --kill-others-on-fail",
     "build": "yarn workspace client run build"
   },
   "devDependencies": {
