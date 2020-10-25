@@ -31,8 +31,8 @@
         - [Web App](#web-app)
         - [Desktop](#desktop)
     - [Production](#production)
-        - [Web App](#web-app)
-        - [Desktop](#desktop)
+        - [Web App](#web-app-1)
+        - [Desktop](#desktop-1)
 
 ## Frameworks:
 
