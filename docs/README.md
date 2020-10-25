@@ -1,18 +1,8 @@
-<div align="center">
-  
 # MC.fmly Inventory System
 
-### Status:
+Inventory System specifically built for [MC.fmly](https://www.facebook.com/MC.fmly/).
 
-| **Code Quality** | CI/CD | **Time Spent** |
-| ---------------- | ----- | -------------- |
-| [![CodeFactor](https://www.codefactor.io/repository/github/jhdcruz/mc.fmly-system/badge?s=12c335ef55a5d9cb0a15c337d17ac27b97e843cd)](https://www.codefactor.io/repository/github/jhdcruz/mc.fmly-system) | ![Desktop Builds](https://github.com/jhdcruz/MC.fmly-System/workflows/Desktop%20Builds/badge.svg) | [![time tracker](https://wakatime.com/badge/github/jhdcruz/MC.fmly-System.svg)](https://wakatime.com/badge/github/jhdcruz/MC.fmly-System)
-
-### Inventory System specifically built for [MC.fmly](https://www.facebook.com/MC.fmly/).
-
-</div>
-
----
+----
 
 ## Table of Contents:
 
