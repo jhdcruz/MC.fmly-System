@@ -18,41 +18,41 @@
 
 const mongoose = require('mongoose');
 
-const Product = mongoose.model('products');
+const Products = mongoose.model('products');
 
 module.exports = (api) => {
   api.get('/api/products', async (req, res) => {
-    const products = await Product.find();
+    const products = await Products.find();
     return res.status(200).send(products);
   });
 
   api.post('/api/products', async (req, res) => {
-    const product = await Product.create(req.body);
+    const products = await Products.create(req.body);
     return res.status(201).send({
       error: false,
-      product
+      products
     });
   });
 
   api.put('/api/products/:id', async (req, res) => {
     const { id } = req.params;
 
-    const product = await Product.findByIdAndUpdate(id, req.body);
+    const products = await Products.findByIdAndUpdate(id, req.body);
 
     return res.status(202).send({
       error: false,
-      product
+      products
     });
   });
 
   api.delete('/api/products/:id', async (req, res) => {
     const { id } = req.params;
 
-    const product = await Product.findByIdAndDelete(id);
+    const products = await Products.findByIdAndDelete(id);
 
     return res.status(202).send({
       error: false,
-      product
+      products
     });
   });
 };

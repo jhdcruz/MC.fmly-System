@@ -20,26 +20,22 @@ const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
 
-const productSchema = new Schema(
+const productsSchema = new Schema(
   {
     code: {
-      type: String,
-      required: true
+      type: String
     },
-    product: {
-      type: String,
-      required: true
+    name: {
+      type: String
     },
     type: {
-      type: String,
-      required: true
+      type: String
     },
     quantity: {
-      type: Number,
-      required: true
+      type: Number
     }
   },
   { timestamps: true }
 );
 
-mongoose.model('products', productSchema);
+mongoose.model('products', productsSchema);
