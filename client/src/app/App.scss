@@ -48,6 +48,12 @@
 }
 
 // Tag-level
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
 html,
 body {
   font-family: 'Noto Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI',
@@ -89,8 +95,8 @@ a {
 
 // Id-level
 #pageRoutes {
-  display: block;
-  margin-left: 16rem;
+  display: flex;
+  margin-left: 13rem;
   width: 95% !important;
   height: 100vh;
   overflow: hidden;
