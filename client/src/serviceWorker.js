@@ -1,5 +1,5 @@
 /*
- *     MC Inventory Management System
+ *     MC.fmly Inventory System
  *     Copyright (C) 2020  Joshua Hero H. Dela Cruz
  *
  *     This program is free software: you can redistribute it and/or modify
