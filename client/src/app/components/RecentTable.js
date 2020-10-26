@@ -30,6 +30,7 @@ import Notification from './Notification';
 const TableContainer = createGlobalStyle`
   div.table-responsive {
     display: flex !important;
+    padding-left: 2rem !important;
   }
 `;
 

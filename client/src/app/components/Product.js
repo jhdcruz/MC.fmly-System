@@ -59,6 +59,7 @@ const TableData = styled.td`
   font-size: 1.2vw;
   padding: 1rem 0 !important;
   border: none !important;
+  white-space: nowrap;
 
   p {
     display: flex;

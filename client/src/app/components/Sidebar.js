@@ -44,6 +44,7 @@ const SideMenu = styled.aside`
   height: 90vh;
   border-radius: 1.6rem;
   box-shadow: 0 0 6px #232323;
+  z-index: 9;
 
   #AppLockModal {
     position: fixed;

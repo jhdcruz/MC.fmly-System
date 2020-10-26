@@ -29,14 +29,17 @@ import Notification from './Notification';
 const TableContainer = createGlobalStyle`
   div.table-responsive {
     display: flex !important;
+    width: 83vw !important;
     overflow: auto !important;
+    padding: 0 0 0 1rem !important;
+    margin: 0 !important;
   }
 `;
 
 const TableHeader = styled.th`
   color: #c3c3c3;
   border: none !important;
-  width: 7rem;
+  width: max-content !important;
 
   :hover {
     color: #1a8ac4;
