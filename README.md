@@ -41,21 +41,21 @@
 
 ### Front-End:
 
-  - [**React**](https://reactjs.org/) - _UI Library_
-  - [**Electron**](https://electronjs.org) - _X-Platform Desktop Integration_
-  - [**Sass/Scss**](https://sass-lang.com) - _Stylesheet_
-  - [**`react-bootstrap`**](https://react-bootstrap.github.io/) - _UI Toolkit for `React`_
-  - [**`styled-components`**](https://styled-components.com/) - _ES6 Component Styling_
+- [**React**](https://reactjs.org/) - _UI Library_
+- [**Electron**](https://electronjs.org) - _X-Platform Desktop Integration_
+- [**Sass/Scss**](https://sass-lang.com) - _Stylesheet_
+- [**`react-bootstrap`**](https://react-bootstrap.github.io/) - _UI Toolkit for `React`_
+- [**`styled-components`**](https://styled-components.com/) - _ES6 Component Styling_
 
 ### Back-End:
 
-  - [**Express**](https://expressjs.com) - _Server-side Framework_
-  - [**Axios**](https://github.com/axios/axios) - _HTTP Client_
-  - [**Mongoose**](https:/mongoosejs.com) - _Object Modeling_
+- [**Express**](https://expressjs.com) - _Server-side Framework_
+- [**Axios**](https://github.com/axios/axios) - _HTTP Client_
+- [**Mongoose**](https:/mongoosejs.com) - _Object Modeling_
 
 ### Database:
 
-  - [**MongoDB**](https://mongodb.com) - _Document database_
+- [**MongoDB**](https://mongodb.com) - _Document database_
 
 ### Tools
 
