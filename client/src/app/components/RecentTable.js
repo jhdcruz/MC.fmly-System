@@ -101,9 +101,9 @@ export default function RecentTable() {
     return (
       <>
         {products && products.length >= 1 ? (
-          // Reverse result to prioritize new entries
+          // Reverse & limit result to prioritize new entries
           products
-            .slice(0)
+            .slice(0, 5)
             .reverse()
             .map((products) => Product(products))
         ) : (
