@@ -29,12 +29,14 @@ import Notification from './Notification';
 const TableContainer = createGlobalStyle`
   div.table-responsive {
     display: flex !important;
+    overflow: auto !important;
   }
 `;
 
 const TableHeader = styled.th`
   color: #c3c3c3;
   border: none !important;
+  width: 7rem;
 
   :hover {
     color: #1a8ac4;
@@ -44,12 +46,11 @@ const TableHeader = styled.th`
 
 const ProductTable = styled(Table)`
   height: 100%;
-  width: 96% !important;
-  min-width: 96% !important;
+  width: 150% !important;
+  min-width: 150% !important;
   min-height: 100%;
   margin: 0 3.5rem 2rem 0;
-  overflow-x: scroll !important;
-  overflow-y: hidden;
+  overflow: auto !important;
   background-color: transparent;
   border-collapse: separate;
   border-spacing: 0 1rem;
@@ -57,6 +58,7 @@ const ProductTable = styled(Table)`
   th,
   td {
     vertical-align: middle !important;
+    width: (max-content + 5rem) !important;
   }
 `;
 
