@@ -39,7 +39,6 @@ mongoose.Promise = global.Promise;
 api.use(cors());
 api.use(helmet());
 api.use(bodyParser.json());
-api.use(bodyParser.urlencoded({ extended: true }));
 api.use(moesifMiddleware);
 moesifMiddleware.startCaptureOutgoing();
 
