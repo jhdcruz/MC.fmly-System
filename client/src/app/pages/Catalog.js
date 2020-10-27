@@ -27,7 +27,7 @@ const CatalogList = styled(Container)`
   padding: 0;
 `;
 
-export default function Recent() {
+export default function Catalog() {
   return (
     <CatalogList>
       <CatalogTable />
