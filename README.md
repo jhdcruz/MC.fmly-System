@@ -16,23 +16,27 @@
 
 ## Table of Contents:
 
-- [**Tools/Languages**](#frameworks)
-  - [Frameworks](#frameworks)
-  - [Front-End](#front-end)
-  - [Back-End](#back-end)
-  - [Database](#database)
-  - [Tools](#tools)
+#### Tools/Languages
+- [Frameworks](#frameworks)
+- [Front-End](#front-end)
+- [Back-End](#back-end)
+- [Database](#database)
+- [Tools](#tools)
 
-- **[Development](#prerequisites)**
-  - [Prerequisites](#prerequisites)
-  - [Installing Dependencies](#install-dependencies)
-  - [Running Scripts](#running-scripts)
-    - [Development](#development)
-        - [Web App](#web-app)
-        - [Desktop](#desktop)
-    - [Production](#production)
-        - [Web App](#web-app-1)
-        - [Desktop](#desktop-1)
+#### Development
+- [Prerequisites](#prerequisites)
+- [Installing Dependencies](#install-dependencies)
+- [Running Scripts](#running-scripts)
+- [Development](#development)
+    - [Web App](#web-app)
+    - [Desktop](#desktop)
+- [Production](#production)
+    - [Web App](#web-app-1)
+    - [Desktop](#desktop-1)
+    
+#### Misc
+
+- [License](#license)
 
 ## Frameworks:
 
@@ -169,3 +173,7 @@ Packaging the desktop app depends on the current system you have.
 Running `linux || mac` on a `win` system can throw an error due to missing required tools.
 
 Packaging the desktop app for `linux` can be made on a `win` system inside `WSL`.
+
+## License
+
+This work is licensed under [GNU General Public License v3.0](https://opensource.org/licenses/GPL-3.0).
