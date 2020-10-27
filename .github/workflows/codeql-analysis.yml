@@ -27,16 +27,3 @@ jobs:
         yarn workspace client build
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v1
-
-  sonarcloud:
-    name: SonarCloud Analysis
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-      - name: SonarCloud Scan
-        uses: SonarSource/sonarcloud-github-action@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.GH_ACTION }}
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
