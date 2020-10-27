@@ -20,7 +20,7 @@ import { useEffect, useState } from 'react';
 import Table from 'react-bootstrap/Table';
 import Spinner from 'react-bootstrap/Spinner';
 import styled, { createGlobalStyle } from 'styled-components';
-import getProducts from '../services/productService';
+import productService from '../services/productService';
 import Product from './Product';
 import ProductEntry from './ProductEntry';
 import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
@@ -93,7 +93,7 @@ export default function RecentTable() {
   });
 
   const fetchProducts = async () => {
-    let res = await getProducts.getAll();
+    let res = await productService.getAll();
     setProducts(res);
   };
 
