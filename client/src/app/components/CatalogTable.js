@@ -29,10 +29,18 @@ import Notification from './Notification';
 const TableContainer = createGlobalStyle`
   div.table-responsive {
     display: flex !important;
-    width: 83vw !important;
+    width: 100%;
+    padding: 0 0 0 10px !important;
+    margin: 0 0 0 2.3rem;
     overflow: auto !important;
-    padding: 0 0 0 1rem !important;
-    margin: 0 !important;
+
+    table {
+      width: 100vw !important;
+    }
+
+    #ItemCode {
+      text-align: center;
+    }
   }
 `;
 
@@ -48,11 +56,12 @@ const TableHeader = styled.th`
 `;
 
 const ProductTable = styled(Table)`
+  display: inline-table;
   height: 100%;
-  width: 150% !important;
-  min-width: 150% !important;
+  width: 100%;
+  min-width: 100% !important;
   min-height: 100%;
-  margin: 0 3.5rem 2rem 0;
+  margin: 0 0 auto 0;
   overflow: auto !important;
   background-color: transparent;
   border-collapse: separate;
@@ -61,7 +70,6 @@ const ProductTable = styled(Table)`
   th,
   td {
     vertical-align: middle !important;
-    width: (max-content + 5rem) !important;
   }
 `;
 
@@ -118,22 +126,22 @@ export default function CatalogTable() {
       <ProductTable hover responsive>
         <thead>
           <tr>
-            <TableHeader>
+            <TableHeader id="ItemCode">
               # Code <FontAwesomeIcon icon={faCaretDown} />
             </TableHeader>
-            <TableHeader>
+            <TableHeader id="ProductName">
               Product <FontAwesomeIcon icon={faCaretDown} />
             </TableHeader>
-            <TableHeader>
+            <TableHeader id="ItemType">
               Type <FontAwesomeIcon icon={faCaretDown} />
             </TableHeader>
-            <TableHeader>
+            <TableHeader id="Quantity">
               Quantity <FontAwesomeIcon icon={faCaretDown} />
             </TableHeader>
-            <TableHeader>
+            <TableHeader id="CreatedAt">
               Created <FontAwesomeIcon icon={faCaretDown} />
             </TableHeader>
-            <TableHeader>
+            <TableHeader id="UpdatedAt">
               Updated <FontAwesomeIcon icon={faCaretDown} />
             </TableHeader>
           </tr>

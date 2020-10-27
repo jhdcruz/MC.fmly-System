@@ -29,6 +29,10 @@ const TableRow = styled.tr`
   width: max-content !important;
   box-shadow: 0 3px 5px #232323;
 
+  .stock {
+    padding-left: 1.7rem !important;
+  }
+
   :hover {
     background-color: #181818 !important;
 

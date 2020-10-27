@@ -95,9 +95,9 @@ a {
 
 // Id-level
 #pageRoutes {
-  display: flex;
+  display: inline;
   margin-left: 13rem;
-  width: 95% !important;
+  width: 100% !important;
   height: 100vh;
   overflow: hidden;
 }
@@ -115,10 +115,17 @@ a {
 
 .routerContent {
   position: relative !important;
+  display: flex;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 .routerContent > div {
   position: absolute !important;
+  display: flex;
+  width: 100%;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 .jumbotron,

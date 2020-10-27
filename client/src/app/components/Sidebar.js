@@ -43,7 +43,7 @@ const SideMenu = styled.aside`
   width: 14rem;
   height: 90vh;
   border-radius: 1.6rem;
-  box-shadow: 0 0 6px #232323;
+  box-shadow: 0 3px 6px #232323;
   z-index: 9;
 
   #AppLockModal {
@@ -58,6 +58,7 @@ const Branding = styled(Image)`
   width: 10rem;
   display: block;
   margin: 3rem auto 1rem auto;
+  border-radius: 5px;
 `;
 
 const TabRoutes = styled(Link)`

@@ -21,9 +21,10 @@ import Container from 'react-bootstrap/Container';
 import styled from 'styled-components';
 
 const CatalogList = styled(Container)`
-  overflow-y: scroll !important;
+  overflow: scroll !important;
   height: 100vh;
-  width: 96% !important;
+  width: 100%;
+  padding: 0;
 `;
 
 export default function Recent() {

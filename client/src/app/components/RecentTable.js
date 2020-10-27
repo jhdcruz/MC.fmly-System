@@ -30,7 +30,7 @@ import Notification from './Notification';
 const TableContainer = createGlobalStyle`
   div.table-responsive {
     display: flex !important;
-    padding-left: 2rem !important;
+    padding-left: 2.5rem !important;
   }
 `;
 
@@ -46,8 +46,8 @@ const TableHeader = styled.th`
 
 const ProductTable = styled(Table)`
   height: 100%;
-  width: 96%;
-  min-width: 96% !important;
+  width: 100%;
+  min-width: 100% !important;
   min-height: 100%;
   margin: 0 3.5rem 2rem 0;
   overflow-x: scroll !important;
