@@ -25,10 +25,10 @@ import Sidebar from './components/Sidebar';
 import { AnimatedSwitch, spring } from 'react-router-transition';
 
 // Routes
-import Dashboard from './containers/Dashboard';
-import Recent from './containers/Recent';
-import Catalog from './containers/Catalog';
-import Invoices from './containers/Invoices';
+import Dashboard from './pages/Dashboard';
+import Recent from './pages/Recent';
+import Catalog from './pages/Catalog';
+import Invoices from './pages/Invoices';
 
 export default function App() {
   function mapStyles(styles) {
