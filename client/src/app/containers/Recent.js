@@ -16,10 +16,10 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import {useEffect, useState} from 'react';
+import { useEffect, useState } from 'react';
 
 import NarrowProduct from '../components/NarrowProduct';
-import NarrowTable, {Loader, NullItems} from '../components/NarrowTable';
+import NarrowTable, { Loader, NullItems } from '../components/NarrowTable';
 import productService from '../services/productService';
 
 export default function Recent() {
@@ -27,7 +27,9 @@ export default function Recent() {
 
   useEffect(() => {
     if (!products) {
-      fetchProducts().catch((err) => { console.error(err); });
+      fetchProducts().catch((err) => {
+        console.error(err);
+      });
     }
   });
 
@@ -37,14 +39,18 @@ export default function Recent() {
   };
 
   const verifyProducts = () => {
-    return (<>{products && products.length >= 1
-                   ? (
-                         // Reverse & limit result to prioritize new entries
-                         products.slice(0, 5).reverse().map(
-                             (products) => NarrowProduct(products)))
-                   : (<Loader variant = "primary" animation = "border" role =
-                           "status" />)}<
-            />
+    return (
+      <>
+        {products && products.length >= 1 ? (
+          // Reverse & limit result to prioritize new entries
+          products
+            .slice(0, 5)
+            .reverse()
+            .map((products) => NarrowProduct(products))
+        ) : (
+          <Loader variant="primary" animation="border" role="status" />
+        )}
+      </>
     );
   };
 
@@ -52,8 +58,11 @@ export default function Recent() {
     <NarrowTable
       data={
         products && products.length === 0 ? (
-          <NullItems> No products registered...</NullItems>):
-        (verifyProducts())
-  } />
+          <NullItems> No products registered...</NullItems>
+        ) : (
+          verifyProducts()
+        )
+      }
+    />
   );
 }

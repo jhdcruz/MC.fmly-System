@@ -16,10 +16,10 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import {useEffect, useState} from 'react';
+import { useEffect, useState } from 'react';
 
 import ExtendedProduct from '../components/ExtendedProduct';
-import ExtendedTable, {NullItems} from '../components/ExtendedTable';
+import ExtendedTable, { NullItems } from '../components/ExtendedTable';
 import Loader from '../components/Loader';
 import getProducts from '../services/productService';
 
@@ -28,7 +28,9 @@ export default function Catalog() {
 
   useEffect(() => {
     if (!products) {
-      fetchProducts().catch((err) => { console.error(err); });
+      fetchProducts().catch((err) => {
+        console.error(err);
+      });
     }
   });
 
@@ -38,10 +40,14 @@ export default function Catalog() {
   };
 
   const verifyProducts = () => {
-    return (<>{products && products.length >= 1
-                   ? (products.map((products) => ExtendedProduct(products)))
-                   : (<Loader />)}<
-            />
+    return (
+      <>
+        {products && products.length >= 1 ? (
+          products.map((products) => ExtendedProduct(products))
+        ) : (
+          <Loader />
+        )}
+      </>
     );
   };
 
@@ -49,8 +55,11 @@ export default function Catalog() {
     <ExtendedTable
       data={
         products && products.length === 0 ? (
-          <NullItems> No products registered...</NullItems>):
-        (verifyProducts())
-  } />
+          <NullItems> No products registered...</NullItems>
+        ) : (
+          verifyProducts()
+        )
+      }
+    />
   );
 }

@@ -19,7 +19,7 @@
 import Spinner from 'react-bootstrap/Spinner';
 import styled from 'styled-components';
 
-const Loading = styled(Spinner) `
+const Loading = styled(Spinner)`
   margin: 10px auto;
   width: 3rem;
   height: 3rem;
@@ -29,7 +29,7 @@ const Loading = styled(Spinner) `
 `;
 
 const Loader = () => {
-  return <Loading variant = "primary" animation = "border" role = "status" />;
+  return <Loading variant="primary" animation="border" role="status" />;
 };
 
 export default Loader;

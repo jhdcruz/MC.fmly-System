@@ -16,10 +16,10 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import {faCaretDown} from '@fortawesome/free-solid-svg-icons';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Table from 'react-bootstrap/Table';
-import styled, {createGlobalStyle} from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 
 const TableContainer = createGlobalStyle`
   div.table-responsive {
@@ -50,7 +50,7 @@ const TableHeader = styled.th`
   }
 `;
 
-const ProductTable = styled(Table) `
+const ProductTable = styled(Table)`
   display: inline-table;
   height: 100%;
   width: 100%;
