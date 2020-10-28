@@ -46,7 +46,7 @@ const ProductTable = styled(Table)`
   width: 100%;
   min-width: 100% !important;
   min-height: 100%;
-  margin: 0 3.5rem 2rem 0;
+  margin: 0 0.5rem 2rem 0;
   overflow-x: scroll !important;
   overflow-y: hidden;
   background-color: transparent;
