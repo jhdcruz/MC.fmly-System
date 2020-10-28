@@ -25,7 +25,7 @@ const TableContainer = createGlobalStyle`
   div.table-responsive {
     display: flex !important;
     width: 100%;
-    padding: 0 0 0 10px !important;
+    padding: 0 0 0 0.5rem !important;
     margin: 0;
     overflow: auto !important;
 

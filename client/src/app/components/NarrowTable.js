@@ -26,7 +26,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 const TableContainer = createGlobalStyle`
   div.table-responsive {
     display: flex !important;
-    padding-left: 1rem !important;
+    padding: 0 1rem 0 0.5rem !important;
   }
 `;
 
