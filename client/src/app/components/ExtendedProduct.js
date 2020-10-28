@@ -16,11 +16,11 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import Button from 'react-bootstrap/Button';
-import Badge from 'react-bootstrap/Badge';
-import styled from 'styled-components';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPen, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Badge from 'react-bootstrap/Badge';
+import Button from 'react-bootstrap/Button';
+import styled from 'styled-components';
 
 const TableRow = styled.tr`
   color: white;

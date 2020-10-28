@@ -17,9 +17,10 @@
  */
 
 import { useEffect, useState } from 'react';
-import productService from '../services/productService';
+
 import NarrowProduct from '../components/NarrowProduct';
 import NarrowTable, { Loader, NullItems } from '../components/NarrowTable';
+import productService from '../services/productService';
 
 export default function Recent() {
   const [products, setProducts] = useState(null);

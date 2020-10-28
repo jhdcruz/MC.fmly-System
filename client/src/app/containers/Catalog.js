@@ -17,10 +17,11 @@
  */
 
 import { useEffect, useState } from 'react';
-import getProducts from '../services/productService';
+
 import ExtendedProduct from '../components/ExtendedProduct';
 import ExtendedTable, { NullItems } from '../components/ExtendedTable';
 import Loader from '../components/Loader';
+import getProducts from '../services/productService';
 
 export default function Catalog() {
   const [products, setProducts] = useState(null);
