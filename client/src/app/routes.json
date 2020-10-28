@@ -3,5 +3,8 @@
   "RECENT": "/recent",
   "CATALOG": "/catalog",
   "INVOICES": "/invoices",
+  "POS": "/pos",
+  "USER": "/user",
+  "SETTINGS": "/settings",
   "NOTFOUND": "/*"
 }

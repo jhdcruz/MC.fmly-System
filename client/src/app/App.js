@@ -29,6 +29,9 @@ import Dashboard from './pages/Dashboard';
 import Recent from './pages/Recent';
 import Catalog from './pages/Catalog';
 import Invoices from './pages/Invoices';
+import PointOfSale from './pages/PointOfSale';
+import User from './pages/User';
+import Settings from './pages/Settings';
 
 export default function App() {
   function mapStyles(styles) {
@@ -83,6 +86,9 @@ export default function App() {
                 <Route path={routes.RECENT} component={Recent} />
                 <Route path={routes.CATALOG} component={Catalog} />
                 <Route path={routes.INVOICES} component={Invoices} />
+                <Route path={routes.POS} component={PointOfSale} />
+                <Route path={routes.USER} component={User} />
+                <Route path={routes.SETTINGS} component={Settings} />
                 <Route path={routes.NOTFOUND}>Something went wrong...</Route>
               </AnimatedSwitch>
             </Switch>
