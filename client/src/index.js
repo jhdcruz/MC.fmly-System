@@ -18,24 +18,12 @@
 
 import { StrictMode } from 'react';
 import ReactDOM from 'react-dom';
-import * as Sentry from '@sentry/react';
-import { Integrations } from '@sentry/tracing';
 import App from './app/App';
 import * as serviceWorker from './serviceWorker';
 
-require('dotenv').config();
-
-Sentry.init({
-  dsn: process.env.SENTRY_ERRMON,
-  integrations: [new Integrations.BrowserTracing()],
-  tracesSampleRate: 0.8
-});
-
 ReactDOM.render(
   <StrictMode>
-    <Sentry.ErrorBoundary fallback={'An error has occured, restart the app!'}>
-      <App />
-    </Sentry.ErrorBoundary>
+    <App />
   </StrictMode>,
   document.getElementById('root')
 );
