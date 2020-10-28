@@ -16,20 +16,18 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { useEffect, useState } from 'react';
-import Table from 'react-bootstrap/Table';
-import Spinner from 'react-bootstrap/Spinner';
-import styled, { createGlobalStyle } from 'styled-components';
-import productService from '../services/productService';
-import Product from './Product';
-import ProductEntry from './ProductEntry';
 import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Spinner from 'react-bootstrap/Spinner';
+import Table from 'react-bootstrap/Table';
+import styled, { createGlobalStyle } from 'styled-components';
+
+import ProductEntry from './ProductEntry';
 
 const TableContainer = createGlobalStyle`
   div.table-responsive {
     display: flex !important;
-    padding-left: 1rem !important;
+    padding: 0 1rem 0 0.5rem !important;
   }
 `;
 
@@ -62,7 +60,7 @@ const ProductTable = styled(Table)`
 `;
 
 // Loading Spinner
-const Loader = styled(Spinner)`
+export const Loader = styled(Spinner)`
   margin: 10px auto;
   width: 3rem;
   height: 3rem;
@@ -72,7 +70,7 @@ const Loader = styled(Spinner)`
 `;
 
 // Shows on no products registered
-const NullItems = styled.p`
+export const NullItems = styled.p`
   color: #c3c3c3;
   margin-bottom: 1rem;
   position: absolute;
@@ -80,38 +78,7 @@ const NullItems = styled.p`
   top: 16rem;
 `;
 
-export default function RecentTable() {
-  const [products, setProducts] = useState(null);
-
-  useEffect(() => {
-    if (!products) {
-      fetchProducts().catch((err) => {
-        console.error(err);
-      });
-    }
-  });
-
-  const fetchProducts = async () => {
-    let res = await productService.getAll();
-    setProducts(res);
-  };
-
-  const verifyProducts = () => {
-    return (
-      <>
-        {products && products.length >= 1 ? (
-          // Reverse & limit result to prioritize new entries
-          products
-            .slice(0, 5)
-            .reverse()
-            .map((products) => Product(products))
-        ) : (
-          <Loader variant="primary" animation="border" role="status" />
-        )}
-      </>
-    );
-  };
-
+const NarrowTable = (props) => {
   return (
     <>
       <TableContainer />
@@ -134,13 +101,11 @@ export default function RecentTable() {
         </thead>
         <tbody>
           <ProductEntry />
-          {products && products.length === 0 ? (
-            <NullItems> No products registered...</NullItems>
-          ) : (
-            verifyProducts()
-          )}
+          {props.data}
         </tbody>
       </ProductTable>
     </>
   );
-}
+};
+
+export default NarrowTable;

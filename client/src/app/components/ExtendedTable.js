@@ -16,20 +16,16 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { useEffect, useState } from 'react';
-import Table from 'react-bootstrap/Table';
-import Spinner from 'react-bootstrap/Spinner';
-import styled, { createGlobalStyle } from 'styled-components';
-import getProducts from '../services/productService';
-import ExpandedProduct from './ExpandedProduct';
 import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Table from 'react-bootstrap/Table';
+import styled, { createGlobalStyle } from 'styled-components';
 
 const TableContainer = createGlobalStyle`
   div.table-responsive {
     display: flex !important;
     width: 100%;
-    padding: 0 0 0 10px !important;
+    padding: 0 0 0 0.5rem !important;
     margin: 0;
     overflow: auto !important;
 
@@ -72,18 +68,8 @@ const ProductTable = styled(Table)`
   }
 `;
 
-// Loading Spinner
-const Loader = styled(Spinner)`
-  margin: 10px auto;
-  width: 3rem;
-  height: 3rem;
-  position: absolute;
-  right: 50%;
-  top: 13rem;
-`;
-
 // Shows on no products registered
-const NullItems = styled.p`
+export const NullItems = styled.p`
   color: #c3c3c3;
   margin-bottom: 1rem;
   position: absolute;
@@ -91,34 +77,7 @@ const NullItems = styled.p`
   top: 16rem;
 `;
 
-export default function CatalogTable() {
-  const [products, setProducts] = useState(null);
-
-  useEffect(() => {
-    if (!products) {
-      fetchProducts().catch((err) => {
-        console.error(err);
-      });
-    }
-  });
-
-  const fetchProducts = async () => {
-    let res = await getProducts.getAll();
-    setProducts(res);
-  };
-
-  const verifyProducts = () => {
-    return (
-      <>
-        {products && products.length >= 1 ? (
-          products.map((products) => ExpandedProduct(products))
-        ) : (
-          <Loader variant="primary" animation="border" role="status" />
-        )}
-      </>
-    );
-  };
-
+const ExtendedTable = (props) => {
   return (
     <>
       <TableContainer />
@@ -145,14 +104,10 @@ export default function CatalogTable() {
             </TableHeader>
           </tr>
         </thead>
-        <tbody>
-          {products && products.length === 0 ? (
-            <NullItems> No products registered...</NullItems>
-          ) : (
-            verifyProducts()
-          )}
-        </tbody>
+        <tbody>{props.data}</tbody>
       </ProductTable>
     </>
   );
-}
+};
+
+export default ExtendedTable;

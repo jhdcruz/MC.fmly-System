@@ -16,19 +16,20 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import RecentTable from '../components/RecentTable';
-import Container from 'react-bootstrap/Container';
+import Spinner from 'react-bootstrap/Spinner';
 import styled from 'styled-components';
 
-const RecentList = styled(Container)`
-  overflow-y: scroll !important;
-  height: 100vh;
+const Loading = styled(Spinner)`
+  margin: 10px auto;
+  width: 3rem;
+  height: 3rem;
+  position: absolute;
+  right: 50%;
+  top: 13rem;
 `;
 
-export default function Recent() {
-  return (
-    <RecentList>
-      <RecentTable />
-    </RecentList>
-  );
-}
+const Loader = () => {
+  return <Loading variant="primary" animation="border" role="status" />;
+};
+
+export default Loader;
