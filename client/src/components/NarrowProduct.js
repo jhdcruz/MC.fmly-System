@@ -56,6 +56,7 @@ const TableRow = styled.tr`
 const TableData = styled.td`
   color: white;
   text-indent: 0.6rem;
+  width: max-content;
   font-size: 1.2vw;
   padding: 1rem 0 !important;
   border: none !important;
@@ -100,9 +101,14 @@ const NarrowProduct = (product) => {
           {product.type}
         </Tag>
       </TableData>
-      <TableData className="stock">
-        <p>
+      <TableData className="type">
+        <Tag pill variant="primary">
           {product.quantity}
+        </Tag>
+      </TableData>
+      <TableData className="updatedAt">
+        <p>
+          {product.createdAt}
           <ProductActions>
             <ProductControl variant="outline-success">
               <FontAwesomeIcon icon={faPen} />

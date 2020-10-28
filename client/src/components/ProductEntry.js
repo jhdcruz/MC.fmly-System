@@ -18,9 +18,9 @@
 
 import FormControl from 'react-bootstrap/FormControl';
 import styled from 'styled-components';
-import { Button } from 'react-bootstrap';
-import { faSave } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSave } from '@fortawesome/free-solid-svg-icons';
+import { Button } from 'react-bootstrap';
 
 const TableRow = styled.tr`
   color: white;
@@ -30,10 +30,6 @@ const TableRow = styled.tr`
 
   .code {
     padding-left: 1.2rem !important;
-  }
-
-  .stock {
-    padding-top: 9px !important;
   }
 
   :hover {
@@ -85,19 +81,12 @@ const TableData = styled.td`
       box-shadow: 0 0 7px #d7b9b4;
     }
   }
-
-  p {
-    display: flex;
-    vertical-align: middle;
-    margin: 0 15px 0 0;
-    padding: 7px 0 0 0;
-  }
 `;
 
 export default function ProductEntry() {
   return (
     <TableRow className="product">
-      <TableData className="code" colSpan="1">
+      <TableData className="code" colSpan={1}>
         <FormControl
           placeholder="# Code"
           type="string"
@@ -122,12 +111,12 @@ export default function ProductEntry() {
         />
       </TableData>
       <TableData className="stock">
-        <p>
-          <FormControl placeholder="Quantity" type="number" min="0" />
-          <Button variant="outline-info">
-            <FontAwesomeIcon icon={faSave} />
-          </Button>
-        </p>
+        <FormControl placeholder="Quantity" type="number" min="0" />
+      </TableData>
+      <TableData className="save">
+        <Button variant="outline-info">
+          <FontAwesomeIcon icon={faSave} />
+        </Button>
       </TableData>
     </TableRow>
   );

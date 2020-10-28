@@ -97,6 +97,9 @@ const NarrowTable = (props) => {
             <TableHeader>
               Quantity <FontAwesomeIcon icon={faCaretDown} />
             </TableHeader>
+            <TableHeader>
+              Created <FontAwesomeIcon icon={faCaretDown} />
+            </TableHeader>
           </tr>
         </thead>
         <tbody>
