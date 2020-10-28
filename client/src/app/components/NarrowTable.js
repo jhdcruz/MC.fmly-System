@@ -16,12 +16,13 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import Table from 'react-bootstrap/Table';
+import {faCaretDown} from '@fortawesome/free-solid-svg-icons';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import Spinner from 'react-bootstrap/Spinner';
-import styled, { createGlobalStyle } from 'styled-components';
+import Table from 'react-bootstrap/Table';
+import styled, {createGlobalStyle} from 'styled-components';
+
 import ProductEntry from './ProductEntry';
-import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const TableContainer = createGlobalStyle`
   div.table-responsive {
@@ -40,7 +41,7 @@ const TableHeader = styled.th`
   }
 `;
 
-const ProductTable = styled(Table)`
+const ProductTable = styled(Table) `
   height: 100%;
   width: 100%;
   min-width: 100% !important;
@@ -59,7 +60,7 @@ const ProductTable = styled(Table)`
 `;
 
 // Loading Spinner
-export const Loader = styled(Spinner)`
+export const Loader = styled(Spinner) `
   margin: 10px auto;
   width: 3rem;
   height: 3rem;

@@ -17,5 +17,5 @@
  */
 
 export default function Settings() {
-  return <h1>No content yet.</h1>;
+  return <h1>No content yet.< /h1>;
 }

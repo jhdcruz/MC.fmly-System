@@ -16,11 +16,11 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import Button from 'react-bootstrap/Button';
+import {faPen, faTimes} from '@fortawesome/free-solid-svg-icons';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import Badge from 'react-bootstrap/Badge';
+import Button from 'react-bootstrap/Button';
 import styled from 'styled-components';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPen, faTimes } from '@fortawesome/free-solid-svg-icons';
 
 const TableRow = styled.tr`
   color: white;
@@ -69,7 +69,7 @@ const TableData = styled.td`
   }
 `;
 
-const Tag = styled(Badge)`
+const Tag = styled(Badge) `
   font-size: 1.2vw;
   padding: 6px 10px 6px 0;
 `;
@@ -80,7 +80,7 @@ const ProductActions = styled.div`
   height: max-content;
 `;
 
-const ProductControl = styled(Button)`
+const ProductControl = styled(Button) `
   visibility: hidden;
   padding: 5px 10px;
   margin: 0 3px;
@@ -90,31 +90,23 @@ const ProductControl = styled(Button)`
 
 const NarrowProduct = (product) => {
   return (
-    <TableRow className="product" key={product._id}>
-      <TableData className="code" colSpan="1">
-        {product.code}
-      </TableData>
+      <TableRow className = "product" key = {product._id}>
+      <TableData className = "code" colSpan = "1">{product.code}<
+          /TableData>
       <TableData className="name">{product.name}</TableData>
-      <TableData className="type">
-        <Tag pill variant="primary">
-          {product.type}
-        </Tag>
+      <TableData className = "type">
+      <Tag pill variant = "primary">{product.type}</Tag>
       </TableData>
-      <TableData className="stock">
-        <p>
-          {product.quantity}
-          <ProductActions>
-            <ProductControl variant="outline-success">
-              <FontAwesomeIcon icon={faPen} />
+      <TableData className = "stock"><p>{product.quantity}<ProductActions>
+      <ProductControl variant = "outline-success">
+      <FontAwesomeIcon icon = { faPen } />
             </ProductControl>
-            <ProductControl variant="outline-danger">
-              <FontAwesomeIcon icon={faTimes} />
+      <ProductControl variant = "outline-danger">
+      <FontAwesomeIcon icon = { faTimes } />
             </ProductControl>
-          </ProductActions>
-        </p>
-      </TableData>
-    </TableRow>
-  );
+      </ProductActions>
+        </p></TableData>
+    </TableRow>);
 };
 
 export default NarrowProduct;
