@@ -24,14 +24,13 @@ import getProducts from '../services/productService';
 import ExpandedProduct from './ExpandedProduct';
 import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Notification from './Notification';
 
 const TableContainer = createGlobalStyle`
   div.table-responsive {
     display: flex !important;
     width: 100%;
     padding: 0 0 0 10px !important;
-    margin: 0 0 0 2.3rem;
+    margin: 0;
     overflow: auto !important;
 
     table {
@@ -154,11 +153,6 @@ export default function CatalogTable() {
           )}
         </tbody>
       </ProductTable>
-      <Notification
-        title="Notice"
-        time="Just now"
-        message="Products are loaded from a database. Notify me if you are stuck in loading."
-      />
     </>
   );
 }

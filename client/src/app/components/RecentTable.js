@@ -25,12 +25,11 @@ import Product from './Product';
 import ProductEntry from './ProductEntry';
 import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Notification from './Notification';
 
 const TableContainer = createGlobalStyle`
   div.table-responsive {
     display: flex !important;
-    padding-left: 2.5rem !important;
+    padding-left: 1rem !important;
   }
 `;
 
@@ -142,11 +141,6 @@ export default function RecentTable() {
           )}
         </tbody>
       </ProductTable>
-      <Notification
-        title="Notice"
-        time="Just now"
-        message="Products are loaded from a database. Notify me if you are stuck in loading."
-      />
     </>
   );
 }
