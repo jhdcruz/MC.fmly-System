@@ -50,6 +50,7 @@ const TableRow = styled.tr`
     border-top-left-radius: 1rem;
     border-bottom-left-radius: 1rem;
   }
+
   td:last-child {
     border-right-style: solid;
     border-bottom-right-radius: 1rem;
@@ -80,6 +81,8 @@ const TableData = styled.td`
       font-size: 1.2vw;
       background-color: #1b1e21;
       color: whitesmoke;
+      border-color: #d7b9b4;
+      box-shadow: 0 0 7px #d7b9b4;
     }
   }
 
