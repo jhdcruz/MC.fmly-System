@@ -16,26 +16,33 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { useEffect, useState } from 'react';
 import Table from 'react-bootstrap/Table';
-import Spinner from 'react-bootstrap/Spinner';
 import styled, { createGlobalStyle } from 'styled-components';
-import productService from '../services/productService';
-import Product from './Product';
-import ProductEntry from './ProductEntry';
 import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const TableContainer = createGlobalStyle`
   div.table-responsive {
     display: flex !important;
-    padding-left: 1rem !important;
+    width: 100%;
+    padding: 0 0 0 10px !important;
+    margin: 0;
+    overflow: auto !important;
+
+    table {
+      width: 100vw !important;
+    }
+
+    #ItemCode {
+      text-align: center;
+    }
   }
 `;
 
 const TableHeader = styled.th`
   color: #c3c3c3;
   border: none !important;
+  width: max-content !important;
 
   :hover {
     color: #1a8ac4;
@@ -44,13 +51,13 @@ const TableHeader = styled.th`
 `;
 
 const ProductTable = styled(Table)`
+  display: inline-table;
   height: 100%;
   width: 100%;
   min-width: 100% !important;
   min-height: 100%;
-  margin: 0 3.5rem 2rem 0;
-  overflow-x: scroll !important;
-  overflow-y: hidden;
+  margin: 0 0 auto 0;
+  overflow: auto !important;
   background-color: transparent;
   border-collapse: separate;
   border-spacing: 0 1rem;
@@ -61,86 +68,46 @@ const ProductTable = styled(Table)`
   }
 `;
 
-// Loading Spinner
-const Loader = styled(Spinner)`
-  margin: 10px auto;
-  width: 3rem;
-  height: 3rem;
-  position: absolute;
-  right: 50%;
-  top: 13rem;
-`;
-
 // Shows on no products registered
-const NullItems = styled.p`
+export const NullItems = styled.p`
   color: #c3c3c3;
   margin-bottom: 1rem;
   position: absolute;
-  left: 36%;
+  left: 48%;
   top: 16rem;
 `;
 
-export default function RecentTable() {
-  const [products, setProducts] = useState(null);
-
-  useEffect(() => {
-    if (!products) {
-      fetchProducts().catch((err) => {
-        console.error(err);
-      });
-    }
-  });
-
-  const fetchProducts = async () => {
-    let res = await productService.getAll();
-    setProducts(res);
-  };
-
-  const verifyProducts = () => {
-    return (
-      <>
-        {products && products.length >= 1 ? (
-          // Reverse & limit result to prioritize new entries
-          products
-            .slice(0, 5)
-            .reverse()
-            .map((products) => Product(products))
-        ) : (
-          <Loader variant="primary" animation="border" role="status" />
-        )}
-      </>
-    );
-  };
-
+const ExtendedTable = (props) => {
   return (
     <>
       <TableContainer />
       <ProductTable hover responsive>
         <thead>
           <tr>
-            <TableHeader colSpan="1">
+            <TableHeader id="ItemCode">
               # Code <FontAwesomeIcon icon={faCaretDown} />
             </TableHeader>
-            <TableHeader>
+            <TableHeader id="ProductName">
               Product <FontAwesomeIcon icon={faCaretDown} />
             </TableHeader>
-            <TableHeader>
+            <TableHeader id="ItemType">
               Type <FontAwesomeIcon icon={faCaretDown} />
             </TableHeader>
-            <TableHeader>
+            <TableHeader id="Quantity">
               Quantity <FontAwesomeIcon icon={faCaretDown} />
+            </TableHeader>
+            <TableHeader id="CreatedAt">
+              Created <FontAwesomeIcon icon={faCaretDown} />
+            </TableHeader>
+            <TableHeader id="UpdatedAt">
+              Updated <FontAwesomeIcon icon={faCaretDown} />
             </TableHeader>
           </tr>
         </thead>
-        <tbody>
-          <ProductEntry />
-          {products && products.length === 0 ? (
-            <NullItems> No products registered...</NullItems>
-          ) : (
-            verifyProducts()
-          )}
-        </tbody>
+        <tbody>{props.data}</tbody>
       </ProductTable>
     </>
   );
-}
+};
+
+export default ExtendedTable;

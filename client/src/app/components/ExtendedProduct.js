@@ -26,10 +26,11 @@ const TableRow = styled.tr`
   color: white;
   background-color: #232323;
   border-radius: 1rem;
+  width: max-content !important;
   box-shadow: 0 3px 5px #232323;
 
-  .code {
-    padding-left: 1.2rem !important;
+  .stock {
+    padding-left: 1.7rem !important;
   }
 
   :hover {
@@ -57,15 +58,16 @@ const TableData = styled.td`
   color: white;
   text-indent: 0.6rem;
   font-size: 1.2vw;
+  width: max-content !important;
   padding: 1rem 0 !important;
   border: none !important;
   white-space: nowrap;
 
   p {
-    display: flex;
+    display: inline-block;
     vertical-align: middle;
     margin: 0;
-    padding: 8px 0 0 0;
+    padding: 0 10px 0 0;
   }
 `;
 
@@ -88,10 +90,20 @@ const ProductControl = styled(Button)`
   border: none;
 `;
 
-const Product = (product) => {
+const ExtendedProduct = (product) => {
   return (
     <TableRow className="product" key={product._id}>
       <TableData className="code" colSpan="1">
+        <p>
+          <ProductActions>
+            <ProductControl variant="outline-danger">
+              <FontAwesomeIcon icon={faTimes} />
+            </ProductControl>
+            <ProductControl variant="outline-success">
+              <FontAwesomeIcon icon={faPen} />
+            </ProductControl>
+          </ProductActions>
+        </p>
         {product.code}
       </TableData>
       <TableData className="name">{product.name}</TableData>
@@ -100,21 +112,11 @@ const Product = (product) => {
           {product.type}
         </Tag>
       </TableData>
-      <TableData className="stock">
-        <p>
-          {product.quantity}
-          <ProductActions>
-            <ProductControl variant="outline-success">
-              <FontAwesomeIcon icon={faPen} />
-            </ProductControl>
-            <ProductControl variant="outline-danger">
-              <FontAwesomeIcon icon={faTimes} />
-            </ProductControl>
-          </ProductActions>
-        </p>
-      </TableData>
+      <TableData className="stock">{product.quantity}</TableData>
+      <TableData className="createdAt">{product.createdAt}</TableData>
+      <TableData className="updatedAt">{product.updatedAt}</TableData>
     </TableRow>
   );
 };
 
-export default Product;
+export default ExtendedProduct;
