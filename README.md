@@ -88,7 +88,8 @@ Boilerplate generated through ejected `create-react-app`.
 
 - [`npm v6.14+`](https://nodejs.org/en/) - Package manager
 - [`yarn v1.22+`](https://yarnpkg.com/getting-started/install) - Package & Project manager
-- [`Node.js v15.0+`](https://nodejs.org/en/) - JavaScript runtime 
+- [`Node.js v15.0+`](https://nodejs.org/en/) - JavaScript runtime
+- [`MongoDB Cluster`](https://mongodb.com/) - MongoDB Cluster URI
 
 **Windows:**
 
@@ -109,6 +110,20 @@ Can be either of the ff:
 
 - [`Postman`](https://www.postman.com/) - API Testing
 - [`MongoDB Compass`](https://www.mongodb.com/try/download/compass) - MongoDB GUI
+
+## Environment Variables
+
+Add your MongoDB URI to `.env` variable located in `api/`
+
+```
+MONGO_ADMIN=[Your URI Here] # Don't add quotation marks
+```
+
+You also need a Moesif ID which you can get [here](https://www.moesif.com/wrap?onboard=true). But it's entirely **optional**.
+
+To start the app without a Moesif ID, you need to remove the _middleware_ in `index.js` located also in `api/` directory.
+
+> Remove the ff. lines: `25`, `37-39`, `50`, `51`
 
 ## Install Dependencies
 
