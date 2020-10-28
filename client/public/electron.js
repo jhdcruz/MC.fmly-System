@@ -49,6 +49,10 @@ function createWindow() {
   if (isDev) {
     win.webContents.openDevTools({ mode: 'detach' });
   }
+
+  win.once('ready-to-show', () => {
+    win.show();
+  });
 }
 
 // This method will be called when Electron has finished
