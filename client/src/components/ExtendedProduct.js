@@ -112,9 +112,40 @@ const ExtendedProduct = (product) => {
           {product.type}
         </Tag>
       </TableData>
-      <TableData className="stock">{product.quantity}</TableData>
-      <TableData className="createdAt">{product.createdAt}</TableData>
+      <TableData className="stock">
+        {/* Quantity Color Indicator */}
+        {(() => {
+          if (product.quantity <= 10) {
+            return (
+              <Tag pill variant="danger">
+                {product.quantity}
+              </Tag>
+            );
+          }
+          if (product.quantity <= 20) {
+            return (
+              <Tag pill variant="warning">
+                {product.quantity}
+              </Tag>
+            );
+          }
+          if (product.quantity <= 100) {
+            return (
+              <Tag pill variant="success">
+                {product.quantity}
+              </Tag>
+            );
+          } else {
+            return (
+              <Tag pill variant="info">
+                {product.quantity}
+              </Tag>
+            );
+          }
+        })()}
+      </TableData>
       <TableData className="updatedAt">{product.updatedAt}</TableData>
+      <TableData className="createdAt">{product.createdAt}</TableData>
     </TableRow>
   );
 };

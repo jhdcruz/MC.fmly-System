@@ -95,18 +95,49 @@ const NarrowProduct = (product) => {
       <TableData className="code" colSpan="1">
         {product.code}
       </TableData>
+
       <TableData className="name">{product.name}</TableData>
+
       <TableData className="type">
         <Tag pill variant="primary">
           {product.type}
         </Tag>
       </TableData>
-      <TableData className="type">
-        <Tag pill variant="primary">
-          {product.quantity}
-        </Tag>
+
+      <TableData className="stock">
+        {/* Quantity Color Indicator */}
+        {(() => {
+          if (product.quantity <= 10) {
+            return (
+              <Tag pill variant="danger">
+                {product.quantity}
+              </Tag>
+            );
+          }
+          if (product.quantity <= 20) {
+            return (
+              <Tag pill variant="warning">
+                {product.quantity}
+              </Tag>
+            );
+          }
+          if (product.quantity <= 100) {
+            return (
+              <Tag pill variant="success">
+                {product.quantity}
+              </Tag>
+            );
+          } else {
+            return (
+              <Tag pill variant="info">
+                {product.quantity}
+              </Tag>
+            );
+          }
+        })()}
       </TableData>
-      <TableData className="updatedAt">
+
+      <TableData className="createdAt">
         <p>
           {product.createdAt}
           <ProductActions>
