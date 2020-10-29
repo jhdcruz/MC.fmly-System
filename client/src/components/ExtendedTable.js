@@ -23,7 +23,7 @@ import styled, { createGlobalStyle } from 'styled-components';
 
 const TableContainer = createGlobalStyle`
   div.table-responsive {
-    display: flex !important;
+    display: contents !important;
     width: 100%;
     padding: 0 0 0 0.5rem !important;
     margin: 0;
@@ -31,6 +31,8 @@ const TableContainer = createGlobalStyle`
 
     table {
       width: 100vw !important;
+      padding: 0 3rem 0 1rem;
+      margin: 3rem 0 0 0 !important;
     }
 
     #ItemCode {
@@ -96,11 +98,11 @@ const ExtendedTable = (props) => {
             <TableHeader id="Quantity">
               Quantity <FontAwesomeIcon icon={faCaretDown} />
             </TableHeader>
-            <TableHeader id="CreatedAt">
-              Created <FontAwesomeIcon icon={faCaretDown} />
-            </TableHeader>
             <TableHeader id="UpdatedAt">
               Updated <FontAwesomeIcon icon={faCaretDown} />
+            </TableHeader>
+            <TableHeader id="CreatedAt">
+              Created <FontAwesomeIcon icon={faCaretDown} />
             </TableHeader>
           </tr>
         </thead>
