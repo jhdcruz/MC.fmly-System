@@ -23,13 +23,22 @@ const { Schema } = mongoose;
 const productsSchema = new Schema(
   {
     code: {
-      type: String
+      type: String,
+      uppercase: true,
+      trim: true
     },
     name: {
       type: String
     },
     type: {
-      type: String
+      type: String,
+      trim: true,
+      caseFirst: 'on',
+      unique: true,
+      collation: {
+        locale: 'en',
+        strength: 2
+      }
     },
     quantity: {
       type: Number
