@@ -18,6 +18,7 @@
 
 import { useEffect, useState } from 'react';
 
+import ExtendedTable, { NullItems } from '../components/ExtendedTable';
 import ExtendedProduct from '../components/ExtendedProduct';
 import Categories from '../components/Categories';
 import Loader from '../components/Loader';
@@ -54,15 +55,15 @@ export default function Catalog() {
   return (
     <>
       <Categories />
-      {/*<ExtendedTable*/}
-      {/*  data={*/}
-      {/*    products && products.length === 0 ? (*/}
-      {/*      <NullItems> No products registered...</NullItems>*/}
-      {/*    ) : (*/}
-      {/*      verifyProducts()*/}
-      {/*    )*/}
-      {/*  }*/}
-      {/*/>*/}
+      <ExtendedTable
+        data={
+          products && products.length === 0 ? (
+            <NullItems> No products registered...</NullItems>
+          ) : (
+            verifyProducts()
+          )
+        }
+      />
     </>
   );
 }
