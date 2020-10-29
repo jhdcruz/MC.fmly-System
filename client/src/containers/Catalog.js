@@ -16,54 +16,12 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { useEffect, useState } from 'react';
-
-import ExtendedTable, { NullItems } from '../components/ExtendedTable';
-import ExtendedProduct from '../components/ExtendedProduct';
 import Categories from '../components/Categories';
-import Loader from '../components/Loader';
-import getProducts from '../services/productService';
 
 export default function Catalog() {
-  const [products, setProducts] = useState(null);
-
-  useEffect(() => {
-    if (!products) {
-      fetchProducts().catch((err) => {
-        console.error(err);
-      });
-    }
-  });
-
-  const fetchProducts = async () => {
-    let res = await getProducts.getAll();
-    setProducts(res);
-  };
-
-  const verifyProducts = () => {
-    return (
-      <>
-        {products && products.length >= 1 ? (
-          products.map((products) => ExtendedProduct(products))
-        ) : (
-          <Loader />
-        )}
-      </>
-    );
-  };
-
   return (
     <>
       <Categories />
-      <ExtendedTable
-        data={
-          products && products.length === 0 ? (
-            <NullItems> No products registered...</NullItems>
-          ) : (
-            verifyProducts()
-          )
-        }
-      />
     </>
   );
 }
