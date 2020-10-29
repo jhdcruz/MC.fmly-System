@@ -24,48 +24,58 @@
 import styled from 'styled-components';
 import InputGroup from 'react-bootstrap/InputGroup';
 import FormControl from 'react-bootstrap/FormControl';
-import Dropdown from 'react-bootstrap/Dropdown';
-import DropdownButton from 'react-bootstrap/DropdownButton';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
-const ItemDivider = styled(Dropdown.Divider)`
+const Search = styled.div`
+  width: 30vw;
+  margin: 1rem 2rem 0 1rem;
+  position: fixed;
+  box-shadow: 0 3px 6px #232323;
+
+  #search-icon {
+    background-color: #232323;
+    color: whitesmoke;
+    border: none;
+  }
+
+  input {
   margin: 0;
-`;
+  font-size: 1.3vw;
+  background-color: #232323;
+  color: whitesmoke;
+  border: none;
+  border-right: 2px inset #d7b9b4;
 
-// const SearchLabel = styled(Dropdown.Header)`
-//   font-size: 15px;
-//   margin: 0 0 0 10px;
-//   padding: 5px 5px 3px 5px;
-// `;
+  ::placeholder {
+    color: #c4c4c4;
+    font-size: 1.2vw;
+  }
 
-const DropdownItem = styled(Dropdown.Item)`
-  padding: 6px 15px;
+  :active,
+  :focus {
+    font-size: 1.2vw;
+    background-color: #1b1e21;
+    color: whitesmoke;
+    border-color: #d7b9b4;
+    box-shadow: 0 0 7px #d7b9b4;
+  }
 `;
 
 export default function SearchBar() {
   return (
-    <>
-      <InputGroup className="mb-3">
-        <InputGroup.Prepend>
-          <InputGroup.Text id="Searchbar">Search</InputGroup.Text>
-        </InputGroup.Prepend>
-        <FormControl id="basic-url" aria-describedby="basic-addon3" />
-
-        <DropdownButton
-          as={InputGroup.Append}
-          variant="outline-secondary"
-          title="Filter"
-          id="input-group-dropdown-2"
-        >
-          <Dropdown.Header>Filter by:</Dropdown.Header>
-          <DropdownItem id="code"># Code</DropdownItem>
-          <ItemDivider />
-          <DropdownItem id="name">Name</DropdownItem>
-          <ItemDivider />
-          <DropdownItem id="type">Type</DropdownItem>
-          <ItemDivider />
-          <DropdownItem id="quantity">Quantity</DropdownItem>
-        </DropdownButton>
+    <Search>
+      <InputGroup>
+        <FormControl
+          placeholder="search products..."
+          aria-describedby="searchbar"
+        />
+        <InputGroup.Append>
+          <InputGroup.Text id="search-icon" as="button">
+            <FontAwesomeIcon icon={faSearch} />
+          </InputGroup.Text>
+        </InputGroup.Append>
       </InputGroup>
-    </>
+    </Search>
   );
 }
