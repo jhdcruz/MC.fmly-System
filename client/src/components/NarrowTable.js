@@ -42,12 +42,10 @@ const TableHeader = styled.th`
 `;
 
 const ProductTable = styled(Table)`
-  height: 100%;
   width: 100%;
   min-width: 100% !important;
-  min-height: 100%;
   margin: 0 0.5rem 2rem 0;
-  overflow-x: scroll !important;
+  overflow-x: auto !important;
   overflow-y: hidden;
   background-color: transparent;
   border-collapse: separate;
