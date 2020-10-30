@@ -137,7 +137,7 @@ const ExtendedProduct = (product) => {
             );
           } else {
             return (
-              <Tag pill variant="info">
+              <Tag pill variant="dark">
                 {product.quantity}
               </Tag>
             );
