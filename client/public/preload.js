@@ -20,7 +20,7 @@ window.addEventListener('DOMContentLoaded', () => {
   if (process.platform !== 'darwin') {
     const customTitlebar = require('custom-electron-titlebar');
     new customTitlebar.Titlebar({
-      backgroundColor: customTitlebar.Color.fromHex('#222'),
+      backgroundColor: customTitlebar.Color.fromHex('#121212'),
       icon: 'favicon.ico',
       titleHorizontalAlignment: 'left',
       menu: null,
