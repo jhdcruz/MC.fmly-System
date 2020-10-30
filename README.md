@@ -57,6 +57,7 @@
 - [**React**](https://reactjs.org/) - _UI Library_
 - [**Electron**](https://electronjs.org) - _X-Platform Desktop Integration_
 - [**Sass/Scss**](https://sass-lang.com) - _Stylesheet_
+- [**Recharts**](http://recharts.org/en-US) - _Composable Charting Library_
 - [**`react-bootstrap`**](https://react-bootstrap.github.io/) - _UI Toolkit for `React`_
 - [**`styled-components`**](https://styled-components.com/) - _ES6 Component Styling_
 
