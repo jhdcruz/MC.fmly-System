@@ -28,6 +28,7 @@ import Loader from './Loader';
 import { NullItems } from './NarrowTable';
 import ExtendedTable from './ExtendedTable';
 import SearchBar from './SearchBar';
+import Notification from './Notification';
 
 const CatalogGrid = styled(Row)`
   display: flex;
@@ -181,6 +182,11 @@ export default function Categories() {
             </Tab.Pane>
           </Tab.Content>
         </CategoryTable>
+        <Notification
+          title="Notice"
+          time="Just now"
+          message="Navigate on the table using Scroll and Shift + Scroll."
+        />
       </CatalogGrid>
     </Tab.Container>
   );
