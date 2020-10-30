@@ -31,12 +31,16 @@ import SearchBar from './SearchBar';
 
 const CatalogGrid = styled(Row)`
   display: flex;
-  overflow: auto !important;
+  height: 100%;
+  overflow: hidden !important;
 `;
 
 const CategoryList = styled(Col)`
+  position: fixed;
+  top: 1%;
+  transform: translateY(-1%);
   max-width: 9rem;
-  margin: 1rem 3px 1rem 1.3rem;
+  margin: 1rem 5rem 1rem 1.3rem;
   padding: 1rem 1rem 1rem 1.2rem;
   color: whitesmoke;
   background-color: #232323;
@@ -62,15 +66,17 @@ const CategoryList = styled(Col)`
     color: #e5cac6;
     border-left: 2px inset #d7b9b4;
     background-color: #333333;
-      box-shadow: 2px 5px 7px #222222;
+    box-shadow: 2px 5px 7px #222222;
     text-shadow: 2px 5px 3px #222222;
   }
 `;
 
 const CategoryTable = styled(Col)`
-  overflow: auto;
+  overflow: auto !important;
   width: 100%;
+  height: 100vh;
   padding: 0;
+  margin-left: 10.6rem;
 `;
 
 const CategoryLine = styled.label`
