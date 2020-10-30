@@ -16,6 +16,14 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+import StockOverview from '../components/StockOverview';
+import TotalProducts from '../components/TotalProducts';
+
 export default function Dashboard() {
-  return <h1>No content yet.</h1>;
+  return (
+    <>
+      <StockOverview />
+      <TotalProducts />
+    </>
+  );
 }
