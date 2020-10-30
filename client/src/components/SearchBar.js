@@ -29,9 +29,9 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 const Search = styled.div`
   width: 30vw;
-  margin: 1rem 2rem 0 1rem;
+  margin: 1rem 2rem 0 1.5rem;
   position: fixed;
-  box-shadow: 0 3px 6px #232323;
+  box-shadow: 0 0 12px #d7b9b4;
 
   #search-icon {
     background-color: #232323;
