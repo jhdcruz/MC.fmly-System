@@ -36,7 +36,7 @@
     "react-router-dom": "5.2.0",
     "react-router-transition": "2.0.0",
     "recharts": "^1.8.5",
-    "styled-components": "5.2.0"
+    "styled-components": "5.2.1"
   },
   "devDependencies": {
     "@babel/core": "7.12.3",
@@ -261,6 +261,6 @@
     ]
   },
   "resolutions": {
-    "styled-components": "5.2.0"
+    "styled-components": "5.2.1"
   }
 }
