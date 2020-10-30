@@ -44,7 +44,7 @@ export default function Recent() {
         {products && products.length >= 1 ? (
           // Reverse & limit result to prioritize new entries
           products
-            .slice(0, 5)
+            .slice(5)
             .reverse()
             .map((products) => NarrowProduct(products))
         ) : (
