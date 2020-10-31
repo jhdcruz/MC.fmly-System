@@ -44,11 +44,11 @@ jobs:
         with:
           github-token: ${{ secrets.GH_ACTION }}
           webhook-uri: ${{ secrets.MS_TEAMS_WEBHOOK_URI }}
-      - name: Archive production artifacts
-        uses: actions/upload-artifact@v2.2.0
-        with:
-          name: desktop installers
-          path: client/release/*
+#      - name: Archive production artifacts
+#        uses: actions/upload-artifact@v2.2.0
+#        with:
+#          name: desktop installers
+#          path: client/release/*
 
   osx:
     runs-on: macos-latest
@@ -80,11 +80,11 @@ jobs:
       - run: yarn
       - run: yarn workspace client lint
       - run: yarn workspace client package-mac
-      - name: Archive production artifacts
-        uses: actions/upload-artifact@v2.2.0
-        with:
-          name: desktop installers
-          path: client/release/*
+#      - name: Archive production artifacts
+#        uses: actions/upload-artifact@v2.2.0
+#        with:
+#          name: desktop installers
+#          path: client/release/*
 
   windows:
     runs-on: windows-latest
@@ -118,8 +118,8 @@ jobs:
       - run: yarn
       - run: yarn workspace client lint
       - run: yarn workspace client package-win
-      - name: Archive production artifacts
-        uses: actions/upload-artifact@v2.2.0
-        with:
-          name: desktop installers
-          path: client/release/*
+#      - name: Archive production artifacts
+#        uses: actions/upload-artifact@v2.2.0
+#        with:
+#          name: desktop installers
+#          path: client/release/*
