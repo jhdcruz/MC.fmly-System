@@ -40,7 +40,7 @@ const renderQuarterTick = (tickProps) => {
   const date = new Date(value);
   const month = date.getMonth();
   const quarterNo = Math.floor(month / 3) + 1;
-  const isMidMonth = month % 3 === 1;
+  // const isMidMonth = month % 3 === 1;
 
   if (month % 3 === 1) {
     return (

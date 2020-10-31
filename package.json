@@ -1,35 +1,266 @@
 {
   "name": "mc-fmly-inventory-system",
-  "description": "MC.fmly Inventory System.",
+  "description": "MC.fmly Inventory System",
   "version": "0.1.0",
   "license": "GPL-3.0-or-later",
   "private": true,
-  "workspaces": [
-    "client",
-    "api"
-  ],
+  "main": "./build/electron.js",
+  "proxy": "http://localhost:5000",
   "scripts": {
-    "start": "concurrently \"yarn workspace api run start\" \"yarn workspace client run dev\" --kill-others-on-fail",
-    "web": "concurrently \"yarn workspace api run serve\" \"yarn workspace client run start\" --kill-others-on-fail",
-    "build": "yarn workspace client run build"
+    "start": "concurrently \"yarn api\" \"cross-env BROWSER=none yarn start\" \"wait-on http://localhost:3000 && electron .\" --kill-others-on-fail",
+    "web": "concurrently \"yarn api\" \"node scripts/start.js\"  --kill-others-on-fail",
+    "api": "cd api && yarn serve",
+    "build": "node scripts/build.js",
+    "test": "echo \"Short deadline to write test\"",
+    "lint": "prettier \"src/**/**.{html,scss,js,jsx}\" --write && eslint \"src/**/**/*.{js,jsx}\" && stylelint \"./src/**/**/*.{js,css,scss,sass}\"",
+    "package-ci": "yarn postinstall && yarn build && electron-builder build --publish never",
+    "package-all": "yarn postinstall && yarn build && electron-builder build -mwl --publish never",
+    "package-mac": "yarn postinstall && yarn build && electron-builder build --mac --publish never",
+    "package-linux": "yarn postinstall && yarn build && electron-builder build --linux --publish never",
+    "package-win": "yarn postinstall && yarn build && electron-builder build --win --publish never",
+    "postinstall": "electron-builder install-app-deps"
+  },
+  "dependencies": {
+    "@treverix/remote": "0.1.1",
+    "axios": "0.21.0",
+    "custom-electron-titlebar": "3.2.5",
+    "electron-is-dev": "1.2.0",
+    "react": "17.0.1",
+    "react-bootstrap": "1.4.0",
+    "react-dom": "17.0.1",
+    "react-router-dom": "5.2.0",
+    "react-router-transition": "2.0.0",
+    "recharts": "1.8.5",
+    "styled-components": "5.2.1"
   },
   "devDependencies": {
-    "cross-env": "7.0.2",
-    "concurrently": "5.3.0",
-    "eslint": "7.12.1",
-    "prettier": "2.1.2"
+    "@babel/core": "7.12.3",
+    "@babel/plugin-transform-react-jsx": "7.12.1",
+    "@fortawesome/fontawesome-svg-core": "1.2.32",
+    "@fortawesome/free-solid-svg-icons": "5.15.1",
+    "@fortawesome/react-fontawesome": "0.1.12",
+    "@svgr/webpack": "4.3.3",
+    "@testing-library/jest-dom": "4.2.4",
+    "@testing-library/react": "9.5.0",
+    "@testing-library/user-event": "7.2.1",
+    "autoprefixer": "10.0.1",
+    "babel-eslint": "10.1.0",
+    "babel-jest": "26.6.1",
+    "babel-loader": "8.1.0",
+    "babel-plugin-named-asset-import": "0.3.7",
+    "babel-preset-react-app": "10.0.0",
+    "bootstrap": "4.5.3",
+    "camelcase": "5.3.1",
+    "case-sensitive-paths-webpack-plugin": "2.3.0",
+    "concurrently": "^5.3.0",
+    "cross-env": "^7.0.2",
+    "css-loader": "3.6.0",
+    "dotenv": "8.2.0",
+    "dotenv-expand": "5.1.0",
+    "electron": "10.1.5",
+    "electron-builder": "22.9.1",
+    "electron-download": "4.1.1",
+    "electron-is-dev": "1.2.0",
+    "eslint": "^7.12.1",
+    "eslint-config-react-app": "6.0.0",
+    "eslint-loader": "3.0.4",
+    "eslint-plugin-flowtype": "4.6.0",
+    "eslint-plugin-import": "2.20.1",
+    "eslint-plugin-jsx-a11y": "6.4.1",
+    "eslint-plugin-react": "7.21.5",
+    "eslint-plugin-react-hooks": "4.2.0",
+    "file-loader": "6.2.0",
+    "fs-extra": "9.0.1",
+    "html-webpack-plugin": "4.0.0-beta.11",
+    "identity-obj-proxy": "3.0.0",
+    "jest": "26.6.1",
+    "jest-environment-jsdom-fourteen": "1.0.1",
+    "jest-resolve": "26.6.1",
+    "jest-watch-typeahead": "0.4.2",
+    "mini-css-extract-plugin": "1.2.1",
+    "node-sass": "yarn:sass",
+    "optimize-css-assets-webpack-plugin": "5.0.3",
+    "pnp-webpack-plugin": "1.6.4",
+    "postcss": "8.1.4",
+    "postcss-flexbugs-fixes": "5.0.0",
+    "postcss-loader": "4.0.4",
+    "postcss-normalize": "9.0.0",
+    "postcss-preset-env": "6.7.0",
+    "postcss-safe-parser": "4.0.1",
+    "prettier": "^2.1.2",
+    "react-app-polyfill": "2.0.0",
+    "react-dev-utils": "11.0.0",
+    "resolve": "1.18.1",
+    "resolve-url-loader": "3.1.2",
+    "sass-loader": "10.0.4",
+    "style-loader": "0.23.1",
+    "stylelint": "^13.7.2",
+    "stylelint-config-prettier": "8.0.2",
+    "stylelint-prettier": "1.1.2",
+    "terser-webpack-plugin": "2.3.8",
+    "ts-pnp": "1.1.6",
+    "url-loader": "2.3.0",
+    "wait-on": "5.2.0",
+    "webpack": "4.42.0",
+    "webpack-dev-server": "3.11.0",
+    "webpack-manifest-plugin": "2.2.0",
+    "workbox-webpack-plugin": "5.1.4"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/jhdcruz/MC.fmly-System.git"
+  "homepage": "./",
+  "build": {
+    "appId": "com.jhdcruz.mcis",
+    "productName": "MC.fmly Inventory System",
+    "files": [
+      "./build/**/**"
+    ],
+    "dmg": {
+      "icon": "resources/icon.icns",
+      "contents": [
+        {
+          "x": 130,
+          "y": 220
+        },
+        {
+          "x": 410,
+          "y": 220,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ]
+    },
+    "win": {
+      "icon": "resources/icon192.png",
+      "target": [
+        "nsis"
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": true,
+      "allowToChangeInstallationDirectory": true
+    },
+    "linux": {
+      "icon": "resources/icon192.png",
+      "target": [
+        "deb",
+        "rpm"
+      ],
+      "category": "Productivity"
+    },
+    "directories": {
+      "buildResources": "resources",
+      "output": "release"
+    },
+    "extraResources": [
+      "src/assets/fonts/**/**"
+    ],
+    "extraFiles": [
+      "resources/*"
+    ],
+    "publish": {
+      "provider": "github",
+      "owner": "Jhdcruz",
+      "repo": "https://github.com/jhdcruz/MC.fmly-System",
+      "publish": false
+    }
+  },
+  "eslintConfig": {
+    "extends": "react-app",
+    "rules": {
+      "react/jsx-uses-react": "off",
+      "react/react-in-jsx-scope": "off",
+      "import/no-anonymous-default-export": "off",
+      "import/no-extraneous-dependencies": "off"
+    },
+    "settings": {
+      "import/extensions": [
+        ".js",
+        ".jsx",
+        ".scss"
+      ]
+    }
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   },
   "author": {
-    "name": "Joshua Hero H. Dela Cruz | ICT301A | S.Y 2020-2021",
+    "name": "Jhdcruz",
     "email": "jhdcruz00@gmail.com",
-    "url": "https://jhdcruz.now.sh"
+    "url": "https://github.com/jhdcruz"
   },
-  "bugs": {
-    "url": "https://github.com/jhdcruz/MC.fmly-System/issues"
+  "jest": {
+    "roots": [
+      "<rootDir>/client/tests"
+    ],
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx,ts,tsx}",
+      "!src/**/*.d.ts"
+    ],
+    "setupFiles": [
+      "react-app-polyfill/jsdom"
+    ],
+    "setupFilesAfterEnv": [
+      "<rootDir>/client/src/setupTests.js"
+    ],
+    "testMatch": [
+      "<rootDir>/client/src/**/__tests__/**/*.{js,jsx,ts,tsx}",
+      "<rootDir>/client/src/**/*.{spec,test}.{js,jsx,ts,tsx}"
+    ],
+    "testEnvironment": "jest-environment-jsdom-fourteen",
+    "transform": {
+      "^.+\\.(js|jsx|ts|tsx)$": "<rootDir>/node_modules/babel-jest",
+      "^.+\\.css$": "<rootDir>/client/config/jest/cssTransform.js",
+      "^(?!.*\\.(js|jsx|ts|tsx|css|json)$)": "<rootDir>/client/config/jest/fileTransform.js"
+    },
+    "transformIgnorePatterns": [
+      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|ts|tsx)$",
+      "^.+\\.module\\.(css|sass|scss)$"
+    ],
+    "modulePaths": [],
+    "moduleNameMapper": {
+      "^react-native$": "react-native-web",
+      "^.+\\.module\\.(css|sass|scss)$": "identity-obj-proxy"
+    },
+    "moduleFileExtensions": [
+      "web.js",
+      "js",
+      "web.ts",
+      "ts",
+      "web.tsx",
+      "tsx",
+      "json",
+      "web.jsx",
+      "jsx",
+      "node"
+    ],
+    "watchPlugins": [
+      "jest-watch-typeahead/filename",
+      "jest-watch-typeahead/testname"
+    ]
   },
-  "homepage": "./"
+  "babel": {
+    "presets": [
+      "react-app"
+    ],
+    "plugins": [
+      [
+        "@babel/plugin-transform-react-jsx",
+        {
+          "runtime": "automatic"
+        }
+      ]
+    ]
+  },
+  "resolutions": {
+    "styled-components": "5.2.1"
+  }
 }

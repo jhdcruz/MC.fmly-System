@@ -16,6 +16,9 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+/* set changes */
+@use '~bootstrap/scss/bootstrap';
+
 /* Custom themes here */
 $theme-colors: (
   'primary': #d7b9b4,
@@ -26,6 +29,3 @@ $theme-colors: (
   'info': #22a1f5,
   'dark': #000000
 );
-
-/* set changes */
-@import '../node_modules/bootstrap/scss/bootstrap';

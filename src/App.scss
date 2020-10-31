@@ -19,8 +19,8 @@
 // Global Styles
 
 // Imports obviously
-@import '../node_modules/bootstrap/scss/bootstrap';
-@import 'src/themes';
+@use '../node_modules/bootstrap/scss/bootstrap';
+@use 'src/themes';
 
 // Fonts
 @font-face {

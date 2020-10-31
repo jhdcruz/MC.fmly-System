@@ -20,7 +20,7 @@ import { PureComponent } from 'react';
 import { Cell, Pie, PieChart } from 'recharts';
 import data from './json/pieChart.json';
 
-const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
+const COLORS = ['#22a1f5', '#4de670', '#faa142', '#FF8042'];
 
 const RADIAN = Math.PI / 180;
 const renderCustomizedLabel = ({
