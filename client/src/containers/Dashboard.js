@@ -16,14 +16,14 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import StockOverview from '../components/StockOverview';
-import TotalProducts from '../components/TotalProducts';
+import StockOverview from '../components/charts/StockOverview';
+import ProductsAllocation from '../components/charts/ProductsAllocation';
 
 export default function Dashboard() {
   return (
     <>
       <StockOverview />
-      <TotalProducts />
+      <ProductsAllocation />
     </>
   );
 }
