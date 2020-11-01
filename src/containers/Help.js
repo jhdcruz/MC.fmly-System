@@ -16,6 +16,6 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-export default function User() {
+export default function Help() {
   return <h1>No content yet.</h1>;
 }

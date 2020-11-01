@@ -31,7 +31,7 @@ import Invoices from './containers/Invoices';
 import PointOfSale from './containers/PointOfSale';
 import Recent from './containers/Recent';
 import Settings from './containers/Settings';
-import User from './containers/User';
+import Help from './containers/Help';
 import routes from './routes.json';
 
 export default function App() {
@@ -88,8 +88,8 @@ export default function App() {
                 <Route path={routes.CATALOG} component={Catalog} />
                 <Route path={routes.INVOICES} component={Invoices} />
                 <Route path={routes.POS} component={PointOfSale} />
-                <Route path={routes.USER} component={User} />
                 <Route path={routes.SETTINGS} component={Settings} />
+                <Route path={routes.HELP} component={Help} />
                 <Route path={routes.NOTFOUND}>Something went wrong...</Route>
               </AnimatedSwitch>
             </Switch>

@@ -4,7 +4,7 @@
   "CATALOG": "/catalog",
   "INVOICES": "/invoices",
   "POS": "/pos",
-  "USER": "/user",
+  "HELP": "/help",
   "SETTINGS": "/settings",
   "NOTFOUND": "/*"
 }
