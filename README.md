@@ -129,11 +129,8 @@ To start the app without a Moesif ID, you need to remove the _middleware_ in `in
 ## Install Dependencies
 
 ```sh
-yarn && cd api && yarn     # same as `yarn install`
+yarn
 ```
-
-> All scripts are **ideally** ran in the root directory,
-> except when packaging the desktop app.
 
 ## Development
 
@@ -151,8 +148,6 @@ yarn start-electron
 
 If you've written your own test files, put them in `tests/` and replace the `test` script in `package.json` with `node scripts/test.js`, then run `yarn test`.
 
-> Yes, I know. I didn't write any test...
-
 ## Production
 
 ### Web App:
@@ -161,7 +156,7 @@ If you've written your own test files, put them in `tests/` and replace the `tes
 yarn build
 ```
 
-Output on `./client/build` directory. Ready to deploy to hosting.
+Output on `build/` directory. Ready to deploy to hosting.
 
 ### Desktop:
 
@@ -184,7 +179,7 @@ Packaging the desktop app depends on the current system you have.
 
 Running `linux || mac` on a `win` system can throw an error due to missing required tools.
 
-Packaging the desktop app for `linux` can be made on a `win` system inside `WSL`.
+Packaging the desktop app for `linux` can be made in `win` system inside `WSL`.
 
 ## License
 
