@@ -4,5 +4,8 @@
   ],
   "rules": {
     "at-rule-no-unknown": null
-  }
+  },
+  "ignoreFiles": [
+    "node_modules/**/**"
+  ]
 }

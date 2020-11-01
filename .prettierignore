@@ -1,4 +1,6 @@
-src/services/*
+# CRA Configs
 config/*
 scripts/*
+build/*
+release/*
 node_modules/**/**
