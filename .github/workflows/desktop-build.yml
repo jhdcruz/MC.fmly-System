@@ -37,18 +37,18 @@ jobs:
       - run: sudo apt-get install --no-install-recommends -y rpm
       - run: npm i -g yarn
       - run: yarn
-      - run: yarn workspace client lint
-      - run: yarn workspace client package-linux
+      - run: yarn lint
+      - run: yarn package-linux
       - uses: toko-bifrost/ms-teams-deploy-card@master
         if: always()
         with:
           github-token: ${{ secrets.GH_ACTION }}
           webhook-uri: ${{ secrets.MS_TEAMS_WEBHOOK_URI }}
-#      - name: Archive production artifacts
-#        uses: actions/upload-artifact@v2.2.0
-#        with:
-#          name: desktop installers
-#          path: client/release/*
+  #      - name: Archive production artifacts
+  #        uses: actions/upload-artifact@v2.2.0
+  #        with:
+  #          name: desktop installers
+  #          path: client/release/*
 
   osx:
     runs-on: macos-latest
@@ -78,13 +78,13 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - run: npm i -g yarn
       - run: yarn
-      - run: yarn workspace client lint
-      - run: yarn workspace client package-mac
-#      - name: Archive production artifacts
-#        uses: actions/upload-artifact@v2.2.0
-#        with:
-#          name: desktop installers
-#          path: client/release/*
+      - run: yarn lint
+      - run: yarn package-mac
+  #      - name: Archive production artifacts
+  #        uses: actions/upload-artifact@v2.2.0
+  #        with:
+  #          name: desktop installers
+  #          path: client/release/*
 
   windows:
     runs-on: windows-latest
@@ -116,8 +116,8 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - run: npm i -g yarn
       - run: yarn
-      - run: yarn workspace client lint
-      - run: yarn workspace client package-win
+      - run: yarn lint
+      - run: yarn package-win
 #      - name: Archive production artifacts
 #        uses: actions/upload-artifact@v2.2.0
 #        with:
