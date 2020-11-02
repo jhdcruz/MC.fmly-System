@@ -75,7 +75,7 @@ export default class SalesReport extends PureComponent {
           bottom: 5
         }}
       >
-        <CartesianGrid strokeDasharray="3 3" />
+        <CartesianGrid strokeDasharray="4 3" />
         <XAxis dataKey="date" tickFormatter={monthTickFormatter} />
         <XAxis
           dataKey="date"
@@ -90,8 +90,8 @@ export default class SalesReport extends PureComponent {
         <YAxis />
         <Tooltip />
         <Legend />
-        <Bar dataKey="pv" fill="#8884d8" />
-        <Bar dataKey="uv" fill="#82ca9d" />
+        <Bar dataKey="Sold Quantity" fill="#8884d8" />
+        <Bar dataKey="Remaining Quantity" fill="#82ca9d" />
       </BarChart>
     );
   }
