@@ -87,6 +87,7 @@ export default function App() {
                 <Route path={routes.RECENT} component={Recent} />
                 <Route path={routes.CATALOG} component={Catalog} />
                 <Route path={routes.INVOICES} component={Invoices} />
+                <Route path={routes.CONTACTS} component={Contacts} />
                 <Route path={routes.POS} component={PointOfSale} />
                 <Route path={routes.SETTINGS} component={Settings} />
                 <Route path={routes.HELP} component={Help} />
