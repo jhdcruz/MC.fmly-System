@@ -24,13 +24,14 @@ import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
+  faAddressBook,
   faBoxes,
-  faClipboardList,
   faCog,
+  faFileInvoice,
   faHistory,
   faHome,
-  faShoppingCart,
-  faUserCircle
+  faQuestionCircle,
+  faShoppingCart
 } from '@fortawesome/free-solid-svg-icons';
 
 const SideMenu = styled.aside`
@@ -46,8 +47,8 @@ const SideMenu = styled.aside`
   box-shadow: 0 3px 6px #232323;
   z-index: 9;
 
-  .BottomNav {
-    margin-top: 36vh;
+  .BottomTab {
+    margin-top: 30vh !important;
   }
 `;
 
@@ -78,156 +79,85 @@ const FAIcon = styled(FontAwesomeIcon)`
   text-align: center;
 `;
 
-export default function Sidebar(props) {
+const TabItem = (props) => {
+  return (
+    <OverlayTrigger
+      placement="right"
+      delay={{
+        show: 250,
+        hide: 400
+      }}
+      overlay={
+        <Tooltip id="button-tooltip" {...props}>
+          {props.tab}
+        </Tooltip>
+      }
+      name={props.overlay}
+    >
+      <TabRoutes to={props.route} className={props.class} draggable={false}>
+        <Nav.Link as="li">
+          <FAIcon icon={props.icon} />
+        </Nav.Link>
+      </TabRoutes>
+    </OverlayTrigger>
+  );
+};
+
+export default function Sidebar() {
   return (
     <SideMenu>
       <Nav defaultActiveKey="/" className="flex-column">
-        {/* Dashboard */}
-        <OverlayTrigger
-          placement="right"
-          delay={{
-            show: 250,
-            hide: 400
-          }}
-          overlay={
-            <Tooltip id="button-tooltip" {...props}>
-              Dashboard
-            </Tooltip>
-          }
-          name="Dashboard"
-        >
-          <TabRoutes to={routes.DASHBOARD} draggable={false}>
-            <Nav.Link as="li">
-              <FAIcon icon={faHome} />
-            </Nav.Link>
-          </TabRoutes>
-        </OverlayTrigger>
+        <TabItem
+          tab="Dashboard"
+          overlay="Dashboard"
+          route={routes.DASHBOARD}
+          icon={faHome}
+        />
+        <TabItem
+          tab="Recent"
+          overlay="Recent"
+          route={routes.RECENT}
+          icon={faHistory}
+        />
+        <TabItem
+          tab="Catalog"
+          overlay="Catalog"
+          route={routes.CATALOG}
+          icon={faBoxes}
+        />
+        <TabItem
+          tab="Invoices"
+          overlay="Invoices"
+          route={routes.INVOICES}
+          icon={faFileInvoice}
+        />
+        <TabItem
+          tab="Contacts"
+          overlay="Contacts"
+          route={routes.CONTACTS}
+          icon={faAddressBook}
+        />
+        <TabItem
+          tab="Point of Sale"
+          overlay="Point of Sale"
+          route={routes.POS}
+          icon={faShoppingCart}
+        />
 
-        {/* Recent */}
-        <OverlayTrigger
-          placement="right"
-          delay={{
-            show: 250,
-            hide: 400
-          }}
-          overlay={
-            <Tooltip id="button-tooltip" {...props}>
-              Recent
-            </Tooltip>
-          }
-          name="Recent"
-        >
-          <TabRoutes to={routes.RECENT} draggable={false}>
-            <Nav.Link as="li">
-              <FAIcon icon={faHistory} />
-            </Nav.Link>
-          </TabRoutes>
-        </OverlayTrigger>
-
-        {/* Catalog */}
-        <OverlayTrigger
-          placement="right"
-          delay={{
-            show: 250,
-            hide: 400
-          }}
-          overlay={
-            <Tooltip id="button-tooltip" {...props}>
-              Catalog
-            </Tooltip>
-          }
-          name="Catalog"
-        >
-          <TabRoutes to={routes.CATALOG} draggable={false}>
-            <Nav.Link as="li">
-              <FAIcon icon={faBoxes} />
-            </Nav.Link>
-          </TabRoutes>
-        </OverlayTrigger>
-
-        {/* Invoices */}
-        <OverlayTrigger
-          placement="right"
-          delay={{
-            show: 250,
-            hide: 400
-          }}
-          overlay={
-            <Tooltip id="button-tooltip" {...props}>
-              Invoices
-            </Tooltip>
-          }
-          name="Invoices"
-        >
-          <TabRoutes to={routes.INVOICES} draggable={false}>
-            <Nav.Link as="li">
-              <FAIcon icon={faClipboardList} />
-            </Nav.Link>
-          </TabRoutes>
-        </OverlayTrigger>
-
-        {/* Point of Sale */}
-        <OverlayTrigger
-          placement="right"
-          delay={{
-            show: 250,
-            hide: 400
-          }}
-          overlay={
-            <Tooltip id="button-tooltip" {...props}>
-              Point of Sale
-            </Tooltip>
-          }
-          name="Settings"
-        >
-          <TabRoutes to={routes.POS} draggable={false}>
-            <Nav.Link as="li">
-              <FAIcon icon={faShoppingCart} />
-            </Nav.Link>
-          </TabRoutes>
-        </OverlayTrigger>
-
-        {/* User */}
-        <OverlayTrigger
-          placement="right"
-          delay={{
-            show: 250,
-            hide: 400
-          }}
-          overlay={
-            <Tooltip id="button-tooltip" {...props}>
-              User
-            </Tooltip>
-          }
-          name="Settings"
-        >
-          <TabRoutes className="BottomNav" to={routes.USER} draggable={false}>
-            <Nav.Link as="li">
-              <FAIcon icon={faUserCircle} />
-            </Nav.Link>
-          </TabRoutes>
-        </OverlayTrigger>
-
-        {/* Settings */}
-        <OverlayTrigger
-          placement="right"
-          delay={{
-            show: 250,
-            hide: 400
-          }}
-          overlay={
-            <Tooltip id="button-tooltip" {...props}>
-              Settings
-            </Tooltip>
-          }
-          name="Settings"
-        >
-          <TabRoutes to={routes.SETTINGS} draggable={false}>
-            <Nav.Link as="li">
-              <FAIcon icon={faCog} />
-            </Nav.Link>
-          </TabRoutes>
-        </OverlayTrigger>
+        {/* Bottom Tabs */}
+        <TabItem
+          class="BottomTab"
+          tab="Settings"
+          overlay="Settings"
+          route={routes.SETTINGS}
+          icon={faCog}
+        />
+        <TabItem
+          tab="Help"
+          overlay="Help"
+          route={routes.HELP}
+          icon={faQuestionCircle}
+        />
       </Nav>
     </SideMenu>
   );
