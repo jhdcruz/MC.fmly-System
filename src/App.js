@@ -16,23 +16,22 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import './App.scss';
-
 import { Fragment } from 'react';
 import Container from 'react-bootstrap/Container';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { AnimatedSwitch, spring } from 'react-router-transition';
-
+import routes from './routes.json';
 import Sidebar from './components/Sidebar';
-import Catalog from './containers/Catalog';
+import './App.scss';
 // Routes
 import Dashboard from './containers/Dashboard';
+import Recent from './containers/Recent';
 import Invoices from './containers/Invoices';
 import PointOfSale from './containers/PointOfSale';
-import Recent from './containers/Recent';
+import Catalog from './containers/Catalog';
 import Settings from './containers/Settings';
 import Help from './containers/Help';
-import routes from './routes.json';
+import Contacts from './containers/Contacts';
 
 export default function App() {
   function mapStyles(styles) {
