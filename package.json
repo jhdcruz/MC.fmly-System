@@ -7,7 +7,7 @@
   "main": "./build/electron.js",
   "proxy": "http://localhost:5000",
   "scripts": {
-    "start": "concurrently \"yarn api\" \"cross-env BROWSER=none yarn start\" \"wait-on http://localhost:3000 && electron .\" --kill-others-on-fail",
+    "start": "concurrently \"yarn api\" \"cross-env BROWSER=none node scripts/start.js\" \"wait-on http://localhost:3000 && electron .\" --kill-others-on-fail",
     "web": "concurrently \"yarn api\" \"node scripts/start.js\"  --kill-others-on-fail",
     "api": "nodemon api/index.js --watch",
     "build": "node scripts/build.js",
