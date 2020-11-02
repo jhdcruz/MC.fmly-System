@@ -7,7 +7,7 @@ on:
     branches: [ main ]
 
 jobs:
-  linux/osx:
+  linux_osx:
     runs-on: ubuntu-latest
     strategy:
       matrix:
