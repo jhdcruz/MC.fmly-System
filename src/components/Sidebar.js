@@ -48,7 +48,7 @@ const SideMenu = styled.aside`
   z-index: 9;
 
   .BottomTab {
-    margin-top: 30vh !important;
+    margin-top: 31vh !important;
   }
 `;
 
