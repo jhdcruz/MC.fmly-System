@@ -76,8 +76,7 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - run: choco install msbuild -y
-      - run: npm i -g yarn
+      - run: npm i -g yarn msbuild
       - run: yarn
       - run: yarn lint
       - run: yarn package-win
