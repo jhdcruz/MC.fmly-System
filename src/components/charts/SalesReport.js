@@ -17,16 +17,49 @@
  */
 
 import { PureComponent } from 'react';
+import data from './json/quarterReports.json';
+import styled from 'styled-components';
 import {
   Bar,
   BarChart,
   CartesianGrid,
   Legend,
+  ResponsiveContainer,
   Tooltip,
   XAxis,
   YAxis
 } from 'recharts';
-import data from './json/quarterReports.json';
+
+const ChartBlock = styled.div`
+  width: 97%;
+  height: 60vh;
+  padding: 1.3rem 1rem 3.5rem 1rem;
+  background-color: #1e1e1e;
+  box-shadow: 0 3px 6px #232323;
+  border-radius: 1rem;
+`;
+
+const ChartTitle = styled.h4`
+  color: #eccec9;
+  font-weight: bold;
+  margin: 0 0 15px 1rem;
+`;
+
+const ChartContainer = styled(ResponsiveContainer)`
+  color: #bebebe;
+
+  tspan {
+    fill: #858585;
+  }
+
+  text {
+    fill: #ec2738;
+  }
+
+  .recharts-default-legend {
+    margin: 15px 0 0 0 !important;
+  }
+`;
 
 const monthTickFormatter = (tick) => {
   const date = new Date(tick);
@@ -64,35 +97,38 @@ const renderQuarterTick = (tickProps) => {
 export default class SalesReport extends PureComponent {
   render() {
     return (
-      <BarChart
-        width={500}
-        height={300}
-        data={data}
-        margin={{
-          top: 5,
-          right: 30,
-          left: 20,
-          bottom: 5
-        }}
-      >
-        <CartesianGrid strokeDasharray="4 3" />
-        <XAxis dataKey="date" tickFormatter={monthTickFormatter} />
-        <XAxis
-          dataKey="date"
-          axisLine={false}
-          tickLine={false}
-          interval={0}
-          tick={renderQuarterTick}
-          height={1}
-          scale="band"
-          xAxisId="quarter"
-        />
-        <YAxis />
-        <Tooltip />
-        <Legend />
-        <Bar dataKey="Sold Quantity" fill="#8884d8" />
-        <Bar dataKey="Remaining Quantity" fill="#82ca9d" />
-      </BarChart>
+      <ChartBlock>
+        <ChartTitle>Sales Report (Quarterly)</ChartTitle>
+        <ChartContainer>
+          <BarChart
+            data={data}
+            margin={{
+              top: 5,
+              right: 20,
+              left: 5,
+              bottom: 5
+            }}
+          >
+            <CartesianGrid strokeDasharray="4 3" />
+            <XAxis dataKey="date" tickFormatter={monthTickFormatter} />
+            <XAxis
+              dataKey="date"
+              axisLine={false}
+              tickLine={false}
+              interval={0}
+              tick={renderQuarterTick}
+              height={1}
+              scale="band"
+              xAxisId="quarter"
+            />
+            <YAxis />
+            <Tooltip />
+            <Legend />
+            <Bar dataKey="Sold Quantity" fill="#22a1f5" />
+            <Bar dataKey="Remaining Quantity" fill="#4de670" />
+          </BarChart>
+        </ChartContainer>
+      </ChartBlock>
     );
   }
 }

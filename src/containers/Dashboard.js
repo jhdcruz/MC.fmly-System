@@ -16,14 +16,34 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import SalesReport from "../components/charts/SalesReport";
+import SalesReport from '../components/charts/SalesReport';
 import ProductsAllocation from '../components/charts/ProductsAllocation';
+import Widget from '../components/Widget';
+import Row from 'react-bootstrap/Row';
 
 export default function Dashboard() {
   return (
-    <>
-      <SalesReport />
-      <ProductsAllocation />
-    </>
+    <div
+      style={{
+        display: 'inline-block',
+        overflow: 'auto',
+        height: '100vh',
+        marginLeft: '1rem',
+        padding: '0 1.3rem'
+      }}
+    >
+      <Row>
+        <Widget subject="Total Products" amount="527" label="/1000" />
+        <Widget subject="Products Sold" amount="217" label="Products" />
+      </Row>
+      <Row
+        style={{
+          marginTop: '1.3rem'
+        }}
+      >
+        <SalesReport />
+        <ProductsAllocation />
+      </Row>
+    </div>
   );
 }
