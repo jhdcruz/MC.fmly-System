@@ -31,7 +31,11 @@ const Search = styled.div`
   width: 30vw;
   margin: 1rem 2rem 0 1.5rem;
   position: fixed;
-  box-shadow: 0 0 12px #d7b9b4;
+  box-shadow: 0 0 12px #eccec9;
+
+  .search-icons {
+    background-color: #1e1e1e;
+    color: whitesmoke !important;
 
   #search-icon {
     background-color: #232323;

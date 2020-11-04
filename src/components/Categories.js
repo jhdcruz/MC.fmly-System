@@ -44,7 +44,7 @@ const CategoryList = styled(Col)`
   margin: 1rem 5rem 1rem 1.3rem;
   padding: 1rem 1rem 1rem 1.2rem;
   color: whitesmoke;
-  background-color: #232323;
+  background-color: #1e1e1e;
   box-shadow: -1px 0 6px #232323;
   border-radius: 1.6rem;
   z-index: 9;
@@ -54,17 +54,17 @@ const CategoryList = styled(Col)`
   a {
     margin: 0 !important;
     border-radius: 1.6rem;
-    color: #c4a39d;
+    color: #d7b9b4;
 
     :hover {
-      border-left: 2px outset #d7b9b4;
+      border-left: 2px outset #eccec9;
       background-color: #303030;
       box-shadow: 2px 5px 7px #222222;
     }
   }
 
   .nav-link.active {
-    color: #e5cac6;
+    color: #eccec9;
     border-left: 2px inset #d7b9b4;
     background-color: #333333;
     box-shadow: 2px 5px 7px #222222;

@@ -35,7 +35,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 
 const SideMenu = styled.aside`
-  background-color: #232323;
+  background-color: #1e1e1e;
   position: fixed;
   top: 50%;
   transform: translateY(-50%);
@@ -53,7 +53,7 @@ const SideMenu = styled.aside`
 `;
 
 const TabRoutes = styled(Link)`
-  color: #d7b9b4 !important;
+  color: #eccec9 !important;
   padding: 0.8rem 5px;
 
   li {

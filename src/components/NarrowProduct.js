@@ -24,7 +24,7 @@ import styled from 'styled-components';
 
 const TableRow = styled.tr`
   color: white;
-  background-color: #232323;
+  background-color: #1e1e1e;
   border-radius: 1rem;
   box-shadow: 0 3px 5px #232323;
 
