@@ -7,6 +7,7 @@
   "main": "./build/electron.js",
   "proxy": "http://localhost:5000",
   "scripts": {
+    "analyze": "source-map-explorer 'build/static/js/*.js'",
     "start": "concurrently \"yarn api\" \"cross-env BROWSER=none node scripts/start.js\" \"wait-on http://localhost:3000 && electron .\" --kill-others-on-fail",
     "web": "concurrently \"yarn api\" \"node scripts/start.js\"  --kill-others-on-fail",
     "api": "nodemon api/index.js --watch",
@@ -103,6 +104,7 @@
     "resolve": "1.18.1",
     "resolve-url-loader": "3.1.2",
     "sass-loader": "10.0.5",
+    "source-map-explorer": "^2.5.0",
     "style-loader": "0.23.1",
     "stylelint": "13.7.2",
     "stylelint-config-prettier": "8.0.2",
