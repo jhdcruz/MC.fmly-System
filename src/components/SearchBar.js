@@ -16,16 +16,12 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-/* =============================
- * CURRENTLY NOT IN USE
- * =============================
- */
-
 import styled from 'styled-components';
 import InputGroup from 'react-bootstrap/InputGroup';
 import FormControl from 'react-bootstrap/FormControl';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faPlus, faSearch } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 
 const Search = styled.div`
   width: 30vw;
@@ -36,11 +32,11 @@ const Search = styled.div`
   .search-icons {
     background-color: #1e1e1e;
     color: whitesmoke !important;
+    padding: 0 10px;
+  }
 
-  #search-icon {
-    background-color: #232323;
+  a {
     color: whitesmoke;
-    border: none;
   }
 
   input {
@@ -75,8 +71,13 @@ export default function SearchBar() {
           aria-describedby="searchbar"
         />
         <InputGroup.Append>
-          <InputGroup.Text id="search-icon" as="button">
+          <InputGroup.Text class="search-icons" as="button">
             <FontAwesomeIcon icon={faSearch} />
+          </InputGroup.Text>
+          <InputGroup.Text class="search-icons" as="button">
+            <Link to="/recent">
+              <FontAwesomeIcon icon={faPlus} />
+            </Link>
           </InputGroup.Text>
         </InputGroup.Append>
       </InputGroup>
