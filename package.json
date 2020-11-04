@@ -10,7 +10,7 @@
     "analyze": "source-map-explorer 'build/static/js/*.js'",
     "start": "concurrently \"yarn api\" \"cross-env BROWSER=none node scripts/start.js\" \"wait-on http://localhost:3000 && electron .\" --kill-others-on-fail",
     "web": "concurrently \"yarn api\" \"node scripts/start.js\"  --kill-others-on-fail",
-    "api": "nodemon api/index.js --watch",
+    "api": "nodemon --watch api api/index.js",
     "build": "node scripts/build.js",
     "test": "echo \"Short deadline to write test\"",
     "lint": "concurrently \"yarn lint-ui\" \"yarn lint-api\"",
