@@ -12265,7 +12265,7 @@ source-list-map@^2.0.0:
   resolved "https://registry.yarnpkg.com/source-list-map/-/source-list-map-2.0.1.tgz#3993bd873bfc48479cca9ea3a547835c7c154b34"
   integrity sha512-qnQ7gVMxGNxsiL4lEuJwe/To8UnK7fAnmbGEEH8RpLouuKbeEm0lhbQVFIrNSuB+G7tVrAlVsZgETT5nljf+Iw==
 
-source-map-explorer@^2.5.0:
+source-map-explorer@2.5.0:
   version "2.5.0"
   resolved "https://registry.yarnpkg.com/source-map-explorer/-/source-map-explorer-2.5.0.tgz#42e12c76743e8a0ca0579d472ea5ba623e0d0498"
   integrity sha512-kWhlt0celEwwuULIY+sRoZKibc/8/Ec4ckcKThDMQW3hT7KxReYW1XktwFJIbZ2VF9Yf/hA74bcoIZOSXXQIgQ==
