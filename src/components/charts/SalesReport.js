@@ -17,7 +17,7 @@
  */
 
 import { PureComponent } from 'react';
-import data from './json/quarterReports.json';
+import data from './json/salesReport.json';
 import styled from 'styled-components';
 import {
   Bar,
@@ -54,19 +54,6 @@ const ChartContainer = styled(ResponsiveContainer)`
 
   text {
     fill: #ec2738;
-  }
-
-  .recharts-default-legend {
-    margin: 15px 0 0 0 !important;
-  }
-
-  .recharts-default-tooltip {
-    background-color: rgba(5, 5, 5, 0.93) !important;
-    border: 1px outset #222222 !important;
-  }
-
-  .recharts-tooltip-cursor {
-    fill: rgba(5, 5, 5, 0.7);
   }
 `;
 
