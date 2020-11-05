@@ -59,6 +59,15 @@ const ChartContainer = styled(ResponsiveContainer)`
   .recharts-default-legend {
     margin: 15px 0 0 0 !important;
   }
+
+  .recharts-default-tooltip {
+    background-color: rgba(15, 15, 15, 0.9) !important;
+    border: 1px outset #222222 !important;
+  }
+
+  .recharts-tooltip-cursor {
+    fill: rgba(5, 5, 5, 0.7);
+  }
 `;
 
 const monthTickFormatter = (tick) => {
@@ -124,7 +133,7 @@ export default class SalesReport extends PureComponent {
             <YAxis />
             <Tooltip />
             <Legend />
-            <Bar dataKey="Sold Quantity" fill="#22a1f5" />
+            <Bar dataKey="Sold Quantity" fill="#2579f6" />
             <Bar dataKey="Remaining Quantity" fill="#4de670" />
           </BarChart>
         </ChartContainer>
