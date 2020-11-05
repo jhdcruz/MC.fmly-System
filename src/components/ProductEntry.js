@@ -60,6 +60,7 @@ const TableData = styled.td`
   font-size: 1.2vw;
   padding: 1rem 0 1rem 1rem !important;
   border: none !important;
+  text-align: left;
 
   input {
     font-size: 1.2vw;

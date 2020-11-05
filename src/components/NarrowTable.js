@@ -50,6 +50,7 @@ const ProductTable = styled(Table)`
   background-color: transparent;
   border-collapse: separate;
   border-spacing: 0 1rem;
+  text-align: center;
 
   th,
   td {
@@ -84,7 +85,7 @@ const NarrowTable = (props) => {
         <thead>
           <tr>
             <TableHeader colSpan="1">
-              # Code <FontAwesomeIcon icon={faCaretDown} />
+              SKU <FontAwesomeIcon icon={faCaretDown} />
             </TableHeader>
             <TableHeader>
               Product <FontAwesomeIcon icon={faCaretDown} />
