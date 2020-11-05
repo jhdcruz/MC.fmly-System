@@ -61,7 +61,7 @@ const ChartContainer = styled(ResponsiveContainer)`
   }
 
   .recharts-default-tooltip {
-    background-color: rgba(15, 15, 15, 0.9) !important;
+    background-color: rgba(5, 5, 5, 0.93) !important;
     border: 1px outset #222222 !important;
   }
 
