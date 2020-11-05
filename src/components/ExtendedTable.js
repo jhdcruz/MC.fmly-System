@@ -50,7 +50,7 @@ const TableHeader = styled.th`
   width: max-content !important;
 
   :hover {
-    color: #1a8ac4;
+    color: #22a1f5;
     cursor: pointer;
   }
 `;
@@ -90,7 +90,7 @@ const ExtendedTable = (props) => {
         <thead>
           <tr>
             <TableHeader id="ItemCode">
-              # Code <FontAwesomeIcon icon={faCaretDown} />
+              SKU <FontAwesomeIcon icon={faCaretDown} />
             </TableHeader>
             <TableHeader id="ProductName">
               Product <FontAwesomeIcon icon={faCaretDown} />

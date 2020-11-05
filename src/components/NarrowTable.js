@@ -36,7 +36,7 @@ const TableHeader = styled.th`
   border: none !important;
 
   :hover {
-    color: #1a8ac4;
+    color: #22a1f5;
     cursor: pointer;
   }
 `;
