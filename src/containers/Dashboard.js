@@ -17,7 +17,7 @@
  */
 
 import SalesReport from '../components/charts/SalesReport';
-import ProductsAllocation from '../components/charts/ProductsAllocation';
+import ProductDetails from '../components/charts/ProductDetails';
 import Widget from '../components/Widget';
 import Row from 'react-bootstrap/Row';
 
@@ -33,8 +33,9 @@ export default function Dashboard() {
       }}
     >
       <Row>
+        {/* TODO: Fetch Data from API */}
         <Widget subject="Total Products" amount="527" label="/1000" />
-        <Widget subject="Products Sold" amount="217" label="Products" />
+        <Widget subject="Total Suppliers" amount="4" label="Contacts" />
       </Row>
       <Row
         style={{
@@ -42,7 +43,7 @@ export default function Dashboard() {
         }}
       >
         <SalesReport />
-        <ProductsAllocation />
+        <ProductDetails />
       </Row>
     </div>
   );
