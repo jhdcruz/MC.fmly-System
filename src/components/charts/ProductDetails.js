@@ -58,9 +58,7 @@ class CustomizedContent extends PureComponent {
       width,
       height,
       index,
-      payload,
       colors,
-      rank,
       name
     } = this.props;
 
