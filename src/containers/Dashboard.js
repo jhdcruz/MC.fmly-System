@@ -29,7 +29,7 @@ export default function Dashboard() {
         overflow: 'auto',
         height: '100vh',
         marginLeft: '1rem',
-        padding: '0 1.3rem'
+        padding: '0 1.3rem 2.5rem 1.3rem'
       }}
     >
       <Row>
