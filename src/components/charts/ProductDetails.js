@@ -18,7 +18,26 @@
 
 import { PureComponent } from 'react';
 import { Cell, Pie, PieChart, Tooltip } from 'recharts';
+import Container from 'react-bootstrap/Container';
+import styled from 'styled-components';
 import data from './json/productDetails.json';
+
+const ProductContainer = styled(Container)`
+  background-color: #1e1e1e;
+  box-shadow: 0 3px 6px #232323;
+  border-radius: 1rem;
+  width: max-content;
+  height: max-content;
+  margin: 1rem 0;
+  padding: 20px;
+  vertical-align: middle;
+`;
+
+const ChartTitle = styled.h4`
+  color: #eccec9;
+  font-weight: bold;
+  margin: 0 0 15px 1rem;
+`;
 
 const COLORS = ['#2579f6', '#4de670', '#faa142', '#FF8042', '#e93ff5'];
 
@@ -40,7 +59,7 @@ const renderCustomizedLabel = ({
     <text
       x={x}
       y={y}
-      fill="white"
+      fill="whitesmoke"
       textAnchor={x > cx ? 'start' : 'end'}
       dominantBaseline="central"
     >
@@ -52,17 +71,21 @@ const renderCustomizedLabel = ({
 export default class ProductDetails extends PureComponent {
   render() {
     return (
-      <>
-        <PieChart width={400} height={400}>
+      <ProductContainer>
+        <ChartTitle>Product Details</ChartTitle>
+        <PieChart width={210} height={220}>
           <Pie
             data={data}
-            cx={200}
-            cy={200}
+            cx={100}
+            cy={100}
             labelLine={false}
             label={renderCustomizedLabel}
-            outerRadius={80}
+            outerRadius={90}
             fill="#8884d8"
             dataKey="value"
+            style={{
+              margin: '0 auto'
+            }}
           >
             {data.map((entry, index) => (
               <Cell
@@ -71,18 +94,13 @@ export default class ProductDetails extends PureComponent {
               />
             ))}
           </Pie>
-          <Tooltip itemStyle={{
-            color: 'whitesmoke'
-          }} />
+          <Tooltip
+            itemStyle={{
+              color: 'whitesmoke'
+            }}
+          />
         </PieChart>
-        <ul>
-          {data.map((entry, index) => (
-            <li key={`cell-${index}`} backgroundColor={COLORS[index % COLORS.length]}>
-              {entry.name}
-            </li>
-          ))}
-        </ul>
-      </>
+      </ProductContainer>
     );
   }
 }
