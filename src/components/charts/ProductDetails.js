@@ -17,12 +17,21 @@
  */
 
 import { PureComponent } from 'react';
-import { Cell, Pie, PieChart, Tooltip } from 'recharts';
 import Container from 'react-bootstrap/Container';
+import { Treemap } from 'recharts';
 import styled from 'styled-components';
-import data from './json/productDetails.json';
+import data from './json/treeData.json';
 
-const ProductContainer = styled(Container)`
+const COLORS = [
+  '#8889DD',
+  '#9597E4',
+  '#8DC77B',
+  '#A5D297',
+  '#E2CF45',
+  '#F8C12D'
+];
+
+const TreemapContainer = styled(Container)`
   background-color: #1e1e1e;
   box-shadow: 0 3px 6px #232323;
   border-radius: 1rem;
@@ -39,68 +48,80 @@ const ChartTitle = styled.h4`
   margin: 0 0 15px 1rem;
 `;
 
-const COLORS = ['#2579f6', '#4de670', '#faa142', '#FF8042', '#e93ff5'];
-
-const RADIAN = Math.PI / 180;
-const renderCustomizedLabel = ({
-  cx,
-  cy,
-  midAngle,
-  innerRadius,
-  outerRadius,
-  percent,
-  index
-}) => {
-  const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
-  const x = cx + radius * Math.cos(-midAngle * RADIAN);
-  const y = cy + radius * Math.sin(-midAngle * RADIAN);
-
-  return (
-    <text
-      x={x}
-      y={y}
-      fill="whitesmoke"
-      textAnchor={x > cx ? 'start' : 'end'}
-      dominantBaseline="central"
-    >
-      {`${(percent * 100).toFixed(0)}%`}
-    </text>
-  );
-};
-
-export default class ProductDetails extends PureComponent {
+class CustomizedContent extends PureComponent {
   render() {
+    const {
+      root,
+      depth,
+      x,
+      y,
+      width,
+      height,
+      index,
+      payload,
+      colors,
+      rank,
+      name
+    } = this.props;
+
     return (
-      <ProductContainer>
-        <ChartTitle>Product Details</ChartTitle>
-        <PieChart width={210} height={220}>
-          <Pie
-            data={data}
-            cx={100}
-            cy={100}
-            labelLine={false}
-            label={renderCustomizedLabel}
-            outerRadius={90}
-            fill="#8884d8"
-            dataKey="value"
-            style={{
-              margin: '0 auto'
-            }}
+      <g>
+        <rect
+          x={x}
+          y={y}
+          width={width}
+          height={height}
+          style={{
+            fill:
+              depth < 2
+                ? colors[Math.floor((index / root.children.length) * 6)]
+                : 'none',
+            stroke: '#fff',
+            strokeWidth: 2 / (depth + 1e-10),
+            strokeOpacity: 1 / (depth + 1e-10)
+          }}
+        />
+        {depth === 1 ? (
+          <text
+            x={x + width / 2}
+            y={y + height / 2 + 7}
+            textAnchor="middle"
+            fill="#fff"
+            fontSize={14}
           >
-            {data.map((entry, index) => (
-              <Cell
-                key={`cell-${index}`}
-                fill={COLORS[index % COLORS.length]}
-              />
-            ))}
-          </Pie>
-          <Tooltip
-            itemStyle={{
-              color: 'whitesmoke'
-            }}
-          />
-        </PieChart>
-      </ProductContainer>
+            {name}
+          </text>
+        ) : null}
+        {depth === 1 ? (
+          <text
+            x={x + 4}
+            y={y + 18}
+            fill="#fff"
+            fontSize={16}
+            fillOpacity={0.9}
+          >
+            {index + 1}
+          </text>
+        ) : null}
+      </g>
     );
   }
+}
+
+export default function ProductDetail() {
+  return (
+    <TreemapContainer>
+      <ChartTitle>Product Allocation</ChartTitle>
+      <Treemap
+        width={420}
+        height={250}
+        data={data}
+        dataKey="size"
+        ratio={4 / 3}
+        stroke="#fff"
+        fill="#8884d8"
+        content={<CustomizedContent colors={COLORS} />}
+      />
+    </TreemapContainer>
+  );
 }
