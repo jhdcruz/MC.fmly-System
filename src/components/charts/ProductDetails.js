@@ -106,7 +106,7 @@ class CustomizedContent extends PureComponent {
   }
 }
 
-export default function ProductDetail() {
+export default function ProductDetails() {
   return (
     <TreemapContainer>
       <ChartTitle>Product Allocation</ChartTitle>
