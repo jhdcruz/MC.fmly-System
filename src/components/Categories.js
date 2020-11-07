@@ -40,7 +40,7 @@ const CategoryList = styled(Col)`
   position: fixed;
   top: 1%;
   transform: translateY(-1%);
-  max-width: 9rem;
+  max-width: 9.5rem;
   margin: 1rem 5rem 1rem 1.3rem;
   padding: 1rem 1rem 1rem 1.2rem;
   color: whitesmoke;
@@ -138,9 +138,9 @@ export default function Categories() {
             </Nav.Item>
 
             {/* Graphics Section*/}
-            <CategoryLine>Graphics</CategoryLine>
+            <CategoryLine>Papercraft</CategoryLine>
             <Nav.Item>
-              <Nav.Link eventKey="editing">Editing</Nav.Link>
+              <Nav.Link eventKey="editing">Stationaries</Nav.Link>
             </Nav.Item>
             <Nav.Item>
               <Nav.Link eventKey="printing">Printing</Nav.Link>
@@ -152,10 +152,25 @@ export default function Categories() {
             {/* Clothes Section */}
             <CategoryLine>Clothes</CategoryLine>
             <Nav.Item>
+              <Nav.Link eventKey="tops">Preloved</Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
               <Nav.Link eventKey="tops">Tops</Nav.Link>
             </Nav.Item>
             <Nav.Item>
               <Nav.Link eventKey="dress">Dress</Nav.Link>
+            </Nav.Item>
+
+            {/* Digital Section */}
+            <CategoryLine>Digital</CategoryLine>
+            <Nav.Item>
+              <Nav.Link eventKey="tops">Software</Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link eventKey="dress">Games</Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link eventKey="editing">Editing</Nav.Link>
             </Nav.Item>
           </Nav>
         </CategoryList>
