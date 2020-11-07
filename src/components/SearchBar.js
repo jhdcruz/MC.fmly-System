@@ -71,10 +71,10 @@ export default function SearchBar() {
           aria-describedby="searchbar"
         />
         <InputGroup.Append>
-          <InputGroup.Text class="search-icons" as="button">
+          <InputGroup.Text className="search-icons" as="button">
             <FontAwesomeIcon icon={faSearch} />
           </InputGroup.Text>
-          <InputGroup.Text class="search-icons" as="button">
+          <InputGroup.Text className="search-icons" as="button">
             <Link to="/recent">
               <FontAwesomeIcon icon={faPlus} />
             </Link>
