@@ -95,9 +95,17 @@ export default function ProductEntry() {
           maxLength="13"
         />
       </TableData>
-      <TableData className="name" colSpan={2}>
+      <TableData className="name">
         <FormControl
           placeholder="Item Name"
+          type="string"
+          minLength="2"
+          maxLength="30"
+        />
+      </TableData>
+      <TableData className="variant">
+        <FormControl
+          placeholder="Variant"
           type="string"
           minLength="2"
           maxLength="30"
