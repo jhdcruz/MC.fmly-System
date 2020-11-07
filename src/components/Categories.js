@@ -93,12 +93,17 @@ const CategoryLine = styled.label`
 export default function Categories() {
   const [products] = useProducts();
 
-  // Removes duplicate properties
+  // Removes duplicate properties (category, type)
   const dedupedProducts =
     products &&
     products.filter(
       (products, index, self) =>
-        index === self.findIndex((deduped) => deduped.type === products.type)
+        index ===
+        self.findIndex(
+          (deduped) =>
+            deduped.category === products.category &&
+            deduped.type === products.type
+        )
     );
 
   const verifyProducts = () => {
@@ -133,16 +138,21 @@ export default function Categories() {
         <CategoryList sm={2}>
           <Nav variant="pills" className="flex-column">
             <CategoryLine>Category</CategoryLine>
-
-            {/* TODO: Fetch `category` from API */}
             <Nav.Item>
               <Nav.Link eventKey="all">All</Nav.Link>
             </Nav.Item>
 
+            {/* Product Categories */}
+            {dedupedProducts &&
+              dedupedProducts.map((product) => (
+                <Nav.Item>
+                  <Nav.Link eventKey={product.category}>
+                    {product.category}
+                  </Nav.Link>
+                </Nav.Item>
+              ))}
             <hr />
-
             <CategoryLine>Types</CategoryLine>
-
             {/* Product Types */}
             {dedupedProducts &&
               dedupedProducts.map((product) => (
