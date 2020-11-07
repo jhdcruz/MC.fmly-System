@@ -41,6 +41,11 @@ const productsSchema = new Schema(
       trim: true,
       caseFirst: 'on'
     },
+    category: {
+      type: String,
+      trim: true,
+      caseFirst: 'on'
+    },
     quantity: {
       type: Number
     },
