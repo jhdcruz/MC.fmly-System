@@ -30,6 +30,16 @@ const productsSchema = new Schema(
     name: {
       type: String
     },
+    variant: {
+      type: String,
+      trim: true,
+      caseFirst: 'on',
+      unique: true,
+      collation: {
+        locale: 'en',
+        strength: 2
+      }
+    },
     type: {
       type: String,
       trim: true,
