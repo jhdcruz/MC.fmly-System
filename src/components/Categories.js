@@ -50,6 +50,11 @@ const CategoryList = styled(Col)`
   height: 90vh;
   overflow-y: auto;
 
+  hr {
+    border-top: 1px solid #d2d2d2;
+    margin: 1rem 0;
+  }
+
   a {
     margin: 0 !important;
     border-radius: 1.6rem;
@@ -80,7 +85,7 @@ const CategoryTable = styled(Col)`
 `;
 
 const CategoryLine = styled.label`
-  margin: 10px 0 5px 8px;
+  margin: 5px 0 10px 8px;
   font-size: 14px;
   color: #d2d2d2;
 `;
