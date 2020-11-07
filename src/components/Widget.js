@@ -21,7 +21,7 @@ import styled from 'styled-components';
 const WidgetUI = styled.div`
   display: inline-block;
   text-align: center;
-  margin: 1.7rem 1.5rem 1rem 0;
+  margin: 1.7rem 1.5rem 0 0;
   padding: 1rem 3rem;
   height: max-content;
   width: max-content;
