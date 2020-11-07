@@ -93,6 +93,14 @@ const CategoryLine = styled.label`
 export default function Categories() {
   const [products] = useProducts();
 
+  // Removes duplicate properties
+  const dedupedProducts =
+    products &&
+    products.filter(
+      (products, index, self) =>
+        index === self.findIndex((deduped) => deduped.type === products.type)
+    );
+
   const verifyProducts = () => {
     return (
       <>
@@ -124,45 +132,24 @@ export default function Categories() {
       <CatalogGrid>
         <CategoryList sm={2}>
           <Nav variant="pills" className="flex-column">
+            <CategoryLine>Category</CategoryLine>
+
+            {/* TODO: Fetch `category` from API */}
             <Nav.Item>
               <Nav.Link eventKey="all">All</Nav.Link>
             </Nav.Item>
 
-            {/* Graphics Section*/}
-            <CategoryLine>Papercraft</CategoryLine>
-            <Nav.Item>
-              <Nav.Link eventKey="editing">Stationaries</Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-              <Nav.Link eventKey="printing">Printing</Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-              <Nav.Link eventKey="stickers">Stickers</Nav.Link>
-            </Nav.Item>
+            <hr />
 
-            {/* Clothes Section */}
-            <CategoryLine>Clothes</CategoryLine>
-            <Nav.Item>
-              <Nav.Link eventKey="tops">Preloved</Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-              <Nav.Link eventKey="tops">Tops</Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-              <Nav.Link eventKey="dress">Dress</Nav.Link>
-            </Nav.Item>
+            <CategoryLine>Types</CategoryLine>
 
-            {/* Digital Section */}
-            <CategoryLine>Digital</CategoryLine>
-            <Nav.Item>
-              <Nav.Link eventKey="tops">Software</Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-              <Nav.Link eventKey="dress">Games</Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-              <Nav.Link eventKey="editing">Editing</Nav.Link>
-            </Nav.Item>
+            {/* Product Types */}
+            {dedupedProducts &&
+              dedupedProducts.map((product) => (
+                <Nav.Item>
+                  <Nav.Link eventKey={product.type}>{product.type}</Nav.Link>
+                </Nav.Item>
+              ))}
           </Nav>
         </CategoryList>
         <CategoryTable>
