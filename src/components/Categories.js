@@ -39,7 +39,7 @@ const CategoryList = styled(Col)`
   position: fixed;
   top: 1%;
   transform: translateY(-1%);
-  max-width: 9.5rem;
+  max-width: 11rem;
   margin: 1rem 5rem 1rem 1.3rem;
   padding: 1rem 1rem 1rem 1.2rem;
   color: whitesmoke;
@@ -76,7 +76,7 @@ const CategoryTable = styled(Col)`
   width: 100%;
   height: 100vh;
   padding: 0;
-  margin-left: 10.6rem;
+  margin-left: 12.5rem;
 `;
 
 const CategoryLine = styled.label`
