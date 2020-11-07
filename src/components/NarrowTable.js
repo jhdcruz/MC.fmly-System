@@ -84,10 +84,10 @@ const NarrowTable = (props) => {
       <ProductTable hover responsive>
         <thead>
           <tr>
-            <TableHeader colSpan="1">
+            <TableHeader colSpan={1}>
               SKU <FontAwesomeIcon icon={faCaretDown} />
             </TableHeader>
-            <TableHeader>
+            <TableHeader colSpan={2}>
               Product <FontAwesomeIcon icon={faCaretDown} />
             </TableHeader>
             <TableHeader>
