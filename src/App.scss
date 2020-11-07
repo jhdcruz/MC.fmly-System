@@ -58,6 +58,7 @@
 
   ::-webkit-scrollbar {
     background: transparent;
+    width: 13px;
   }
 
   ::-webkit-scrollbar-track {
@@ -91,8 +92,14 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+// Prevents dragging of links
 a {
   text-decoration: none !important;
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
 }
 
 // Id-level
@@ -102,6 +109,11 @@ a {
   width: 100% !important;
   height: 100vh;
   overflow: auto;
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
 }
 
 // Class-level
