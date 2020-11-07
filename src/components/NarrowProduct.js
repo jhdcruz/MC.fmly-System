@@ -105,7 +105,7 @@ const NarrowProduct = (product) => {
       </TableData>
 
       <TableData className="type">
-        <Tag pill variant="info">
+        <Tag pill variant="primary">
           {product.type}
         </Tag>
       </TableData>

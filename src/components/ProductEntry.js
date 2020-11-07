@@ -123,7 +123,7 @@ export default function ProductEntry() {
         <FormControl placeholder="Quantity" type="number" min="0" />
       </TableData>
       <TableData className="save">
-        <Button variant="outline-info">
+        <Button variant="outline-success">
           <FontAwesomeIcon icon={faSave} />
         </Button>
       </TableData>
