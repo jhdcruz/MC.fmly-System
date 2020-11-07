@@ -24,7 +24,7 @@ import styled, { createGlobalStyle } from 'styled-components';
 const TableContainer = createGlobalStyle`
   div.table-responsive {
     display: inline-flex !important;
-    width: 100vw;
+    width: 110vw;
     height: 100%;
     padding: 0 0 0 0.5rem !important;
     margin: 0;

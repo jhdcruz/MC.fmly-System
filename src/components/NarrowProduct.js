@@ -99,6 +99,12 @@ const NarrowProduct = (product) => {
       <TableData className="name">{product.name}</TableData>
 
       <TableData className="type">
+        <Tag pill variant="secondary">
+          {product.variant}
+        </Tag>
+      </TableData>
+
+      <TableData className="type">
         <Tag pill variant="info">
           {product.type}
         </Tag>
@@ -121,7 +127,7 @@ const NarrowProduct = (product) => {
               </Tag>
             );
           }
-          if (product.quantity <= 100) {
+          if (product.quantity <= 300) {
             return (
               <Tag pill variant="success">
                 {product.quantity}

@@ -60,6 +60,7 @@ const TableData = styled.td`
   font-size: 1.2vw;
   width: max-content !important;
   padding: 1rem 0 !important;
+  margin: 0 1rem !important;
   border: none !important;
   white-space: nowrap;
 
@@ -106,12 +107,21 @@ const ExtendedProduct = (product) => {
         </p>
         {product.code}
       </TableData>
+
       <TableData className="name">{product.name}</TableData>
+
+      <TableData className="type">
+        <Tag pill variant="secondary">
+          {product.variant}
+        </Tag>
+      </TableData>
+
       <TableData className="type">
         <Tag pill variant="info">
           {product.type}
         </Tag>
       </TableData>
+
       <TableData className="stock">
         {/* Quantity Color Indicator */}
         {(() => {
@@ -129,7 +139,7 @@ const ExtendedProduct = (product) => {
               </Tag>
             );
           }
-          if (product.quantity <= 100) {
+          if (product.quantity <= 300) {
             return (
               <Tag pill variant="success">
                 {product.quantity}
