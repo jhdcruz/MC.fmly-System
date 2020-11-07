@@ -16,27 +16,12 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { useEffect, useState } from 'react';
-
 import NarrowProduct from '../components/NarrowProduct';
 import NarrowTable, { Loader, NullItems } from '../components/NarrowTable';
-import productService from '../services/productService';
+import useProducts from '../hooks/useProducts';
 
 export default function Recent() {
-  const [products, setProducts] = useState(null);
-
-  useEffect(() => {
-    if (!products) {
-      fetchProducts().catch((err) => {
-        console.error(err);
-      });
-    }
-  });
-
-  const fetchProducts = async () => {
-    let res = await productService.getAll();
-    setProducts(res);
-  };
+  const [products] = useProducts();
 
   const verifyProducts = () => {
     return (

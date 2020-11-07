@@ -16,19 +16,18 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { useEffect, useState } from 'react';
 import Tab from 'react-bootstrap/Tab';
 import Nav from 'react-bootstrap/Nav';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import styled from 'styled-components';
-import getProducts from '../services/productService';
 import ExtendedProduct from './ExtendedProduct';
 import Loader from './Loader';
 import { NullItems } from './NarrowTable';
 import ExtendedTable from './ExtendedTable';
 import SearchBar from './SearchBar';
 import Notification from './Notification';
+import useProducts from '../hooks/useProducts';
 
 const CatalogGrid = styled(Row)`
   display: flex;
@@ -87,20 +86,7 @@ const CategoryLine = styled.label`
 `;
 
 export default function Categories() {
-  const [products, setProducts] = useState(null);
-
-  useEffect(() => {
-    if (!products) {
-      fetchProducts().catch((err) => {
-        console.error(err);
-      });
-    }
-  });
-
-  const fetchProducts = async () => {
-    let res = await getProducts.getAll();
-    setProducts(res);
-  };
+  const [products] = useProducts();
 
   const verifyProducts = () => {
     return (
