@@ -95,6 +95,9 @@ const ExtendedTable = (props) => {
             <TableHeader id="ProductName">
               Product <FontAwesomeIcon icon={faCaretDown} />
             </TableHeader>
+            <TableHeader id="Variant">
+              Variant <FontAwesomeIcon icon={faCaretDown} />
+            </TableHeader>
             <TableHeader id="ItemType">
               Type <FontAwesomeIcon icon={faCaretDown} />
             </TableHeader>

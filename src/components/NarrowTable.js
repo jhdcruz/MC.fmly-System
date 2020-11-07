@@ -87,8 +87,11 @@ const NarrowTable = (props) => {
             <TableHeader colSpan={1}>
               SKU <FontAwesomeIcon icon={faCaretDown} />
             </TableHeader>
-            <TableHeader colSpan={2}>
+            <TableHeader>
               Product <FontAwesomeIcon icon={faCaretDown} />
+            </TableHeader>
+            <TableHeader>
+              Variant <FontAwesomeIcon icon={faCaretDown} />
             </TableHeader>
             <TableHeader>
               Type <FontAwesomeIcon icon={faCaretDown} />
