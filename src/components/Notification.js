@@ -63,7 +63,7 @@ export default function Notification(props) {
         margin: 1 + 'rem'
       }}
       show={show}
-      delay={4500}
+      delay={5100}
       animation={true}
       autohide
     >
