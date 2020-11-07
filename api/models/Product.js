@@ -25,6 +25,7 @@ const productsSchema = new Schema(
     code: {
       type: String,
       uppercase: true,
+      unique: true,
       trim: true
     },
     name: {
@@ -33,22 +34,12 @@ const productsSchema = new Schema(
     variant: {
       type: String,
       trim: true,
-      caseFirst: 'on',
-      unique: true,
-      collation: {
-        locale: 'en',
-        strength: 2
-      }
+      caseFirst: 'on'
     },
     type: {
       type: String,
       trim: true,
-      caseFirst: 'on',
-      unique: true,
-      collation: {
-        locale: 'en',
-        strength: 2
-      }
+      caseFirst: 'on'
     },
     quantity: {
       type: Number
