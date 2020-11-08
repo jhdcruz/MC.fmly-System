@@ -86,13 +86,13 @@ const CategoryLine = styled.label`
 
 export default function Categories(props) {
   return (
-    <Tab.Container id="CategorySection" defaultActiveKey="all">
+    <Tab.Container id="CategorySection" defaultActiveKey="default">
       <CatalogGrid>
         <CategoryList sm={2}>
           <Nav variant="pills" className="flex-column">
             <CategoryLine>Category</CategoryLine>
             <Nav.Item>
-              <Nav.Link eventKey="all">All</Nav.Link>
+              <Nav.Link eventKey="default">All</Nav.Link>
             </Nav.Item>
             {props.categories}
             <hr />

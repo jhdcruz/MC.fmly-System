@@ -82,18 +82,19 @@ export default function Catalog() {
   const TableRoutes = () => {
     return (
       <>
-        <Tab.Pane eventKey="all">
+        <Tab.Pane eventKey="default">
           <ShowTable />
         </Tab.Pane>
+        {/* Filtered Table */}
         {products &&
           productCategories.map((product) => (
-            <Tab.Pane eventKey={product.category}>
+            <Tab.Pane key={product.category} eventKey={product.category}>
               <ShowTable />
             </Tab.Pane>
           ))}
         {products &&
           productTypes.map((product) => (
-            <Tab.Pane eventKey={product.type}>
+            <Tab.Pane key={product.type} eventKey={product.type}>
               <ShowTable />
             </Tab.Pane>
           ))}
