@@ -23,6 +23,10 @@ import { faBell } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Alert = styled(Toast)`
+  position: fixed !important;
+  bottom: 10px;
+  right: 0;
+  margin: 1rem;
   background-color: #1f252c !important;
   color: whitesmoke;
   width: auto;
@@ -56,12 +60,6 @@ export default function Notification(props) {
   return (
     <Alert
       onClose={() => setShow(false)}
-      style={{
-        position: 'absolute',
-        bottom: 30,
-        right: 0,
-        margin: 1 + 'rem'
-      }}
       show={show}
       delay={props.delay}
       animation={true}
