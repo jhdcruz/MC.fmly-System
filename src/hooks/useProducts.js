@@ -17,8 +17,15 @@
  */
 
 import { useEffect, useState } from 'react';
-import getProducts from '../services/productService';
+import axios from 'axios';
 
+// Fetch products data
+async function getAll() {
+  let res = await axios.get(`/api/products`);
+  return res.data || [];
+}
+
+// Assign data to `products`
 const useProducts = () => {
   const [products, setProducts] = useState(null);
 
@@ -31,7 +38,7 @@ const useProducts = () => {
   });
 
   const fetchProducts = async () => {
-    let res = await getProducts.getAll();
+    let res = await getAll();
     setProducts(res);
   };
 
