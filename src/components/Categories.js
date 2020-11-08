@@ -93,18 +93,28 @@ const CategoryLine = styled.label`
 export default function Categories() {
   const [products] = useProducts();
 
-  // Removes duplicate properties (category, type)
-  const dedupedProducts =
+  // Removes duplicate properties | category
+  const productCategories =
     products &&
-    products.filter(
-      (products, index, self) =>
-        index ===
-        self.findIndex(
-          (deduped) =>
-            deduped.category === products.category &&
-            deduped.type === products.type
-        )
-    );
+    products
+      .filter(
+        (products, index, self) =>
+          index ===
+          self.findIndex((deduped) => deduped.category === products.category)
+      )
+      // Sort items
+      .reverse();
+
+  // Removes duplicate properties | type
+  const productTypes =
+    products &&
+    products
+      .filter(
+        (products, index, self) =>
+          index === self.findIndex((deduped) => deduped.type === products.type)
+      )
+      // Sort items
+      .reverse();
 
   const verifyProducts = () => {
     return (
@@ -141,11 +151,10 @@ export default function Categories() {
             <Nav.Item>
               <Nav.Link eventKey="all">All</Nav.Link>
             </Nav.Item>
-
             {/* Product Categories */}
-            {dedupedProducts &&
-              dedupedProducts.map((product) => (
-                <Nav.Item>
+            {products &&
+              productCategories.map((product) => (
+                <Nav.Item key={product.category}>
                   <Nav.Link eventKey={product.category}>
                     {product.category}
                   </Nav.Link>
@@ -154,9 +163,9 @@ export default function Categories() {
             <hr />
             <CategoryLine>Types</CategoryLine>
             {/* Product Types */}
-            {dedupedProducts &&
-              dedupedProducts.map((product) => (
-                <Nav.Item>
+            {products &&
+              productTypes.map((product) => (
+                <Nav.Item key={product.type}>
                   <Nav.Link eventKey={product.type}>{product.type}</Nav.Link>
                 </Nav.Item>
               ))}
