@@ -119,10 +119,16 @@ export default function ProductEntry() {
           maxLength="20"
         />
       </TableData>
+      <TableData className="category">
+        <FormControl
+          placeholder="Category"
+          type="string"
+          minLength="2"
+          maxLength="20"
+        />
+      </TableData>
       <TableData className="stock">
         <FormControl placeholder="Quantity" type="number" min="0" />
-      </TableData>
-      <TableData className="save">
         <Button variant="outline-success">
           <FontAwesomeIcon icon={faSave} />
         </Button>

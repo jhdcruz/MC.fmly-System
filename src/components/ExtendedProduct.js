@@ -107,21 +107,22 @@ const ExtendedProduct = (product) => {
         </p>
         {product.code}
       </TableData>
-
       <TableData className="name">{product.name}</TableData>
-
       <TableData className="type">
         <Tag pill variant="secondary">
           {product.variant}
         </Tag>
       </TableData>
-
       <TableData className="type">
         <Tag pill variant="primary">
           {product.type}
         </Tag>
       </TableData>
-
+      <TableData className="category">
+        <Tag pill variant="info">
+          {product.category}
+        </Tag>
+      </TableData>
       <TableData className="stock">
         {/* Quantity Color Indicator */}
         {(() => {
