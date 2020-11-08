@@ -35,7 +35,7 @@ const useProducts = () => {
         console.error(e);
       });
     }
-  });
+  }, [products]);
 
   const fetchProducts = async () => {
     let res = await getAll();
