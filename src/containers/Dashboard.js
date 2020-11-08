@@ -20,8 +20,17 @@ import SalesReport from '../components/charts/SalesReport';
 import ProductDetails from '../components/charts/ProductDetails';
 import Widget from '../components/Widget';
 import Row from 'react-bootstrap/Row';
+import useProducts from '../hooks/useProducts';
 
 export default function Dashboard() {
+  const [products] = useProducts();
+
+  const totalProducts =
+    products &&
+    products.reduce(function (sum, product) {
+      return sum + product.quantity;
+    }, 0);
+
   return (
     <div
       style={{
@@ -34,7 +43,11 @@ export default function Dashboard() {
     >
       <Row>
         {/* TODO: Fetch Data from API */}
-        <Widget subject="Total Products" amount="527" label="/1000" />
+        <Widget
+          subject="Total Products"
+          amount={totalProducts}
+          label="/10000"
+        />
         <Widget subject="Total Suppliers" amount="4" label="Contacts" />
       </Row>
       <Row
