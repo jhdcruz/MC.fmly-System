@@ -128,13 +128,13 @@ export default function Catalog() {
       />
       <Notification
         title="Notice"
-        time="Just now"
+        time="System Guide"
         message="Products are fetched from the database. Category & Type lists are dynamic components and will update on new/deleted entries."
-        delay={12000}
+        delay={15000}
       />
       <Notification
-        title="Guide"
-        time="Just now"
+        title="Navigation"
+        time="System Guide"
         message="Scroll horizontally/vertically using Shift + Scroll or Two-finger touchpad drag, or by pressing/holding Scroll."
         delay={7000}
       />

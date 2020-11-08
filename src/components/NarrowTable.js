@@ -23,6 +23,7 @@ import Table from 'react-bootstrap/Table';
 import styled, { createGlobalStyle } from 'styled-components';
 
 import ProductEntry from './ProductEntry';
+import Notification from './Notification';
 
 const TableContainer = createGlobalStyle`
   div.table-responsive {

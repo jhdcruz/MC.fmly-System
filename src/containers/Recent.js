@@ -19,6 +19,8 @@
 import NarrowProduct from '../components/NarrowProduct';
 import NarrowTable, { Loader, NullItems } from '../components/NarrowTable';
 import useProducts from '../hooks/useProducts';
+import Notification from '../components/Notification';
+import Container from 'react-bootstrap/Container';
 
 export default function Recent() {
   const [products] = useProducts();
@@ -40,14 +42,25 @@ export default function Recent() {
   };
 
   return (
-    <NarrowTable
-      data={
-        products && products.length === 0 ? (
-          <NullItems> No products registered...</NullItems>
-        ) : (
-          verifyProducts()
-        )
-      }
-    />
+    <Container fluid style={{
+      width: '100%',
+      height: '100vh'
+    }}>
+      <NarrowTable
+        data={
+          products && products.length === 0 ? (
+            <NullItems> No products registered...</NullItems>
+          ) : (
+            verifyProducts()
+          )
+        }
+      />
+      <Notification
+        title="Notice"
+        time="System Guide"
+        message="Display 10 recently registered products. Products are fetched from the database."
+        delay={5000}
+      />
+    </Container>
   );
 }

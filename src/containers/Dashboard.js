@@ -21,6 +21,7 @@ import ProductDetails from '../components/charts/ProductDetails';
 import Widget from '../components/Widget';
 import Row from 'react-bootstrap/Row';
 import useProducts from '../hooks/useProducts';
+import Notification from '../components/Notification';
 
 export default function Dashboard() {
   const [products] = useProducts();
@@ -58,6 +59,12 @@ export default function Dashboard() {
         <SalesReport />
         <ProductDetails />
       </Row>
+      <Notification
+        title="Notice"
+        time="System Guide"
+        message="Total products widget is a dynamic component, fetches real data from database."
+        delay={6500}
+      />
     </div>
   );
 }
