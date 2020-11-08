@@ -32,6 +32,14 @@ const TableRow = styled.tr`
     padding-left: 1.2rem !important;
   }
 
+  .stock {
+    display: flex;
+  }
+
+  .stock input {
+    width: 70%;
+  }
+
   :hover {
     background-color: #181818 !important;
 
@@ -87,7 +95,7 @@ const TableData = styled.td`
 export default function ProductEntry() {
   return (
     <TableRow className="product">
-      <TableData className="code" colSpan={1}>
+      <TableData className="code">
         <FormControl
           placeholder="# Code"
           type="string"
@@ -95,7 +103,7 @@ export default function ProductEntry() {
           maxLength="13"
         />
       </TableData>
-      <TableData className="name">
+      <TableData className="name" colSpan={2}>
         <FormControl
           placeholder="Item Name"
           type="string"
