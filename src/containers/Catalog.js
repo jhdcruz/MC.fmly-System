@@ -17,11 +17,120 @@
  */
 
 import Categories from '../components/Categories';
+import useProducts from '../hooks/useProducts';
+import ExtendedProduct from '../components/ExtendedProduct';
+import Loader from '../components/Loader';
+import ExtendedTable from '../components/ExtendedTable';
+import { NullItems } from '../components/NarrowTable';
+import Nav from 'react-bootstrap/Nav';
+import Tab from 'react-bootstrap/Tab';
+import Notification from '../components/Notification';
 
 export default function Catalog() {
+  const [products] = useProducts();
+
+  // Removes duplicate properties | category
+  const productCategories =
+    products &&
+    products
+      .filter(
+        (products, index, self) =>
+          index ===
+          self.findIndex((deduped) => deduped.category === products.category)
+      )
+      // Sort items
+      .reverse();
+
+  // Removes duplicate properties | type
+  const productTypes =
+    products &&
+    products
+      .filter(
+        (products, index, self) =>
+          index === self.findIndex((deduped) => deduped.type === products.type)
+      )
+      // Sort items
+      .reverse();
+
+  const verifyProducts = () => {
+    return (
+      <>
+        {products && products.length >= 1 ? (
+          products.map((products) => ExtendedProduct(products))
+        ) : (
+          <Loader />
+        )}
+      </>
+    );
+  };
+
+  const ShowTable = () => {
+    return (
+      <ExtendedTable
+        data={
+          products && products.length === 0 ? (
+            <NullItems> No products registered...</NullItems>
+          ) : (
+            verifyProducts()
+          )
+        }
+      />
+    );
+  };
+
+  // eslint-disable-next-line
+  const TableRoutes = () => {
+    return (
+      <>
+        <Tab.Pane eventKey="all">
+          <ShowTable />
+        </Tab.Pane>
+        {products &&
+          productCategories.map((product) => (
+            <Tab.Pane eventKey={product.category}>
+              <ShowTable />
+            </Tab.Pane>
+          ))}
+        {products &&
+          productTypes.map((product) => (
+            <Tab.Pane eventKey={product.type}>
+              <ShowTable />
+            </Tab.Pane>
+          ))}
+      </>
+    );
+  };
+
   return (
     <>
-      <Categories />
+      <Categories
+        categories={
+          // list `category` data
+          products &&
+          productCategories.map((product) => (
+            <Nav.Item key={product.category}>
+              <Nav.Link eventKey={product.category}>
+                {product.category}
+              </Nav.Link>
+            </Nav.Item>
+          ))
+        }
+        types={
+          // list `type` data
+          products &&
+          productTypes.map((product) => (
+            <Nav.Item key={product.type}>
+              <Nav.Link eventKey={product.type}>{product.type}</Nav.Link>
+            </Nav.Item>
+          ))
+        }
+        tables=<TableRoutes />
+      />
+      <Notification
+        title="Notice"
+        time="Just now"
+        message="Navigate on the table using Scroll and Shift + Scroll."
+      />
     </>
   );
 }

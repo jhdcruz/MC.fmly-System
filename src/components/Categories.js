@@ -21,13 +21,7 @@ import Nav from 'react-bootstrap/Nav';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import styled from 'styled-components';
-import ExtendedProduct from './ExtendedProduct';
-import Loader from './Loader';
-import { NullItems } from './NarrowTable';
-import ExtendedTable from './ExtendedTable';
 import SearchBar from './SearchBar';
-import Notification from './Notification';
-import useProducts from '../hooks/useProducts';
 
 const CatalogGrid = styled(Row)`
   display: flex;
@@ -90,58 +84,7 @@ const CategoryLine = styled.label`
   color: #d2d2d2;
 `;
 
-export default function Categories() {
-  const [products] = useProducts();
-
-  // Removes duplicate properties | category
-  const productCategories =
-    products &&
-    products
-      .filter(
-        (products, index, self) =>
-          index ===
-          self.findIndex((deduped) => deduped.category === products.category)
-      )
-      // Sort items
-      .reverse();
-
-  // Removes duplicate properties | type
-  const productTypes =
-    products &&
-    products
-      .filter(
-        (products, index, self) =>
-          index === self.findIndex((deduped) => deduped.type === products.type)
-      )
-      // Sort items
-      .reverse();
-
-  const verifyProducts = () => {
-    return (
-      <>
-        {products && products.length >= 1 ? (
-          products.map((products) => ExtendedProduct(products))
-        ) : (
-          <Loader />
-        )}
-      </>
-    );
-  };
-
-  const ShowTable = () => {
-    return (
-      <ExtendedTable
-        data={
-          products && products.length === 0 ? (
-            <NullItems> No products registered...</NullItems>
-          ) : (
-            verifyProducts()
-          )
-        }
-      />
-    );
-  };
-
+export default function Categories(props) {
   return (
     <Tab.Container id="CategorySection" defaultActiveKey="all">
       <CatalogGrid>
@@ -151,54 +94,16 @@ export default function Categories() {
             <Nav.Item>
               <Nav.Link eventKey="all">All</Nav.Link>
             </Nav.Item>
-            {/* Product Categories */}
-            {products &&
-              productCategories.map((product) => (
-                <Nav.Item key={product.category}>
-                  <Nav.Link eventKey={product.category}>
-                    {product.category}
-                  </Nav.Link>
-                </Nav.Item>
-              ))}
+            {props.categories}
             <hr />
             <CategoryLine>Types</CategoryLine>
-            {/* Product Types */}
-            {products &&
-              productTypes.map((product) => (
-                <Nav.Item key={product.type}>
-                  <Nav.Link eventKey={product.type}>{product.type}</Nav.Link>
-                </Nav.Item>
-              ))}
+            {props.types}
           </Nav>
         </CategoryList>
         <CategoryTable>
           <SearchBar />
-          <Tab.Content>
-            <Tab.Pane eventKey="all">
-              <ShowTable />
-            </Tab.Pane>
-            <Tab.Pane eventKey="editing">
-              <ShowTable />
-            </Tab.Pane>
-            <Tab.Pane eventKey="printing">
-              <ShowTable />
-            </Tab.Pane>
-            <Tab.Pane eventKey="stickers">
-              <ShowTable />
-            </Tab.Pane>
-            <Tab.Pane eventKey="tops">
-              <ShowTable />
-            </Tab.Pane>
-            <Tab.Pane eventKey="dress">
-              <ShowTable />
-            </Tab.Pane>
-          </Tab.Content>
+          <Tab.Content>{props.tables}</Tab.Content>
         </CategoryTable>
-        <Notification
-          title="Notice"
-          time="Just now"
-          message="Navigate on the table using Scroll and Shift + Scroll."
-        />
       </CatalogGrid>
     </Tab.Container>
   );
