@@ -34,9 +34,9 @@ export default function Catalog() {
     products &&
     products
       .filter(
-        (products, index, self) =>
+        (items, index, self) =>
           index ===
-          self.findIndex((deduped) => deduped.category === products.category)
+          self.findIndex((deduped) => deduped.category === items.category)
       )
       // Sort items
       .reverse();
@@ -46,8 +46,8 @@ export default function Catalog() {
     products &&
     products
       .filter(
-        (products, index, self) =>
-          index === self.findIndex((deduped) => deduped.type === products.type)
+        (items, index, self) =>
+          index === self.findIndex((deduped) => deduped.type === items.type)
       )
       // Sort items
       .reverse();
@@ -56,7 +56,7 @@ export default function Catalog() {
     return (
       <>
         {products && products.length >= 1 ? (
-          products.map((products) => ExtendedProduct(products))
+          products.map((product) => ExtendedProduct(product))
         ) : (
           <Loader />
         )}

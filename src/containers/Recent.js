@@ -33,7 +33,7 @@ export default function Recent() {
           products
             .slice(Math.max(products.length - 10, 0))
             .reverse()
-            .map((products) => NarrowProduct(products))
+            .map((product) => NarrowProduct(product))
         ) : (
           <Loader variant="primary" animation="border" role="status" />
         )}
@@ -42,10 +42,13 @@ export default function Recent() {
   };
 
   return (
-    <Container fluid style={{
-      width: '100%',
-      height: '100vh'
-    }}>
+    <Container
+      fluid
+      style={{
+        width: '100%',
+        height: '100vh'
+      }}
+    >
       <NarrowTable
         data={
           products && products.length === 0 ? (
