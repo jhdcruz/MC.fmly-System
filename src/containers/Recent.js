@@ -16,8 +16,8 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import NarrowProduct from '../components/NarrowProduct';
-import NarrowTable, { Loader, NullItems } from '../components/NarrowTable';
+import NarrowProduct from '../components/tables/NarrowProduct';
+import NarrowTable, { Loader, NullItems } from '../components/tables/NarrowTable';
 import useProducts from '../hooks/useProducts';
 import Notification from '../components/Notification';
 import Container from 'react-bootstrap/Container';

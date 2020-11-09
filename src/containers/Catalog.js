@@ -18,10 +18,10 @@
 
 import Categories from '../components/Categories';
 import useProducts from '../hooks/useProducts';
-import ExtendedProduct from '../components/ExtendedProduct';
+import ExtendedProduct from '../components/tables/ExtendedProduct';
 import Loader from '../components/Loader';
-import ExtendedTable from '../components/ExtendedTable';
-import { NullItems } from '../components/NarrowTable';
+import ExtendedTable from '../components/tables/ExtendedTable';
+import { NullItems } from '../components/tables/NarrowTable';
 import Nav from 'react-bootstrap/Nav';
 import Tab from 'react-bootstrap/Tab';
 import Notification from '../components/Notification';
@@ -58,6 +58,7 @@ export default function Catalog() {
         {products && products.length !== 0 ? (
           products.map((product) => ExtendedProduct(product))
         ) : (
+          // .filter((pane) => pane.category === props.table)
           <Loader />
         )}
       </>
