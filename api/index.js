@@ -67,9 +67,11 @@ mongoose
 
 // Model Imports
 require('./models/Product');
+require('./models/Supplier');
 
 // Routes Imports
-require('./routes/productsRoutes')(api);
+require('./routes/products')(api);
+require('./routes/suppliers')(api);
 
 api.get('/api', (req, res) => {
   // Vercel's Serveless Functions settings
