@@ -59,7 +59,7 @@ const TableData = styled.td`
   text-indent: 0.6rem;
   font-size: 1.2vw;
   width: max-content !important;
-  padding: 1rem 0 !important;
+  padding: 1.2rem 1rem 1.2rem 0 !important;
   margin: 0 1rem !important;
   border: none !important;
   white-space: nowrap;

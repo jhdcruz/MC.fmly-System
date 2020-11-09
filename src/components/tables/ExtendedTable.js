@@ -59,8 +59,6 @@ const ProductTable = styled(Table)`
   display: inline-table;
   height: 100vh;
   width: 100%;
-  min-width: 100% !important;
-  min-height: 100vh;
   margin: 0 0 auto 0;
   overflow: auto !important;
   background-color: transparent;
