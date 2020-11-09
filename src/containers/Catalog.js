@@ -18,13 +18,12 @@
 
 import Categories from '../components/Categories';
 import useProducts from '../hooks/useProducts';
-import ExtendedProduct from '../components/tables/ExtendedProduct';
-import Loader from '../components/Loader';
 import ExtendedTable from '../components/tables/ExtendedTable';
-import { NullItems } from '../components/tables/NarrowTable';
 import Nav from 'react-bootstrap/Nav';
 import Tab from 'react-bootstrap/Tab';
 import Notification from '../components/Notification';
+import ExtendedProduct from '../components/tables/ExtendedProduct';
+import Loader from '../components/Loader';
 
 export default function Catalog() {
   const [products] = useProducts();
@@ -52,31 +51,55 @@ export default function Catalog() {
       // Sort items
       .reverse();
 
-  const verifyProducts = () => {
-    return (
-      <>
-        {products && products.length !== 0 ? (
-          products.map((product) => ExtendedProduct(product))
-        ) : (
-          // .filter((pane) => pane.category === props.table)
-          <Loader />
-        )}
-      </>
-    );
+  // Filter products by product category
+  const categoryFilter = () => {
+    if (products && products.length !== 0) {
+      return (
+        <>
+          {products &&
+            productCategories.map((categories) => (
+              <Tab.Pane
+                key={categories.category}
+                eventKey={categories.category}
+              >
+                <ExtendedTable
+                  data={
+                    products &&
+                    products
+                      .filter((pane) => pane.category === categories.category)
+                      .map((product) => ExtendedProduct(product))
+                  }
+                />
+              </Tab.Pane>
+            ))}
+        </>
+      );
+    }
+    return <Loader />;
   };
 
-  const ShowTable = () => {
-    return (
-      <ExtendedTable
-        data={
-          products && products.length === 0 ? (
-            <NullItems> No products registered...</NullItems>
-          ) : (
-            verifyProducts()
-          )
-        }
-      />
-    );
+  // Filter products by product types
+  const typeFilter = () => {
+    if (products && products.length !== 0) {
+      return (
+        <>
+          {products &&
+            productTypes.map((types) => (
+              <Tab.Pane key={types.type} eventKey={types.type}>
+                <ExtendedTable
+                  data={
+                    products &&
+                    products
+                      .filter((pane) => pane.type === types.type)
+                      .map((product) => ExtendedProduct(product))
+                  }
+                />
+              </Tab.Pane>
+            ))}
+        </>
+      );
+    }
+    return <Loader />;
   };
 
   // eslint-disable-next-line
@@ -84,21 +107,14 @@ export default function Catalog() {
     return (
       <>
         <Tab.Pane eventKey="default">
-          <ShowTable />
+          <ExtendedTable
+            data={
+              products && products.map((product) => ExtendedProduct(product))
+            }
+          />
         </Tab.Pane>
-        {/* Filtered Table */}
-        {products &&
-          productCategories.map((product) => (
-            <Tab.Pane key={product.category} eventKey={product.category}>
-              <ShowTable />
-            </Tab.Pane>
-          ))}
-        {products &&
-          productTypes.map((product) => (
-            <Tab.Pane key={product.type} eventKey={product.type}>
-              <ShowTable />
-            </Tab.Pane>
-          ))}
+        {categoryFilter()}
+        {typeFilter()}
       </>
     );
   };
