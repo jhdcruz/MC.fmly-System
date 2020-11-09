@@ -16,6 +16,8 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+import Suppliers from '../components/Suppliers';
+
 export default function Contacts() {
-  return <h1>No content yet.</h1>;
+  return <Suppliers />;
 }
