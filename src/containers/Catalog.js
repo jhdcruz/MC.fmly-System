@@ -55,7 +55,7 @@ export default function Catalog() {
   const verifyProducts = () => {
     return (
       <>
-        {products && products.length >= 1 ? (
+        {products && products.length !== 0 ? (
           products.map((product) => ExtendedProduct(product))
         ) : (
           <Loader />
