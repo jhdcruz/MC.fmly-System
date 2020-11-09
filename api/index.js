@@ -54,7 +54,8 @@ moesifMiddleware.startCaptureOutgoing();
 mongoose
   .connect(`${process.env.MONGO_ADMIN}` || `${process.env.MONGO_URL}`, {
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
+    useCreateIndex: true
   })
   .then(() => {
     api.listen(PORT);
