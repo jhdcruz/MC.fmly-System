@@ -47,7 +47,7 @@ export default function Dashboard() {
         <Widget
           subject="Total Products"
           amount={totalProducts}
-          label="/10000"
+          label="/~11500"
         />
         <Widget subject="Total Suppliers" amount="4" label="Contacts" />
       </Row>
