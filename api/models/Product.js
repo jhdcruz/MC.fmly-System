@@ -47,10 +47,12 @@ const productsSchema = new Schema(
       caseFirst: 'on'
     },
     quantity: {
-      type: Number
+      type: Number,
+      min: 1
     },
     price: {
-      type: Number
+      type: Number,
+      min: 0
     }
   },
   { timestamps: true }
