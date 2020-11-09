@@ -21,8 +21,9 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const suppliersSchema = new Schema({
-  profile: {
+  icon: {
     // Currently supports link-only
+    // Upload sa `imgur` then lagay dito ung link ng .png
     type: String
   },
   name: {
