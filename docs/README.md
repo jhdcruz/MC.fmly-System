@@ -1,3 +1,4 @@
+ 
 # MC.fmly Inventory System
 
 ### Inventory System specifically built for [MC.fmly](https://www.facebook.com/MC.fmly/).
@@ -58,7 +59,7 @@
 - [**GitHub Actions**](https://vercel.com) - _CI/CD for Desktop App (`win`, `mac`, `linux`)_
 - [**CodeFactor**](https://codefactor.io) - _Code Quality_
 - [**SonarCloud**](https://sonarcloud.io/) - _Code Quality & Security_
-- [**Sentry**](https://sentry.io) - _Application Monitoring_
+- [**Rollbar**](https://rollbar.com) - _Application Monitoring_
 - [**Moesif API**](https://www.moesif.com/) - _API Analytics_
 - [**WhiteSource Renovate**](https://renovate.whitesourcesoftware.com/) - _Automated Dependency Updates_
 
@@ -133,13 +134,20 @@ If you've written your own test files, put them in `tests/` and replace the `tes
 
 ### Web App:
 
+You need to have a web provider that supports **`functions`**.
+Such as [**Vercel**](https://vercel.com), it can also be other provider such as
+DigitalOcean, AWS, etc...
+
 ```sh
 yarn build
 ```
 
-Output on `build/` directory. Ready to deploy to hosting.
+Front-end output on `build/` directory. Ready to deploy to hosting.
 
 ### Desktop:
+
+The desktop version relies on loading the web app. You need to deploy the web app,
+then changing the `loadURL` link in `public/electron.js`.
 
 ```bash
 cd client/ && package-[os]
