@@ -24,9 +24,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Alert = styled(Toast)`
   position: fixed !important;
-  bottom: 10px;
+  bottom: 1.5rem;
   right: 0;
-  margin: 1rem;
+  margin: 1rem 0.5rem;
   background-color: #1f252c !important;
   color: whitesmoke;
   width: auto;
