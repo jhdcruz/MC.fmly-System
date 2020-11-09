@@ -23,7 +23,7 @@ const { Schema } = mongoose;
 const suppliersSchema = new Schema({
   icon: {
     // Currently supports link-only
-    // Upload sa `imgur` then lagay dito ung link ng .png
+    // Upload sa `imgur` then lagay dito ung link ng .png/jpg
     type: String
   },
   name: {
@@ -31,6 +31,9 @@ const suppliersSchema = new Schema({
     unique: true
   },
   description: {
+    type: String
+  },
+  type: {
     type: String
   },
   address: {
