@@ -77,6 +77,8 @@ api.get('/api', (req, res) => {
   // Vercel's Serveless Functions settings
   res.setHeader('Content-Type', 'text/html');
   res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Origin", req.headers.origin);
 });
 
 
