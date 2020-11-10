@@ -53,11 +53,13 @@ const CategoryList = styled(Col)`
     margin: 0 !important;
     border-radius: 1.6rem;
     color: #d7b9b4;
+    outline: none;
 
     :hover {
       border-left: 2px outset #eccec9;
       background-color: #303030;
       box-shadow: 2px 5px 7px #222222;
+      outline: none;
     }
   }
 
