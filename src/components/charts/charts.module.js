@@ -22,16 +22,18 @@ export const Widget = styled.iframe`
   width: 22vw !important;
   height: 150px !important;
   background: #1e1e1e;
+  margin: 2.5rem 0.5rem 0.5rem 0;
   border: none;
-  border-radius: 2px;
-  box-shadow: 0 2px 10px 0 rgba(70, 76, 79, 0.2);
+  border-radius: 1rem;
+  box-shadow: 0 3px 6px #232323;
 `;
 
 export const Chart = styled.iframe`
   width: 45vw !important;
   height: 60vh !important;
   background: #1e1e1e;
+  margin-right: 0.5rem;
   border: none;
-  border-radius: 2px;
-  box-shadow: 0 2px 10px 0 rgba(70, 76, 79, 0.2);
+  border-radius: 1rem;
+  box-shadow: 0 3px 6px #232323;
 `;

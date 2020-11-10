@@ -41,11 +41,7 @@ export default function Dashboard() {
         <InventoryValue />
         <TotalProducts />
       </Row>
-      <Row
-        style={{
-          marginTop: '1rem'
-        }}
-      >
+      <Row>
         <TypeAllocation />
         <CategoryAllocation />
       </Row>
