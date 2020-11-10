@@ -16,53 +16,43 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import SalesReport from '../components/charts/SalesReport';
-import ProductDetails from '../components/charts/ProductDetails';
-import Widget from '../components/Widget';
 import Row from 'react-bootstrap/Row';
-import useProducts from '../hooks/useProducts';
 import Notification from '../components/Notification';
+import InventoryCapacity from '../components/charts/InventoryCapacity';
+import TotalProducts from '../components/charts/TotalProducts';
+import InventoryValue from '../components/charts/InventoryValue';
+import TypeAllocation from '../components/charts/TypeAllocation';
+import CategoryAllocation from '../components/charts/CategoryAllocation';
 
 export default function Dashboard() {
-  const [products] = useProducts();
-
-  const totalProducts =
-    products &&
-    products.reduce(function (sum, product) {
-      return sum + product.quantity;
-    }, 0);
-
   return (
     <div
       style={{
         display: 'inline-block',
         overflow: 'auto',
         height: '100vh',
+        width: '100%',
         marginLeft: '1rem',
         padding: '0 1.3rem 2.5rem 1.3rem'
       }}
     >
       <Row>
-        {/* TODO: Fetch Data from API */}
-        <Widget
-          subject="Total Products"
-          amount={totalProducts}
-          label="/~11500"
-        />
-        <Widget subject="Total Suppliers" amount="4" label="Contacts" />
+        <InventoryCapacity />
+        <InventoryValue />
+        <TotalProducts />
       </Row>
       <Row
         style={{
-          marginTop: '1.3rem'
+          marginTop: '1rem'
         }}
       >
-        <SalesReport />
-        <ProductDetails />
+        <TypeAllocation />
+        <CategoryAllocation />
       </Row>
       <Notification
         title="Notice"
         time="System Guide"
-        message="Total products widget is a dynamic component, fetches real data from database."
+        message="All charts & graphs are live data calculated from the database."
         delay={6500}
       />
     </div>
