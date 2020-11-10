@@ -18,7 +18,7 @@
 
 import { Chart } from './charts.module';
 
-export default function TypeAllocation() {
+export default function TypeDetails() {
   return (
     <Chart src="https://charts.mongodb.com/charts-pending-system-rgssg/embed/charts?id=a647f8d1-9cd1-43e0-bea5-7c966947f573&autoRefresh=true&maxDataAge=10&attribution=false&theme=dark" />
   );

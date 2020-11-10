@@ -21,8 +21,8 @@ import Notification from '../components/Notification';
 import InventoryCapacity from '../components/charts/InventoryCapacity';
 import TotalProducts from '../components/charts/TotalProducts';
 import InventoryValue from '../components/charts/InventoryValue';
-import TypeAllocation from '../components/charts/TypeAllocation';
-import CategoryAllocation from '../components/charts/CategoryAllocation';
+import TypeDetails from '../components/charts/TypeDetails';
+import CategoryDetails from '../components/charts/CategoryDetails';
 
 export default function Dashboard() {
   return (
@@ -42,8 +42,8 @@ export default function Dashboard() {
         <TotalProducts />
       </Row>
       <Row>
-        <TypeAllocation />
-        <CategoryAllocation />
+        <TypeDetails />
+        <CategoryDetails />
       </Row>
       <Notification
         title="Notice"
