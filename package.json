@@ -24,7 +24,7 @@
     "postinstall": "electron-builder install-app-deps"
   },
   "dependencies": {
-    "@mongodb-js/charts-embed-dom": "^1.1.3",
+    "@mongodb-js/charts-embed-dom": "1.1.3",
     "@treverix/remote": "0.1.1",
     "axios": "0.21.0",
     "body-parser": "1.19.0",
