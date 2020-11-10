@@ -43,7 +43,7 @@ const TableHeader = styled.th`
 const ProductTable = styled(Table)`
   width: 100%;
   min-width: 100% !important;
-  margin: 0 0.5rem 2rem 0;
+  margin: 1.5rem 0.5rem 2rem 0;
   overflow: auto;
   background-color: transparent;
   border-collapse: separate;

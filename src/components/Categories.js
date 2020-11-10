@@ -31,8 +31,8 @@ const CatalogGrid = styled(Row)`
 
 const CategoryList = styled(Col)`
   position: fixed;
-  top: 1%;
-  transform: translateY(-1%);
+  top: 94%;
+  transform: translateY(-100%);
   max-width: 11rem;
   margin: 1rem 5rem 1rem 1.3rem;
   padding: 1rem 1rem 1rem 1.2rem;

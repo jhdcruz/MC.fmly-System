@@ -37,8 +37,8 @@ import {
 const SideMenu = styled.aside`
   background-color: #1e1e1e;
   position: fixed;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 95%;
+  transform: translateY(-100%);
   width: 3.4rem;
   margin: 0.5rem 0.8rem;
   padding: 0;

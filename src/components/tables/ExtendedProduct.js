@@ -63,6 +63,8 @@ const TableData = styled.td`
   margin: 0 1rem !important;
   border: none !important;
   white-space: nowrap;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
 
   p {
     display: inline-block;

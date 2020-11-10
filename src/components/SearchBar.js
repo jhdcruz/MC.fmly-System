@@ -25,7 +25,7 @@ import { Link } from 'react-router-dom';
 
 const Search = styled.div`
   width: 30vw;
-  margin: 1rem 2rem 0 1.5rem;
+  margin: 3rem 2rem 0 1.5rem;
   position: fixed;
   box-shadow: 0 0 12px #eccec9;
 

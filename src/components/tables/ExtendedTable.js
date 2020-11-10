@@ -27,14 +27,15 @@ const TableContainer = createGlobalStyle`
     width: 115vw;
     height: 100%;
     padding: 0 0 0 0.5rem !important;
-    margin: 0;
-    overflow: hidden !important;
+    margin: 0 2rem 0 0;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
 
     table {
-      width: 100% !important;
+      width: max-content !important;
       padding: 0 3rem 0 1rem;
-      margin: 3rem 1rem 2rem 0 !important;
-      overflow: auto !important
+      margin: 5rem 1rem 2rem 0 !important;
+      overflow: auto !important;
     }
 
     #ItemCode {
