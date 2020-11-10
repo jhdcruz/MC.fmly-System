@@ -114,15 +114,20 @@ Can be either of the ff:
 
 ## Environment Variables
 
+ - **`MONGO_ADMIN`** - **Required**
+ - **`MONGO_USER`** - **Required**
+ - `MOESIF_ID`
+ - `ROLLBAR_ID`
+
 Add your MongoDB URI to `.env` variable located in `api/`
 
 ```
 MONGO_ADMIN=[Your URI Here] # Don't add quotation marks
 ```
 
-You also need a Moesif ID which you can get [here](https://www.moesif.com/wrap?onboard=true). But it's entirely **optional**.
+You also need a Moesif ID to start the app which you can get [here](https://www.moesif.com/wrap?onboard=true). But it's entirely **optional**.
 
-To start the app without a Moesif ID, you need to remove the _middleware_ in `index.js` located also in `api/` directory.
+To start the app without a Moesif ID, you **need** to remove the _middleware_ in `api/index.js`.
 
 > Remove the ff. lines: `25`, `37-39`, `50`, `51`
 
