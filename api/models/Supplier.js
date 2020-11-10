@@ -39,6 +39,9 @@ const suppliersSchema = new Schema({
   address: {
     type: String
   },
+  website: {
+    type: String
+  },
   contact: {
     type: String
   }

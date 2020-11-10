@@ -41,6 +41,7 @@ export default function Suppliers() {
                 <ListGroupItem>{supplier.address}</ListGroupItem>
               </ListGroup>
               <Card.Body>
+                <Card.Link href="#">{supplier.website}</Card.Link>
                 <Card.Link href="#">{supplier.contact}</Card.Link>
               </Card.Body>
             </Card>
