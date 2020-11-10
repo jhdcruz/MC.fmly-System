@@ -29,7 +29,7 @@ export const Widget = styled.iframe`
 `;
 
 export const Chart = styled.iframe`
-  width: 45vw !important;
+  width: 44vw !important;
   height: 60vh !important;
   background: #1e1e1e;
   margin-right: 0.5rem;
