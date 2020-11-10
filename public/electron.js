@@ -23,13 +23,23 @@ const path = require('path');
 const singleInstance = app.requestSingleInstanceLock();
 
 function createWindow() {
+  // Splashscreen
+  const splash = new BrowserWindow({
+    width: 310,
+    height: 310,
+    transparent: true,
+    frame: false,
+    alwaysOnTop: true
+  });
   // Create the browser window.
   const win = new BrowserWindow({
     width: 1220,
     height: 680,
+    show: false,
     minWidth: 1100,
     minHeight: 630,
     icon: 'favicon.ico',
+    backgroundColor: '#232323',
     frame: process.platform === 'darwin',
     webPreferences: {
       nodeIntegration: true,
@@ -37,6 +47,10 @@ function createWindow() {
       webviewTag: true,
       preload: path.join(__dirname, 'preload.js')
     }
+  });
+
+  splash.loadURL(`file://${__dirname}/splash.html`).catch((err) => {
+    console.error(err);
   });
 
   // Resorted to web app due to database connection failure
@@ -51,6 +65,7 @@ function createWindow() {
   }
 
   win.once('ready-to-show', () => {
+    splash.destroy();
     win.show();
   });
 }
