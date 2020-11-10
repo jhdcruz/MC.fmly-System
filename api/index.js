@@ -79,6 +79,7 @@ api.get('/api', (req, res) => {
   res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
 });
 
+
 // Deprecated in favor of Vercel's static hoisting
 // api.use(express.static('/public'));
 
