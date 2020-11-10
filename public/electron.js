@@ -33,8 +33,8 @@ function createWindow() {
   });
   // Create the browser window.
   const win = new BrowserWindow({
-    width: 1220,
-    height: 680,
+    width: 1250,
+    height: 700,
     show: false,
     minWidth: 1100,
     minHeight: 630,
