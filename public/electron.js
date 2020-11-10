@@ -40,6 +40,7 @@ function createWindow() {
     minHeight: 630,
     icon: 'favicon.ico',
     backgroundColor: '#232323',
+    autoHideMenuBar: true,
     frame: process.platform === 'darwin',
     webPreferences: {
       nodeIntegration: true,
