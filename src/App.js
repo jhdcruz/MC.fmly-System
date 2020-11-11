@@ -17,9 +17,9 @@
  */
 
 import { Fragment } from 'react';
-import Container from 'react-bootstrap/Container';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { AnimatedSwitch, spring } from 'react-router-transition';
+import Container from 'react-bootstrap/Container';
 import routes from './routes.json';
 import Sidebar from './components/Sidebar';
 import './App.scss';
@@ -67,6 +67,7 @@ const bounceTransition = {
 };
 
 export default function App() {
+
   return (
     <Fragment>
       <Router>
@@ -74,7 +75,7 @@ export default function App() {
           <Sidebar />
           <div id="pageRoutes" className="routerContainer">
             <Switch>
-              {/* Router Transition */}
+              {/* Router Transition */}`
               <AnimatedSwitch
                 atEnter={bounceTransition.atEnter}
                 atLeave={bounceTransition.atLeave}
