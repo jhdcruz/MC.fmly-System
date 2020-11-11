@@ -20,7 +20,7 @@ const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
 
-const productsSchema = new Schema(
+const productSchema = new Schema(
   {
     code: {
       type: String,
@@ -58,4 +58,4 @@ const productsSchema = new Schema(
   { timestamps: true }
 );
 
-mongoose.model('products', productsSchema);
+mongoose.model('products', productSchema);

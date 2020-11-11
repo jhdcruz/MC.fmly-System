@@ -36,9 +36,7 @@ module.exports = (api) => {
 
   api.put('/api/products/:id', async (req, res) => {
     const { id } = req.params;
-
     const products = await Products.findByIdAndUpdate(id, req.body);
-
     return res.status(202).send({
       error: false,
       products
@@ -47,9 +45,7 @@ module.exports = (api) => {
 
   api.delete('/api/products/:id', async (req, res) => {
     const { id } = req.params;
-
     const products = await Products.findByIdAndDelete(id);
-
     return res.status(202).send({
       error: false,
       products

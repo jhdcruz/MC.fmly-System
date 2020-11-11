@@ -20,7 +20,7 @@ const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
 
-const suppliersSchema = new Schema({
+const supplierSchema = new Schema({
   icon: {
     // Currently supports link-only
     // Upload sa `imgur` then lagay dito ung link ng .png/jpg
@@ -47,4 +47,4 @@ const suppliersSchema = new Schema({
   }
 });
 
-mongoose.model('suppliers', suppliersSchema);
+mongoose.model('suppliers', supplierSchema);
