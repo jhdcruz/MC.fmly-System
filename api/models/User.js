@@ -39,6 +39,10 @@ const userSchema = new Schema({
     type: String,
     trim: true
   },
+  permission: {
+    type: String,
+    trim: true
+  },
   date: {
     type: Date,
     default: Date.now
