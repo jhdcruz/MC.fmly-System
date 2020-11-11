@@ -64,7 +64,7 @@ module.exports = (api) => {
         res.send('Credentials Mismatched!');
       }
     } catch (error) {
-      console.log(error);
+      console.error(error);
       res.status(500).send('Internal Server error occured');
     }
   });
