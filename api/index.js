@@ -58,31 +58,30 @@ mongoose
     useCreateIndex: true
   })
   .then(() => {
-    api.listen(PORT);
-    console.log(`API running in port: ${PORT}`);
+    api.listen(5000, () => {
+      console.log(`Server started at PORT: ${PORT}`);
+    });
   })
   .catch((err) => {
-    console.log(err);
+    console.error(err);
   });
 
 // Model Imports
 require('./models/Product');
 require('./models/Supplier');
+require('./models/User');
 
 // Routes Imports
 require('./routes/products')(api);
 require('./routes/suppliers')(api);
+require('./routes/users')(api);
 
 api.get('/api', (req, res) => {
   // Vercel's Serveless Functions settings
   res.setHeader('Content-Type', 'text/html');
   res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader("Access-Control-Allow-Origin", req.headers.origin);
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Origin', req.headers.origin);
 });
-
-
-// Deprecated in favor of Vercel's static hoisting
-// api.use(express.static('/public'));
 
 module.exports = api;
