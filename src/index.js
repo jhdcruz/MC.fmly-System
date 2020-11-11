@@ -27,5 +27,3 @@ ReactDOM.render(
   </StrictMode>,
   document.getElementById('root')
 );
-
-serviceWorker.unregister();
