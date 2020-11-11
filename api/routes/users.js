@@ -34,13 +34,16 @@ module.exports = (api) => {
       const hashedPwd = await bcrypt.hash(req.body.password, 10);
       const insertResult = await Users.create({
         username: req.body.username,
-        password: hashedPwd
+        password: hashedPwd,
+        role: req.body.role,
+        permission: req.body.permission,
+        date: req.body.date
       });
       res.status(200);
       res.send(insertResult);
     } catch (error) {
       console.log(error);
-      res.status(500).send('Internal Server error Occured');
+      res.status(500).send('Internal Server error occured');
     }
   });
 
@@ -62,7 +65,7 @@ module.exports = (api) => {
       }
     } catch (error) {
       console.log(error);
-      res.status(500).send('Internal Server error Occured');
+      res.status(500).send('Internal Server error occured');
     }
   });
 

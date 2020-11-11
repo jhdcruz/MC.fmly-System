@@ -20,9 +20,6 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const userSchema = new Schema({
-  icon: {
-    type: String
-  },
   username: {
     type: String,
     unique: true,
@@ -31,8 +28,8 @@ const userSchema = new Schema({
   },
   password: {
     type: String,
-    trim: true,
     required: true,
+    trim: true,
     minLength: 6
   },
   role: {
@@ -50,4 +47,3 @@ const userSchema = new Schema({
 });
 
 mongoose.model('users', userSchema);
-
