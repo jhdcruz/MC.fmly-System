@@ -19,29 +19,29 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
-// Fetch suppliers data
+// Fetch users data
 async function getAll() {
-  let res = await axios.get(`/api/suppliers`);
+  let res = await axios.get(`/api/users`);
   return res.data || [];
 }
 
-const useSuppliers = () => {
-  const [suppliers, setSuppliers] = useState(null);
+const useUsers = () => {
+  const [users, setUsers] = useState(null);
 
   useEffect(() => {
-    if (!suppliers) {
+    if (!users) {
       fetchProducts().catch((e) => {
         console.error(e);
       });
     }
-  }, [suppliers]);
+  }, [users]);
 
   const fetchProducts = async () => {
     let res = await getAll();
-    setSuppliers(res);
+    setUsers(res);
   };
 
-  return [suppliers];
+  return [users];
 };
 
-export default useSuppliers;
+export default useUsers;
