@@ -83,6 +83,7 @@ api.get('/api', (req, res) => {
   res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
   res.setHeader('Access-Control-Allow-Origin', req.header.origin);
   res.setHeader('Access-Control-Allow-Credentials', true);
+  res.setHeader('Access-Control-Allow-Headers', 'Authorization');
   res.setHeader(
     'Access-Control-Allow-Methods',
     'GET,HEAD,PUT,PATCH,POST,DELETE'
