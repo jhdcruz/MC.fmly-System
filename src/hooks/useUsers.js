@@ -17,7 +17,7 @@
  */
 
 import { useEffect, useState } from 'react';
-import { UsersRequest } from '../utils/axios/UsersInstance';
+import { UsersRequest } from '../services/UsersInstance';
 
 const useUsers = () => {
   const [users, setUsers] = useState(null);
