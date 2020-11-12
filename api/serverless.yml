@@ -1,0 +1,9 @@
+org: jhdcruz
+app: mc-fmly-system
+name: server
+component: express-starter
+
+inputs:
+  src:
+    src: ./
+    hook: cd .. && npm run api
