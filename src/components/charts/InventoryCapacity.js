@@ -16,7 +16,7 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { Widget } from './charts.module';
+import { Widget } from './charts.styled';
 
 export default function InventoryCapacity() {
   return (
