@@ -49,6 +49,7 @@ api.use(helmet());
 api.use(bodyParser.urlencoded({ extended: false }));
 api.use(bodyParser.json());
 api.use(moesifMiddleware);
+api.use(express.static('build'));
 moesifMiddleware.startCaptureOutgoing();
 
 api.options('*', cors());
@@ -61,7 +62,7 @@ mongoose
     useCreateIndex: true
   })
   .then(() => {
-    api.listen(process.env.PORT || 5000, () => {
+    api.listen(PORT, () => {
       console.log(`Server started at PORT: ${PORT}`);
     });
   })
