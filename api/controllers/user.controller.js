@@ -17,7 +17,7 @@
  */
 
 const mongoose = require('mongoose');
-const bcrypt = require('bcrypt');
+const argon2 = require('argon2');
 
 const Users = mongoose.model('users');
 
@@ -34,7 +34,7 @@ exports.get = async (req, res) => {
 exports.put = async (req, res) => {
   const { id } = req.params;
   try {
-    const hashedPwd = await bcrypt.hash(req.body.password, 10);
+    const hashedPwd = await argon2.hash(req.body.password);
     const users = await Users.findByIdAndUpdate(id, {
       username: req.body.username,
       password: hashedPwd,
@@ -64,7 +64,7 @@ exports.delete = async (req, res) => {
 exports.register = async (req, res) => {
   console.log(req.body);
   try {
-    const hashedPwd = await bcrypt.hash(req.body.password, 10);
+    const hashedPwd = await argon2.hash(req.body.password);
     const insertResult = await Users.create({
       username: req.body.username,
       password: hashedPwd,
@@ -85,7 +85,7 @@ exports.login = async (req, res) => {
     const user = await Users.findOne({ username: req.body.username });
     console.log(user);
     if (user) {
-      const cmp = await bcrypt.compare(req.body.password, user.password);
+      const cmp = await argon2.verify(user.password, req.body.password);
       if (cmp) {
         res.status(200).send(`Logged in as: ${req.body.username}`);
       } else {
