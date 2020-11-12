@@ -18,11 +18,11 @@
 
 const express = require('express');
 const mongoose = require('mongoose');
-const Rollbar = require('rollbar');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const helmet = require('helmet');
-const moesif = require('moesif-nodejs');
+const serverless = require('serverless-http');
+const Rollbar = require('rollbar');
 
 // set .env
 require('dotenv').config();
@@ -32,10 +32,6 @@ const rollbar = new Rollbar({
   accessToken: `${process.env.ROLLBAR_ID}`,
   captureUncaught: true,
   captureUnhandledRejections: true
-});
-
-const moesifMiddleware = moesif({
-  applicationId: `${process.env.MOESIF_ID}`
 });
 
 const api = express();
@@ -48,9 +44,7 @@ api.use(cors());
 api.use(helmet());
 api.use(bodyParser.urlencoded({ extended: false }));
 api.use(bodyParser.json());
-api.use(moesifMiddleware);
 api.use(express.static('build'));
-moesifMiddleware.startCaptureOutgoing();
 
 api.options('*', cors());
 
@@ -87,3 +81,4 @@ api.get('/api', (req, res) => {
 });
 
 module.exports = api;
+module.exports.handler = serverless(api);
