@@ -20,35 +20,44 @@ const mongoose = require('mongoose');
 
 const Products = mongoose.model('products');
 
-module.exports = (api) => {
-  api.get('/api/products', async (req, res) => {
+exports.get = async (req, res) => {
+  try {
     const products = await Products.find();
     return res.status(200).send(products);
-  });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Error fetching products');
+  }
+};
 
-  api.post('/api/products', async (req, res) => {
+exports.post = async (req, res) => {
+  try {
     const products = await Products.create(req.body);
-    return res.status(201).send({
-      error: false,
-      products
-    });
-  });
+    return res.status(201).send(products);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Error posting product/s');
+  }
+};
 
-  api.put('/api/products/:id', async (req, res) => {
-    const { id } = req.params;
-    const products = await Products.findByIdAndUpdate(id, req.body);
-    return res.status(202).send({
-      error: false,
-      products
-    });
-  });
+exports.put = async (req, res) => {
+  const { _id } = req.params;
+  try {
+    const products = await Products.findByIdAndUpdate(_id, req.body);
+    return res.status(202).send(products);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send(`Error updating product ${_id}`);
+  }
+};
 
-  api.delete('/api/products/:id', async (req, res) => {
-    const { id } = req.params;
-    const products = await Products.findByIdAndDelete(id);
-    return res.status(202).send({
-      error: false,
-      products
-    });
-  });
+exports.delete = async (req, res) => {
+  const { _id } = req.params;
+  try {
+    const products = await Products.findByIdAndDelete(_id);
+    return res.status(202).send(products);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send(`Error deleting product ${_id}`);
+  }
 };

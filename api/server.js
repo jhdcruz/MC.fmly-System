@@ -68,14 +68,14 @@ mongoose
   });
 
 // Model Imports
-require('./models/Product');
-require('./models/Supplier');
-require('./models/User');
+require('./models/product.model');
+require('./models/supplier.model');
+require('./models/user.model');
 
 // Routes Imports
-require('./routes/products')(api);
-require('./routes/suppliers')(api);
-require('./routes/users')(api);
+require('./routes/product.route')(api);
+require('./routes/supplier.route')(api);
+require('./routes/user.route')(api);
 
 api.get('/api', (req, res) => {
   // Vercel's Serveless Functions settings

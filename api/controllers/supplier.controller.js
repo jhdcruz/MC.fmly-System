@@ -20,35 +20,44 @@ const mongoose = require('mongoose');
 
 const Suppliers = mongoose.model('suppliers');
 
-module.exports = (api) => {
-  api.get('/api/suppliers', async (req, res) => {
+exports.get = async (req, res) => {
+  try {
     const suppliers = await Suppliers.find();
     return res.status(200).send(suppliers);
-  });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Error fetching suppliers');
+  }
+};
 
-  api.post('/api/suppliers', async (req, res) => {
+exports.post = async (req, res) => {
+  try {
     const suppliers = await Suppliers.create(req.body);
-    return res.status(201).send({
-      error: false,
-      suppliers
-    });
-  });
+    return res.status(201).send(suppliers);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Error posting of suppliers');
+  }
+};
 
-  api.put('/api/suppliers/:id', async (req, res) => {
-    const { id } = req.params;
-    const suppliers = await Suppliers.findByIdAndUpdate(id, req.body);
-    return res.status(202).send({
-      error: false,
-      suppliers
-    });
-  });
+exports.put = async (req, res) => {
+  const { _id } = req.params;
+  try {
+    const suppliers = await Suppliers.findByIdAndUpdate(_id, req.body);
+    return res.status(202).send(suppliers);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send(`Error updating supplier ${_id}`);
+  }
+};
 
-  api.delete('/api/suppliers/:id', async (req, res) => {
-    const { id } = req.params;
-    const suppliers = await Suppliers.findByIdAndDelete(id);
-    return res.status(202).send({
-      error: false,
-      suppliers
-    });
-  });
+exports.delete = async (req, res) => {
+  const { _id } = req.params;
+  try {
+    const suppliers = await Suppliers.findByIdAndDelete(_id);
+    return res.status(202).send(suppliers);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send(`Error deleting supplier ${_id}`);
+  }
 };
