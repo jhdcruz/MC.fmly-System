@@ -52,7 +52,7 @@ exports.put = async (req, res) => {
 };
 
 exports.delete = async (req, res) => {
-  const { _id } = req.params;
+  const { id } = req.params;
   try {
     const products = await Products.findByIdAndDelete(id);
     return res.status(202).send(products);
