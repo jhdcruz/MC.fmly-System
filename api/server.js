@@ -81,7 +81,16 @@ api.get('/api', (req, res) => {
   // Vercel's Serveless Functions settings
   res.setHeader('Content-Type', 'text/html');
   res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
-  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Origin', req.header.origin);
+  res.setHeader('Access-Control-Allow-Credentials', true);
+  res.setHeader(
+    'Access-Control-Allow-Methods',
+    'GET,HEAD,PUT,PATCH,POST,DELETE'
+  );
+  res.setHeader(
+    'Access-Control-Allow-Headers',
+    req.headers['access-control-request-headers']
+  );
 });
 
 module.exports = api;
