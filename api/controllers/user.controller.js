@@ -32,10 +32,10 @@ exports.get = async (req, res) => {
 };
 
 exports.put = async (req, res) => {
-  const { _id } = req.params;
+  const { id } = req.params;
   try {
     const hashedPwd = await bcrypt.hash(req.body.password, 10);
-    const users = await Users.findByIdAndUpdate(_id, {
+    const users = await Users.findByIdAndUpdate(id, {
       username: req.body.username,
       password: hashedPwd,
       role: req.body.role,
@@ -45,18 +45,18 @@ exports.put = async (req, res) => {
     return res.status(202).send(users);
   } catch (err) {
     console.error(err);
-    res.status(500).send(`Error updating user ${_id}`);
+    res.status(500).send(`Error updating user ${id}`);
   }
 };
 
 exports.delete = async (req, res) => {
-  const { _id } = req.params;
+  const { id } = req.params;
   try {
-    const users = await Users.findByIdAndDelete(_id);
+    const users = await Users.findByIdAndDelete(id);
     res.status(202).send(users);
   } catch (err) {
     console.error(err);
-    res.status(500).send(`Error deleting user ${_id}`);
+    res.status(500).send(`Error deleting user ${id}`);
   }
 };
 

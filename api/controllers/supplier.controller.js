@@ -41,23 +41,23 @@ exports.post = async (req, res) => {
 };
 
 exports.put = async (req, res) => {
-  const { _id } = req.params;
+  const { id } = req.params;
   try {
-    const suppliers = await Suppliers.findByIdAndUpdate(_id, req.body);
+    const suppliers = await Suppliers.findByIdAndUpdate(id, req.body);
     return res.status(202).send(suppliers);
   } catch (err) {
     console.error(err);
-    res.status(500).send(`Error updating supplier ${_id}`);
+    res.status(500).send(`Error updating supplier ${id}`);
   }
 };
 
 exports.delete = async (req, res) => {
-  const { _id } = req.params;
+  const { id } = req.params;
   try {
-    const suppliers = await Suppliers.findByIdAndDelete(_id);
+    const suppliers = await Suppliers.findByIdAndDelete(id);
     return res.status(202).send(suppliers);
   } catch (err) {
     console.error(err);
-    res.status(500).send(`Error deleting supplier ${_id}`);
+    res.status(500).send(`Error deleting supplier ${id}`);
   }
 };
