@@ -103,6 +103,8 @@ export default function Login() {
       })
       .catch((err) => {
         console.error(err);
+        window.alert(err);
+        window.alert('Contact the System Administrator!');
       });
   };
 
