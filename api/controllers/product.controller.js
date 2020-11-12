@@ -41,23 +41,23 @@ exports.post = async (req, res) => {
 };
 
 exports.put = async (req, res) => {
-  const { _id } = req.params;
+  const { id } = req.params;
   try {
-    const products = await Products.findByIdAndUpdate(_id, req.body);
+    const products = await Products.findByIdAndUpdate(id, req.body);
     return res.status(202).send(products);
   } catch (err) {
     console.error(err);
-    res.status(500).send(`Error updating product ${_id}`);
+    res.status(500).send(`Error updating product ${id}`);
   }
 };
 
 exports.delete = async (req, res) => {
   const { _id } = req.params;
   try {
-    const products = await Products.findByIdAndDelete(_id);
+    const products = await Products.findByIdAndDelete(id);
     return res.status(202).send(products);
   } catch (err) {
     console.error(err);
-    res.status(500).send(`Error deleting product ${_id}`);
+    res.status(500).send(`Error deleting product ${id}`);
   }
 };
