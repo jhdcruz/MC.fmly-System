@@ -17,7 +17,7 @@
  */
 
 import { useEffect, useState } from 'react';
-import { ProductsRequest } from '../utils/axios/ProductsInstance';
+import { ProductsRequest } from '../services/ProductsInstance';
 
 // Assign data to `products`
 const useProducts = () => {

@@ -17,7 +17,7 @@
  */
 
 import { useEffect, useState } from 'react';
-import { SuppliersRequest } from '../utils/axios/SuppliersInstance';
+import { SuppliersRequest } from '../services/SuppliersInstance';
 
 
 const useSuppliers = () => {
