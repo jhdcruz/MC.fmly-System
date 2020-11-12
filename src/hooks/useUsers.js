@@ -17,13 +17,7 @@
  */
 
 import { useEffect, useState } from 'react';
-import axios from 'axios';
-
-// Fetch users data
-async function getAll() {
-  let res = await axios.get(`/api/users`);
-  return res.data || [];
-}
+import { UsersRequest } from '../utils/axios/UsersInstance';
 
 const useUsers = () => {
   const [users, setUsers] = useState(null);
@@ -37,7 +31,7 @@ const useUsers = () => {
   }, [users]);
 
   const fetchProducts = async () => {
-    let res = await getAll();
+    let res = await UsersRequest.get();
     setUsers(res);
   };
 

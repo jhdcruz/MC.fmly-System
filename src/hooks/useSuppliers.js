@@ -17,13 +17,8 @@
  */
 
 import { useEffect, useState } from 'react';
-import axios from 'axios';
+import { SuppliersRequest } from '../utils/axios/SuppliersInstance';
 
-// Fetch suppliers data
-async function getAll() {
-  let res = await axios.get(`/api/suppliers`);
-  return res.data || [];
-}
 
 const useSuppliers = () => {
   const [suppliers, setSuppliers] = useState(null);
@@ -37,7 +32,7 @@ const useSuppliers = () => {
   }, [suppliers]);
 
   const fetchProducts = async () => {
-    let res = await getAll();
+    let res = await SuppliersRequest.get();
     setSuppliers(res);
   };
 

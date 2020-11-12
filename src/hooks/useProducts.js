@@ -17,13 +17,7 @@
  */
 
 import { useEffect, useState } from 'react';
-import axios from 'axios';
-
-// Fetch products data
-async function getAll() {
-  let res = await axios.get(`/api/products`);
-  return res.data || [];
-}
+import { ProductsRequest } from '../utils/axios/ProductsInstance';
 
 // Assign data to `products`
 const useProducts = () => {
@@ -38,7 +32,7 @@ const useProducts = () => {
   }, [products]);
 
   const fetchProducts = async () => {
-    let res = await getAll();
+    let res = await ProductsRequest.get();
     setProducts(res);
   };
 
