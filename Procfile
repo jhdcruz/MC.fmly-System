@@ -1,1 +1,1 @@
-web: yarn web
+web: node api/server.js
