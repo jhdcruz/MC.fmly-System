@@ -61,7 +61,7 @@ mongoose
     useCreateIndex: true
   })
   .then(() => {
-    api.listen(5000, () => {
+    api.listen(process.env.PORT || 5000, () => {
       console.log(`Server started at PORT: ${PORT}`);
     });
   })
