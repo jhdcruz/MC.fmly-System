@@ -83,7 +83,7 @@ export default function App() {
                 mapStyles={mapStyles}
                 className="routerContent"
               >
-                <Route exact path={routes.DASHBOARD} component={Dashboard} />
+                <Route path={routes.DASHBOARD} component={Dashboard} />
                 <Route path={routes.RECENT} component={Recent} />
                 <Route path={routes.CATALOG} component={Catalog} />
                 <Route path={routes.INVOICES} component={Invoices} />
