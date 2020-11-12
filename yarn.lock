@@ -2434,7 +2434,7 @@ are-we-there-yet@~1.1.2:
     delegates "^1.0.0"
     readable-stream "^2.0.6"
 
-argon2@^0.27.0:
+argon2@0.27.0:
   version "0.27.0"
   resolved "https://registry.yarnpkg.com/argon2/-/argon2-0.27.0.tgz#0e92acfab23041544208d184acf8c3ca61a67e3f"
   integrity sha512-IkhJhz/4qaZ6RpYyRZvAMOu+EysF40z3J8jksvv0V9LvQFo13d2WBQr5lPuMzZid2k5XpdbQd2oVsgXR4Oi8TQ==
