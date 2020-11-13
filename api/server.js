@@ -22,7 +22,6 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const helmet = require('helmet');
 const Rollbar = require('rollbar');
-const path = require('path');
 
 // set .env
 require('dotenv').config();
