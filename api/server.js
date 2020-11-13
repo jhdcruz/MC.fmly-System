@@ -79,11 +79,4 @@ api.get('/api/', (req, res) => {
   res.setHeader('Access-Control-Allow-Origin', req.headers.origin);
 });
 
-if (process.env.NODE_ENV === 'production') {
-  api.use(express.static('build'));
-  api.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, '../build', 'index.html'));
-  });
-}
-
 module.exports = api;
