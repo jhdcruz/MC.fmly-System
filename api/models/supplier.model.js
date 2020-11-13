@@ -22,28 +22,39 @@ const { Schema } = mongoose;
 
 const supplierSchema = new Schema({
   icon: {
-    // Currently supports link-only
-    // Upload sa `imgur` then lagay dito ung link ng .png/jpg
-    type: String
+    type: String,
+    default:
+      'https://spng.pngfind.com/pngs/s/17-171509_cornerstone-community-bible-church-team-icon-white-png.png',
+    unique: false
   },
   name: {
     type: String,
-    unique: true
+    required: true
   },
   description: {
-    type: String
+    type: String,
+    default: '',
+    unique: false
   },
   type: {
-    type: String
+    type: String,
+    default: '',
+    unique: false
   },
   address: {
-    type: String
+    type: String,
+    default: '',
+    unique: false
   },
   website: {
-    type: String
+    type: String,
+    default: '',
+    unique: false
   },
   contact: {
-    type: String
+    type: String,
+    default: '',
+    unique: false
   }
 });
 
