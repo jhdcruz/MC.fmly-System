@@ -122,7 +122,7 @@ export default function Login() {
               autoComplete="off"
               value={username}
               onChange={(e) => setUser(e.target.value)}
-              autoFocus="true"
+              autoFocus={true}
               tabIndex="2"
               required
             />
