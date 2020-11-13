@@ -21,41 +21,84 @@ import Card from 'react-bootstrap/Card';
 import CardDeck from 'react-bootstrap/CardDeck';
 import ListGroup from 'react-bootstrap/ListGroup';
 import ListGroupItem from 'react-bootstrap/ListGroupItem';
+import styled from 'styled-components';
+import { Image } from 'react-bootstrap';
+
+const SuppliersCard = styled(CardDeck)`
+  margin: 1rem;
+  padding: 1rem;
+
+  .card {
+    background-color: #1e1e1e;
+    color: #d2d2d2;
+    box-shadow: 0 3px 6px #232323;
+    padding: 2px;
+    margin: 1rem;
+    height: max-content;
+  }
+
+  .card-body {
+    padding: 1rem 1.25rem 0.5rem 1.25rem;
+
+    img {
+      border-radius: 12px;
+      margin-right: 10px;
+    }
+
+    strong {
+      vertical-align: middle;
+    }
+  }
+
+  .list-group-flush,
+  .list-group-item {
+    background-color: #1e1e1e;
+    color: #d2d2d2;
+    border-top: 1px solid #565656 !important;
+    border-bottom: 1px solid #565656 !important;
+  }
+`;
+
+const CardLink = styled(Card.Link)`
+  color: #2579f6;
+`;
 
 export default function Suppliers() {
   const [suppliers] = useSuppliers();
 
   return (
-    <>
-      <CardDeck>
-        {suppliers &&
-          suppliers.map((supplier) => (
+    <SuppliersCard>
+      {suppliers &&
+        suppliers
+          .map((supplier) => (
             <Card>
-              <Card.Img
-                variant="top"
-                src={supplier.icon}
-                width="500"
-                height="300"
-              />
               <Card.Body>
-                <Card.Title>{supplier.name}</Card.Title>
-                <Card.Text>{supplier.description}</Card.Text>
+                <Card.Title>
+                  <Image
+                    src={supplier.icon}
+                    alt="Supplier Icon"
+                    width={50}
+                    height={50}
+                  />
+                  <strong>{supplier.name}</strong>
+                </Card.Title>
               </Card.Body>
               <ListGroup className="list-group-flush">
-                <ListGroupItem>{supplier.type}</ListGroupItem>
+                <ListGroupItem>{supplier.description}</ListGroupItem>
+                <ListGroupItem>
+                  <i>{supplier.type}</i>
+                </ListGroupItem>
                 <ListGroupItem>{supplier.address}</ListGroupItem>
               </ListGroup>
-              <Card.Body>
-                <Card.Link href={supplier.website}>
-                  Websites
-                </Card.Link>
-                <Card.Link href="#">
+              <Card.Footer>
+                <CardLink href={supplier.website}>Websites</CardLink>
+                <CardLink className="text-muted float-right" href="#">
                   {supplier.contact}
-                </Card.Link>
-              </Card.Body>
+                </CardLink>
+              </Card.Footer>
             </Card>
-          ))}
-      </CardDeck>
-    </>
+          ))
+          .reverse()}
+    </SuppliersCard>
   );
 }
