@@ -32,6 +32,7 @@ import Catalog from './containers/Catalog';
 import Settings from './containers/Settings';
 import Help from './containers/Help';
 import Contacts from './containers/Contacts';
+import Login from './Login';
 
 function mapStyles(styles) {
   return {
@@ -90,7 +91,7 @@ export default function App() {
                 <Route path={routes.POS} component={PointOfSale} />
                 <Route path={routes.SETTINGS} component={Settings} />
                 <Route path={routes.HELP} component={Help} />
-                <Route path={routes.NOTFOUND}>Something went wrong...</Route>
+                <Route path={routes.LOGIN} component={Login} />
               </AnimatedSwitch>
             </Switch>
           </div>
