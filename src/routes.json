@@ -1,6 +1,6 @@
 {
-  "LOGIN": "/",
-  "DASHBOARD": "/dashboard",
+  "DASHBOARD": "/",
+  "LOGIN": "/login",
   "RECENT": "/recent",
   "CATALOG": "/catalog",
   "INVOICES": "/invoices",
