@@ -77,12 +77,11 @@ require('./routes/user.route')(api);
 api.get('/api/', (req, res) => {
   res.setHeader('Content-Type', 'text/html');
   res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
-});
-
-api.post('/api/login', cors(), (req, res) => {
-  res.setHeader('Content-Type', 'text/html');
-  res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
-  res.setHeader('Access-Control-Allow-Methods', 'GET,POST,PUT');
+  res.setHeader('Access-Control-Allow-Origin', req.headers.origin);
+  res.setHeader(
+    'Access-Control-Allow-Headers',
+    'Origin, X-Requested-With, Content-Type, Accept'
+  );
 });
 
 module.exports = api;
