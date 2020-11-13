@@ -19,7 +19,6 @@
 import { useEffect, useState } from 'react';
 import { SuppliersRequest } from '../services/SuppliersInstance';
 
-
 const useSuppliers = () => {
   const [suppliers, setSuppliers] = useState(null);
 

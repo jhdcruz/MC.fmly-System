@@ -17,7 +17,10 @@
  */
 
 import NarrowProduct from '../components/tables/NarrowProduct';
-import NarrowTable, { Loader, NullItems } from '../components/tables/NarrowTable';
+import NarrowTable, {
+  Loader,
+  NullItems
+} from '../components/tables/NarrowTable';
 import useProducts from '../hooks/useProducts';
 import Notification from '../components/Notification';
 import Container from 'react-bootstrap/Container';
