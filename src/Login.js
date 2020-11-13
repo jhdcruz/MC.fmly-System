@@ -122,6 +122,8 @@ export default function Login() {
               autoComplete="off"
               value={username}
               onChange={(e) => setUser(e.target.value)}
+              autoFocus="true"
+              tabIndex="2"
               required
             />
           </Form.Group>
@@ -134,10 +136,11 @@ export default function Login() {
               autoComplete="off"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              tabIndex="2"
               required
             />
           </Form.Group>
-          <Button variant="outline-primary float-right" type="submit">
+          <Button variant="outline-primary float-right" type="submit" tabIndex="3">
             Login
           </Button>
         </LoginForm>
