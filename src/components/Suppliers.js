@@ -91,7 +91,7 @@ export default function Suppliers() {
                 <ListGroupItem>{supplier.address}</ListGroupItem>
               </ListGroup>
               <Card.Footer>
-                <CardLink href={supplier.website}>Websites</CardLink>
+                <CardLink href={supplier.website}>Website</CardLink>
                 <CardLink className="text-muted float-right" href="#">
                   {supplier.contact}
                 </CardLink>
