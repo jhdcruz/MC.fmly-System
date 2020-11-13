@@ -40,7 +40,6 @@
     "react-router-dom": "5.2.0",
     "react-router-transition": "2.0.0",
     "rollbar": "2.19.4",
-    "serverless-http": "2.6.0",
     "styled-components": "5.2.1"
   },
   "devDependencies": {

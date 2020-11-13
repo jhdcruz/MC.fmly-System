@@ -21,7 +21,6 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const helmet = require('helmet');
-const serverless = require('serverless-http');
 const Rollbar = require('rollbar');
 
 // set .env
@@ -44,7 +43,6 @@ api.use(cors());
 api.use(helmet());
 api.use(bodyParser.urlencoded({ extended: false }));
 api.use(bodyParser.json());
-api.use(express.static('build'));
 
 api.options('*', cors());
 
@@ -78,11 +76,6 @@ api.get('/api/', (req, res) => {
   res.setHeader('Content-Type', 'text/html');
   res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
   res.setHeader('Access-Control-Allow-Origin', req.headers.origin);
-  res.setHeader(
-    'Access-Control-Allow-Headers',
-    'Origin, X-Requested-With, Content-Type, Accept'
-  );
 });
 
 module.exports = api;
-module.exports.handler = serverless(api);
