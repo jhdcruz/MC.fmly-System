@@ -6,6 +6,5 @@
   "INVOICES": "/invoices",
   "CONTACTS": "/contacts",
   "POS": "/pos",
-  "HELP": "/help",
   "SETTINGS": "/settings"
 }

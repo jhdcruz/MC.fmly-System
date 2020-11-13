@@ -153,10 +153,11 @@ export default function Sidebar() {
           icon={faCog}
         />
         <TabItem
-          tab="Help"
-          overlay="Help"
-          route={routes.HELP}
-          icon={faQuestionCircle}
+          tab="Logout"
+          overlay="Logout"
+          route={routes.LOGIN}
+          icon={faSignOutAlt}
+          onClick={logOut}
         />
       </Nav>
     </SideMenu>
