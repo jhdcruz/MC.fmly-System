@@ -94,7 +94,7 @@ const TabItem = (props) => {
       }
       name={props.overlay}
     >
-      <TabRoutes to={props.route} className={props.class} draggable={false}>
+      <TabRoutes to={props.route} className={props.theme} draggable={false}>
         <Nav.Link as="li">
           <FAIcon icon={props.icon} />
         </Nav.Link>
@@ -146,7 +146,7 @@ export default function Sidebar() {
 
         {/* Bottom Tabs */}
         <TabItem
-          class="BottomTab"
+          theme="BottomTab"
           tab="Settings"
           overlay="Settings"
           route={routes.SETTINGS}
