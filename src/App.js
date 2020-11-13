@@ -21,16 +21,15 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { AnimatedSwitch, spring } from 'react-router-transition';
 import Container from 'react-bootstrap/Container';
 import routes from './routes.json';
-import Sidebar from './components/Sidebar';
 import './App.scss';
 // Routes
+import Sidebar from './components/Sidebar';
 import Dashboard from './containers/Dashboard';
 import Recent from './containers/Recent';
 import Invoices from './containers/Invoices';
 import PointOfSale from './containers/PointOfSale';
 import Catalog from './containers/Catalog';
 import Settings from './containers/Settings';
-import Help from './containers/Help';
 import Contacts from './containers/Contacts';
 import Login from './Login';
 
@@ -83,6 +82,7 @@ export default function App() {
                 mapStyles={mapStyles}
                 className="routerContent"
               >
+                <Route exact path={routes.LOGIN} component={Login} />
                 <Route exact path={routes.DASHBOARD} component={Dashboard} />
                 <Route path={routes.RECENT} component={Recent} />
                 <Route path={routes.CATALOG} component={Catalog} />
@@ -90,8 +90,6 @@ export default function App() {
                 <Route path={routes.CONTACTS} component={Contacts} />
                 <Route path={routes.POS} component={PointOfSale} />
                 <Route path={routes.SETTINGS} component={Settings} />
-                <Route path={routes.HELP} component={Help} />
-                <Route path={routes.LOGIN} component={Login} />
               </AnimatedSwitch>
             </Switch>
           </div>
