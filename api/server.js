@@ -78,4 +78,6 @@ api.get('/api/', (req, res) => {
   res.setHeader('Access-Control-Allow-Origin', req.headers.origin);
 });
 
+api.use(express.static('../build'));
+
 module.exports = api;
