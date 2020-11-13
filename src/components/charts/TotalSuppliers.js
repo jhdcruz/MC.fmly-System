@@ -16,24 +16,10 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import styled from 'styled-components';
+import { Widget } from './charts.styled';
 
-export const Widget = styled.iframe`
-  width: 22vw !important;
-  height: 150px !important;
-  background: #1e1e1e;
-  margin: 2.5rem 0.5rem 0.5rem 0;
-  border: none;
-  border-radius: 1rem;
-  box-shadow: 0 3px 6px #232323;
-`;
-
-export const Chart = styled.iframe`
-  width: 44.5vw !important;
-  height: 60vh !important;
-  background: #1e1e1e;
-  margin-right: 0.5rem;
-  border: none;
-  border-radius: 1rem;
-  box-shadow: 0 3px 6px #232323;
-`;
+export default function TotalSuppliers() {
+  return (
+    <Widget src="https://charts.mongodb.com/charts-pending-system-rgssg/embed/charts?id=d4bb6a84-d360-42f0-880e-0bf274210410&autoRefresh=true&maxDataAge=10&attribution=false&theme=dark" />
+  );
+}

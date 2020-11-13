@@ -23,6 +23,7 @@ import TotalProducts from '../components/charts/TotalProducts';
 import InventoryValue from '../components/charts/InventoryValue';
 import TypeDetails from '../components/charts/TypeDetails';
 import CategoryDetails from '../components/charts/CategoryDetails';
+import TotalSuppliers from '../components/charts/TotalSuppliers';
 
 export default function Dashboard() {
   return (
@@ -40,6 +41,7 @@ export default function Dashboard() {
         <InventoryCapacity />
         <InventoryValue />
         <TotalProducts />
+        <TotalSuppliers />
       </Row>
       <Row>
         <TypeDetails />
