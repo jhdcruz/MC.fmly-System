@@ -19,7 +19,7 @@
 import axios from 'axios';
 
 const suppliersInstance = axios.create({
-  baseURL: '/api/suppliers'
+  baseURL: '/suppliers'
 });
 
 const request = (method, url, data, headers) =>

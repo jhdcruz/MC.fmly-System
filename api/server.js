@@ -72,10 +72,14 @@ require('./routes/product.route')(api);
 require('./routes/supplier.route')(api);
 require('./routes/user.route')(api);
 
-api.get('/api/', (req, res) => {
+api.get('/', (req, res) => {
   res.setHeader('Content-Type', 'text/html');
   res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
   res.setHeader('Access-Control-Allow-Origin', req.headers.origin);
+});
+
+api.get('/', (req, res) => {
+  res.sendFile(__dirname + '../build/index.html');
 });
 
 module.exports = api;

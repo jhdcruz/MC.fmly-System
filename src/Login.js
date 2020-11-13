@@ -89,7 +89,7 @@ export default function Login() {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post(`/api/users/login`, {
+      .post(`/users/login`, {
         username,
         password
       })

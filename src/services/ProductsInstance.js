@@ -19,7 +19,7 @@
 import axios from 'axios';
 
 const productsInstance = axios.create({
-  baseURL: '/api/products'
+  baseURL: '/products'
 });
 
 const request = (method, url, data, headers) =>

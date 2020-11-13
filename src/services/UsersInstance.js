@@ -19,7 +19,7 @@
 import axios from 'axios';
 
 const usersInstance = axios.create({
-  baseURL: '/api/users'
+  baseURL: '/users'
 });
 
 const request = (method, url, data, headers) =>
