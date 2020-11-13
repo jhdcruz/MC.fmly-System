@@ -74,10 +74,15 @@ require('./routes/product.route')(api);
 require('./routes/supplier.route')(api);
 require('./routes/user.route')(api);
 
-api.get('/api', (req, res) => {
-  // Vercel's Serveless Functions settings
+api.get('/api/', (req, res) => {
   res.setHeader('Content-Type', 'text/html');
   res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
+});
+
+api.post('/api/login', cors(), (req, res) => {
+  res.setHeader('Content-Type', 'text/html');
+  res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
+  res.setHeader('Access-Control-Allow-Methods', 'GET,POST,PUT');
 });
 
 module.exports = api;
