@@ -22,6 +22,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const helmet = require('helmet');
 const Rollbar = require('rollbar');
+const path = require('path');
 
 // set .env
 require('dotenv').config();
@@ -78,6 +79,11 @@ api.get('/api/', (req, res) => {
   res.setHeader('Access-Control-Allow-Origin', req.headers.origin);
 });
 
-api.use(express.static('../build'));
+if (process.env.NODE_ENV === 'production') {
+  api.use(express.static('build'));
+  api.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, '../build', 'index.html'));
+  });
+}
 
 module.exports = api;
