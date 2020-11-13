@@ -67,7 +67,6 @@ const bounceTransition = {
 };
 
 export default function App() {
-
   return (
     <Fragment>
       <Router>
