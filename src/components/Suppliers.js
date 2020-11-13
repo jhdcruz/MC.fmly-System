@@ -31,7 +31,12 @@ export default function Suppliers() {
         {suppliers &&
           suppliers.map((supplier) => (
             <Card>
-              <Card.Img variant="top dark" src={supplier.icon} />
+              <Card.Img
+                variant="top"
+                src={supplier.icon}
+                width="500"
+                height="300"
+              />
               <Card.Body>
                 <Card.Title>{supplier.name}</Card.Title>
                 <Card.Text>{supplier.description}</Card.Text>
