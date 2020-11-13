@@ -90,7 +90,7 @@ export default function Login() {
     e.preventDefault();
     axios
       .create({ baseURL: '/api' })
-      .put(`/login`, {
+      .post(`/login`, {
         username,
         password
       })
