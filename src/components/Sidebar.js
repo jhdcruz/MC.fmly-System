@@ -16,12 +16,13 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import routes from '../routes.json';
 import Nav from 'react-bootstrap/Nav';
 import Tooltip from 'react-bootstrap/Tooltip';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import styled from 'styled-components';
+import routes from '../routes.json';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faAddressBook,
@@ -30,9 +31,10 @@ import {
   faFileInvoice,
   faHistory,
   faHome,
-  faQuestionCircle,
-  faShoppingCart
+  faShoppingCart,
+  faSignOutAlt
 } from '@fortawesome/free-solid-svg-icons';
+import Login from '../Login';
 
 const SideMenu = styled.aside`
   background-color: #1e1e1e;
@@ -104,6 +106,19 @@ const TabItem = (props) => {
 };
 
 export default function Sidebar() {
+  const [auth, setAuth] = useState(true);
+
+  // Logout Handler
+  const logOut = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setAuth(false);
+  };
+
+  if (!auth) {
+    return <Login />;
+  }
+
   return (
     <SideMenu>
       <Nav defaultActiveKey="/" className="flex-column">
@@ -155,7 +170,6 @@ export default function Sidebar() {
         <TabItem
           tab="Logout"
           overlay="Logout"
-          route={routes.LOGIN}
           icon={faSignOutAlt}
           onClick={logOut}
         />
