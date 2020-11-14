@@ -69,9 +69,8 @@
 - [**Express**](https://expressjs.com) - _Server-side Framework_
 - [**Axios**](https://github.com/axios/axios) - _HTTP Client_
 - [**Mongoose**](https:/mongoosejs.com) - _Object Modeling_
-- [**node-argon2**](https://github.com/ranisalt/node-argon2) - _Node.js bindings for `Argon2` hashing algorithm_
-
-    - [`Argon2`](https://github.com/P-H-C/phc-winner-argon2) - A password-hashing function that summarizes the **state of the art in the design** of memory-hard functions and can be used to hash passwords for credential storage, key derivation, or other applications.
+- [**`node-argon2`**](https://github.com/ranisalt/node-argon2) - _Node.js bindings for `Argon2` hashing algorithm_
+  - [`Argon2`](https://github.com/P-H-C/phc-winner-argon2) - A password-hashing function that summarizes the **state of the art in the design** of memory-hard functions and can be used to hash passwords for credential storage, key derivation, or other applications.
 
 ### Database:
 
