@@ -20,10 +20,10 @@ import { Fragment } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { AnimatedSwitch, spring } from 'react-router-transition';
 import Container from 'react-bootstrap/Container';
+import Sidebar from './components/Sidebar';
 import routes from './routes.json';
 import './App.scss';
 // Routes
-import Sidebar from './components/Sidebar';
 import Dashboard from './containers/Dashboard';
 import Recent from './containers/Recent';
 import Invoices from './containers/Invoices';
