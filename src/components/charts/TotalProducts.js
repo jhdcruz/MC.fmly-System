@@ -16,7 +16,7 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { Widget } from './charts.styled';
+import { Widget } from './__charts.module';
 
 export default function TotalProducts() {
   return (

@@ -16,7 +16,7 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { Chart } from './charts.styled';
+import { Chart } from './__charts.module';
 
 export default function TypeDetails() {
   return (
