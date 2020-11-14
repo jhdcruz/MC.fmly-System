@@ -1,8 +1,10 @@
 {
-  "rewrites": [
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
     {
-      "source": "/api/(.*)",
-      "destination": "/api"
+      "source": "/logout",
+      "destination": "/login"
     }
   ]
 }
