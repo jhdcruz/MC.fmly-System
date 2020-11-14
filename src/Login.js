@@ -24,8 +24,8 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import styled from 'styled-components';
 import Brand from './assets/img/profile.png';
-import './App.scss';
 import App from './App';
+import './App.scss';
 
 const Img = styled(Image)`
   width: 350px;
