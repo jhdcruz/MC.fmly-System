@@ -27,6 +27,14 @@ import Brand from './assets/img/profile.png';
 import './App.scss';
 import App from './App';
 
+const Img = styled(Image)`
+  width: 350px;
+  height: 300px;
+  margin: 25vh 10rem;
+  user-select: none;
+  -webkit-user-drag: none;
+`;
+
 const LoginContainer = styled(Container)`
   display: flex;
   width: 100%;
@@ -37,6 +45,17 @@ const LoginContainer = styled(Container)`
   transform: translateY(-50%);
   overflow: hidden !important;
   z-index: 1;
+
+  // Show only login form in <1025px
+  @media only screen and (max-width: 1025px) {
+    form {
+      width: 100%;
+
+      img {
+        margin: 5% 32% !important;
+      }
+    }
+  }
 `;
 
 const LoginForm = styled(Form)`
@@ -46,26 +65,30 @@ const LoginForm = styled(Form)`
   margin: 0;
   height: 100vh;
   width: 500px;
-  padding: 30vh 8rem;
+  padding: 15vh 10vw;
   position: fixed;
   right: 0;
   overflow: hidden;
+
+  img {
+    margin: 0 20% 5vh 20% !important;
+  }
 `;
 
 const FormControl = styled(Form.Control)`
-  font-size: 1.2vw;
+  font-size: 18px;
   margin-right: 1rem;
   background-color: transparent;
   color: whitesmoke;
 
   ::placeholder {
     color: #c4c4c4;
-    font-size: 1.2vw;
+    font-size: 18px;
   }
 
   :active,
   :focus {
-    font-size: 1.2vw;
+    font-size: 18px;
     background-color: #1b1e21;
     color: whitesmoke;
     border-color: #d7b9b4;
@@ -73,12 +96,9 @@ const FormControl = styled(Form.Control)`
   }
 `;
 
-const Img = styled(Image)`
-  width: 350px;
-  height: 300px;
-  margin: 25vh 10rem;
-  user-select: none;
-  -webkit-user-drag: none;
+const LoginControl = styled.div`
+  text-decoration: underline;
+  vertical-align: middle;
 `;
 
 export default function Login() {
@@ -104,8 +124,13 @@ export default function Login() {
       .catch((err) => {
         console.error(err);
         window.alert(err);
-        window.alert('Contact the System Administrator!');
+        window.alert('Contact the System Admin!');
       });
+  };
+
+  const forgotCreds = (e) => {
+    e.preventDefault();
+    window.alert('Please inform the System Admin.');
   };
 
   if (!auth) {
@@ -113,6 +138,13 @@ export default function Login() {
       <LoginContainer fluid>
         <Img src={Brand} alt="Company Logo" rounded />
         <LoginForm autoComplete="off" autoSave="off" onSubmit={handleSubmit}>
+          <Image
+            src={Brand}
+            width={130}
+            height={100}
+            alt="Company Logo"
+            rounded
+          />
           <Form.Group>
             <Form.Label htmlFor="username">Username:</Form.Label>
             <FormControl
@@ -140,9 +172,18 @@ export default function Login() {
               required
             />
           </Form.Group>
-          <Button variant="outline-primary float-right" type="submit" tabIndex="3">
-            Login
-          </Button>
+          <LoginControl>
+            <a href="#" onClick={forgotCreds}>
+              Forgot credentials
+            </a>
+            <Button
+              variant="outline-primary float-right"
+              type="submit"
+              tabIndex="3"
+            >
+              Login
+            </Button>
+          </LoginControl>
         </LoginForm>
       </LoginContainer>
     );
