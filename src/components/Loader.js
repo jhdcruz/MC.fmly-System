@@ -26,6 +26,7 @@ const Loading = styled(Spinner)`
   position: absolute;
   right: 50%;
   top: 13rem;
+  z-index: 99;
 `;
 
 const Loader = () => {
