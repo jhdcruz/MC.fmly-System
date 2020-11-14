@@ -7,6 +7,7 @@
 ## Table of Contents:
 
 #### Tools/Languages
+
 - [Frameworks](#frameworks)
 - [Front-End](#front-end)
 - [Back-End](#back-end)
@@ -14,16 +15,17 @@
 - [Tools](#tools)
 
 #### Development
+
 - [Prerequisites](#prerequisites)
 - [Installing Dependencies](#install-dependencies)
-- [Running Scripts](#running-scripts)
 - [Development](#development)
-    - [Web App](#web-app)
-    - [Desktop](#desktop)
+  - [Web App](#web-app)
+  - [Desktop](#desktop)
 - [Production](#production)
-    - [Web App](#web-app-1)
-    - [Desktop](#desktop-1)
-    
+  - [Web App](#web-app-1)
+  - [Desktop](#desktop-1)
+- [Testing](#testing) _(Planned)_
+
 #### Misc
 
 - [License](#license)
@@ -31,14 +33,16 @@
 ## Frameworks:
 
 [![MERN Stack](https://webassets.mongodb.com/_com_assets/cms/mern-stack-b9q1kbudz0.png)](https://www.mongodb.com/mern-stack)
+
 <p align="center"><a href="https://www.mongodb.com/mern-stack">MERN Stack Architecture</a></p>
 
 ### Front-End:
 
 - [**React**](https://reactjs.org/) - _UI Library_
+- [**Redux**](https://redux.js.org/) - _State Container (Planned)_
 - [**Electron**](https://electronjs.org) - _X-Platform Desktop Integration_
-- [**Sass/Scss**](https://sass-lang.com) - _Stylesheet_
-- [**Recharts**](http://recharts.org/en-US) - _Composable Charting Library_
+- [**Sass/Scss**](https://sass-lang.com) - _Global Stylesheet_
+- [**MongoDB Charts**](https://mongodb.com/products/charts) - _Integrated Charts_
 - [**`react-bootstrap`**](https://react-bootstrap.github.io/) - _UI Toolkit for `React`_
 - [**`styled-components`**](https://styled-components.com/) - _ES6 Component Styling_
 
@@ -47,6 +51,9 @@
 - [**Express**](https://expressjs.com) - _Server-side Framework_
 - [**Axios**](https://github.com/axios/axios) - _HTTP Client_
 - [**Mongoose**](https:/mongoosejs.com) - _Object Modeling_
+- [**node-argon2**](https://github.com/ranisalt/node-argon2) - _Node.js bindings for `Argon2` hashing algorithm_
+
+    - [`Argon2`](https://github.com/P-H-C/phc-winner-argon2) - A password-hashing function that summarizes the **state of the art in the design** of memory-hard functions and can be used to hash passwords for credential storage, key derivation, or other applications.
 
 ### Database:
 
@@ -56,11 +63,11 @@
 
 - [**Vercel**](https://vercel.com) - _Web & API Deployment_
 - [**GitHub Actions**](https://vercel.com) - _CI/CD for Desktop App (`win`, `mac`, `linux`)_
-- [**CodeFactor**](https://codefactor.io) - _Code Quality_
+- [**CodeFactor**](https://codefactor.io) - _Code Review_
 - [**SonarCloud**](https://sonarcloud.io/) - _Code Quality & Security_
 - [**Rollbar**](https://rollbar.com) - _Application Monitoring_
-- [**Moesif API**](https://www.moesif.com/) - _API Analytics_
 - [**WhiteSource Renovate**](https://renovate.whitesourcesoftware.com/) - _Automated Dependency Updates_
+- [**WhiteSource Bolt**](https://whitesourcesoftware.com/free-developer-tools/bolt/) - _Dependency Security_
 
 Boilerplate generated through ejected `create-react-app`.
 
@@ -68,9 +75,8 @@ Boilerplate generated through ejected `create-react-app`.
 
 ## Prerequisites
 
-- [`npm v6.14+`](https://nodejs.org/en/) - Package manager
+- [`Node.js v14.15.0+`](https://nodejs.org/en/) - Package manager
 - [`yarn v1.22+`](https://yarnpkg.com/getting-started/install) - Package & Project manager
-- [`Node.js v15.0+`](https://nodejs.org/en/) - JavaScript runtime
 - [`MongoDB Cluster`](https://mongodb.com/) - MongoDB Cluster URI
 
 **Windows:**
@@ -83,10 +89,21 @@ Can be either of the ff:
 **Linux:**
 
 - Debian
-   - `dpkg`
-   - `dpkg-dev`
+  - `dpkg`
+  - `dpkg-dev`
+  
+> `sudo apt install dpkg dpkg-dev`
+  
 - Red Hat
+  - `rpm`
+  
+> `sudo yum install rpm` | replace `yum` with your distro package provider.
+  
+ **MacOS**
+ 
    - `rpm`
+   
+> `brew install rpm`
 
 **Optional:**
 
@@ -95,24 +112,21 @@ Can be either of the ff:
 
 ## Environment Variables
 
- - **`MONGO_ADMIN`** - **Required**
- - **`MONGO_USER`** - **Required**
- - `MOESIF_ID`
- - `ROLLBAR_ID`
+- **`MONGO_ADMIN`** - **Required** _(Admin user)_
+- **`MONGO_URL`** - **Required** _(Production User)_
+- `ROLLBAR_ID` - _Application Monitoring_
 
-Add your MongoDB URI to `.env` variable located in `api/`
+> Add your environment variables inside `/.env`.
 
-```
+```dotenv
 MONGO_ADMIN=[Your URI Here] # Don't add quotation marks
+MONGO_URL=[Your URI Here]
+ROLLBAR_ID=[Your ID Here]
 ```
-
-You also need a Moesif ID to start the app which you can get [here](https://www.moesif.com/wrap?onboard=true). But it's entirely **optional**.
-
-To start the app without a Moesif ID, you **need** to remove the _middleware_ in `api/server.js`.
-
-> Remove the ff. lines: `25`, `37-39`, `50`, `51`
 
 ## Install Dependencies
+
+You have to install the dependencies before running any of the scripts located in `/package.json`.
 
 ```sh
 yarn
@@ -131,8 +145,6 @@ yarn start
 ```sh
 yarn start-electron
 ```
-
-If you've written your own test files, put them in `tests/` and replace the `test` script in `package.json` with `node scripts/test.js`, then run `yarn test`.
 
 ## Production
 
@@ -174,6 +186,11 @@ Running `linux || mac` on a `win` system can throw an error due to missing requi
 
 Packaging the desktop app for `linux` can be made in `win` system inside `WSL`.
 
-## License
+### Testing
 
+**Unit test is planned**
+
+## License
 This work is licensed under [GNU General Public License v3.0](https://opensource.org/licenses/GPL-3.0).
+
+> *Not applicable in actual business use.*
