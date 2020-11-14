@@ -78,8 +78,4 @@ api.get('/', (req, res) => {
   res.setHeader('Access-Control-Allow-Origin', req.headers.origin);
 });
 
-api.get('/', (req, res) => {
-  res.sendFile(__dirname + '../build/index.html');
-});
-
 module.exports = api;
