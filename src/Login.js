@@ -173,11 +173,22 @@ export default function Login() {
             />
           </Form.Group>
           <LoginControl>
-            <a href="#" onClick={forgotCreds} tabIndex={4}>
+            <a
+              href="#"
+              variant="primary"
+              className="float-left"
+              onClick={forgotCreds}
+              tabIndex={4}
+              style={{
+                verticalAlign: "middle",
+                marginTop: "5px"
+              }}
+            >
               Forgot credentials
             </a>
             <Button
-              variant="outline-primary float-right"
+              variant="outline-primary"
+              className="float-right"
               type="submit"
               tabIndex={3}
             >
