@@ -89,7 +89,7 @@ exports.login = async (req, res) => {
     if (user) {
       const cmp = await argon2.verify(user.password, req.body.password);
       if (cmp) {
-        res.status(200).send(`Logged in as: ${req.body.username}`);
+        res.status(200).send(user.permission);
       } else {
         res.send('Credentials Mismatched!');
       }
