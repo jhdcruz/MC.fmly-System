@@ -16,8 +16,32 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+import CardDeck from 'react-bootstrap/CardDeck';
+import useSuppliers from '../hooks/useSuppliers';
 import Suppliers from '../components/Suppliers';
 
 export default function Contacts() {
-  return <Suppliers />;
+  const [suppliers] = useSuppliers();
+
+  return (
+    <CardDeck
+      style={{
+        margin: '1rem',
+        padding: '1rem'
+      }}
+    >
+      {suppliers &&
+        suppliers.map((supplier) => (
+          <Suppliers
+            icon={supplier.icon}
+            name={supplier.name}
+            description={supplier.description}
+            type={supplier.type}
+            address={supplier.address}
+            website={supplier.website}
+            contact={supplier.contact}
+          />
+        ))}
+    </CardDeck>
+  );
 }

@@ -16,26 +16,19 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import useSuppliers from '../hooks/useSuppliers';
 import Card from 'react-bootstrap/Card';
-import CardDeck from 'react-bootstrap/CardDeck';
 import ListGroup from 'react-bootstrap/ListGroup';
 import ListGroupItem from 'react-bootstrap/ListGroupItem';
 import styled from 'styled-components';
 import { Image } from 'react-bootstrap';
 
-const SuppliersCard = styled(CardDeck)`
+const SuppliersCard = styled(Card)`
+  background-color: #1e1e1e;
+  color: #d2d2d2;
+  box-shadow: 0 3px 6px #232323;
+  padding: 2px;
   margin: 1rem;
-  padding: 1rem;
-
-  .card {
-    background-color: #1e1e1e;
-    color: #d2d2d2;
-    box-shadow: 0 3px 6px #232323;
-    padding: 2px;
-    margin: 1rem;
-    height: max-content;
-  }
+  height: max-content;
 
   .card-body {
     padding: 1rem 1.25rem 0.5rem 1.25rem;
@@ -63,42 +56,28 @@ const CardLink = styled(Card.Link)`
   color: #2579f6;
 `;
 
-export default function Suppliers() {
-  const [suppliers] = useSuppliers();
-
+export default function Suppliers(props) {
   return (
     <SuppliersCard>
-      {suppliers &&
-        suppliers
-          .map((supplier) => (
-            <Card>
-              <Card.Body>
-                <Card.Title>
-                  <Image
-                    src={supplier.icon}
-                    alt="Supplier Icon"
-                    width={50}
-                    height={50}
-                  />
-                  <strong>{supplier.name}</strong>
-                </Card.Title>
-              </Card.Body>
-              <ListGroup className="list-group-flush">
-                <ListGroupItem>{supplier.description}</ListGroupItem>
-                <ListGroupItem>
-                  <i>{supplier.type}</i>
-                </ListGroupItem>
-                <ListGroupItem>{supplier.address}</ListGroupItem>
-              </ListGroup>
-              <Card.Footer>
-                <CardLink href={supplier.website}>Website</CardLink>
-                <CardLink className="text-muted float-right" href="#">
-                  {supplier.contact}
-                </CardLink>
-              </Card.Footer>
-            </Card>
-          ))
-          .reverse()}
+      <Card.Body>
+        <Card.Title>
+          <Image src={props.icon} alt="Supplier Icon" width={50} height={50} />
+          <strong>{props.name}</strong>
+        </Card.Title>
+      </Card.Body>
+      <ListGroup className="list-group-flush">
+        <ListGroupItem>{props.description}</ListGroupItem>
+        <ListGroupItem>
+          <i>{props.type}</i>
+        </ListGroupItem>
+        <ListGroupItem>{props.address}</ListGroupItem>
+      </ListGroup>
+      <Card.Footer>
+        <CardLink href={props.website}>Website</CardLink>
+        <CardLink className="text-muted float-right" href="#">
+          {props.contact}
+        </CardLink>
+      </Card.Footer>
     </SuppliersCard>
   );
 }
