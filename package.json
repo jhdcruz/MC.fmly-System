@@ -175,22 +175,6 @@
       "publish": false
     }
   },
-  "eslintConfig": {
-    "extends": "react-app",
-    "rules": {
-      "react/jsx-uses-react": "off",
-      "react/react-in-jsx-scope": "off",
-      "import/no-anonymous-default-export": "off",
-      "import/no-extraneous-dependencies": "off"
-    },
-    "settings": {
-      "import/extensions": [
-        ".js",
-        ".jsx",
-        ".scss"
-      ]
-    }
-  },
   "browserslist": {
     "production": [
       ">0.2%",

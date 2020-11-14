@@ -1,0 +1,17 @@
+{
+  "extends": "react-app",
+  "rules": {
+    "react/jsx-uses-react": "off",
+    "react/react-in-jsx-scope": "off",
+    "import/no-anonymous-default-export": "off",
+    "import/no-extraneous-dependencies": "off",
+    "jsx-a11y/anchor-is-valid": "off"
+  },
+  "settings": {
+    "import/extensions": [
+      ".js",
+      ".jsx",
+      ".scss"
+    ]
+  }
+}
