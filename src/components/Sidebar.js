@@ -95,7 +95,7 @@ export default function Sidebar() {
         }
         name={props.overlay}
       >
-        <TabRoutes to={props.route} className={props.theme} draggable={false}>
+        <TabRoutes to={props.route} className={props.theme} draggable={false} onClick={props.state}>
           <Nav.Link as="li">
             <FAIcon icon={props.icon} />
           </Nav.Link>
@@ -157,7 +157,9 @@ export default function Sidebar() {
           overlay="Logout"
           icon={faSignOutAlt}
           // Reload window since redirecting doesn't work
-          onClick={window.location.reload(true)}
+          state={() => {
+            window.location.reload();
+          }}
         />
       </Nav>
     </SideMenu>
