@@ -73,7 +73,7 @@ const ProductTable = styled(Table)`
 `;
 
 // Shows on no products registered
-export const NullItems = styled.p`
+export const NullItems = styled.h5`
   color: #c3c3c3;
   margin-bottom: 1rem;
   position: absolute;
