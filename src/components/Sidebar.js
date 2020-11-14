@@ -22,7 +22,7 @@ import Nav from 'react-bootstrap/Nav';
 import Tooltip from 'react-bootstrap/Tooltip';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import styled from 'styled-components';
-import routes from '../routes.json';
+import routes from '../routes.js';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faAddressBook,
