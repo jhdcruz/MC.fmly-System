@@ -16,7 +16,6 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Nav from 'react-bootstrap/Nav';
 import Tooltip from 'react-bootstrap/Tooltip';
@@ -34,7 +33,6 @@ import {
   faShoppingCart,
   faSignOutAlt
 } from '@fortawesome/free-solid-svg-icons';
-import Login from '../Login';
 
 const SideMenu = styled.aside`
   background-color: #1e1e1e;
@@ -81,43 +79,30 @@ const FAIcon = styled(FontAwesomeIcon)`
   text-align: center;
 `;
 
-const TabItem = (props) => {
-  return (
-    <OverlayTrigger
-      placement="right"
-      delay={{
-        show: 250,
-        hide: 400
-      }}
-      overlay={
-        <Tooltip id="button-tooltip" {...props}>
-          {props.tab}
-        </Tooltip>
-      }
-      name={props.overlay}
-    >
-      <TabRoutes to={props.route} className={props.theme} draggable={false}>
-        <Nav.Link as="li">
-          <FAIcon icon={props.icon} />
-        </Nav.Link>
-      </TabRoutes>
-    </OverlayTrigger>
-  );
-};
-
 export default function Sidebar() {
-  const [auth, setAuth] = useState(true);
-
-  // Logout Handler
-  const logOut = (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    setAuth(false);
+  const TabItem = (props) => {
+    return (
+      <OverlayTrigger
+        placement="right"
+        delay={{
+          show: 250,
+          hide: 400
+        }}
+        overlay={
+          <Tooltip id="button-tooltip" {...props}>
+            {props.tab}
+          </Tooltip>
+        }
+        name={props.overlay}
+      >
+        <TabRoutes to={props.route} className={props.theme} draggable={false}>
+          <Nav.Link as="li">
+            <FAIcon icon={props.icon} />
+          </Nav.Link>
+        </TabRoutes>
+      </OverlayTrigger>
+    );
   };
-
-  if (!auth) {
-    return <Login />;
-  }
 
   return (
     <SideMenu>
@@ -171,7 +156,8 @@ export default function Sidebar() {
           tab="Logout"
           overlay="Logout"
           icon={faSignOutAlt}
-          onClick={logOut}
+          // Reload window since redirecting doesn't work
+          onClick={window.location.reload(true)}
         />
       </Nav>
     </SideMenu>
