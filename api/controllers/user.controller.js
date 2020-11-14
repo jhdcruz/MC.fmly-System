@@ -64,7 +64,9 @@ exports.delete = async (req, res) => {
 exports.register = async (req, res) => {
   console.log(req.body);
   try {
-    const hashedPwd = await argon2.hash(req.body.password);
+    const hashedPwd = await argon2.hash(req.body.password, {
+      type: argon2.argon2id
+    });
     const insertResult = await Users.create({
       username: req.body.username,
       password: hashedPwd,
