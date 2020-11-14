@@ -98,8 +98,12 @@ const FormControl = styled(Form.Control)`
 `;
 
 const LoginControl = styled.div`
-  text-decoration: underline;
   vertical-align: middle;
+
+  a {
+    text-decoration: underline !important;
+    margin-top: 5px;
+  }
 `;
 
 export default function App() {
@@ -110,6 +114,7 @@ export default function App() {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
+      .create({ baseURL: '/' })
       .post(`/users/login`, {
         username,
         password
@@ -180,10 +185,6 @@ export default function App() {
               className="float-left"
               onClick={forgotCreds}
               tabIndex={4}
-              style={{
-                verticalAlign: 'middle',
-                marginTop: '5px'
-              }}
             >
               Forgot credentials
             </a>
