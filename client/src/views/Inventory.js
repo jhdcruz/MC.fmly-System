@@ -75,7 +75,7 @@ const bounceTransition = {
   }
 };
 
-export default function Admin() {
+export default function Inventory() {
   return (
     <Fragment>
       <Fragment>
