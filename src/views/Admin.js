@@ -17,21 +17,22 @@
  */
 
 import { Fragment } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import { AnimatedSwitch, spring } from 'react-router-transition';
 import Container from 'react-bootstrap/Container';
 import Sidebar from '../components/Sidebar';
+import TabItem from '../components/TabItem';
+import NotFound from '../components/NotFound';
 import routes from '../routes.js';
 import '../App.scss';
 // Routes
+import Dashboard from '../containers/Dashboard';
 import Recent from '../containers/Recent';
 import Invoices from '../containers/Invoices';
 import PointOfSale from '../containers/PointOfSale';
 import Catalog from '../containers/Catalog';
 import Settings from '../containers/Settings';
 import Contacts from '../containers/Contacts';
-import NotFound from '../components/NotFound';
-import TabItem from '../components/TabItem';
 import {
   faBoxes,
   faFileInvoice,
@@ -132,6 +133,10 @@ export default function Admin() {
                 mapStyles={mapStyles}
                 className="routerContent"
               >
+                <Route exact path="/">
+                  <Redirect to="/dashboard"/>
+                </Route>
+                <Route path={routes.DASHBOARD} component={Dashboard} />
                 <Route path={routes.RECENT} component={Recent} />
                 <Route path={routes.CATALOG} component={Catalog} />
                 <Route path={routes.INVOICES} component={Invoices} />

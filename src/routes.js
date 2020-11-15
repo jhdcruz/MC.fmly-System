@@ -1,5 +1,5 @@
 module.exports = {
-  DASHBOARD: '/',
+  DASHBOARD: '/dashboard',
   SYSINFO: '/sysinfo',
   RECENT: '/recent',
   CATALOG: '/catalog',

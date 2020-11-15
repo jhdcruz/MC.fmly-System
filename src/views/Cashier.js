@@ -17,13 +17,95 @@
  */
 
 import { Fragment } from 'react';
+import {
+  BrowserRouter as Router,
+  Redirect,
+  Route,
+  Switch
+} from 'react-router-dom';
+import { AnimatedSwitch, spring } from 'react-router-transition';
+import Container from 'react-bootstrap/Container';
+import Sidebar from '../components/Sidebar';
+import routes from '../routes.js';
 import '../App.scss';
+// Routes
 import PointOfSale from '../containers/PointOfSale';
+import Settings from '../containers/Settings';
+import NotFound from '../components/NotFound';
+import TabItem from '../components/TabItem';
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 
-export default function Admin() {
+function mapStyles(styles) {
+  return {
+    opacity: styles.opacity,
+    transform: `scale(${styles.scale})`
+  };
+}
+
+// ? wrap the `spring` helper to use a bouncy config
+function bounce(val) {
+  return spring(val, {
+    stiffness: 200,
+    damping: 30
+  });
+}
+
+const bounceTransition = {
+  // ? tart in a transparent, upscaled state
+  atEnter: {
+    opacity: 0,
+    scale: 0.95
+  },
+  // ? leave in a transparent, downscaled state
+  atLeave: {
+    opacity: bounce(0),
+    scale: bounce(0.9)
+  },
+  // ? and rest at an opaque, normally-scaled state
+  atActive: {
+    opacity: bounce(1),
+    scale: bounce(1)
+  }
+};
+
+export default function Cashier() {
   return (
     <Fragment>
-      <PointOfSale />
+      <Router>
+        <Container fluid>
+          <Sidebar
+            navigation={
+              <>
+                <TabItem
+                  tab="Point of Sale"
+                  overlay="Point of Sale"
+                  route={routes.POS}
+                  icon={faShoppingCart}
+                />
+              </>
+            }
+          />
+          <div id="pageRoutes" className="routerContainer">
+            <Switch>
+              {/* Router Transition */}`
+              <AnimatedSwitch
+                atEnter={bounceTransition.atEnter}
+                atLeave={bounceTransition.atLeave}
+                atActive={bounceTransition.atActive}
+                mapStyles={mapStyles}
+                className="routerContent"
+              >
+                <Route exact path="/">
+                  <Redirect to="/pos"/>
+                </Route>
+                <Route path={routes.POS} component={PointOfSale}></Route>
+                <Route path={routes.SETTINGS} component={Settings} />
+                <Route path={routes.NOTFOUND} component={NotFound} />
+              </AnimatedSwitch>
+            </Switch>
+          </div>
+        </Container>
+      </Router>
     </Fragment>
   );
 }

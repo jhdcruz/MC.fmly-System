@@ -29,7 +29,7 @@ import Settings from '../containers/Settings';
 import SysInfo from '../containers/SysInfo';
 import NotFound from '../components/NotFound';
 import TabItem from '../components/TabItem';
-import { faHome, faServer } from '@fortawesome/free-solid-svg-icons';
+import { faChartBar, faServer } from '@fortawesome/free-solid-svg-icons';
 
 function mapStyles(styles) {
   return {
@@ -82,7 +82,7 @@ export default function SysAdmin() {
                   tab="Dashboard"
                   overlay="Dashboard"
                   route={routes.DASHBOARD}
-                  icon={faHome}
+                  icon={faChartBar}
                 />
               </>
             }
@@ -97,6 +97,9 @@ export default function SysAdmin() {
                 mapStyles={mapStyles}
                 className="routerContent"
               >
+                <Route exact path="/">
+                  <Redirect to="/sysinfo"/>
+                </Route>
                 <Route exact path={routes.DASHBOARD} component={Dashboard} />
                 <Route path={routes.SYSINFO} component={SysInfo} />
                 <Route path={routes.SETTINGS} component={Settings} />
