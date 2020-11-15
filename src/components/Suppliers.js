@@ -26,8 +26,8 @@ const SuppliersCard = styled(Card)`
   background-color: #1e1e1e;
   color: #d2d2d2;
   box-shadow: 0 3px 6px #232323;
-  padding: 2px;
-  margin: 1rem;
+  padding: 2px !important;
+  margin: 2rem 1rem 2rem 0 !important;
   height: max-content;
 
   .card-body {

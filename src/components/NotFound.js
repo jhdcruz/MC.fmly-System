@@ -16,32 +16,24 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import CardDeck from 'react-bootstrap/CardDeck';
-import useSuppliers from '../hooks/useSuppliers';
-import Suppliers from '../components/Suppliers';
+import styled from 'styled-components';
 
-export default function Contacts() {
-  const [suppliers] = useSuppliers();
+const Notice = styled.h2`
+  margin: 10px 0;
+  width: max-content;
+  position: absolute;
+  top: 40%;
+  z-index: 99;
+`;
 
+const NotFound = () => {
   return (
-    <CardDeck
-      style={{
-        margin: '1rem 0',
-        padding: '1rem 0'
-      }}
-    >
-      {suppliers &&
-        suppliers.map((supplier) => (
-          <Suppliers
-            icon={supplier.icon}
-            name={supplier.name}
-            description={supplier.description}
-            type={supplier.type}
-            address={supplier.address}
-            website={supplier.website}
-            contact={supplier.contact}
-          />
-        ))}
-    </CardDeck>
+    <Notice>
+      <strong>You are not authorized to access this.</strong>
+      <br />
+      Admin? Try restarting the system or approach the System Admin.
+    </Notice>
   );
-}
+};
+
+export default NotFound;
