@@ -6,5 +6,6 @@ module.exports = {
   INVOICES: '/invoices',
   CONTACTS: '/contacts',
   POS: '/pos',
-  SETTINGS: '/settings'
+  SETTINGS: '/settings',
+  NOTFOUND: '/*'
 };
