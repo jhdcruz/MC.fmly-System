@@ -1,18 +1,4 @@
 {
   "cleanUrls": true,
-  "trailingSlash": false,
-  "redirects": [
-    {
-      "source": "/products/*",
-      "destination": "/"
-    },
-    {
-      "source": "/suppliers/*",
-      "destination": "/"
-    },
-    {
-      "source": "/users/*",
-      "destination": "/"
-    }
-  ]
+  "trailingSlash": false
 }
