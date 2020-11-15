@@ -17,7 +17,7 @@
  */
 
 import { Fragment } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import { AnimatedSwitch, spring } from 'react-router-transition';
 import Container from 'react-bootstrap/Container';
 import Sidebar from '../components/Sidebar';
@@ -27,6 +27,9 @@ import '../App.scss';
 import Dashboard from '../containers/Dashboard';
 import Settings from '../containers/Settings';
 import SysInfo from '../containers/SysInfo';
+import NotFound from '../components/NotFound';
+import TabItem from '../components/TabItem';
+import { faHome, faServer } from '@fortawesome/free-solid-svg-icons';
 
 function mapStyles(styles) {
   return {
@@ -66,7 +69,24 @@ export default function SysAdmin() {
     <Fragment>
       <Router>
         <Container fluid>
-          <Sidebar />
+          <Sidebar
+            navigation={
+              <>
+                <TabItem
+                  tab="System Info"
+                  overlay="System Info"
+                  route={routes.SYSINFO}
+                  icon={faServer}
+                />
+                <TabItem
+                  tab="Dashboard"
+                  overlay="Dashboard"
+                  route={routes.DASHBOARD}
+                  icon={faHome}
+                />
+              </>
+            }
+          />
           <div id="pageRoutes" className="routerContainer">
             <Switch>
               {/* Router Transition */}`
@@ -77,9 +97,10 @@ export default function SysAdmin() {
                 mapStyles={mapStyles}
                 className="routerContent"
               >
-                <Route exact path={routes.SYSINFO} component={SysInfo} />
                 <Route exact path={routes.DASHBOARD} component={Dashboard} />
+                <Route path={routes.SYSINFO} component={SysInfo} />
                 <Route path={routes.SETTINGS} component={Settings} />
+                <Route path={routes.NOTFOUND} component={NotFound} />
               </AnimatedSwitch>
             </Switch>
           </div>

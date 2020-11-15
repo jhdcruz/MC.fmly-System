@@ -24,13 +24,22 @@ import Sidebar from '../components/Sidebar';
 import routes from '../routes.js';
 import '../App.scss';
 // Routes
-import Dashboard from '../containers/Dashboard';
 import Recent from '../containers/Recent';
 import Invoices from '../containers/Invoices';
 import PointOfSale from '../containers/PointOfSale';
 import Catalog from '../containers/Catalog';
 import Settings from '../containers/Settings';
 import Contacts from '../containers/Contacts';
+import NotFound from '../components/NotFound';
+import TabItem from '../components/TabItem';
+import {
+  faBoxes,
+  faFileInvoice,
+  faHistory,
+  faHome,
+  faShoppingCart,
+  faTruck
+} from '@fortawesome/free-solid-svg-icons';
 
 function mapStyles(styles) {
   return {
@@ -70,7 +79,49 @@ export default function Admin() {
     <Fragment>
       <Router>
         <Container fluid>
-          <Sidebar />
+          <Sidebar
+            navigation={
+              <>
+                <TabItem
+                  tab="Dashboard"
+                  overlay="Dashboard"
+                  route={routes.DASHBOARD}
+                  icon={faHome}
+                />
+                <TabItem
+                  tab="Recent"
+                  overlay="Recent"
+                  route={routes.RECENT}
+                  icon={faHistory}
+                />
+                <TabItem
+                  tab="Catalog"
+                  overlay="Catalog"
+                  route={routes.CATALOG}
+                  icon={faBoxes}
+                />
+
+                <TabItem
+                  tab="Invoices"
+                  overlay="Invoices"
+                  route={routes.INVOICES}
+                  icon={faFileInvoice}
+                />
+                <TabItem
+                  tab="Contacts"
+                  overlay="Contacts"
+                  route={routes.CONTACTS}
+                  icon={faTruck}
+                />
+                <TabItem
+                  tab="Point of Sale"
+                  overlay="Point of Sale"
+                  route={routes.POS}
+                  icon={faShoppingCart}
+                />
+              </>
+            }
+          />
           <div id="pageRoutes" className="routerContainer">
             <Switch>
               {/* Router Transition */}`
@@ -81,13 +132,13 @@ export default function Admin() {
                 mapStyles={mapStyles}
                 className="routerContent"
               >
-                <Route exact path={routes.DASHBOARD} component={Dashboard} />
                 <Route path={routes.RECENT} component={Recent} />
                 <Route path={routes.CATALOG} component={Catalog} />
                 <Route path={routes.INVOICES} component={Invoices} />
                 <Route path={routes.CONTACTS} component={Contacts} />
                 <Route path={routes.POS} component={PointOfSale} />
                 <Route path={routes.SETTINGS} component={Settings} />
+                <Route path={routes.NOTFOUND} component={NotFound} />
               </AnimatedSwitch>
             </Switch>
           </div>
