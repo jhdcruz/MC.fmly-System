@@ -29,8 +29,13 @@ const userSchema = new Schema({
   password: {
     type: String,
     required: true,
+    unique: false,
     trim: true,
     minLength: 6
+  },
+  name: {
+    type: String,
+    trim: true
   },
   role: {
     type: String,
@@ -38,7 +43,8 @@ const userSchema = new Schema({
   },
   permission: {
     type: String,
-    trim: true
+    trim: true,
+    lowercase: true
   },
   date: {
     type: Date,
