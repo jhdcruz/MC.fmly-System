@@ -21,6 +21,9 @@ const isDev = require('electron-is-dev');
 const path = require('path');
 
 const singleInstance = app.requestSingleInstanceLock();
+const isWindows = process.platform === 'win32';
+let needsFocusFix = false;
+let triggeringProgrammaticBlur = false;
 
 function createWindow() {
   // Splashscreen
@@ -68,6 +71,26 @@ function createWindow() {
   win.once('ready-to-show', () => {
     splash.destroy();
     win.show();
+  });
+
+  // Fixes `window.alert()` focus bug
+  win.on('blur', () => {
+    if (!triggeringProgrammaticBlur) {
+      needsFocusFix = true;
+    }
+  });
+  win.on('focus', () => {
+    if (isWindows && needsFocusFix) {
+      needsFocusFix = false;
+      triggeringProgrammaticBlur = true;
+      setTimeout(function () {
+        win.blur();
+        win.focus();
+        setTimeout(function () {
+          triggeringProgrammaticBlur = false;
+        }, 100);
+      }, 100);
+    }
   });
 }
 
