@@ -29,7 +29,7 @@ import './App.scss';
 import Admin from './views/Admin';
 import Cashier from './views/Cashier';
 import SysAdmin from './views/SysAdmin';
-import Redirect from 'react-router-dom';
+import Inventory from './views/Inventory';
 
 const Img = styled(Image)`
   width: 350px;
@@ -146,15 +146,19 @@ export default function App() {
 
   // * Role-based views
   if (auth === 'admin') {
-    return <Admin /> && <Redirect from="/" to="/pos" />;
+    return <Admin />;
   }
 
   if (auth === 'sysadmin') {
-    return <SysAdmin /> && <Redirect from="/" to="/pos" />;
+    return <SysAdmin />;
+  }
+
+  if (auth === 'inventory') {
+    return <Inventory />;
   }
 
   if (auth === 'cashier') {
-    return <Cashier /> && <Redirect from="/" to="/pos" />;
+    return <Cashier />;
   }
 
   // Login Form
