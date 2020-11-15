@@ -16,152 +16,63 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { Link } from 'react-router-dom';
 import Nav from 'react-bootstrap/Nav';
-import Tooltip from 'react-bootstrap/Tooltip';
-import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
+import Container from 'react-bootstrap/Container';
 import styled from 'styled-components';
 import routes from '../routes.js';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faAddressBook,
-  faBoxes,
-  faCog,
-  faFileInvoice,
-  faHistory,
-  faHome,
-  faShoppingCart,
-  faSignOutAlt
-} from '@fortawesome/free-solid-svg-icons';
+import { faCog, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
+import TabItem from './TabItem';
+
+const SideNav = styled(Container)`
+  width: 4.5rem;
+  padding: 0;
+`;
 
 const SideMenu = styled.aside`
   background-color: #1e1e1e;
-  position: fixed;
-  top: 95%;
-  transform: translateY(-100%);
+  display: block;
   width: 3.4rem;
-  margin: 0.5rem 0.8rem;
+  margin: 2.5rem 15px;
   padding: 0;
-  height: 90vh;
+  height: max-content;
   border-radius: 1.6rem;
   box-shadow: 0 3px 6px #232323;
   z-index: 9;
+  overflow: auto !important;
 
-  .BottomTab {
-    margin-top: 31vh !important;
+  hr {
+    margin: 5px 0;
+    border-top: 5px solid rgba(70, 70, 70, 1);
   }
 `;
 
-const TabRoutes = styled(Link)`
-  color: #eccec9 !important;
-  padding: 0.8rem 5px;
-
-  li {
-    margin: 0 auto;
-    padding: 0;
-    width: max-content;
-    text-align: center;
-
-    svg {
-      margin: 0 auto;
-      text-align: center;
-    }
-  }
-
-  :hover {
-    background-color: #181818 !important;
-    border-radius: 100%;
-  }
-`;
-
-const FAIcon = styled(FontAwesomeIcon)`
-  font-size: 18px;
-  text-align: center;
-`;
-
-export default function Sidebar() {
-  const TabItem = (props) => {
-    return (
-      <OverlayTrigger
-        placement="right"
-        delay={{
-          show: 250,
-          hide: 400
-        }}
-        overlay={
-          <Tooltip id="button-tooltip" {...props}>
-            {props.tab}
-          </Tooltip>
-        }
-        name={props.overlay}
-      >
-        <TabRoutes to={props.route} className={props.theme} draggable={false} onClick={props.state}>
-          <Nav.Link as="li">
-            <FAIcon icon={props.icon} />
-          </Nav.Link>
-        </TabRoutes>
-      </OverlayTrigger>
-    );
-  };
-
+export default function Sidebar(props) {
   return (
-    <SideMenu>
-      <Nav defaultActiveKey="/" className="flex-column">
-        <TabItem
-          tab="Dashboard"
-          overlay="Dashboard"
-          route={routes.DASHBOARD}
-          icon={faHome}
-        />
-        <TabItem
-          tab="Recent"
-          overlay="Recent"
-          route={routes.RECENT}
-          icon={faHistory}
-        />
-        <TabItem
-          tab="Catalog"
-          overlay="Catalog"
-          route={routes.CATALOG}
-          icon={faBoxes}
-        />
-        <TabItem
-          tab="Invoices"
-          overlay="Invoices"
-          route={routes.INVOICES}
-          icon={faFileInvoice}
-        />
-        <TabItem
-          tab="Contacts"
-          overlay="Contacts"
-          route={routes.CONTACTS}
-          icon={faAddressBook}
-        />
-        <TabItem
-          tab="Point of Sale"
-          overlay="Point of Sale"
-          route={routes.POS}
-          icon={faShoppingCart}
-        />
+    <SideNav>
+      <SideMenu>
+        <Nav defaultActiveKey="/" className="flex-column">
+          {/* Custom Navigation per views*/}
+          {props.navigation}
 
-        {/* Bottom Tabs */}
-        <TabItem
-          theme="BottomTab"
-          tab="Settings"
-          overlay="Settings"
-          route={routes.SETTINGS}
-          icon={faCog}
-        />
-        <TabItem
-          tab="Logout"
-          overlay="Logout"
-          icon={faSignOutAlt}
-          // Reload window since redirecting doesn't work
-          state={() => {
-            window.location.reload();
-          }}
-        />
-      </Nav>
-    </SideMenu>
+          {/* Fixed Navigation | All views */}
+          <hr />
+          <TabItem
+            tab="Settings"
+            overlay="Settings"
+            route={routes.SETTINGS}
+            icon={faCog}
+          />
+          <TabItem
+            tab="Logout"
+            overlay="Logout"
+            icon={faSignOutAlt}
+            // Reload window since redirecting doesn't work
+            state={() => {
+              window.location.href = '/';
+            }}
+          />
+        </Nav>
+      </SideMenu>
+    </SideNav>
   );
 }
