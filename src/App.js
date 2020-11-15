@@ -27,6 +27,9 @@ import Brand from './assets/img/profile.png';
 import './App.scss';
 // Views
 import Admin from './views/Admin';
+import Cashier from './views/Cashier';
+import SysAdmin from './views/SysAdmin';
+import Redirect from 'react-router-dom';
 
 const Img = styled(Image)`
   width: 350px;
@@ -109,8 +112,9 @@ const LoginControl = styled.div`
 export default function App() {
   const [username, setUser] = useState('');
   const [password, setPassword] = useState('');
-  const [auth, setAuth] = useState(false);
+  const [auth, setAuth] = useState('');
 
+  // * Auth Handler
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
@@ -124,7 +128,7 @@ export default function App() {
         if (res.data === 'Credentials Mismatched!') {
           window.alert('Invalid username or password...');
         } else {
-          setAuth(true);
+          setAuth(res.data);
         }
       })
       .catch((err) => {
@@ -134,73 +138,84 @@ export default function App() {
       });
   };
 
+  // * Forgot Credentials/Password
   const forgotCreds = (e) => {
     e.preventDefault();
     window.alert('Please inform the System Admin.');
   };
 
-  if (!auth) {
-    return (
-      <LoginContainer fluid>
-        <Img src={Brand} alt="Company Logo" rounded />
-        <LoginForm autoComplete="off" autoSave="off" onSubmit={handleSubmit}>
-          <Image
-            src={Brand}
-            width={130}
-            height={100}
-            alt="Company Logo"
-            rounded
-          />
-          <Form.Group>
-            <Form.Label htmlFor="username">Username:</Form.Label>
-            <FormControl
-              type="username"
-              name="username"
-              placeholder="Username"
-              autoComplete="off"
-              value={username}
-              onChange={(e) => setUser(e.target.value)}
-              autoFocus={true}
-              tabIndex={1}
-              required
-            />
-          </Form.Group>
-          <Form.Group>
-            <Form.Label htmlFor="password">Password:</Form.Label>
-            <FormControl
-              type="password"
-              name="password"
-              placeholder="Password"
-              autoComplete="off"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              tabIndex={2}
-              required
-            />
-          </Form.Group>
-          <LoginControl>
-            <a
-              href="#"
-              variant="primary"
-              className="float-left"
-              onClick={forgotCreds}
-              tabIndex={4}
-            >
-              Forgot credentials
-            </a>
-            <Button
-              variant="outline-primary"
-              className="float-right"
-              type="submit"
-              tabIndex={3}
-            >
-              Login
-            </Button>
-          </LoginControl>
-        </LoginForm>
-      </LoginContainer>
-    );
+  // * Role-based views
+  if (auth === 'admin') {
+    return <Admin /> && <Redirect from="/" to="/pos" />;
   }
 
-  return <Admin />;
+  if (auth === 'sysadmin') {
+    return <SysAdmin /> && <Redirect from="/" to="/pos" />;
+  }
+
+  if (auth === 'cashier') {
+    return <Cashier /> && <Redirect from="/" to="/pos" />;
+  }
+
+  // Login Form
+  return (
+    <LoginContainer fluid>
+      <Img src={Brand} alt="Company Logo" rounded />
+      <LoginForm autoComplete="off" autoSave="off" onSubmit={handleSubmit}>
+        <Image
+          src={Brand}
+          width={130}
+          height={100}
+          alt="Company Logo"
+          rounded
+        />
+        <Form.Group>
+          <Form.Label htmlFor="username">Username:</Form.Label>
+          <FormControl
+            type="username"
+            name="username"
+            placeholder="Username"
+            autoComplete="off"
+            value={username}
+            onChange={(e) => setUser(e.target.value)}
+            autoFocus={true}
+            tabIndex={1}
+            required
+          />
+        </Form.Group>
+        <Form.Group>
+          <Form.Label htmlFor="password">Password:</Form.Label>
+          <FormControl
+            type="password"
+            name="password"
+            placeholder="Password"
+            autoComplete="off"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            tabIndex={2}
+            required
+          />
+        </Form.Group>
+        <LoginControl>
+          <a
+            href="#"
+            variant="primary"
+            className="float-left"
+            onClick={forgotCreds}
+            tabIndex={4}
+          >
+            Forgot credentials
+          </a>
+          <Button
+            variant="outline-primary"
+            className="float-right"
+            type="submit"
+            tabIndex={3}
+          >
+            Login
+          </Button>
+        </LoginControl>
+      </LoginForm>
+    </LoginContainer>
+  );
 }
