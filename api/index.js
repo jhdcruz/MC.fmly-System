@@ -75,7 +75,7 @@ require('./routes/product.route')(api);
 require('./routes/supplier.route')(api);
 require('./routes/user.route')(api);
 
-api.get('/', (req, res) => {
+api.get('/api', (req, res) => {
   res.setHeader('Content-Type', 'text/html');
   res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
   res.setHeader('Access-Control-Allow-Origin', req.headers.origin);

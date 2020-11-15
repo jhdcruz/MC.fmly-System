@@ -19,8 +19,8 @@
 const ProductController = require('../controllers/product.controller');
 
 module.exports = (api) => {
-  api.get('/products', ProductController.get);
-  api.post('/products', ProductController.post);
-  api.put('/products/:id', ProductController.put);
-  api.delete('/products/:id', ProductController.delete);
+  api.get('/api/products', ProductController.get);
+  api.post('/api/products', ProductController.post);
+  api.put('/api/products/:id', ProductController.put);
+  api.delete('/api/products/:id', ProductController.delete);
 };

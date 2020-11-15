@@ -19,11 +19,11 @@
 const UserController = require('../controllers/user.controller');
 
 module.exports = (api) => {
-  api.get('/users', UserController.get);
-  api.put('/users/:id', UserController.put);
-  api.delete('/users/:id', UserController.delete);
+  api.get('/api/users', UserController.get);
+  api.put('/api/users/:id', UserController.put);
+  api.delete('/api/users/:id', UserController.delete);
 
   // Authentication
-  api.post('/users/login', UserController.login);
-  api.post('/users/register', UserController.register);
+  api.post('/api/users/login', UserController.login);
+  api.post('/api/users/register', UserController.register);
 };
