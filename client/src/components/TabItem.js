@@ -16,14 +16,12 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-
 import { Link } from 'react-router-dom';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Tooltip from 'react-bootstrap/Tooltip';
 import Nav from 'react-bootstrap/Nav';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
 
 const TabRoutes = styled(Link)`
   color: #eccec9 !important;
@@ -67,11 +65,7 @@ const TabItem = (props) => {
       }
       name={props.overlay}
     >
-      <TabRoutes
-        to={props.route}
-        draggable={false}
-        onClick={props.state}
-      >
+      <TabRoutes to={props.route} draggable={false} onClick={props.state}>
         <Nav.Link as="li">
           <FAIcon icon={props.icon} />
         </Nav.Link>

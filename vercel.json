@@ -3,8 +3,16 @@
   "trailingSlash": false,
   "redirects": [
     {
-      "source": "/logout",
-      "destination": "/login"
+      "source": "/products/*",
+      "destination": "/"
+    },
+    {
+      "source": "/suppliers/*",
+      "destination": "/"
+    },
+    {
+      "source": "/users/*",
+      "destination": "/"
     }
   ]
 }

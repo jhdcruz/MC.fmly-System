@@ -6,6 +6,8 @@
     "at-rule-no-unknown": null
   },
   "ignoreFiles": [
-    "node_modules/**/**"
+    "scripts/**/**",
+    "config/**/**",
+    "api/**/**"
   ]
 }

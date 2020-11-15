@@ -22,9 +22,12 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const helmet = require('helmet');
 const Rollbar = require('rollbar');
+const dotenv = require('dotenv');
+const dotenvExpand = require('dotenv-expand');
 
 // set .env
-require('dotenv').config();
+const env = dotenv.config();
+dotenvExpand(env);
 
 // eslint-disable-next-line no-unused-vars
 const rollbar = new Rollbar({

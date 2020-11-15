@@ -1,4 +1,2 @@
-config/*
-scripts/*
-node_modules/**/**
-functions/**
+client/config/**/**
+client/scripts/**/**

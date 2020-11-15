@@ -17,19 +17,23 @@
  */
 
 import { Fragment } from 'react';
-import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Redirect,
+  Route,
+  Switch
+} from 'react-router-dom';
 import { AnimatedSwitch, spring } from 'react-router-transition';
 import Container from 'react-bootstrap/Container';
 import Sidebar from '../components/Sidebar';
 import routes from '../routes.js';
 import '../App.scss';
 // Routes
-import Dashboard from '../containers/Dashboard';
+import PointOfSale from '../containers/PointOfSale';
 import Settings from '../containers/Settings';
-import SysInfo from '../containers/SysInfo';
 import NotFound from '../components/NotFound';
 import TabItem from '../components/TabItem';
-import { faChartBar, faServer } from '@fortawesome/free-solid-svg-icons';
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 
 function mapStyles(styles) {
   return {
@@ -64,7 +68,7 @@ const bounceTransition = {
   }
 };
 
-export default function SysAdmin() {
+export default function Cashier() {
   return (
     <Fragment>
       <Router>
@@ -73,16 +77,10 @@ export default function SysAdmin() {
             navigation={
               <>
                 <TabItem
-                  tab="System Info"
-                  overlay="System Info"
-                  route={routes.SYSINFO}
-                  icon={faServer}
-                />
-                <TabItem
-                  tab="Dashboard"
-                  overlay="Dashboard"
-                  route={routes.DASHBOARD}
-                  icon={faChartBar}
+                  tab="Point of Sale"
+                  overlay="Point of Sale"
+                  route={routes.POS}
+                  icon={faShoppingCart}
                 />
               </>
             }
@@ -98,10 +96,9 @@ export default function SysAdmin() {
                 className="routerContent"
               >
                 <Route exact path="/">
-                  <Redirect to="/sysinfo"/>
+                  <Redirect to="/pos" />
                 </Route>
-                <Route exact path={routes.DASHBOARD} component={Dashboard} />
-                <Route path={routes.SYSINFO} component={SysInfo} />
+                <Route path={routes.POS} component={PointOfSale} />
                 <Route path={routes.SETTINGS} component={Settings} />
                 <Route path={routes.NOTFOUND} component={NotFound} />
               </AnimatedSwitch>
