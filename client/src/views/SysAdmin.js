@@ -17,30 +17,24 @@
  */
 
 import { Fragment } from 'react';
-import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect
+} from 'react-router-dom';
 import { AnimatedSwitch, spring } from 'react-router-transition';
 import Container from 'react-bootstrap/Container';
 import Sidebar from '../components/Sidebar';
-import TabItem from '../components/TabItem';
-import NotFound from '../components/NotFound';
 import routes from '../routes.js';
 import '../App.scss';
 // Routes
 import Dashboard from '../containers/Dashboard';
-import Recent from '../containers/Recent';
-import Invoices from '../containers/Invoices';
-import PointOfSale from '../containers/PointOfSale';
-import Catalog from '../containers/Catalog';
 import Settings from '../containers/Settings';
-import Contacts from '../containers/Contacts';
-import {
-  faBoxes,
-  faFileInvoice,
-  faHistory,
-  faHome,
-  faShoppingCart,
-  faTruck
-} from '@fortawesome/free-solid-svg-icons';
+import SysInfo from '../containers/SysInfo';
+import NotFound from '../components/NotFound';
+import TabItem from '../components/TabItem';
+import { faChartBar, faServer } from '@fortawesome/free-solid-svg-icons';
 
 function mapStyles(styles) {
   return {
@@ -75,7 +69,7 @@ const bounceTransition = {
   }
 };
 
-export default function Admin() {
+export default function SysAdmin() {
   return (
     <Fragment>
       <Router>
@@ -84,41 +78,16 @@ export default function Admin() {
             navigation={
               <>
                 <TabItem
+                  tab="System Info"
+                  overlay="System Info"
+                  route={routes.SYSINFO}
+                  icon={faServer}
+                />
+                <TabItem
                   tab="Dashboard"
                   overlay="Dashboard"
                   route={routes.DASHBOARD}
-                  icon={faHome}
-                />
-                <TabItem
-                  tab="Recent"
-                  overlay="Recent"
-                  route={routes.RECENT}
-                  icon={faHistory}
-                />
-                <TabItem
-                  tab="Catalog"
-                  overlay="Catalog"
-                  route={routes.CATALOG}
-                  icon={faBoxes}
-                />
-
-                <TabItem
-                  tab="Invoices"
-                  overlay="Invoices"
-                  route={routes.INVOICES}
-                  icon={faFileInvoice}
-                />
-                <TabItem
-                  tab="Contacts"
-                  overlay="Contacts"
-                  route={routes.CONTACTS}
-                  icon={faTruck}
-                />
-                <TabItem
-                  tab="Point of Sale"
-                  overlay="Point of Sale"
-                  route={routes.POS}
-                  icon={faShoppingCart}
+                  icon={faChartBar}
                 />
               </>
             }
@@ -134,14 +103,10 @@ export default function Admin() {
                 className="routerContent"
               >
                 <Route exact path="/">
-                  <Redirect to="/dashboard"/>
+                  <Redirect to="/sysinfo" />
                 </Route>
-                <Route path={routes.DASHBOARD} component={Dashboard} />
-                <Route path={routes.RECENT} component={Recent} />
-                <Route path={routes.CATALOG} component={Catalog} />
-                <Route path={routes.INVOICES} component={Invoices} />
-                <Route path={routes.CONTACTS} component={Contacts} />
-                <Route path={routes.POS} component={PointOfSale} />
+                <Route exact path={routes.DASHBOARD} component={Dashboard} />
+                <Route path={routes.SYSINFO} component={SysInfo} />
                 <Route path={routes.SETTINGS} component={Settings} />
                 <Route path={routes.NOTFOUND} component={NotFound} />
               </AnimatedSwitch>

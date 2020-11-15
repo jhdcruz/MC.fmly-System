@@ -108,18 +108,18 @@ Can be either of the ff:
 - Debian
   - `dpkg`
   - `dpkg-dev`
-  
+
 > `sudo apt install dpkg dpkg-dev`
-  
+
 - Red Hat
   - `rpm`
-  
+
 > `sudo yum install rpm` | replace `yum` with your distro package provider.
-  
- **MacOS**
- 
-   - `rpm`
-   
+
+**MacOS**
+
+- `rpm`
+
 > `brew install rpm`
 
 **Optional:**
@@ -151,16 +151,21 @@ yarn
 
 ## Development
 
+This project uses yarn's `workspaces` to seperate the **Front-End** and the **Back-End**,
+and run `scripts` without navigating back & forth to project folders.
+
+> **Hoisting is set to `"*"`** to avoid compilation problems on electron regarding missing dependencies.
+
 ### Web App:
 
 ```sh
-yarn start
+yarn web
 ```
 
 ### Desktop:
 
 ```sh
-yarn start-electron
+yarn start
 ```
 
 ## Production
@@ -175,11 +180,11 @@ DigitalOcean, AWS, etc...
 yarn build
 ```
 
-Front-end output on `build/` directory. Ready to deploy to hosting.
+Front-end output on `./client/build/` directory. Ready to deploy to hosting.
 
 ### Desktop:
 
-The desktop version relies on loading the web app. You need to deploy the web app,
+The desktop version on production relies on loading the web app. You need to deploy the web app,
 then changing the `loadURL` link in `public/electron.js`.
 
 ```bash
@@ -208,6 +213,7 @@ Packaging the desktop app for `linux` can be made in `win` system inside `WSL`.
 **Unit test is planned**
 
 ## License
+
 This work is licensed under [GNU General Public License v3.0](https://opensource.org/licenses/GPL-3.0).
 
-> *Not applicable in actual business use.*
+> _Not applicable in actual business use._

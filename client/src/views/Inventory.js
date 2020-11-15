@@ -75,7 +75,7 @@ const bounceTransition = {
   }
 };
 
-export default function Admin() {
+export default function Inventory() {
   return (
     <Fragment>
       <Fragment>
@@ -122,7 +122,7 @@ export default function Admin() {
                   className="routerContent"
                 >
                   <Route exact path="/">
-                    <Redirect to="/recent"/>
+                    <Redirect to="/recent" />
                   </Route>
                   <Route path={routes.RECENT} component={Recent} />
                   <Route path={routes.CATALOG} component={Catalog} />
