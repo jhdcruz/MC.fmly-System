@@ -16,7 +16,7 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-const ProductController = require('../controllers/product.controller');
+import { ProductController } from '../controllers/product.controller';
 
 module.exports = (api: any) => {
   api.get('/api/products', ProductController.get);

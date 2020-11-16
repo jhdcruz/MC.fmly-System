@@ -17,48 +17,47 @@
  */
 
 import { NowRequest, NowResponse } from '@vercel/node';
+import * as mongoose from 'mongoose';
 
-const mongoose = require('mongoose');
 const Products = mongoose.model('products');
 
-exports.get = async (req: NowRequest, res: NowResponse) => {
-  try {
-    const products = await Products.find();
-    return res.status(200).send(products);
-  } catch (err) {
-    console.error(err);
-    res.status(500).send('Error fetching products');
-  }
-};
-
-exports.post = async (req: NowRequest, res: NowResponse) => {
-  try {
-    const products = await Products.create(req.body);
-    return res.status(201).send(products);
-  } catch (err) {
-    console.error(err);
-    res.status(500).send('Error posting product/s');
-  }
-};
-
-exports.put = async (req: NowRequest, res: NowResponse) => {
-  const { id } = req.query;
-  try {
-    const products = await Products.findByIdAndUpdate(id, req.body);
-    return res.status(202).send(products);
-  } catch (err) {
-    console.error(err);
-    res.status(500).send(`Error updating product ${id}`);
-  }
-};
-
-exports.delete = async (req: NowRequest, res: NowResponse) => {
-  const { id } = req.query;
-  try {
-    const products = await Products.findByIdAndDelete(id);
-    return res.status(202).send(products);
-  } catch (err) {
-    console.error(err);
-    res.status(500).send(`Error deleting product ${id}`);
+export const ProductController = {
+  get: async (req: NowRequest, res: NowResponse) => {
+    try {
+      const products = await Products.find();
+      return res.status(200).send(products);
+    } catch (err) {
+      console.error(err);
+      res.status(500).send('Error fetching products');
+    }
+  },
+  post: async (req: NowRequest, res: NowResponse) => {
+    try {
+      const products = await Products.create(req.body);
+      return res.status(201).send(products);
+    } catch (err) {
+      console.error(err);
+      res.status(500).send('Error posting product/s');
+    }
+  },
+  put: async (req: NowRequest, res: NowResponse) => {
+    const { id } = req.query;
+    try {
+      const products = await Products.findByIdAndUpdate(id, req.body);
+      return res.status(202).send(products);
+    } catch (err) {
+      console.error(err);
+      res.status(500).send(`Error updating product ${id}`);
+    }
+  },
+  delete: async (req: NowRequest, res: NowResponse) => {
+    const { id } = req.query;
+    try {
+      const products = await Products.findByIdAndDelete(id);
+      return res.status(202).send(products);
+    } catch (err) {
+      console.error(err);
+      res.status(500).send(`Error deleting product ${id}`);
+    }
   }
 };

@@ -17,15 +17,14 @@
  */
 
 import { NowRequest, NowResponse } from '@vercel/node';
-
-const express = require('express');
-const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
-const cors = require('cors');
-const helmet = require('helmet');
-const Rollbar = require('rollbar');
-const dotenv = require('dotenv');
-const dotenvExpand = require('dotenv-expand');
+import * as Express from 'express';
+import * as mongoose from 'mongoose';
+import * as bodyParser from 'body-parser';
+import * as helmet from 'helmet';
+import * as cors from 'cors';
+import * as Rollbar from 'rollbar';
+import * as dotenv from 'dotenv';
+import * as dotenvExpand from 'dotenv-expand';
 
 // set .env
 const env = dotenv.config();
@@ -38,12 +37,13 @@ const rollbar = new Rollbar({
   captureUnhandledRejections: true
 });
 
-const api = express();
-const PORT = process.env.PORT || 5000;
+const api: any = Express();
+const PORT: Number = parseInt(`${process.env.PORT}`, 10) || 5000;
 
+// @ts-ignore
 mongoose.Promise = global.Promise;
 
-// Headers thingmajigs
+// * HTTP Headers
 api.use(cors());
 api.use(helmet());
 api.use(bodyParser.urlencoded({ extended: false }));
@@ -51,7 +51,7 @@ api.use(bodyParser.json());
 
 api.options('*', cors());
 
-// Connect to the Database || MongoDB Atlas
+// * Connect to the Database || MongoDB Atlas
 mongoose
   .connect(`${process.env.MONGO_ADMIN}` || `${process.env.MONGO_URL}`, {
     useNewUrlParser: true,
@@ -67,12 +67,12 @@ mongoose
     console.error(err);
   });
 
-// Model Imports
+// * Model Imports
 require('./models/user.model');
 require('./models/product.model');
 require('./models/supplier.model');
 
-// Routes Imports
+// * Routes Imports
 require('./routes/user.route')(api);
 require('./routes/product.route')(api);
 require('./routes/supplier.route')(api);

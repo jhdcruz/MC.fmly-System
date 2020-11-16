@@ -16,7 +16,7 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-const SupplierController = require('../controllers/supplier.controller');
+import { SupplierController } from '../controllers/supplier.controller';
 
 module.exports = (api: any) => {
   api.get('/api/suppliers', SupplierController.get);

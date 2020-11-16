@@ -16,7 +16,7 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-const UserController = require('../controllers/user.controller');
+import { UserController } from '../controllers/user.controller';
 
 module.exports = (api: any) => {
   api.get('/api/users', UserController.get);
