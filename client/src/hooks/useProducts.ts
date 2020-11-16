@@ -17,25 +17,26 @@
  */
 
 import { useEffect, useState } from 'react';
-import { UsersRequest } from '../services/http';
+import { ProductsRequest } from '../services/http';
 
-const useUsers = () => {
-  const [users, setUsers] = useState(null);
+// Assign data to `products`
+const useProducts: () => [unknown] = () => {
+  const [products, setProducts] = useState(null);
 
   useEffect(() => {
-    if (!users) {
+    if (!products) {
       fetchProducts().catch((e) => {
         console.error(e);
       });
     }
-  }, [users]);
+  }, [products]);
 
   const fetchProducts = async () => {
-    let res = await UsersRequest.get();
-    setUsers(res);
+    const res = await ProductsRequest.get();
+    setProducts(res);
   };
 
-  return [users];
+  return [products];
 };
 
-export default useUsers;
+export default useProducts;

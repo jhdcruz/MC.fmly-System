@@ -17,26 +17,25 @@
  */
 
 import { useEffect, useState } from 'react';
-import { ProductsRequest } from '../services/http';
+import { SuppliersRequest } from '../services/http';
 
-// Assign data to `products`
-const useProducts = () => {
-  const [products, setProducts] = useState(null);
+const useSuppliers: () => [unknown] = () => {
+  const [suppliers, setSuppliers] = useState(null);
 
   useEffect(() => {
-    if (!products) {
+    if (!suppliers) {
       fetchProducts().catch((e) => {
         console.error(e);
       });
     }
-  }, [products]);
+  }, [suppliers]);
 
   const fetchProducts = async () => {
-    let res = await ProductsRequest.get();
-    setProducts(res);
+    const res = await SuppliersRequest.get();
+    setSuppliers(res);
   };
 
-  return [products];
+  return [suppliers];
 };
 
-export default useProducts;
+export default useSuppliers;
