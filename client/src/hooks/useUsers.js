@@ -17,7 +17,7 @@
  */
 
 import { useEffect, useState } from 'react';
-import { UsersRequest } from '../services/UsersInstance';
+import { UsersRequest } from '../services/http';
 
 const useUsers = () => {
   const [users, setUsers] = useState(null);

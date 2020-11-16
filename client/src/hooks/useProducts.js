@@ -17,7 +17,7 @@
  */
 
 import { useEffect, useState } from 'react';
-import { ProductsRequest } from '../services/ProductsInstance';
+import { ProductsRequest } from '../services/http';
 
 // Assign data to `products`
 const useProducts = () => {
