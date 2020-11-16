@@ -16,12 +16,14 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+import { NowRequest, NowResponse } from '@vercel/node';
+
 const mongoose = require('mongoose');
 const argon2 = require('argon2');
 
 const Users = mongoose.model('users');
 
-exports.get = async (req, res) => {
+exports.get = async (req: NowRequest, res: NowResponse) => {
   try {
     const users = await Users.find();
     return res.status(200).send(users);
@@ -31,8 +33,8 @@ exports.get = async (req, res) => {
   }
 };
 
-exports.put = async (req, res) => {
-  const { id } = req.params;
+exports.put = async (req: NowRequest, res: NowResponse) => {
+  const { id } = req.query;
   try {
     const hashedPwd = await argon2.hash(req.body.password);
     const users = await Users.findByIdAndUpdate(id, {
@@ -49,8 +51,8 @@ exports.put = async (req, res) => {
   }
 };
 
-exports.delete = async (req, res) => {
-  const { id } = req.params;
+exports.delete = async (req: NowRequest, res: NowResponse) => {
+  const { id } = req.query;
   try {
     const users = await Users.findByIdAndDelete(id);
     res.status(202).send(users);
@@ -61,7 +63,7 @@ exports.delete = async (req, res) => {
 };
 
 // User Creation | Register
-exports.register = async (req, res) => {
+exports.register = async (req: NowRequest, res: NowResponse) => {
   console.log(req.body);
   try {
     const hashedPwd = await argon2.hash(req.body.password, {
@@ -82,7 +84,7 @@ exports.register = async (req, res) => {
 };
 
 // User Validation | Login
-exports.login = async (req, res) => {
+exports.login = async (req: NowRequest, res: NowResponse) => {
   try {
     const user = await Users.findOne({ username: req.body.username });
     console.log(user);

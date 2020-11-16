@@ -16,11 +16,12 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-const mongoose = require('mongoose');
+import { NowRequest, NowResponse } from '@vercel/node';
 
+const mongoose = require('mongoose');
 const Products = mongoose.model('products');
 
-exports.get = async (req, res) => {
+exports.get = async (req: NowRequest, res: NowResponse) => {
   try {
     const products = await Products.find();
     return res.status(200).send(products);
@@ -30,7 +31,7 @@ exports.get = async (req, res) => {
   }
 };
 
-exports.post = async (req, res) => {
+exports.post = async (req: NowRequest, res: NowResponse) => {
   try {
     const products = await Products.create(req.body);
     return res.status(201).send(products);
@@ -40,8 +41,8 @@ exports.post = async (req, res) => {
   }
 };
 
-exports.put = async (req, res) => {
-  const { id } = req.params;
+exports.put = async (req: NowRequest, res: NowResponse) => {
+  const { id } = req.query;
   try {
     const products = await Products.findByIdAndUpdate(id, req.body);
     return res.status(202).send(products);
@@ -51,8 +52,8 @@ exports.put = async (req, res) => {
   }
 };
 
-exports.delete = async (req, res) => {
-  const { id } = req.params;
+exports.delete = async (req: NowRequest, res: NowResponse) => {
+  const { id } = req.query;
   try {
     const products = await Products.findByIdAndDelete(id);
     return res.status(202).send(products);

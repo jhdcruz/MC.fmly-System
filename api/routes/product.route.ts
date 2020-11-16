@@ -16,11 +16,11 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-const SupplierController = require('../controllers/supplier.controller');
+const ProductController = require('../controllers/product.controller');
 
-module.exports = (api) => {
-  api.get('/api/suppliers', SupplierController.get);
-  api.post('/api/suppliers', SupplierController.post);
-  api.put('/api/suppliers/:id', SupplierController.put);
-  api.delete('/api/suppliers/:id', SupplierController.delete);
+module.exports = (api: any) => {
+  api.get('/api/products', ProductController.get);
+  api.post('/api/products', ProductController.post);
+  api.put('/api/products/:id', ProductController.put);
+  api.delete('/api/products/:id', ProductController.delete);
 };

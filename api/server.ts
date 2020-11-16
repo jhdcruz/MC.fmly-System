@@ -16,6 +16,7 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+import { NowRequest, NowResponse } from '@vercel/node'
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
@@ -61,7 +62,7 @@ mongoose
       console.log(`Server started at PORT: ${PORT}`);
     });
   })
-  .catch((err) => {
+  .catch((err: any) => {
     console.error(err);
   });
 
@@ -75,10 +76,9 @@ require('./routes/product.route')(api);
 require('./routes/supplier.route')(api);
 require('./routes/user.route')(api);
 
-api.get('/api', (req, res) => {
+api.get('/api', (req: NowRequest, res: NowResponse) => {
   res.setHeader('Content-Type', 'text/html');
   res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
-  res.setHeader('Access-Control-Allow-Origin', req.headers.origin);
 });
 
 module.exports = api;

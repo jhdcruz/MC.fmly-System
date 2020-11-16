@@ -18,7 +18,7 @@
 
 const UserController = require('../controllers/user.controller');
 
-module.exports = (api) => {
+module.exports = (api: any) => {
   api.get('/api/users', UserController.get);
   api.put('/api/users/:id', UserController.put);
   api.delete('/api/users/:id', UserController.delete);
