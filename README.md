@@ -54,6 +54,11 @@
 
 <p align="center"><a href="https://www.mongodb.com/mern-stack">MERN Stack Architecture</a></p>
 
+### Langugages:
+
+- **JavaScript** _(ES8+)_ - Main implementation
+- [**TypeScript v4**](https://www.typescriptlang.org/) - Planned Rewrite
+
 ### Front-End:
 
 - [**React**](https://reactjs.org/) - _UI Library_
