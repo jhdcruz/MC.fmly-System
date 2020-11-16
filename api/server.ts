@@ -16,7 +16,8 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { NowRequest, NowResponse } from '@vercel/node'
+import { NowRequest, NowResponse } from '@vercel/node';
+
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
@@ -67,14 +68,14 @@ mongoose
   });
 
 // Model Imports
+require('./models/user.model');
 require('./models/product.model');
 require('./models/supplier.model');
-require('./models/user.model');
 
 // Routes Imports
+require('./routes/user.route')(api);
 require('./routes/product.route')(api);
 require('./routes/supplier.route')(api);
-require('./routes/user.route')(api);
 
 api.get('/api', (req: NowRequest, res: NowResponse) => {
   res.setHeader('Content-Type', 'text/html');
