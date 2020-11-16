@@ -16,7 +16,7 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { useState } from 'react';
+import { FormEvent, FunctionComponent, useState } from 'react';
 import axios from 'axios';
 import Container from 'react-bootstrap/Container';
 import Image from 'react-bootstrap/Image';
@@ -30,7 +30,13 @@ import Admin from './views/Admin';
 import Cashier from './views/Cashier';
 import SysAdmin from './views/SysAdmin';
 import Inventory from './views/Inventory';
+// Interface
+import { ILogin } from './interfaces/User';
 
+/* ===========================
+ * Styled Components
+ * ============================
+ */
 const Img = styled(Image)`
   width: 350px;
   height: 300px;
@@ -109,21 +115,17 @@ const LoginControl = styled.div`
   }
 `;
 
-export default function App() {
-  const [username, setUser] = useState('');
-  const [password, setPassword] = useState('');
+const App: FunctionComponent = () => {
+  const [loginCreds] = useState<ILogin>();
   const [auth, setAuth] = useState('');
 
   // * Auth Handler
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: FormEvent<HTMLInputElement>) => {
     e.preventDefault();
     axios
       .create({ baseURL: '/api' })
-      .post(`/users/login`, {
-        username,
-        password
-      })
-      .then((res) => {
+      .post(`/users/login`, { loginCreds })
+      .then((res: any) => {
         console.log(res);
         if (res.data === 'Credentials Mismatched!') {
           window.alert('Invalid username or password...');
@@ -131,15 +133,15 @@ export default function App() {
           setAuth(res.data);
         }
       })
-      .catch((err) => {
+      .catch((err: unknown) => {
         console.error(err);
         window.alert(err);
         window.alert('Please contact the System Administrator!');
       });
   };
 
-  // * Forgot Credentials/Password
-  const forgotCreds = (e) => {
+  // * Forgot Credentials/Password Alert
+  const forgotCreds = (e: FormEvent<HTMLInputElement>) => {
     e.preventDefault();
     window.alert('Please inform the System Admin.');
   };
@@ -161,7 +163,7 @@ export default function App() {
     return <Cashier />;
   }
 
-  // Login Form
+  // * Login Form
   return (
     <LoginContainer fluid>
       <Img src={Brand} alt="Company Logo" rounded />
@@ -180,8 +182,7 @@ export default function App() {
             name="username"
             placeholder="Username"
             autoComplete="off"
-            value={username}
-            onChange={(e) => setUser(e.target.value)}
+            ref={loginCreds}
             autoFocus={true}
             tabIndex={1}
             required
@@ -194,8 +195,7 @@ export default function App() {
             name="password"
             placeholder="Password"
             autoComplete="off"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            ref={loginCreds}
             tabIndex={2}
             required
           />
@@ -203,9 +203,8 @@ export default function App() {
         <LoginControl>
           <a
             href="#"
-            variant="primary"
-            className="float-left"
-            onClick={forgotCreds}
+            className="primary float-left"
+            onClick={() => forgotCreds}
             tabIndex={4}
           >
             Forgot credentials
@@ -222,4 +221,6 @@ export default function App() {
       </LoginForm>
     </LoginContainer>
   );
-}
+};
+
+export default App;
