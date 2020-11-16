@@ -19,7 +19,9 @@
   "settings": {
     "import/extensions": [
       ".js",
+      ".ts",
       ".jsx",
+      "tsx",
       ".scss"
     ]
   }
