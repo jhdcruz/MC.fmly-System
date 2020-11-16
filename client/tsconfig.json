@@ -1,9 +1,10 @@
 {
   "compilerOptions": {
-    "target": "es6",
-    "lib": ["es6", "dom", "es2015.promise"],
-    "module": "commonjs",
+    "target": "ES6",
+    "lib": ["dom", "es2015"],
+    "module": "ESNext",
     "allowJs": true,
+    "jsxFragmentFactory": "React.Fragment",
     "checkJs": true,
     "jsx": "react",
     "declaration": true,
@@ -13,13 +14,20 @@
     "rootDir": "./",
     "strict": true,
     "esModuleInterop": true,
+    "moduleResolution": "Node",
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "allowSyntheticDefaultImports": true
   },
-  "include": ["./src/**/**/**.\"(ts|tsx)\"", "./public/**.ts"],
-  "exclude": ["node_modules/**/**", "config/**/**", "scripts/**"],
+  "typeRoots": ["./node_modules/@types", "./src/types"],
+  "include": [
+    "./src/types/**.ts",
+    "./src/**/**/**.ts",
+    "./src/**/**/**.tsx",
+    "./public/**.ts"
+  ],
+  "exclude": ["./node_modules/**/**", "./config/**/**", "./scripts/**"],
   "rules": {
-    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/no-explicit-any": "off"
   }
 }
