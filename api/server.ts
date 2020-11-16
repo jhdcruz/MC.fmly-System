@@ -28,7 +28,7 @@ const helmet = require('helmet');
 const dotenvExpand = require('dotenv-expand');
 
 // set .env
-const env: any = dotenv.config();
+const env: unknown = dotenv.config();
 dotenvExpand(env);
 
 // eslint-disable-next-line no-unused-vars
