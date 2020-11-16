@@ -9,8 +9,6 @@
     "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true
   },
-  "filesGlob": [
-    "**/**/**.ts",
-    "!node_modules/**"
-  ]
+  "include": ["./**/**.ts"],
+  "exclude": ["node_modules/**/**"]
 }
