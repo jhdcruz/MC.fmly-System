@@ -18,7 +18,8 @@
     "react/react-in-jsx-scope": "off",
     "import/no-anonymous-default-export": "off",
     "import/no-extraneous-dependencies": "off",
-    "jsx-a11y/anchor-is-valid": "off"
+    "jsx-a11y/anchor-is-valid": "off",
+    "@typescript-eslint/no-explicit-any": "off"
   },
   "settings": {
     "import/extensions": [
