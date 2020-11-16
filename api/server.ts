@@ -20,14 +20,15 @@ import { NowRequest, NowResponse } from '@vercel/node';
 import * as Express from 'express';
 import * as mongoose from 'mongoose';
 import * as bodyParser from 'body-parser';
-import * as helmet from 'helmet';
 import * as cors from 'cors';
-import * as Rollbar from 'rollbar';
 import * as dotenv from 'dotenv';
-import * as dotenvExpand from 'dotenv-expand';
+
+const Rollbar = require('rollbar');
+const helmet = require('helmet');
+const dotenvExpand = require('dotenv-expand');
 
 // set .env
-const env = dotenv.config();
+const env: any = dotenv.config();
 dotenvExpand(env);
 
 // eslint-disable-next-line no-unused-vars
