@@ -17,7 +17,7 @@
  */
 
 import { NowRequest, NowResponse } from '@vercel/node';
-import * as Express from 'express';
+import * as express from 'express';
 import * as mongoose from 'mongoose';
 import * as bodyParser from 'body-parser';
 import * as cors from 'cors';
@@ -38,7 +38,8 @@ const rollbar = new Rollbar({
   captureUnhandledRejections: true
 });
 
-const api: any = Express();
+// @ts-ignore
+const api: any = express();
 const PORT: Number = parseInt(`${process.env.PORT}`, 10) || 5000;
 
 // @ts-ignore
