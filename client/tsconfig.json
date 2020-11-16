@@ -16,5 +16,8 @@
     "forceConsistentCasingInFileNames": true
   },
   "include": ["./src/**/**/**.ts", "./public/**.ts"],
-  "exclude": ["node_modules/**/**", "config/**/**", "scripts/**"]
+  "exclude": ["node_modules/**/**", "config/**/**", "scripts/**"],
+  "rules": {
+    "@typescript-eslint/no-explicit-any": "off"
+  }
 }
