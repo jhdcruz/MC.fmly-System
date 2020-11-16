@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "target": "es6",
+    "lib": ["es6", "dom", "es2015.promise"],
     "module": "commonjs",
     "allowJs": true,
     "checkJs": true,
@@ -13,11 +14,12 @@
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "allowSyntheticDefaultImports": true
   },
-  "include": ["./src/**/**/**.ts", "./public/**.ts"],
+  "include": ["./src/**/**/**.\"(ts|tsx)\"", "./public/**.ts"],
   "exclude": ["node_modules/**/**", "config/**/**", "scripts/**"],
   "rules": {
-    "@typescript-eslint/no-explicit-any": "off"
+    "@typescript-eslint/no-explicit-any": "off",
   }
 }
