@@ -16,26 +16,31 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-const { app, BrowserWindow } = require('electron');
-const isDev = require('electron-is-dev');
-const path = require('path');
+import { app, BrowserWindow, BrowserWindowConstructorOptions } from 'electron';
+import * as isDev from 'electron-is-dev';
+import path from 'path';
 
+const isWindows: boolean = process.platform === 'win32';
 const singleInstance = app.requestSingleInstanceLock();
-const isWindows = process.platform === 'win32';
+
+// eslint-disable-next-line
+let windowInstance: BrowserWindow | null = null; // # Garbage collection protection
+
+// Focus handler
 let needsFocusFix = false;
 let triggeringProgrammaticBlur = false;
 
 function createWindow() {
   // Splashscreen
-  const splash = new BrowserWindow({
+  const splash: BrowserWindowConstructorOptions = {
     width: 310,
     height: 310,
     transparent: true,
     frame: false,
     alwaysOnTop: true
-  });
+  };
   // Create the browser window.
-  const win = new BrowserWindow({
+  const win: BrowserWindowConstructorOptions = {
     width: 1250,
     height: 700,
     show: false,
@@ -51,41 +56,46 @@ function createWindow() {
       webviewTag: true,
       preload: path.join(__dirname, 'preload.js')
     }
-  });
+  };
 
-  splash.loadURL(`file://${__dirname}/splash.html`).catch((err) => {
-    console.error(err);
-  });
+  const splashScreen = new BrowserWindow(splash);
+  const mainApp = new BrowserWindow(win);
+
+  splashScreen
+    .loadURL(`file://${__dirname}/splash.html`)
+    .catch((err: unknown) => {
+      console.error(err);
+    });
 
   // Resorted to web app due to database connection failure
-  win
-    .loadURL(isDev ? 'http://localhost:3000' : 'https://mc-fmly.vercel.app')
-    .catch((err) => {
+  mainApp
+    .loadURL(isDev ? 'http://localhost:3000' : 'https://deuz.systems')
+    .catch((err: unknown) => {
       console.error(err);
     });
 
   if (isDev) {
-    win.webContents.openDevTools({ mode: 'detach' });
+    mainApp.webContents.openDevTools({ mode: 'detach' });
   }
 
-  win.once('ready-to-show', () => {
-    splash.destroy();
-    win.show();
+  mainApp.once('ready-to-show', () => {
+    splashScreen.destroy();
+    mainApp.show();
   });
 
   // Fixes `window.alert()` focus bug
-  win.on('blur', () => {
+  mainApp.on('blur', () => {
     if (!triggeringProgrammaticBlur) {
       needsFocusFix = true;
     }
   });
-  win.on('focus', () => {
+  mainApp.on('focus', () => {
     if (isWindows && needsFocusFix) {
       needsFocusFix = false;
       triggeringProgrammaticBlur = true;
       setTimeout(function () {
-        win.blur();
-        win.focus();
+        mainApp.blur();
+        mainApp.focus();
         setTimeout(function () {
           triggeringProgrammaticBlur = false;
         }, 100);
@@ -123,14 +133,14 @@ app.on('activate', () => {
   }
 });
 
-// Persist single instance lock
+// Single instance lock | prevents duplicate windows
 if (!singleInstance) {
   app.quit();
 } else {
   app.on('second-instance', () => {
-    if (BrowserWindow) {
-      if (!BrowserWindow.isVisible()) BrowserWindow.show();
-      BrowserWindow.focus();
+    if (windowInstance) {
+      if (!windowInstance.isVisible()) windowInstance.show();
+      windowInstance.focus();
     }
   });
 }
