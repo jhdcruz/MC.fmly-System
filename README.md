@@ -190,7 +190,7 @@ Front-end output on `./client/build/` directory. Ready to deploy to hosting.
 ### Desktop:
 
 The desktop version on production relies on loading the web app. You need to deploy the web app,
-then changing the `loadURL` link in `public/electron.js`.
+then changing the `loadURL` link in `public/electron.ts`.
 
 ```bash
 cd client/ && package-[os]
