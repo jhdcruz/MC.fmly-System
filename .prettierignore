@@ -1,3 +1,4 @@
 client/scripts/**/**
-client/build/static
-release**/**
+client/build/**/**
+release/**/**
+node_modules/**/**

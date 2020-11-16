@@ -8,7 +8,8 @@
   "ignoreFiles": [
     "scripts/**/**",
     "config/**/**",
-    "../api/**/**"
+    "../api/**/**",
+    "node_modules/**/**"
   ],
   "configBaseDir": "./src"
 }
