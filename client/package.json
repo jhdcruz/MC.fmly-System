@@ -14,7 +14,7 @@
   "scripts": {
     "analyze": "source-map-explorer './build/static/js/*.js'",
     "start": "concurrently \"cross-env BROWSER=none node ./scripts/start.js\" \"wait-on http://localhost:3000 && electron .\" --kill-others-on-fail",
-    "web": "node client/scripts/start.js",
+    "web": "node ./scripts/start.js",
     "build": "node ./scripts/build.js",
     "lint": "prettier \"./src/**/**.{html,scss,js,jsx}\" --write && eslint \"./src/**/**/*.{js,jsx}\" && stylelint \"./src/**/**/*.{js,css,scss,sass}\"",
     "package-all": "yarn postinstall && yarn build && electron-builder build -mwl --publish never",
