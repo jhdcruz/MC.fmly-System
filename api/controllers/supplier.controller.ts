@@ -22,20 +22,21 @@ import * as mongoose from 'mongoose';
 const Suppliers = mongoose.model('suppliers');
 
 export const SupplierController = {
+  // * GET | All Suppliers
   get: async (req: NowRequest, res: NowResponse) => {
     try {
-      const suppliers = await Suppliers.find();
+      const suppliers: object = await Suppliers.find();
       return res.status(200).send(suppliers);
-    } catch (err) {
+    } catch (err: unknown) {
       console.error(err);
       res.status(500).send('Error fetching suppliers');
     }
   },
   post: async (req: NowRequest, res: NowResponse) => {
     try {
-      const suppliers = await Suppliers.create(req.body);
+      const suppliers: object = await Suppliers.create(req.body);
       return res.status(201).send(suppliers);
-    } catch (err) {
+    } catch (err: unknown) {
       console.error(err);
       res.status(500).send('Error posting of suppliers');
     }
@@ -43,9 +44,9 @@ export const SupplierController = {
   put: async (req: NowRequest, res: NowResponse) => {
     const { id } = req.query;
     try {
-      const suppliers = await Suppliers.findByIdAndUpdate(id, req.body);
+      const suppliers: object = await Suppliers.findByIdAndUpdate(id, req.body);
       return res.status(202).send(suppliers);
-    } catch (err) {
+    } catch (err: unknown) {
       console.error(err);
       res.status(500).send(`Error updating supplier ${id}`);
     }
@@ -53,9 +54,9 @@ export const SupplierController = {
   delete: async (req: NowRequest, res: NowResponse) => {
     const { id } = req.query;
     try {
-      const suppliers = await Suppliers.findByIdAndDelete(id);
+      const suppliers: object = await Suppliers.findByIdAndDelete(id);
       return res.status(202).send(suppliers);
-    } catch (err) {
+    } catch (err: unknown) {
       console.error(err);
       res.status(500).send(`Error deleting supplier ${id}`);
     }

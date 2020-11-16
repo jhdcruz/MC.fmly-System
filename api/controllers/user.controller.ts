@@ -23,21 +23,26 @@ import * as argon2 from 'argon2';
 const Users = mongoose.model('users');
 
 export const UserController = {
+  // * GET | All users
   get: async (req: NowRequest, res: NowResponse) => {
     try {
-      const users = await Users.find();
+      const users: object = await Users.find();
       return res.status(200).send(users);
-    } catch (err) {
+    } catch (err: unknown) {
       console.error(err);
       res.status(500).send('Error fetching users');
     }
   },
+
+  // * PUT | Overwrite current user
   put: async (req: NowRequest, res: NowResponse) => {
     const { id } = req.query;
     try {
       // Rehash password when changing
-      const hashedPwd = await argon2.hash(req.body.password);
-      const users = await Users.findByIdAndUpdate(id, {
+      const hashedPwd: string = await argon2.hash(req.body.password, {
+        type: argon2.argon2id
+      });
+      const users: object = await Users.findByIdAndUpdate(id, {
         username: req.body.username,
         password: hashedPwd,
         role: req.body.role,
@@ -45,28 +50,33 @@ export const UserController = {
         date: req.body.date
       });
       return res.status(202).send(users);
-    } catch (err) {
+    } catch (err: unknown) {
       console.error(err);
       res.status(500).send(`Error updating user ${id}`);
     }
   },
+
+  // * DELETE | user by id
   delete: async (req: NowRequest, res: NowResponse) => {
     const { id } = req.query;
     try {
-      const users = await Users.findByIdAndDelete(id);
+      const users: object = await Users.findByIdAndDelete(id);
       res.status(202).send(users);
-    } catch (err) {
+    } catch (err: unknown) {
       console.error(err);
       res.status(500).send(`Error deleting user ${id}`);
     }
   },
+
+  // * POST | User Registration
   register: async (req: NowRequest, res: NowResponse) => {
     console.log(req.body);
     try {
-      const hashedPwd = await argon2.hash(req.body.password, {
+      // Hash password on register
+      const hashedPwd: string = await argon2.hash(req.body.password, {
         type: argon2.argon2id
       });
-      const insertResult = await Users.create({
+      const insertResult: object = await Users.create({
         username: req.body.username,
         password: hashedPwd,
         role: req.body.role,
@@ -74,20 +84,24 @@ export const UserController = {
         date: req.body.date
       });
       res.status(201).send(insertResult);
-    } catch (err) {
+    } catch (err: unknown) {
       console.error(err);
       res.status(500).send('Internal Server error occured');
     }
   },
+
+  // * POST | User Authentication
   login: async (req: NowRequest, res: NowResponse) => {
     try {
-      const user = await Users.findOne({ username: req.body.username });
+      const user: any = await Users.findOne({ username: req.body.username });
       console.log(user);
       if (user) {
-        // @ts-ignore
-        const cmp = await argon2.verify(user.password, req.body.password);
+        // Dehash password and compare
+        const cmp: boolean = await argon2.verify(
+          user.password,
+          req.body.password
+        );
         if (cmp) {
-          // @ts-ignore
           res.status(200).send(user.permission);
         } else {
           res.send('Credentials Mismatched!');
@@ -95,7 +109,7 @@ export const UserController = {
       } else {
         res.send('Credentials Mismatched!');
       }
-    } catch (err) {
+    } catch (err: unknown) {
       console.error(err);
       res.status(500).send('Internal Server error occured');
     }

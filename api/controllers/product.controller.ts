@@ -22,40 +22,47 @@ import * as mongoose from 'mongoose';
 const Products = mongoose.model('products');
 
 export const ProductController = {
+  // * GET | All Product
   get: async (req: NowRequest, res: NowResponse) => {
     try {
-      const products = await Products.find();
+      const products: object = await Products.find();
       return res.status(200).send(products);
-    } catch (err) {
+    } catch (err: unknown) {
       console.error(err);
       res.status(500).send('Error fetching products');
     }
   },
+
+  // * POST | New Product/s
   post: async (req: NowRequest, res: NowResponse) => {
     try {
-      const products = await Products.create(req.body);
+      const products: object = await Products.create(req.body);
       return res.status(201).send(products);
-    } catch (err) {
+    } catch (err: unknown) {
       console.error(err);
       res.status(500).send('Error posting product/s');
     }
   },
+
+  // * PUT | Overwrite a product
   put: async (req: NowRequest, res: NowResponse) => {
     const { id } = req.query;
     try {
-      const products = await Products.findByIdAndUpdate(id, req.body);
+      const products: object = await Products.findByIdAndUpdate(id, req.body);
       return res.status(202).send(products);
-    } catch (err) {
+    } catch (err: unknown) {
       console.error(err);
       res.status(500).send(`Error updating product ${id}`);
     }
   },
+
+  // * DELETE | Product by id
   delete: async (req: NowRequest, res: NowResponse) => {
     const { id } = req.query;
     try {
-      const products = await Products.findByIdAndDelete(id);
+      const products: object = await Products.findByIdAndDelete(id);
       return res.status(202).send(products);
-    } catch (err) {
+    } catch (err: unknown) {
       console.error(err);
       res.status(500).send(`Error deleting product ${id}`);
     }
