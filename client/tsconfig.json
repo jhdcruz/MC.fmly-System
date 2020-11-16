@@ -1,12 +1,11 @@
 {
   "compilerOptions": {
-    "target": "ES6",
-    "lib": ["dom", "es2015"],
+    "target": "ES2015",
+    "lib": ["DOM", "ES2015"],
     "module": "ESNext",
     "allowJs": true,
-    "jsxFragmentFactory": "React.Fragment",
     "checkJs": true,
-    "jsx": "react",
+    "jsx": "react-jsx",
     "declaration": true,
     "declarationMap": true,
     "sourceMap": true,
@@ -27,7 +26,5 @@
     "./public/**.ts"
   ],
   "exclude": ["./node_modules/**/**", "./config/**/**", "./scripts/**"],
-  "rules": {
-    "@typescript-eslint/no-explicit-any": "off"
-  }
+  "rules": {}
 }
