@@ -57,7 +57,7 @@
 ### Langugages:
 
 - **JavaScript** _(ES8+)_ - Main implementation
-- [**TypeScript v4**](https://www.typescriptlang.org/) - Planned Rewrite
+- [**TypeScript v4.1**](https://www.typescriptlang.org/) - Planned Rewrite
 
 ### Front-End:
 

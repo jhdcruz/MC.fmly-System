@@ -117,7 +117,9 @@
     "react-bootstrap": "1.4.0",
     "react-dom": "17.0.1",
     "react-router-dom": "5.2.0",
-    "react-router-transition": "2.0.0"
+    "react-router-transition": "2.0.0",
+    "tslib": "2.0.3",
+    "typescript": "^4.1.0-beta"
   },
   "devDependencies": {
     "@babel/core": "7.12.3",
@@ -131,6 +133,7 @@
     "@testing-library/user-event": "7.2.1",
     "@types/jest": "26.0.15",
     "@types/node": "14.14.7",
+    "@types/prop-types": "15.7.3",
     "@types/react": "16.9.56",
     "@types/react-dom": "16.9.9",
     "@typescript-eslint/eslint-plugin": "4.7.0",
@@ -175,6 +178,7 @@
     "postcss-normalize": "9.0.0",
     "postcss-preset-env": "6.7.0",
     "postcss-safe-parser": "4.0.1",
+    "prop-types": "15.7.2",
     "react-app-polyfill": "2.0.0",
     "react-dev-utils": "11.0.0",
     "resolve": "1.19.0",
@@ -188,7 +192,6 @@
     "stylelint-prettier": "1.1.2",
     "terser-webpack-plugin": "2.3.8",
     "ts-pnp": "1.2.0",
-    "typescript": "4.0.5",
     "url-loader": "2.3.0",
     "wait-on": "5.2.0",
     "webpack": "4.42.0",
