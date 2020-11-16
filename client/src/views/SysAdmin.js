@@ -26,7 +26,7 @@ import {
 import { AnimatedSwitch, spring } from 'react-router-transition';
 import Container from 'react-bootstrap/Container';
 import Sidebar from '../components/Sidebar';
-import routes from '../routes.js';
+import routes from '../routes.ts';
 import '../App.scss';
 // Routes
 import Dashboard from '../containers/Dashboard';

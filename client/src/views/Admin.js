@@ -28,7 +28,7 @@ import Container from 'react-bootstrap/Container';
 import Sidebar from '../components/Sidebar';
 import TabItem from '../components/TabItem';
 import NotFound from '../components/NotFound';
-import routes from '../routes.js';
+import routes from '../routes.ts';
 import '../App.scss';
 // Routes
 import Dashboard from '../containers/Dashboard';

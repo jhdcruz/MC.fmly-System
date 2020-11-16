@@ -19,7 +19,7 @@
 import Nav from 'react-bootstrap/Nav';
 import Container from 'react-bootstrap/Container';
 import styled from 'styled-components';
-import routes from '../routes.js';
+import routes from '../routes.ts';
 import { faCog, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 import TabItem from './TabItem';
 
