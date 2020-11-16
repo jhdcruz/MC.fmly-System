@@ -16,7 +16,7 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { useState } from 'react';
+import { FunctionComponent, useState } from 'react';
 import Toast from 'react-bootstrap/Toast';
 import styled from 'styled-components';
 import { faBell } from '@fortawesome/free-solid-svg-icons';
@@ -54,23 +54,37 @@ const Alert = styled(Toast)`
   }
 `;
 
-export default function Notification(props) {
+type NotifProps = {
+  delay: number;
+  title: string;
+  time?: string;
+  message: string;
+};
+
+const Notification: FunctionComponent<NotifProps> = ({
+  delay,
+  title,
+  time,
+  message
+}) => {
   const [show, setShow] = useState(true);
 
   return (
     <Alert
       onClose={() => setShow(false)}
       show={show}
-      delay={props.delay}
+      delay={delay}
       animation={true}
       autohide
     >
       <Alert.Header>
         <FontAwesomeIcon icon={faBell} className="mr-2" />
-        <strong className="mr-auto">{props.title}</strong>
-        <small>{props.time}</small>
+        <strong className="mr-auto">{title}</strong>
+        <small>{time}</small>
       </Alert.Header>
-      <Alert.Body>{props.message}</Alert.Body>
+      <Alert.Body>{message}</Alert.Body>
     </Alert>
   );
-}
+};
+
+export default Notification;
