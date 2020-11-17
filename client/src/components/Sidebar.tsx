@@ -16,7 +16,7 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { ComponentType, FC } from 'react';
+import { FC, ReactElement } from 'react';
 import Nav from 'react-bootstrap/Nav';
 import Container from 'react-bootstrap/Container';
 import styled from 'styled-components';
@@ -49,7 +49,7 @@ const SideMenu = styled.aside`
 
 // Interface
 export interface SidebarProps {
-  navigation: ComponentType;
+  navigation: ReactElement;
 }
 
 const Sidebar: FC<SidebarProps> = (props) => {
