@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   DASHBOARD: '/dashboard',
   SYSINFO: '/sysinfo',
   RECENT: '/recent',
