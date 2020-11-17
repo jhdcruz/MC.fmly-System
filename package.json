@@ -15,15 +15,12 @@
     "client-electron": "yarn workspace client start",
     "build": "yarn workspace client build",
     "test": "echo \"Planned...\"",
-    "lint": "concurrently \"yarn workspace client lint\" \"yarn workspace api lint\"",
-    "docs": "jsdoc -c jsdoc.json"
+    "lint": "concurrently \"yarn workspace client lint\" \"yarn workspace api lint\""
   },
   "devDependencies": {
-    "better-docs": "^2.3.2",
     "concurrently": "5.3.0",
     "cross-env": "7.0.2",
     "eslint": "7.13.0",
-    "jsdoc": "^3.6.6",
     "prettier": "2.1.2"
   }
 }
