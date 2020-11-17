@@ -61,12 +61,7 @@ type NotifProps = {
   message: string;
 };
 
-const Notification: FC<NotifProps> = ({
-  delay,
-  title,
-  time,
-  message
-}) => {
+const Notification: FC<NotifProps> = ({ delay, title, time, message }) => {
   const [show, setShow] = useState(true);
 
   return (
