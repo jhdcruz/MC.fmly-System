@@ -25,7 +25,7 @@ const useUsers: () => [unknown] = () => {
   const [users, setUsers] = useState<UserProps[]>([]);
 
   async function getMethod() {
-    const res = await axios.get(`/api/suppliers`);
+    const res = await axios.get(`/api/users`);
     return res.data || [];
   }
 
