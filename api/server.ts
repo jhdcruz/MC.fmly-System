@@ -62,7 +62,7 @@ mongoose
   })
   .then(() => {
     api.listen(PORT, () => {
-      console.log(`Server started at PORT: ${PORT}`);
+      console.log(`⚡️ [SERVER]: Server is running at: https://localhost:${PORT}`);
     });
   })
   .catch((err: any) => {
