@@ -16,22 +16,35 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-/*
- * Suppliers Interface
- * @param {string} code - Product Code/SKU
- * @param {string} name - Product Name
- * @param {string} variant - Product Variant
- * @param {string} type - Product Type
- * @param {string} category - Product Category
- * @param {number} quantity - Product Quantity
- * @param {date} updatedAt - Date Updated
- * */
-export interface ISuppliers {
-  code: string;
-  name: string;
-  variant: string;
-  type: string;
-  category: string;
-  quantity: number;
-  updatedAt?: Date;
+declare module 'supplierType' {
+  /*
+   * Suppliers Interface
+   * @constructor
+   * @param {string} icon - Supplier Icon/Image
+   * @param {string} name - Supplier Name/Company
+   * @param {string} description - Supplier Bio
+   * @param {string} type - Types of supplys the supplier provides
+   * @param {string} address - Supplier physical address
+   * @param {string} website - Supplier website
+   * @param {string} contact - Supplier contact #
+   * */
+  type SupplierTypes = {
+    // ? = Optional
+    icon?: string;
+    name: string;
+    description?: string;
+    type: string;
+    address?: string;
+    website?: string;
+    contact?: number;
+  };
+
+  export interface SupplierProps {
+    supplier: SupplierTypes;
+  }
 }
+
+module.exports = {
+  SupplierTypes,
+  SupplierProps
+};

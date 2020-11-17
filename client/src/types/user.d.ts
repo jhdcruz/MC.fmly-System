@@ -16,30 +16,33 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-/*
- * Login Interface
- * @param {string} username - Username
- * @param {string} password - Password
- * */
-export interface ILogin {
-  _id?: string;
-  username: unknown;
-  password: unknown;
+declare module 'userType' {
+  /*
+   * User Interface
+   * * @constructor
+   * @param {string} username - Username
+   * @param {string} name - User Full Name
+   * @param {string} role - User Role (Human-friendly Authority)
+   * @param {string} permission - User Permission (Access Authority)
+   * @param {date} date - Date Joined/Created
+   * */
+  type UserTypes = {
+    // ? = Optional
+    _id?: string;
+    username: string;
+    password: unknown;
+    name?: string;
+    role?: string;
+    permission?: string;
+    date?: Date;
+  };
+
+  export interface UserProps {
+    product: UserTypes;
+  }
 }
 
-/*
- * User Interface
- * @param {string} username - Username
- * @param {string} name - User Full Name
- * @param {string} role - User Role
- * @param {string} role - Access Permission
- * @param {date} date - Date Joined/Created
- * */
-export interface IUser {
-  _id?: string;
-  username: unknown;
-  name: string;
-  role: string;
-  permission: string;
-  date: Date;
-}
+module.exports = {
+  UserTypes,
+  UserProps
+};
