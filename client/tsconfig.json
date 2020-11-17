@@ -5,7 +5,7 @@
     "module": "ESNext",
     "allowJs": true,
     "checkJs": true,
-    "jsx": "react-jsx",
+    "jsx": "preserve",
     "declaration": true,
     "declarationMap": true,
     "sourceMap": true,
