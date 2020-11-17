@@ -1,9 +1,5 @@
 version: 2.1
 
-notify:
-  webhook:
-    - url: ${MS_TEAMS}
-
 jobs:
   build:
     working_directory: ~/repo
@@ -38,3 +34,15 @@ jobs:
 
       - store_artifacts:
           path: ~/repo/release/*.deb
+
+notify:
+  webhook:
+    - url: ${MS_TEAMS}
+
+
+workflows:
+  version: 2
+  build_and_notify:
+    jobs:
+      - build
+      - notify
