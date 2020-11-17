@@ -24,14 +24,13 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import styled from 'styled-components';
 import Brand from './assets/img/profile.png';
+import { UserProps } from 'userType';
 import './App.scss';
 // Views
 import Admin from './views/Admin';
 import Cashier from './views/Cashier';
 import SysAdmin from './views/SysAdmin';
 import Inventory from './views/Inventory';
-// Interface
-import { ILogin } from './interfaces/User';
 
 /* ===========================
  * Styled Components
@@ -116,14 +115,13 @@ const LoginControl = styled.div`
 `;
 
 const App: FunctionComponent = () => {
-  const [loginCreds] = useState<ILogin>();
+  const [loginCreds] = useState<UserProps>();
   const [auth, setAuth] = useState('');
 
   // * Auth Handler
   const handleSubmit = (e: FormEvent<HTMLInputElement>) => {
     e.preventDefault();
     axios
-      .create({ baseURL: '/api' })
       .post(`/users/login`, { loginCreds })
       .then((res: any) => {
         console.log(res);
@@ -146,7 +144,7 @@ const App: FunctionComponent = () => {
     window.alert('Please inform the System Admin.');
   };
 
-  // * Role-based views
+  // * Role-based views (res.permission)
   if (auth === 'admin') {
     return <Admin />;
   }
