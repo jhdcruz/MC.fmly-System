@@ -59,9 +59,10 @@
 ### Languages:
 
 - [**TypeScript v4.1**](https://www.typescriptlang.org/) - _Main implementation_
-- [**JavaScript ES5+**] - _Boilerplate configs_
-- [**HTML5**] - _Compiled UI handler_
-- [**CSS3**] - _Stylesheet_
+- [**JavaScript (ES2020)**](https://www.ecma-international.org/publications/standards/Ecma-262.htm) - _Boilerplate
+  configs_
+- **HTML5** - _Compiled UI handler_
+- **CSS3** - _Stylesheet_
 
 ### Front-End:
 
@@ -121,12 +122,18 @@ Can be either of the ff:
   - `dpkg`
   - `dpkg-dev`
 
-> `sudo apt install dpkg dpkg-dev`
+```shell
+sudo apt install dpkg dpkg-dev
+```
 
 - Red Hat
   - `rpm`
 
-> `sudo yum install rpm` | replace `yum` with your distro package provider.
+```shell
+sudo yum install rpm
+``` 
+
+replace `yum` with your distro package provider.
 
 **MacOS**
 
@@ -157,7 +164,7 @@ ROLLBAR_ID=[Your ID Here]
 
 You have to install the dependencies before running any of the scripts located in `/package.json`.
 
-```sh
+```shell
 yarn
 ```
 
@@ -170,13 +177,13 @@ navigating back & forth to project folders.
 
 ### Web App:
 
-```sh
+```shell
 yarn web
 ```
 
 ### Desktop:
 
-```sh
+```shell
 yarn start
 ```
 
@@ -187,7 +194,7 @@ yarn start
 You need to have a web provider that supports **`functions`**. Such as [**Vercel**](https://vercel.com), it can also be
 other provider such as DigitalOcean, AWS, etc...
 
-```sh
+```shell
 yarn build
 ```
 
@@ -198,7 +205,7 @@ Front-end output on `./client/build/` directory. Ready to deploy to hosting.
 The desktop version on production relies on loading the web app. You need to deploy the web app, then changing
 the `loadURL` link in `public/electron.ts`.
 
-```bash
+```shell
 cd client/ && package-[os]
 ```
 
