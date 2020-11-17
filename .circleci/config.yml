@@ -29,4 +29,7 @@ jobs:
           command: yarn workspace client package-ci
 
       - store_artifacts:
-          path: ~/repo/release
+          path: ~/repo/release/*.rpm
+
+      - store_artifacts:
+          path: ~/repo/release/*.deb
