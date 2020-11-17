@@ -17,28 +17,29 @@
  */
 
 import { useEffect, useState } from 'react';
-import { SuppliersRequest } from '../services/http';
-import { ISuppliers } from '../interfaces/Suppliers';
+import axios from 'axios';
+import { SupplierProps } from 'supplierType';
 
-export interface SuppliersList {
-  content: ISuppliers[];
-}
+// Assign data to `products`
+const useSuppliers: () => [unknown] = () => {
+  const [suppliers, setSuppliers] = useState<SupplierProps[]>([]);
 
-const useSuppliers: () => [SuppliersList] = () => {
-  const [suppliers, setSuppliers] = useState<SuppliersList>({ content: [] });
+  async function getMethod() {
+    const res = await axios.get(`/api/suppliers`);
+    return res.data || [];
+  }
 
   useEffect(() => {
     if (!suppliers) {
-      fetchProducts().catch((e) => {
-        console.error(e);
-      });
+      getMethod()
+        .then((res) => {
+          setSuppliers(res.data);
+        })
+        .catch((e) => {
+          console.error(e);
+        });
     }
   }, [suppliers]);
-
-  const fetchProducts = async () => {
-    const res = await SuppliersRequest.get();
-    setSuppliers(res);
-  };
 
   return [suppliers];
 };

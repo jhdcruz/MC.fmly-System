@@ -17,28 +17,29 @@
  */
 
 import { useEffect, useState } from 'react';
-import { UsersRequest } from '../services/http';
-import { IUser } from '../interfaces/User';
+import axios from 'axios';
+import { UserProps } from 'userType';
 
-export interface UsersList {
-  content: IUser[];
-}
+// Assign data to `products`
+const useUsers: () => [unknown] = () => {
+  const [users, setUsers] = useState<UserProps[]>([]);
 
-const useUsers: () => [UsersList] = () => {
-  const [users, setUsers] = useState<UsersList>({ content: [] });
+  async function getMethod() {
+    const res = await axios.get(`/api/suppliers`);
+    return res.data || [];
+  }
 
   useEffect(() => {
     if (!users) {
-      fetchProducts().catch((e) => {
-        console.error(e);
-      });
+      getMethod()
+        .then((res) => {
+          setUsers(res.data);
+        })
+        .catch((e) => {
+          console.error(e);
+        });
     }
   }, [users]);
-
-  const fetchProducts = async () => {
-    const res = await UsersRequest.get();
-    setUsers(res);
-  };
 
   return [users];
 };

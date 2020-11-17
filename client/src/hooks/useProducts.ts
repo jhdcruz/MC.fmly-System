@@ -17,29 +17,29 @@
  */
 
 import { useEffect, useState } from 'react';
-import { ProductsRequest } from '../services/http';
-import { IExpProducts } from '../interfaces/Products';
-
-export interface ProductsList {
-  content: IExpProducts[];
-}
+import axios from 'axios';
+import { ProductProps } from 'productType';
 
 // Assign data to `products`
-const useProducts: () => [ProductsList] = () => {
-  const [products, setProducts] = useState<ProductsList>({ content: [] });
+const useProducts: () => [unknown] = () => {
+  const [products, setProducts] = useState<ProductProps[]>([]);
+
+  async function getMethod() {
+    const res = await axios.get(`/api/products`);
+    return res.data || [];
+  }
 
   useEffect(() => {
     if (!products) {
-      fetchProducts().catch((e) => {
-        console.error(e);
-      });
+      getMethod()
+        .then((res) => {
+          setProducts(res.data);
+        })
+        .catch((e) => {
+          console.error(e);
+        });
     }
   }, [products]);
-
-  const fetchProducts = async () => {
-    const res = await ProductsRequest.get();
-    setProducts(res);
-  };
 
   return [products];
 };
