@@ -16,6 +16,9 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-export default function SysInfo() {
+import { FC } from 'react';
+
+const SysInfo: FC = () => {
   return <h1>No content yet.</h1>;
-}
+};
+export default SysInfo;

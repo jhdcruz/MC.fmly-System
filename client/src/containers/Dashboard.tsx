@@ -16,16 +16,17 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+import { FC } from 'react';
 import Row from 'react-bootstrap/Row';
-import Notification from '../components/Notification';
-import InventoryCapacity from '../components/charts/InventoryCapacity';
-import TotalProducts from '../components/charts/TotalProducts';
-import InventoryValue from '../components/charts/InventoryValue';
+import Notification from '../components/common/Notification';
+import InventoryCapacity from '../components/widgets/InventoryCapacity';
+import TotalProducts from '../components/widgets/TotalProducts';
+import InventoryValue from '../components/widgets/InventoryValue';
 import TypeDetails from '../components/charts/TypeDetails';
 import CategoryDetails from '../components/charts/CategoryDetails';
-import TotalSuppliers from '../components/charts/TotalSuppliers';
+import TotalSuppliers from '../components/widgets/TotalSuppliers';
 
-export default function Dashboard() {
+const Dashboard: FC = () => {
   return (
     <div
       style={{
@@ -54,4 +55,6 @@ export default function Dashboard() {
       />
     </div>
   );
-}
+};
+
+export default Dashboard;

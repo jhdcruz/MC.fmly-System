@@ -16,16 +16,23 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+import { FC } from 'react';
+import { Nav, Tab } from 'react-bootstrap';
+import Loader from '../components/common/Loader';
 import Categories from '../components/Categories';
-import useProducts from '../hooks/useProducts';
 import ExtendedTable from '../components/tables/ExtendedTable';
-import Nav from 'react-bootstrap/Nav';
-import Tab from 'react-bootstrap/Tab';
-import Notification from '../components/Notification';
 import ExtendedProduct from '../components/tables/ExtendedProduct';
-import Loader from '../components/Loader';
+import Notification from '../components/common/Notification';
+import useProducts from '../hooks/useProducts';
 
-export default function Catalog() {
+type catalogTypes = {
+  category: any;
+  type: any;
+  pane: any;
+  product: any;
+};
+
+const Catalog: FC = () => {
   const [products] = useProducts();
 
   // Removes duplicate properties | category
@@ -33,7 +40,7 @@ export default function Catalog() {
     products &&
     products
       .filter(
-        (items, index, self) =>
+        (items: catalogTypes, index: any, self: any[]) =>
           index ===
           self.findIndex((deduped) => deduped.category === items.category)
       )
@@ -45,19 +52,19 @@ export default function Catalog() {
     products &&
     products
       .filter(
-        (items, index, self) =>
+        (items: catalogTypes, index: any, self: any[]) =>
           index === self.findIndex((deduped) => deduped.type === items.type)
       )
       // Sort items
       .reverse();
 
   // Filter products by product category
-  const categoryFilter = () => {
+  const categoryFilter: FC = () => {
     if (products && products.length !== 0) {
       return (
         <>
           {products &&
-            productCategories.map((categories) => (
+            productCategories.map((categories: catalogTypes) => (
               <Tab.Pane
                 key={categories.category}
                 eventKey={categories.category}
@@ -66,8 +73,11 @@ export default function Catalog() {
                   data={
                     products &&
                     products
-                      .filter((pane) => pane.category === categories.category)
-                      .map((product) => ExtendedProduct(product))
+                      .filter(
+                        (pane: catalogTypes) =>
+                          pane.category === categories.category
+                      )
+                      .map((product: catalogTypes) => ExtendedProduct(product))
                   }
                 />
               </Tab.Pane>
@@ -84,14 +94,14 @@ export default function Catalog() {
       return (
         <>
           {products &&
-            productTypes.map((types) => (
+            productTypes.map((types: catalogTypes) => (
               <Tab.Pane key={types.type} eventKey={types.type}>
                 <ExtendedTable
                   data={
                     products &&
                     products
-                      .filter((pane) => pane.type === types.type)
-                      .map((product) => ExtendedProduct(product))
+                      .filter((pane: catalogTypes) => pane.type === types.type)
+                      .map((product: catalogTypes) => ExtendedProduct(product))
                   }
                 />
               </Tab.Pane>
@@ -103,18 +113,19 @@ export default function Catalog() {
   };
 
   // eslint-disable-next-line
-  const TableRoutes = () => {
+  const TableRoutes: FC = () => {
     return (
       <>
         <Tab.Pane eventKey="default">
           <ExtendedTable
             data={
-              products && products.map((product) => ExtendedProduct(product))
+              products &&
+              products.map((product: catalogTypes) => ExtendedProduct(product))
             }
           />
         </Tab.Pane>
-        {categoryFilter()}
-        {typeFilter()}
+        {categoryFilter}
+        {typeFilter}
       </>
     );
   };
@@ -125,7 +136,7 @@ export default function Catalog() {
         categories={
           // list `category` data
           products &&
-          productCategories.map((product) => (
+          productCategories.map((product: catalogTypes) => (
             <Nav.Item key={product.category}>
               <Nav.Link eventKey={product.category}>
                 {product.category}
@@ -136,13 +147,13 @@ export default function Catalog() {
         types={
           // list `type` data
           products &&
-          productTypes.map((product) => (
+          productTypes.map((product: catalogTypes) => (
             <Nav.Item key={product.type}>
               <Nav.Link eventKey={product.type}>{product.type}</Nav.Link>
             </Nav.Item>
           ))
         }
-        tables=<TableRoutes />
+        tables={<TableRoutes />}
       />
       <Notification
         title="Notice"
@@ -158,4 +169,6 @@ export default function Catalog() {
       />
     </>
   );
-}
+};
+
+export default Catalog;

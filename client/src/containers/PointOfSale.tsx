@@ -16,6 +16,10 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-export default function Invoices() {
-  return <h1>No content yet.</h1>;
-}
+import { FC } from 'react';
+
+const PointOfSale: FC = () => {
+  return <h1 className="mt-5">No content yet.</h1>;
+};
+
+export default PointOfSale;

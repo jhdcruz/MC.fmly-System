@@ -16,6 +16,10 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-export default function Settings() {
+import { FC } from 'react';
+
+const Invoices: FC = () => {
   return <h1>No content yet.</h1>;
-}
+};
+
+export default Invoices;

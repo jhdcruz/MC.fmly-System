@@ -16,16 +16,15 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import NarrowProduct from '../components/tables/NarrowProduct';
-import NarrowTable, {
-  Loader,
-  NullItems
-} from '../components/tables/NarrowTable';
-import useProducts from '../hooks/useProducts';
-import Notification from '../components/Notification';
+import { FC } from 'react';
 import Container from 'react-bootstrap/Container';
+import { Loader, NullItems } from '../components/tables/__tables.module';
+import NarrowProduct from '../components/tables/NarrowProduct';
+import NarrowTable from '../components/tables/NarrowTable';
+import useProducts from '../hooks/useProducts';
+import Notification from '../components/common/Notification';
 
-export default function Recent() {
+const Recent: FC = () => {
   const [products] = useProducts();
 
   const verifyProducts = () => {
@@ -36,7 +35,7 @@ export default function Recent() {
           products
             .slice(Math.max(products.length - 10, 0))
             .reverse()
-            .map((product) => NarrowProduct(product))
+            .map((product: any) => NarrowProduct(product))
         ) : (
           <Loader variant="primary" animation="border" role="status" />
         )}
@@ -69,4 +68,6 @@ export default function Recent() {
       />
     </Container>
   );
-}
+};
+
+export default Recent;
