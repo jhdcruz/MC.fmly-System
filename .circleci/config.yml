@@ -33,3 +33,7 @@ jobs:
 
       - store_artifacts:
           path: ~/repo/release/*.deb
+
+    notify:
+      webhook:
+        - url: ${MS_TEAMS}
