@@ -16,15 +16,26 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+// Static
+declare module '*.png' {
+  const value: any;
+  export default value;
+}
 declare module '*.jpg' {
-  const content: string;
-  export default content;
+  const value: any;
+  export default value;
 }
 declare module '*.jpeg' {
-  const content: string;
-  export default content;
+  const value: any;
+  export default value;
 }
-declare module '*.png' {
-  const content: string;
-  export default content;
+declare module '*.svg' {
+  const value: any;
+  export default value;
+}
+
+// Modules
+declare module '*.js' {
+  const value: any;
+  export = value;
 }
