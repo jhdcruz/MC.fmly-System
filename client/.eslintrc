@@ -19,7 +19,9 @@
     "import/no-anonymous-default-export": "off",
     "import/no-extraneous-dependencies": "off",
     "jsx-a11y/anchor-is-valid": "off",
-    "@typescript-eslint/no-explicit-any": "off"
+    "@typescript-eslint/no-explicit-any": "off",
+    // For legacy modules
+    "@typescript-eslint/ban-ts-comment": "off"
   },
   "settings": {
     "import/extensions": [
