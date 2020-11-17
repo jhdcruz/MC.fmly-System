@@ -16,7 +16,7 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { ComponentType, FC } from 'react';
+import { FC, ReactElement } from 'react';
 import Table from 'react-bootstrap/Table';
 import styled, { createGlobalStyle } from 'styled-components';
 import { TableHeader } from './__tables.module';
@@ -64,7 +64,7 @@ const ProductTable = styled(Table)`
 
 // Interface
 export interface TableData {
-  data: ComponentType;
+  data: ReactElement;
 }
 
 const ExtendedTable: FC<TableData> = (props) => {

@@ -16,7 +16,7 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { ComponentType, FC } from 'react';
+import { FC, ReactElement } from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
 import Table from 'react-bootstrap/Table';
 import ProductEntry from './ProductEntry';
@@ -48,7 +48,7 @@ const ProductTable = styled(Table)`
 `;
 
 export interface TableData {
-  data: ComponentType;
+  data: ReactElement;
 }
 
 const NarrowTable: FC<TableData> = (props) => {

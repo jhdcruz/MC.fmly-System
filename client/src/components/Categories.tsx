@@ -16,7 +16,7 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { ComponentType, FC } from 'react';
+import { FC, ReactElement } from 'react';
 import Tab from 'react-bootstrap/Tab';
 import Nav from 'react-bootstrap/Nav';
 import Col from 'react-bootstrap/Col';
@@ -89,9 +89,9 @@ const CategoryLine = styled.label`
 
 // Interface
 export interface CategoriesProps {
-  categories: ComponentType;
-  types: ComponentType;
-  tables: ComponentType;
+  categories: ReactElement;
+  types: ReactElement;
+  tables: ReactElement;
 }
 
 const Categories: FC<CategoriesProps> = (props) => {
