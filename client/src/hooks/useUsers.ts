@@ -21,7 +21,7 @@ import axios from 'axios';
 import { UserProps } from 'userType';
 
 // Assign data to `products`
-const useUsers: () => [unknown] = () => {
+const useUsers: () => [any] = () => {
   const [users, setUsers] = useState<UserProps[]>([]);
 
   async function getMethod() {

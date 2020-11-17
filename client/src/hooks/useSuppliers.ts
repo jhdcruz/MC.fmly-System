@@ -21,7 +21,7 @@ import axios from 'axios';
 import { SupplierProps } from 'supplierType';
 
 // Assign data to `products`
-const useSuppliers: () => [unknown] = () => {
+const useSuppliers: () => [any] = () => {
   const [suppliers, setSuppliers] = useState<SupplierProps[]>([]);
 
   async function getMethod() {
