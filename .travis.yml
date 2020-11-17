@@ -38,5 +38,4 @@ script:
     fi
 
 notifications:
-  webhooks:
-    secure: mg7snLsJL8r2sceX3gYhtqHIjvGQCsODIbOHsx8Kr9aEuLL70t7HO5/2bKzJjs3/nAdX6qipcfLb70gTpptMvl6fq3zZRBuKEs9GGludPoB9mRDWWZt1RaRMtKp445zMaW5pFk/aNMDVaXhzCea2qvfOnJUDPdxlvtAUQMdQrfFpgV123cHfIynm9BEV/0O8heTxNTmoYMql6G6ms5BzY3dtA1Wqufe50D8LMfga3PC5KrUaMaKRPCH6HS2cECpjakd7uyNn0OapbQ+0a2TT7946FGkwEQPF2ALD+W0WQ8A2QiX+BCwROgdhpgK5P8APLKaBYFeExa91GNa+ocFZutlUsI+azTKRZPvNxSc/iKj/+UqD+ibJK16/0tmc/oNzc/7JrI5d+pOGWVYZGcHpzmcIZIUdlPz3JAXvATGaySvTxn5jwH8qFFpprki5x7/tz4RzEApYQrvZ7CA+ATyhCO2tCsSc4RtZuEm3PYxy9I/9WYe1ZFOZdlr4/T+g3WhOcoQZVZevCGSctL1PU3RbQgQdIkD6/2U1v5eoSbt3g6qQU6MGDPz6S+XwoARkKXXVhNR7lu2oI7/FUIW27V/rlg7ppd3O/bG87u/V+rKc2BRlBNCxTSpDaGY0pItF/t/j9BpfPqkTUbfCi7Tu2z6MCfMUDa92ZGDnQZD2c3m4AyU=
+  webhooks: https://outlook.office.com/webhook/4822921a-8a23-4a39-a98b-851a641ad2bf@8361af35-0fd9-4a74-ada4-aff5c74e7d0c/TravisCI/06941aabb6604876bd3871c40d7a4e8e/03960aaf-b3bf-4a9d-afd5-50a7ddbea283
