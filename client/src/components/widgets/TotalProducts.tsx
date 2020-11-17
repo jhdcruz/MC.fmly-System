@@ -16,10 +16,13 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { Chart } from './__charts.module';
+import { FC } from 'react';
+import { Widget } from './__widgets.module';
 
-export default function CategoryDetails() {
+const TotalProducts: FC = () => {
   return (
-    <Chart src="https://charts.mongodb.com/charts-pending-system-rgssg/embed/charts?id=c646a994-9c0b-43d5-8d45-d5ae1330b48c&autoRefresh=true&maxDataAge=10&attribution=false&theme=dark" />
+    <Widget src="https://charts.mongodb.com/charts-pending-system-rgssg/embed/charts?id=780688f5-5f24-4687-ad2a-81338e33f629&autoRefresh=true&maxDataAge=10&attribution=false&theme=dark" />
   );
-}
+};
+
+export default TotalProducts;

@@ -16,11 +16,12 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import FormControl from 'react-bootstrap/FormControl';
+import { FC } from 'react';
 import styled from 'styled-components';
+import FormControl from 'react-bootstrap/FormControl';
+import Button from 'react-bootstrap/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSave } from '@fortawesome/free-solid-svg-icons';
-import { Button } from 'react-bootstrap';
 
 const TableRow = styled.tr`
   color: white;
@@ -92,55 +93,57 @@ const TableData = styled.td`
   }
 `;
 
-export default function ProductEntry() {
+const ProductEntry: FC = () => {
   return (
     <TableRow className="product">
       <TableData className="code">
         <FormControl
           placeholder="# Code"
           type="string"
-          minLength="2"
-          maxLength="13"
+          minLength={2}
+          maxLength={13}
         />
       </TableData>
       <TableData className="name" colSpan={2}>
         <FormControl
           placeholder="Item Name"
           type="string"
-          minLength="2"
-          maxLength="30"
+          minLength={2}
+          maxLength={30}
         />
       </TableData>
       <TableData className="variant">
         <FormControl
           placeholder="Variant"
           type="string"
-          minLength="2"
-          maxLength="30"
+          minLength={2}
+          maxLength={30}
         />
       </TableData>
       <TableData className="type">
         <FormControl
           placeholder="Type"
           type="string"
-          minLength="2"
-          maxLength="20"
+          minLength={2}
+          maxLength={20}
         />
       </TableData>
       <TableData className="category">
         <FormControl
           placeholder="Category"
           type="string"
-          minLength="2"
-          maxLength="20"
+          minLength={2}
+          maxLength={20}
         />
       </TableData>
       <TableData className="stock">
-        <FormControl placeholder="Quantity" type="number" min="0" />
+        <FormControl placeholder="Quantity" type="number" min={0} />
         <Button variant="outline-success">
           <FontAwesomeIcon icon={faSave} />
         </Button>
       </TableData>
     </TableRow>
   );
-}
+};
+
+export default ProductEntry;

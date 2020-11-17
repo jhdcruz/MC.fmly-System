@@ -16,10 +16,12 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { ComponentType, FC } from 'react';
 import Table from 'react-bootstrap/Table';
 import styled, { createGlobalStyle } from 'styled-components';
+import { TableHeader } from './__tables.module';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
 
 const TableContainer = createGlobalStyle`
   div.table-responsive {
@@ -44,18 +46,6 @@ const TableContainer = createGlobalStyle`
   }
 `;
 
-const TableHeader = styled.th`
-  font-size: 1.3vw;
-  color: #c3c3c3;
-  border: none !important;
-  width: max-content !important;
-
-  :hover {
-    color: #22a1f5;
-    cursor: pointer;
-  }
-`;
-
 const ProductTable = styled(Table)`
   display: inline-table;
   height: 100vh;
@@ -72,16 +62,12 @@ const ProductTable = styled(Table)`
   }
 `;
 
-// Shows on no products registered
-export const NullItems = styled.h5`
-  color: #c3c3c3;
-  margin-bottom: 1rem;
-  position: absolute;
-  left: 48%;
-  top: 16rem;
-`;
+// Interface
+export interface TableData {
+  data: ComponentType;
+}
 
-const ExtendedTable = (props) => {
+const ExtendedTable: FC<TableData> = (props) => {
   return (
     <>
       <TableContainer />
@@ -114,6 +100,7 @@ const ExtendedTable = (props) => {
             </TableHeader>
           </tr>
         </thead>
+        {/* Insert Dynamic data | containers */}
         <tbody>{props.data}</tbody>
       </ProductTable>
     </>

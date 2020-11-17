@@ -16,21 +16,14 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import Spinner from 'react-bootstrap/Spinner';
 import styled from 'styled-components';
 
-const Loading = styled(Spinner)`
-  margin: 10px auto;
-  width: 3rem;
-  height: 3rem;
-  position: absolute;
-  right: 50%;
-  top: 13rem;
-  z-index: 99;
+export const Chart = styled.iframe`
+  width: 44.5vw !important;
+  height: 60vh !important;
+  background: #1e1e1e;
+  margin-right: 0.5rem;
+  border: none;
+  border-radius: 1rem;
+  box-shadow: 0 3px 6px #232323;
 `;
-
-const Loader = () => {
-  return <Loading variant="primary" animation="border" role="status" />;
-};
-
-export default Loader;

@@ -16,13 +16,15 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+import { FC } from 'react';
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 import ListGroupItem from 'react-bootstrap/ListGroupItem';
 import styled from 'styled-components';
 import { Image } from 'react-bootstrap';
+import { SupplierTypes } from 'supplierType';
 
-const SuppliersCard = styled(Card)`
+const CardBlock = styled(Card)`
   background-color: #1e1e1e;
   color: #d2d2d2;
   box-shadow: 0 3px 6px #232323;
@@ -56,9 +58,9 @@ const CardLink = styled(Card.Link)`
   color: #2579f6;
 `;
 
-export default function Suppliers(props) {
+const Poster: FC<SupplierTypes> = (props) => {
   return (
-    <SuppliersCard>
+    <CardBlock>
       <Card.Body>
         <Card.Title>
           <Image src={props.icon} alt="Supplier Icon" width={50} height={50} />
@@ -78,6 +80,8 @@ export default function Suppliers(props) {
           {props.contact}
         </CardLink>
       </Card.Footer>
-    </SuppliersCard>
+    </CardBlock>
   );
-}
+};
+
+export default Poster;

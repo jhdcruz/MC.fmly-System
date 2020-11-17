@@ -16,12 +16,13 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+import { ComponentType, FC } from 'react';
 import Nav from 'react-bootstrap/Nav';
 import Container from 'react-bootstrap/Container';
 import styled from 'styled-components';
-import routes from '../routes.ts';
-import { faCog, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 import TabItem from './TabItem';
+import { faCog, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
+import routes from '../routes';
 
 const SideNav = styled(Container)`
   width: 4.5rem;
@@ -46,7 +47,12 @@ const SideMenu = styled.aside`
   }
 `;
 
-export default function Sidebar(props) {
+// Interface
+export interface SidebarProps {
+  navigation: ComponentType;
+}
+
+const Sidebar: FC<SidebarProps> = (props) => {
   return (
     <SideNav>
       <SideMenu>
@@ -75,4 +81,6 @@ export default function Sidebar(props) {
       </SideMenu>
     </SideNav>
   );
-}
+};
+
+export default Sidebar;

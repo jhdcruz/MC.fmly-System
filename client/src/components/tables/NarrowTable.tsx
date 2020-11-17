@@ -16,27 +16,18 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Spinner from 'react-bootstrap/Spinner';
-import Table from 'react-bootstrap/Table';
+import { ComponentType, FC } from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
-import ProductEntry from '../ProductEntry';
+import Table from 'react-bootstrap/Table';
+import ProductEntry from './ProductEntry';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
+import { TableHeader } from './__tables.module';
 
 const TableContainer = createGlobalStyle`
   div.table-responsive {
     display: flex !important;
     padding: 0 1rem 0 0.5rem !important;
-  }
-`;
-
-const TableHeader = styled.th`
-  color: #c3c3c3;
-  border: none !important;
-
-  :hover {
-    color: #22a1f5;
-    cursor: pointer;
   }
 `;
 
@@ -56,26 +47,11 @@ const ProductTable = styled(Table)`
   }
 `;
 
-// Loading Spinner
-export const Loader = styled(Spinner)`
-  margin: 10px auto;
-  width: 3rem;
-  height: 3rem;
-  position: absolute;
-  right: 50%;
-  top: 13rem;
-`;
+export interface TableData {
+  data: ComponentType;
+}
 
-// Shows on no products registered
-export const NullItems = styled.h5`
-  color: #c3c3c3;
-  margin-bottom: 1rem;
-  position: absolute;
-  left: 36%;
-  top: 16rem;
-`;
-
-const NarrowTable = (props) => {
+const NarrowTable: FC<TableData> = (props) => {
   return (
     <>
       <TableContainer />
@@ -107,6 +83,7 @@ const NarrowTable = (props) => {
         </thead>
         <tbody>
           <ProductEntry />
+          {/* Insert Dynamic data | containers */}
           {props.data}
         </tbody>
       </ProductTable>

@@ -16,10 +16,11 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+import { ComponentType, FC } from 'react';
 import { Link } from 'react-router-dom';
-import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
-import Tooltip from 'react-bootstrap/Tooltip';
 import Nav from 'react-bootstrap/Nav';
+import Tooltip from 'react-bootstrap/Tooltip';
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -50,7 +51,16 @@ const FAIcon = styled(FontAwesomeIcon)`
   text-align: center;
 `;
 
-const TabItem = (props) => {
+export interface RouteProps {
+  // Intentional any
+  tab: string | ComponentType;
+  overlay?: any;
+  route?: any;
+  state?: any;
+  icon: any;
+}
+
+const TabItem: FC<RouteProps> = (props) => {
   return (
     <OverlayTrigger
       placement="right"
@@ -63,7 +73,7 @@ const TabItem = (props) => {
           {props.tab}
         </Tooltip>
       }
-      name={props.overlay}
+      // name={props.overlay}
     >
       <TabRoutes to={props.route} draggable={false} onClick={props.state}>
         <Nav.Link as="li">

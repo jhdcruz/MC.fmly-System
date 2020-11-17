@@ -16,10 +16,13 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { Widget } from './__charts.module';
+import { FC } from 'react';
+import { Widget } from './__widgets.module';
 
-export default function InventoryCapacity() {
+const TotalSuppliers: FC = () => {
   return (
-    <Widget src="https://charts.mongodb.com/charts-pending-system-rgssg/embed/charts?id=ce5c27a4-d190-44f7-9958-f66af536d3fa&autoRefresh=true&maxDataAge=10&attribution=false&theme=dark" />
+    <Widget src="https://charts.mongodb.com/charts-pending-system-rgssg/embed/charts?id=d4bb6a84-d360-42f0-880e-0bf274210410&autoRefresh=true&maxDataAge=10&attribution=false&theme=dark" />
   );
-}
+};
+
+export default TotalSuppliers;

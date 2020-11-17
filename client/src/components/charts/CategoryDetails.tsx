@@ -16,10 +16,13 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+import { FC } from 'react';
 import { Chart } from './__charts.module';
 
-export default function TypeDetails() {
+const CategoryDetails: FC = () => {
   return (
-    <Chart src="https://charts.mongodb.com/charts-pending-system-rgssg/embed/charts?id=a647f8d1-9cd1-43e0-bea5-7c966947f573&autoRefresh=true&maxDataAge=10&attribution=false&theme=dark" />
+    <Chart src="https://charts.mongodb.com/charts-pending-system-rgssg/embed/charts?id=c646a994-9c0b-43d5-8d45-d5ae1330b48c&autoRefresh=true&maxDataAge=10&attribution=false&theme=dark" />
   );
-}
+};
+
+export default CategoryDetails;

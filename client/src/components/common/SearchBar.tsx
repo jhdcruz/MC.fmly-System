@@ -16,12 +16,13 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+import { FC } from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import InputGroup from 'react-bootstrap/InputGroup';
 import FormControl from 'react-bootstrap/FormControl';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faSearch } from '@fortawesome/free-solid-svg-icons';
-import { Link } from 'react-router-dom';
 
 const Search = styled.div`
   width: 30vw;
@@ -40,29 +41,29 @@ const Search = styled.div`
   }
 
   input {
-  margin: 0;
-  font-size: 1.3vw;
-  background-color: #232323;
-  color: whitesmoke;
-  border: none;
-  border-right: 2px inset #d7b9b4;
-
-  ::placeholder {
-    color: #c4c4c4;
-    font-size: 1.2vw;
-  }
-
-  :active,
-  :focus {
-    font-size: 1.2vw;
-    background-color: #1b1e21;
+    margin: 0;
+    font-size: 1.3vw;
+    background-color: #232323;
     color: whitesmoke;
-    border-color: #d7b9b4;
-    box-shadow: 0 0 7px #d7b9b4;
-  }
+    border: none;
+    border-right: 2px inset #d7b9b4;
+
+    ::placeholder {
+      color: #c4c4c4;
+      font-size: 1.2vw;
+    }
+
+    :active,
+    :focus {
+      font-size: 1.2vw;
+      background-color: #1b1e21;
+      color: whitesmoke;
+      border-color: #d7b9b4;
+      box-shadow: 0 0 7px #d7b9b4;
+    }
 `;
 
-export default function SearchBar() {
+const SearchBar: FC = () => {
   return (
     <Search>
       <InputGroup>
@@ -83,4 +84,6 @@ export default function SearchBar() {
       </InputGroup>
     </Search>
   );
-}
+};
+
+export default SearchBar;

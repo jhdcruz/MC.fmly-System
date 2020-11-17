@@ -16,6 +16,7 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+import { FC } from 'react';
 import styled from 'styled-components';
 
 const WidgetUI = styled.div`
@@ -51,14 +52,22 @@ const WidgetLabel = styled.label`
   margin: 0 5px;
 `;
 
-export default function Widget(props) {
+type WidgetProps = {
+  subject: string;
+  amount: any; // make all values possible and logic-ready
+  label?: string;
+};
+
+const Widget: FC<WidgetProps> = ({ subject, amount, label }) => {
   return (
     <>
       <WidgetUI>
-        <WidgetSubject>{props.subject}:</WidgetSubject>
-        <WidgetAmount>{props.amount}</WidgetAmount>
-        <WidgetLabel>{props.label}</WidgetLabel>
+        <WidgetSubject>{subject}:</WidgetSubject>
+        <WidgetAmount>{amount}</WidgetAmount>
+        <WidgetLabel>{label}</WidgetLabel>
       </WidgetUI>
     </>
   );
-}
+};
+
+export default Widget;

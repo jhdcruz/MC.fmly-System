@@ -16,11 +16,13 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { faPen, faTimes } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Badge from 'react-bootstrap/Badge';
-import Button from 'react-bootstrap/Button';
+import { FC } from 'react';
 import styled from 'styled-components';
+import Button from 'react-bootstrap/Button';
+import { ProductProps } from 'productType';
+import { Tag } from './__tables.module';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPen, faTimes } from '@fortawesome/free-solid-svg-icons';
 
 const TableRow = styled.tr`
   color: white;
@@ -47,6 +49,7 @@ const TableRow = styled.tr`
     border-top-left-radius: 1rem;
     border-bottom-left-radius: 1rem;
   }
+
   td:last-child {
     border-right-style: solid;
     border-bottom-right-radius: 1rem;
@@ -74,11 +77,6 @@ const TableData = styled.td`
   }
 `;
 
-const Tag = styled(Badge)`
-  font-size: 1.2vw;
-  padding: 6px 10px 6px 0;
-`;
-
 const ProductActions = styled.div`
   margin: 0 auto;
   width: max-content;
@@ -93,10 +91,11 @@ const ProductControl = styled(Button)`
   border: none;
 `;
 
-const ExtendedProduct = (product) => {
+const ExtendedProduct: FC<ProductProps> = ({ product }) => {
+  // noinspection DuplicatedCode
   return (
     <TableRow className="product" key={product._id}>
-      <TableData className="code" colSpan="1">
+      <TableData className="code" colSpan={1}>
         <p>
           <ProductActions>
             <ProductControl variant="outline-danger">

@@ -16,7 +16,7 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { FunctionComponent, useState } from 'react';
+import { FC, useState } from 'react';
 import Toast from 'react-bootstrap/Toast';
 import styled from 'styled-components';
 import { faBell } from '@fortawesome/free-solid-svg-icons';
@@ -61,7 +61,7 @@ type NotifProps = {
   message: string;
 };
 
-const Notification: FunctionComponent<NotifProps> = ({
+const Notification: FC<NotifProps> = ({
   delay,
   title,
   time,

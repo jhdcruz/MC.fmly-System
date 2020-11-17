@@ -16,12 +16,13 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+import { ComponentType, FC } from 'react';
 import Tab from 'react-bootstrap/Tab';
 import Nav from 'react-bootstrap/Nav';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import styled from 'styled-components';
-import SearchBar from './SearchBar';
+import SearchBar from './common/SearchBar';
 
 const CatalogGrid = styled(Row)`
   display: flex;
@@ -86,7 +87,14 @@ const CategoryLine = styled.label`
   color: #d2d2d2;
 `;
 
-export default function Categories(props) {
+// Interface
+export interface CategoriesProps {
+  categories: ComponentType;
+  types: ComponentType;
+  tables: ComponentType;
+}
+
+const Categories: FC<CategoriesProps> = (props) => {
   return (
     <Tab.Container id="CategorySection" defaultActiveKey="default">
       <CatalogGrid>
@@ -109,4 +117,6 @@ export default function Categories(props) {
       </CatalogGrid>
     </Tab.Container>
   );
-}
+};
+
+export default Categories;

@@ -16,10 +16,22 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { Widget } from './__charts.module';
+import { FC } from 'react';
+import Spinner from 'react-bootstrap/Spinner';
+import styled from 'styled-components';
 
-export default function InventoryValue() {
-  return (
-    <Widget src="https://charts.mongodb.com/charts-pending-system-rgssg/embed/charts?id=78a26494-6b97-40b3-a327-d1e506b7d895&&autoRefresh=true&maxDataAge=10&attribution=false&theme=dark" />
-  );
-}
+const Loading = styled(Spinner)`
+  margin: 10px auto;
+  width: 3rem;
+  height: 3rem;
+  position: absolute;
+  right: 50%;
+  top: 13rem;
+  z-index: 99;
+`;
+
+const Loader: FC = () => {
+  return <Loading variant="primary" animation="border" role="status" />;
+};
+
+export default Loader;

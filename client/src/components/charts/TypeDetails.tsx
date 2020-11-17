@@ -16,24 +16,13 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import styled from 'styled-components';
+import { FC } from 'react';
+import { Chart } from './__charts.module';
 
-export const Widget = styled.iframe`
-  width: 22vw !important;
-  height: 150px !important;
-  background: #1e1e1e;
-  margin: 2.5rem 0.5rem 0.5rem 0;
-  border: none;
-  border-radius: 1rem;
-  box-shadow: 0 3px 6px #232323;
-`;
+const TypeDetails: FC = () => {
+  return (
+    <Chart src="https://charts.mongodb.com/charts-pending-system-rgssg/embed/charts?id=a647f8d1-9cd1-43e0-bea5-7c966947f573&autoRefresh=true&maxDataAge=10&attribution=false&theme=dark" />
+  );
+};
 
-export const Chart = styled.iframe`
-  width: 44.5vw !important;
-  height: 60vh !important;
-  background: #1e1e1e;
-  margin-right: 0.5rem;
-  border: none;
-  border-radius: 1rem;
-  box-shadow: 0 3px 6px #232323;
-`;
+export default TypeDetails;
