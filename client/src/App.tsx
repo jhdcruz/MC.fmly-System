@@ -122,7 +122,7 @@ const App: FunctionComponent = () => {
   const handleSubmit = (e: FormEvent<HTMLInputElement>) => {
     e.preventDefault();
     axios
-      .post(`/users/login`, { loginCreds })
+      .post(`/api/users/login`, { loginCreds })
       .then((res: any) => {
         console.log(res);
         if (res.data === 'Credentials Mismatched!') {
