@@ -16,66 +16,35 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { Fragment } from 'react';
+import { FC, Fragment } from 'react';
 import {
   BrowserRouter as Router,
   Redirect,
   Route,
   Switch
 } from 'react-router-dom';
-import { AnimatedSwitch, spring } from 'react-router-transition';
 import Catalog from '../containers/Catalog';
 import Container from 'react-bootstrap/Container';
 import Sidebar from '../components/Sidebar';
 import routes from '../routes';
 import '../App.scss';
-// Views
-import Recent from '../containers/Recent';
-import Invoices from '../containers/Invoices';
-import Contacts from '../containers/Contacts';
-import NotFound from '../components/NotFound';
-import TabItem from '../components/TabItem';
+// @ts-ignore
+import { AnimatedSwitch } from 'react-router-transition';
+import { bounceTransition, mapStyles } from '../components/common/Transition';
 import {
   faBoxes,
   faFileInvoice,
   faHistory,
   faTruck
 } from '@fortawesome/free-solid-svg-icons';
+// Views
+import Recent from '../containers/Recent';
+import Invoices from '../containers/Invoices';
+import Contacts from '../containers/Contacts';
+import NotFound from '../components/NotFound';
+import TabItem from '../components/TabItem';
 
-function mapStyles(styles) {
-  return {
-    opacity: styles.opacity,
-    transform: `scale(${styles.scale})`
-  };
-}
-
-// ? wrap the `spring` helper to use a bouncy config
-function bounce(val) {
-  return spring(val, {
-    stiffness: 200,
-    damping: 30
-  });
-}
-
-const bounceTransition = {
-  // ? tart in a transparent, upscaled state
-  atEnter: {
-    opacity: 0,
-    scale: 0.95
-  },
-  // ? leave in a transparent, downscaled state
-  atLeave: {
-    opacity: bounce(0),
-    scale: bounce(0.9)
-  },
-  // ? and rest at an opaque, normally-scaled state
-  atActive: {
-    opacity: bounce(1),
-    scale: bounce(1)
-  }
-};
-
-export default function Inventory() {
+const Inventory: FC = () => {
   return (
     <Fragment>
       <Fragment>
@@ -137,4 +106,6 @@ export default function Inventory() {
       </Fragment>
     </Fragment>
   );
-}
+};
+
+export default Inventory;
