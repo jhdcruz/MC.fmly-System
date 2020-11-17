@@ -44,3 +44,8 @@ declare module 'react-router-transition' {
   const value: any;
   export = value;
 }
+
+declare module 'react-hook-form' {
+  const value: any;
+  export = value;
+}
