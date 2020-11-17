@@ -6,7 +6,9 @@
 
 **Status:**
 
-![CI/CD](https://github.com/jhdcruz/MC.fmly-System/workflows/Desktop%20Builds/badge.svg) [![CodeFactor](https://www.codefactor.io/repository/github/jhdcruz/mc.fmly-system/badge?s=12c335ef55a5d9cb0a15c337d17ac27b97e843cd)](https://www.codefactor.io/repository/github/jhdcruz/mc.fmly-system)
+[comment]: <> (![CI/CD]&#40;https://github.com/jhdcruz/MC.fmly-System/workflows/Desktop%20Builds/badge.svg&#41;)
+
+[![CircleCI](https://circleci.com/gh/jhdcruz/MC.fmly-System.svg?style=svg&circle-token=4025b123b9ce80ae60a05556c04c74e50ceea7fd)](https://app.circleci.com/pipelines/github/jhdcruz/MC.fmly-System) [![Build Status](https://travis-ci.com/jhdcruz/MC.fmly-System.svg?token=fiiouVpFksoACZRN1N2B&branch=main)](https://travis-ci.com/jhdcruz/MC.fmly-System) [![CodeFactor](https://www.codefactor.io/repository/github/jhdcruz/mc.fmly-system/badge?s=12c335ef55a5d9cb0a15c337d17ac27b97e843cd)](https://www.codefactor.io/repository/github/jhdcruz/mc.fmly-system)
 
 **Source Code:**
 
@@ -87,8 +89,9 @@
 ### Tools
 
 - [**Vercel**](https://vercel.com) - _Web & API Deployment_
-- [**GitHub Actions**](https://github.com/features/actions) - _CI/CD (Main)_
-- [**TravisCI**](https://travis-ci.com/) - _CI/CD (Fallback)_
+- [**CircleCI**](https://circleci.com/) - _Continuous Integration (Main)_
+- [**TravisCI**](https://travis-ci.com/) - _Continuous Integration (Secondary)_
+- [**GitHub Actions**](https://github.com/features/actions) - _Continuous Integration (Fallback)_
 - [**CodeFactor**](https://codefactor.io) - _Code Review_
 - [**SonarCloud**](https://sonarcloud.io/) - _Code Quality & Security_
 - [**Rollbar**](https://rollbar.com) - _Application Monitoring_
