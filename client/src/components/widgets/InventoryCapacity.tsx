@@ -16,16 +16,13 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-window.addEventListener('DOMContentLoaded', () => {
-  if (process.platform !== 'darwin') {
-    // eslint-disable-next-line @typescript-eslint/no-var-requires
-    const customTitlebar = require('custom-electron-titlebar');
-    new customTitlebar.Titlebar({
-      backgroundColor: customTitlebar.Color.fromHex('#222222'),
-      icon: 'favicon.ico',
-      titleHorizontalAlignment: 'left',
-      menu: null,
-      menuPosition: null
-    });
-  }
-});
+import { FC } from 'react';
+import { Widget } from './__widgets.module';
+
+const InventoryCapacity: FC = () => {
+  return (
+    <Widget src="https://charts.mongodb.com/charts-pending-system-rgssg/embed/charts?id=ce5c27a4-d190-44f7-9958-f66af536d3fa&autoRefresh=true&maxDataAge=10&attribution=false&theme=dark" />
+  );
+};
+
+export default InventoryCapacity;

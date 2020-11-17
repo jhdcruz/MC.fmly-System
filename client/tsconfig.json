@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    "target": "ES2015",
+    "lib": ["DOM", "ES2015"],
+    "module": "ESNext",
+    "allowJs": true,
+    "checkJs": true,
+    "jsx": "react-jsx",
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "outDir": "./build",
+    "rootDir": "./",
+    "strict": true,
+    "esModuleInterop": true,
+    "moduleResolution": "Node",
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "allowSyntheticDefaultImports": true
+  },
+  "typeRoots": ["src/types", "node_modules/@types"],
+  "include": [
+    "src/types/global.d.ts",
+    "src/**/**/**.ts",
+    "src/**/**/**.tsx",
+    "public/**.ts"
+  ],
+  "exclude": ["config/**/**", "scripts/**", "node_modules/**/**"],
+  "rules": {}
+}

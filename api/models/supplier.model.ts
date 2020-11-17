@@ -16,16 +16,48 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-window.addEventListener('DOMContentLoaded', () => {
-  if (process.platform !== 'darwin') {
-    // eslint-disable-next-line @typescript-eslint/no-var-requires
-    const customTitlebar = require('custom-electron-titlebar');
-    new customTitlebar.Titlebar({
-      backgroundColor: customTitlebar.Color.fromHex('#222222'),
-      icon: 'favicon.ico',
-      titleHorizontalAlignment: 'left',
-      menu: null,
-      menuPosition: null
-    });
+import * as mongoose from 'mongoose';
+
+const { Schema } = mongoose;
+
+const supplierSchema = new Schema({
+  icon: {
+    type: String,
+    default:
+      'https://spng.pngfind.com/pngs/s/17-171509_cornerstone-community-bible-church-team-icon-white-png.png',
+    unique: false
+  },
+  name: {
+    type: String,
+    required: true
+  },
+  description: {
+    type: String,
+    default: '',
+    unique: false
+  },
+  type: {
+    type: String,
+    default: '',
+    unique: false
+  },
+  address: {
+    type: String,
+    default: '',
+    unique: false
+  },
+  website: {
+    type: String,
+    default: '',
+    unique: false
+  },
+  contact: {
+    type: String,
+    default: '',
+    unique: false
   }
 });
+
+mongoose.model('suppliers', supplierSchema);
+
+export {};

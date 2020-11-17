@@ -16,16 +16,33 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-window.addEventListener('DOMContentLoaded', () => {
-  if (process.platform !== 'darwin') {
-    // eslint-disable-next-line @typescript-eslint/no-var-requires
-    const customTitlebar = require('custom-electron-titlebar');
-    new customTitlebar.Titlebar({
-      backgroundColor: customTitlebar.Color.fromHex('#222222'),
-      icon: 'favicon.ico',
-      titleHorizontalAlignment: 'left',
-      menu: null,
-      menuPosition: null
-    });
+declare module 'userType' {
+  /*
+   * User Interface
+   * * @constructor
+   * @param {string} username - Username
+   * @param {string} name - User Full Name
+   * @param {string} role - User Role (Human-friendly Authority)
+   * @param {string} permission - User Permission (Access Authority)
+   * @param {date} date - Date Joined/Created
+   * */
+  type UserTypes = {
+    // ? = Optional
+    _id?: string;
+    username: string;
+    password: unknown;
+    name?: string;
+    role?: string;
+    permission?: string;
+    date?: Date;
+  };
+
+  export interface UserProps {
+    product: UserTypes;
   }
-});
+}
+
+module.exports = {
+  UserTypes,
+  UserProps
+};

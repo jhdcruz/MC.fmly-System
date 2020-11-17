@@ -16,16 +16,48 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-window.addEventListener('DOMContentLoaded', () => {
-  if (process.platform !== 'darwin') {
-    // eslint-disable-next-line @typescript-eslint/no-var-requires
-    const customTitlebar = require('custom-electron-titlebar');
-    new customTitlebar.Titlebar({
-      backgroundColor: customTitlebar.Color.fromHex('#222222'),
-      icon: 'favicon.ico',
-      titleHorizontalAlignment: 'left',
-      menu: null,
-      menuPosition: null
-    });
-  }
-});
+import * as mongoose from 'mongoose';
+
+const { Schema } = mongoose;
+
+const productSchema = new Schema(
+  {
+    code: {
+      type: String,
+      uppercase: true,
+      unique: true,
+      trim: true
+    },
+    name: {
+      type: String
+    },
+    variant: {
+      type: String,
+      trim: true,
+      caseFirst: 'on'
+    },
+    type: {
+      type: String,
+      trim: true,
+      caseFirst: 'on'
+    },
+    category: {
+      type: String,
+      trim: true,
+      caseFirst: 'on'
+    },
+    quantity: {
+      type: Number,
+      min: 1
+    },
+    price: {
+      type: Number,
+      min: 0
+    }
+  },
+  { timestamps: true }
+);
+
+mongoose.model('products', productSchema);
+
+export {};

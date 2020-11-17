@@ -16,16 +16,31 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-window.addEventListener('DOMContentLoaded', () => {
-  if (process.platform !== 'darwin') {
-    // eslint-disable-next-line @typescript-eslint/no-var-requires
-    const customTitlebar = require('custom-electron-titlebar');
-    new customTitlebar.Titlebar({
-      backgroundColor: customTitlebar.Color.fromHex('#222222'),
-      icon: 'favicon.ico',
-      titleHorizontalAlignment: 'left',
-      menu: null,
-      menuPosition: null
-    });
-  }
-});
+// Static
+declare module '*.png' {
+  const value: any;
+  export default value;
+}
+declare module '*.jpg' {
+  const value: any;
+  export default value;
+}
+declare module '*.jpeg' {
+  const value: any;
+  export default value;
+}
+declare module '*.svg' {
+  const value: any;
+  export default value;
+}
+
+// Modules
+declare module '*.js' {
+  const value: any;
+  export = value;
+}
+
+declare module 'react-router-transition' {
+  const value: any;
+  export = value;
+}

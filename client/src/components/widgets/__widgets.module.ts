@@ -16,16 +16,14 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-window.addEventListener('DOMContentLoaded', () => {
-  if (process.platform !== 'darwin') {
-    // eslint-disable-next-line @typescript-eslint/no-var-requires
-    const customTitlebar = require('custom-electron-titlebar');
-    new customTitlebar.Titlebar({
-      backgroundColor: customTitlebar.Color.fromHex('#222222'),
-      icon: 'favicon.ico',
-      titleHorizontalAlignment: 'left',
-      menu: null,
-      menuPosition: null
-    });
-  }
-});
+import styled from 'styled-components';
+
+export const Widget = styled.iframe`
+  width: 22vw !important;
+  height: 150px !important;
+  background: #1e1e1e;
+  margin: 2.5rem 0.5rem 0.5rem 0;
+  border: none;
+  border-radius: 1rem;
+  box-shadow: 0 3px 6px #232323;
+`;

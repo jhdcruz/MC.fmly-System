@@ -16,16 +16,11 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-window.addEventListener('DOMContentLoaded', () => {
-  if (process.platform !== 'darwin') {
-    // eslint-disable-next-line @typescript-eslint/no-var-requires
-    const customTitlebar = require('custom-electron-titlebar');
-    new customTitlebar.Titlebar({
-      backgroundColor: customTitlebar.Color.fromHex('#222222'),
-      icon: 'favicon.ico',
-      titleHorizontalAlignment: 'left',
-      menu: null,
-      menuPosition: null
-    });
-  }
-});
+import { SupplierController } from '../controllers/supplier.controller';
+
+module.exports = (api: any) => {
+  api.get('/api/suppliers', SupplierController.get);
+  api.post('/api/suppliers', SupplierController.post);
+  api.put('/api/suppliers/:id', SupplierController.put);
+  api.delete('/api/suppliers/:id', SupplierController.delete);
+};

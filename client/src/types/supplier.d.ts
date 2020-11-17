@@ -16,16 +16,35 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-window.addEventListener('DOMContentLoaded', () => {
-  if (process.platform !== 'darwin') {
-    // eslint-disable-next-line @typescript-eslint/no-var-requires
-    const customTitlebar = require('custom-electron-titlebar');
-    new customTitlebar.Titlebar({
-      backgroundColor: customTitlebar.Color.fromHex('#222222'),
-      icon: 'favicon.ico',
-      titleHorizontalAlignment: 'left',
-      menu: null,
-      menuPosition: null
-    });
+declare module 'supplierType' {
+  /*
+   * Suppliers Interface
+   * @constructor
+   * @param {string} icon - Supplier Icon/Image
+   * @param {string} name - Supplier Name/Company
+   * @param {string} description - Supplier Bio
+   * @param {string} type - Types of supplys the supplier provides
+   * @param {string} address - Supplier physical address
+   * @param {string} website - Supplier website
+   * @param {string} contact - Supplier contact #
+   * */
+  type SupplierTypes = {
+    // ? = Optional
+    icon?: string;
+    name: string;
+    description?: string;
+    type: string;
+    address?: string;
+    website?: string;
+    contact?: number;
+  };
+
+  export interface SupplierProps {
+    supplier: SupplierTypes;
   }
-});
+}
+
+module.exports = {
+  SupplierTypes,
+  SupplierProps
+};

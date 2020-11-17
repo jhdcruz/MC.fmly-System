@@ -16,16 +16,32 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-window.addEventListener('DOMContentLoaded', () => {
-  if (process.platform !== 'darwin') {
-    // eslint-disable-next-line @typescript-eslint/no-var-requires
-    const customTitlebar = require('custom-electron-titlebar');
-    new customTitlebar.Titlebar({
-      backgroundColor: customTitlebar.Color.fromHex('#222222'),
-      icon: 'favicon.ico',
-      titleHorizontalAlignment: 'left',
-      menu: null,
-      menuPosition: null
-    });
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+import { SupplierProps } from 'supplierType';
+
+// Assign data to `products`
+const useSuppliers: () => [any] = () => {
+  const [suppliers, setSuppliers] = useState<SupplierProps[]>([]);
+
+  async function getMethod() {
+    const res = await axios.get(`/api/suppliers`);
+    return res.data || [];
   }
-});
+
+  useEffect(() => {
+    if (!suppliers) {
+      getMethod()
+        .then((res) => {
+          setSuppliers(res.data);
+        })
+        .catch((e) => {
+          console.error(e);
+        });
+    }
+  }, [suppliers]);
+
+  return [suppliers];
+};
+
+export default useSuppliers;

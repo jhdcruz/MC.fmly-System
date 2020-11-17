@@ -16,16 +16,44 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-window.addEventListener('DOMContentLoaded', () => {
-  if (process.platform !== 'darwin') {
-    // eslint-disable-next-line @typescript-eslint/no-var-requires
-    const customTitlebar = require('custom-electron-titlebar');
-    new customTitlebar.Titlebar({
-      backgroundColor: customTitlebar.Color.fromHex('#222222'),
-      icon: 'favicon.ico',
-      titleHorizontalAlignment: 'left',
-      menu: null,
-      menuPosition: null
-    });
+import styled from 'styled-components';
+import Spinner from 'react-bootstrap/Spinner';
+import Badge from 'react-bootstrap/Badge';
+
+// Table Heading
+export const TableHeader = styled.th`
+  font-size: 1.3vw;
+  color: #c3c3c3;
+  border: none !important;
+  width: max-content !important;
+
+  :hover {
+    color: #22a1f5;
+    cursor: pointer;
   }
-});
+`;
+
+// Loading Spinner
+export const Loader = styled(Spinner)`
+  margin: 10px auto;
+  width: 3rem;
+  height: 3rem;
+  position: absolute;
+  right: 50%;
+  top: 13rem;
+`;
+
+// Circular Color Badges
+export const Tag = styled(Badge)`
+  font-size: 1.2vw;
+  padding: 6px 10px 6px 0;
+`;
+
+// Shows on no products registered
+export const NullItems = styled.h5`
+  color: #c3c3c3;
+  margin-bottom: 1rem;
+  position: absolute;
+  left: 36%;
+  top: 16rem;
+`;

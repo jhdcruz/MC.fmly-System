@@ -1,0 +1,35 @@
+version: 2.1
+jobs:
+  build:
+    working_directory: ~/repo
+    docker:
+      - image: circleci/node:14
+    steps:
+      - checkout
+      - run:
+          name: Update Yarn
+          command: 'sudo npm update -g yarn'
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+      - run:
+          name: Install Dependencies
+          command: yarn
+      - run:
+          name: Install native build tools
+          command: |
+            sudo apt-get update -y
+            sudo apt-get install -y dpkg dpkg-dev fakeroot rpm
+
+      - save_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - ./node_modules
+      - run:
+          name: Generate Builds
+          command: yarn workspace client package-ci
+
+      - store_artifacts:
+          path: ~/repo/release/*.rpm
+
+      - store_artifacts:
+          path: ~/repo/release/*.deb

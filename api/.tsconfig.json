@@ -1,0 +1,22 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "plugins": ["@typescript-eslint"],
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "rootDir": "./",
+    "outDir": "./build",
+    "esModuleInterop": true,
+    "strict": true,
+    "include": ["./**/**.ts"],
+    "exclude": ["node_modules/**/**"]
+  },
+  "include": ["**/**/**.ts"],
+  "exclude": ["node_modules/**/**"],
+  "rules": {}
+}

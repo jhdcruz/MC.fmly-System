@@ -10,6 +10,9 @@
   "scripts": {
     "start": "concurrently \"yarn workspace api serve\" \"yarn workspace client start\"  --kill-others-on-fail",
     "web": "concurrently \"yarn workspace api serve\" \"yarn workspace client web\"  --kill-others-on-fail",
+    "api": "yarn workspace api serve",
+    "client-web": "yarn workspace client web",
+    "client-electron": "yarn workspace client start",
     "build": "yarn workspace client build",
     "test": "echo \"Planned...\"",
     "lint": "concurrently \"yarn workspace client lint\" \"yarn workspace api lint\""

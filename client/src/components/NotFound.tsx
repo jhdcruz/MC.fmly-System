@@ -16,16 +16,25 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-window.addEventListener('DOMContentLoaded', () => {
-  if (process.platform !== 'darwin') {
-    // eslint-disable-next-line @typescript-eslint/no-var-requires
-    const customTitlebar = require('custom-electron-titlebar');
-    new customTitlebar.Titlebar({
-      backgroundColor: customTitlebar.Color.fromHex('#222222'),
-      icon: 'favicon.ico',
-      titleHorizontalAlignment: 'left',
-      menu: null,
-      menuPosition: null
-    });
-  }
-});
+import { FC } from 'react';
+import styled from 'styled-components';
+
+const Notice = styled.h2`
+  margin: 10px 0;
+  width: max-content;
+  position: absolute;
+  top: 40%;
+  z-index: 99;
+`;
+
+const NotFound: FC = () => {
+  return (
+    <Notice>
+      <strong>You are not authorized to access this.</strong>
+      <br />
+      Admin? Try restarting the system or approach the System Admin.
+    </Notice>
+  );
+};
+
+export default NotFound;
