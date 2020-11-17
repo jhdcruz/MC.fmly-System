@@ -18,10 +18,15 @@
 
 import { useEffect, useState } from 'react';
 import { ProductsRequest } from '../services/http';
+import { IExpProducts } from '../interfaces/Products';
+
+export interface ProductsList {
+  content: IExpProducts[];
+}
 
 // Assign data to `products`
-const useProducts: () => [unknown] = () => {
-  const [products, setProducts] = useState(null);
+const useProducts: () => [ProductsList] = () => {
+  const [products, setProducts] = useState<ProductsList>({ content: [] });
 
   useEffect(() => {
     if (!products) {

@@ -18,9 +18,14 @@
 
 import { useEffect, useState } from 'react';
 import { UsersRequest } from '../services/http';
+import { IUser } from '../interfaces/User';
 
-const useUsers: () => [unknown] = () => {
-  const [users, setUsers] = useState(null);
+export interface UsersList {
+  content: IUser[];
+}
+
+const useUsers: () => [UsersList] = () => {
+  const [users, setUsers] = useState<UsersList>({ content: [] });
 
   useEffect(() => {
     if (!users) {

@@ -18,9 +18,14 @@
 
 import { useEffect, useState } from 'react';
 import { SuppliersRequest } from '../services/http';
+import { ISuppliers } from '../interfaces/Suppliers';
 
-const useSuppliers: () => [unknown] = () => {
-  const [suppliers, setSuppliers] = useState(null);
+export interface SuppliersList {
+  content: ISuppliers[];
+}
+
+const useSuppliers: () => [SuppliersList] = () => {
+  const [suppliers, setSuppliers] = useState<SuppliersList>({ content: [] });
 
   useEffect(() => {
     if (!suppliers) {
