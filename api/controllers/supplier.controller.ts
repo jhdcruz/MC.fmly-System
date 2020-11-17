@@ -27,7 +27,7 @@ export const SupplierController = {
     try {
       const suppliers: object = await Suppliers.find();
       return res.status(200).send(suppliers);
-    } catch (err: unknown) {
+    } catch (err) {
       console.error(err);
       res.status(500).send('Error fetching suppliers');
     }
@@ -36,7 +36,7 @@ export const SupplierController = {
     try {
       const suppliers: object = await Suppliers.create(req.body);
       return res.status(201).send(suppliers);
-    } catch (err: unknown) {
+    } catch (err) {
       console.error(err);
       res.status(500).send('Error posting of suppliers');
     }
@@ -46,7 +46,7 @@ export const SupplierController = {
     try {
       const suppliers: object = await Suppliers.findByIdAndUpdate(id, req.body);
       return res.status(202).send(suppliers);
-    } catch (err: unknown) {
+    } catch (err) {
       console.error(err);
       res.status(500).send(`Error updating supplier ${id}`);
     }
@@ -56,7 +56,7 @@ export const SupplierController = {
     try {
       const suppliers: object = await Suppliers.findByIdAndDelete(id);
       return res.status(202).send(suppliers);
-    } catch (err: unknown) {
+    } catch (err) {
       console.error(err);
       res.status(500).send(`Error deleting supplier ${id}`);
     }

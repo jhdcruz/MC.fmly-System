@@ -27,7 +27,7 @@ export const ProductController = {
     try {
       const products: object = await Products.find();
       return res.status(200).send(products);
-    } catch (err: unknown) {
+    } catch (err) {
       console.error(err);
       res.status(500).send('Error fetching products');
     }
@@ -38,7 +38,7 @@ export const ProductController = {
     try {
       const products: object = await Products.create(req.body);
       return res.status(201).send(products);
-    } catch (err: unknown) {
+    } catch (err) {
       console.error(err);
       res.status(500).send('Error posting product/s');
     }
@@ -50,7 +50,7 @@ export const ProductController = {
     try {
       const products: object = await Products.findByIdAndUpdate(id, req.body);
       return res.status(202).send(products);
-    } catch (err: unknown) {
+    } catch (err) {
       console.error(err);
       res.status(500).send(`Error updating product ${id}`);
     }
@@ -62,7 +62,7 @@ export const ProductController = {
     try {
       const products: object = await Products.findByIdAndDelete(id);
       return res.status(202).send(products);
-    } catch (err: unknown) {
+    } catch (err) {
       console.error(err);
       res.status(500).send(`Error deleting product ${id}`);
     }

@@ -28,7 +28,7 @@ export const UserController = {
     try {
       const users: object = await Users.find();
       return res.status(200).send(users);
-    } catch (err: unknown) {
+    } catch (err) {
       console.error(err);
       res.status(500).send('Error fetching users');
     }
@@ -50,7 +50,7 @@ export const UserController = {
         date: req.body.date
       });
       return res.status(202).send(users);
-    } catch (err: unknown) {
+    } catch (err) {
       console.error(err);
       res.status(500).send(`Error updating user ${id}`);
     }
@@ -62,7 +62,7 @@ export const UserController = {
     try {
       const users: object = await Users.findByIdAndDelete(id);
       res.status(202).send(users);
-    } catch (err: unknown) {
+    } catch (err) {
       console.error(err);
       res.status(500).send(`Error deleting user ${id}`);
     }
@@ -84,7 +84,7 @@ export const UserController = {
         date: req.body.date
       });
       res.status(201).send(insertResult);
-    } catch (err: unknown) {
+    } catch (err) {
       console.error(err);
       res.status(500).send('Internal Server error occured');
     }
@@ -109,7 +109,7 @@ export const UserController = {
       } else {
         res.send('Credentials Mismatched!');
       }
-    } catch (err: unknown) {
+    } catch (err) {
       console.error(err);
       res.status(500).send('Internal Server error occured');
     }
