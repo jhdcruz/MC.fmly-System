@@ -17,29 +17,21 @@
  */
 
 /*
- * Login Interface
- * @param {string} username - Username
- * @param {string} password - Password
+ * Suppliers Interface
+ * @param {string} code - Product Code/SKU
+ * @param {string} name - Product Name
+ * @param {string} variant - Product Variant
+ * @param {string} type - Product Type
+ * @param {string} category - Product Category
+ * @param {number} quantity - Product Quantity
+ * @param {date} updatedAt - Date Updated
  * */
-export interface ILogin {
-  _id?: string;
-  username: unknown;
-  password: unknown;
-}
-
-/*
- * User Interface
- * @param {string} username - Username
- * @param {string} name - User Full Name
- * @param {string} role - User Role
- * @param {string} role - Access Permission
- * @param {date} date - Date Joined/Created
- * */
-export interface IUser {
-  _id?: string;
-  username: unknown;
+export interface ISuppliers {
+  code: string;
   name: string;
-  role: string;
-  permission: string;
-  date: Date;
+  variant: string;
+  type: string;
+  category: string;
+  quantity: number;
+  updatedAt?: Date;
 }

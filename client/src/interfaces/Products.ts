@@ -17,29 +17,43 @@
  */
 
 /*
- * Login Interface
- * @param {string} username - Username
- * @param {string} password - Password
+ * Narrow Products Interface
+ * @param {string} code - Product Code/SKU
+ * @param {string} name - Product Name
+ * @param {string} variant - Product Variant
+ * @param {string} type - Product Type
+ * @param {string} category - Product Category
+ * @param {number} quantity - Product Quantity
+ * @param {date} updatedAt - Date Updated
  * */
-export interface ILogin {
+export interface IProducts {
   _id?: string;
-  username: unknown;
-  password: unknown;
+  code: string;
+  name: string;
+  variant: string;
+  type: string;
+  category: string;
+  quantity: number;
+  updatedAt?: Date;
 }
 
 /*
- * User Interface
+ * Expanded Products Interface
  * @param {string} username - Username
  * @param {string} name - User Full Name
  * @param {string} role - User Role
  * @param {string} role - Access Permission
  * @param {date} date - Date Joined/Created
  * */
-export interface IUser {
+export interface IExpProducts {
   _id?: string;
-  username: unknown;
+  code: string;
   name: string;
-  role: string;
-  permission: string;
-  date: Date;
+  variant: string;
+  type: string;
+  category: string;
+  quantity: number;
+  price: number;
+  createdAt?: Date;
+  updatedAt?: Date;
 }
