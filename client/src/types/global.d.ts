@@ -39,3 +39,8 @@ declare module '*.js' {
   const value: any;
   export = value;
 }
+
+declare module 'react-router-transition' {
+  const value: any;
+  export = value;
+}
