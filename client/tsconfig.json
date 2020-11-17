@@ -18,13 +18,13 @@
     "forceConsistentCasingInFileNames": true,
     "allowSyntheticDefaultImports": true
   },
-  "typeRoots": ["./node_modules/@types", "./src/types"],
+  "typeRoots": ["src/global.d.ts", "src/types", "node_modules/@types"],
   "include": [
-    "./src/types/**.ts",
-    "./src/**/**/**.ts",
-    "./src/**/**/**.tsx",
-    "./public/**.ts"
+    "src/global.d.ts",
+    "src/**/**/**.ts",
+    "src/**/**/**.tsx",
+    "public/**.ts"
   ],
-  "exclude": ["./node_modules/**/**", "./config/**/**", "./scripts/**"],
+  "exclude": ["config/**/**", "scripts/**", "node_modules/**/**"],
   "rules": {}
 }
