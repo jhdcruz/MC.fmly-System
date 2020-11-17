@@ -10,7 +10,7 @@
     "email": "jhdcruz@vivaldi.net",
     "url": "https://github.com/jhdcruz"
   },
-  "main": "./build/electron.js",
+  "main": "./build/electron.ts",
   "scripts": {
     "analyze": "source-map-explorer './build/static/js/*.js'",
     "start": "concurrently \"cross-env BROWSER=none node ./scripts/start.js\" \"wait-on http://localhost:3000 && electron .\" --kill-others-on-fail",
