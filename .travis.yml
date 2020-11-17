@@ -1,21 +1,15 @@
 language: node_js
-
 node_js:
-  - 'lts/*'
-
-# Always run two parallel builds: one on mac and one on linux
-# the linux build will use wine to be able to build windows and
-# linux apps
+  - lts/*
 matrix:
   include:
     - os: osx
       osx_image: xcode10.2
       language: node_js
-      node_js: "lts/*"
+      node_js: lts/*
       env:
         - ELECTRON_CACHE=$HOME/.cache/electron
         - ELECTRON_BUILDER_CACHE=$HOME/.cache/electron-builder
-
     - os: linux
       dist: trusty
       sudo: required
@@ -24,14 +18,12 @@ matrix:
 
 before_cache:
   - rm -rf $HOME/.cache/electron-builder/wine
-
 cache:
   yarn: true
   directories:
     - node_modules
-    - $HOME/.cache/electron
-    - $HOME/.cache/electron-builder
-
+    - "$HOME/.cache/electron"
+    - "$HOME/.cache/electron-builder"
 script:
   - |
     if [ "$TRAVIS_OS_NAME" == "linux" ]; then
@@ -44,3 +36,7 @@ script:
     else
       yarn workspace client package-ci
     fi
+
+notifications:
+  webhooks:
+    secure: mg7snLsJL8r2sceX3gYhtqHIjvGQCsODIbOHsx8Kr9aEuLL70t7HO5/2bKzJjs3/nAdX6qipcfLb70gTpptMvl6fq3zZRBuKEs9GGludPoB9mRDWWZt1RaRMtKp445zMaW5pFk/aNMDVaXhzCea2qvfOnJUDPdxlvtAUQMdQrfFpgV123cHfIynm9BEV/0O8heTxNTmoYMql6G6ms5BzY3dtA1Wqufe50D8LMfga3PC5KrUaMaKRPCH6HS2cECpjakd7uyNn0OapbQ+0a2TT7946FGkwEQPF2ALD+W0WQ8A2QiX+BCwROgdhpgK5P8APLKaBYFeExa91GNa+ocFZutlUsI+azTKRZPvNxSc/iKj/+UqD+ibJK16/0tmc/oNzc/7JrI5d+pOGWVYZGcHpzmcIZIUdlPz3JAXvATGaySvTxn5jwH8qFFpprki5x7/tz4RzEApYQrvZ7CA+ATyhCO2tCsSc4RtZuEm3PYxy9I/9WYe1ZFOZdlr4/T+g3WhOcoQZVZevCGSctL1PU3RbQgQdIkD6/2U1v5eoSbt3g6qQU6MGDPz6S+XwoARkKXXVhNR7lu2oI7/FUIW27V/rlg7ppd3O/bG87u/V+rKc2BRlBNCxTSpDaGY0pItF/t/j9BpfPqkTUbfCi7Tu2z6MCfMUDa92ZGDnQZD2c3m4AyU=
