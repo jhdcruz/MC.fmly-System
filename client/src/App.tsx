@@ -16,8 +16,10 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { FormEvent, FunctionComponent, useState } from 'react';
+import { FC, MouseEvent, useCallback, useState } from 'react';
 import axios from 'axios';
+// @ts-ignore
+import { useForm } from 'react-hook-form';
 import Container from 'react-bootstrap/Container';
 import Image from 'react-bootstrap/Image';
 import Form from 'react-bootstrap/Form';
@@ -114,15 +116,14 @@ const LoginControl = styled.div`
   }
 `;
 
-const App: FunctionComponent = () => {
-  const [loginCreds] = useState<UserProps>();
+const App: FC = () => {
+  const { register, handleSubmit } = useForm<UserProps>();
   const [auth, setAuth] = useState('');
 
   // * Auth Handler
-  const handleSubmit = (e: FormEvent<HTMLInputElement>) => {
-    e.preventDefault();
+  const userVerify = useCallback((UserProps) => {
     axios
-      .post(`/api/users/login`, { loginCreds })
+      .post(`/api/users/login`, UserProps)
       .then((res: any) => {
         console.log(res);
         if (res.data === 'Credentials Mismatched!') {
@@ -136,10 +137,10 @@ const App: FunctionComponent = () => {
         window.alert(err);
         window.alert('Please contact the System Administrator!');
       });
-  };
+  }, []);
 
   // * Forgot Credentials/Password Alert
-  const forgotCreds = (e: FormEvent<HTMLInputElement>) => {
+  const forgotCreds = (e: MouseEvent) => {
     e.preventDefault();
     window.alert('Please inform the System Admin.');
   };
@@ -165,7 +166,11 @@ const App: FunctionComponent = () => {
   return (
     <LoginContainer fluid>
       <Img src={Brand} alt="Company Logo" rounded />
-      <LoginForm autoComplete="off" autoSave="off" onSubmit={handleSubmit}>
+      <LoginForm
+        autoComplete="off"
+        autoSave="off"
+        onSubmit={handleSubmit(userVerify)}
+      >
         <Image
           src={Brand}
           width={130}
@@ -180,7 +185,7 @@ const App: FunctionComponent = () => {
             name="username"
             placeholder="Username"
             autoComplete="off"
-            ref={loginCreds}
+            ref={register}
             autoFocus={true}
             tabIndex={1}
             required
@@ -193,7 +198,7 @@ const App: FunctionComponent = () => {
             name="password"
             placeholder="Password"
             autoComplete="off"
-            ref={loginCreds}
+            ref={register}
             tabIndex={2}
             required
           />

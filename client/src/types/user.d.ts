@@ -31,9 +31,9 @@ declare module 'userType' {
     _id?: string;
     username: string;
     password: unknown;
-    name?: string;
-    role?: string;
-    permission?: string;
+    name: string;
+    role: string;
+    permission: string;
     date?: Date;
   };
 
