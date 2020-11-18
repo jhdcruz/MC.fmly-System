@@ -58,10 +58,13 @@ const LoginContainer = styled(Container)`
   // Show only login form in <1025px
   @media only screen and (max-width: 1025px) {
     form {
+      padding: 25% 10%;
       width: 100%;
+      background-color: rgba(19, 19, 19, 0.8);
 
       img {
         margin: 5% 32% !important;
+        display: none;
       }
     }
   }
@@ -69,15 +72,15 @@ const LoginContainer = styled(Container)`
 
 const LoginForm = styled(Form)`
   color: whitesmoke;
-  background-color: #1e1e1e;
-  box-shadow: -7px 0 7px #232323;
+  background-color: rgba(40, 40, 40, 0.6);
+  box-shadow: -7px 0 7px #333333;
   margin: 0;
   height: 100vh;
   width: 500px;
-  padding: 15vh 10vw;
+  padding: 10vh 10vw;
   position: fixed;
   right: 0;
-  overflow: hidden;
+  overflow: hidden !important;
 
   img {
     margin: 0 20% 2vh 20% !important;
