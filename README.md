@@ -61,11 +61,12 @@
 
 ### Languages:
 
-- [**TypeScript v4.1**](https://www.typescriptlang.org/) - _Main implementation_
-- [**JavaScript (ES2020)**](https://www.ecma-international.org/publications/standards/Ecma-262.htm) - _Boilerplate
-  configs_
+- [**JavaScript (ES2019)**](https://www.ecma-international.org/publications/standards/Ecma-262.htm) - _Front-End (Client)_
+- [**TypeScript v4.0**](https://www.typescriptlang.org/) - _Back-End (API)_
 - **HTML5** - _Compiled UI handler_
 - **CSS3** - _Stylesheet_
+
+> A rewrite is planned to refactor `client` to **TypeScript**.
 
 ### Front-End:
 
