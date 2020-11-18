@@ -1,9 +1,5 @@
 version: 2.1
 
-notify:
-  webhook:
-    - url: https://outlook.office.com/webhook/4822921a-8a23-4a39-a98b-851a641ad2bf@8361af35-0fd9-4a74-ada4-aff5c74e7d0c/CircleCI/bc9fe4c36fa6445cbd0fd236c6a6c4c0/03960aaf-b3bf-4a9d-afd5-50a7ddbea283
-
 jobs:
   build:
     working_directory: ~/repo
@@ -44,4 +40,4 @@ workflows:
   main:
     jobs:
       - build:
-          context: sonarcloud
+          context: SonarCloud
