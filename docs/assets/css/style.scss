@@ -114,7 +114,7 @@ hr {
   overflow: hidden;
   background: transparent;
   border: 0;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #e6a195;
 }
 
 hr:before {
@@ -262,7 +262,7 @@ h4 .octicon-link,
 h5 .octicon-link,
 h6 .octicon-link {
   display: none;
-  color: #000;
+  color: #ecaa9f;
   vertical-align: middle;
 }
 
@@ -335,7 +335,7 @@ h5 .anchor {
 
 h6 {
   font-size: 1em;
-  color: #777;
+  color: #929292;
 }
 
 h6 .anchor {
@@ -357,7 +357,7 @@ hr {
   height: 4px;
   padding: 0;
   margin: 16px 0;
-  background-color: #e7e7e7;
+  background-color: #e6a195;
   border: 0 none;
 }
 
@@ -397,8 +397,8 @@ dl dd {
 
 blockquote {
   padding: 0 15px;
-  color: #777;
-  border-left: 4px solid #ddd;
+  color: #b3b3b3;
+  border-left: 4px solid #e6a195;
 }
 
 blockquote > :first-child {
@@ -424,12 +424,12 @@ table th {
 table th,
 table td {
   padding: 6px 13px;
-  border: 1px solid #ddd;
+  border: 1px solid #f19c8e;
 }
 
 table tr {
-  background-color: #fff;
-  border-top: 1px solid #ccc;
+  background-color: #191919;
+  border-top: 1px solid #e6a195;
 }
 
 img {
@@ -508,13 +508,13 @@ kbd {
   padding: 3px 5px;
   font-size: 11px;
   line-height: 10px;
-  color: #555;
+  color: #8a8a8a;
   vertical-align: middle;
-  background-color: #fcfcfc;
-  border: solid 1px #ccc;
-  border-bottom-color: #bbb;
+  background-color: #353535;
+  border: solid 1px #e6a195;
+  border-bottom-color: #f1b2a6;
   border-radius: 3px;
-  box-shadow: inset 0 -1px 0 #bbb;
+  box-shadow: inset 0 -1px 0 #ec8978;
 }
 
 .pl-c {
@@ -623,11 +623,11 @@ kbd {
   line-height: 10px;
   color: #555;
   vertical-align: middle;
-  background-color: #fcfcfc;
-  border: solid 1px #ccc;
-  border-bottom-color: #bbb;
+  background-color: #454545;
+  border: solid 1px #e6a195;
+  border-bottom-color: #efb0a5;
   border-radius: 3px;
-  box-shadow: inset 0 -1px 0 #bbb;
+  box-shadow: inset 0 -1px 0 #d78f82;
 }
 
 .task-list-item {
@@ -646,7 +646,7 @@ kbd {
 :checked + .radio-label {
   z-index: 1;
   position: relative;
-  border-color: #4078c0;
+  border-color: #e6a195;
 }
 
 span.user-del {
@@ -661,7 +661,8 @@ span.user-del {
 
 ::-webkit-scrollbar-thumb {
   -webkit-border-radius: 10px;
-  border: 2px solid #f6f6f6;
+  border: 2px solid #e6a195;
+  border-radius: 10%;
 
   background-color: #959595;
 }
