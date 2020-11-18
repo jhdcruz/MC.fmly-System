@@ -46,7 +46,7 @@ function createWindow() {
     show: false,
     minWidth: 1100,
     minHeight: 630,
-    icon: 'favicon.ico',
+    icon: 'favicon-black.ico',
     backgroundColor: '#232323',
     autoHideMenuBar: true,
     frame: process.platform === 'darwin',
