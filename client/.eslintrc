@@ -1,16 +1,6 @@
 {
-  "parser": "@typescript-eslint/parser",
-  "parserOptions": {
-    "ecmaVersion": 8,
-    "sourceType": "module"
-  },
-  "plugins": [
-    "@typescript-eslint"
-  ],
   "extends": [
     "eslint:recommended",
-    "plugin:@typescript-eslint/eslint-recommended",
-    "plugin:@typescript-eslint/recommended",
     "react-app"
   ],
   "rules": {
@@ -18,17 +8,12 @@
     "react/react-in-jsx-scope": "off",
     "import/no-anonymous-default-export": "off",
     "import/no-extraneous-dependencies": "off",
-    "jsx-a11y/anchor-is-valid": "off",
-    "@typescript-eslint/no-explicit-any": "off",
-    // For legacy modules
-    "@typescript-eslint/ban-ts-comment": "off"
+    "jsx-a11y/anchor-is-valid": "off"
   },
   "settings": {
     "import/extensions": [
       ".js",
-      ".ts",
       ".jsx",
-      "tsx",
       ".scss"
     ],
     "react": {
