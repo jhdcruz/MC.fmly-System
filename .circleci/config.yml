@@ -24,7 +24,6 @@ jobs:
           command: |
             sudo apt-get update -y
             sudo apt-get install -y dpkg dpkg-dev fakeroot rpm
-
       - save_cache:
           key: dependency-cache-{{ checksum "package.json" }}
           paths:
@@ -32,9 +31,17 @@ jobs:
       - run:
           name: Generate Builds
           command: yarn workspace client package-ci
-
       - store_artifacts:
           path: ~/repo/release/*.rpm
-
       - store_artifacts:
           path: ~/repo/release/*.deb
+      - sonarcloud/scan
+
+orbs:
+  sonarcloud: sonarsource/sonarcloud@1.0.2
+
+workflows:
+  main:
+    jobs:
+      - build:
+          context: sonarcloud
