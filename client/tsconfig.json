@@ -1,12 +1,13 @@
 {
   "compilerOptions": {
-    "target": "ES6",
+    "target": "ES2015",
     "lib": ["ES6", "DOM", "ES2015"],
     "module": "ESNext",
     "allowJs": true,
     "checkJs": true,
-    "jsx": "react",
+    "jsx": "react-jsx",
     "declaration": true,
+    "noFallthroughCasesInSwitch": true,
     "declarationMap": true,
     "sourceMap": true,
     "outDir": "./build",
