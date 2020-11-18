@@ -1,8 +1,8 @@
 <div align="center">
 
-![MC.fmly](client/resources/icon-transparent.png)
-
 # MC.fmly Inventory System
+
+![MC.fmly](client/resources/icon-transparent.png)
 
 [![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=jhdcruz_MC.fmly-System)](https://sonarcloud.io/dashboard?id=jhdcruz_MC.fmly-System)
 
