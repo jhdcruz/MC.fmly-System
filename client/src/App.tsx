@@ -39,9 +39,9 @@ import Inventory from './views/Inventory';
  * ============================
  */
 const Img = styled(Image)`
-  width: 350px;
-  height: 300px;
-  margin: 25vh 10rem;
+  width: 500px;
+  height: 500px;
+  margin: 13vh 6vw;
   user-select: none;
   -webkit-user-drag: none;
 `;
@@ -82,7 +82,7 @@ const LoginForm = styled(Form)`
   overflow: hidden;
 
   img {
-    margin: 0 20% 5vh 20% !important;
+    margin: 0 20% 2vh 20% !important;
   }
 `;
 
@@ -165,7 +165,7 @@ const App: FC = () => {
   // * Login Form
   return (
     <LoginContainer fluid>
-      <Img src={Brand} alt="Company Logo" rounded />
+      <Img src={Brand} alt="Company Logo" rounded width={500} height={500} />
       <LoginForm
         autoComplete="off"
         autoSave="off"
@@ -173,9 +173,9 @@ const App: FC = () => {
       >
         <Image
           src={Brand}
-          width={130}
-          height={100}
-          alt="Company Logo"
+          width={150}
+          height={150}
+          alt="Rebranded Company Logo"
           rounded
         />
         <Form.Group>
