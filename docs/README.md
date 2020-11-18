@@ -1,3 +1,6 @@
+
+![MC.fmly](logo.png)
+
 # MC.fmly Inventory System
 
 ### Inventory System specifically built for [MC.fmly](https://www.facebook.com/MC.fmly/).
@@ -6,9 +9,10 @@
 
 ## Table of Contents:
 
-#### Tools/Languages
+#### Specification
 
-- [Frameworks](#frameworks)
+- [Architecture](#architecture)
+- [Languages](#languages)
 - [Front-End](#front-end)
 - [Back-End](#back-end)
 - [Database](#database)
@@ -30,7 +34,7 @@
 
 - [License](#license)
 
-## Frameworks:
+## Architecture
 
 [![MERN Stack](https://webassets.mongodb.com/_com_assets/cms/mern-stack-b9q1kbudz0.png)](https://www.mongodb.com/mern-stack)
 
@@ -79,7 +83,7 @@
 - [**WhiteSource Renovate**](https://renovate.whitesourcesoftware.com/) - _Automated Dependency Updates_
 - [**WhiteSource Bolt**](https://whitesourcesoftware.com/free-developer-tools/bolt/) - _Dependency Security_
 
-Boilerplate generated through ejected `create-react-app`.
+> Boilerplate generated through ejected `create-react-app`.
 
 ---
 

@@ -1,5 +1,7 @@
 <div align="center">
 
+![MC.fmly](client/resources/icon-transparent.png)
+
 # MC.fmly Inventory System
 
 [![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=jhdcruz_MC.fmly-System)](https://sonarcloud.io/dashboard?id=jhdcruz_MC.fmly-System)
@@ -26,9 +28,10 @@
 
 ## Table of Contents:
 
-#### Tools/Languages
+#### Specification
 
-- [Frameworks](#frameworks)
+- [Architecture](#architecture)
+- [Languages](#languages)
 - [Front-End](#front-end)
 - [Back-End](#back-end)
 - [Database](#database)
@@ -50,7 +53,7 @@
 
 - [License](#license)
 
-## Frameworks:
+## Architecture
 
 [![MERN Stack](https://webassets.mongodb.com/_com_assets/cms/mern-stack-b9q1kbudz0.png)](https://www.mongodb.com/mern-stack)
 
@@ -99,7 +102,7 @@
 - [**WhiteSource Renovate**](https://renovate.whitesourcesoftware.com/) - _Automated Dependency Updates_
 - [**WhiteSource Bolt**](https://whitesourcesoftware.com/free-developer-tools/bolt/) - _Dependency Security_
 
-Boilerplate generated through ejected `create-react-app`.
+> Boilerplate generated through ejected `create-react-app`.
 
 ---
 
