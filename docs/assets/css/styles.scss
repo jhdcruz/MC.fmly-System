@@ -9,12 +9,12 @@
 }
 
 body {
-  background-color: white;
+  background-color: #1e1e1e;
   -webkit-text-size-adjust: 100%;
   -fx-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
   text-size-adjust: 100%;
-  color: #333;
+  color: #a5a5a5;
   font-family: Helvetica, Arial, freesans, sans-serif;
   font-size: 16px;
   line-height: 1.6;
@@ -57,7 +57,7 @@ kbd,
 pre {
   font-family: monospace, monospace;
   font-size: 1em;
-  color: #333;
+  color: #a5a5a5;
 }
 
 input {
@@ -193,6 +193,8 @@ dd {
 code {
   font-family: Consolas, 'Liberation Mono', Menlo, Courier, monospace;
   font-size: 12px;
+  color: #a5a5a5;
+  background-color: #333333;
 }
 
 pre {
