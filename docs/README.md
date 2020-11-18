@@ -1,7 +1,5 @@
 # MC.fmly Inventory System
 
-![MC.fmly](client/resources/icon-transparent.png)
-
 ### Inventory System specifically built for [MC.fmly](https://www.facebook.com/MC.fmly/).
 
 ---
