@@ -29,8 +29,8 @@ let triggeringProgrammaticBlur = false;
 function createWindow() {
   // Splashscreen
   const splash = new BrowserWindow({
-    width: 310,
-    height: 310,
+    width: 405,
+    height: 405,
     transparent: true,
     frame: false,
     alwaysOnTop: true
