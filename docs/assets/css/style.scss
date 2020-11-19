@@ -2,7 +2,7 @@
 ---
 
 @import '{{ site.theme }}';
-@import 'variables';
+@import 'variables.scss';
 code {
   background-color: $tag-bg-color !important;
   color: $code-snippet-color !important;
