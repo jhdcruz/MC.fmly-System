@@ -16,11 +16,14 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import styled from 'styled-components';
-import { Button } from 'react-bootstrap';
-import { Tag } from './__tables.module';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPen, faTimes } from '@fortawesome/free-solid-svg-icons';
+import styled from "styled-components";
+import { Button } from "react-bootstrap";
+import { Tag } from "./__tables.module";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPen, faTimes } from "@fortawesome/free-solid-svg-icons";
+import CustomModal from "../modals/CustomModal";
+import { useState } from "react";
+import ProductEntry from "../modals/ProductEntry";
 
 const TableRow = styled.tr`
   color: white;
@@ -90,72 +93,94 @@ const ProductControl = styled(Button)`
 `;
 
 export default function ProductRow(product) {
+  const [confimModal, showConfirmModal] = useState(false);
+  const [editModal, showEditModal] = useState(false);
   return (
-    <TableRow className="product" key={product._id}>
-      <TableData className="code" colSpan={1}>
-        <p>
-          <ProductActions>
-            <ProductControl variant="outline-danger">
-              <FontAwesomeIcon icon={faTimes} />
-            </ProductControl>
-            <ProductControl variant="outline-success">
-              <FontAwesomeIcon icon={faPen} />
-            </ProductControl>
-          </ProductActions>
-        </p>
-        {product.code}
-      </TableData>
-      <TableData className="name">{product.name}</TableData>
-      <TableData className="type">
-        <Tag pill variant="secondary">
-          {product.variant}
-        </Tag>
-      </TableData>
-      <TableData className="type">
-        <Tag pill variant="primary">
-          {product.type}
-        </Tag>
-      </TableData>
-      <TableData className="category">
-        <Tag pill variant="info">
-          {product.category}
-        </Tag>
-      </TableData>
-      <TableData className="stock">
-        {/* Quantity Color Indicator */}
-        {(() => {
-          if (product.quantity <= 10) {
-            return (
-              <Tag pill variant="danger">
-                {product.quantity}
-              </Tag>
-            );
-          }
-          if (product.quantity <= 20) {
-            return (
-              <Tag pill variant="warning">
-                {product.quantity}
-              </Tag>
-            );
-          }
-          if (product.quantity <= 300) {
-            return (
-              <Tag pill variant="success">
-                {product.quantity}
-              </Tag>
-            );
-          } else {
-            return (
-              <Tag pill variant="dark">
-                {product.quantity}
-              </Tag>
-            );
-          }
-        })()}
-      </TableData>
-      <TableData className="price">{product.price}</TableData>
-      <TableData className="updatedAt">{product.updatedAt}</TableData>
-      <TableData className="createdAt">{product.createdAt}</TableData>
-    </TableRow>
+    <>
+      {/* Modals */}
+      <CustomModal
+        title="Delete product"
+        message="Are you sure?"
+        show={confimModal}
+        onHide={() => showConfirmModal(false)}
+      />
+      <ProductEntry
+        title="Edit product"
+        show={editModal}
+        onHide={() => showEditModal(false)}
+      />
+      <TableRow className="product" key={product._id}>
+        <TableData className="code" colSpan={1}>
+          <p>
+            <ProductActions>
+              <ProductControl
+                variant="outline-danger"
+                onClick={() => showConfirmModal(true)}
+              >
+                <FontAwesomeIcon icon={faTimes} />
+              </ProductControl>
+              <ProductControl
+                variant="outline-success"
+                onClick={() => showEditModal(true)}
+              >
+                <FontAwesomeIcon icon={faPen} />
+              </ProductControl>
+            </ProductActions>
+          </p>
+          {product.code}
+        </TableData>
+        <TableData className="name">{product.name}</TableData>
+        <TableData className="type">
+          <Tag pill variant="secondary">
+            {product.variant}
+          </Tag>
+        </TableData>
+        <TableData className="type">
+          <Tag pill variant="primary">
+            {product.type}
+          </Tag>
+        </TableData>
+        <TableData className="category">
+          <Tag pill variant="info">
+            {product.category}
+          </Tag>
+        </TableData>
+        <TableData className="stock">
+          {/* Quantity Color Indicator */}
+          {(() => {
+            if (product.quantity <= 10) {
+              return (
+                <Tag pill variant="danger">
+                  {product.quantity}
+                </Tag>
+              );
+            }
+            if (product.quantity <= 20) {
+              return (
+                <Tag pill variant="warning">
+                  {product.quantity}
+                </Tag>
+              );
+            }
+            if (product.quantity <= 300) {
+              return (
+                <Tag pill variant="success">
+                  {product.quantity}
+                </Tag>
+              );
+            } else {
+              return (
+                <Tag pill variant="dark">
+                  {product.quantity}
+                </Tag>
+              );
+            }
+          })()}
+        </TableData>
+        <TableData className="price">{product.price}</TableData>
+        <TableData className="updatedAt">{product.updatedAt}</TableData>
+        <TableData className="createdAt">{product.createdAt}</TableData>
+      </TableRow>
+    </>
   );
 }
