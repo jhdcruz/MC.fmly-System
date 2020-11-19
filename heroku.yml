@@ -1,9 +1,0 @@
-build:
-  docker:
-    web: Dockerfile
-run:
-  web: ts-node ./api/server.js
-  worker:
-    command:
-      - yarn build
-    image: web

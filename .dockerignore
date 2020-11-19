@@ -1,6 +1,0 @@
-.git/
-node_modules/
-api/node_modules
-client/node_modules/
-docker-compose*.yml
-yarn-error.log
