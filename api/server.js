@@ -83,11 +83,12 @@ require('./models/product.model');
 require('./models/supplier.model');
 
 // * Routes Imports
+require('./routes/auth.route')(api);
 require('./routes/user.route')(api);
 require('./routes/product.route')(api);
 require('./routes/supplier.route')(api);
 
-// Main API route
+// * Main API route
 api.get('/api', (req, res) => {
   res.setHeader('Content-Type', 'text/html');
   res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
