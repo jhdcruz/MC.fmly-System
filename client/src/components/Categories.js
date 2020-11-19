@@ -19,8 +19,8 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 import { Col, Nav, Row, Tab } from 'react-bootstrap';
+import SupplierEntry from './modals/SupplierEntry';
 import SearchBar from './common/SearchBar';
-import ProductEntry from './modals/ProductEntry';
 
 const CatalogGrid = styled(Row)`
   display: flex;
@@ -104,10 +104,11 @@ export default function Categories(props) {
           </Nav>
         </CategoryList>
         <CategoryTable>
+          <SupplierEntry show={modal} onHide={() => showModal(false)} />
           <SearchBar
-            modal={
-              <ProductEntry show={modal} onHide={() => showModal(false)} />
-            }
+            modal={() => {
+              showModal(true);
+            }}
           />
           <Tab.Content>{props.tables}</Tab.Content>
         </CategoryTable>

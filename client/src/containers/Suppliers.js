@@ -29,8 +29,11 @@ export default function Suppliers() {
 
   return (
     <>
+      <SupplierEntry show={modal} onHide={() => showModal(false)} />
       <SearchBar
-        modal={<SupplierEntry show={modal} onHide={() => showModal(false)} />}
+        modal={() => {
+          showModal(true);
+        }}
       />
       <CardDeck
         style={{
