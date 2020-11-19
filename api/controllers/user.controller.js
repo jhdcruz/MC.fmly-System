@@ -31,6 +31,30 @@ exports.get = async (req, res) => {
   }
 };
 
+// * GET | Find user by name
+exports.findByName = async (req, res) => {
+  const { name } = req.query;
+  try {
+    const users = await Users.findOne(name, req.body);
+    return res.status(200).send(users);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send(`Cannot find user: ${name}`);
+  }
+};
+
+// * GET | Find user by role
+exports.findByRole = async (req, res) => {
+  const { role } = req.query;
+  try {
+    const users = await Users.findOne(role, req.body);
+    return res.status(200).send(users);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send(`Cannot find ${role} users`);
+  }
+};
+
 // * PUT | Overwrite current user
 exports.put = async (req, res) => {
   const { id } = req.query;

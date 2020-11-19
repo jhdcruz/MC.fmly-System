@@ -31,6 +31,30 @@ exports.get = async (req, res) => {
   }
 };
 
+// * GET | Find supplier by name
+exports.findByName = async (req, res) => {
+  const { name } = req.query;
+  try {
+    const suppliers = await Suppliers.findOne(name, req.body);
+    return res.status(200).send(suppliers);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send(`Cannot find supplier ${name}`);
+  }
+};
+
+// * GET | Find supplier by type
+exports.findByType = async (req, res) => {
+  const { type } = req.query;
+  try {
+    const suppliers = await Suppliers.findOne(type, req.body);
+    return res.status(200).send(suppliers);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send(`Cannot find supplier that supplies: ${type}`);
+  }
+};
+
 // * POST | New Suppliers
 exports.post = async (req, res) => {
   try {

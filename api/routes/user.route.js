@@ -20,6 +20,8 @@ const UserController = require('../controllers/user.controller');
 
 module.exports = (api) => {
   api.get('/api/users', UserController.get);
+  api.get('/api/users/:name', UserController.findByName);
+  api.get('/api/users/:role', UserController.findByRole);
   api.put('/api/users/:id', UserController.put);
   api.delete('/api/users/:id', UserController.delete);
 };

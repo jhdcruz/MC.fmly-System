@@ -27,7 +27,31 @@ exports.get = async (req, res) => {
     return res.status(200).send(products);
   } catch (err) {
     console.error(err);
-      res.status(500).send('Error fetching products');
+    res.status(500).send('Error fetching products');
+  }
+};
+
+// * GET | Product by name
+exports.findByName = async (req, res) => {
+  const { name } = req.query;
+  try {
+    const products = await Products.findOne(name, req.body);
+    return res.status(200).send(products);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send(`Cannot find product ${name}`);
+  }
+};
+
+// * GET | Product by code
+exports.findByCode = async (req, res) => {
+  const { code } = req.query;
+  try {
+    const products = await Products.findOne(code, req.body);
+    return res.status(200).send(products);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send(`Cannot find product ${code}`);
   }
 };
 

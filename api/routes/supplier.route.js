@@ -20,6 +20,8 @@ const SupplierController = require('../controllers/supplier.controller');
 
 module.exports = (api) => {
   api.get('/api/suppliers', SupplierController.get);
+  api.get('/api/suppliers/:name', SupplierController.findByName);
+  api.get('/api/suppliers/:type', SupplierController.findByType);
   api.post('/api/suppliers', SupplierController.post);
   api.put('/api/suppliers/:id', SupplierController.put);
   api.delete('/api/suppliers/:id', SupplierController.delete);
