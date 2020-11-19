@@ -16,20 +16,25 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { Fragment } from "react";
-import { BrowserRouter as Router, Redirect, Route, Switch } from "react-router-dom";
-import Sidebar from "../components/Sidebar";
-import { Container } from "react-bootstrap";
-import routes from "../routes";
-import { AnimatedSwitch } from "react-router-transition";
-import { bounceTransition, mapStyles } from "../components/common/Transition";
-import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
-import "../App.scss";
+import { Fragment } from 'react';
+import {
+  BrowserRouter as Router,
+  Redirect,
+  Route,
+  Switch
+} from 'react-router-dom';
+import Sidebar from '../components/Sidebar';
+import { Container } from 'react-bootstrap';
+import routes from '../routes';
+import { AnimatedSwitch } from 'react-router-transition';
+import { bounceTransition, mapStyles } from '../components/common/Transition';
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import '../App.scss';
 // Routes
-import PointOfSale from "../containers/PointOfSale";
-import Settings from "../containers/Settings";
-import NotFound from "../components/NotFound";
-import TabItem from "../components/TabItem";
+import PointOfSale from '../containers/PointOfSale';
+import Settings from '../containers/Settings';
+import NotFound from '../components/NotFound';
+import TabItem from '../components/TabItem';
 
 export default function Cashier() {
   return (
