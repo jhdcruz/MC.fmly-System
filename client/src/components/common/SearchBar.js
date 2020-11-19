@@ -17,60 +17,123 @@
  */
 
 import styled from 'styled-components';
-import { FormControl, InputGroup } from 'react-bootstrap';
+import {
+  Dropdown,
+  DropdownButton,
+  FormControl,
+  InputGroup
+} from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faPlus, faSearch } from '@fortawesome/free-solid-svg-icons';
 
 const Search = styled.div`
   width: 30vw;
   margin: 3rem 2rem 0 1.5rem;
   position: fixed;
   box-shadow: 0 0 12px #eccec9;
+  background-color: #1e1e1e;
+  color: whitesmoke !important;
+  border-radius: 5rem;
+  outline: none;
+  z-index: 3;
 
-  .search-icons {
+
+  .search-icon {
     background-color: #1e1e1e;
     color: whitesmoke !important;
     padding: 0 10px;
+    outline: none;
   }
 
-  a {
-    color: whitesmoke;
+  .add-icon {
+    background-color: #1e1e1e;
+    color: whitesmoke !important;
+    border-radius: 5rem;
+    outline: none;
   }
+}
 
-  input {
-    margin: 0;
-    font-size: 1.3vw;
+// Dropdown
+.dropdown-toggle {
+  background-color: #1e1e1e;
+  color: whitesmoke;
+  outline: none;
+  border: none;
+  border-right: 1px solid whitesmoke;
+  border-bottom-left-radius: 5rem;
+  border-top-left-radius: 5rem;
+}
+
+// Dropdown list popup
+.show {
+  background-color: #232323;
+  color: whitesmoke;
+  border-radius: 1.5rem;
+  box-shadow: 0 0 10px #e6a195;
+  padding: 0;
+
+  .dropdown-item {
     background-color: #232323;
+    color: #e6a195;
+    border-radius: 1rem;
+    padding: 7px 15px;
+
+    :hover {
+      background-color: #e6a195;
+      color: #1e1e1e;
+    }
+  }
+}
+
+// Searchbar input
+input {
+  margin: 0;
+  font-size: 1.3vw;
+  background-color: #232323;
+  color: whitesmoke;
+  border: none;
+  border-right: 2px inset #d7b9b4;
+  border-radius: 5rem;
+
+  ::placeholder {
+    color: #c4c4c4;
+    font-size: 1.2vw;
+  }
+
+  :active,
+  :focus {
+    background-color: #1b1e21;
     color: whitesmoke;
-    border: none;
-    border-right: 2px inset #d7b9b4;
-
-    ::placeholder {
-      color: #c4c4c4;
-      font-size: 1.2vw;
-    }
-
-    :active,
-    :focus {
-      font-size: 1.2vw;
-      background-color: #1b1e21;
-      color: whitesmoke;
-      border-color: #d7b9b4;
-      box-shadow: 0 0 7px #d7b9b4;
-    }
+    border-color: #d7b9b4;
+    box-shadow: 0 0 7px #d7b9b4;
+  }
 `;
 
 export default function SearchBar() {
   return (
     <Search>
       <InputGroup>
-        <FormControl
-          placeholder="search products..."
-          aria-describedby="searchbar"
-        />
+        {/*Dropdown Category*/}
+        <DropdownButton
+          as={InputGroup.Prepend}
+          title="Filter"
+          id="input-group-dropdown-1"
+        >
+          <Dropdown.Item href="#">Action</Dropdown.Item>
+          <Dropdown.Item href="#">Another action</Dropdown.Item>
+          <Dropdown.Item href="#">Something else here</Dropdown.Item>
+        </DropdownButton>
+
+        {/* Search Input */}
+        <FormControl placeholder="Search" aria-describedby="searchbar" />
+
+        {/* Icon */}
         <InputGroup.Append>
-          <InputGroup.Text className="search-icons" as="button">
+          <InputGroup.Text className="search-icon" as="button">
             <FontAwesomeIcon icon={faSearch} />
+          </InputGroup.Text>
+          <InputGroup.Text className="add-icon" as="button">
+            <FontAwesomeIcon icon={faPlus} />
           </InputGroup.Text>
         </InputGroup.Append>
       </InputGroup>

@@ -18,30 +18,34 @@
 
 import { CardDeck } from 'react-bootstrap';
 import Poster from '../components/Poster';
+import SearchBar from '../components/common/SearchBar';
 import useSuppliers from '../hooks/useSuppliers';
 
 export default function Suppliers() {
   const [suppliers] = useSuppliers();
 
   return (
-    <CardDeck
-      style={{
-        margin: '1rem 0',
-        padding: '1rem 0'
-      }}
-    >
-      {suppliers &&
-        suppliers.map((supplier) => (
-          <Poster
-            icon={supplier.icon}
-            name={supplier.name}
-            description={supplier.description}
-            type={supplier.type}
-            address={supplier.address}
-            website={supplier.website}
-            contact={supplier.contact}
-          />
-        ))}
-    </CardDeck>
+    <>
+      <SearchBar />
+      <CardDeck
+        style={{
+          margin: '4.5rem 0 1rem',
+          padding: '1rem',
+        }}
+      >
+        {suppliers &&
+          suppliers.map((supplier) => (
+            <Poster
+              icon={supplier.icon}
+              name={supplier.name}
+              description={supplier.description}
+              type={supplier.type}
+              address={supplier.address}
+              website={supplier.website}
+              contact={supplier.contact}
+            />
+          ))}
+      </CardDeck>
+    </>
   );
 }
