@@ -153,6 +153,7 @@ export default function ProductRow(product) {
           }
         })()}
       </TableData>
+      <TableData className="price">{product.price}</TableData>
       <TableData className="updatedAt">{product.updatedAt}</TableData>
       <TableData className="createdAt">{product.createdAt}</TableData>
     </TableRow>
