@@ -24,7 +24,7 @@ import {
   Switch
 } from 'react-router-dom';
 import { Container } from 'react-bootstrap';
-import Catalog from '../containers/Catalog';
+import Inventory from '../containers/Inventory';
 import Sidebar from '../components/Sidebar';
 import routes from '../routes';
 import '../App.scss';
@@ -43,7 +43,7 @@ import Suppliers from '../containers/Suppliers';
 import NotFound from '../components/NotFound';
 import TabItem from '../components/TabItem';
 
-export default function Inventory() {
+export default function InventoryClerk() {
   return (
     <Fragment>
       <Fragment>
@@ -61,7 +61,7 @@ export default function Inventory() {
                   <TabItem
                     tab="Catalog"
                     overlay="Catalog"
-                    route={routes.CATALOG}
+                    route={routes.INVENTORY}
                     icon={faBoxes}
                   />
                   <TabItem
@@ -93,7 +93,7 @@ export default function Inventory() {
                     <Redirect from="/" to="/recent" />
                   </Route>
                   <Route path={routes.AUDITLOG} component={AuditLog} />
-                  <Route path={routes.CATALOG} component={Catalog} />
+                  <Route path={routes.INVENTORY} component={Inventory} />
                   <Route path={routes.INVOICES} component={Invoices} />
                   <Route path={routes.SUPPLIERS} component={Suppliers} />
                   <Route path={routes.NOTFOUND} component={NotFound} />

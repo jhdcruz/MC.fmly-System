@@ -36,7 +36,7 @@ import Dashboard from '../containers/Dashboard';
 import AuditLog from '../containers/AuditLog';
 import Invoices from '../containers/Invoices';
 import PointOfSale from '../containers/PointOfSale';
-import Catalog from '../containers/Catalog';
+import Inventory from '../containers/Inventory';
 import Settings from '../containers/Settings';
 import Suppliers from '../containers/Suppliers';
 import {
@@ -45,10 +45,9 @@ import {
   faHistory,
   faHome,
   faShoppingCart,
-  faTruck,
-  faUser
+  faTruck
 } from '@fortawesome/free-solid-svg-icons';
-import Users from "../containers/Users";
+import Users from '../containers/Users';
 
 export default function Admin() {
   return (
@@ -73,7 +72,7 @@ export default function Admin() {
                 <TabItem
                   tab="Catalog"
                   overlay="Catalog"
-                  route={routes.CATALOG}
+                  route={routes.INVENTORY}
                   icon={faBoxes}
                 />
 
@@ -88,12 +87,6 @@ export default function Admin() {
                   overlay="Suppliers"
                   route={routes.SUPPLIERS}
                   icon={faTruck}
-                />
-                <TabItem
-                  tab="User Management"
-                  overlay="User Management"
-                  route={routes.USERS}
-                  icon={faUser}
                 />
                 <TabItem
                   tab="Point of Sale"
@@ -119,7 +112,7 @@ export default function Admin() {
                 </Route>
                 <Route path={routes.DASHBOARD} component={Dashboard} />
                 <Route path={routes.AUDITLOG} component={AuditLog} />
-                <Route path={routes.CATALOG} component={Catalog} />
+                <Route path={routes.INVENTORY} component={Inventory} />
                 <Route path={routes.INVOICES} component={Invoices} />
                 <Route path={routes.SUPPLIERS} component={Suppliers} />
                 <Route path={routes.POS} component={PointOfSale} />

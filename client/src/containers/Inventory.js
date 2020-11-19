@@ -23,7 +23,7 @@ import ProductRow from '../components/tables/ProductRow';
 import Loader from '../components/common/Loader';
 import useProducts from '../hooks/useProducts';
 
-export default function Catalog() {
+export default function Inventory() {
   const [products] = useProducts();
 
   // Removes duplicate properties | category
