@@ -16,15 +16,6 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import styled from 'styled-components';
-// import Button from 'react-bootstrap/Button';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { faPLus } from '@fortawesome/free-solid-svg-icons';
-
-
-export default function Controls() {
-  return (
-      <>
-      </>
-  );
+export default function Users() {
+  return <h1>No content yet.</h1>;
 }
