@@ -16,21 +16,26 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+import { useState } from 'react';
 import { CardDeck } from 'react-bootstrap';
 import Poster from '../components/Poster';
 import SearchBar from '../components/common/SearchBar';
+import SupplierEntry from '../components/modals/SupplierEntry';
 import useSuppliers from '../hooks/useSuppliers';
 
 export default function Suppliers() {
   const [suppliers] = useSuppliers();
+  const [modal, showModal] = useState(false);
 
   return (
     <>
-      <SearchBar />
+      <SearchBar
+        modal={<SupplierEntry show={modal} onHide={() => showModal(false)} />}
+      />
       <CardDeck
         style={{
           margin: '4.5rem 0 1rem',
-          padding: '1rem',
+          padding: '1rem'
         }}
       >
         {suppliers &&

@@ -109,7 +109,7 @@ input {
   }
 `;
 
-export default function SearchBar() {
+export default function SearchBar(props) {
   return (
     <Search>
       <InputGroup>
@@ -132,7 +132,11 @@ export default function SearchBar() {
           <InputGroup.Text className="search-icon" as="button">
             <FontAwesomeIcon icon={faSearch} />
           </InputGroup.Text>
-          <InputGroup.Text className="add-icon" as="button">
+          <InputGroup.Text
+            className="add-icon"
+            as="button"
+            onClick={props.modal}
+          >
             <FontAwesomeIcon icon={faPlus} />
           </InputGroup.Text>
         </InputGroup.Append>

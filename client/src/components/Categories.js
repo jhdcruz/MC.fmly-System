@@ -16,9 +16,11 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+import { useState } from 'react';
 import styled from 'styled-components';
 import { Col, Nav, Row, Tab } from 'react-bootstrap';
 import SearchBar from './common/SearchBar';
+import ProductEntry from './modals/ProductEntry';
 
 const CatalogGrid = styled(Row)`
   display: flex;
@@ -84,6 +86,8 @@ const CategoryLine = styled.label`
 `;
 
 export default function Categories(props) {
+  const [modal, showModal] = useState(false);
+
   return (
     <Tab.Container id="CategorySection" defaultActiveKey="default">
       <CatalogGrid>
@@ -100,7 +104,11 @@ export default function Categories(props) {
           </Nav>
         </CategoryList>
         <CategoryTable>
-          <SearchBar />
+          <SearchBar
+            modal={
+              <ProductEntry show={modal} onHide={() => showModal(false)} />
+            }
+          />
           <Tab.Content>{props.tables}</Tab.Content>
         </CategoryTable>
       </CatalogGrid>
