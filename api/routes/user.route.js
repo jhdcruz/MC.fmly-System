@@ -22,8 +22,4 @@ module.exports = (api) => {
   api.get('/api/users', UserController.get);
   api.put('/api/users/:id', UserController.put);
   api.delete('/api/users/:id', UserController.delete);
-
-  // Authentication
-  api.post('/api/users/login', UserController.login);
-  api.post('/api/users/register', UserController.register);
 };
