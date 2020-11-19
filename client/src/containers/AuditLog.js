@@ -22,7 +22,7 @@ import NarrowTable from '../components/tables/NarrowTable';
 import useProducts from '../hooks/useProducts';
 import { Loader, NullItems } from '../components/tables/__tables.module';
 
-export default function Recent() {
+export default function AuditLog() {
   const [products] = useProducts();
 
   // Verify if there are any products

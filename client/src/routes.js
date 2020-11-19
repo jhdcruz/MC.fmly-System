@@ -1,10 +1,11 @@
 module.exports = {
   DASHBOARD: '/dashboard',
   SYSINFO: '/sysinfo',
-  RECENT: '/recent',
+  AUDITLOG: '/logs',
   CATALOG: '/catalog',
   INVOICES: '/invoices',
-  CONTACTS: '/contacts',
+  SUPPLIERS: '/suppliers',
+  USERS: '/accounts',
   POS: '/pos',
   SETTINGS: '/settings',
   NOTFOUND: '/*'

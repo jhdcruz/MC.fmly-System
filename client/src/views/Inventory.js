@@ -37,7 +37,7 @@ import {
   faTruck
 } from '@fortawesome/free-solid-svg-icons';
 // Views
-import Recent from '../containers/Recent';
+import AuditLog from '../containers/AuditLog';
 import Invoices from '../containers/Invoices';
 import Suppliers from '../containers/Suppliers';
 import NotFound from '../components/NotFound';
@@ -53,27 +53,27 @@ export default function Inventory() {
               navigation={
                 <>
                   <TabItem
-                    tab="System Info"
-                    overlay="System Info"
-                    route={routes.RECENT}
+                    tab="Audit Log"
+                    overlay="Audit Log"
+                    route={routes.AUDITLOG}
                     icon={faHistory}
                   />
                   <TabItem
-                    tab="System Info"
-                    overlay="System Info"
+                    tab="Catalog"
+                    overlay="Catalog"
                     route={routes.CATALOG}
                     icon={faBoxes}
                   />
                   <TabItem
-                    tab="System Info"
-                    overlay="System Info"
+                    tab="Invoices"
+                    overlay="Invoices"
                     route={routes.INVOICES}
                     icon={faFileInvoice}
                   />
                   <TabItem
-                    tab="System Info"
-                    overlay="System Info"
-                    route={routes.CONTACTS}
+                    tab="Suppliers"
+                    overlay="Suppliers"
+                    route={routes.SUPPLIERS}
                     icon={faTruck}
                   />
                 </>
@@ -92,10 +92,10 @@ export default function Inventory() {
                   <Route exact path="/">
                     <Redirect from="/" to="/recent" />
                   </Route>
-                  <Route path={routes.RECENT} component={Recent} />
+                  <Route path={routes.AUDITLOG} component={AuditLog} />
                   <Route path={routes.CATALOG} component={Catalog} />
                   <Route path={routes.INVOICES} component={Invoices} />
-                  <Route path={routes.CONTACTS} component={Suppliers} />
+                  <Route path={routes.SUPPLIERS} component={Suppliers} />
                   <Route path={routes.NOTFOUND} component={NotFound} />
                 </AnimatedSwitch>
               </Switch>

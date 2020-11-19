@@ -33,7 +33,7 @@ import routes from '../routes';
 import '../App.scss';
 // Routes
 import Dashboard from '../containers/Dashboard';
-import Recent from '../containers/Recent';
+import AuditLog from '../containers/AuditLog';
 import Invoices from '../containers/Invoices';
 import PointOfSale from '../containers/PointOfSale';
 import Catalog from '../containers/Catalog';
@@ -45,8 +45,10 @@ import {
   faHistory,
   faHome,
   faShoppingCart,
-  faTruck
+  faTruck,
+  faUser
 } from '@fortawesome/free-solid-svg-icons';
+import Users from "../containers/Users";
 
 export default function Admin() {
   return (
@@ -63,9 +65,9 @@ export default function Admin() {
                   icon={faHome}
                 />
                 <TabItem
-                  tab="Recent"
-                  overlay="Recent"
-                  route={routes.RECENT}
+                  tab="Audit Log"
+                  overlay="Audit Log"
+                  route={routes.AUDITLOG}
                   icon={faHistory}
                 />
                 <TabItem
@@ -84,8 +86,14 @@ export default function Admin() {
                 <TabItem
                   tab="Suppliers"
                   overlay="Suppliers"
-                  route={routes.CONTACTS}
+                  route={routes.SUPPLIERS}
                   icon={faTruck}
+                />
+                <TabItem
+                  tab="User Management"
+                  overlay="User Management"
+                  route={routes.USERS}
+                  icon={faUser}
                 />
                 <TabItem
                   tab="Point of Sale"
@@ -110,11 +118,12 @@ export default function Admin() {
                   <Redirect from="/" to="/dashboard" />
                 </Route>
                 <Route path={routes.DASHBOARD} component={Dashboard} />
-                <Route path={routes.RECENT} component={Recent} />
+                <Route path={routes.AUDITLOG} component={AuditLog} />
                 <Route path={routes.CATALOG} component={Catalog} />
                 <Route path={routes.INVOICES} component={Invoices} />
-                <Route path={routes.CONTACTS} component={Suppliers} />
+                <Route path={routes.SUPPLIERS} component={Suppliers} />
                 <Route path={routes.POS} component={PointOfSale} />
+                <Route path={routes.USERS} component={Users} />
                 <Route path={routes.SETTINGS} component={Settings} />
                 <Route path={routes.NOTFOUND} component={NotFound} />
               </AnimatedSwitch>

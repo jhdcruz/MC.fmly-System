@@ -16,21 +16,33 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { Fragment } from "react";
-import { BrowserRouter as Router, Redirect, Route, Switch } from "react-router-dom";
-import { Container } from "react-bootstrap";
-import Sidebar from "../components/Sidebar";
-import routes from "../routes";
-import "../App.scss";
-import { AnimatedSwitch } from "react-router-transition";
-import { bounceTransition, mapStyles } from "../components/common/Transition";
-import { faChartBar, faServer } from "@fortawesome/free-solid-svg-icons";
+import { Fragment } from 'react';
+import {
+  BrowserRouter as Router,
+  Redirect,
+  Route,
+  Switch
+} from 'react-router-dom';
+import { Container } from 'react-bootstrap';
+import Sidebar from '../components/Sidebar';
+import routes from '../routes';
+import '../App.scss';
+import { AnimatedSwitch } from 'react-router-transition';
+import { bounceTransition, mapStyles } from '../components/common/Transition';
+import {
+  faChartBar,
+  faHistory,
+  faServer,
+  faUser
+} from '@fortawesome/free-solid-svg-icons';
 // Routes
-import Dashboard from "../containers/Dashboard";
-import Settings from "../containers/Settings";
-import SysInfo from "../containers/SysInfo";
-import NotFound from "../components/NotFound";
-import TabItem from "../components/TabItem";
+import Dashboard from '../containers/Dashboard';
+import Settings from '../containers/Settings';
+import SysInfo from '../containers/SysInfo';
+import NotFound from '../components/NotFound';
+import TabItem from '../components/TabItem';
+import AuditLog from '../containers/AuditLog';
+import Users from '../containers/Users';
 
 export default function SysAdmin() {
   return (
@@ -53,6 +65,18 @@ export default function SysAdmin() {
                   route={routes.DASHBOARD}
                   icon={faChartBar}
                 />
+                <TabItem
+                  tab="Audit Log"
+                  overlay="Audit Log"
+                  route={routes.AUDITLOG}
+                  icon={faHistory}
+                />
+                <TabItem
+                  tab="User Management"
+                  overlay="User Management"
+                  route={routes.USERS}
+                  icon={faUser}
+                />
               </>
             }
           />
@@ -72,6 +96,8 @@ export default function SysAdmin() {
                 </Route>
                 <Route exact path={routes.DASHBOARD} component={Dashboard} />
                 <Route path={routes.SYSINFO} component={SysInfo} />
+                <Route path={routes.AUDITLOG} component={AuditLog} />
+                <Route path={routes.USERS} component={Users} />
                 <Route path={routes.SETTINGS} component={Settings} />
                 <Route path={routes.NOTFOUND} component={NotFound} />
               </AnimatedSwitch>
