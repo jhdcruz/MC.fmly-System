@@ -20,7 +20,7 @@ import { Container, Nav } from 'react-bootstrap';
 import styled from 'styled-components';
 import TabItem from './TabItem';
 import routes from '../routes';
-import { faCog, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
+import { faSignOutAlt, faUsers } from '@fortawesome/free-solid-svg-icons';
 
 const SideNav = styled(Container)`
   width: 4.5rem;
@@ -56,10 +56,10 @@ export default function Sidebar(props) {
           {/* Fixed Navigation | All views */}
           <hr />
           <TabItem
-            tab="Settings"
-            overlay="Settings"
-            route={routes.SETTINGS}
-            icon={faCog}
+            tab="User Management"
+            overlay="User Management"
+            route={routes.USERS}
+            icon={faUsers}
           />
           <TabItem
             tab="Logout"
