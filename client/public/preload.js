@@ -18,14 +18,13 @@
 
 window.addEventListener('DOMContentLoaded', () => {
   if (process.platform !== 'darwin') {
-    // eslint-disable-next-line @typescript-eslint/no-var-requires
     const customTitlebar = require('custom-electron-titlebar');
     new customTitlebar.Titlebar({
-      backgroundColor: customTitlebar.Color.fromHex('#222222'),
+      backgroundColor: customTitlebar.Color.fromHex('#1e1e1e'),
       icon: 'favicon.ico',
-      titleHorizontalAlignment: 'left',
-      menu: null,
-      menuPosition: null
+      titleHorizontalAlignment: 'center',
+      menuPosition: 'left',
+      enableMnemonics: 'true'
     });
   }
 });
