@@ -16,11 +16,45 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { SupplierController } from '../controllers/supplier.controller';
+const mongoose = require('mongoose');
+const { Schema } = mongoose;
 
-module.exports = (api: any) => {
-  api.get('/api/suppliers', SupplierController.get);
-  api.post('/api/suppliers', SupplierController.post);
-  api.put('/api/suppliers/:id', SupplierController.put);
-  api.delete('/api/suppliers/:id', SupplierController.delete);
-};
+const supplierSchema = new Schema({
+  icon: {
+    type: String,
+    default:
+      'https://spng.pngfind.com/pngs/s/17-171509_cornerstone-community-bible-church-team-icon-white-png.png',
+    unique: false
+  },
+  name: {
+    type: String,
+    required: true
+  },
+  description: {
+    type: String,
+    default: '',
+    unique: false
+  },
+  type: {
+    type: String,
+    default: '',
+    unique: false
+  },
+  address: {
+    type: String,
+    default: '',
+    unique: false
+  },
+  website: {
+    type: String,
+    default: '',
+    unique: false
+  },
+  contact: {
+    type: String,
+    default: '',
+    unique: false
+  }
+});
+
+mongoose.model('suppliers', supplierSchema);

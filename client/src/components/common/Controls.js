@@ -16,43 +16,15 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import * as mongoose from 'mongoose';
+import styled from 'styled-components';
+// import Button from 'react-bootstrap/Button';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faPLus } from '@fortawesome/free-solid-svg-icons';
 
-const { Schema } = mongoose;
 
-const userSchema = new Schema({
-  username: {
-    type: String,
-    unique: true,
-    required: true,
-    minLength: 4
-  },
-  password: {
-    type: String,
-    required: true,
-    unique: false,
-    trim: true,
-    minLength: 6
-  },
-  name: {
-    type: String,
-    trim: true
-  },
-  role: {
-    type: String,
-    trim: true
-  },
-  permission: {
-    type: String,
-    trim: true,
-    lowercase: true
-  },
-  date: {
-    type: Date,
-    default: Date.now
-  }
-});
-
-mongoose.model('users', userSchema);
-
-export {};
+export default function Controls() {
+  return (
+      <>
+      </>
+  );
+}

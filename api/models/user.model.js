@@ -16,11 +16,40 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { ProductController } from '../controllers/product.controller';
+const mongoose = require('mongoose');
+const { Schema } = mongoose;
 
-module.exports = (api: any) => {
-  api.get('/api/products', ProductController.get);
-  api.post('/api/products', ProductController.post);
-  api.put('/api/products/:id', ProductController.put);
-  api.delete('/api/products/:id', ProductController.delete);
-};
+const userSchema = new Schema({
+  username: {
+    type: String,
+    unique: true,
+    required: true,
+    minLength: 4
+  },
+  password: {
+    type: String,
+    required: true,
+    unique: false,
+    trim: true,
+    minLength: 6
+  },
+  name: {
+    type: String,
+    trim: true
+  },
+  role: {
+    type: String,
+    trim: true
+  },
+  permission: {
+    type: String,
+    trim: true,
+    lowercase: true
+  },
+  date: {
+    type: Date,
+    default: Date.now
+  }
+});
+
+mongoose.model('users', userSchema);

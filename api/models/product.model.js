@@ -16,14 +16,45 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { StrictMode } from 'react';
-import ReactDOM from 'react-dom';
-// import App from './App';
-import Admin from "./views/Admin";
+const mongoose = require('mongoose');
+const { Schema } = mongoose;
 
-ReactDOM.render(
-  <StrictMode>
-    <Admin />
-  </StrictMode>,
-  document.getElementById('root')
+const productSchema = new Schema(
+  {
+    code: {
+      type: String,
+      uppercase: true,
+      unique: true,
+      trim: true
+    },
+    name: {
+      type: String
+    },
+    variant: {
+      type: String,
+      trim: true,
+      caseFirst: 'on'
+    },
+    type: {
+      type: String,
+      trim: true,
+      caseFirst: 'on'
+    },
+    category: {
+      type: String,
+      trim: true,
+      caseFirst: 'on'
+    },
+    quantity: {
+      type: Number,
+      min: 1
+    },
+    price: {
+      type: Number,
+      min: 0
+    }
+  },
+  { timestamps: true }
 );
+
+mongoose.model('products', productSchema);

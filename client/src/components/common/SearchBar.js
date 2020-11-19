@@ -16,11 +16,10 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { FormControl, InputGroup } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlus, faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 const Search = styled.div`
   width: 30vw;
@@ -72,11 +71,6 @@ export default function SearchBar() {
         <InputGroup.Append>
           <InputGroup.Text className="search-icons" as="button">
             <FontAwesomeIcon icon={faSearch} />
-          </InputGroup.Text>
-          <InputGroup.Text className="search-icons" as="button">
-            <Link to="/recent">
-              <FontAwesomeIcon icon={faPlus} />
-            </Link>
           </InputGroup.Text>
         </InputGroup.Append>
       </InputGroup>

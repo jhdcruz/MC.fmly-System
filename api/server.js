@@ -16,33 +16,38 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { NowRequest, NowResponse } from '@vercel/node';
-import * as express from 'express';
-import * as mongoose from 'mongoose';
-import * as bodyParser from 'body-parser';
-import * as cors from 'cors';
-import * as dotenv from 'dotenv';
-
-const Rollbar = require('rollbar');
+const express = require('express');
+const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
+const cors = require('cors');
 const helmet = require('helmet');
+const dotenv = require('dotenv');
 const dotenvExpand = require('dotenv-expand');
+const Sentry = require('@sentry/node');
+const Tracing = require('@sentry/tracing');
 
 // set .env
-const env: unknown = dotenv.config();
+const env = dotenv.config();
 dotenvExpand(env);
 
-// eslint-disable-next-line no-unused-vars
-const rollbar = new Rollbar({
-  accessToken: `${process.env.ROLLBAR_ID}`,
-  captureUncaught: true,
-  captureUnhandledRejections: true
+const api = express();
+const PORT = process.env.PORT || 5000;
+
+// App Monitoring | Sentry
+Sentry.init({
+  dsn: `${process.env.SENTRY_PROJECT_DSN}`,
+  integrations: [
+    // enable HTTP calls tracing
+    new Sentry.Integrations.Http({ tracing: true }),
+    // enable Express.js middleware tracing
+    new Tracing.Integrations.Express({ api })
+  ],
+
+  // We recommend adjusting this value in production, or using tracesSampler
+  // for finer control | tracesSampleRate: 1.0
+  tracesSampleRate: 0.7
 });
 
-// @ts-ignore
-const api: any = express();
-const PORT: Number = parseInt(`${process.env.PORT}`, 10) || 5000;
-
-// @ts-ignore
 mongoose.Promise = global.Promise;
 
 // * HTTP Headers
@@ -61,13 +66,14 @@ mongoose
     useCreateIndex: true
   })
   .then(() => {
+    // * Run server at $PORT
     api.listen(PORT, () => {
       console.log(
         `⚡️ [SERVER]: Server is running at: https://localhost:${PORT}`
       );
     });
   })
-  .catch((err: any) => {
+  .catch((err) => {
     console.error(err);
   });
 
@@ -81,9 +87,40 @@ require('./routes/user.route')(api);
 require('./routes/product.route')(api);
 require('./routes/supplier.route')(api);
 
-api.get('/api', (req: NowRequest, res: NowResponse) => {
+// Main API route
+api.get('/api', (req, res) => {
   res.setHeader('Content-Type', 'text/html');
   res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
+});
+
+// ? RequestHandler creates a separate execution context using domains, so that every
+// ? transaction/span/breadcrumb is attached to its own Hub instance
+api.use(Sentry.Handlers.requestHandler());
+// ? TracingHandler creates a trace for every incoming request
+api.use(Sentry.Handlers.tracingHandler());
+
+// ? The error handler must be before any other error middleware and after all controllers
+api.use(
+  Sentry.Handlers.errorHandler({
+    shouldHandleError(error) {
+      // Capture all 404 and 500 errors
+      return error.status === 404 || error.status === 500;
+    }
+  })
+);
+
+// * Optional fallthrough error handler
+api.use(function onError(
+  err,
+  req,
+  res,
+  // eslint-disable-next-line no-unused-vars
+  next
+) {
+  // ? The error id is attached to `res.sentry` to be returned
+  // ? and optionally displayed to the user for support.
+  res.statusCode = 500;
+  res.end(res.sentry + '\n');
 });
 
 module.exports = api;
