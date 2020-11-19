@@ -23,9 +23,16 @@ jobs:
           name: Update Yarn
           command: 'sudo npm update -g yarn'
       - run:
-          name: Install native build tools
+          name: Prerequisites
           command: |
             sudo apt-get update -y
+            sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+            sudo systemctl unmask docker.service
+            sudo systemctl unmask docker.socket
+            sudo systemctl start docker.service
+      - run:
+          name: Install native build tools
+          command: |
             sudo apt-get install -y dpkg dpkg-dev fakeroot rpm
             sudo apt-get install --no-install-recommends -y gcc-multilib g++-multilib
 
