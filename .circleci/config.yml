@@ -17,16 +17,19 @@ jobs:
       - image: circleci/node:14
     steps:
       - checkout
-      - restore_cache:
-          key: dependency-cache-{{ checksum "package.json" }}
       - run:
           name: Update Yarn
           command: 'sudo npm update -g yarn'
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
       - run:
           name: Install native build tools
           command: |
             sudo apt-get update -y
             sudo apt-get install -y dpkg dpkg-dev fakeroot rpm
+      - run:
+          name: Install dependencies
+          command: 'yarn'
       - save_cache:
           key: dependency-cache-{{ checksum "package.json" }}
           paths:
