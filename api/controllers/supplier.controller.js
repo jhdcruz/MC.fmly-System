@@ -21,7 +21,7 @@ const mongoose = require('mongoose');
 const Suppliers = mongoose.model('suppliers');
 
 // * GET | All Suppliers
-exports.get = async () => {
+exports.get = async (req, res) => {
   try {
     const suppliers = await Suppliers.find();
     return res.status(200).send(suppliers);
@@ -32,7 +32,7 @@ exports.get = async () => {
 };
 
 // * POST | New Suppliers
-exports.post = async () => {
+exports.post = async (req, res) => {
   try {
     const suppliers = await Suppliers.create(req.body);
     return res.status(201).send(suppliers);
@@ -43,7 +43,7 @@ exports.post = async () => {
 };
 
 // * PUT | Overwrite a supplier
-exports.put = async () => {
+exports.put = async (req, res) => {
   const { id } = req.query;
   try {
     const suppliers = await Suppliers.findByIdAndUpdate(id, req.body);
@@ -55,7 +55,7 @@ exports.put = async () => {
 };
 
 // * DELETE | Delete a supplier
-exports.delete = async () => {
+exports.delete = async (req, res) => {
   const { id } = req.query;
   try {
     const suppliers = await Suppliers.findByIdAndDelete(id);

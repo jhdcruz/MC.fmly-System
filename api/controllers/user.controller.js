@@ -17,7 +17,6 @@
  */
 
 const mongoose = require('mongoose');
-const argon2 = require('argon2');
 
 const Users = mongoose.model('users');
 
@@ -55,7 +54,7 @@ exports.put = async (req, res) => {
 };
 
 // * DELETE | user by id
-exports.delete = async () => {
+exports.delete = async (req, res) => {
   const { id } = req.query;
   try {
     const users = await Users.findByIdAndDelete(id);
@@ -63,49 +62,5 @@ exports.delete = async () => {
   } catch (err) {
     console.error(err);
     res.status(500).send(`Error deleting user ${id}`);
-  }
-};
-
-// * POST | User Registration
-exports.register = async () => {
-  console.log(req.body);
-  try {
-    // Hash password on register
-    const hashedPwd = await argon2.hash(req.body.password, {
-      type: argon2.argon2id
-    });
-    const insertResult = await Users.create({
-      username: req.body.username,
-      password: hashedPwd,
-      role: req.body.role,
-      permission: req.body.permission,
-      date: req.body.date
-    });
-    res.status(201).send(insertResult);
-  } catch (err) {
-    console.error(err);
-    res.status(500).send('Internal Server error occured');
-  }
-};
-
-// * POST | User Authentication
-exports.login = async () => {
-  try {
-    const user = await Users.findOne({ username: req.body.username });
-    console.log(user);
-    if (user) {
-      // Dehash password and compare
-      const cmp = await argon2.verify(user.password, req.body.password);
-      if (cmp) {
-        res.status(200).send(user.permission);
-      } else {
-        res.send('Credentials Mismatched!');
-      }
-    } else {
-      res.send('Credentials Mismatched!');
-    }
-  } catch (err) {
-    console.error(err);
-    res.status(500).send('Internal Server error occured');
   }
 };

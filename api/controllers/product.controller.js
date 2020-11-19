@@ -21,18 +21,18 @@ const mongoose = require('mongoose');
 const Products = mongoose.model('products');
 
 // * GET | All Product
-exports.get = async () => {
+exports.get = async (req, res) => {
   try {
     const products = await Products.find();
     return res.status(200).send(products);
   } catch (err) {
     console.error(err);
-    res.status(500).send('Error fetching products');
+      res.status(500).send('Error fetching products');
   }
 };
 
 // * POST | New Product/s
-exports.post = async () => {
+exports.post = async (req, res) => {
   try {
     const products = await Products.create(req.body);
     return res.status(201).send(products);
@@ -43,7 +43,7 @@ exports.post = async () => {
 };
 
 // * PUT | Overwrite a product
-exports.put = async () => {
+exports.put = async (req, res) => {
   const { id } = req.query;
   try {
     const products = await Products.findByIdAndUpdate(id, req.body);
@@ -55,7 +55,7 @@ exports.put = async () => {
 };
 
 // * DELETE | Product by id
-exports.delete = async () => {
+exports.delete = async (req, res) => {
   const { id } = req.query;
   try {
     const products = await Products.findByIdAndDelete(id);
