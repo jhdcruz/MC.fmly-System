@@ -18,8 +18,8 @@
 
 import { Nav, Tab } from 'react-bootstrap';
 import Categories from '../components/Categories';
-import ExtendedTable from '../components/tables/ExtendedTable';
-import ExtendedProduct from '../components/tables/ExtendedProduct';
+import ProductTable from '../components/tables/ProductHeader';
+import ProductRow from '../components/tables/ProductRow';
 import Loader from '../components/common/Loader';
 import useProducts from '../hooks/useProducts';
 
@@ -60,12 +60,12 @@ export default function Catalog() {
                 key={categories.category}
                 eventKey={categories.category}
               >
-                <ExtendedTable
+                <ProductTable
                   data={
                     products &&
                     products
                       .filter((pane) => pane.category === categories.category)
-                      .map((product) => ExtendedProduct(product))
+                      .map((product) => ProductRow(product))
                   }
                 />
               </Tab.Pane>
@@ -84,10 +84,10 @@ export default function Catalog() {
           {products &&
             productTypes.map((types) => (
               <Tab.Pane key={types.type} eventKey={types.type}>
-                <ExtendedTable
+                <ProductTable
                   data={products
                     .filter((pane) => pane.type === types.type)
-                    .map((product) => ExtendedProduct(product))}
+                    .map((product) => ProductRow(product))}
                 />
               </Tab.Pane>
             ))}
@@ -103,9 +103,9 @@ export default function Catalog() {
     return (
       <>
         <Tab.Pane eventKey="default">
-          <ExtendedTable
+          <ProductTable
             data={
-              products && products.map((product) => ExtendedProduct(product))
+              products && products.map((product) => ProductRow(product))
             }
           />
         </Tab.Pane>

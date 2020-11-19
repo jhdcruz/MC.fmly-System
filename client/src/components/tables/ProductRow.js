@@ -89,7 +89,7 @@ const ProductControl = styled(Button)`
   border: none;
 `;
 
-export default function ExtendedProduct(product) {
+export default function ProductRow(product) {
   return (
     <TableRow className="product" key={product._id}>
       <TableData className="code" colSpan={1}>

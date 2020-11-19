@@ -25,7 +25,7 @@ import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
 const TableContainer = createGlobalStyle`
   div.table-responsive {
     display: inline-flex !important;
-    width: 115vw;
+    width: 120vw;
     height: 100%;
     padding: 0 0 0 0.5rem !important;
     margin: 0 2rem 0 0;
@@ -61,7 +61,7 @@ const ProductTable = styled(Table)`
   }
 `;
 
-export default function ExtendedTable(props) {
+export default function ProductHeader(props) {
   return (
     <>
       <TableContainer />
@@ -94,7 +94,7 @@ export default function ExtendedTable(props) {
             </TableHeader>
           </tr>
         </thead>
-        {/* Insert Dynamic data | containers */}
+        {/* Insert Dynamic data | containers/ */}
         <tbody>{props.data}</tbody>
       </ProductTable>
     </>
