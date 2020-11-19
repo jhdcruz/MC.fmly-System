@@ -72,7 +72,7 @@ const LoginContainer = styled(Container)`
 
 const LoginForm = styled(Form)`
   color: whitesmoke;
-  background-color: rgba(40, 40, 40, 0.6);
+  background-color: rgba(20, 20, 20, 0.6);
   box-shadow: -7px 0 7px #333333;
   margin: 0;
   height: 100vh;
@@ -124,7 +124,7 @@ export default function App() {
   // * Auth Handler
   const userVerify = useCallback((username, password) => {
     axios
-      .post(`/api/users/login`, username, password)
+      .post(`/api/auth/login`, username, password)
       .then((res) => {
         console.log(res);
         if (res.data === 'Credentials Mismatched!') {
