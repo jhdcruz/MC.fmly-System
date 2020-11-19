@@ -60,7 +60,7 @@ export default function Poster(props) {
     <CardBlock>
       <Card.Body>
         <Card.Title>
-          <Image src={props.icon} alt="Supplier Icon" width={50} height={50} />
+          <Image src={props.icon} alt="Supplier Icon" width={40} height={40} />
           <strong>{props.name}</strong>
         </Card.Title>
       </Card.Body>
