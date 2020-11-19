@@ -138,7 +138,7 @@ export default function App() {
         window.alert(err);
         window.alert('Please contact the System Administrator!');
       });
-  }, []);
+  });
 
   // * Forgot Credentials/Password Alert
   const forgotCreds = (e) => {
@@ -208,7 +208,7 @@ export default function App() {
           <a
             href="#"
             className="primary float-left"
-            onClick={() => forgotCreds}
+            onClick={forgotCreds}
             tabIndex={4}
           >
             Forgot credentials
