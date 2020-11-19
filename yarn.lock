@@ -1576,7 +1576,7 @@
     "@sentry/types" "5.27.4"
     tslib "^1.9.3"
 
-"@sentry/node@^5.27.4":
+"@sentry/node@5.27.4":
   version "5.27.4"
   resolved "https://registry.yarnpkg.com/@sentry/node/-/node-5.27.4.tgz#7fe327a45f865bff7c4b7f0d74d94506ec0a05bc"
   integrity sha512-fv3FfQ6FiNV56LKk6t48oNw8qgf7X5fEhqhvKAoU7w+BL9AhChzh9v7sWn9ppDtRFE45tFfsZh0J/8ox5jpnfQ==
@@ -1591,7 +1591,7 @@
     lru_map "^0.3.3"
     tslib "^1.9.3"
 
-"@sentry/react@^5.27.4":
+"@sentry/react@5.27.4":
   version "5.27.4"
   resolved "https://registry.yarnpkg.com/@sentry/react/-/react-5.27.4.tgz#757983dda2b2c8782d4c3a73c85806bb21ec93ed"
   integrity sha512-nRv/u2nP4cQMWu1Gybv7izIl2VwcM6s6P2hco9RlxrCJUpQIUuHRo4yWqDn+G1Xxdr511yY8p4JR+ESBaRGJFg==
@@ -1603,7 +1603,7 @@
     hoist-non-react-statics "^3.3.2"
     tslib "^1.9.3"
 
-"@sentry/tracing@5.27.4", "@sentry/tracing@^5.27.4":
+"@sentry/tracing@5.27.4":
   version "5.27.4"
   resolved "https://registry.yarnpkg.com/@sentry/tracing/-/tracing-5.27.4.tgz#0f6b0ebfa90b9f5bf5bac1fcf0f196010dbdddac"
   integrity sha512-f3nG8ozCdcbFOzsnBCZ8w+/WfoNiAd0Ctr643L0rsFbaSzPWxbPMe3LNVrWwFVo6mHacG3/2HYmJ3CYMiWyTKQ==
