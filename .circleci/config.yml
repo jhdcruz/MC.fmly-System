@@ -23,39 +23,19 @@ jobs:
           name: Update Yarn
           command: 'sudo npm update -g yarn'
       - run:
-          name: Prerequisites
-          command: |
-            sudo apt-get update -y
-            sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common
-            sudo systemctl unmask docker.service
-            sudo systemctl unmask docker.socket
-            sudo systemctl start docker.service
-      - run:
           name: Install native build tools
           command: |
+            sudo apt-get update -y
             sudo apt-get install -y dpkg dpkg-dev fakeroot rpm
-            sudo apt-get install --no-install-recommends -y gcc-multilib g++-multilib
-
-      - run:
-          name: Compile platform build (linux, win)
-          command: |
-            docker run --rm -ti \
-            --env-file <(env | grep -iE 'DEBUG|NODE_|ELECTRON_|YARN_|NPM_|CI|CIRCLE|TRAVIS_TAG|TRAVIS|TRAVIS_REPO_|TRAVIS_BUILD_|TRAVIS_BRANCH|TRAVIS_PULL_REQUEST_|APPVEYOR_|CSC_|GH_|GITHUB_|BT_|AWS_|STRIP|BUILD_') \
-            --env ELECTRON_CACHE="/root/.cache/electron" \
-            --env ELECTRON_BUILDER_CACHE="/root/.cache/electron-builder" \
-            -v ${PWD}:/project \
-            -v ${PWD##*/}-node-modules:/project/node_modules \
-            -v ~/.cache/electron:/root/.cache/electron \
-            -v ~/.cache/electron-builder:/root/.cache/electron-builder \
-            electronuserland/builder:wine
-            /bin/bash -c "yarn --link-duplicates --pure-lockfile && yarn workspace client package-win && yarn workspace client package-linux"
       - save_cache:
           key: dependency-cache-{{ checksum "package.json" }}
           paths:
             - ./node_modules
+      - run:
+          name: Compile build
+          command: yarn workspace client package-ci
       - store_artifacts:
           path: ~/repo/release/
-      - sonarcloud/scan
 #     - codecov/upload:
 #         file: coverage
 
