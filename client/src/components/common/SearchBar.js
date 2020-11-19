@@ -16,15 +16,10 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import styled from 'styled-components';
-import {
-  Dropdown,
-  DropdownButton,
-  FormControl,
-  InputGroup
-} from 'react-bootstrap';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlus, faSearch } from '@fortawesome/free-solid-svg-icons';
+import styled from "styled-components";
+import { DropdownButton, FormControl, InputGroup } from "react-bootstrap";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus, faSearch } from "@fortawesome/free-solid-svg-icons";
 
 const Search = styled.div`
   width: 30vw;
@@ -69,18 +64,18 @@ const Search = styled.div`
   background-color: #232323;
   color: whitesmoke;
   border-radius: 1.5rem;
-  box-shadow: 0 0 10px #e6a195;
+  box-shadow: 0 0 10px #eccec9;
   padding: 0;
 
   .dropdown-item {
     background-color: #232323;
-    color: #e6a195;
+    color: whitesmoke;
     border-radius: 1rem;
     padding: 7px 15px;
 
     :hover {
-      background-color: #e6a195;
-      color: #1e1e1e;
+      background-color: #111111;
+      color: whitesmoke;
     }
   }
 }
@@ -119,9 +114,7 @@ export default function SearchBar(props) {
           title="Filter"
           id="input-group-dropdown-1"
         >
-          <Dropdown.Item href="#">Action</Dropdown.Item>
-          <Dropdown.Item href="#">Another action</Dropdown.Item>
-          <Dropdown.Item href="#">Something else here</Dropdown.Item>
+          {props.filter}
         </DropdownButton>
 
         {/* Search Input */}
