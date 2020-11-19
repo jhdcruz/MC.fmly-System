@@ -33,7 +33,7 @@ services:
 
 volumes:
   mcfmly-ims-api:
-    name: mcfmly-ims-adbpi
+    name: mcfmly-ims-db
 
 networks:
   mcfmly-ims-api-network:
