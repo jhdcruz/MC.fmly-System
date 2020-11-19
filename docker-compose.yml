@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  mcfmly-ims-db:
+    image: mongo
+    restart: always
+    container_name: mcfmly-ims-db
+    ports:
+      - 27017:27017
+    volumes:
+      - mcfmly-ims-db:/data/db
+    networks:
+      - mcfmly-ims-db-network
+
+  mcfmly-ims-app:
+    image: jhdcruz/mcfmly-ims:prod
+    build:
+      context: .
+      target: dev
+    container_name: mcfmly-ims-app
+    restart: always
+    volumes:
+      - .:/app
+    ports:
+      - '5000:5000'
+      - '3000:3000'
+    depends_on:
+      - mcfmly-ims-db
+    environment:
+      - MONGO_URL=${MONGO_ADMIN}
+    networks:
+      - mcfmly-ims-db-network
+
+volumes:
+  mcfmly-ims-api:
+    name: mcfmly-ims-adbpi
+
+networks:
+  mcfmly-ims-api-network:
+    name: mcfmly-ims-db-network
