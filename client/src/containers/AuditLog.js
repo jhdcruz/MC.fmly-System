@@ -16,51 +16,6 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { Container } from 'react-bootstrap';
-import NarrowProduct from '../components/tables/NarrowProduct';
-import NarrowTable from '../components/tables/NarrowTable';
-import useProducts from '../hooks/useProducts';
-import { Loader, NullItems } from '../components/tables/__tables.module';
-
 export default function AuditLog() {
-  const [products] = useProducts();
-
-  // Verify if there are any products
-  const listProducts = () => {
-    return (
-      <>
-        {products && products.length >= 1 ? (
-          // Reverse & limit result to 10 | prioritize new entries
-          products &&
-          products
-            .slice(Math.max(products.length - 10, 0))
-            .reverse()
-            .map((product) => NarrowProduct(product))
-        ) : (
-          <Loader variant="primary" animation="border" role="status" />
-        )}
-      </>
-    );
-  };
-
-  return (
-    <Container
-      fluid
-      style={{
-        width: '100%',
-        height: '100vh'
-      }}
-    >
-      <NarrowTable
-        data={
-          // Check if there are any product/s
-          products && products.length === null ? (
-            <NullItems> No products registered...</NullItems>
-          ) : (
-            listProducts()
-          )
-        }
-      />
-    </Container>
-  );
+  return <h1>Under revision...</h1>;
 }
