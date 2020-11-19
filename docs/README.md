@@ -1,5 +1,7 @@
 # MC.fmly Inventory System
 
+![MC.fmly](client/resources/icon-transparent.png)
+
 ### Inventory System specifically built for [MC.fmly](https://www.facebook.com/MC.fmly/).
 
 ---
@@ -39,8 +41,7 @@
 
 ### Languages:
 
-- [**JavaScript (ES2019)**](https://www.ecma-international.org/publications/standards/Ecma-262.htm) - _Front-End (Client)_
-- [**TypeScript v4.0**](https://www.typescriptlang.org/) - _Back-End (API)_
+- [**JavaScript (ES2019/JSX)**](https://www.ecma-international.org/publications/standards/Ecma-262.htm) - _Main implementation_
 - **HTML5** - _Compiled UI handler_
 - **CSS3** - _Stylesheet_
 
@@ -59,7 +60,7 @@
 
 - [**Express**](https://expressjs.com) - _Server-side Framework_
 - [**Axios**](https://github.com/axios/axios) - _HTTP Client_
-- [**Mongoose**](https:/mongoosejs.com) - _Object Modeling_
+- [**Mongoose**](https://mongoosejs.com) - _Object Modeling_
 - [**`node-argon2`**](https://github.com/ranisalt/node-argon2) - _Node.js bindings for `Argon2` hashing algorithm_
   - [`Argon2`](https://github.com/P-H-C/phc-winner-argon2) - A password-hashing function that summarizes the **state of
     the art in the design** of memory-hard functions and can be used to hash passwords for credential storage, key
@@ -113,7 +114,7 @@ sudo apt install dpkg dpkg-dev
 
 ```shell
 sudo yum install rpm
-``` 
+```
 
 replace `yum` with your distro package provider.
 
