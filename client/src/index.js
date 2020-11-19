@@ -18,8 +18,20 @@
 
 import { StrictMode } from 'react';
 import ReactDOM from 'react-dom';
+import * as Sentry from '@sentry/react';
+import { Integrations } from '@sentry/tracing';
 // import App from './App';
-import Admin from "./views/Admin";
+import Admin from './views/Admin';
+
+Sentry.init({
+  dsn:
+    'https://de6f628b7cf441dab8f6c9733de1e8fd@o187933.ingest.sentry.io/5523255',
+  integrations: [new Integrations.BrowserTracing()],
+
+  // We recommend adjusting this value in production, or using tracesSampler
+  // for finer control | tracesSampleRate: 1.0
+  tracesSampleRate: 7.0
+});
 
 ReactDOM.render(
   <StrictMode>

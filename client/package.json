@@ -31,6 +31,8 @@
     ]
   },
   "dependencies": {
+    "@sentry/react": "5.27.4",
+    "@sentry/tracing": "5.27.4",
     "@treverix/remote": "0.1.1",
     "axios": "0.21.0",
     "custom-electron-titlebar": "3.2.5",
