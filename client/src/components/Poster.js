@@ -16,16 +16,18 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { Card, Image, ListGroup, ListGroupItem } from "react-bootstrap";
-import styled from "styled-components";
+import { Card, Image, ListGroup, ListGroupItem } from 'react-bootstrap';
+import styled from 'styled-components';
 
 const CardBlock = styled(Card)`
   background-color: #1e1e1e;
   color: #d2d2d2;
   box-shadow: 0 3px 6px #232323;
-  padding: 2px !important;
+  padding: 1rem !important;
   margin: 2rem 1rem 2rem 0 !important;
   height: max-content;
+  border-radius: 3rem;
+  z-index: 1;
 
   .card-body {
     padding: 1rem 1.25rem 0.5rem 1.25rem;
