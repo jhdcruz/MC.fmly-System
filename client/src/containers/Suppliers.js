@@ -17,7 +17,7 @@
  */
 
 import { useState } from 'react';
-import { CardDeck } from 'react-bootstrap';
+import { CardDeck, Dropdown } from 'react-bootstrap';
 import Poster from '../components/Poster';
 import SearchBar from '../components/common/SearchBar';
 import SupplierEntry from '../components/modals/SupplierEntry';
@@ -29,11 +29,25 @@ export default function Suppliers() {
 
   return (
     <>
-      <SupplierEntry show={modal} onHide={() => showModal(false)} />
+      {/* Modal */}
+      <SupplierEntry
+        title="Add new supplier"
+        show={modal}
+        onHide={() => showModal(false)}
+      />
+
+      {/* Modal Handler */}
       <SearchBar
         modal={() => {
           showModal(true);
         }}
+        filter={
+          <>
+            {/* Filter Types */}
+            <Dropdown.Item href="#">Name</Dropdown.Item>
+            <Dropdown.Item href="#">Type</Dropdown.Item>
+          </>
+        }
       />
       <CardDeck
         style={{

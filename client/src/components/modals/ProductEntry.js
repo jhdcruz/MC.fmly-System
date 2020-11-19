@@ -17,10 +17,11 @@
  */
 
 import { Button, Modal } from 'react-bootstrap';
+import { ModalContent } from "./__modals.module";
 
 export default function ProductEntry(props) {
   return (
-    <Modal
+    <ModalContent
       {...props}
       size="lg"
       aria-labelledby="contained-modal-title-vcenter"
@@ -42,6 +43,6 @@ export default function ProductEntry(props) {
       <Modal.Footer>
         <Button onClick={props.onHide}>Close</Button>
       </Modal.Footer>
-    </Modal>
+    </ModalContent>
   );
 }

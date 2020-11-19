@@ -18,7 +18,7 @@
 
 import { useState } from 'react';
 import styled from 'styled-components';
-import { Col, Nav, Row, Tab } from 'react-bootstrap';
+import { Col, Dropdown, Nav, Row, Tab } from 'react-bootstrap';
 import SupplierEntry from './modals/SupplierEntry';
 import SearchBar from './common/SearchBar';
 
@@ -104,11 +104,21 @@ export default function Categories(props) {
           </Nav>
         </CategoryList>
         <CategoryTable>
-          <SupplierEntry show={modal} onHide={() => showModal(false)} />
+          <SupplierEntry
+            title="Add new product"
+            show={modal}
+            onHide={() => showModal(false)}
+          />
           <SearchBar
             modal={() => {
               showModal(true);
             }}
+            filter={
+              <>
+                <Dropdown.Item href="#">Code</Dropdown.Item>
+                <Dropdown.Item href="#">Name</Dropdown.Item>
+              </>
+            }
           />
           <Tab.Content>{props.tables}</Tab.Content>
         </CategoryTable>
