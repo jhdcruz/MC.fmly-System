@@ -1,5 +1,7 @@
 {
-bas
+  "baseBranch": [
+    "main"
+  ]
   "checkRunSettings": {
     "vulnerableCheckRunConclusionLevel": "failure",
     "displayMode": "diff"
