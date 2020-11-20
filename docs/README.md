@@ -78,7 +78,7 @@
 - [**GitHub Actions**](https://github.com/features/actions) - _Continuous Integration (Fallback)_
 - [**CodeFactor**](https://codefactor.io) - _Code Review_
 - [**SonarCloud**](https://sonarcloud.io/) - _Code Quality & Security_
-- [**Rollbar**](https://rollbar.com) - _Application Monitoring_
+- [**Sentry**](https://sentry.io) - _Application Monitoring_
 - [**WhiteSource Renovate**](https://renovate.whitesourcesoftware.com/) - _Automated Dependency Updates_
 - [**WhiteSource Bolt**](https://whitesourcesoftware.com/free-developer-tools/bolt/) - _Dependency Security_
 
