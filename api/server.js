@@ -56,8 +56,6 @@ api.use(helmet());
 api.use(bodyParser.urlencoded({ extended: false }));
 api.use(bodyParser.json());
 
-api.options('*', cors());
-
 // * Connect to the Database || MongoDB Atlas
 mongoose
   .connect(`${process.env.MONGO_ADMIN}` || `${process.env.MONGO_URL}`, {
@@ -77,6 +75,22 @@ mongoose
     console.error(err);
   });
 
+// ? RequestHandler creates a separate execution context using domains, so that every
+// ? transaction/span/breadcrumb is attached to its own Hub instance
+api.use(Sentry.Handlers.requestHandler());
+// ? TracingHandler creates a trace for every incoming request
+api.use(Sentry.Handlers.tracingHandler());
+
+// ? The error handler must be before any other error middleware and after all controllers
+api.use(
+  Sentry.Handlers.errorHandler({
+    shouldHandleError(error) {
+      // Capture all 404 and 500 errors
+      return error.status === 404 || error.status === 500;
+    }
+  })
+);
+
 // * Model Imports
 require('./models/user.model');
 require('./models/product.model');
@@ -93,22 +107,6 @@ api.get('/api', (req, res) => {
   res.setHeader('Content-Type', 'text/html');
   res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
 });
-
-// ? RequestHandler creates a separate execution context using domains, so that every
-// ? transaction/span/breadcrumb is attached to its own Hub instance
-api.use(Sentry.Handlers.requestHandler());
-// ? TracingHandler creates a trace for every incoming request
-api.use(Sentry.Handlers.tracingHandler());
-
-// ? The error handler must be before any other error middleware and after all controllers
-api.use(
-  Sentry.Handlers.errorHandler({
-    shouldHandleError(error) {
-      // Capture all 404 and 500 errors
-      return error.status === 404 || error.status === 500;
-    }
-  })
-);
 
 // * Optional fallthrough error handler
 api.use(function onError(
