@@ -16,37 +16,34 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { Fragment } from 'react';
-import {
-  BrowserRouter as Router,
-  Redirect,
-  Route,
-  Switch
-} from 'react-router-dom';
-import Container from 'react-bootstrap/Container';
-import Sidebar from '../components/Sidebar';
-import TabItem from '../components/TabItem';
-import NotFound from '../components/NotFound';
-import { AnimatedSwitch } from 'react-router-transition';
-import { bounceTransition, mapStyles } from '../components/common/Transition';
-import routes from '../routes';
-import '../App.scss';
+import { Fragment } from "react";
+import { BrowserRouter as Router, Redirect, Route, Switch } from "react-router-dom";
+import Container from "react-bootstrap/Container";
+import Sidebar from "../components/Sidebar";
+import TabItem from "../components/TabItem";
+import NotFound from "../components/NotFound";
+import { AnimatedSwitch } from "react-router-transition";
+import { bounceTransition, mapStyles } from "../components/common/Transition";
+import routes from "../routes";
+import "../App.scss";
 // Routes
-import Dashboard from '../containers/Dashboard';
-import AuditLog from '../containers/AuditLog';
-import Invoices from '../containers/Invoices';
-import PointOfSale from '../containers/PointOfSale';
-import Inventory from '../containers/Inventory';
-import Suppliers from '../containers/Suppliers';
+import Dashboard from "../containers/Dashboard";
+import SysInfo from "../containers/SysInfo";
+import AuditLog from "../containers/AuditLog";
+import Invoices from "../containers/Invoices";
+import PointOfSale from "../containers/PointOfSale";
+import Inventory from "../containers/Inventory";
+import Suppliers from "../containers/Suppliers";
+import Users from "../containers/Users";
 import {
   faBoxes,
   faFileInvoice,
   faHistory,
   faHome,
+  faServer,
   faShoppingCart,
   faTruck
-} from '@fortawesome/free-solid-svg-icons';
-import Users from '../containers/Users';
+} from "@fortawesome/free-solid-svg-icons";
 
 export default function Admin() {
   return (
@@ -61,6 +58,12 @@ export default function Admin() {
                   overlay="Dashboard"
                   route={routes.DASHBOARD}
                   icon={faHome}
+                />
+                <TabItem
+                  tab="System Info"
+                  overlay="System Info"
+                  route={routes.SYSINFO}
+                  icon={faServer}
                 />
                 <TabItem
                   tab="Audit Log"
@@ -109,6 +112,7 @@ export default function Admin() {
                   <Redirect from="/" to="/dashboard" />
                 </Route>
                 <Route path={routes.DASHBOARD} component={Dashboard} />
+                <Route path={routes.SYSINFO} component={SysInfo} />
                 <Route path={routes.AUDITLOG} component={AuditLog} />
                 <Route path={routes.INVENTORY} component={Inventory} />
                 <Route path={routes.INVOICES} component={Invoices} />
