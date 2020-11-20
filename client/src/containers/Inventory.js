@@ -21,55 +21,47 @@ import Categories from '../components/Categories';
 import ProductTable from '../components/tables/ProductHeader';
 import ProductRow from '../components/tables/ProductRow';
 import Loader from '../components/common/Loader';
-import useProducts from '../hooks/useProducts';
+// import useProducts from '../hooks/useProducts';
+// Mock Data
+import products from '../__mocks__/products.json';
+import Notification from '../components/common/Notification';
 
 export default function Inventory() {
-  const [products] = useProducts();
+  // const [products] = useProducts();
 
   // Removes duplicate properties | category
-  const productCategories =
-    products &&
-    products
-      .filter(
-        (items, index, self) =>
-          index ===
-          self.findIndex((deduped) => deduped.category === items.category)
-      )
-      // Sort items
-      .reverse();
+  const productCategories = products
+    .filter(
+      (items, index, self) =>
+        index ===
+        self.findIndex((deduped) => deduped.category === items.category)
+    )
+    // Sort items
+    .sort();
 
   // Removes duplicate properties | type
-  const productTypes =
-    products &&
-    products
-      .filter(
-        (items, index, self) =>
-          index === self.findIndex((deduped) => deduped.type === items.type)
-      )
-      // Sort items
-      .reverse();
+  const productTypes = products
+    .filter(
+      (items, index, self) =>
+        index === self.findIndex((deduped) => deduped.type === items.type)
+    )
+    // Sort items
+    .sort();
 
   // Filter products by product category
   const CategoryFilter = () => {
-    if (products && products.length !== 0) {
+    if (products.length !== null) {
       return (
         <>
-          {products &&
-            productCategories.map((categories) => (
-              <Tab.Pane
-                key={categories.category}
-                eventKey={categories.category}
-              >
-                <ProductTable
-                  data={
-                    products &&
-                    products
-                      .filter((pane) => pane.category === categories.category)
-                      .map((product) => ProductRow(product))
-                  }
-                />
-              </Tab.Pane>
-            ))}
+          {productCategories.map((categories) => (
+            <Tab.Pane key={categories.category} eventKey={categories.category}>
+              <ProductTable
+                data={products
+                  .filter((pane) => pane.category === categories.category)
+                  .map((product) => ProductRow(product))}
+              />
+            </Tab.Pane>
+          ))}
         </>
       );
     }
@@ -78,19 +70,18 @@ export default function Inventory() {
 
   // Filter products by product types
   const TypeFilter = () => {
-    if (products && products.length !== null) {
+    if (products.length !== null) {
       return (
         <>
-          {products &&
-            productTypes.map((types) => (
-              <Tab.Pane key={types.type} eventKey={types.type}>
-                <ProductTable
-                  data={products
-                    .filter((pane) => pane.type === types.type)
-                    .map((product) => ProductRow(product))}
-                />
-              </Tab.Pane>
-            ))}
+          {productTypes.map((types) => (
+            <Tab.Pane key={types.type} eventKey={types.type}>
+              <ProductTable
+                data={products
+                  .filter((pane) => pane.type === types.type)
+                  .map((product) => ProductRow(product))}
+              />
+            </Tab.Pane>
+          ))}
         </>
       );
     }
@@ -103,11 +94,7 @@ export default function Inventory() {
     return (
       <>
         <Tab.Pane eventKey="default">
-          <ProductTable
-            data={
-              products && products.map((product) => ProductRow(product))
-            }
-          />
+          <ProductTable data={products.map((product) => ProductRow(product))} />
         </Tab.Pane>
         <CategoryFilter />
         <TypeFilter />
@@ -121,7 +108,6 @@ export default function Inventory() {
       <Categories
         categories={
           // list `category` data
-          products &&
           productCategories.map((product) => (
             <Nav.Item key={product.category}>
               <Nav.Link eventKey={product.category}>
@@ -132,7 +118,6 @@ export default function Inventory() {
         }
         types={
           // list `type` data
-          productTypes &&
           productTypes.map((product) => (
             <Nav.Item key={product.type}>
               <Nav.Link eventKey={product.type}>{product.type}</Nav.Link>
@@ -140,6 +125,11 @@ export default function Inventory() {
           ))
         }
         tables={<TableRoutes />}
+      />
+      <Notification
+        delay={10000}
+        title="Notice"
+        message="This is a mock data until API's problem is resolved. ~99 Products is too much for client-side loading, ~1m hang time."
       />
     </>
   );

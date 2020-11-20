@@ -24,6 +24,7 @@ import {
   TotalProducts,
   TotalSuppliers
 } from '../components/charts/MongoWidgets';
+import Notification from '../components/common/Notification';
 
 export default function Dashboard() {
   return (
@@ -46,6 +47,11 @@ export default function Dashboard() {
         <TypeDetails />
         <CategoryDetails />
       </Row>
+      <Notification
+        delay={15000}
+        title="Notice"
+        message="Loading is currently removed until API provider's problem is resolved."
+      />
     </div>
   );
 }

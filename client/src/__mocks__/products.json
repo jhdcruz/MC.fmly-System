@@ -1,0 +1,68 @@
+[
+  {
+    "code": "STC00002",
+    "name": "Van Gogh Sticker",
+    "variant": "Vinyl",
+    "type": "Sticker",
+    "category": "Papercraft",
+    "quantity": 169,
+    "price": 55,
+    "createdAt": "2020-11-08T04:00:46.084Z",
+    "updatedAt": "2020-11-08T04:00:46.084Z"
+  },
+  {
+    "code": "STC00003",
+    "name": "Van Gogh Sticker",
+    "variant": "Transparent",
+    "type": "Sticker",
+    "category": "Papercraft",
+    "quantity": 65,
+    "price": 60,
+    "createdAt": "2020-11-08T04:00:46.084Z",
+    "updatedAt": "2020-11-08T04:00:46.084Z"
+  },
+  {
+    "code": "STC00003",
+    "name": "Van Gogh Sticker",
+    "variant": "Transparent",
+    "type": "Sticker",
+    "category": "Papercraft",
+    "quantity": 65,
+    "price": 60,
+    "createdAt": "2020-11-08T04:00:46.084Z",
+    "updatedAt": "2020-11-08T04:00:46.084Z"
+  },
+  {
+    "code": "STC00003",
+    "name": "Van Gogh Sticker",
+    "variant": "Transparent",
+    "type": "Dynamic type 1",
+    "category": "Papercraft",
+    "quantity": 65,
+    "price": 60,
+    "createdAt": "2020-11-08T04:00:46.084Z",
+    "updatedAt": "2020-11-08T04:00:46.084Z"
+  },
+  {
+    "code": "STC00003",
+    "name": "Van Gogh Sticker",
+    "variant": "Transparent",
+    "type": "Dynamic type 2",
+    "category": "Dynamic categ.2",
+    "quantity": 65,
+    "price": 60,
+    "createdAt": "2020-11-08T04:00:46.084Z",
+    "updatedAt": "2020-11-08T04:00:46.084Z"
+  },
+  {
+    "code": "STC00003",
+    "name": "Van Gogh Sticker",
+    "variant": "Transparent",
+    "type": "Dynamic type 3",
+    "category": "Dynamic categ.3",
+    "quantity": 65,
+    "price": 60,
+    "createdAt": "2020-11-08T04:00:46.084Z",
+    "updatedAt": "2020-11-08T04:00:46.084Z"
+  }
+]

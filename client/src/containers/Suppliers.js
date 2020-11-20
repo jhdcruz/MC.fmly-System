@@ -21,17 +21,22 @@ import { CardDeck, Dropdown } from 'react-bootstrap';
 import Poster from '../components/Poster';
 import SearchBar from '../components/common/SearchBar';
 import SupplierForm from '../components/forms/SupplierForm';
-import useSuppliers from '../hooks/useSuppliers';
+import suppliers from '../__mocks__/suppliers.json';
 
 export default function Suppliers() {
-  const [suppliers] = useSuppliers();
+  // const [suppliers] = useSuppliers();
 
   // * Modal Handlers
   const [modal, showModal] = useState(false);
   const handleClose = () => showModal(false);
 
   return (
-    <>
+    <div
+      style={{
+        width: '100%:',
+        height: '100vh'
+      }}
+    >
       {/* Modal */}
       <SupplierForm
         header="Add new supplier"
@@ -60,8 +65,8 @@ export default function Suppliers() {
           padding: '1rem'
         }}
       >
-        {suppliers &&
-          suppliers.map((supplier) => (
+        {suppliers
+          .map((supplier) => (
             <Poster
               icon={supplier.icon}
               name={supplier.name}
@@ -71,8 +76,9 @@ export default function Suppliers() {
               website={supplier.website}
               contact={supplier.contact}
             />
-          ))}
+          ))
+          .sort()}
       </CardDeck>
-    </>
+    </div>
   );
 }

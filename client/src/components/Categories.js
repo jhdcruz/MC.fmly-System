@@ -41,7 +41,10 @@ const CategoryList = styled(Col)`
   border-radius: 1.6rem;
   z-index: 9;
   height: 90vh;
+  white-space: nowrap;
   overflow-y: auto;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
 
   hr {
     border-top: 1px solid #d2d2d2;
