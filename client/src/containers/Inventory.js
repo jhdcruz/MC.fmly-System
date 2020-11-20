@@ -21,10 +21,10 @@ import Categories from '../components/Categories';
 import ProductTable from '../components/tables/ProductHeader';
 import ProductRow from '../components/tables/ProductRow';
 import Loader from '../components/common/Loader';
-import useProducts from '../services/useProducts';
+import productService from '../services/ProductService';
 
 export default function Inventory() {
-  const [products] = useProducts();
+  const [products] = productService();
 
   // Removes duplicate properties | category
   const productCategories =

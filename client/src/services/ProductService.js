@@ -26,23 +26,23 @@ async function getAll() {
 }
 
 // Assign data to `products`
-const useUsers = () => {
-  const [users, setUsers] = useState(null);
+const ProductService = () => {
+  const [products, setProducts] = useState(null);
 
   useEffect(() => {
-    if (!users) {
+    if (!products) {
       fetchProducts().catch((e) => {
         console.error(e);
       });
     }
-  }, [users]);
+  }, [products]);
 
   const fetchProducts = async () => {
     let res = await getAll();
-    setUsers(res);
+    setProducts(res);
   };
 
-  return [users];
+  return [products];
 };
 
-export default useUsers;
+export default ProductService;

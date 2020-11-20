@@ -21,28 +21,28 @@ import axios from 'axios';
 
 // Fetch products data
 async function getAll() {
-  let res = await axios.get(`/api/products`);
+  let res = await axios.get(`/api/users`);
   return res.data || [];
 }
 
 // Assign data to `products`
-const useSuppliers = () => {
-  const [suppliers, setSuppliers] = useState(null);
+const UserService = () => {
+  const [users, setUsers] = useState(null);
 
   useEffect(() => {
-    if (!suppliers) {
+    if (!users) {
       fetchProducts().catch((e) => {
         console.error(e);
       });
     }
-  }, [suppliers]);
+  }, [users]);
 
   const fetchProducts = async () => {
     let res = await getAll();
-    setSuppliers(res);
+    setUsers(res);
   };
 
-  return [suppliers];
+  return [users];
 };
 
-export default useSuppliers;
+export default UserService;
