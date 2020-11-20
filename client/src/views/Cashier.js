@@ -32,7 +32,6 @@ import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import '../App.scss';
 // Routes
 import PointOfSale from '../containers/PointOfSale';
-import Settings from '../containers/Settings';
 import NotFound from '../components/NotFound';
 import TabItem from '../components/TabItem';
 
@@ -67,7 +66,6 @@ export default function Cashier() {
                   <Redirect from="/" to="/pos" />
                 </Route>
                 <Route path={routes.POS} component={PointOfSale} />
-                <Route path={routes.SETTINGS} component={Settings} />
                 <Route path={routes.NOTFOUND} component={NotFound} />
               </AnimatedSwitch>
             </Switch>

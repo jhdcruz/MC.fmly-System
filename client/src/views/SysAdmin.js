@@ -36,12 +36,10 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 // Routes
 import Dashboard from '../containers/Dashboard';
-import Settings from '../containers/Settings';
 import SysInfo from '../containers/SysInfo';
 import NotFound from '../components/NotFound';
 import TabItem from '../components/TabItem';
 import AuditLog from '../containers/AuditLog';
-import Users from '../containers/Users';
 
 export default function SysAdmin() {
   return (
@@ -90,8 +88,6 @@ export default function SysAdmin() {
                 <Route exact path={routes.DASHBOARD} component={Dashboard} />
                 <Route path={routes.SYSINFO} component={SysInfo} />
                 <Route path={routes.AUDITLOG} component={AuditLog} />
-                <Route path={routes.USERS} component={Users} />
-                <Route path={routes.SETTINGS} component={Settings} />
                 <Route path={routes.NOTFOUND} component={NotFound} />
               </AnimatedSwitch>
             </Switch>

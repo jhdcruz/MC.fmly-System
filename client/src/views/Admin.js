@@ -37,7 +37,6 @@ import AuditLog from '../containers/AuditLog';
 import Invoices from '../containers/Invoices';
 import PointOfSale from '../containers/PointOfSale';
 import Inventory from '../containers/Inventory';
-import Settings from '../containers/Settings';
 import Suppliers from '../containers/Suppliers';
 import {
   faBoxes,
@@ -117,7 +116,6 @@ export default function Admin() {
                 <Route path={routes.SUPPLIERS} component={Suppliers} />
                 <Route path={routes.POS} component={PointOfSale} />
                 <Route path={routes.USERS} component={Users} />
-                <Route path={routes.SETTINGS} component={Settings} />
                 <Route path={routes.NOTFOUND} component={NotFound} />
               </AnimatedSwitch>
             </Switch>
