@@ -134,14 +134,15 @@ replace `yum` with your distro package provider.
 
 - **`MONGO_ADMIN`** - **Required** _(Admin user)_
 - **`MONGO_URL`** - **Required** _(Production User)_
-- `ROLLBAR_ID` - _Application Monitoring_
+- `SENTRY_PROJECT_DSN` - _Application Monitoring_
 
-> Add your environment variables inside `/.env`.
+> Add your environment variables inside `/api/.env`.
+
 
 ```dotenv
 MONGO_ADMIN=[Your URI Here] # Don't add quotation marks
 MONGO_URL=[Your URI Here]
-ROLLBAR_ID=[Your ID Here]
+SENTRY_PROJECT_DSN=[Your DSN Here]
 ```
 
 ## Install Dependencies
