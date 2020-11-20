@@ -25,7 +25,7 @@ import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
 const TableContainer = createGlobalStyle`
   div.table-responsive {
     display: inline-flex !important;
-    width: 120vw;
+    width: 125vw;
     height: 100%;
     padding: 0 0 0 0.5rem !important;
     margin: 0 2rem 0 0;
@@ -91,6 +91,9 @@ export default function ProductHeader(props) {
             </TableHeader>
             <TableHeader id="CreatedAt">
               Created <FontAwesomeIcon icon={faCaretDown} />
+            </TableHeader>
+            <TableHeader id="CreatedAt">
+              Price ₱ <FontAwesomeIcon icon={faCaretDown} />
             </TableHeader>
           </tr>
         </thead>

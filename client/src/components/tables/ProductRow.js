@@ -93,44 +93,62 @@ const ProductControl = styled(Button)`
 `;
 
 export default function ProductRow(product) {
-  const [modal, showModal] = useState(false);
-  const handleClose = () => showModal(false);
+  const [editModal, showEditModal] = useState(false);
+  const [deleteModal, showDeleteModal] = useState(false);
+  const handleClose = () => showEditModal(false);
 
   return (
     <>
-      {/* Modals */}
+      {/* DELETE Modal */}
       <CustomModal
         size="sm"
         header="Delete product"
         content="Are you sure?"
-        show={modal}
-        onHide={() => showModal(false)}
+        show={deleteModal}
+        onHide={() => showDeleteModal(false)}
         save={handleClose} // TODO: DELETE data
         cancel={handleClose}
+        footer={
+          <>
+            <Button variant="outline-danger" onClick={handleClose}>
+              Yes
+            </Button>
+            <Button variant="outline-primary" onClick={handleClose}>
+              No
+            </Button>
+          </>
+        }
         style={{
           textAlign: 'center'
         }}
       />
+
+      {/* EDIT Modal */}
       <ProductForm
         header="Edit product"
-        show={modal}
-        onHide={() => showModal(false)}
+        show={editModal}
+        onHide={() => showEditModal(false)}
         save={handleClose} // TODO: PUT/PATCH data
         cancel={handleClose}
       />
+
+      {/* Product | Table Row */}
       <TableRow className="product" key={product._id}>
         <TableData className="code" colSpan={1}>
           <p>
             <ProductActions>
+              {/* Modal Action Icons */}
               <ProductControl
                 variant="outline-danger"
-                onClick={() => showModal(true)}
+                onClick={() => showDeleteModal(true)}
               >
                 <FontAwesomeIcon icon={faTimes} />
               </ProductControl>
               <ProductControl
                 variant="outline-success"
-                onClick={() => showModal(true)}
+                onClick={() => showEditModal(true)}
+                save={handleClose} // TODO: POST data
+                close={handleClose}
               >
                 <FontAwesomeIcon icon={faPen} />
               </ProductControl>
@@ -186,9 +204,13 @@ export default function ProductRow(product) {
             }
           })()}
         </TableData>
-        <TableData className="price">{product.price}</TableData>
         <TableData className="updatedAt">{product.updatedAt}</TableData>
         <TableData className="createdAt">{product.createdAt}</TableData>
+        <TableData className="price">
+          <Tag pill variant="secondary">
+            ₱{product.price}
+          </Tag>
+        </TableData>
       </TableRow>
     </>
   );
