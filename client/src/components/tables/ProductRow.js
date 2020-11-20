@@ -130,7 +130,7 @@ export default function ProductRow(product) {
               </ProductControl>
               <ProductControl
                 variant="outline-success"
-                onClick={() => showEditModal(true)}
+                onClick={() => showModal(true)}
               >
                 <FontAwesomeIcon icon={faPen} />
               </ProductControl>
