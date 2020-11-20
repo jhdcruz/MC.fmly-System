@@ -1,7 +1,5 @@
 <div align="center">
 
-![](docs/logo.png)
-
 ### Inventory System specifically built for [MC.fmly](https://www.facebook.com/MC.fmly/).
 
 </div>
@@ -156,7 +154,7 @@ yarn
 
 ## Development
 
-![](docs/diagram.svg)
+![](https://i.imgur.com/nkR4dYP.png)
 
 This project uses yarn's `workspaces` to seperate the **Front-End** and the **Back-End**, and run `scripts` without
 navigating back & forth to project folders.
