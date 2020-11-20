@@ -59,8 +59,8 @@ export default function InventoryClerk() {
                     icon={faHistory}
                   />
                   <TabItem
-                    tab="Catalog"
-                    overlay="Catalog"
+                    tab="Inventory"
+                    overlay="Inventory"
                     route={routes.INVENTORY}
                     icon={faBoxes}
                   />

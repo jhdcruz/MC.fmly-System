@@ -69,12 +69,11 @@ export default function Admin() {
                   icon={faHistory}
                 />
                 <TabItem
-                  tab="Catalog"
-                  overlay="Catalog"
+                  tab="Inventory"
+                  overlay="Inventory"
                   route={routes.INVENTORY}
                   icon={faBoxes}
                 />
-
                 <TabItem
                   tab="Invoices"
                   overlay="Invoices"
