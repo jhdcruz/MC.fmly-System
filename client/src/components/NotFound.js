@@ -22,16 +22,17 @@ const Notice = styled.h2`
   margin: 10px 0;
   width: max-content;
   position: absolute;
-  top: 40%;
+  top: 25%;
+  left: 15%;
   z-index: 99;
 `;
 
 export default function NotFound() {
   return (
     <Notice>
-      <strong>You are not authorized to access this.</strong>
+      <strong>Something went wrong...</strong>
       <br />
-      Admin? Try restarting the system or approach the System Admin.
+      Try restarting the system or notify the System Admin.
     </Notice>
   );
 }
