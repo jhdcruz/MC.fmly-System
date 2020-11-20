@@ -59,15 +59,11 @@ function createWindow() {
   });
 
   // Resorted to web app due to seperate database connection integration
-  // win
-  //   .loadURL(isDev ? 'http://localhost:3000' : 'https://mc-fmly.vercel.app')
-  //   .catch((err) => {
-  //     console.error(err);
-  //   });
-
-  win.loadURL('http://localhost:3000').catch((err) => {
-    console.error(err);
-  });
+  win
+    .loadURL(isDev ? 'http://localhost:3000' : 'https://deuz.systems')
+    .catch((err) => {
+      console.error(err);
+    });
 
   if (isDev) {
     win.webContents.openDevTools({ mode: 'detach' });
