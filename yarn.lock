@@ -2585,7 +2585,7 @@ arity-n@^1.0.4:
   resolved "https://registry.yarnpkg.com/arity-n/-/arity-n-1.0.4.tgz#d9e76b11733e08569c0847ae7b39b2860b30b745"
   integrity sha1-2edrEXM+CFacCEeuezmyhgswt0U=
 
-arkit@^1.6.4:
+arkit@1.6.4:
   version "1.6.4"
   resolved "https://registry.yarnpkg.com/arkit/-/arkit-1.6.4.tgz#58dafa4cce056046ff97ba2a16318c01dd8c57e2"
   integrity sha512-0nL8uR1jyOvSiHkI2HkpqUSFrMgpnt/Fopsj87kLeC8B9Wr1iE6hkaUOyrIbLCvxMtiC5w0xlD4lxV3GvmF/7A==
