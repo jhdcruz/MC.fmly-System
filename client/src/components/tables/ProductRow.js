@@ -16,14 +16,14 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { useState } from "react";
-import styled from "styled-components";
-import { Button } from "react-bootstrap";
-import Modal from "../common/Modal";
-import ProductForm from "../forms/ProductForm";
-import { Tag } from "./__tables.module";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPen, faTimes } from "@fortawesome/free-solid-svg-icons";
+import { useState } from 'react';
+import styled from 'styled-components';
+import { Button } from 'react-bootstrap';
+import Modal from '../common/Modal';
+import ProductForm from '../forms/ProductForm';
+import { Tag } from './__tables.module';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPen, faTimes } from '@fortawesome/free-solid-svg-icons';
 
 const TableRow = styled.tr`
   color: white;
@@ -93,25 +93,30 @@ const ProductControl = styled(Button)`
 `;
 
 export default function ProductRow(product) {
-  const [confimModal, showConfirmModal] = useState(false);
-  const [editModal, showEditModal] = useState(false);
+  const [modal, showModal] = useState(false);
+  const handleClose = () => showModal(false);
+
   return (
     <>
       {/* Modals */}
       <Modal
         size="sm"
-        title="Delete product"
+        header="Delete product"
         content="Are you sure?"
-        show={confimModal}
-        onHide={() => showConfirmModal(false)}
+        show={modal}
+        onHide={() => showModal(false)}
+        save={handleClose} // TODO: DELETE data
+        cancel={handleClose}
         style={{
-          textAlign: "center"
+          textAlign: 'center'
         }}
       />
       <ProductForm
-        title="Edit product"
-        show={editModal}
-        onHide={() => showEditModal(false)}
+        header="Edit product"
+        show={modal}
+        onHide={() => showModal(false)}
+        save={handleClose} // TODO: PUT/PATCH data
+        cancel={handleClose}
       />
       <TableRow className="product" key={product._id}>
         <TableData className="code" colSpan={1}>
@@ -119,7 +124,7 @@ export default function ProductRow(product) {
             <ProductActions>
               <ProductControl
                 variant="outline-danger"
-                onClick={() => showConfirmModal(true)}
+                onClick={() => showModal(true)}
               >
                 <FontAwesomeIcon icon={faTimes} />
               </ProductControl>
@@ -172,8 +177,7 @@ export default function ProductRow(product) {
                   {product.quantity}
                 </Tag>
               );
-            }
-            else {
+            } else {
               return (
                 <Tag pill variant="dark">
                   {product.quantity}
