@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="938px" preserveAspectRatio="none" style="width:558px;height:938px;" version="1.1" viewBox="0 0 558 938" width="558px" zoomAndPan="magnify"><defs/><g><!--MD5=[406b65fecc21e832f7a9b6ebadc6dce1]
+cluster Client--><path d="M85.3846,820 L123.3846,820 A4.5,4.5 0 0 1 126.3846,823 L133.3846,840.4844 L151.385,840.4844 A3,3 0 0 1 154.385,843.4844 L154.385,892 A3,3 0 0 1 151.385,895 L85.3846,895 A3,3 0 0 1 82.3846,892 L82.3846,823 A3,3 0 0 1 85.3846,820 " fill="#FFFFFF" style="stroke: #000000; stroke-width: 1.5;"/><line style="stroke: #000000; stroke-width: 1.5;" x1="82.3846" x2="133.3846" y1="840.4844" y2="840.4844"/><text fill="#000000" font-family="Tahoma, sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="38" x="86.3846" y="834.0059">Client</text><!--MD5=[999f80192410ad58725ac6d158b21eb2]
+cluster Views--><path d="M47.8846,587 L85.8846,587 A4.5,4.5 0 0 1 88.8846,590 L95.8846,607.4844 L188.885,607.4844 A3,3 0 0 1 191.885,610.4844 L191.885,793 A3,3 0 0 1 188.885,796 L47.8846,796 A3,3 0 0 1 44.8846,793 L44.8846,590 A3,3 0 0 1 47.8846,587 " fill="#FFFFFF" style="stroke: #000000; stroke-width: 1.5;"/><line style="stroke: #000000; stroke-width: 1.5;" x1="44.8846" x2="95.8846" y1="607.4844" y2="607.4844"/><text fill="#000000" font-family="Tahoma, sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="38" x="48.8846" y="601.0059">Views</text><!--MD5=[9d0edf3fa93b0f01bff95c9e97bfe8aa]
+cluster Containers--><path d="M234.885,455 L306.885,455 A4.5,4.5 0 0 1 309.885,458 L316.885,475.4844 L362.885,475.4844 A3,3 0 0 1 365.885,478.4844 L365.885,923 A3,3 0 0 1 362.885,926 L234.885,926 A3,3 0 0 1 231.885,923 L231.885,458 A3,3 0 0 1 234.885,455 " fill="#FFFFFF" style="stroke: #000000; stroke-width: 1.5;"/><line style="stroke: #000000; stroke-width: 1.5;" x1="231.885" x2="316.885" y1="475.4844" y2="475.4844"/><text fill="#000000" font-family="Tahoma, sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="72" x="235.885" y="469.0059">Containers</text><!--MD5=[cdfd548b3455e70392372b1f27091970]
+cluster Services--><path d="M407.885,608 L464.885,608 A4.5,4.5 0 0 1 467.885,611 L474.885,628.4844 L543.885,628.4844 A3,3 0 0 1 546.885,631.4844 L546.885,770 A3,3 0 0 1 543.885,773 L407.885,773 A3,3 0 0 1 404.885,770 L404.885,611 A3,3 0 0 1 407.885,608 " fill="#FFFFFF" style="stroke: #000000; stroke-width: 1.5;"/><line style="stroke: #000000; stroke-width: 1.5;" x1="404.885" x2="474.885" y1="628.4844" y2="628.4844"/><text fill="#000000" font-family="Tahoma, sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="57" x="408.885" y="622.0059">Services</text><!--MD5=[979da56a7f83e2393dc758167ae295d0]
+cluster Server--><path d="M73.3846,449 L115.3846,449 A4.5,4.5 0 0 1 118.3846,452 L125.3846,469.4844 L163.385,469.4844 A3,3 0 0 1 166.385,472.4844 L166.385,521 A3,3 0 0 1 163.385,524 L73.3846,524 A3,3 0 0 1 70.3846,521 L70.3846,452 A3,3 0 0 1 73.3846,449 " fill="#FFFFFF" style="stroke: #000000; stroke-width: 1.5;"/><line style="stroke: #000000; stroke-width: 1.5;" x1="70.3846" x2="125.3846" y1="469.4844" y2="469.4844"/><text fill="#000000" font-family="Tahoma, sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="42" x="74.3846" y="463.0059">Server</text><!--MD5=[fac864e77539af95038f0151207ed802]
+cluster API--><path d="M49.3846,215 L71.3846,215 A4.5,4.5 0 0 1 74.3846,218 L81.3846,235.4844 L187.385,235.4844 A3,3 0 0 1 190.385,238.4844 L190.385,422 A3,3 0 0 1 187.385,425 L49.3846,425 A3,3 0 0 1 46.3846,422 L46.3846,218 A3,3 0 0 1 49.3846,215 " fill="#FFFFFF" style="stroke: #000000; stroke-width: 1.5;"/><line style="stroke: #000000; stroke-width: 1.5;" x1="46.3846" x2="81.3846" y1="235.4844" y2="235.4844"/><text fill="#000000" font-family="Tahoma, sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="22" x="50.3846" y="229.0059">API</text><!--MD5=[13065b3f4c5f3f922898a6afe1ecec6a]
+cluster Database Models--><path d="M46.8846,24 L160.8846,24 A4.5,4.5 0 0 1 163.8846,27 L170.8846,44.4844 L189.885,44.4844 A3,3 0 0 1 192.885,47.4844 L192.885,188 A3,3 0 0 1 189.885,191 L46.8846,191 A3,3 0 0 1 43.8846,188 L43.8846,27 A3,3 0 0 1 46.8846,24 " fill="#FFFFFF" style="stroke: #000000; stroke-width: 1.5;"/><line style="stroke: #000000; stroke-width: 1.5;" x1="43.8846" x2="170.8846" y1="44.4844" y2="44.4844"/><text fill="#000000" font-family="Tahoma, sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="114" x="47.8846" y="38.0059">Database Models</text><!--MD5=[7c6608d7cf625e90131334e1ca091b1a]
+cluster Functions--><path d="M219.885,209 L284.885,209 A4.5,4.5 0 0 1 287.885,212 L294.885,229.4844 L377.885,229.4844 A3,3 0 0 1 380.885,232.4844 L380.885,428 A3,3 0 0 1 377.885,431 L219.885,431 A3,3 0 0 1 216.885,428 L216.885,212 A3,3 0 0 1 219.885,209 " fill="#FFFFFF" style="stroke: #000000; stroke-width: 1.5;"/><line style="stroke: #000000; stroke-width: 1.5;" x1="216.885" x2="294.885" y1="229.4844" y2="229.4844"/><text fill="#000000" font-family="Tahoma, sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="65" x="220.885" y="223.0059">Functions</text><ellipse cx="118.3556" cy="866.242" fill="#F8F8F8" rx="19.9706" ry="13.242" style="stroke: #383838; stroke-width: 0.5;"/><text fill="#000000" font-family="Tahoma, sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="24" x="106.3556" y="869.9842">App</text><ellipse cx="118.6337" cy="677.242" fill="#F8F8F8" rx="27.7487" ry="13.242" style="stroke: #383838; stroke-width: 0.5;"/><text fill="#000000" font-family="Tahoma, sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="35" x="101.1337" y="680.9842">Admin</text><ellipse cx="118.2906" cy="633.242" fill="#F8F8F8" rx="33.4056" ry="13.242" style="stroke: #383838; stroke-width: 0.5;"/><text fill="#000000" font-family="Tahoma, sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="43" x="96.7906" y="636.9842">Cashier</text><ellipse cx="118.5863" cy="721.9403" fill="#F8F8F8" rx="57.7013" ry="13.9403" style="stroke: #383838; stroke-width: 0.5;"/><text fill="#000000" font-family="Tahoma, sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="82" x="77.5863" y="725.6824">InventoryClerk</text><ellipse cx="118.483" cy="767.242" fill="#F8F8F8" rx="42.598" ry="13.242" style="stroke: #383838; stroke-width: 0.5;"/><text fill="#000000" font-family="Tahoma, sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="56" x="90.483" y="770.9842">SysAdmin</text><ellipse cx="299.0332" cy="853.242" fill="#F8F8F8" rx="37.6482" ry="13.242" style="stroke: #383838; stroke-width: 0.5;"/><text fill="#000000" font-family="Tahoma, sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="49" x="274.5332" y="856.9842">AuditLog</text><ellipse cx="298.9474" cy="545.242" fill="#F8F8F8" rx="39.0624" ry="13.242" style="stroke: #383838; stroke-width: 0.5;"/><text fill="#000000" font-family="Tahoma, sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="51" x="273.4474" y="548.9842">Catalog</text><ellipse cx="298.9327" cy="809.242" fill="#F8F8F8" rx="47.5477" ry="13.242" style="stroke: #383838; stroke-width: 0.5;"/><text fill="#000000" font-family="Tahoma, sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="63" x="267.4327" y="812.9842">Dashboard</text><ellipse cx="299.0688" cy="721.242" fill="#F8F8F8" rx="41.1838" ry="13.242" style="stroke: #383838; stroke-width: 0.5;"/><text fill="#000000" font-family="Tahoma, sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="54" x="272.0688" y="724.9842">Inventory</text><ellipse cx="298.7403" cy="677.242" fill="#F8F8F8" rx="38.3553" ry="13.242" style="stroke: #383838; stroke-width: 0.5;"/><text fill="#000000" font-family="Tahoma, sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="50" x="273.7403" y="680.9842">Invoices</text><ellipse cx="298.9683" cy="589.242" fill="#F8F8F8" rx="51.0833" ry="13.242" style="stroke: #383838; stroke-width: 0.5;"/><text fill="#000000" font-family="Tahoma, sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="68" x="264.9683" y="592.9842">PointOfSale</text><ellipse cx="298.7759" cy="765.242" fill="#F8F8F8" rx="41.8909" ry="13.242" style="stroke: #383838; stroke-width: 0.5;"/><text fill="#000000" font-family="Tahoma, sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="55" x="271.2759" y="768.9842">Settings</text><ellipse cx="298.8617" cy="633.242" fill="#F8F8F8" rx="40.4767" ry="13.242" style="stroke: #383838; stroke-width: 0.5;"/><text fill="#000000" font-family="Tahoma, sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="53" x="272.3617" y="636.9842">Suppliers</text><ellipse cx="298.7048" cy="897.242" fill="#F8F8F8" rx="34.8198" ry="13.242" style="stroke: #383838; stroke-width: 0.5;"/><text fill="#000000" font-family="Tahoma, sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="45" x="276.2048" y="900.9842">SysInfo</text><ellipse cx="298.7195" cy="501.242" fill="#F8F8F8" rx="26.3345" ry="13.242" style="stroke: #383838; stroke-width: 0.5;"/><text fill="#000000" font-family="Tahoma, sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="33" x="282.2195" y="504.9842">Users</text><ellipse cx="475.7967" cy="700.242" fill="#F8F8F8" rx="53.9117" ry="13.242" style="stroke: #383838; stroke-width: 0.5;"/><text fill="#000000" font-family="Tahoma, sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="72" x="439.7967" y="703.9842">useProducts</text><ellipse cx="475.656" cy="654.8542" fill="#F8F8F8" rx="54.771" ry="13.3542" style="stroke: #383838; stroke-width: 0.5;"/><text fill="#000000" font-family="Tahoma, sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="74" x="438.656" y="658.5964">useSuppliers</text><ellipse cx="475.7256" cy="744.242" fill="#F8F8F8" rx="46.8406" ry="13.242" style="stroke: #383838; stroke-width: 0.5;"/><text fill="#000000" font-family="Tahoma, sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="62" x="444.7256" y="747.9842">useUsers</text><ellipse cx="118.3764" cy="495.242" fill="#F8F8F8" rx="31.9914" ry="13.242" style="stroke: #383838; stroke-width: 0.5;"/><text fill="#000000" font-family="Tahoma, sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="41" x="97.8764" y="498.9842">server</text><ellipse cx="118.3972" cy="261.242" fill="#F8F8F8" rx="44.0122" ry="13.242" style="stroke: #383838; stroke-width: 0.5;"/><text fill="#000000" font-family="Tahoma, sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="58" x="89.3972" y="264.9842">auth.route</text><ellipse cx="118.2384" cy="306.0707" fill="#F8F8F8" rx="55.8534" ry="13.5707" style="stroke: #383838; stroke-width: 0.5;"/><text fill="#000000" font-family="Tahoma, sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="77" x="79.7384" y="309.8129">product.route</text><ellipse cx="118.6037" cy="351.1437" fill="#F8F8F8" rx="56.2187" ry="13.6437" style="stroke: #383838; stroke-width: 0.5;"/><text fill="#000000" font-family="Tahoma, sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="78" x="79.6037" y="354.8859">supplier.route</text><ellipse cx="118.3972" cy="396.242" fill="#F8F8F8" rx="44.0122" ry="13.242" style="stroke: #383838; stroke-width: 0.5;"/><text fill="#000000" font-family="Tahoma, sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="58" x="89.3972" y="399.9842">user.route</text><ellipse cx="118.4621" cy="161.0154" fill="#F8F8F8" rx="58.0771" ry="14.0154" style="stroke: #383838; stroke-width: 0.5;"/><text fill="#000000" font-family="Tahoma, sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="83" x="76.9621" y="164.7576">product.model</text><ellipse cx="118.3398" cy="71.091" fill="#F8F8F8" rx="58.4548" ry="14.091" style="stroke: #383838; stroke-width: 0.5;"/><text fill="#000000" font-family="Tahoma, sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="84" x="76.3398" y="74.8331">supplier.model</text><ellipse cx="118.1398" cy="116.242" fill="#F8F8F8" rx="48.2548" ry="13.242" style="stroke: #383838; stroke-width: 0.5;"/><text fill="#000000" font-family="Tahoma, sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="64" x="86.1398" y="119.9842">user.model</text><ellipse cx="298.9621" cy="256.0154" fill="#F8F8F8" rx="58.0771" ry="14.0154" style="stroke: #383838; stroke-width: 0.5;"/><text fill="#000000" font-family="Tahoma, sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="83" x="257.4621" y="259.7576">auth.controller</text><ellipse cx="298.9328" cy="304.0096" fill="#F8F8F8" rx="65.5478" ry="15.5096" style="stroke: #383838; stroke-width: 0.5;"/><text fill="#000000" font-family="Tahoma, sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="102" x="247.9328" y="307.7518">product.controller</text><ellipse cx="298.8412" cy="353.0912" fill="#F8F8F8" rx="65.9562" ry="15.5912" style="stroke: #383838; stroke-width: 0.5;"/><text fill="#000000" font-family="Tahoma, sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="103" x="247.3412" y="356.8334">supplier.controller</text><ellipse cx="298.9621" cy="401.0154" fill="#F8F8F8" rx="58.0771" ry="14.0154" style="stroke: #383838; stroke-width: 0.5;"/><text fill="#000000" font-family="Tahoma, sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="83" x="257.4621" y="404.7576">user.controller</text><!--MD5=[35cb582d10241ac60dd8e03ee1e03d8d]
+link Admin to AuditLog--><path d="M146.044,676.633 C164.431,677.935 187.829,682.982 200.885,699 C219.451,721.78 190.077,808.42 208.885,831 C220.332,844.7433 238.878,850.6601 256.086,852.9733 " fill="none" id="Admin-&gt;AuditLog" style="stroke: #000000; stroke-width: 0.5;"/><polygon fill="#000000" points="261.374,853.5802,252.8887,848.5803,256.4066,853.0102,251.9767,856.5281,261.374,853.5802" style="stroke: #000000; stroke-width: 0.5;"/><!--MD5=[50d288d3f7e002eddb13069a1f01076d]
+link Admin to Dashboard--><path d="M145.899,676.753 C164.216,678.113 187.589,683.18 200.885,699 C213.518,714.032 196.092,772.103 208.885,787 C218.305,797.969 232.247,803.924 246.315,807.041 " fill="none" id="Admin-&gt;Dashboard" style="stroke: #000000; stroke-width: 0.5;"/><polygon fill="#000000" points="251.495,808.066,243.4418,802.3962,246.59,807.0961,241.89,810.2443,251.495,808.066" style="stroke: #000000; stroke-width: 0.5;"/><!--MD5=[1f13b5a9b9b671fb798ce279c622a21e]
+link Admin to Inventory--><path d="M143.088,682.843 C173.188,690.262 225.455,703.146 260.839,711.868 " fill="none" id="Admin-&gt;Inventory" style="stroke: #000000; stroke-width: 0.5;"/><polygon fill="#000000" points="265.933,713.124,258.1526,707.0854,261.0784,711.9268,256.237,714.8527,265.933,713.124" style="stroke: #000000; stroke-width: 0.5;"/><!--MD5=[0864188ca207e6e3d25d06cd74113427]
+link Admin to Invoices--><path d="M146.108,677 C174.819,677 220.878,677 254.736,677 " fill="none" id="Admin-&gt;Invoices" style="stroke: #000000; stroke-width: 0.5;"/><polygon fill="#000000" points="260.061,677,251.061,673,255.061,677,251.061,681,260.061,677" style="stroke: #000000; stroke-width: 0.5;"/><!--MD5=[9244b77e5f218a90508712933eee5330]
+link Admin to PointOfSale--><path d="M146.254,676.811 C164.253,675.193 187.096,669.996 200.885,655 C214.338,640.369 195.276,625.487 208.885,611 C217.928,601.373 230.46,595.676 243.269,592.372 " fill="none" id="Admin-&gt;PointOfSale" style="stroke: #000000; stroke-width: 0.5;"/><polygon fill="#000000" points="248.378,591.179,238.7047,589.3275,243.5087,592.3146,240.5216,597.1185,248.378,591.179" style="stroke: #000000; stroke-width: 0.5;"/><!--MD5=[0896d165bd5351a0f769a782af6677fc]
+link Admin to Suppliers--><path d="M143.088,671.157 C173.278,663.715 225.769,650.776 261.158,642.053 " fill="none" id="Admin-&gt;Suppliers" style="stroke: #000000; stroke-width: 0.5;"/><polygon fill="#000000" points="266.25,640.798,256.5546,639.066,261.395,641.9935,258.4675,646.8339,266.25,640.798" style="stroke: #000000; stroke-width: 0.5;"/><!--MD5=[046d77a1f2269ec452d7d6de3274dc50]
+link Admin to Users--><path d="M146.044,677.367 C164.431,676.065 187.829,671.018 200.885,655 C219.451,632.22 190.077,545.58 208.885,523 C222.817,506.272 247.268,501.139 267.02,499.986 " fill="none" id="Admin-&gt;Users" style="stroke: #000000; stroke-width: 0.5;"/><polygon fill="#000000" points="272.192,499.767,263.0309,496.1511,267.1965,499.9784,263.3692,504.144,272.192,499.767" style="stroke: #000000; stroke-width: 0.5;"/><!--MD5=[815b37453a7b59e819ce1c956071e7c1]
+link <b>App</b> to Admin--><path d="M102.134,858.3205 C78.5445,846.1502 35.7424,819.965 18.3846,783 C4.2164,752.828 1.0216,736.454 18.3846,708 C32.0278,685.642 61.9969,678.632 85.5893,676.775 " fill="none" id="&lt;b&gt;App&lt;/b&gt;-&gt;Admin" style="stroke: #000000; stroke-width: 1.0;"/><polygon fill="#000000" points="90.823,676.438,81.5844,673.0251,85.8334,676.7595,82.0989,681.0085,90.823,676.438" style="stroke: #000000; stroke-width: 1.0;"/><!--MD5=[77ef31bb0c393c53eb64c06e797f2f7e]
+link <b>App</b> to Cashier--><path d="M102.134,858.3205 C78.5445,846.1502 35.7424,819.965 18.3846,783 C7.1445,759.063 4.61,686.574 18.3846,664 C30.8836,643.517 57.0846,635.916 79.532,633.357 " fill="none" id="&lt;b&gt;App&lt;/b&gt;-&gt;Cashier" style="stroke: #000000; stroke-width: 1.0;"/><polygon fill="#000000" points="84.5531,632.86,75.2026,629.7666,79.5774,633.3529,75.9912,637.7277,84.5531,632.86" style="stroke: #000000; stroke-width: 1.0;"/><!--MD5=[93241cd9d94fab6e1b55eb066e13a44f]
+link <b>App</b> to InventoryClerk--><path d="M101.9633,858.5285 C67.158,841.613 -8.7037,798.392 18.3846,754 C26.9894,739.899 42.0338,731.771 57.8802,727.155 " fill="none" id="&lt;b&gt;App&lt;/b&gt;-&gt;InventoryClerk" style="stroke: #000000; stroke-width: 1.0;"/><polygon fill="#000000" points="62.8175,725.832,53.0889,724.2978,57.9879,727.1261,55.1595,732.0251,62.8175,725.832" style="stroke: #000000; stroke-width: 1.0;"/><!--MD5=[dfd9252c54cc63a801b1a563ec5d05e6]
+link <b>App</b> to SysAdmin--><path d="M118.385,852.8516 C118.385,830.3 118.385,807.748 118.385,785.196 " fill="none" id="&lt;b&gt;App&lt;/b&gt;-&gt;SysAdmin" style="stroke: #000000; stroke-width: 1.0;"/><polygon fill="#000000" points="118.385,780.079,114.385,789.079,118.385,785.079,122.385,789.079,118.385,780.079" style="stroke: #000000; stroke-width: 1.0;"/><!--MD5=[afd8fda9dbcd551f99eb0291dd88bdea]
+link auth.route to auth.controller--><path d="M162.594,259.79 C184.653,259.172 211.879,258.409 236.111,257.73 " fill="none" id="auth.route-&gt;auth.controller" style="stroke: #000000; stroke-width: 0.5;"/><polygon fill="#000000" points="241.234,257.587,232.1255,253.8406,236.236,257.727,232.3496,261.8375,241.234,257.587" style="stroke: #000000; stroke-width: 0.5;"/><!--MD5=[1185c6672533da3ade170b9ccc6f8dee]
+link Cashier to PointOfSale--><path d="M147.275,626.125 C176.621,618.891 223.119,607.43 256.691,599.154 " fill="none" id="Cashier-&gt;PointOfSale" style="stroke: #000000; stroke-width: 0.5;"/><polygon fill="#000000" points="261.547,597.957,251.8515,596.2256,256.6921,599.1529,253.7649,603.9935,261.547,597.957" style="stroke: #000000; stroke-width: 0.5;"/><!--MD5=[f33aaabaa0e4e1c97a00cd392d83bef5]
+link Inventory to useProducts--><path d="M337.426,716.495 C362.103,713.534 394.752,709.616 422.038,706.342 " fill="none" id="Inventory-&gt;useProducts" style="stroke: #000000; stroke-width: 0.5;"/><polygon fill="#000000" points="427.068,705.738,417.6555,702.8388,422.1036,706.3337,418.6087,710.7818,427.068,705.738" style="stroke: #000000; stroke-width: 0.5;"/><!--MD5=[e797be1a45e7c42b7b1f56ca4e28495e]
+link InventoryClerk to AuditLog--><path d="M172.156,727.113 C183.116,730.609 193.548,736.187 200.885,745 C213.165,759.751 196.365,816.452 208.885,831 C220.458,844.4477 238.826,850.3556 255.878,852.74 " fill="none" id="InventoryClerk-&gt;AuditLog" style="stroke: #000000; stroke-width: 0.5;"/><polygon fill="#000000" points="261.119,853.3714,252.6611,848.3252,256.1548,852.7742,251.7057,856.2679,261.119,853.3714" style="stroke: #000000; stroke-width: 0.5;"/><!--MD5=[7e153186d695577076aa28689bce81bb]
+link InventoryClerk to Inventory--><path d="M176.354,721.681 C201.016,721.543 229.48,721.383 252.658,721.253 " fill="none" id="InventoryClerk-&gt;Inventory" style="stroke: #000000; stroke-width: 0.5;"/><polygon fill="#000000" points="257.822,721.224,248.7993,717.2755,252.8221,721.2526,248.845,725.2754,257.822,721.224" style="stroke: #000000; stroke-width: 0.5;"/><!--MD5=[5b389857ae0c9a66eec0ed763f30cb4a]
+link InventoryClerk to Invoices--><path d="M158.574,711.846 C174.216,707.815 192.395,703.157 208.885,699 C226.368,694.593 245.806,689.778 262.044,685.78 " fill="none" id="InventoryClerk-&gt;Invoices" style="stroke: #000000; stroke-width: 0.5;"/><polygon fill="#000000" points="266.976,684.566,257.2805,682.8346,262.1211,685.7619,259.1939,690.6025,266.976,684.566" style="stroke: #000000; stroke-width: 0.5;"/><!--MD5=[c6f49c3b8cc2d4eaf103ebaf1b48977c]
+link InventoryClerk to Suppliers--><path d="M171.609,716.412 C182.592,712.935 193.171,707.485 200.885,699 C214.254,684.293 195.276,669.487 208.885,655 C220.144,643.014 236.812,637.12 252.689,634.352 " fill="none" id="InventoryClerk-&gt;Suppliers" style="stroke: #000000; stroke-width: 0.5;"/><polygon fill="#000000" points="258.034,633.529,248.5298,630.9463,253.0923,634.2905,249.7482,638.853,258.034,633.529" style="stroke: #000000; stroke-width: 0.5;"/><!--MD5=[2f61c8162db96c87f0d04f11932a922c]
+link product.route to product.controller--><path d="M174.397,305.384 C191.438,305.193 210.442,304.98 228.335,304.779 " fill="none" id="product.route-&gt;product.controller" style="stroke: #000000; stroke-width: 0.5;"/><polygon fill="#000000" points="233.349,304.723,224.305,300.8235,228.3493,304.7787,224.3941,308.823,233.349,304.723" style="stroke: #000000; stroke-width: 0.5;"/><!--MD5=[735577409edf0f5d22a87a459b56aa1c]
+link <b>server</b> to auth.route--><path d="M97.6303,484.947 C73.436,471.928 34.6875,446.718 18.3846,412 C7.1445,388.063 4.61,315.574 18.3846,293 C29.1072,275.428 49.8294,267.132 69.6423,263.348 " fill="none" id="&lt;b&gt;server&lt;/b&gt;-&gt;auth.route" style="stroke: #000000; stroke-width: 1.0;"/><polygon fill="#000000" points="74.6532,262.48,65.1025,260.0749,69.7266,263.3334,66.468,267.9575,74.6532,262.48" style="stroke: #000000; stroke-width: 1.0;"/><!--MD5=[dd074cf90328a5e62ceb6d362a0d96c0]
+link <b>server</b> to product.model--><path d="M97.6303,484.947 C73.436,471.928 34.6875,446.718 18.3846,412 C2.6106,378.408 2.7097,278.638 18.3846,245 C32.8096,214.044 64.8788,190.436 88.8355,176.246 " fill="none" id="&lt;b&gt;server&lt;/b&gt;-&gt;product.model" style="stroke: #000000; stroke-width: 1.0;"/><polygon fill="#000000" points="93.2083,173.706,83.4169,174.7682,88.8849,176.2176,87.4355,181.6856,93.2083,173.706" style="stroke: #000000; stroke-width: 1.0;"/><!--MD5=[f9e8673458d70023167ec328747b878d]
+link <b>server</b> to product.route--><path d="M97.6303,484.947 C73.436,471.928 34.6875,446.718 18.3846,412 C4.4053,382.23 1.2531,366.075 18.3846,338 C27.2045,323.546 42.7901,315.368 59.0701,310.815 " fill="none" id="&lt;b&gt;server&lt;/b&gt;-&gt;product.route" style="stroke: #000000; stroke-width: 1.0;"/><polygon fill="#000000" points="64.1381,309.515,54.4267,307.8755,59.2948,310.7568,56.4135,315.6248,64.1381,309.515" style="stroke: #000000; stroke-width: 1.0;"/><!--MD5=[fd3974dfba07cc599ac8132d14141cfc]
+link <b>server</b> to supplier.model--><path d="M97.6303,484.947 C73.436,471.928 34.6875,446.718 18.3846,412 C3.7913,380.922 0.5007,132.308 18.3846,103 C26.8603,89.11 41.5839,81.016 57.1677,76.365 " fill="none" id="&lt;b&gt;server&lt;/b&gt;-&gt;supplier.model" style="stroke: #000000; stroke-width: 1.0;"/><polygon fill="#000000" points="62.0257,75.029,52.2873,73.558,57.2046,76.3545,54.4081,81.2718,62.0257,75.029" style="stroke: #000000; stroke-width: 1.0;"/><!--MD5=[301dfed6cea6eac9496c8a385bbff045]
+link <b>server</b> to supplier.route--><path d="M97.0154,485.081 C60.5229,466.711 -7.4817,425.389 18.3846,383 C27.2045,368.546 42.7901,360.368 59.0701,355.815 " fill="none" id="&lt;b&gt;server&lt;/b&gt;-&gt;supplier.route" style="stroke: #000000; stroke-width: 1.0;"/><polygon fill="#000000" points="64.1381,354.515,54.4267,352.8755,59.2948,355.7568,56.4135,360.6248,64.1381,354.515" style="stroke: #000000; stroke-width: 1.0;"/><!--MD5=[77e6726095d6b8eb23ae512ea4d9a1c0]
+link <b>server</b> to user.model--><path d="M97.6303,484.947 C73.436,471.928 34.6875,446.718 18.3846,412 C5.8693,385.348 3.0473,172.134 18.3846,147 C28.2503,130.832 46.6529,122.69 65.0081,118.719 " fill="none" id="&lt;b&gt;server&lt;/b&gt;-&gt;user.model" style="stroke: #000000; stroke-width: 1.0;"/><polygon fill="#000000" points="70.1768,117.706,60.5756,115.5111,65.2701,118.6673,62.1138,123.3618,70.1768,117.706" style="stroke: #000000; stroke-width: 1.0;"/><!--MD5=[a00417e69892b6a14458ba1de544fc44]
+link <b>server</b> to user.route--><path d="M118.385,481.852 C118.385,459.3 118.385,436.748 118.385,414.196 " fill="none" id="&lt;b&gt;server&lt;/b&gt;-&gt;user.route" style="stroke: #000000; stroke-width: 1.0;"/><polygon fill="#000000" points="118.385,409.079,114.385,418.079,118.385,414.079,122.385,418.079,118.385,409.079" style="stroke: #000000; stroke-width: 1.0;"/><!--MD5=[5b9b4cf411381ce2a0e4ef98948468e9]
+link supplier.route to supplier.controller--><path d="M174.397,351.616 C191.107,351.804 209.704,352.012 227.29,352.209 " fill="none" id="supplier.route-&gt;supplier.controller" style="stroke: #000000; stroke-width: 0.5;"/><polygon fill="#000000" points="232.712,352.27,223.7571,348.17,227.7123,352.2143,223.668,356.1695,232.712,352.27" style="stroke: #000000; stroke-width: 0.5;"/><!--MD5=[62aadb0d135fce69e87c4ef2d9531de8]
+link Suppliers to useSuppliers--><path d="M336.998,637.666 C361.555,640.753 394.146,644.85 421.476,648.286 " fill="none" id="Suppliers-&gt;useSuppliers" style="stroke: #000000; stroke-width: 0.5;"/><polygon fill="#000000" points="426.515,648.919,418.0833,643.8291,421.5539,648.2962,417.0868,651.7668,426.515,648.919" style="stroke: #000000; stroke-width: 0.5;"/><!--MD5=[620f35b7e390eddbca628f8c4d6317af]
+link SysAdmin to AuditLog--><path d="M133.209,779.472 C149.95,793.93 179.562,817.497 208.885,831 C224.738,838.3 243.339,843.3833 259.426,846.8087 " fill="none" id="SysAdmin-&gt;AuditLog" style="stroke: #000000; stroke-width: 0.5;"/><polygon fill="#000000" points="264.332,847.8192,256.3238,842.086,259.4348,846.8106,254.7101,849.9216,264.332,847.8192" style="stroke: #000000; stroke-width: 0.5;"/><!--MD5=[39fdbe3650af1b1524e978fa51cc3483]
+link SysAdmin to Dashboard--><path d="M152.541,774.801 C182.113,781.76 225.502,791.969 257.172,799.421 " fill="none" id="SysAdmin-&gt;Dashboard" style="stroke: #000000; stroke-width: 0.5;"/><polygon fill="#000000" points="262.15,800.592,254.3043,794.6384,257.2827,799.4477,252.4734,802.4261,262.15,800.592" style="stroke: #000000; stroke-width: 0.5;"/><!--MD5=[f6fef00f93af8536510c81f3bc996db6]
+link SysAdmin to SysInfo--><path d="M137.924,778.814 C156.708,791.776 185.17,814.324 200.885,841 C208.764,854.3756 197.97,863.9615 208.885,875 C221.765,888.026 241.053,893.7862 258.384,896.1809 " fill="none" id="SysAdmin-&gt;SysInfo" style="stroke: #000000; stroke-width: 0.5;"/><polygon fill="#000000" points="263.69,896.8203,255.2336,891.7717,258.726,896.2217,254.2759,899.7141,263.69,896.8203" style="stroke: #000000; stroke-width: 0.5;"/><!--MD5=[6b574aad5d04663510661cfe94b7dd4d]
+link user.route to user.controller--><path d="M162.594,397.21 C184.653,397.828 211.879,398.591 236.111,399.27 " fill="none" id="user.route-&gt;user.controller" style="stroke: #000000; stroke-width: 0.5;"/><polygon fill="#000000" points="241.234,399.413,232.3496,395.1625,236.236,399.273,232.1255,403.1594,241.234,399.413" style="stroke: #000000; stroke-width: 0.5;"/><script type="text/plantuml"><![CDATA[MD5=[8cd86c9e6a7b29bd1cc2ee7e0ca3204c]
+@startuml
+
+scale max 1920 width
+left to right direction
+
+skinparam nodesep 18
+skinparam ranksep 35
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultFontName Tahoma
+skinparam defaultFontSize 12
+skinparam roundCorner 6
+skinparam dpi 150
+skinparam arrowColor black
+skinparam arrowThickness 0.5
+skinparam packageTitleAlignment left
+
+skinparam usecase {
+  borderThickness 0.5
+}
+
+skinparam rectangle {
+  borderThickness 0.5
+}
+
+skinparam component {
+  borderThickness 1
+}
+
+
+package "Client" {
+  (<b>App</b>)
+}
+
+package "Views" {
+  (Admin)
+  (Cashier)
+  (InventoryClerk)
+  (SysAdmin)
+}
+
+package "Containers" {
+  (AuditLog)
+  (<b>Catalog</b>)
+  (Dashboard)
+  (Inventory)
+  (Invoices)
+  (PointOfSale)
+  (<b>Settings</b>)
+  (Suppliers)
+  (SysInfo)
+  (Users)
+}
+
+package "Services" {
+  (useProducts)
+  (useSuppliers)
+  (<b>useUsers</b>)
+}
+
+package "Server" {
+  (<b>server</b>)
+}
+
+package "API" {
+  (auth.route)
+  (product.route)
+  (supplier.route)
+  (user.route)
+}
+
+package "Database Models" {
+  (product.model)
+  (supplier.model)
+  (user.model)
+}
+
+package "Functions" {
+  (auth.controller)
+  (product.controller)
+  (supplier.controller)
+  (user.controller)
+}
+
+(Admin) --> (AuditLog)
+(Admin) --> (Dashboard)
+(Admin) --> (Inventory)
+(Admin) --> (Invoices)
+(Admin) --> (PointOfSale)
+(Admin) --> (Suppliers)
+(Admin) --> (Users)
+(<b>App</b>) -[thickness=1]> (Admin)
+(<b>App</b>) -[thickness=1]> (Cashier)
+(<b>App</b>) -[thickness=1]> (InventoryClerk)
+(<b>App</b>) -[thickness=1]> (SysAdmin)
+(auth.route) --> (auth.controller)
+(Cashier) --> (PointOfSale)
+(Inventory) --> (useProducts)
+(InventoryClerk) --> (AuditLog)
+(InventoryClerk) --> (Inventory)
+(InventoryClerk) --> (Invoices)
+(InventoryClerk) --> (Suppliers)
+(product.route) --> (product.controller)
+(<b>server</b>) -[thickness=1]> (auth.route)
+(<b>server</b>) -[thickness=1]> (product.model)
+(<b>server</b>) -[thickness=1]> (product.route)
+(<b>server</b>) -[thickness=1]> (supplier.model)
+(<b>server</b>) -[thickness=1]> (supplier.route)
+(<b>server</b>) -[thickness=1]> (user.model)
+(<b>server</b>) -[thickness=1]> (user.route)
+(supplier.route) --> (supplier.controller)
+(Suppliers) --> (useSuppliers)
+(SysAdmin) --> (AuditLog)
+(SysAdmin) --> (Dashboard)
+(SysAdmin) --> (SysInfo)
+(user.route) --> (user.controller)
+
+@enduml
+
+
+' View and edit on https://arkit.pro
+]]></script></g></svg>

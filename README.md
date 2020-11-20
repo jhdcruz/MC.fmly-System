@@ -10,7 +10,7 @@
 
 [comment]: <> (![CI/CD]&#40;https://github.com/jhdcruz/MC.fmly-System/workflows/Desktop%20Builds/badge.svg&#41;)
 
-[![CircleCI](https://circleci.com/gh/jhdcruz/MC.fmly-System.svg?style=svg&circle-token=4025b123b9ce80ae60a05556c04c74e50ceea7fd)](https://app.circleci.com/pipelines/github/jhdcruz/MC.fmly-System) [![Build Status](https://travis-ci.com/jhdcruz/MC.fmly-System.svg?token=fiiouVpFksoACZRN1N2B&branch=main)](https://travis-ci.com/jhdcruz/MC.fmly-System) [![CodeFactor](https://www.codefactor.io/repository/github/jhdcruz/mc.fmly-system/badge?s=12c335ef55a5d9cb0a15c337d17ac27b97e843cd)](https://www.codefactor.io/repository/github/jhdcruz/mc.fmly-system)
+[![CircleCI](https://circleci.com/gh/jhdcruz/MC.fmly-System.svg?style=svg&circle-token=4025b123b9ce80ae60a05556c04c74e50ceea7fd)](https://app.circleci.com/pipelines/github/jhdcruz/MC.fmly-System) [![Build Status](https://travis-ci.com/jhdcruz/MC.fmly-System.svg?token=fiiouVpFksoACZRN1N2B&branch=main)](https://travis-ci.com/jhdcruz/MC.fmly-System)
 
 **Source Code:**
 
@@ -61,7 +61,8 @@
 
 ### Languages:
 
-- [**JavaScript (ES2019/JSX)**](https://www.ecma-international.org/publications/standards/Ecma-262.htm) - _Main implementation_
+- [**JavaScript (ES2019/JSX)**](https://www.ecma-international.org/publications/standards/Ecma-262.htm) - _Main
+  implementation_
 - **HTML5** - _Compiled UI handler_
 - **CSS3** - _Stylesheet_
 
@@ -172,6 +173,8 @@ yarn
 ```
 
 ## Development
+
+![](docs/diagram.svg)
 
 This project uses yarn's `workspaces` to seperate the **Front-End** and the **Back-End**, and run `scripts` without
 navigating back & forth to project folders.

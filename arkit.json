@@ -1,0 +1,86 @@
+{
+  "$schema": "https://arkit.pro/schema.json",
+  "excludePatterns": [
+    "**/test/**",
+    "**/tests/**",
+    "**/*.test.*",
+    "**/*.spec.*"
+  ],
+  "components": [
+    {
+      "type": "Entry",
+      "patterns": ["client/src/App.js"]
+    },
+    {
+      "type": "Views",
+      "patterns": ["client/src/views/*.js"]
+    },
+    {
+      "type": "Containers",
+      "patterns": ["client/src/containers/**/*.js"]
+    },
+    {
+      "type": "Components",
+      "patterns": ["client/src/components/**/**/*.js"]
+    },
+    {
+      "type": "Hooks",
+      "patterns": ["client/src/hooks/*.js"]
+    },
+    {
+      "type": "Models",
+      "patterns": ["api/models/*.js"]
+    },
+    {
+      "type": "Functions",
+      "patterns": ["api/controllers/*.js"]
+    },
+    {
+      "type": "Routes",
+      "patterns": ["api/routes/*.js"]
+    },
+    {
+      "type": "Server",
+      "patterns": ["api/server.js"]
+    }
+  ],
+  "output": [
+    {
+      "path": "docs/diagram.svg",
+      "groups": [
+        {
+          "type": "Client",
+          "components": ["Entry"]
+        },
+        {
+          "type": "Views",
+          "components": ["Views"]
+        },
+        {
+          "type": "Containers",
+          "components": ["Containers"]
+        },
+        {
+          "type": "Services",
+          "components": ["Hooks"]
+        },
+        {
+          "type": "Server",
+          "components": ["Server"]
+        },
+        {
+          "type": "API",
+          "components": ["Routes"]
+        },
+        {
+          "type": "Database Models",
+          "components": ["Models"]
+        },
+        {
+          "type": "Functions",
+          "components": ["Functions"]
+        }
+      ]
+    }
+  ]
+}

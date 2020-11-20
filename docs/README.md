@@ -1,6 +1,6 @@
 <div align="center">
 
-![MC.fmly](logo.png)
+![](docs/logo.png)
 
 ### Inventory System specifically built for [MC.fmly](https://www.facebook.com/MC.fmly/).
 
@@ -43,7 +43,8 @@
 
 ### Languages:
 
-- [**JavaScript (ES2019/JSX)**](https://www.ecma-international.org/publications/standards/Ecma-262.htm) - _Main implementation_
+- [**JavaScript (ES2019/JSX)**](https://www.ecma-international.org/publications/standards/Ecma-262.htm) - _Main
+  implementation_
 - **HTML5** - _Compiled UI handler_
 - **CSS3** - _Stylesheet_
 
@@ -154,6 +155,8 @@ yarn
 ```
 
 ## Development
+
+![](docs/diagram.svg)
 
 This project uses yarn's `workspaces` to seperate the **Front-End** and the **Back-End**, and run `scripts` without
 navigating back & forth to project folders.

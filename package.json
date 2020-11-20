@@ -17,10 +17,10 @@
     "build": "yarn workspace client build",
     "test": "echo \"Planned...\"",
     "lint": "concurrently \"yarn workspace client lint\" \"yarn workspace api lint\"",
-    "docker-build": "docker-compose --env-file ./api/.env up --build",
-    "docker-up": "docker-compose --env-file ./api/.env up"
+    "visualize": "arkit -c arkit.json"
   },
   "devDependencies": {
+    "arkit": "1.6.4",
     "concurrently": "5.3.0",
     "cross-env": "7.0.2",
     "eslint": "7.13.0",
