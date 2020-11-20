@@ -1,9 +1,10 @@
 {
+bas
   "checkRunSettings": {
     "vulnerableCheckRunConclusionLevel": "failure",
     "displayMode": "diff"
   },
   "issueSettings": {
-    "minSeverityLevel": "MEDIUM"
+    "minSeverityLevel": "LOW"
   }
 }
