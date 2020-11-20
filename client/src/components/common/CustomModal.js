@@ -22,20 +22,27 @@ import { Modal } from 'react-bootstrap';
 export const ModalView = styled(Modal)`
   background-color: rgba(35, 35, 35, 0.3);
   color: whitesmoke;
+
+  .modal-content {
+    border-radius: 1rem;
+  }
 `;
 
 export const ModalHeader = styled(Modal.Header)`
-  background-color: #1b1e21;
+  background-color: #141414;
+  border-bottom: 3px solid #e6a195;
 `;
 
 export const ModalTitle = styled(Modal.Title)``;
 
 export const ModalBody = styled(Modal.Body)`
-  background-color: #1b1e21;
+  background-color: #141414;
+  padding: 2rem;
 `;
 
 export const ModalFooter = styled(Modal.Footer)`
-  background-color: #1b1e21;
+  background-color: #141414;
+  border-top: 3px solid #e6a195;
 `;
 
 export default function CustomModal(props) {
@@ -55,6 +62,7 @@ export default function CustomModal(props) {
         <h4>{props.title}</h4>
         <p>{props.content}</p>
       </ModalBody>
+      <ModalFooter>{props.footer}</ModalFooter>
     </ModalView>
   );
 }
