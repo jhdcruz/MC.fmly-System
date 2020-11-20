@@ -19,7 +19,7 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 import { Button } from 'react-bootstrap';
-import Modal from '../common/Modal';
+import CustomModal from '../common/CustomModal';
 import ProductForm from '../forms/ProductForm';
 import { Tag } from './__tables.module';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -99,7 +99,7 @@ export default function ProductRow(product) {
   return (
     <>
       {/* Modals */}
-      <Modal
+      <CustomModal
         size="sm"
         header="Delete product"
         content="Are you sure?"

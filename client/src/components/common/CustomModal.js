@@ -16,14 +16,29 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import {
-  ModalBody,
-  ModalHeader,
-  ModalTitle,
-  ModalView
-} from './__common.module';
+import styled from 'styled-components';
+import { Modal } from 'react-bootstrap';
 
-export default function Modal(props) {
+export const ModalView = styled(Modal)`
+  background-color: rgba(35, 35, 35, 0.3);
+  color: whitesmoke;
+`;
+
+export const ModalHeader = styled(Modal.Header)`
+  background-color: #1b1e21;
+`;
+
+export const ModalTitle = styled(Modal.Title)``;
+
+export const ModalBody = styled(Modal.Body)`
+  background-color: #1b1e21;
+`;
+
+export const ModalFooter = styled(Modal.Footer)`
+  background-color: #1b1e21;
+`;
+
+export default function CustomModal(props) {
   return (
     <ModalView
       {...props}

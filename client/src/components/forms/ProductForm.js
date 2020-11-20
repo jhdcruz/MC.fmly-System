@@ -17,12 +17,12 @@
  */
 
 import { Button, Col, Form, FormControl, InputGroup } from 'react-bootstrap';
-import Modal from '../common/Modal';
+import CustomModal from '../common/CustomModal';
 import { Required } from './__forms.module';
 
 export default function ProductForm(props) {
   return (
-    <Modal
+    <CustomModal
       {...props}
       size="lg"
       header={props.header}
