@@ -19,28 +19,30 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
-// Assign data to `products`
-const useProducts = () => {
-  const [products, setProducts] = useState(null);
+// Fetch products data
+async function getAll() {
+  let res = await axios.get(`/api/products`);
+  return res.data || [];
+}
 
-  async function getMethod() {
-    const res = await axios.get(`/api/products`);
-    return res.data || [];
-  }
+// Assign data to `products`
+const useSuppliers = () => {
+  const [suppliers, setSuppliers] = useState(null);
 
   useEffect(() => {
-    if (!products) {
-      getMethod()
-        .then((res) => {
-          setProducts(res);
-        })
-        .catch((e) => {
-          console.error(e);
-        });
+    if (!suppliers) {
+      fetchProducts().catch((e) => {
+        console.error(e);
+      });
     }
-  }, [products]);
+  }, [suppliers]);
 
-  return [products];
+  const fetchProducts = async () => {
+    let res = await getAll();
+    setSuppliers(res);
+  };
+
+  return [suppliers];
 };
 
-export default useProducts;
+export default useSuppliers;

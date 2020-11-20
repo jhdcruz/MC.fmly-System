@@ -21,7 +21,7 @@ import Categories from '../components/Categories';
 import ProductTable from '../components/tables/ProductHeader';
 import ProductRow from '../components/tables/ProductRow';
 import Loader from '../components/common/Loader';
-import useProducts from '../hooks/useProducts';
+import useProducts from '../services/useProducts';
 
 export default function Inventory() {
   const [products] = useProducts();

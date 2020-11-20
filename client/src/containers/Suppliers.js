@@ -21,7 +21,7 @@ import { CardDeck, Dropdown } from 'react-bootstrap';
 import Poster from '../components/Poster';
 import SearchBar from '../components/common/SearchBar';
 import SupplierForm from '../components/forms/SupplierForm';
-import useSuppliers from '../hooks/useSuppliers';
+import useSuppliers from '../services/useSuppliers';
 
 export default function Suppliers() {
   const [suppliers] = useSuppliers();
