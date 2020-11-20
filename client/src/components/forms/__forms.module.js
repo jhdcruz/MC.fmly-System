@@ -20,8 +20,65 @@ import styled from 'styled-components';
 import { Form } from 'react-bootstrap';
 
 export const ModalForm = styled(Form)`
-  background-color: #1b1e21;
   color: whitesmoke;
+
+  .input-group-prepend span,
+  .input-group-append span {
+    margin: 0;
+    padding: 0 15px;
+    font-size: 1.3vw;
+    background-color: #141414;
+    color: #999999;
+    border: 2px inset #d7b9b4;
+    border-radius: 1rem;
+  }
+
+  .form-control-file {
+    margin: 0;
+    padding: 5px 15px;
+    font-size: 1.3vw;
+    color: whitesmoke;
+    vertical-align: middle;
+    cursor: pointer;
+  }
+
+  .circular-input {
+    margin: 0;
+    padding: 5px 15px;
+    font-size: 1.3vw;
+    background-color: #232323;
+    color: whitesmoke;
+    border: 2px inset #d7b9b4;
+    border-radius: 1rem;
+    vertical-align: middle;
+
+    ::placeholder {
+      color: #c4c4c4;
+      font-size: 1.2vw;
+    }
+
+    :active,
+    :focus {
+      background-color: #1b1e21;
+      color: whitesmoke;
+      border: 2px outset #d7b9b4;
+      box-shadow: 0 0 7px #d7b9b4;
+    }
+  }
+
+  textarea {
+    // Make textarea's expand visible
+    border-bottom-right-radius: 0 !important;
+  }
+
+  input[type='number']::-webkit-inner-spin-button {
+    // Hide input inner control on [type=number]
+    -webkit-appearance: none;
+  }
+
+  button {
+    margin: 0 5px;
+  }
 `;
 
 export const Required = styled.span`

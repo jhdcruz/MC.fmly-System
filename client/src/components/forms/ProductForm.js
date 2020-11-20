@@ -18,7 +18,7 @@
 
 import { Button, Col, Form, FormControl, InputGroup } from 'react-bootstrap';
 import CustomModal from '../common/CustomModal';
-import { Required } from './__forms.module';
+import { ModalForm, Required } from './__forms.module';
 
 export default function ProductForm(props) {
   return (
@@ -28,14 +28,21 @@ export default function ProductForm(props) {
       header={props.header}
       title={props.title}
       content={
-        <Form>
+        <ModalForm autoComplete="new-text" autoSave="off">
           <Form.Row>
             {/* Product Code (SKU) */}
             <Form.Group as={Col} controlId="formGridCode">
               <Form.Label>
                 Code (SKU) <Required>*</Required>
               </Form.Label>
-              <Form.Control type="text" placeholder="STC00001" required />
+              <Form.Control
+                className="circular-input"
+                type="text"
+                placeholder="STC00001"
+                autoComplete="new-text"
+                autoSave="off"
+                required
+              />
             </Form.Group>
 
             {/* Product Name */}
@@ -43,7 +50,14 @@ export default function ProductForm(props) {
               <Form.Label>
                 Name <Required>*</Required>
               </Form.Label>
-              <Form.Control type="text" placeholder="Heart Sticker" required />
+              <Form.Control
+                className="circular-input"
+                type="text"
+                placeholder="Heart Sticker"
+                autoComplete="new-text"
+                autoSave="off"
+                required
+              />
             </Form.Group>
           </Form.Row>
 
@@ -51,7 +65,12 @@ export default function ProductForm(props) {
             {/* Product Variant */}
             <Form.Group as={Col} controlId="formGridVariant">
               <Form.Label>Variant</Form.Label>
-              <Form.Control placeholder="Black" />
+              <Form.Control
+                className="circular-input"
+                placeholder="Black"
+                autoComplete="new-text"
+                autoSave="off"
+              />
             </Form.Group>
 
             {/* Product Type */}
@@ -59,7 +78,13 @@ export default function ProductForm(props) {
               <Form.Label>
                 Type <Required>*</Required>
               </Form.Label>
-              <Form.Control placeholder="Sticker" required />
+              <Form.Control
+                className="circular-input"
+                placeholder="Sticker"
+                autoComplete="new-text"
+                autoSave="off"
+                required
+              />
             </Form.Group>
           </Form.Row>
 
@@ -69,7 +94,13 @@ export default function ProductForm(props) {
               <Form.Label>
                 Category <Required>*</Required>
               </Form.Label>
-              <Form.Control placeholder="Papercraft" required />
+              <Form.Control
+                className="circular-input"
+                placeholder="Papercraft"
+                autoComplete="new-text"
+                autoSave="off"
+                required
+              />
             </Form.Group>
 
             {/* Product Quantity */}
@@ -77,7 +108,14 @@ export default function ProductForm(props) {
               <Form.Label>
                 Quantity <Required>*</Required>
               </Form.Label>
-              <Form.Control type="number" placeholder="10" required />
+              <Form.Control
+                className="circular-input"
+                type="number"
+                placeholder="10"
+                autoComplete="new-text"
+                autoSave="off"
+                required
+              />
             </Form.Group>
 
             {/* Product Price */}
@@ -87,7 +125,12 @@ export default function ProductForm(props) {
                 <InputGroup.Prepend>
                   <InputGroup.Text>₱</InputGroup.Text>
                 </InputGroup.Prepend>
-                <FormControl type="number" />
+                <FormControl
+                  className="circular-input"
+                  type="number"
+                  autoComplete="new-text"
+                  autoSave="off"
+                />
               </InputGroup>
             </Form.Group>
           </Form.Row>
@@ -109,7 +152,7 @@ export default function ProductForm(props) {
               Save
             </Button>
           </Form.Group>
-        </Form>
+        </ModalForm>
       }
       onHide={props.onHide}
     />

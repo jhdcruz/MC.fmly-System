@@ -28,12 +28,17 @@ export default function SupplierForm(props) {
       header={props.header}
       title={props.title}
       content={
-        <ModalForm autoComplete="off" autoSave="off">
+        <ModalForm autoComplete="new-text" autoSave="off">
           <Form.Row>
             {/* Supplier Icon */}
             <Form.Group controlId="formGridName">
-              <Form.Label>Supplier Logo</Form.Label>
-              <Form.File id="logoFileControl" />
+              <Form.Label>Logo</Form.Label>
+              <Form.File
+                type="file"
+                name="logo"
+                id="inputFileControl"
+                accept="image/*"
+              />
             </Form.Group>
 
             {/* Supplier Name */}
@@ -42,8 +47,11 @@ export default function SupplierForm(props) {
                 Name <Required>*</Required>
               </Form.Label>
               <Form.Control
+                className="circular-input"
                 type="text"
                 placeholder="Company/Supplier name"
+                autoComplete="new-text"
+                autoSave="off"
                 required
               />
             </Form.Group>
@@ -53,8 +61,11 @@ export default function SupplierForm(props) {
           <Form.Group controlId="formGridDescription">
             <Form.Label>Description</Form.Label>
             <Form.Control
+              className="circular-input"
               as="textarea"
-              placeholder="Brief info about the company..."
+              placeholder="Brief info about the company... (drag on the lower right to expand)"
+              autoComplete="new-text"
+              autoSave="off"
             />
           </Form.Group>
 
@@ -63,9 +74,11 @@ export default function SupplierForm(props) {
             <Form.Group as={Col} controlId="formGridCategory">
               <Form.Label>Address</Form.Label>
               <Form.Control
+                className="circular-input"
                 as="textarea"
+                placeholder="Supplier physical address... (drag on the lower right to expand)"
                 autoComplete="new-text"
-                placeholder="Supplier physical address"
+                autoSave="off"
               />
             </Form.Group>
           </Form.Row>
@@ -76,7 +89,13 @@ export default function SupplierForm(props) {
               <Form.Label>
                 Type <Required>*</Required>
               </Form.Label>
-              <Form.Control placeholder="It supplies..." required />
+              <Form.Control
+                className="circular-input"
+                placeholder="It supplies..."
+                autoComplete="new-text"
+                autoSave="off"
+                required
+              />
             </Form.Group>
 
             {/* Product Quantity */}
@@ -86,7 +105,12 @@ export default function SupplierForm(props) {
                 <InputGroup.Prepend>
                   <InputGroup.Text id="basic-addon1">https://</InputGroup.Text>
                 </InputGroup.Prepend>
-                <FormControl placeholder="sample.com" />
+                <FormControl
+                  className="circular-input"
+                  placeholder="sample.com"
+                  autoComplete="new-text"
+                  autoSave="off"
+                />
               </InputGroup>
             </Form.Group>
 
@@ -94,10 +118,13 @@ export default function SupplierForm(props) {
             <Form.Group as={Col} controlId="formGridContact">
               <Form.Label>Contact</Form.Label>
               <FormControl
+                className="circular-input"
                 type="tel"
                 name="phone"
                 pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
                 placeholder="ex: 123-45-678"
+                autoComplete="new-text"
+                autoSave="off"
               />
             </Form.Group>
           </Form.Row>
