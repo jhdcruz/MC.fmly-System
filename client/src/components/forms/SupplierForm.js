@@ -17,18 +17,18 @@
  */
 
 import { Button, Col, Form, FormControl, InputGroup } from 'react-bootstrap';
-import Modal from '../common/Modal';
-import { Required } from './__forms.module';
+import CustomModal from '../common/CustomModal';
+import { ModalForm, Required } from './__forms.module';
 
 export default function SupplierForm(props) {
   return (
-    <Modal
+    <CustomModal
       {...props}
       size="lg"
       header={props.header}
       title={props.title}
       content={
-        <Form autoComplete="off" autoSave="off">
+        <ModalForm autoComplete="off" autoSave="off">
           <Form.Row>
             {/* Supplier Icon */}
             <Form.Group controlId="formGridName">
@@ -119,7 +119,7 @@ export default function SupplierForm(props) {
               Save
             </Button>
           </Form.Group>
-        </Form>
+        </ModalForm>
       }
       onHide={props.onHide}
     />

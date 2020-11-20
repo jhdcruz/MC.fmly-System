@@ -17,12 +17,12 @@
  */
 
 import { Button, Col, Form } from 'react-bootstrap';
-import Modal from '../common/Modal';
+import CustomModal from '../common/CustomModal';
 import { Required } from './__forms.module';
 
 export default function UserForm(props) {
   return (
-    <Modal
+    <CustomModal
       size="lg"
       header={props.header}
       title={props.title}

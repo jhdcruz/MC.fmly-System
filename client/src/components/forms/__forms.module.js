@@ -17,6 +17,12 @@
  */
 
 import styled from 'styled-components';
+import { Form } from 'react-bootstrap';
+
+export const ModalForm = styled(Form)`
+  background-color: #1b1e21;
+  color: whitesmoke;
+`;
 
 export const Required = styled.span`
   color: #ec2738;
