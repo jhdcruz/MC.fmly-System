@@ -30,6 +30,7 @@ const Alert = styled(Toast)`
   background-color: #1f252c !important;
   color: whitesmoke;
   width: auto;
+  z-index: 99;
 
   svg {
     color: whitesmoke;
@@ -50,7 +51,7 @@ const Alert = styled(Toast)`
   }
 
   .toast-header {
-    background-color: #1b1e21;
+    background-color: #121416;
   }
 `;
 
