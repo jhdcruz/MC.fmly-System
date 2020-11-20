@@ -18,7 +18,7 @@
 
 import { Button, Col, Form } from 'react-bootstrap';
 import CustomModal from '../common/CustomModal';
-import { Required } from './__forms.module';
+import { ModalForm, Required } from './__forms.module';
 
 export default function UserForm(props) {
   return (
@@ -27,21 +27,35 @@ export default function UserForm(props) {
       header={props.header}
       title={props.title}
       content={
-        <Form>
+        <ModalForm autoComplete="new-text" autoSave="off">
           <Form.Row>
             {/* User desired name */}
             <Form.Group as={Col} controlId="formGridName">
               <Form.Label>
                 Name <Required>*</Required>
               </Form.Label>
-              <Form.Control type="username" placeholder="Username" required />
+              <Form.Control
+                className="circular-input"
+                type="username"
+                placeholder="Username"
+                autoComplete="new-text"
+                autoSave="off"
+                required
+              />
             </Form.Group>
 
             <Form.Group as={Col} controlId="formGridName">
               <Form.Label>
                 Username <Required>*</Required>
               </Form.Label>
-              <Form.Control type="username" placeholder="Username" required />
+              <Form.Control
+                className="circular-input"
+                type="username"
+                placeholder="Username"
+                autoComplete="new-text"
+                autoSave="off"
+                required
+              />
             </Form.Group>
 
             {/* User Password | Auto-rehash on submit */}
@@ -49,7 +63,14 @@ export default function UserForm(props) {
               <Form.Label>
                 Password <Required>*</Required>
               </Form.Label>
-              <Form.Control type="password" placeholder="Password" required />
+              <Form.Control
+                className="circular-input"
+                type="password"
+                placeholder="Password"
+                autoComplete="new-text"
+                autoSave="off"
+                required
+              />
             </Form.Group>
           </Form.Row>
 
@@ -59,7 +80,13 @@ export default function UserForm(props) {
               <Form.Label>
                 Role <Required>*</Required>
               </Form.Label>
-              <Form.Control placeholder="User role" required />
+              <Form.Control
+                className="circular-input"
+                placeholder="User role"
+                autoComplete="new-text"
+                autoSave="off"
+                required
+              />
             </Form.Group>
 
             {/* User Permission | User-level authority */}
@@ -67,7 +94,12 @@ export default function UserForm(props) {
               <Form.Label>
                 Permission <Required>*</Required>
               </Form.Label>
-              <Form.Control as="select" defaultValue="Choose..." required>
+              <Form.Control
+                className="circular-input"
+                as="select"
+                defaultValue="Choose..."
+                required
+              >
                 <option>Admin</option>
                 <option>Sysadmin</option>
                 <option>Inventory</option>
