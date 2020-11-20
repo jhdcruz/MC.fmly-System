@@ -23,7 +23,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPen, faTimes } from "@fortawesome/free-solid-svg-icons";
 import CustomModal from "../modals/CustomModal";
 import { useState } from "react";
-import ProductEntry from "../modals/ProductEntry";
+import ProductModal from "../modals/ProductModal";
 
 const TableRow = styled.tr`
   color: white;
@@ -104,7 +104,7 @@ export default function ProductRow(product) {
         show={confimModal}
         onHide={() => showConfirmModal(false)}
       />
-      <ProductEntry
+      <ProductModal
         title="Edit product"
         show={editModal}
         onHide={() => showEditModal(false)}

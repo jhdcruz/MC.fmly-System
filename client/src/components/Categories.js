@@ -19,7 +19,7 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 import { Col, Dropdown, Nav, Row, Tab } from 'react-bootstrap';
-import SupplierEntry from './modals/SupplierEntry';
+import SupplierModal from './modals/SupplierModal';
 import SearchBar from './common/SearchBar';
 
 const CatalogGrid = styled(Row)`
@@ -104,7 +104,7 @@ export default function Categories(props) {
           </Nav>
         </CategoryList>
         <CategoryTable>
-          <SupplierEntry
+          <SupplierModal
             title="Add new product"
             show={modal}
             onHide={() => showModal(false)}

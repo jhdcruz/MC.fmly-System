@@ -20,7 +20,7 @@ import { useState } from 'react';
 import { CardDeck, Dropdown } from 'react-bootstrap';
 import Poster from '../components/Poster';
 import SearchBar from '../components/common/SearchBar';
-import SupplierEntry from '../components/modals/SupplierEntry';
+import SupplierModal from '../components/modals/SupplierModal';
 import useSuppliers from '../hooks/useSuppliers';
 
 export default function Suppliers() {
@@ -30,7 +30,7 @@ export default function Suppliers() {
   return (
     <>
       {/* Modal */}
-      <SupplierEntry
+      <SupplierModal
         title="Add new supplier"
         show={modal}
         onHide={() => showModal(false)}
