@@ -16,28 +16,17 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { Button, Modal } from 'react-bootstrap';
-import { ModalContent } from './__modals.module';
+import styled from 'styled-components';
+import { Modal } from 'react-bootstrap';
 
-export default function CustomModal(props) {
-  return (
-    <ModalContent
-      {...props}
-      size="sm"
-      aria-labelledby="contained-modal-title-vcenter"
-      centered
-    >
-      <Modal.Header closeButton>
-        <Modal.Title id="contained-modal-title-vcenter">
-          {props.title}
-        </Modal.Title>
-      </Modal.Header>
-      <Modal.Body>
-        <p>{props.message}</p>
-      </Modal.Body>
-      <Modal.Footer>
-        <Button onClick={props.onHide}>Close</Button>
-      </Modal.Footer>
-    </ModalContent>
-  );
-}
+export const ModalView = styled(Modal)`
+  background-color: rgba(35, 35, 35, 0.3);
+`;
+
+export const ModalHeader = styled(Modal.Header)``;
+
+export const ModalTitle = styled(Modal.Title)``;
+
+export const ModalBody = styled(Modal.Body)``;
+
+export const ModalFooter = styled(Modal.Footer)``;

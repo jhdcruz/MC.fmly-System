@@ -19,8 +19,8 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 import { Col, Dropdown, Nav, Row, Tab } from 'react-bootstrap';
-import SupplierModal from './modals/SupplierModal';
 import SearchBar from './common/SearchBar';
+import ProductForm from './forms/ProductForm';
 
 const CatalogGrid = styled(Row)`
   display: flex;
@@ -86,7 +86,9 @@ const CategoryLine = styled.label`
 `;
 
 export default function Categories(props) {
+  // * Modal Handlers
   const [modal, showModal] = useState(false);
+  const handleClose = () => showModal(false);
 
   return (
     <Tab.Container id="CategorySection" defaultActiveKey="default">
@@ -104,10 +106,12 @@ export default function Categories(props) {
           </Nav>
         </CategoryList>
         <CategoryTable>
-          <SupplierModal
-            title="Add new product"
+          <ProductForm
+            header="Add new product"
             show={modal}
             onHide={() => showModal(false)}
+            save={handleClose} // TODO: POST data
+            close={handleClose}
           />
           <SearchBar
             modal={() => {

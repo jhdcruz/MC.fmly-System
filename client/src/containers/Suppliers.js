@@ -20,20 +20,25 @@ import { useState } from 'react';
 import { CardDeck, Dropdown } from 'react-bootstrap';
 import Poster from '../components/Poster';
 import SearchBar from '../components/common/SearchBar';
-import SupplierModal from '../components/modals/SupplierModal';
+import SupplierForm from '../components/forms/SupplierForm';
 import useSuppliers from '../hooks/useSuppliers';
 
 export default function Suppliers() {
   const [suppliers] = useSuppliers();
+
+  // * Modal Handlers
   const [modal, showModal] = useState(false);
+  const handleClose = () => showModal(false);
 
   return (
     <>
       {/* Modal */}
-      <SupplierModal
-        title="Add new supplier"
+      <SupplierForm
+        header="Add new supplier"
         show={modal}
         onHide={() => showModal(false)}
+        save={handleClose} // TODO: POST data
+        cancel={handleClose}
       />
 
       {/* Modal Handler */}

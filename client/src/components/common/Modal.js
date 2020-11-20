@@ -16,33 +16,30 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { Button, Modal } from 'react-bootstrap';
-import { ModalContent } from "./__modals.module";
+import {
+  ModalBody,
+  ModalHeader,
+  ModalTitle,
+  ModalView
+} from './__common.module';
 
-export default function ProductModal(props) {
+export default function Modal(props) {
   return (
-    <ModalContent
+    <ModalView
       {...props}
-      size="lg"
+      size={props.size}
       aria-labelledby="contained-modal-title-vcenter"
       centered
     >
-      <Modal.Header closeButton>
-        <Modal.Title id="contained-modal-title-vcenter">
-          {props.title}
-        </Modal.Title>
-      </Modal.Header>
-      <Modal.Body>
-        <h4>Centered Modal</h4>
-        <p>
-          Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-          dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
-          consectetur ac, vestibulum at eros.
-        </p>
-      </Modal.Body>
-      <Modal.Footer>
-        <Button onClick={props.onHide}>Close</Button>
-      </Modal.Footer>
-    </ModalContent>
+      <ModalHeader closeButton>
+        <ModalTitle id="contained-modal-title-vcenter">
+          {props.header}
+        </ModalTitle>
+      </ModalHeader>
+      <ModalBody>
+        <h4>{props.title}</h4>
+        <p>{props.content}</p>
+      </ModalBody>
+    </ModalView>
   );
 }

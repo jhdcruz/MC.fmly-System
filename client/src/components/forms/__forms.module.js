@@ -17,8 +17,7 @@
  */
 
 import styled from 'styled-components';
-import { Modal } from 'react-bootstrap';
 
-export const ModalContent = styled(Modal)`
-  background-color: rgba(35, 35, 35, 0.3);
+export const Required = styled.span`
+  color: #ec2738;
 `;

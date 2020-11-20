@@ -16,14 +16,14 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+import { useState } from "react";
 import styled from "styled-components";
 import { Button } from "react-bootstrap";
+import Modal from "../common/Modal";
+import ProductForm from "../forms/ProductForm";
 import { Tag } from "./__tables.module";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPen, faTimes } from "@fortawesome/free-solid-svg-icons";
-import CustomModal from "../modals/CustomModal";
-import { useState } from "react";
-import ProductModal from "../modals/ProductModal";
 
 const TableRow = styled.tr`
   color: white;
@@ -98,13 +98,17 @@ export default function ProductRow(product) {
   return (
     <>
       {/* Modals */}
-      <CustomModal
+      <Modal
+        size="sm"
         title="Delete product"
-        message="Are you sure?"
+        content="Are you sure?"
         show={confimModal}
         onHide={() => showConfirmModal(false)}
+        style={{
+          textAlign: "center"
+        }}
       />
-      <ProductModal
+      <ProductForm
         title="Edit product"
         show={editModal}
         onHide={() => showEditModal(false)}
@@ -168,7 +172,8 @@ export default function ProductRow(product) {
                   {product.quantity}
                 </Tag>
               );
-            } else {
+            }
+            else {
               return (
                 <Tag pill variant="dark">
                   {product.quantity}
