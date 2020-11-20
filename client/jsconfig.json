@@ -5,6 +5,5 @@
     "moduleResolution": "node",
     "baseUrl": "src"
   },
-  "include": ["src/**/**/**", "public/*"],
   "exclude": ["node_modules", "config", "scripts"]
 }
