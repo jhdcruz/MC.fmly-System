@@ -118,10 +118,7 @@ const LoginControl = styled.div`
 `;
 
 export default function App() {
-  const {
-    register,
-    handleSubmit
-  } = useForm();
+  const { register, handleSubmit } = useForm();
   const [auth, setAuth] = useState('');
 
   // * Auth Handler
@@ -132,8 +129,7 @@ export default function App() {
         console.log(res);
         if (res.data === 'Credentials Mismatched!') {
           window.alert('Invalid username or password...');
-        }
-        else {
+        } else {
           setAuth(res.data);
         }
       })
