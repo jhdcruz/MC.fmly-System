@@ -24,9 +24,9 @@
     "lint-ui": "prettier \"./src/**/**.{html,scss,js,jsx,ts,tsx}\" --write && eslint \"./src/**/**/*.{js,jsx,ts,tsx}\" && stylelint \"./src/**/**/*.{js,ts,tsx,css,scss,sass}\"",
     "package-all": "yarn postinstall && yarn build && electron-builder build -mwl --publish never",
     "package-ci": "yarn postinstall && yarn build && electron-builder build --publish never",
-    "package-linux": "yarn postinstall && yarn build && electron-builder build --linux ",
-    "package-mac": "yarn postinstall && yarn build && electron-builder build --mac",
-    "package-win": "yarn postinstall && yarn build && electron-builder build --win",
+    "package-linux": "yarn postinstall && yarn build && electron-builder build --linux --publish never",
+    "package-mac": "yarn postinstall && yarn build && electron-builder build --mac --publish never",
+    "package-win": "yarn postinstall && yarn build && electron-builder build --win --publish never",
     "visualize": "arkit -c arkit.json"
   },
   "dependencies": {
