@@ -39,7 +39,7 @@ const SupplierService = () => {
 
   const fetchProducts = async () => {
     let res = await getAll();
-    setSuppliers(res);
+    setSuppliers([res]);
   };
 
   return [suppliers];

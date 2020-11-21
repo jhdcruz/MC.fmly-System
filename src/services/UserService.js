@@ -39,7 +39,7 @@ const UserService = () => {
 
   const fetchProducts = async () => {
     let res = await getAll();
-    setUsers(res);
+    setUsers([res]);
   };
 
   return [users];
