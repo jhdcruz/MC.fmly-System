@@ -39,6 +39,7 @@ export default function Suppliers() {
           {suppliers &&
             suppliers.map((supplier) => (
               <Poster
+                key={supplier._id}
                 icon={supplier.icon}
                 name={supplier.name}
                 description={supplier.description}
