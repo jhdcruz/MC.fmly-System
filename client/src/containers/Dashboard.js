@@ -50,7 +50,7 @@ export default function Dashboard() {
       <Notification
         delay={15000}
         title="Notice"
-        message="Loading is currently removed until API provider's problem is resolved."
+        message="Login Form is temporarily removed until API provider's problem is resolved."
       />
     </div>
   );
