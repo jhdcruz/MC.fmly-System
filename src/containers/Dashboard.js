@@ -24,6 +24,7 @@ import {
   TotalProducts,
   TotalSuppliers
 } from '../components/charts/MongoWidgets';
+import Notification from '../components/common/Notification';
 
 export default function Dashboard() {
   return (
@@ -46,6 +47,12 @@ export default function Dashboard() {
         <TypeDetails />
         <CategoryDetails />
       </Row>
+      <Notification
+        delay="10000"
+        title="Notice"
+        time="System Developer"
+        message="As of Nov 21, 2020, 5:31 PM GMT +8, API connection route has been resolved. All available services are now operational."
+      />
     </div>
   );
 }
