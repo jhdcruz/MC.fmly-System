@@ -1,8 +1,8 @@
-<div align="center">
+# MC.fmly Inventory System
+
+![MC.fmly Rebranded Logo](https://i.imgur.com/JCzhyzM.png)
 
 ### Inventory System specifically built for [MC.fmly](https://www.facebook.com/MC.fmly/).
-
-</div>
 
 ---
 
@@ -45,8 +45,6 @@
   implementation_
 - **HTML5** - _Compiled UI handler_
 - **CSS3** - _Stylesheet_
-
-> A rewrite is planned to refactor `client` to **TypeScript**.
 
 ### Front-End:
 
@@ -138,7 +136,6 @@ replace `yum` with your distro package provider.
 
 > Add your environment variables inside `/api/.env`.
 
-
 ```dotenv
 MONGO_ADMIN=[Your URI Here] # Don't add quotation marks
 MONGO_URL=[Your URI Here]
@@ -155,7 +152,7 @@ yarn
 
 ## Development
 
-![](https://i.imgur.com/nkR4dYP.png)
+![](docs/diagram.svg)
 
 This project uses yarn's `workspaces` to seperate the **Front-End** and the **Back-End**, and run `scripts` without
 navigating back & forth to project folders.
@@ -190,7 +187,7 @@ Front-end output on `./client/build/` directory. Ready to deploy to hosting.
 ### Desktop:
 
 The desktop version on production relies on loading the web app. You need to deploy the web app, then changing
-the `loadURL` link in `public/electron.ts`.
+the `loadURL` link in `public/electron.js`.
 
 ```shell
 cd client/ && package-[os]
