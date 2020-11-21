@@ -27,14 +27,14 @@ jobs:
             sudo apt-get install -y dpkg dpkg-dev fakeroot rpm
       - run:
           name: Install dependencies
-          command: 'yarn'
+          command: yarn
       - save_cache:
           key: dependency-cache-{{ checksum "package.json" }}
           paths:
             - ./node_modules
       - run:
           name: Compile build
-          command: yarn workspace client package-ci
+          command: yarn package-ci
       - store_artifacts:
           path: ~/repo/release/
 #     - codecov/upload:
