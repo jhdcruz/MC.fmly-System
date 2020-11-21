@@ -17,6 +17,7 @@
  */
 
 const mongoose = require('mongoose');
+const argon2 = require('argon2');
 
 const Users = mongoose.model('users');
 
