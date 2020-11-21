@@ -26,55 +26,50 @@ const Search = styled.div`
   margin: 3rem 2rem 0 1.5rem;
   position: fixed;
   box-shadow: 0 0 12px #eccec9;
-  background-color: #1e1e1e;
+  background-color: #222126;
   color: whitesmoke !important;
-  border-radius: 5rem;
+  border-radius: 0.3rem;
   outline: none;
   z-index: 3;
 
 
   .search-icon {
-    background-color: #1e1e1e;
+    background-color: #222126;
     color: whitesmoke !important;
     padding: 0 10px;
     outline: none;
   }
 
   .add-icon {
-    background-color: #1e1e1e;
+    background-color: #222126;
     color: whitesmoke !important;
-    border-radius: 5rem;
     outline: none;
   }
 }
 
 // Dropdown
 .dropdown-toggle {
-  background-color: #1e1e1e;
+  background-color: #222126;
   color: whitesmoke;
   outline: none;
   border: none;
   border-right: 1px solid whitesmoke;
-  border-bottom-left-radius: 5rem;
-  border-top-left-radius: 5rem;
 }
 
 // Dropdown list popup
 .show {
-  background-color: #232323;
+  background-color: #222126;
   color: whitesmoke;
-  border-radius: 1.5rem;
   box-shadow: 0 0 10px #eccec9;
   padding: 0;
 
   .dropdown-item {
-    background-color: #232323;
+    background-color: #222126;
     color: whitesmoke;
-    border-radius: 1rem;
     padding: 7px 15px;
 
     :hover {
-      background-color: #111111;
+      background-color: #181818;
       color: whitesmoke;
     }
   }

@@ -21,10 +21,10 @@ import styled from 'styled-components';
 const Widget = styled.iframe`
   width: 22vw !important;
   height: 150px !important;
-  background: #1e1e1e;
+  background: #222126;
   margin: 2.5rem 0.5rem 0.5rem 0;
   border: none;
-  border-radius: 1rem;
+  border-radius: 0.3rem;
   box-shadow: 0 3px 6px #232323;
 `;
 

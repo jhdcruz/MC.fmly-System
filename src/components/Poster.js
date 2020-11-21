@@ -20,13 +20,13 @@ import { Card, Image, ListGroup, ListGroupItem } from 'react-bootstrap';
 import styled from 'styled-components';
 
 const CardBlock = styled(Card)`
-  background-color: #1e1e1e;
+  background-color: #222126;
   color: #d2d2d2;
   box-shadow: 0 3px 6px #232323;
   padding: 1rem !important;
   margin: 2rem 1rem 2rem 0 !important;
   height: max-content;
-  border-radius: 3rem;
+  border-radius: 0.3rem;
   z-index: 1;
 
   .card-body {
@@ -44,7 +44,7 @@ const CardBlock = styled(Card)`
 
   .list-group-flush,
   .list-group-item {
-    background-color: #1e1e1e;
+    background-color: #222126;
     color: #d2d2d2;
     border-top: 1px solid #565656 !important;
     border-bottom: 1px solid #565656 !important;

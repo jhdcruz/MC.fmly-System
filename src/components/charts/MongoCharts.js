@@ -21,10 +21,10 @@ import styled from 'styled-components';
 export const Chart = styled.iframe`
   width: 44.5vw !important;
   height: 60vh !important;
-  background: #1e1e1e;
+  background: #222126;
   margin-right: 0.5rem;
   border: none;
-  border-radius: 1rem;
+  border-radius: 0.3rem;
   box-shadow: 0 3px 6px #232323;
 `;
 
