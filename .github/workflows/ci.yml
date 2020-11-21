@@ -33,7 +33,7 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - run: sudo apt-get install --no-install-recommends -y libopenjp2-tools rpm python2
+      - run: sudo apt-get install --no-install-recommends -y libopenjp2-tools rpm python2.7
       - run: npm i -g yarn
       - run: yarn
       - run: yarn lint
