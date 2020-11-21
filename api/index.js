@@ -103,7 +103,7 @@ require('./routes/product.route')(api);
 require('./routes/supplier.route')(api);
 
 // * Main API route | All HTTP Methods
-// https://expressjs.com/en/5x/api.html#app.METHOD
+// https://expressjs.com/en/4x/api.html#app.METHOD
 api.all('/api', (req, res) => {
   res.setHeader('Content-Type', 'text/html');
   res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
