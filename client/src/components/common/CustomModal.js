@@ -20,7 +20,8 @@ import styled from 'styled-components';
 import { Modal } from 'react-bootstrap';
 
 export const ModalView = styled(Modal)`
-  background-color: rgba(35, 35, 35, 0.3);
+  // Background fade
+  background-color: rgba(45, 45, 45, 0.2);
   color: whitesmoke;
 
   .modal-content {
