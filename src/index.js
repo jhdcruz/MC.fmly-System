@@ -1,4 +1,4 @@
-/*!
+/*
  *     MC.fmly Inventory System
  *     Copyright (C) 2020  Joshua Hero H. Dela Cruz
  *
@@ -16,16 +16,26 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-/* Custom themes here */
-$theme-colors: (
-  'primary': #e6a195,
-  'secondary': #3f4a59,
-  'success': #4de670,
-  'danger': #ec2738,
-  'warning': #faa142,
-  'info': #2579f6,
-  'dark': #000000
-);
+import { StrictMode } from 'react';
+import ReactDOM from 'react-dom';
+import * as Sentry from '@sentry/react';
+import { Integrations } from '@sentry/tracing';
+// import App from './App';
+import Admin from './views/Admin';
 
-/* set changes */
-@import '~bootstrap/scss/bootstrap';
+Sentry.init({
+  dsn:
+    'https://de6f628b7cf441dab8f6c9733de1e8fd@o187933.ingest.sentry.io/5523255',
+  integrations: [new Integrations.BrowserTracing()],
+
+  // We recommend adjusting this value in production, or using tracesSampler
+  // for finer control | default: tracesSampleRate: 1.0
+  tracesSampleRate: 7.0
+});
+
+ReactDOM.render(
+  <StrictMode>
+    <Admin />
+  </StrictMode>,
+  document.getElementById('root')
+);

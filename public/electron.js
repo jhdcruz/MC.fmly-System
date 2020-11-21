@@ -17,7 +17,7 @@
  */
 
 // @ts-nocheck
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow } = require('public/electron');
 const isDev = require('electron-is-dev');
 const path = require('path');
 

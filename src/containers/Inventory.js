@@ -104,9 +104,7 @@ export default function Inventory() {
       <>
         <Tab.Pane eventKey="default">
           <ProductTable
-            data={
-              products && products.map((product) => ProductRow(product))
-            }
+            data={products && products.map((product) => ProductRow(product))}
           />
         </Tab.Pane>
         <CategoryFilter />

@@ -1,4 +1,4 @@
-name: Desktop Builds
+name: CI
 
 on:
   push:

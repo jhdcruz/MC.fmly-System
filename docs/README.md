@@ -152,12 +152,7 @@ yarn
 
 ## Development
 
-![](docs/diagram.svg)
-
-This project uses yarn's `workspaces` to seperate the **Front-End** and the **Back-End**, and run `scripts` without
-navigating back & forth to project folders.
-
-> **`nohoist` is set to `"*"`** to avoid compilation problems on `electron` regarding missing/hoisted dependencies.
+![](https://i.imgur.com/nkR4dYP.png)
 
 ### Web App:
 
