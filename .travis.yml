@@ -24,6 +24,10 @@ cache:
     - node_modules
     - "$HOME/.cache/electron"
     - "$HOME/.cache/electron-builder"
+
+before_script:
+  - sudo apt install -y --no-install-recommends python2.7 rpm dpkg dpkg-dev libopenjp2
+
 script:
   - |
     if [ "$TRAVIS_OS_NAME" == "linux" ]; then
