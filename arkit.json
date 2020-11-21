@@ -53,11 +53,11 @@
           "components": ["Entry"]
         },
         {
-          "type": "Views",
+          "type": "Permission",
           "components": ["Views"]
         },
         {
-          "type": "Containers",
+          "type": "Views",
           "components": ["Containers"]
         },
         {
@@ -73,7 +73,7 @@
           "components": ["Routes"]
         },
         {
-          "type": "Database Models",
+          "type": "Schema/Models",
           "components": ["Models"]
         },
         {
