@@ -57,7 +57,7 @@
     "@fortawesome/free-solid-svg-icons": "5.15.1",
     "@fortawesome/react-fontawesome": "0.1.12",
     "@svgr/webpack": "5.5.0",
-    "@testing-library/jest-dom": "4.2.4",
+    "@testing-library/jest-dom": "5.11.6",
     "@testing-library/react": "11.2.2",
     "@testing-library/user-event": "7.2.1",
     "arkit": "1.6.4",
