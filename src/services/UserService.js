@@ -31,15 +31,17 @@ const UserService = () => {
 
   useEffect(() => {
     if (!users) {
-      fetchProducts().catch((e) => {
+      fetchUsers().catch((e) => {
         console.error(e);
       });
     }
   }, [users]);
 
-  const fetchProducts = async () => {
-    let res = await getAll();
-    setUsers(res);
+  const fetchUsers = async () => {
+    return await getAll().then((data) => {
+      console.log(data);
+      setUsers(data);
+    });
   };
 
   return [users];

@@ -31,15 +31,17 @@ const SupplierService = () => {
 
   useEffect(() => {
     if (!suppliers) {
-      fetchProducts().catch((e) => {
+      fetchSuppliers().catch((e) => {
         console.error(e);
       });
     }
   }, [suppliers]);
 
-  const fetchProducts = async () => {
-    let res = await getAll();
-    setSuppliers(res);
+  const fetchSuppliers = async () => {
+    return await getAll().then((data) => {
+      console.log(data);
+      setSuppliers(data);
+    });
   };
 
   return [suppliers];

@@ -38,8 +38,10 @@ const ProductService = () => {
   }, [products]);
 
   const fetchProducts = async () => {
-    let res = await getAll();
-    setProducts(res);
+    return await getAll().then((data) => {
+      console.log(data);
+      setProducts(data);
+    });
   };
 
   return [products];
