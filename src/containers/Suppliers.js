@@ -21,11 +21,11 @@ import { CardDeck, Dropdown } from 'react-bootstrap';
 import Poster from '../components/Poster';
 import SearchBar from '../components/common/SearchBar';
 import SupplierForm from '../components/forms/SupplierForm';
-import supplierService from '../services/SupplierService';
+import SupplierService from '../services/SupplierService';
 import Loader from '../components/common/Loader';
 
 export default function Suppliers() {
-  const [suppliers] = supplierService();
+  const [suppliers] = SupplierService();
 
   // * Modal Handlers
   const [modal, showModal] = useState(false);
