@@ -27,7 +27,7 @@ async function getAll() {
 
 // Assign data to `products`
 const SupplierService = () => {
-  const [suppliers, setSuppliers] = useState(null);
+  const [suppliers, setSuppliers] = useState();
 
   useEffect(() => {
     if (!suppliers) {

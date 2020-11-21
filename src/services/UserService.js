@@ -27,7 +27,7 @@ async function getAll() {
 
 // Assign data to `products`
 const UserService = () => {
-  const [users, setUsers] = useState(null);
+  const [users, setUsers] = useState();
 
   useEffect(() => {
     if (!users) {
