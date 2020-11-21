@@ -16,18 +16,21 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { DBMetrics } from '../components/charts/MongoMetrics';
+import styled from 'styled-components';
 
-export default function SysInfo() {
+export const Chart = styled.iframe`
+  width: 100vw !important;
+  height: 100vh !important;
+  background: #222126;
+  border: none;
+  box-shadow: 0 3px 6px #232323;
+`;
+
+export const DBMetrics = () => {
   return (
-    <div
-      style={{
-        display: 'flex',
-        overflow: 'auto',
-        height: '100vh',
-      }}
-    >
-      <DBMetrics />
-    </div>
+    <Chart
+      sandbox="allow-pointer-lock allow-same-origin allow-scripts"
+      src="https://p.datadoghq.com/sb/iiar95vh75yuvxwz-4f36a4b929487e20c789f3c806178482?theme=dark"
+    />
   );
-}
+};
