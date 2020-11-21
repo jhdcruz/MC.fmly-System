@@ -28,20 +28,19 @@ const SideNav = styled(Container)`
 `;
 
 const SideMenu = styled.aside`
-  background-color: #1e1e1e;
+  background-color: #222126;
   display: block;
-  width: 3.4rem;
-  margin: 2.5rem 15px;
-  padding: 0;
-  height: max-content;
-  border-radius: 1.6rem;
-  box-shadow: 0 3px 6px #232323;
+  width: 4.5rem;
+  padding: 2rem 0 0 0;
+  height: 100vh;
+  box-shadow: 0 3px 6px #2f2f2f;
+  border-right: 2px solid #d69185;
   z-index: 9;
   overflow: auto !important;
 
   hr {
     margin: 5px 0;
-    border-top: 5px solid rgba(70, 70, 70, 1);
+    border-top: 4px solid #d69185;
   }
 `;
 
