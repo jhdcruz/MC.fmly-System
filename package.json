@@ -61,7 +61,7 @@
     "@testing-library/react": "9.5.0",
     "@testing-library/user-event": "7.2.1",
     "arkit": "1.6.4",
-    "autoprefixer": "10.0.1",
+    "autoprefixer": "10.0.2",
     "babel-eslint": "10.1.0",
     "babel-jest": "26.6.3",
     "babel-loader": "8.2.1",
