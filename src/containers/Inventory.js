@@ -51,7 +51,7 @@ export default function Inventory() {
 
   // Filter products by product category
   const CategoryFilter = () => {
-    if (products && products.length !== 0) {
+    if (products && products.length !== null) {
       return (
         <>
           {products &&

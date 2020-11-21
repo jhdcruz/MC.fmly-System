@@ -22,6 +22,7 @@ import Poster from '../components/Poster';
 import SearchBar from '../components/common/SearchBar';
 import SupplierForm from '../components/forms/SupplierForm';
 import supplierService from '../services/SupplierService';
+import Loader from '../components/common/Loader';
 
 export default function Suppliers() {
   const [suppliers] = supplierService();
@@ -29,6 +30,29 @@ export default function Suppliers() {
   // * Modal Handlers
   const [modal, showModal] = useState(false);
   const handleClose = () => showModal(false);
+
+  const SuppliersList = () => {
+    // Wait for suppliers list | loader
+    if (suppliers && suppliers.length !== null) {
+      return (
+        <>
+          {suppliers &&
+            suppliers.map((supplier) => (
+              <Poster
+                icon={supplier.icon}
+                name={supplier.name}
+                description={supplier.description}
+                type={supplier.type}
+                address={supplier.address}
+                website={supplier.website}
+                contact={supplier.contact}
+              />
+            ))}
+        </>
+      );
+    }
+    return <Loader />;
+  };
 
   return (
     <>
@@ -54,24 +78,14 @@ export default function Suppliers() {
           </>
         }
       />
+      {/* Supplier group */}
       <CardDeck
         style={{
           margin: '4.5rem 0 1rem',
           padding: '1rem'
         }}
       >
-        {suppliers &&
-          suppliers.map((supplier) => (
-            <Poster
-              icon={supplier.icon}
-              name={supplier.name}
-              description={supplier.description}
-              type={supplier.type}
-              address={supplier.address}
-              website={supplier.website}
-              contact={supplier.contact}
-            />
-          ))}
+        <SuppliersList />
       </CardDeck>
     </>
   );
