@@ -125,7 +125,7 @@ export default function UserForm(props) {
               Save
             </Button>
           </Form.Group>
-        </Form>
+        </ModalForm>
       }
       onHide={props.onHide}
     />
