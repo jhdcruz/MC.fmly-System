@@ -68,7 +68,7 @@
     "babel-plugin-named-asset-import": "0.3.7",
     "babel-preset-react-app": "10.0.0",
     "bootstrap": "4.5.3",
-    "camelcase": "5.3.1",
+    "camelcase": "6.2.0",
     "case-sensitive-paths-webpack-plugin": "2.3.0",
     "concurrently": "5.3.0",
     "cross-env": "7.0.2",
