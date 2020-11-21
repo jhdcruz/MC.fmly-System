@@ -17,7 +17,7 @@
     "start": "concurrently \"cross-env BROWSER=none node ./scripts/start.js\" \"wait-on http://localhost:3000 && electron .\" --kill-others-on-fail",
     "web": "concurrently \"yarn api\" \"node ./scripts/start.js\" --kill-others-on-fail",
     "api": "nodemon --watch --trace-deprecation api/server.js",
-    "build": "node ../scripts/build.js",
+    "build": "node ./scripts/build.js",
     "postinstall": "electron-builder install-app-deps",
     "lint": "concurrently \"yarn lint-ui\" \"yarn lint-ui\"",
     "lint-api": "prettier \"./api/**/**.{js,ts}\" --write && eslint \"./api/**/**/*.{js,jsx,ts,tsx}\" && stylelint \"./src/**/**/*.{js,ts,tsx,css,scss,sass}\"",
