@@ -20,7 +20,7 @@ import { StrictMode } from 'react';
 import ReactDOM from 'react-dom';
 import * as Sentry from '@sentry/react';
 import { Integrations } from '@sentry/tracing';
-import Admin from "./views/Admin";
+import App from './App';
 
 Sentry.init({
   dsn:
@@ -34,7 +34,7 @@ Sentry.init({
 
 ReactDOM.render(
   <StrictMode>
-    <Admin />
+    <App />
   </StrictMode>,
   document.getElementById('root')
 );
