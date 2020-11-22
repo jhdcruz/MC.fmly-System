@@ -19,6 +19,7 @@
 const AuthController = require('../controllers/auth.controller');
 
 module.exports = (api) => {
+  api.get('/api/auth/status', AuthController.status);
   api.post('/api/auth/login', AuthController.login);
   api.post('/api/auth/register', AuthController.register);
 };

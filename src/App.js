@@ -18,12 +18,12 @@
 
 import { useCallback, useState } from 'react';
 import axios from 'axios';
+import styled from 'styled-components';
 import { useForm } from 'react-hook-form';
 import Container from 'react-bootstrap/Container';
 import Image from 'react-bootstrap/Image';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import styled from 'styled-components';
 import Brand from './assets/img/profile.png';
 import './App.scss';
 // Views
@@ -31,6 +31,7 @@ import Admin from './views/Admin';
 import Cashier from './views/Cashier';
 import SysAdmin from './views/SysAdmin';
 import InventoryClerk from './views/InventoryClerk';
+import Status from "./components/Status";
 
 /* ===========================
  * Styled Components
@@ -223,6 +224,7 @@ export default function App() {
             Login
           </Button>
         </LoginControl>
+        <Status />
       </LoginForm>
     </LoginContainer>
   );
