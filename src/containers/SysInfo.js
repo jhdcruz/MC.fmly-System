@@ -16,7 +16,7 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { DBMetrics } from '../components/charts/MongoMetrics';
+import { DBMetrics } from '../components/system/MongoMetrics';
 
 export default function SysInfo() {
   return (
