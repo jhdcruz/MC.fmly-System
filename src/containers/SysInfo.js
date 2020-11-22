@@ -16,18 +16,41 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+import { Tab, Tabs } from 'react-bootstrap';
 import { DBMetrics } from '../components/system/MongoMetrics';
+import styled from 'styled-components';
+import Logs from '../components/system/Logs';
+
+const NavTab = styled(Tabs)`
+  border: none;
+  background-color: #222126;
+
+  a {
+    background-color: #1e1e1e !important;
+    color: #e6a195 !important;
+    outline: none !important;
+    border: none !important;
+    border-bottom: 3px solid #e6a195 !important;
+  }
+`;
 
 export default function SysInfo() {
   return (
-    <div
-      style={{
-        display: 'flex',
-        overflow: 'auto',
-        height: '100vh',
-      }}
-    >
-      <DBMetrics />
+    <div>
+      <NavTab
+        defaultActiveKey="system"
+        id="System Tabs"
+        style={{
+          overflow: 'hidden'
+        }}
+      >
+        <Tab eventKey="system" title="Overview">
+          <DBMetrics />
+        </Tab>
+        <Tab eventKey="logs" title="Logs">
+          <Logs />
+        </Tab>
+      </NavTab>
     </div>
   );
 }
