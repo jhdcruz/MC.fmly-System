@@ -21,7 +21,7 @@ import styled from 'styled-components';
 export const Chart = styled.iframe`
   width: 44.5vw !important;
   height: 60vh !important;
-  background: #222126;
+  background: #1e1e1e;
   margin-right: 0.5rem;
   border: none;
   border-radius: 0.3rem;

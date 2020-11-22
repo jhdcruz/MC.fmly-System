@@ -21,7 +21,7 @@ import styled from 'styled-components';
 const Widget = styled.iframe`
   width: 22vw !important;
   height: 150px !important;
-  background: #222126;
+  background: #1e1e1e;
   margin: 2.5rem 0.5rem 0.5rem 0;
   border: none;
   border-radius: 0.3rem;
