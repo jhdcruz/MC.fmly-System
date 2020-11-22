@@ -26,7 +26,7 @@ const NavTab = styled(Tabs)`
   background-color: #222126;
 
   a {
-    background-color: #1e1e1e !important;
+    background-color: #222126 !important;
     color: #e6a195 !important;
     outline: none !important;
     border: none !important;
@@ -36,7 +36,11 @@ const NavTab = styled(Tabs)`
 
 export default function SysInfo() {
   return (
-    <div>
+    <div
+      style={{
+        width: '100vw'
+      }}
+    >
       <NavTab
         defaultActiveKey="system"
         id="System Tabs"

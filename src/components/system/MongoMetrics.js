@@ -19,15 +19,15 @@
 import styled from 'styled-components';
 
 export const Chart = styled.iframe`
-  width: 100vw !important;
+  width: 100% !important;
   height: 100vh !important;
   background: #222126;
   border: none;
   box-shadow: 0 3px 6px #232323;
 
-  html,
-  body {
+  iframe.webform-frame {
     background-color: #222126 !important;
+    overflow: hidden !important;
   }
 `;
 
