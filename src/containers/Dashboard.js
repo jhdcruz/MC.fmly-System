@@ -46,13 +46,15 @@ export default function Dashboard() {
       style={{
         display: 'inline-block',
         overflow: 'auto',
-        height: '100vh',
-        width: '100%',
-        padding: '1rem 1.3rem 2.5rem 2rem'
+        width: '100vw',
+        margin: '1.9rem 0',
+        borderTop: '2px solid #e6a195'
       }}
     >
       <NavTab>
-        <Tab eventKey="system" title="Overview">
+        <Tab eventKey="system" title="Overview" style={{
+          padding: '0 2rem'
+        }}>
           <Row>
             <InventoryCapacity />
             <InventoryValue />

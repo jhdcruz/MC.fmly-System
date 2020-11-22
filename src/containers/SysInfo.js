@@ -38,7 +38,9 @@ export default function SysInfo() {
   return (
     <div
       style={{
-        width: '100vw'
+        width: '100vw',
+        margin: '1.9rem 0',
+        borderTop: '2px solid #e6a195 !important'
       }}
     >
       <NavTab
