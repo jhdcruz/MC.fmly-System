@@ -28,8 +28,7 @@ const Tracing = require('@sentry/tracing');
 const logdna = require('@logdna/logger');
 
 const options = {
-  app: 'MC.fmly Inventory System',
-  level: 'production'
+  app: 'MC.fmly Inventory System'
 };
 
 const logger = logdna.createLogger(`${process.env.LOGDNA_INGENSTION}`, options);

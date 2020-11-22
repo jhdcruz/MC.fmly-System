@@ -23,12 +23,10 @@ const logdna = require('@logdna/logger');
 const Users = mongoose.model('users');
 
 const options = {
-  app: 'MC.fmly Inventory System',
-  level: 'production'
+  app: 'MC.fmly Inventory System'
 };
 
 const logger = logdna.createLogger(`${process.env.LOGDNA_INGENSTION}`, options);
-
 
 // * GET | All users
 exports.get = async (req, res) => {
