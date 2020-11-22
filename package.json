@@ -30,6 +30,7 @@
     "visualize": "arkit -c arkit.json"
   },
   "dependencies": {
+    "@logdna/logger": "2.1.1",
     "@sentry/node": "5.27.4",
     "@sentry/react": "5.27.4",
     "@sentry/tracing": "5.27.4",
