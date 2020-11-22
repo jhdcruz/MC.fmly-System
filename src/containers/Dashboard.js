@@ -16,7 +16,8 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { Row } from 'react-bootstrap';
+import styled from 'styled-components';
+import { Row, Tab, Tabs } from 'react-bootstrap';
 import { CategoryDetails, TypeDetails } from '../components/charts/MongoCharts';
 import {
   InventoryCapacity,
@@ -25,6 +26,19 @@ import {
   TotalSuppliers
 } from '../components/charts/MongoWidgets';
 import Notification from '../components/common/Notification';
+
+const NavTab = styled(Tabs)`
+  border: none;
+  background-color: #222126;
+
+  a {
+    background-color: #222126 !important;
+    color: #e6a195 !important;
+    outline: none !important;
+    border: none !important;
+    border-bottom: 3px solid #e6a195 !important;
+  }
+`;
 
 export default function Dashboard() {
   return (
@@ -37,16 +51,22 @@ export default function Dashboard() {
         padding: '1rem 1.3rem 2.5rem 2rem'
       }}
     >
-      <Row>
-        <InventoryCapacity />
-        <InventoryValue />
-        <TotalProducts />
-        <TotalSuppliers />
-      </Row>
-      <Row>
-        <TypeDetails />
-        <CategoryDetails />
-      </Row>
+      <NavTab>
+        <Tab eventKey="system" title="Overview">
+          <Row>
+            <InventoryCapacity />
+            <InventoryValue />
+            <TotalProducts />
+            <TotalSuppliers />
+          </Row>
+          <Row>
+            <TypeDetails />
+            <CategoryDetails />
+          </Row>
+        </Tab>
+      </NavTab>
+
+      {/* TODO: Move notices to Login | Store events to DB */}
       <Notification
         delay="10000"
         title="Notice"
