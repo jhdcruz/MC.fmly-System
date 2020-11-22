@@ -8,40 +8,40 @@
   ],
   "components": [
     {
-      "type": "Entry",
-      "patterns": ["client/src/App.js"]
+      "type": "entry",
+      "patterns": ["src/App.js"]
     },
     {
-      "type": "Views",
-      "patterns": ["client/src/views/*.js"]
+      "type": "pages",
+      "patterns": ["src/views/*.js"]
     },
     {
-      "type": "Containers",
-      "patterns": ["client/src/containers/**/*.js"]
+      "type": "containers",
+      "patterns": ["src/containers/**/*.js"]
     },
     {
-      "type": "Components",
-      "patterns": ["client/src/components/**/**/*.js"]
+      "type": "components",
+      "patterns": ["src/components/**/**/*.js"]
     },
     {
-      "type": "Hooks",
-      "patterns": ["client/src/hooks/*.js"]
+      "type": "services",
+      "patterns": ["src/services/*.js", "src/components/charts/*.js"]
     },
     {
-      "type": "Models",
+      "type": "models",
       "patterns": ["api/models/*.js"]
     },
     {
-      "type": "Functions",
+      "type": "functions",
       "patterns": ["api/controllers/*.js"]
     },
     {
-      "type": "Routes",
+      "type": "routes",
       "patterns": ["api/routes/*.js"]
     },
     {
-      "type": "Server",
-      "patterns": ["api/server.js"]
+      "type": "server",
+      "patterns": ["api/index.js"]
     }
   ],
   "output": [
@@ -49,36 +49,38 @@
       "path": "docs/diagram.svg",
       "groups": [
         {
+          "first": true,
           "type": "Client",
-          "components": ["Entry"]
+          "components": ["entry"]
         },
         {
-          "type": "Permission",
-          "components": ["Views"]
+          "type": "Roles",
+          "components": ["pages"]
         },
         {
           "type": "Views",
-          "components": ["Containers"]
+          "components": ["containers"]
         },
         {
           "type": "Services",
-          "components": ["Hooks"]
+          "components": ["services"]
         },
         {
-          "type": "Server",
-          "components": ["Server"]
-        },
-        {
+          "first": true,
           "type": "API",
-          "components": ["Routes"]
+          "components": ["server"]
+        },
+        {
+          "type": "Routes",
+          "components": ["routes"]
         },
         {
           "type": "Models",
-          "components": ["Models"]
+          "components": ["models"]
         },
         {
           "type": "Functions",
-          "components": ["Functions"]
+          "components": ["functions"]
         }
       ]
     }
