@@ -24,6 +24,11 @@ export const Chart = styled.iframe`
   background: #222126;
   border: none;
   box-shadow: 0 3px 6px #232323;
+
+  html,
+  body {
+    background-color: #222126 !important;
+  }
 `;
 
 export const DBMetrics = () => {
