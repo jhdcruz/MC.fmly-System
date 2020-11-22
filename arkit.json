@@ -73,7 +73,7 @@
           "components": ["Routes"]
         },
         {
-          "type": "Schema/Models",
+          "type": "Models",
           "components": ["Models"]
         },
         {
