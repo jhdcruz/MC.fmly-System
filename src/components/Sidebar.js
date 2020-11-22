@@ -16,26 +16,27 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { Container, Nav } from 'react-bootstrap';
+import { Container, Image, Nav } from 'react-bootstrap';
 import styled from 'styled-components';
 import TabItem from './TabItem';
-import routes from '../routes';
-import { faSignOutAlt, faUsers } from '@fortawesome/free-solid-svg-icons';
+import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
+import Brand from '../assets/img/profile.png';
 
 const SideNav = styled(Container)`
   width: 4.5rem;
   padding: 0;
+  z-index: 9;
 `;
 
 const SideMenu = styled.aside`
   background-color: #222126;
   display: block;
   width: 4.5rem;
-  padding: 2rem 0 0 0;
+  padding: 2.5rem 0 0 0;
   height: 100vh;
   box-shadow: 0 3px 6px #2f2f2f;
   border-right: 2px solid #d69185;
-  z-index: 9;
+  transition: width 0.5s;
   overflow: auto !important;
 
   hr {
@@ -49,17 +50,20 @@ export default function Sidebar(props) {
     <SideNav>
       <SideMenu>
         <Nav defaultActiveKey="/" className="flex-column">
+          <Image
+            src={Brand}
+            alt="MC.fmly"
+            className="ml-auto mr-auto"
+            width={55}
+            height={55}
+            draggable={false}
+            rounded
+          />
           {/* Custom Navigation per views*/}
           {props.navigation}
 
-          {/* Fixed Navigation | All views */}
           <hr />
-          <TabItem
-            tab="User Management"
-            overlay="User Management"
-            route={routes.USERS}
-            icon={faUsers}
-          />
+          {props.bottom}
           <TabItem
             tab="Logout"
             overlay="Logout"
