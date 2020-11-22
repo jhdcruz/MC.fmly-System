@@ -30,7 +30,7 @@ export const ModalForm = styled(Form)`
     background-color: #141414;
     color: #999999;
     border: 2px inset #d7b9b4;
-    border-radius: 1rem;
+    border-radius: 0.5rem;
   }
 
   .form-control-file {
@@ -49,7 +49,7 @@ export const ModalForm = styled(Form)`
     background-color: #232323;
     color: whitesmoke;
     border: 2px inset #d7b9b4;
-    border-radius: 1rem;
+    border-radius: 0.5rem;
     vertical-align: middle;
 
     ::placeholder {

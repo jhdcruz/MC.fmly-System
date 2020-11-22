@@ -30,7 +30,7 @@ export const ModalView = styled(Modal)`
 `;
 
 export const ModalHeader = styled(Modal.Header)`
-  background-color: #222126;
+  background-color: #1e1e1e;
   border-bottom: 3px solid #e6a195;
 
   span {
@@ -41,12 +41,12 @@ export const ModalHeader = styled(Modal.Header)`
 export const ModalTitle = styled(Modal.Title)``;
 
 export const ModalBody = styled(Modal.Body)`
-  background-color: #222126;
+  background-color: #1e1e1e;
   padding: 2rem;
 `;
 
 export const ModalFooter = styled(Modal.Footer)`
-  background-color: #222126;
+  background-color: #1e1e1e;
   border-top: 3px solid #121113;
 `;
 
