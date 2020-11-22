@@ -44,7 +44,7 @@ const CategoryList = styled(Col)`
   white-space: nowrap;
 
   hr {
-    border-top: 1px solid #e6a195;
+    border-top: 2px solid #e6a195;
     margin: 1rem 0;
   }
 
