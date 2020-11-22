@@ -34,7 +34,7 @@ const CategoryList = styled(Col)`
   transform: translateY(-100%);
   max-width: 12rem;
   margin: 2rem 5rem 0 1rem;
-  padding: 4rem 1rem 1rem 1.2rem;
+  padding: 5rem 1rem 1rem 1.2rem;
   color: whitesmoke;
   background-color: #222126;
   box-shadow: -1px 0 6px #232323;
@@ -44,7 +44,7 @@ const CategoryList = styled(Col)`
   white-space: nowrap;
 
   hr {
-    border-top: 1px solid #d2d2d2;
+    border-top: 1px solid #e6a195;
     margin: 1rem 0;
   }
 
@@ -113,7 +113,7 @@ export default function Categories(props) {
             show={modal}
             onHide={() => showModal(false)}
             save={handleClose} // TODO: POST data
-            close={handleClose}
+            cancel={handleClose}
           />
           <SearchBar
             modal={() => {
