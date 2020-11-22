@@ -17,9 +17,17 @@
  */
 
 const mongoose = require('mongoose');
-const logger = require('../utils/logger');
+const logdna = require('@logdna/logger');
 
 const Products = mongoose.model('products');
+
+const options = {
+  app: 'MC.fmly Inventory System',
+  level: 'production'
+};
+
+const logger = logdna.createLogger(`${process.env.LOGDNA_INGENSTION}`, options);
+
 
 // * GET | All Product
 exports.get = async (req, res) => {

@@ -23,17 +23,55 @@ const cors = require('cors');
 const helmet = require('helmet');
 const dotenv = require('dotenv');
 const dotenvExpand = require('dotenv-expand');
+const Sentry = require('@sentry/node');
+const Tracing = require('@sentry/tracing');
+const logdna = require('@logdna/logger');
+
+const options = {
+  app: 'MC.fmly Inventory System',
+  level: 'production'
+};
+
+const logger = logdna.createLogger(`${process.env.LOGDNA_INGENSTION}`, options);
 
 // set .env
 const env = dotenv.config();
 dotenvExpand(env);
 
 const api = express();
+
 const PORT = process.env.PORT || 5000;
 
-// Utils
-const logger = require('./utils/logger');
-require('./utils/Sentry');
+// App Monitoring | Sentry
+Sentry.init({
+  dsn: `${process.env.SENTRY_PROJECT_DSN}`,
+  integrations: [
+    // enable HTTP calls tracing
+    new Sentry.Integrations.Http({ tracing: true }),
+    // enable Express.js middleware tracing
+    new Tracing.Integrations.Express({ api })
+  ],
+
+  // We recommend adjusting this value in production, or using tracesSampler
+  // for finer control | default: tracesSampleRate: 1.0
+  tracesSampleRate: 0.7
+});
+
+// ? RequestHandler creates a separate execution context using domains, so that every
+// ? transaction/span/breadcrumb is attached to its own Hub instance
+api.use(Sentry.Handlers.requestHandler());
+// ? TracingHandler creates a trace for every incoming request
+api.use(Sentry.Handlers.tracingHandler());
+
+// ? The error handler must be before any other error middleware and after all controllers
+api.use(
+  Sentry.Handlers.errorHandler({
+    shouldHandleError(error) {
+      // Capture all 404 and 500 errors
+      return error.status === 404 || error.status === 500;
+    }
+  })
+);
 
 mongoose.Promise = global.Promise;
 
