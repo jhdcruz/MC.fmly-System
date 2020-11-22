@@ -24,27 +24,27 @@ export default function Logs() {
         height: '100vh'
       }}
     >
-      <blockquote
-        className="logdna-embed"
-        data-embed-id="44a57a0868"
-        data-embed-org="f5de57b7a2"
-        data-embed-signature="ff4f2f517c8a57699770aa081a87be42f6b82604e07fd6a15988a3d8c4a5da227d7e4ace864395f0cebfd1a425192a457a6f47097c88eef410ea80c3211dcd3a"
-      >
-        <h4>
-          <a
-            href="https://app.logdna.com/ext/embed-link/f5de57b7a2/44a57a0868"
-            target="return func(0)"
-          >
-            System Logs
-          </a>
-        </h4>
-        <footer>
-          <a href="https://logdna.com" target="return func(0)">
-            by LogDNA
-          </a>
-        </footer>
-      </blockquote>
-      <script async defer src="https://cdn.logdna.net/js/embed.js" />
+      {/*<blockquote*/}
+      {/*  className="logdna-embed"*/}
+      {/*  data-embed-id="44a57a0868"*/}
+      {/*  data-embed-org="f5de57b7a2"*/}
+      {/*  data-embed-signature="ff4f2f517c8a57699770aa081a87be42f6b82604e07fd6a15988a3d8c4a5da227d7e4ace864395f0cebfd1a425192a457a6f47097c88eef410ea80c3211dcd3a"*/}
+      {/*>*/}
+      {/*  <h4>*/}
+      {/*    <a*/}
+      {/*      href="https://app.logdna.com/ext/embed-link/f5de57b7a2/44a57a0868"*/}
+      {/*      target="return func(0)"*/}
+      {/*    >*/}
+      {/*      System Logs*/}
+      {/*    </a>*/}
+      {/*  </h4>*/}
+      {/*  <footer>*/}
+      {/*    <a href="https://logdna.com" target="return func(0)">*/}
+      {/*      by LogDNA*/}
+      {/*    </a>*/}
+      {/*  </footer>*/}
+      {/*</blockquote>*/}
+      {/*<script async defer src="https://cdn.logdna.net/js/embed.js" />*/}
     </div>
   );
 }
