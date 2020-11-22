@@ -157,7 +157,7 @@ export default function ProductRow(product) {
           {product.code}
         </TableData>
         <TableData className="name">{product.name}</TableData>
-        <TableData className="type">
+        <TableData className="variant">
           <Tag pill variant="secondary">
             {product.variant}
           </Tag>
