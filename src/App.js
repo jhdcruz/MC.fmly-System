@@ -20,10 +20,9 @@ import { useCallback, useState } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
 import { useForm } from 'react-hook-form';
-import Container from 'react-bootstrap/Container';
-import Image from 'react-bootstrap/Image';
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
+import { Button, Container, Form, Image, InputGroup } from 'react-bootstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faKey, faUser } from '@fortawesome/free-solid-svg-icons';
 import Brand from './assets/img/profile.png';
 import './App.scss';
 // Views
@@ -31,7 +30,7 @@ import Admin from './views/Admin';
 import Cashier from './views/Cashier';
 import SysAdmin from './views/SysAdmin';
 import InventoryClerk from './views/InventoryClerk';
-import Status from "./components/Status";
+import Status from './components/Status';
 
 /* ===========================
  * Styled Components
@@ -88,11 +87,25 @@ const LoginForm = styled(Form)`
   }
 `;
 
+const FormLabel = styled(Form.Label)`
+  color: #bebebe;
+`;
+
+const InputIcon = styled(InputGroup.Prepend)`
+  span {
+    background-color: #1e1e1e;
+    color: #e6a195;
+    border: 2px inset #e6a195;
+    border-radius: 0.5rem;
+  }
+`;
+
 const FormControl = styled(Form.Control)`
   font-size: 18px;
-  margin-right: 1rem;
   background-color: transparent;
   color: whitesmoke;
+  border: 2px outset #e6a195;
+  border-radius: 0.5rem;
 
   ::placeholder {
     color: #c4c4c4;
@@ -181,29 +194,45 @@ export default function App() {
           rounded
         />
         <Form.Group>
-          <Form.Label htmlFor="username">Username:</Form.Label>
-          <FormControl
-            type="username"
-            name="username"
-            placeholder="Username"
-            autoComplete="off"
-            ref={register}
-            autoFocus={true}
-            tabIndex={1}
-            required
-          />
+          <FormLabel htmlFor="username">Username:</FormLabel>
+          <InputGroup>
+            <InputIcon>
+              <InputGroup.Text>
+                <FontAwesomeIcon icon={faUser} />
+              </InputGroup.Text>
+            </InputIcon>
+            <FormControl
+              type="username"
+              name="username"
+              placeholder="Username"
+              autoComplete="new-text"
+              autoSave="off"
+              ref={register}
+              autoFocus={true}
+              tabIndex={1}
+              required
+            />
+          </InputGroup>
         </Form.Group>
         <Form.Group>
-          <Form.Label htmlFor="password">Password:</Form.Label>
-          <FormControl
-            type="password"
-            name="password"
-            placeholder="Password"
-            autoComplete="off"
-            ref={register}
-            tabIndex={2}
-            required
-          />
+          <FormLabel htmlFor="password">Password:</FormLabel>
+          <InputGroup>
+            <InputIcon>
+              <InputGroup.Text>
+                <FontAwesomeIcon icon={faKey} />
+              </InputGroup.Text>
+            </InputIcon>
+            <FormControl
+              type="password"
+              name="password"
+              placeholder="Password"
+              autoComplete="new-text"
+              autoSave="off"
+              ref={register}
+              tabIndex={2}
+              required
+            />
+          </InputGroup>
         </Form.Group>
         <LoginControl>
           <a
@@ -224,7 +253,9 @@ export default function App() {
             Login
           </Button>
         </LoginControl>
-        <Status />
+
+        {/* Server Status Icon */}
+        <Status placement="left" />
       </LoginForm>
     </LoginContainer>
   );

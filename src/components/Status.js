@@ -16,38 +16,36 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { useState } from 'react';
-import axios from 'axios';
-import { OverlayTrigger } from 'react-bootstrap';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircle } from '@fortawesome/free-solid-svg-icons';
+import { useState } from "react";
+import axios from "axios";
+import { Button, OverlayTrigger, Tooltip } from "react-bootstrap";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCircle } from "@fortawesome/free-solid-svg-icons";
 
-export default function Status() {
+export default function Status(props) {
   const [status, setStatus] = useState(500);
 
   // * Poke server to check for status
-  const checkServer = () => {
-    axios
-      .get(`/api/auth/status`)
-      .then((res) => {
-        if (res.status === 200) {
-          setStatus(200);
-        } else {
-          setStatus(500);
-        }
-      })
-      .catch((err) => {
-        console.error(err);
+  const checkServer = axios
+    .get(`/api/auth/status`)
+    .then((res) => {
+      if (res.status === 200) {
+        setStatus(200);
+      } else {
         setStatus(500);
-      });
-  };
+      }
+    })
+    .catch((err) => {
+      console.error(err);
+      setStatus(500);
+    });
 
   // Set notice based on response
-  const serverStatus = () => {
+  const ServerStatus = () => {
     if (status === 200) {
-      return 'System is operational';
+      return <p className="m-0">System is operational.</p>;
     } else {
-      return 'System is currently down';
+      return <p className="m-0">System is currently down.</p>;
     }
   };
 
@@ -62,16 +60,15 @@ export default function Status() {
           }}
         />
       );
-    } else {
-      return (
-        <FontAwesomeIcon
-          icon={faCircle}
-          style={{
-            color: '#ec2738'
-          }}
-        />
-      );
     }
+    return (
+      <FontAwesomeIcon
+        icon={faCircle}
+        style={{
+          color: '#ec2738'
+        }}
+      />
+    );
   };
 
   return (
@@ -84,14 +81,26 @@ export default function Status() {
       onLoad={() => checkServer}
     >
       <OverlayTrigger
-        placement="left"
+        placement={props.placement}
         delay={{
           show: 100,
           hide: 300
         }}
-        overlay={serverStatus}
+        overlay={
+          <Tooltip id="">
+            <ServerStatus />
+          </Tooltip>
+        }
       >
-        <StatusDisplay />
+        <Button
+          type="button"
+          style={{
+            backgroundColor: 'transparent',
+            border: 'none'
+          }}
+        >
+          <StatusDisplay />
+        </Button>
       </OverlayTrigger>
     </div>
   );
