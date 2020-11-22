@@ -23,8 +23,6 @@ const cors = require('cors');
 const helmet = require('helmet');
 const dotenv = require('dotenv');
 const dotenvExpand = require('dotenv-expand');
-const Sentry = require('@sentry/node');
-const Tracing = require('@sentry/tracing');
 
 // set .env
 const env = dotenv.config();
@@ -33,20 +31,9 @@ dotenvExpand(env);
 const api = express();
 const PORT = process.env.PORT || 5000;
 
-// App Monitoring | Sentry
-Sentry.init({
-  dsn: `${process.env.SENTRY_PROJECT_DSN}`,
-  integrations: [
-    // enable HTTP calls tracing
-    new Sentry.Integrations.Http({ tracing: true }),
-    // enable Express.js middleware tracing
-    new Tracing.Integrations.Express({ api })
-  ],
-
-  // We recommend adjusting this value in production, or using tracesSampler
-  // for finer control | default: tracesSampleRate: 1.0
-  tracesSampleRate: 0.7
-});
+// Utils
+const logger = require('./utils/logger');
+require('./utils/Sentry');
 
 mongoose.Promise = global.Promise;
 
@@ -72,24 +59,9 @@ mongoose
     });
   })
   .catch((err) => {
+    logger.fatal(`Database connection down: ${err}`);
     console.error(err);
   });
-
-// ? RequestHandler creates a separate execution context using domains, so that every
-// ? transaction/span/breadcrumb is attached to its own Hub instance
-api.use(Sentry.Handlers.requestHandler());
-// ? TracingHandler creates a trace for every incoming request
-api.use(Sentry.Handlers.tracingHandler());
-
-// ? The error handler must be before any other error middleware and after all controllers
-api.use(
-  Sentry.Handlers.errorHandler({
-    shouldHandleError(error) {
-      // Capture all 404 and 500 errors
-      return error.status === 404 || error.status === 500;
-    }
-  })
-);
 
 // * Model Imports
 require('./models/user.model');
@@ -105,6 +77,7 @@ require('./routes/supplier.route')(api);
 // * Main API route | All HTTP Methods
 // https://expressjs.com/en/4x/api.html#app.METHOD
 api.all('/api', (req, res) => {
+  logger.log(req);
   res.setHeader('Content-Type', 'text/html');
   res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
 });
@@ -117,8 +90,6 @@ api.use(function onError(
   // eslint-disable-next-line no-unused-vars
   next
 ) {
-  // ? The error id is attached to `res.sentry` to be returned
-  // ? and optionally displayed to the user for support.
   res.statusCode = 500;
   res.end(res.sentry + '\n');
 });
