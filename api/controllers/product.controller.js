@@ -17,6 +17,7 @@
  */
 
 const mongoose = require('mongoose');
+const logger = require('../utils/logger');
 
 const Products = mongoose.model('products');
 
@@ -26,6 +27,9 @@ exports.get = async (req, res) => {
     const products = await Products.find();
     return res.status(200).send(products);
   } catch (err) {
+    logger.error(
+      `Someone encountered an error fetching the product list. [${err}]`
+    );
     console.error(err);
     res.status(500).send('Error fetching products');
   }
@@ -59,10 +63,12 @@ exports.findByCode = async (req, res) => {
 exports.post = async (req, res) => {
   try {
     const products = await Products.create(req.body);
+    logger.info(`New product entered ${req.body}`);
     return res.status(201).send(products);
   } catch (err) {
+    logger.info(`Someone encountered an error posting new product [${err}]`);
     console.error(err);
-    res.status(500).send('Error posting product/s');
+    res.status(500).send(`Error posting product: ${err}`);
   }
 };
 
@@ -74,6 +80,7 @@ exports.put = async (req, res) => {
     return res.status(202).send(products);
   } catch (err) {
     console.error(err);
+    logger.info(`Someone encoutered a problem updating product: ${id}`);
     res.status(500).send(`Error updating product ${id}`);
   }
 };
@@ -83,9 +90,11 @@ exports.delete = async (req, res) => {
   const { id } = req.query;
   try {
     const products = await Products.findByIdAndDelete(id);
+    logger.info(`Someone deleted a product with id: ${id}`);
     return res.status(202).send(products);
   } catch (err) {
     console.error(err);
+    logger.info(`Someone encoutered a problem deleting product: ${id}`);
     res.status(500).send(`Error deleting product ${id}`);
   }
 };

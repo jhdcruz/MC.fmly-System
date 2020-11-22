@@ -18,6 +18,7 @@
 
 const mongoose = require('mongoose');
 const argon2 = require('argon2');
+const logger = require('../utils/logger');
 
 const Users = mongoose.model('users');
 
@@ -28,6 +29,7 @@ exports.get = async (req, res) => {
     return res.status(200).send(users);
   } catch (err) {
     console.error(err);
+    logger.info(`Someone encoutered a problem fetching product: ${err}`);
     res.status(500).send('Error fetching users');
   }
 };
@@ -71,9 +73,11 @@ exports.put = async (req, res) => {
       permission: req.body.permission,
       date: req.body.date
     });
+    logger.info(`Someone changed a user credentials with id: ${id}`);
     return res.status(202).send(users);
   } catch (err) {
     console.error(err);
+    logger.info(`Someone encoutered a problem updating user: ${id}`);
     res.status(500).send(`Error updating user ${id}`);
   }
 };
@@ -83,9 +87,11 @@ exports.delete = async (req, res) => {
   const { id } = req.query;
   try {
     const users = await Users.findByIdAndDelete(id);
+    logger.info(`Someone deleted user with id: ${id}`);
     res.status(202).send(users);
   } catch (err) {
     console.error(err);
+    logger.info(`Someone encoutered a problem deleting user: ${id}`);
     res.status(500).send(`Error deleting user ${id}`);
   }
 };

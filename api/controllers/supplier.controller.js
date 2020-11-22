@@ -17,6 +17,7 @@
  */
 
 const mongoose = require('mongoose');
+const logger = require('../utils/logger');
 
 const Suppliers = mongoose.model('suppliers');
 
@@ -27,6 +28,7 @@ exports.get = async (req, res) => {
     return res.status(200).send(suppliers);
   } catch (err) {
     console.error(err);
+    logger.error(`Someone encoutered a problem fetching product: ${err}`);
     res.status(500).send('Error fetching suppliers');
   }
 };
@@ -59,9 +61,11 @@ exports.findByType = async (req, res) => {
 exports.post = async (req, res) => {
   try {
     const suppliers = await Suppliers.create(req.body);
+    logger.info(`New supplier has been posted: ${req.body}`);
     return res.status(201).send(suppliers);
   } catch (err) {
     console.error(err);
+    logger.error(`Someone encoutered a problem posting new supplier: ${err}`);
     res.status(500).send('Error posting of suppliers');
   }
 };
@@ -71,9 +75,11 @@ exports.put = async (req, res) => {
   const { id } = req.query;
   try {
     const suppliers = await Suppliers.findByIdAndUpdate(id, req.body);
+    logger.info(`Someone updated a supplier with id: ${req.id}`);
     return res.status(202).send(suppliers);
   } catch (err) {
     console.error(err);
+    logger.error(`Someone encoutered a updating supplier: ${err}`);
     res.status(500).send(`Error updating supplier ${id}`);
   }
 };
@@ -83,9 +89,11 @@ exports.delete = async (req, res) => {
   const { id } = req.query;
   try {
     const suppliers = await Suppliers.findByIdAndDelete(id);
+    logger.info(`Someone deleted supplier: ${id}`);
     return res.status(202).send(suppliers);
   } catch (err) {
     console.error(err);
+    logger.error(`Someone encoutered a problem deleting supplier: ${id}`);
     res.status(500).send(`Error deleting supplier ${id}`);
   }
 };
