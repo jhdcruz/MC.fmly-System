@@ -26,7 +26,7 @@ import ProductService from '../services/ProductService';
 export default function Inventory() {
   const [products] = ProductService();
 
-  // Removes duplicate properties | category
+  // * Removes duplicate properties | category
   const productCategories =
     products &&
     products
@@ -38,7 +38,7 @@ export default function Inventory() {
       // Sort items
       .reverse();
 
-  // Removes duplicate properties | type
+  // * Removes duplicate properties | type
   const productTypes =
     products &&
     products
@@ -49,7 +49,7 @@ export default function Inventory() {
       // Sort items
       .reverse();
 
-  // Filter products by product category
+  // * Filter products by product category
   const CategoryFilter = () => {
     if (products && products.length !== null) {
       return (
@@ -76,7 +76,7 @@ export default function Inventory() {
     return <Loader />;
   };
 
-  // Filter products by product types
+  // * Filter products by product types
   const TypeFilter = () => {
     if (products && products.length !== null) {
       return (
@@ -97,7 +97,7 @@ export default function Inventory() {
     return <Loader />;
   };
 
-  // Display table based on clicked product category/type
+  // * Display table based on clicked product category/type
   // eslint-disable-next-line
   const TableRoutes = () => {
     return (
