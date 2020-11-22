@@ -34,13 +34,13 @@ const SideMenu = styled.aside`
   width: 4.5rem;
   padding: 2.5rem 0 0 0;
   height: 100vh;
-  box-shadow: 0 3px 6px #2f2f2f;
+  box-shadow: 4px 0 12px #2f2f2f;
   border-right: 2px solid #d69185;
   transition: width 0.5s;
   overflow: auto !important;
 
   hr {
-    margin: 5px 0;
+    margin: 0;
     border-top: 4px solid #d69185;
   }
 `;
