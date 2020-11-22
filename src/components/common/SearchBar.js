@@ -79,7 +79,7 @@ const Search = styled.div`
 input {
   margin: 0;
   font-size: 1.3vw;
-  background-color: #232323;
+  background-color: #222126;
   color: whitesmoke;
   border: none;
   border-right: 2px inset #d7b9b4;
