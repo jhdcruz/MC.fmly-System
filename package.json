@@ -167,14 +167,15 @@
     },
     "directories": {
       "buildResources": "resources",
-      "output": "../release"
+      "output": "release"
     },
     "extraResources": [
-      "src/assets/fonts/**/**",
-      "../README.md"
+      "src/assets/fonts/**/**"
     ],
     "extraFiles": [
-      "resources/*"
+      "resources/*",
+      "README.md",
+      "LICENSE.txt"
     ],
     "publish": {
       "provider": "github",
