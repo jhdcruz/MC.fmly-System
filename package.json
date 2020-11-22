@@ -14,7 +14,7 @@
   "main": "./build/electron.js",
   "scripts": {
     "analyze": "source-map-explorer './build/static/js/*.js'",
-    "start": "concurrently \"cross-env BROWSER=none node ./scripts/start.js\" \"wait-on http://localhost:3000 && electron .\" --kill-others-on-fail",
+    "start": "concurrently \"yarn api\" \"cross-env BROWSER=none node ./scripts/start.js\" \"wait-on http://localhost:3000 && electron .\" --kill-others-on-fail",
     "web": "concurrently \"yarn api\" \"node ./scripts/start.js\" --kill-others-on-fail",
     "api": "nodemon --watch --trace-deprecation api/index.js",
     "build": "node ./scripts/build.js",
@@ -97,7 +97,6 @@
     "mini-css-extract-plugin": "1.3.1",
     "node-sass": "5.0.0",
     "nodemon": "2.0.6",
-    "node-sass": "5.0.0",
     "optimize-css-assets-webpack-plugin": "5.0.4",
     "pnp-webpack-plugin": "1.6.4",
     "postcss": "8.1.9",

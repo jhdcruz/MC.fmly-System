@@ -38,8 +38,9 @@ const TabRoutes = styled(Link)`
   }
 
   :hover {
-    background-color: #181818 !important;
-    border-radius: 100%;
+    border-left: 2px outset #eccec9;
+    background-color: #303030 !important;
+    box-shadow: 2px 5px 7px #222222;
   }
 `;
 

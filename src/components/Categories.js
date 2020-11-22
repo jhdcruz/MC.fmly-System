@@ -30,21 +30,21 @@ const CatalogGrid = styled(Row)`
 
 const CategoryList = styled(Col)`
   position: fixed;
-  top: 94%;
+  top: 96%;
   transform: translateY(-100%);
-  max-width: 11rem;
-  margin: 1rem 5rem 1rem 1.3rem;
-  padding: 1rem 1rem 1rem 1.2rem;
+  max-width: 12rem;
+  margin: 2rem 5rem 0 1rem;
+  padding: 5rem 1rem 1rem 1.2rem;
   color: whitesmoke;
-  background-color: #1e1e1e;
+  background-color: #222126;
   box-shadow: -1px 0 6px #232323;
-  border-radius: 1.6rem;
   z-index: 9;
-  height: 90vh;
+  height: 105vh;
   overflow-y: auto;
+  white-space: nowrap;
 
   hr {
-    border-top: 1px solid #d2d2d2;
+    border-top: 1px solid #e6a195;
     margin: 1rem 0;
   }
 
@@ -52,6 +52,7 @@ const CategoryList = styled(Col)`
     margin: 0 !important;
     border-radius: 1.6rem;
     color: #d7b9b4;
+    white-space: nowrap;
     outline: none;
 
     :hover {
@@ -68,6 +69,7 @@ const CategoryList = styled(Col)`
     background-color: #333333;
     box-shadow: 2px 5px 7px #222222;
     text-shadow: 2px 5px 3px #222222;
+    white-space: nowrap;
   }
 `;
 
@@ -76,7 +78,7 @@ const CategoryTable = styled(Col)`
   width: 100%;
   height: 100vh;
   padding: 0;
-  margin-left: 12.5rem;
+  margin-left: 13.2rem;
 `;
 
 const CategoryLine = styled.label`
@@ -111,7 +113,7 @@ export default function Categories(props) {
             show={modal}
             onHide={() => showModal(false)}
             save={handleClose} // TODO: POST data
-            close={handleClose}
+            cancel={handleClose}
           />
           <SearchBar
             modal={() => {

@@ -30,20 +30,24 @@ export const ModalView = styled(Modal)`
 `;
 
 export const ModalHeader = styled(Modal.Header)`
-  background-color: #141414;
+  background-color: #222126;
   border-bottom: 3px solid #e6a195;
+
+  span {
+    color: #ffa090;
+  }
 `;
 
 export const ModalTitle = styled(Modal.Title)``;
 
 export const ModalBody = styled(Modal.Body)`
-  background-color: #141414;
+  background-color: #222126;
   padding: 2rem;
 `;
 
 export const ModalFooter = styled(Modal.Footer)`
-  background-color: #141414;
-  border-top: 3px solid #e6a195;
+  background-color: #222126;
+  border-top: 3px solid #121113;
 `;
 
 export default function CustomModal(props) {

@@ -72,8 +72,8 @@ const LoginContainer = styled(Container)`
 
 const LoginForm = styled(Form)`
   color: whitesmoke;
-  background-color: rgba(20, 20, 20, 0.6);
-  box-shadow: -7px 0 7px #333333;
+  background-color: #222126;
+  box-shadow: -7px 0 7px #1e1e1e;
   margin: 0;
   height: 100vh;
   width: 500px;
@@ -206,6 +206,7 @@ export default function App() {
         </Form.Group>
         <LoginControl>
           <a
+            style={{ color: '#e6a195' }}
             href="#"
             className="primary float-left"
             onClick={forgotCreds}

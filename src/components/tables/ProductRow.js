@@ -27,7 +27,7 @@ import { faPen, faTimes } from '@fortawesome/free-solid-svg-icons';
 
 const TableRow = styled.tr`
   color: white;
-  background-color: #1e1e1e;
+  background-color: #222126;
   border-radius: 1rem;
   width: max-content !important;
   box-shadow: 0 3px 5px #232323;
@@ -37,7 +37,7 @@ const TableRow = styled.tr`
   }
 
   :hover {
-    background-color: #181818 !important;
+    background-color: #161518 !important;
 
     button {
       visibility: visible;
@@ -47,14 +47,14 @@ const TableRow = styled.tr`
   // Row's border-radius
   td:first-child {
     border-left-style: solid;
-    border-top-left-radius: 1rem;
-    border-bottom-left-radius: 1rem;
+    border-top-left-radius: 0.3rem;
+    border-bottom-left-radius: 0.3rem;
   }
 
   td:last-child {
     border-right-style: solid;
-    border-bottom-right-radius: 1rem;
-    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 0.3rem;
+    border-top-right-radius: 0.3rem;
   }
 `;
 

@@ -32,7 +32,8 @@ import { bounceTransition, mapStyles } from '../components/common/Transition';
 import {
   faChartBar,
   faHistory,
-  faServer
+  faServer,
+  faUsers
 } from '@fortawesome/free-solid-svg-icons';
 // Routes
 import Dashboard from '../containers/Dashboard';
@@ -67,6 +68,16 @@ export default function SysAdmin() {
                   overlay="Audit Log"
                   route={routes.AUDITLOG}
                   icon={faHistory}
+                />
+              </>
+            }
+            bottom={
+              <>
+                <TabItem
+                  tab="User Management"
+                  overlay="User Management"
+                  route={routes.USERS}
+                  icon={faUsers}
                 />
               </>
             }
