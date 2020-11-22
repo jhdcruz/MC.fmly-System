@@ -16,11 +16,11 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { useState } from "react";
-import axios from "axios";
-import { Button, OverlayTrigger, Tooltip } from "react-bootstrap";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircle } from "@fortawesome/free-solid-svg-icons";
+import { useState } from 'react';
+import axios from 'axios';
+import { Button, OverlayTrigger, Tooltip } from 'react-bootstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCircle } from '@fortawesome/free-solid-svg-icons';
 
 export default function Status(props) {
   const [status, setStatus] = useState(500);
@@ -56,7 +56,9 @@ export default function Status(props) {
         <FontAwesomeIcon
           icon={faCircle}
           style={{
-            color: '#4de670'
+            color: '#4de670',
+            boxShadow: '0 0 7px 5px rgba(77, 230, 112, 0.4)',
+            borderRadius: '100%'
           }}
         />
       );
@@ -65,7 +67,9 @@ export default function Status(props) {
       <FontAwesomeIcon
         icon={faCircle}
         style={{
-          color: '#ec2738'
+          color: '#ec2738',
+          boxShadow: '0 0 7px 5px rgba(236, 39, 56, 0.4)',
+          borderRadius: '100%'
         }}
       />
     );
