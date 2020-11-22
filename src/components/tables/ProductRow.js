@@ -37,7 +37,7 @@ const TableRow = styled.tr`
   }
 
   :hover {
-    background-color: #343434 !important;
+    background-color: #161518 !important;
 
     button {
       visibility: visible;
