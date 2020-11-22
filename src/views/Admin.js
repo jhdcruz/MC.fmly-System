@@ -47,7 +47,8 @@ import {
   faHome,
   faServer,
   faShoppingCart,
-  faTruck
+  faTruck,
+  faUsers
 } from '@fortawesome/free-solid-svg-icons';
 
 export default function Admin() {
@@ -63,12 +64,6 @@ export default function Admin() {
                   overlay="Dashboard"
                   route={routes.DASHBOARD}
                   icon={faHome}
-                />
-                <TabItem
-                  tab="System Info"
-                  overlay="System Info"
-                  route={routes.SYSINFO}
-                  icon={faServer}
                 />
                 <TabItem
                   tab="Audit Log"
@@ -99,6 +94,22 @@ export default function Admin() {
                   overlay="Point of Sale"
                   route={routes.POS}
                   icon={faShoppingCart}
+                />
+              </>
+            }
+            bottom={
+              <>
+                <TabItem
+                  tab="User Management"
+                  overlay="User Management"
+                  route={routes.USERS}
+                  icon={faUsers}
+                />
+                <TabItem
+                  tab="System Info"
+                  overlay="System Info"
+                  route={routes.SYSINFO}
+                  icon={faServer}
                 />
               </>
             }
