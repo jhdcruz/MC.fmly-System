@@ -23,6 +23,6 @@ const options = {
   level: 'production'
 };
 
-const logger = logdna.createLogger(process.env.LOGDNA_INGENSTION, options);
+const logger = logdna.createLogger(`${process.env.LOGDNA_INGENSTION}`, options);
 
 module.exports = logger;
