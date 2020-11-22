@@ -34,7 +34,7 @@ export default function Dashboard() {
         overflow: 'auto',
         height: '100vh',
         width: '100%',
-        padding: '0 1.3rem 2.5rem 2rem'
+        padding: '1rem 1.3rem 2.5rem 2rem'
       }}
     >
       <Row>
