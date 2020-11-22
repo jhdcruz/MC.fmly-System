@@ -38,7 +38,7 @@ const TabRoutes = styled(Link)`
   }
 
   :hover {
-    border-left: 2px outset #eccec9;
+    border-left: 2px solid #eccec9;
     background-color: #303030 !important;
     box-shadow: 2px 5px 7px #222222;
   }
