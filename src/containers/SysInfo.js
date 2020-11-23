@@ -23,7 +23,7 @@ import Logs from '../components/system/Logs';
 
 const NavTab = styled(Tabs)`
   border: none;
-  background-color: #222126;
+  background-color: #1e1e1e;
 
   a {
     background-color: #222126 !important;
@@ -39,8 +39,8 @@ export default function SysInfo() {
     <div
       style={{
         width: '100vw',
-        margin: '1.9rem 0',
-        borderTop: '2px solid #e6a195 !important'
+        padding: '1.9rem 0',
+        backgroundColor: '#1e1e1e'
       }}
     >
       <NavTab
