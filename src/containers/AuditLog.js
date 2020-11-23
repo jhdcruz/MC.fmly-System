@@ -16,7 +16,6 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { Container } from 'react-bootstrap';
 import ProductHeader from '../components/tables/ProductHeader';
 import ProductRow from '../components/tables/ProductRow';
 import ProductService from '../services/ProductService';
@@ -25,8 +24,8 @@ import { Loader, NullItems } from '../components/tables/__tables.module';
 export default function AuditLog() {
   const [products] = ProductService();
 
-  // Verify if there are any products
-  const listProducts = () => {
+  // * Show loading until products are ready to render
+  const ListProducts = () => {
     return (
       <>
         {products && products.length >= 1 ? (
@@ -44,23 +43,23 @@ export default function AuditLog() {
   };
 
   return (
-    <Container
-      fluid
+    <div
       style={{
-        width: '100%',
-        height: '100vh'
+        width: '100vw',
+        height: '100vh',
+        overflow: 'auto'
       }}
     >
       <ProductHeader
         data={
-          // Check if there are any product/s
+          // * Check if there are any product/s
           products && products.length === null ? (
             <NullItems> No products registered...</NullItems>
           ) : (
-            listProducts()
+            <ListProducts />
           )
         }
       />
-    </Container>
+    </div>
   );
 }
