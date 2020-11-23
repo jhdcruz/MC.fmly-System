@@ -19,37 +19,40 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
-const userSchema = new Schema({
-  username: {
-    type: String,
-    unique: true,
-    required: true,
-    minLength: 4
+const userSchema = new Schema(
+  {
+    username: {
+      type: String,
+      unique: true,
+      required: true,
+      minLength: 4
+    },
+    password: {
+      type: String,
+      required: true,
+      unique: false,
+      trim: true,
+      minLength: 6
+    },
+    name: {
+      type: String,
+      trim: true
+    },
+    role: {
+      type: String,
+      trim: true
+    },
+    permission: {
+      type: String,
+      trim: true,
+      lowercase: true
+    },
+    date: {
+      type: Date,
+      default: Date.now
+    }
   },
-  password: {
-    type: String,
-    required: true,
-    unique: false,
-    trim: true,
-    minLength: 6
-  },
-  name: {
-    type: String,
-    trim: true
-  },
-  role: {
-    type: String,
-    trim: true
-  },
-  permission: {
-    type: String,
-    trim: true,
-    lowercase: true
-  },
-  date: {
-    type: Date,
-    default: Date.now
-  }
-});
+  { timestamps: true }
+);
 
 mongoose.model('users', userSchema);

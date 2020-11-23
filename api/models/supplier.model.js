@@ -19,42 +19,45 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
-const supplierSchema = new Schema({
-  icon: {
-    type: String,
-    default:
-      'https://spng.pngfind.com/pngs/s/17-171509_cornerstone-community-bible-church-team-icon-white-png.png',
-    unique: false
+const supplierSchema = new Schema(
+  {
+    icon: {
+      type: String,
+      default:
+        'https://spng.pngfind.com/pngs/s/17-171509_cornerstone-community-bible-church-team-icon-white-png.png',
+      unique: false
+    },
+    name: {
+      type: String,
+      required: true
+    },
+    description: {
+      type: String,
+      default: '',
+      unique: false
+    },
+    type: {
+      type: String,
+      default: '',
+      unique: false
+    },
+    address: {
+      type: String,
+      default: '',
+      unique: false
+    },
+    website: {
+      type: String,
+      default: '',
+      unique: false
+    },
+    contact: {
+      type: String,
+      default: '',
+      unique: false
+    }
   },
-  name: {
-    type: String,
-    required: true
-  },
-  description: {
-    type: String,
-    default: '',
-    unique: false
-  },
-  type: {
-    type: String,
-    default: '',
-    unique: false
-  },
-  address: {
-    type: String,
-    default: '',
-    unique: false
-  },
-  website: {
-    type: String,
-    default: '',
-    unique: false
-  },
-  contact: {
-    type: String,
-    default: '',
-    unique: false
-  }
-});
+  { timestamps: true }
+);
 
 mongoose.model('suppliers', supplierSchema);
