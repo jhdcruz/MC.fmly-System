@@ -18,7 +18,7 @@
 
 import { Nav, Tab } from 'react-bootstrap';
 import Categories from '../components/Categories';
-import ProductTable from '../components/tables/ProductHeader';
+import ProductHeader from '../components/tables/ProductHeader';
 import ProductRow from '../components/tables/ProductRow';
 import Loader from '../components/common/Loader';
 import ProductService from '../services/ProductService';
@@ -60,7 +60,7 @@ export default function Inventory() {
                 key={categories.category}
                 eventKey={categories.category}
               >
-                <ProductTable
+                <ProductHeader
                   data={
                     products &&
                     products
@@ -84,7 +84,7 @@ export default function Inventory() {
           {products &&
             productTypes.map((types) => (
               <Tab.Pane key={types.type} eventKey={types.type}>
-                <ProductTable
+                <ProductHeader
                   data={products
                     .filter((pane) => pane.type === types.type)
                     .map((product) => ProductRow(product))}
@@ -103,7 +103,7 @@ export default function Inventory() {
     return (
       <>
         <Tab.Pane eventKey="default">
-          <ProductTable
+          <ProductHeader
             data={products && products.map((product) => ProductRow(product))}
           />
         </Tab.Pane>
