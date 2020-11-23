@@ -47,7 +47,7 @@ export const ModalBody = styled(Modal.Body)`
 
 export const ModalFooter = styled(Modal.Footer)`
   background-color: #1e1e1e;
-  border-top: 3px solid #121113;
+  border-top: 3px solid rgb(230, 161, 149) !important;
 `;
 
 export default function CustomModal(props) {
