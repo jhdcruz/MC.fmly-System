@@ -36,7 +36,6 @@ const SideMenu = styled.aside`
   height: 100vh;
   box-shadow: 4px 0 12px #2f2f2f;
   border-right: 2px solid #d69185;
-  transition: width 0.5s;
   overflow: auto !important;
 
   hr {
