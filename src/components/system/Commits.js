@@ -81,22 +81,23 @@ export default function Commits() {
           <sup className="font-italic text-danger">(Experimental)</sup>
         </h5>
         {updates &&
-          updates.slice(Math.max(updates.length - 10, 0)).map((update) => (
-            <>
-              {/* List updates */}
-              <ListGroupItem>
-                <div
-                  style={{
-                    display: 'flex'
-                  }}
-                >
-                  <Image
-                    src={update.committer.avatar_url}
-                    width={50}
-                    height={50}
+          updates
+            .map((update) => (
+              <>
+                {/* List updates */}
+                <ListGroupItem>
+                  <div
                     style={{
-                      borderRadius: '0.7rem',
-                      marginRight: '1rem'
+                      display: 'flex'
+                    }}
+                  >
+                    <Image
+                      src={update.committer.avatar_url}
+                      width={50}
+                      height={50}
+                      style={{
+                        borderRadius: '0.7rem',
+                        marginRight: '1rem'
                       }}
                     />
                     <p className="mr-3 mt-2">{update.commit.committer.name}</p>
@@ -109,15 +110,17 @@ export default function Commits() {
                       {update.commit.message}
                     </a>
                   </div>
-                <div className="mt-2">
-                  <pre className="float-left">{update.sha}</pre>
+                  <div className="mt-2">
+                    <pre className="float-left">{update.sha}</pre>
                     <p className="float-right">
                       <Moment fromNow date={update.commit.committer.date} />
                     </p>
-                </div>
-              </ListGroupItem>
-            </>
-          ))}
+                  </div>
+                </ListGroupItem>
+              </>
+            ))
+            // Limit to last 15 result (descending)
+            .slice(0, 15)}
       </ListGroup>
     </UpdateContainer>
   );
