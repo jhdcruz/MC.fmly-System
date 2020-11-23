@@ -23,24 +23,24 @@ import Commits from '../../services/github/Commits';
 import { ListContainer, ListGroupItem } from './__system.module';
 
 export default function Development(props) {
-  const [updates] = Commits();
+  const [commits] = Commits();
 
   return (
     <ListContainer>
       <ListGroup>
         {
-          updates &&
-            updates.map((update) => (
+          commits &&
+            commits.map((commit) => (
               <>
                 {/* List updates */}
-                <ListGroupItem>
+                <ListGroupItem key={commit.sha}>
                   <div
                     style={{
                       display: 'flex'
                     }}
                   >
                     <Image
-                      src={update.committer.avatar_url}
+                      src={commit.committer.avatar_url}
                       width={50}
                       height={50}
                       style={{
@@ -48,20 +48,20 @@ export default function Development(props) {
                         marginRight: '1rem'
                       }}
                     />
-                    <p className="mr-3 mt-2">{update.commit.committer.name}</p>
+                    <p className="mr-3 mt-2">{commit.commit.committer.name}</p>
                     <a
                       className="mt-2"
-                      href={update.html_url}
+                      href={commit.html_url}
                       target="_blank"
                       rel="noreferrer"
                     >
-                      {update.commit.message}
+                      {commit.commit.message}
                     </a>
                   </div>
                   <div className="mt-2">
-                    <pre className="float-left">{update.sha}</pre>
+                    <pre className="float-left">{commit.sha}</pre>
                     <p className="float-right">
-                      <Moment fromNow date={update.commit.committer.date} />
+                      <Moment fromNow date={commit.commit.committer.date} />
                     </p>
                   </div>
                 </ListGroupItem>
