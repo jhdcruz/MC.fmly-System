@@ -33,7 +33,7 @@ const TableContainer = createGlobalStyle`
     table {
       width: max-content !important;
       padding: 0 1rem 0 1rem;
-      margin: 5rem 1rem 2rem 0 !important;
+      margin: 0 1rem 2rem 0 !important;
       overflow: auto !important;
     }
 

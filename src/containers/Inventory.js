@@ -16,12 +16,12 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { Nav, Tab } from 'react-bootstrap';
-import Categories from '../components/Categories';
-import ProductHeader from '../components/tables/ProductHeader';
-import ProductRow from '../components/tables/ProductRow';
-import Loader from '../components/common/Loader';
-import ProductService from '../services/ProductService';
+import { Nav, Tab } from "react-bootstrap";
+import Categories from "../components/Categories";
+import ProductHeader from "../components/tables/ProductHeader";
+import ProductRow from "../components/tables/ProductRow";
+import Loader from "../components/common/Loader";
+import ProductService from "../services/ProductService";
 
 export default function Inventory() {
   const [products] = ProductService();
@@ -101,7 +101,7 @@ export default function Inventory() {
   // eslint-disable-next-line
   const TableRoutes = () => {
     return (
-      <>
+      <div style={{ marginTop: '1rem' }}>
         <Tab.Pane eventKey="default">
           <ProductHeader
             data={products && products.map((product) => ProductRow(product))}
@@ -109,7 +109,7 @@ export default function Inventory() {
         </Tab.Pane>
         <CategoryFilter />
         <TypeFilter />
-      </>
+      </div>
     );
   };
 
