@@ -140,7 +140,7 @@ export default function App() {
     axios
       .post(`/api/auth/login`, username, password)
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         if (res.data === 'Credentials Mismatched!') {
           window.alert('Invalid username or password...');
         } else {
