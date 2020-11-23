@@ -106,7 +106,7 @@ export default function ProductRow(product) {
         content="Are you sure?"
         show={deleteModal}
         onHide={() => showDeleteModal(false)}
-        save={handleClose} // TODO: DELETE data
+        submit={handleClose} // TODO: DELETE data
         cancel={handleClose}
         footer={
           <>
@@ -128,7 +128,7 @@ export default function ProductRow(product) {
         header="Edit product"
         show={editModal}
         onHide={() => showEditModal(false)}
-        save={handleClose} // TODO: PUT/PATCH data
+        submit={handleClose} // TODO: PUT/PATCH data
         cancel={handleClose}
       />
 
@@ -147,7 +147,7 @@ export default function ProductRow(product) {
               <ProductControl
                 variant="outline-success"
                 onClick={() => showEditModal(true)}
-                save={handleClose} // TODO: POST data
+                submit={handleClose} // TODO: POST data
                 close={handleClose}
               >
                 <FontAwesomeIcon icon={faPen} />
