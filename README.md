@@ -101,6 +101,7 @@
 - [**SonarCloud**](https://sonarcloud.io/) - _Code Quality & Security_
 - [**WhiteSource Renovate**](https://renovate.whitesourcesoftware.com/) - _Automated Dependency Updates_
 - [**WhiteSource Bolt**](https://whitesourcesoftware.com/free-developer-tools/bolt/) - _Dependency Security_
+- [**Snyk**](https://snyk.io/) - _Dependency Security & Exploit POC_
 
 > Boilerplate generated through ejected `create-react-app`.
 
@@ -118,22 +119,25 @@ Can be either of the ff:
 
 - [**`MSBuild`**](https://docs.microsoft.com/en-us/visualstudio/msbuild/msbuild)
 - [**`windows-build-tools`**](https://www.npmjs.com/package/windows-build-tools)
+- [**`python2.7`**](https://getpython.org) - For native dependency rebuilds
 
 **Linux:**
 
 - Debian
   - `dpkg`
   - `dpkg-dev`
+  - `python2.7`
 
 ```shell
-sudo apt install dpkg dpkg-dev
+sudo apt install dpkg dpkg-dev python2.7
 ```
 
 - Red Hat
   - `rpm`
+  - `python2.7`
 
 ```shell
-sudo yum install rpm
+sudo yum install rpm python2.7
 ```
 
 replace `yum` with your distro package provider.
@@ -141,8 +145,9 @@ replace `yum` with your distro package provider.
 **MacOS**
 
 - `rpm`
+- `python2.7`
 
-> `brew install rpm`
+> `brew install rpm python2.7`
 
 **Optional:**
 
