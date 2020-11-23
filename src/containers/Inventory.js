@@ -101,7 +101,7 @@ export default function Inventory() {
   // eslint-disable-next-line
   const TableRoutes = () => {
     return (
-      <div style={{ marginTop: '1rem' }}>
+      <div style={{ marginTop: '4rem' }}>
         <Tab.Pane eventKey="default">
           <ProductHeader
             data={products && products.map((product) => ProductRow(product))}
