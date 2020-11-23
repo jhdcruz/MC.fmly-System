@@ -19,6 +19,7 @@
 // GET updates from repo
 import { Image, ListGroup } from 'react-bootstrap';
 import styled from 'styled-components';
+import Moment from 'react-moment';
 import DevService from '../../services/DevService';
 
 const UpdateContainer = styled.div`
@@ -105,7 +106,9 @@ export default function Commits() {
                 </div>
                 <div className="mt-2">
                   <pre className="float-left">{update.sha}</pre>
-                  <p className="float-right">{update.commit.committer.date}</p>
+                    <p className="float-right">
+                      <Moment fromNow date={update.commit.committer.date} />
+                    </p>
                 </div>
               </ListGroupItem>
             </>
