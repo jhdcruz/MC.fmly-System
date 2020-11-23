@@ -31,7 +31,6 @@ import Cashier from './views/Cashier';
 import SysAdmin from './views/SysAdmin';
 import InventoryClerk from './views/InventoryClerk';
 import Status from './components/Status';
-import Commits from './components/system/Commits';
 
 /* ===========================
  * Styled Components
