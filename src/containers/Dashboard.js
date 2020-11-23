@@ -16,8 +16,7 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import styled from 'styled-components';
-import { Row, Tab, Tabs } from 'react-bootstrap';
+import { Row, Tab } from 'react-bootstrap';
 import { CategoryDetails, TypeDetails } from '../components/charts/MongoCharts';
 import {
   InventoryCapacity,
@@ -26,32 +25,14 @@ import {
   TotalSuppliers
 } from '../components/charts/MongoWidgets';
 import Notification from '../components/common/Notification';
-
-const NavTab = styled(Tabs)`
-  border: none;
-  background-color: #1e1e1e;
-
-  a {
-    background-color: #222126 !important;
-    color: #e6a195 !important;
-    outline: none !important;
-    border: none !important;
-    border-bottom: 3px solid #e6a195 !important;
-  }
-`;
+import { NavTab, TabContainer } from './__containers.module';
 
 export default function Dashboard() {
   return (
-    <div
-      style={{
-        display: 'inline-block',
-        overflow: 'auto',
-        width: '100vw'
-      }}
-    >
-      <NavTab className="pt-4">
+    <TabContainer>
+      <NavTab className="pt-4" defaultActiveKey="overview">
         <Tab
-          eventKey="system"
+          eventKey="overview"
           title="Overview"
           style={{
             padding: '0 2rem'
@@ -77,6 +58,6 @@ export default function Dashboard() {
         time="System Developer"
         message="As of Nov 21, 2020, 5:31 PM GMT +8, API connection route has been resolved. All available services are now operational."
       />
-    </div>
+    </TabContainer>
   );
 }

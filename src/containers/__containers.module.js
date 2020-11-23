@@ -16,28 +16,26 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { Tab } from 'react-bootstrap';
-import { DBMetrics } from '../components/system/MongoMetrics';
-import Logs from '../components/system/Logs';
-import { NavTab, TabContainer } from './__containers.module';
+import styled from 'styled-components';
+import { Tabs } from 'react-bootstrap';
 
-export default function SysInfo() {
-  return (
-    <TabContainer>
-      <NavTab
-        defaultActiveKey="system"
-        id="System Tabs"
-        style={{
-          overflow: 'hidden'
-        }}
-      >
-        <Tab eventKey="system" title="Overview">
-          <DBMetrics />
-        </Tab>
-        <Tab eventKey="logs" title="Logs">
-          <Logs />
-        </Tab>
-      </NavTab>
-    </TabContainer>
-  );
-}
+export const TabContainer = styled.div`
+  width: 100vw;
+  padding: 1.9rem 0 0 0;
+  background-color: #1e1e1e;
+  overflow: auto !important;
+  display: inline-block;
+`;
+
+export const NavTab = styled(Tabs)`
+  border: none;
+  background-color: #1e1e1e;
+
+  a {
+    background-color: #222126 !important;
+    color: #e6a195 !important;
+    outline: none !important;
+    border: none !important;
+    border-bottom: 3px solid #e6a195 !important;
+  }
+`;
