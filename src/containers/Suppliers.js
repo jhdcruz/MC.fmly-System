@@ -37,18 +37,20 @@ export default function Suppliers() {
       return (
         <>
           {suppliers &&
-            suppliers.map((supplier) => (
-              <Poster
-                key={supplier._id}
-                icon={supplier.icon}
-                name={supplier.name}
-                description={supplier.description}
-                type={supplier.type}
-                address={supplier.address}
-                website={supplier.website}
-                contact={supplier.contact}
-              />
-            ))}
+            suppliers
+              .map((supplier) => (
+                <Poster
+                  key={supplier._id}
+                  icon={supplier.icon}
+                  name={supplier.name}
+                  description={supplier.description}
+                  type={supplier.type}
+                  address={supplier.address}
+                  website={supplier.website}
+                  contact={supplier.contact}
+                />
+              ))
+              .reverse()}
         </>
       );
     }
