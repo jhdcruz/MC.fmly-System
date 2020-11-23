@@ -19,8 +19,9 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 import { Button } from 'react-bootstrap';
-import CustomModal from '../common/CustomModal';
 import ProductForm from '../forms/ProductForm';
+import Moment from 'react-moment';
+import CustomModal from '../common/CustomModal';
 import { Tag } from './__tables.module';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPen, faTimes } from '@fortawesome/free-solid-svg-icons';
@@ -204,8 +205,14 @@ export default function ProductRow(product) {
             }
           })()}
         </TableData>
-        <TableData className="updatedAt">{product.updatedAt}</TableData>
-        <TableData className="createdAt">{product.createdAt}</TableData>
+        <TableData className="updatedAt">
+          {/* Parse date to human-friendly format */}
+          <Moment fromNow date={product.updatedAt} />
+        </TableData>
+        <TableData className="createdAt">
+          {/* Parse date to human-friendly format */}
+          <Moment format="MM-DD-YYYY / hh:mm:ss" date={product.createdAt} />
+        </TableData>
         <TableData className="price">
           <Tag pill variant="secondary">
             ₱{product.price}
