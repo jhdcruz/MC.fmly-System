@@ -17,13 +17,13 @@
  */
 
 import styled from 'styled-components';
-import { ListGroup } from 'react-bootstrap';
+import { Button, ListGroup } from 'react-bootstrap';
 
 export const ListContainer = styled.div`
   background-color: rgba(0, 0, 0, 0.5);
   color: #e6a195;
   padding: 0.5rem 0.5rem;
-  width: 94.7vw;
+  width: 100%;
   height: 100vh;
   overflow: auto !important;
   position: absolute;
@@ -62,5 +62,25 @@ export const ListGroupItem = styled(ListGroup.Item)`
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
+  }
+
+  kbd {
+    color: #faa142;
+  }
+`;
+
+export const OutlineButton = styled(Button)`
+  text-shadow: none;
+  float: right;
+  font-weight: bold;
+  background-color: transparent;
+  border: 1px solid #e6a195;
+  border-radius: 0.3rem;
+  padding: 0.4rem 0.5rem;
+  outline: none;
+
+  :hover {
+    background-color: #e6a195;
+    color: #1e1e1e;
   }
 `;

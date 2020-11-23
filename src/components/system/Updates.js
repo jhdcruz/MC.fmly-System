@@ -20,11 +20,11 @@
 import { ListGroup } from 'react-bootstrap';
 import Moment from 'react-moment';
 import Releases from '../../services/github/Releases';
-import { ListContainer, ListGroupItem } from './__system.module';
+import { ListContainer, ListGroupItem, OutlineButton } from './__system.module';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTag } from '@fortawesome/free-solid-svg-icons';
 
-export default function Updates(props) {
+export default function Updates() {
   const [releases] = Releases();
 
   return (
@@ -38,7 +38,7 @@ export default function Updates(props) {
                 <ListGroupItem key={release.id}>
                   <div
                     style={{
-                      display: 'flex'
+                      display: 'inline-flex'
                     }}
                   >
                     <a
@@ -50,22 +50,32 @@ export default function Updates(props) {
                       <FontAwesomeIcon
                         icon={faTag}
                         style={{
-                          color: '#ec2738',
-                          outline: 'none'
+                          color: '#4de670',
+                          outline: 'none',
+                          marginRight: '0.5rem'
                         }}
                       />
-                      {release.tag_name}
+                      <span>
+                        {/* Release tag & name*/}
+                        <kbd>{release.tag_name}</kbd> | {release.name}
+                      </span>
                     </a>
                   </div>
                   {/* Release description */}
                   <p>{release.body}</p>
-                  <div className="mt-2">
-                    <pre className="float-left">
-                      Released by: {release.author.login}
-                    </pre>
-                    <p className="float-right">
+                  <div className="mt-1">
+                    <p className="float-left">
                       <Moment fromNow date={release.published_at} />
                     </p>
+                    {/* Redirect to release assets download */}
+                    <OutlineButton
+                      as="a"
+                      href={release.html_url}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      Download
+                    </OutlineButton>
                   </div>
                 </ListGroupItem>
               </>
