@@ -31,11 +31,11 @@ const logger = logdna.createLogger(`${process.env.LOGDNA_INGENSTION}`, options);
 // * GET | Server Status
 exports.status = async (req, res) => {
   try {
-    return res.status(200).send(200);
+    return res.status(200).sendStatus(200);
   } catch (err) {
     logger.error(err);
     console.error(err);
-    res.status(500).send(500);
+    res.status(500).sendStatus(500);
   }
 };
 
