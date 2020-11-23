@@ -82,6 +82,7 @@
 - [**WhiteSource Renovate**](https://renovate.whitesourcesoftware.com/) - _Automated Dependency Updates_
 - [**WhiteSource Bolt**](https://whitesourcesoftware.com/free-developer-tools/bolt/) - _Dependency Security_
 - [**Snyk**](https://snyk.io/) - _Dependency Security & Exploit POC_
+- [**GitGuardian**](https://gitguardian.com/) -  _Secrets Detection and Security Policies Enforcement_
 
 > Boilerplate generated through ejected `create-react-app`.
 
