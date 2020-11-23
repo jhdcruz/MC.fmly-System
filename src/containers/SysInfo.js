@@ -19,8 +19,9 @@
 import { Tab } from 'react-bootstrap';
 import { DBMetrics } from '../components/system/MongoMetrics';
 import Development from '../components/system/Development';
-import { NavTabs, TabContainer } from './__containers.module';
 import Updates from '../components/system/Updates';
+import Deployments from '../components/system/Deployments';
+import { NavTabs, TabContainer } from './__containers.module';
 
 export default function SysInfo() {
   return (
@@ -41,6 +42,9 @@ export default function SysInfo() {
         </Tab>
         <Tab eventKey="releases" title="Releases">
           <Updates />
+        </Tab>
+        <Tab eventKey="deployments" title="Deployments">
+          <Deployments />
         </Tab>
       </NavTabs>
     </TabContainer>
