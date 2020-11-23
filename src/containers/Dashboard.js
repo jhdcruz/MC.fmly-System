@@ -25,12 +25,12 @@ import {
   TotalSuppliers
 } from '../components/charts/MongoWidgets';
 import Notification from '../components/common/Notification';
-import { NavTab, TabContainer } from './__containers.module';
+import { NavTabs, TabContainer } from './__containers.module';
 
 export default function Dashboard() {
   return (
-    <TabContainer>
-      <NavTab className="pt-4" defaultActiveKey="overview">
+    <TabContainer style={{ overflow: 'auto !important' }}>
+      <NavTabs defaultActiveKey="overview" id="Navigation Tabs" justify>
         <Tab
           eventKey="overview"
           title="Overview"
@@ -49,7 +49,7 @@ export default function Dashboard() {
             <CategoryDetails />
           </Row>
         </Tab>
-      </NavTab>
+      </NavTabs>
 
       {/* TODO: Move notices to Login | Store events to DB */}
       <Notification

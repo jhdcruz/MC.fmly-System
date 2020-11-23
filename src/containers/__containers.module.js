@@ -21,21 +21,28 @@ import { Tabs } from 'react-bootstrap';
 
 export const TabContainer = styled.div`
   width: 100vw;
+  height: 100vh;
   padding: 1.9rem 0 0 0;
-  background-color: #1e1e1e;
-  overflow: auto !important;
+  overflow: auto;
   display: inline-block;
 `;
 
-export const NavTab = styled(Tabs)`
+export const NavTabs = styled(Tabs)`
+  width: 100%;
   border: none;
   background-color: #1e1e1e;
 
   a {
-    background-color: #222126 !important;
     color: #e6a195 !important;
-    outline: none !important;
+    background-color: #222126 !important;
     border: none !important;
     border-bottom: 3px solid #e6a195 !important;
+    border-radius: initial !important;
+    outline: none !important;
+
+    :hover {
+      background-color: #303030 !important;
+      box-shadow: 2px 5px 7px #222222;
+    }
   }
 `;
