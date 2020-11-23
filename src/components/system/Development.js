@@ -18,66 +18,19 @@
 
 // GET updates from repo
 import { Image, ListGroup } from 'react-bootstrap';
-import styled from 'styled-components';
 import Moment from 'react-moment';
-import DevService from '../../services/DevService';
+import Commits from '../../services/github/Commits';
+import { ListContainer, ListGroupItem } from './__system.module';
 
-const UpdateContainer = styled.div`
-  background-color: rgba(0, 0, 0, 0.5);
-  color: #e6a195;
-  padding: 0.5rem 0.5rem;
-  width: 94.7vw;
-  height: 100vh;
-  overflow: auto !important;
-  position: absolute;
-  left: 0;
-`;
-
-const ListGroupItem = styled(ListGroup.Item)`
-  color: #e6a195;
-  background-color: transparent;
-  border: none;
-  border-bottom: 2px solid #e6a195;
-  vertical-align: middle;
-
-  div {
-    vertical-align: middle;
-  }
-
-  p {
-    color: #e2e2e2;
-  }
-
-  a {
-    font-weight: bold;
-    color: #e6a195;
-    text-shadow: 0 2px 6px #1e1e1e;
-
-    :hover {
-      text-decoration-style: solid;
-    }
-  }
-
-  pre {
-    color: #faa142;
-    background-color: rgba(5, 5, 5, 0.7);
-    max-width: 40vw;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
-  }
-`;
-
-export default function Commits(props) {
-  const [updates] = DevService();
+export default function Development(props) {
+  const [updates] = Commits();
 
   return (
-    <UpdateContainer>
+    <ListContainer>
       <ListGroup>
-        {props.title}
-        {updates &&
-          updates
-            .map((update) => (
+        {
+          updates &&
+            updates.map((update) => (
               <>
                 {/* List updates */}
                 <ListGroupItem>
@@ -114,9 +67,10 @@ export default function Commits(props) {
                 </ListGroupItem>
               </>
             ))
-            // Limit to last 15 result (descending)
-            .slice(0, 15)}
+          // Limit to last 15 result (descending)
+          // .slice(0, 15)
+        }
       </ListGroup>
-    </UpdateContainer>
+    </ListContainer>
   );
 }

@@ -26,11 +26,11 @@ async function getCommits() {
   return res.data || [];
 }
 
-export default function DevService() {
-  const [updates, setUpdates] = useState(null);
+export default function Commits() {
+  const [commits, setCommits] = useState(null);
 
   useEffect(() => {
-    if (!updates) {
+    if (!commits) {
       fetchCommits().catch((e) => {
         console.error(e);
       });
@@ -39,9 +39,8 @@ export default function DevService() {
 
   const fetchCommits = async () => {
     return await getCommits().then((data) => {
-      console.log(data);
-      setUpdates(data);
+      setCommits(data);
     });
   };
-  return [updates];
+  return [commits];
 }

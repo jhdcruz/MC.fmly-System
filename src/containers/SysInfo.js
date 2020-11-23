@@ -18,7 +18,7 @@
 
 import { Tab } from 'react-bootstrap';
 import { DBMetrics } from '../components/system/MongoMetrics';
-import Commits from '../components/system/Commits';
+import Development from '../components/system/Development';
 import { NavTabs, TabContainer } from './__containers.module';
 
 export default function SysInfo() {
@@ -36,7 +36,7 @@ export default function SysInfo() {
           <DBMetrics />
         </Tab>
         <Tab eventKey="updates" title="Development">
-          <Commits />
+          <Development />
         </Tab>
       </NavTabs>
     </TabContainer>
