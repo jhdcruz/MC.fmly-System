@@ -32,7 +32,7 @@ export default function Status(props) {
       if (res.status === 200) {
         setStatus(200);
       } else {
-        setStatus(500);
+        setStatus(res.status);
       }
     })
     .catch((err) => {
