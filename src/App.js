@@ -31,6 +31,7 @@ import Cashier from './views/Cashier';
 import SysAdmin from './views/SysAdmin';
 import InventoryClerk from './views/InventoryClerk';
 import Status from './components/Status';
+import Commits from './components/system/Commits';
 
 /* ===========================
  * Styled Components
@@ -177,10 +178,14 @@ export default function App() {
     return <Cashier />;
   }
 
-  // * Login Form
   return (
     <LoginContainer fluid>
       <Img src={Brand} alt="Company Logo" rounded width={500} height={500} />
+
+      {/* News/Updates List Group */}
+      <Commits />
+
+      {/* Login Form */}
       <LoginForm
         autoComplete="off"
         autoSave="off"
@@ -193,6 +198,7 @@ export default function App() {
           alt="Rebranded Company Logo"
           rounded
         />
+
         <Form.Group>
           <FormLabel htmlFor="username">Username:</FormLabel>
           <InputGroup>
