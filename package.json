@@ -31,9 +31,9 @@
   },
   "dependencies": {
     "@logdna/logger": "2.1.1",
-    "@sentry/node": "5.27.4",
-    "@sentry/react": "5.27.4",
-    "@sentry/tracing": "5.27.4",
+    "@sentry/node": "5.27.5",
+    "@sentry/react": "5.27.5",
+    "@sentry/tracing": "5.27.5",
     "@treverix/remote": "0.1.1",
     "argon2": "0.27.0",
     "axios": "0.21.0",
