@@ -19,7 +19,7 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 
-async function getTags() {
+async function getReleases() {
   let res = await axios.get(
     `https://api.github.com/repos/jhdcruz/MC.fmly-System/releases`
   );
@@ -31,14 +31,14 @@ export default function Releases() {
 
   useEffect(() => {
     if (!releases) {
-      fetchTags().catch((e) => {
+      fetchReleases().catch((e) => {
         console.error(e);
       });
     }
   });
 
-  const fetchTags = async () => {
-    return await getTags().then((data) => {
+  const fetchReleases = async () => {
+    return await getReleases().then((data) => {
       setReleases(data);
     });
   };
