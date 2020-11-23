@@ -1,4 +1,7 @@
 {
+  "plugins": [
+    "react-hooks"
+  ],
   "extends": [
     "eslint:recommended",
     "react-app"
@@ -8,7 +11,9 @@
     "react/react-in-jsx-scope": "off",
     "import/no-anonymous-default-export": "off",
     "import/no-extraneous-dependencies": "off",
-    "jsx-a11y/anchor-is-valid": "off"
+    "jsx-a11y/anchor-is-valid": "off",
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn"
   },
   "settings": {
     "import/extensions": [
