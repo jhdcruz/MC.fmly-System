@@ -183,7 +183,6 @@ export default function App() {
       <Img src={Brand} alt="Company Logo" rounded width={500} height={500} />
 
       {/* News/Updates List Group */}
-      <Commits />
 
       {/* Login Form */}
       <LoginForm
