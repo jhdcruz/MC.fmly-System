@@ -22,7 +22,7 @@ import Moment from 'react-moment';
 import Commits from '../../services/github/Commits';
 import { ListContainer, ListGroupItem } from './__system.module';
 
-export default function Development(props) {
+export default function Development() {
   const [commits] = Commits();
 
   return (
