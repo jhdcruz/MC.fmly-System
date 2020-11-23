@@ -20,7 +20,7 @@ import styled from 'styled-components';
 
 export const Chart = styled.iframe`
   width: 100% !important;
-  height: 100vh !important;
+  height: 97vh !important;
   background: #222126;
   border: none;
   box-shadow: 0 3px 6px #232323;
