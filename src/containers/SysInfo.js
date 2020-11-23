@@ -20,23 +20,27 @@ import { Tab } from 'react-bootstrap';
 import { DBMetrics } from '../components/system/MongoMetrics';
 import Development from '../components/system/Development';
 import { NavTabs, TabContainer } from './__containers.module';
+import Updates from '../components/system/Updates';
 
 export default function SysInfo() {
   return (
     <TabContainer>
       <NavTabs
-        defaultActiveKey="system"
+        defaultActiveKey="overview"
         id="System Tabs"
         style={{
           overflow: 'hidden !important'
         }}
         justify
       >
-        <Tab eventKey="system" title="Overview">
+        <Tab eventKey="overview" title="Overview">
           <DBMetrics />
         </Tab>
-        <Tab eventKey="updates" title="Development">
+        <Tab eventKey="development" title="Development">
           <Development />
+        </Tab>
+        <Tab eventKey="releases" title="Releases">
+          <Updates />
         </Tab>
       </NavTabs>
     </TabContainer>
