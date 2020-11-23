@@ -97,13 +97,18 @@ export default function Commits() {
                     style={{
                       borderRadius: '0.7rem',
                       marginRight: '1rem'
-                    }}
-                  />
-                  <p className="mr-3 mt-2">{update.commit.committer.name}</p>
-                  <a className="mt-2" href={update.html_url} target="_blank">
-                    {update.commit.message}
-                  </a>
-                </div>
+                      }}
+                    />
+                    <p className="mr-3 mt-2">{update.commit.committer.name}</p>
+                    <a
+                      className="mt-2"
+                      href={update.html_url}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      {update.commit.message}
+                    </a>
+                  </div>
                 <div className="mt-2">
                   <pre className="float-left">{update.sha}</pre>
                     <p className="float-right">
