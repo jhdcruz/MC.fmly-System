@@ -26,8 +26,7 @@ const UpdateContainer = styled.div`
   background-color: rgba(0, 0, 0, 0.5);
   color: #e6a195;
   padding: 0.5rem 0.5rem;
-  width: 60vw;
-  min-width: 30vw;
+  width: 94.7vw;
   height: 100vh;
   overflow: auto !important;
   position: absolute;
@@ -38,7 +37,6 @@ const ListGroupItem = styled(ListGroup.Item)`
   color: #e6a195;
   background-color: transparent;
   border: none;
-  border-top: 2px solid #e6a195;
   border-bottom: 2px solid #e6a195;
   vertical-align: middle;
 
@@ -70,16 +68,13 @@ const ListGroupItem = styled(ListGroup.Item)`
   }
 `;
 
-export default function Commits() {
+export default function Commits(props) {
   const [updates] = DevService();
 
   return (
     <UpdateContainer>
       <ListGroup>
-        <h5>
-          News & Updates{' '}
-          <sup className="font-italic text-danger">(Experimental)</sup>
-        </h5>
+        {props.title}
         {updates &&
           updates
             .map((update) => (
