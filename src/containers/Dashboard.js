@@ -29,7 +29,7 @@ import Notification from '../components/common/Notification';
 
 const NavTab = styled(Tabs)`
   border: none;
-  background-color: #222126;
+  background-color: #1e1e1e;
 
   a {
     background-color: #222126 !important;
@@ -46,15 +46,17 @@ export default function Dashboard() {
       style={{
         display: 'inline-block',
         overflow: 'auto',
-        width: '100vw',
-        margin: '1.9rem 0',
-        borderTop: '2px solid #e6a195'
+        width: '100vw'
       }}
     >
-      <NavTab>
-        <Tab eventKey="system" title="Overview" style={{
-          padding: '0 2rem'
-        }}>
+      <NavTab className="pt-4">
+        <Tab
+          eventKey="system"
+          title="Overview"
+          style={{
+            padding: '0 2rem'
+          }}
+        >
           <Row>
             <InventoryCapacity />
             <InventoryValue />
