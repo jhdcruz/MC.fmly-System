@@ -34,7 +34,16 @@ jobs:
             - ./node_modules
       - run:
           name: Compile build
-          command: yarn package-ci
+          command: |
+            # Deployment script
+            yarn package-ci
+            # Notify rollbar
+            curl https://api.rollbar.com/api/1/deploy/ \
+            -F access_token=$ROLLBAR_TOKEN \
+            -F environment=production \
+            -F revision=$CIRCLE_SHA1 \
+            -F rollbar_username=jhdcruz \
+            -F local_username=$CIRCLE_USERNAME
       - store_artifacts:
           path: ~/repo/release/
 #     - codecov/upload:
