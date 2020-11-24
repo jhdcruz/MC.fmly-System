@@ -18,15 +18,16 @@
 
 const mongoose = require('mongoose');
 const argon2 = require('argon2');
-const logdna = require('@logdna/logger');
+const Rollbar = require('rollbar');
+
+// * Rollbar config
+const rollbar = new Rollbar({
+  accessToken: `${process.env.ROLLBAR_ID}`,
+  captureUncaught: true,
+  captureUnhandledRejections: true
+});
 
 const Users = mongoose.model('users');
-
-const options = {
-  app: 'MC.fmly Inventory System'
-};
-
-const logger = logdna.createLogger(`${process.env.LOGDNA_INGENSTION}`, options);
 
 // * GET | All users
 exports.get = async (req, res) => {
@@ -35,7 +36,7 @@ exports.get = async (req, res) => {
     return res.status(200).send(users);
   } catch (err) {
     console.error(err);
-    logger.info(`Someone encoutered a problem fetching product: ${err}`);
+    rollbar.error(err);
     res.status(500).send('Error fetching users');
   }
 };
@@ -48,6 +49,7 @@ exports.findByName = async (req, res) => {
     return res.status(200).send(users);
   } catch (err) {
     console.error(err);
+    rollbar.error(err);
     res.status(500).send(`Cannot find user: ${name}`);
   }
 };
@@ -60,6 +62,7 @@ exports.findByRole = async (req, res) => {
     return res.status(200).send(users);
   } catch (err) {
     console.error(err);
+    rollbar.error(err);
     res.status(500).send(`Cannot find ${role} users`);
   }
 };
@@ -79,11 +82,10 @@ exports.put = async (req, res) => {
       permission: req.body.permission,
       date: req.body.date
     });
-    logger.info(`Someone changed a user credentials with id: ${id}`);
     return res.status(202).send(users);
   } catch (err) {
     console.error(err);
-    logger.info(`Someone encoutered a problem updating user: ${id}`);
+    rollbar.error(err);
     res.status(500).send(`Error updating user ${id}`);
   }
 };
@@ -93,11 +95,10 @@ exports.delete = async (req, res) => {
   const { id } = req.query;
   try {
     const users = await Users.findByIdAndDelete(id);
-    logger.info(`Someone deleted user with id: ${id}`);
     res.status(202).send(users);
   } catch (err) {
     console.error(err);
-    logger.info(`Someone encoutered a problem deleting user: ${id}`);
+    rollbar.error(err);
     res.status(500).send(`Error deleting user ${id}`);
   }
 };

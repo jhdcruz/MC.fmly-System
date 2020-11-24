@@ -17,15 +17,15 @@
  */
 
 const mongoose = require('mongoose');
-const logdna = require('@logdna/logger');
+const Rollbar = require('rollbar');
 
+// * Rollbar config
+const rollbar = new Rollbar({
+  accessToken: `${process.env.ROLLBAR_ID}`,
+  captureUncaught: true,
+  captureUnhandledRejections: true
+});
 const Products = mongoose.model('products');
-
-const options = {
-  app: 'MC.fmly Inventory System'
-};
-
-const logger = logdna.createLogger(`${process.env.LOGDNA_INGENSTION}`, options);
 
 // * GET | All Product
 exports.get = async (req, res) => {
@@ -33,10 +33,8 @@ exports.get = async (req, res) => {
     const products = await Products.find();
     return res.status(200).send(products);
   } catch (err) {
-    logger.error(
-      `Someone encountered an error fetching the product list. [${err}]`
-    );
     console.error(err);
+    rollbar.error(err);
     res.status(500).send('Error fetching products');
   }
 };
@@ -49,6 +47,7 @@ exports.findByName = async (req, res) => {
     return res.status(200).send(products);
   } catch (err) {
     console.error(err);
+    rollbar.error(err);
     res.status(500).send(`Cannot find product ${name}`);
   }
 };
@@ -61,6 +60,7 @@ exports.findByCode = async (req, res) => {
     return res.status(200).send(products);
   } catch (err) {
     console.error(err);
+    rollbar.error(err);
     res.status(500).send(`Cannot find product ${code}`);
   }
 };
@@ -69,11 +69,10 @@ exports.findByCode = async (req, res) => {
 exports.post = async (req, res) => {
   try {
     const products = await Products.create(req.body);
-    logger.info(`New product entered ${req.body}`);
     return res.status(201).send(products);
   } catch (err) {
-    logger.info(`Someone encountered an error posting new product [${err}]`);
     console.error(err);
+    rollbar.error(err);
     res.status(500).send(`Error posting product: ${err}`);
   }
 };
@@ -86,7 +85,7 @@ exports.put = async (req, res) => {
     return res.status(202).send(products);
   } catch (err) {
     console.error(err);
-    logger.info(`Someone encoutered a problem updating product: ${id}`);
+    rollbar.error(err);
     res.status(500).send(`Error updating product ${id}`);
   }
 };
@@ -96,11 +95,10 @@ exports.delete = async (req, res) => {
   const { id } = req.query;
   try {
     const products = await Products.findByIdAndDelete(id);
-    logger.info(`Someone deleted a product with id: ${id}`);
     return res.status(202).send(products);
   } catch (err) {
     console.error(err);
-    logger.info(`Someone encoutered a problem deleting product: ${id}`);
+    rollbar.error(err);
     res.status(500).send(`Error deleting product ${id}`);
   }
 };

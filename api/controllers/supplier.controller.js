@@ -17,15 +17,16 @@
  */
 
 const mongoose = require('mongoose');
-const logdna = require('@logdna/logger');
+const Rollbar = require('rollbar');
+
+// * Rollbar config
+const rollbar = new Rollbar({
+  accessToken: `${process.env.ROLLBAR_ID}`,
+  captureUncaught: true,
+  captureUnhandledRejections: true
+});
 
 const Suppliers = mongoose.model('suppliers');
-
-const options = {
-  app: 'MC.fmly Inventory System'
-};
-
-const logger = logdna.createLogger(`${process.env.LOGDNA_INGENSTION}`, options);
 
 // * GET | All Suppliers
 exports.get = async (req, res) => {
@@ -34,7 +35,7 @@ exports.get = async (req, res) => {
     return res.status(200).send(suppliers);
   } catch (err) {
     console.error(err);
-    logger.error(`Someone encoutered a problem fetching product: ${err}`);
+    rollbar.error(err);
     res.status(500).send('Error fetching suppliers');
   }
 };
@@ -47,6 +48,7 @@ exports.findByName = async (req, res) => {
     return res.status(200).send(suppliers);
   } catch (err) {
     console.error(err);
+    rollbar.error(err);
     res.status(500).send(`Cannot find supplier ${name}`);
   }
 };
@@ -59,6 +61,7 @@ exports.findByType = async (req, res) => {
     return res.status(200).send(suppliers);
   } catch (err) {
     console.error(err);
+    rollbar.error(err);
     res.status(500).send(`Cannot find supplier that supplies: ${type}`);
   }
 };
@@ -67,11 +70,10 @@ exports.findByType = async (req, res) => {
 exports.post = async (req, res) => {
   try {
     const suppliers = await Suppliers.create(req.body);
-    logger.info(`New supplier has been posted: ${req.body}`);
     return res.status(201).send(suppliers);
   } catch (err) {
     console.error(err);
-    logger.error(`Someone encoutered a problem posting new supplier: ${err}`);
+    rollbar.error(err);
     res.status(500).send('Error posting of suppliers');
   }
 };
@@ -81,11 +83,10 @@ exports.put = async (req, res) => {
   const { id } = req.query;
   try {
     const suppliers = await Suppliers.findByIdAndUpdate(id, req.body);
-    logger.info(`Someone updated a supplier with id: ${req.id}`);
     return res.status(202).send(suppliers);
   } catch (err) {
     console.error(err);
-    logger.error(`Someone encoutered a updating supplier: ${err}`);
+    rollbar.error(err);
     res.status(500).send(`Error updating supplier ${id}`);
   }
 };
@@ -95,11 +96,10 @@ exports.delete = async (req, res) => {
   const { id } = req.query;
   try {
     const suppliers = await Suppliers.findByIdAndDelete(id);
-    logger.info(`Someone deleted supplier: ${id}`);
     return res.status(202).send(suppliers);
   } catch (err) {
     console.error(err);
-    logger.error(`Someone encoutered a problem deleting supplier: ${id}`);
+    rollbar.error(err);
     res.status(500).send(`Error deleting supplier ${id}`);
   }
 };

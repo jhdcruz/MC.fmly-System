@@ -18,7 +18,14 @@
 
 const mongoose = require('mongoose');
 const argon2 = require('argon2');
-const logdna = require('@logdna/logger');
+const Rollbar = require('rollbar');
+
+// * Rollbar config
+const rollbar = new Rollbar({
+  accessToken: `${process.env.ROLLBAR_ID}`,
+  captureUncaught: true,
+  captureUnhandledRejections: true
+});
 
 const Users = mongoose.model('users');
 
@@ -26,15 +33,13 @@ const options = {
   app: 'MC.fmly Inventory System'
 };
 
-const logger = logdna.createLogger(`${process.env.LOGDNA_INGENSTION}`, options);
-
 // * GET | Server Status
 exports.status = async (req, res) => {
   try {
     return res.status(200).sendStatus(200);
   } catch (err) {
-    logger.error(err);
     console.error(err);
+    rollbar.error(err);
     res.status(500).sendStatus(500);
   }
 };
@@ -54,11 +59,10 @@ exports.register = async (req, res) => {
       permission: req.body.permission,
       date: req.body.date
     });
-    logger.info(`New user registered: ${insertResult}`);
     res.status(201).send(insertResult);
   } catch (err) {
-    logger.error(err);
     console.error(err);
+    rollbar.error(err);
     res.status(500).send('Internal Server error occured');
   }
 };
@@ -72,18 +76,16 @@ exports.login = async (req, res) => {
       // Dehash password and compare
       const cmp = await argon2.verify(user.password, req.body.password);
       if (cmp) {
-        logger.info(`${user.username} logged in.`);
         res.status(200).send(user.permission);
       } else {
-        logger.info('A user tried to logged in with mismatch credentials');
         res.send('Credentials Mismatched!');
       }
     } else {
       res.send('Credentials Mismatched!');
     }
   } catch (err) {
-    logger.error(`Login Error: ${err}`);
     console.error(err);
+    rollbar.error(err);
     res.status(500).send('Internal Server error occured');
   }
 };

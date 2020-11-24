@@ -30,10 +30,6 @@
     "visualize": "arkit -c arkit.json"
   },
   "dependencies": {
-    "@logdna/logger": "2.1.1",
-    "@sentry/node": "5.27.6",
-    "@sentry/react": "5.27.6",
-    "@sentry/tracing": "5.27.6",
     "@treverix/remote": "0.1.1",
     "argon2": "0.27.0",
     "axios": "0.21.0",
@@ -43,7 +39,6 @@
     "electron-is-dev": "1.2.0",
     "express": "4.17.1",
     "helmet": "4.2.0",
-    "jsonwebtoken": "8.5.1",
     "moment": "2.29.1",
     "mongoose": "5.10.15",
     "react": "17.0.1",
