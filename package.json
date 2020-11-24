@@ -47,7 +47,8 @@
     "react-hook-form": "6.11.5",
     "react-moment": "1.0.0",
     "react-router-dom": "5.2.0",
-    "react-router-transition": "2.0.0"
+    "react-router-transition": "2.0.0",
+    "rollbar": "2.19.4"
   },
   "devDependencies": {
     "@babel/core": "7.12.8",
