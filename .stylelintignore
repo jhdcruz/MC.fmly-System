@@ -1,0 +1,4 @@
+client/scripts/**/**
+client/config/**/**
+server/**/**
+**/node_modules/**/**
