@@ -31,7 +31,6 @@ import Cashier from './views/Cashier';
 import SysAdmin from './views/SysAdmin';
 import InventoryClerk from './views/InventoryClerk';
 import Status from './components/Status';
-import Notification from './components/common/Notification';
 
 /* ===========================
  * Styled Components
@@ -194,14 +193,6 @@ export default function App() {
         autoSave="off"
         onSubmit={handleSubmit(userVerify)}
       >
-        {/* Notice */}
-        <Notification
-          delay="99999"
-          title="Notice"
-          time="System Developer"
-          message="Inventory product filters are currently broken. Resort to 'All' temporarily while a fix is ongoing."
-        />
-
         <Image
           src={Brand}
           width={150}
