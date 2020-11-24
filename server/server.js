@@ -24,8 +24,8 @@ const helmet = require('helmet');
 const path = require('path');
 const dotenv = require('dotenv');
 const dotenvExpand = require('dotenv-expand');
-const { createProxyMiddleware } = require('http-proxy-middleware');
 const Rollbar = require('rollbar');
+// const { createProxyMiddleware } = require('http-proxy-middleware');
 
 // set .env
 const env = dotenv.config();
@@ -80,23 +80,23 @@ require('./routes/supplier.route')(api);
 
 // * Main API route | Allow all HTTP methods
 // https://expressjs.com/en/4x/api.html#app.METHOD
-api.all(
-  '/',
-  // Create proxy to the API domain
-  createProxyMiddleware('https://mc-ims-api.herokuapp.com/', {
-    changeOrigin: true
-  }),
-  (req, res) => {
-    res.setHeader('Content-Type', 'text/html');
-    res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
-  }
-);
+api.all('/', (req, res) => {
+  res.setHeader('Content-Type', 'text/html');
+  res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
+});
 
-// API Testing
-// api.all('/api', (req, res) => {
-//   res.setHeader('Content-Type', 'text/html');
-//   res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
-// });
+// Production API Testing
+// api.all(
+//   '/',
+//   // Create proxy to the API domain
+//   createProxyMiddleware('https://mc-ims-api.herokuapp.com/', {
+//     changeOrigin: true
+//   }),
+//   (req, res) => {
+//     res.setHeader('Content-Type', 'text/html');
+//     res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
+//   }
+// );
 
 // Serve empty index for invisible content
 api.get('*', (req, res) => {
