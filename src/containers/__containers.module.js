@@ -24,11 +24,17 @@ import { Tabs } from 'react-bootstrap';
  ****************************************/
 
 export const TabContainer = styled.div`
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   padding: 1.9rem 0 0 0;
   overflow: auto;
   display: inline-block;
+
+  // Only allow scroll inside tabs
+  .tab-pane,
+  .tab-pane .active {
+    overflow: auto !important;
+  }
 `;
 
 export const NavTabs = styled(Tabs)`
