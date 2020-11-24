@@ -26,7 +26,7 @@ async function getAll() {
 }
 
 export default function SupplierService() {
-  const [suppliers, setSuppliers] = useState();
+  const [suppliers, setSuppliers] = useState(null);
 
   useEffect(() => {
     if (!suppliers) {

@@ -25,8 +25,9 @@ async function getAll() {
   return res.data || [];
 }
 
+// Assign data to `products`
 export default function ProductService() {
-  const [products, setProducts] = useState();
+  const [products, setProducts] = useState(null);
 
   useEffect(() => {
     if (!products) {
