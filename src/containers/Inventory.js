@@ -59,6 +59,7 @@ export default function Inventory() {
               <Tab.Pane
                 key={categories.category}
                 eventKey={categories.category}
+                style={{ marginTop: '6rem' }}
               >
                 <ProductHeader
                   data={
@@ -83,7 +84,11 @@ export default function Inventory() {
         <>
           {products &&
             productTypes.map((types) => (
-              <Tab.Pane key={types.type} eventKey={types.type}>
+              <Tab.Pane
+                key={types.type}
+                eventKey={types.type}
+                style={{ marginTop: '6rem' }}
+              >
                 <ProductHeader
                   data={products
                     .filter((pane) => pane.type === types.type)
@@ -101,15 +106,15 @@ export default function Inventory() {
   // eslint-disable-next-line
   const TableRoutes = () => {
     return (
-      <div style={{ marginTop: '6rem' }}>
-        <Tab.Pane eventKey="default">
+      <>
+        <Tab.Pane eventKey="default" style={{ marginTop: '6rem' }}>
           <ProductHeader
             data={products && products.map((product) => ProductRow(product))}
           />
         </Tab.Pane>
         <CategoryFilter />
         <TypeFilter />
-      </div>
+      </>
     );
   };
 
