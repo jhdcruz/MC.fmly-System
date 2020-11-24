@@ -24,7 +24,6 @@ import {
   TotalProducts,
   TotalSuppliers
 } from '../components/charts/MongoWidgets';
-import Notification from '../components/common/Notification';
 import { NavTabs, TabContainer } from './__containers.module';
 
 export default function Dashboard() {
@@ -44,20 +43,16 @@ export default function Dashboard() {
             <TotalProducts />
             <TotalSuppliers />
           </Row>
-          <Row>
-            <TypeDetails />
-            <CategoryDetails />
-          </Row>
+          <Row>...</Row>
+        </Tab>
+        <Tab eventKey="inventory" title="Inventory Reports">
+          <TypeDetails />
+          <CategoryDetails />
+        </Tab>
+        <Tab eventKey="order" title="Order Reports">
+          ...
         </Tab>
       </NavTabs>
-
-      {/* TODO: Move notices to Login */}
-      <Notification
-        delay="10000"
-        title="Notice"
-        time="System Developer"
-        message="As of Nov 21, 2020, 5:31 PM GMT +8, API connection route has been resolved. All available services are now operational."
-      />
     </TabContainer>
   );
 }
