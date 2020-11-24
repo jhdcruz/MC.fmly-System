@@ -22,7 +22,7 @@ export const Chart = styled.iframe`
   width: 44.5vw !important;
   height: 60vh !important;
   background: #222126;
-  margin: 0.5rem 0.5rem 0 0;
+  margin: 1.5em 0.5rem 0 1rem;
 
   border: none;
   border-radius: 0.3rem;
