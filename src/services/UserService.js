@@ -39,7 +39,6 @@ export default function UserService() {
 
   const fetchUsers = async () => {
     return await getAll().then((data) => {
-      console.log(data);
       setUsers(data);
     });
   };

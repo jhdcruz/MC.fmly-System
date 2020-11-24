@@ -38,7 +38,6 @@ export default function SupplierService() {
 
   const fetchSuppliers = async () => {
     return await getAll().then((data) => {
-      console.log(data);
       // Assign data to `suppliers`
       setSuppliers(data);
     });

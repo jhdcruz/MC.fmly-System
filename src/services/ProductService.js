@@ -39,7 +39,6 @@ export default function ProductService() {
 
   const fetchProducts = async () => {
     return await getAll().then((data) => {
-      console.log(data);
       // Assign data to `products`
       setProducts(data);
     });
