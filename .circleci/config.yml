@@ -27,7 +27,7 @@ jobs:
             sudo apt-get install -y --no-install-recommends dpkg dpkg-dev fakeroot rpm python2.7
       - run:
           name: Install dependencies
-          command: yarn
+          command: yarn --link-duplicates --pure-lockfile
       - save_cache:
           key: dependency-cache-{{ checksum "package.json" }}
           paths:
@@ -36,7 +36,7 @@ jobs:
           name: Compile build
           command: |
             # Deployment script
-            yarn package-ci
+            yarn workspace client package-ci
             # Notify rollbar
             curl https://api.rollbar.com/api/1/deploy/ \
             -F access_token=$ROLLBAR_TOKEN \

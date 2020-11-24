@@ -16,32 +16,10 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { useEffect, useState } from 'react';
-import axios from 'axios';
+const AuthController = require('../controllers/auth.controller');
 
-// Fetch suppliers data from API
-async function getAll() {
-  let res = await axios.get(`/api/suppliers`);
-  return res.data || [];
-}
-
-export default function SupplierService() {
-  const [suppliers, setSuppliers] = useState(null);
-
-  useEffect(() => {
-    if (!suppliers) {
-      fetchSuppliers().catch((e) => {
-        console.error(e);
-      });
-    }
-  }, [suppliers]);
-
-  const fetchSuppliers = async () => {
-    return await getAll().then((data) => {
-      // Assign data to `suppliers`
-      setSuppliers(data);
-    });
-  };
-
-  return [suppliers];
-}
+module.exports = (api) => {
+  api.get('/auth/status', AuthController.status);
+  api.post('/auth/login', AuthController.login);
+  api.post('/auth/register', AuthController.register);
+};

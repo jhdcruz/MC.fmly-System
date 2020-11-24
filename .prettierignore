@@ -1,4 +1,4 @@
 client/scripts/**/**
 client/build/**/**
 release/**/**
-node_modules/**/**
+**/node_modules/**/**

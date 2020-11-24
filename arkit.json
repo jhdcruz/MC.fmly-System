@@ -9,39 +9,39 @@
   "components": [
     {
       "type": "entry",
-      "patterns": ["src/App.js"]
+      "patterns": ["client/src/App.js"]
     },
     {
       "type": "pages",
-      "patterns": ["src/views/*.js"]
+      "patterns": ["client/src/views/*.js"]
     },
     {
       "type": "containers",
-      "patterns": ["src/containers/**/*.js"]
+      "patterns": ["client/src/containers/**/*.js"]
     },
     {
       "type": "components",
-      "patterns": ["src/components/**/**/*.js"]
+      "patterns": ["client/src/components/**/**/*.js"]
     },
     {
       "type": "services",
-      "patterns": ["src/services/*.js", "src/components/charts/*.js"]
+      "patterns": ["client/src/services/*.js", "src/components/charts/*.js"]
     },
     {
       "type": "models",
-      "patterns": ["api/models/*.js"]
+      "patterns": ["server/models/*.js"]
     },
     {
       "type": "functions",
-      "patterns": ["api/controllers/*.js"]
+      "patterns": ["server/controllers/*.js"]
     },
     {
       "type": "routes",
-      "patterns": ["api/routes/*.js"]
+      "patterns": ["server/routes/*.js"]
     },
     {
       "type": "server",
-      "patterns": ["api/index.js"]
+      "patterns": ["server/index.js"]
     }
   ],
   "output": [

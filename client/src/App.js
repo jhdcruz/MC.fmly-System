@@ -140,7 +140,7 @@ export default function App() {
    *******************************/
   const userVerify = useCallback((username, password) => {
     axios
-      .post(`/api/auth/login`, username, password)
+      .post(`/auth/login`, username, password)
       .then((res) => {
         if (res.data === 'Credentials Mismatched!') {
           window.alert('Invalid username or password...');

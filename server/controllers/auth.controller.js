@@ -29,10 +29,6 @@ const rollbar = new Rollbar({
 
 const Users = mongoose.model('users');
 
-const options = {
-  app: 'MC.fmly Inventory System'
-};
-
 // * GET | Server Status
 exports.status = async (req, res) => {
   try {

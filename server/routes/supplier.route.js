@@ -16,32 +16,13 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { useEffect, useState } from 'react';
-import axios from 'axios';
+const SupplierController = require('../controllers/supplier.controller');
 
-// Fetch products data
-async function getAll() {
-  let res = await axios.get(`/api/users`);
-  return res.data || [];
-}
-
-// Assign data to `products`
-export default function UserService() {
-  const [users, setUsers] = useState(null);
-
-  useEffect(() => {
-    if (!users) {
-      fetchUsers().catch((e) => {
-        console.error(e);
-      });
-    }
-  }, [users]);
-
-  const fetchUsers = async () => {
-    return await getAll().then((data) => {
-      setUsers(data);
-    });
-  };
-
-  return [users];
-}
+module.exports = (api) => {
+  api.get('/suppliers', SupplierController.get);
+  api.get('/suppliers/:name', SupplierController.findByName);
+  api.get('/suppliers/:type', SupplierController.findByType);
+  api.post('/suppliers', SupplierController.post);
+  api.put('/suppliers/:id', SupplierController.put);
+  api.delete('/suppliers/:id', SupplierController.delete);
+};

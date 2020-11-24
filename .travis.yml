@@ -36,10 +36,11 @@ script:
         -v ~/.cache/electron:/root/.cache/electron \
         -v ~/.cache/electron-builder:/root/.cache/electron-builder \
         electronuserland/builder:wine \
-        /bin/bash -c "yarn --link-duplicates --pure-lockfile && yarn package-ci"
+        /bin/bash -c "yarn --link-duplicates --pure-lockfile && yarn workspace client package-ci"
     else
-      yarn package-ci
+      yarn workspace client package-ci
     fi
 
 notifications:
+  # Intentional exposure
   webhooks: https://outlook.office.com/webhook/4822921a-8a23-4a39-a98b-851a641ad2bf@8361af35-0fd9-4a74-ada4-aff5c74e7d0c/TravisCI/06941aabb6604876bd3871c40d7a4e8e/03960aaf-b3bf-4a9d-afd5-50a7ddbea283

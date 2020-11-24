@@ -19,10 +19,10 @@
 const ProductController = require('../controllers/product.controller');
 
 module.exports = (api) => {
-  api.get('/api/products', ProductController.get);
-  api.get('/api/products/:name', ProductController.findByName);
-  api.get('/api/products/:code', ProductController.findByCode);
-  api.post('/api/products', ProductController.post);
-  api.put('/api/products/:id', ProductController.put);
-  api.delete('/api/products/:id', ProductController.delete);
+  api.get('/products', ProductController.get);
+  api.get('/products/:name', ProductController.findByName);
+  api.get('/products/:code', ProductController.findByCode);
+  api.post('/products', ProductController.post);
+  api.put('/products/:id', ProductController.put);
+  api.delete('/products/:id', ProductController.delete);
 };

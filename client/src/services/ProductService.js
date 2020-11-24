@@ -16,10 +16,33 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-const AuthController = require('../controllers/auth.controller');
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
-module.exports = (api) => {
-  api.get('/api/auth/status', AuthController.status);
-  api.post('/api/auth/login', AuthController.login);
-  api.post('/api/auth/register', AuthController.register);
-};
+// Fetch products data
+async function getAll() {
+  let res = await axios.get(`/products`);
+  return res.data || [];
+}
+
+// Assign data to `products`
+export default function ProductService() {
+  const [products, setProducts] = useState(null);
+
+  useEffect(() => {
+    if (!products) {
+      fetchProducts().catch((e) => {
+        console.error(e);
+      });
+    }
+  }, [products]);
+
+  const fetchProducts = async () => {
+    return await getAll().then((data) => {
+      // Assign data to `products`
+      setProducts(data);
+    });
+  };
+
+  return [products];
+}

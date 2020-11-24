@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [ 15 ]
+        node-version: [ 14.x ]
 
     steps:
       - uses: actions/checkout@v2
@@ -26,7 +26,7 @@ jobs:
           cache-name: cache-node-modules
         with:
           path: ~/.yarn-cache
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-build-${{ env.cache-name }}-
       - name: Use Node.js ${{ matrix.node-version }}
@@ -35,9 +35,9 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - run: sudo apt-get install --no-install-recommends -y libopenjp2-tools rpm python2.7
       - run: npm i -g yarn
-      - run: yarn
+      - run: yarn --link-duplicates --pure-lockfile
       - run: yarn lint
-      - run: yarn package-ci
+      - run: yarn workspace client package-ci
       - uses: toko-bifrost/ms-teams-deploy-card@master
         if: always()
         with:
@@ -53,7 +53,7 @@ jobs:
     runs-on: windows-latest
     strategy:
       matrix:
-        node-version: [ 15 ]
+        node-version: [ 14.x ]
 
     steps:
       - uses: actions/checkout@v2
@@ -79,7 +79,7 @@ jobs:
       - run: npm i -g yarn msbuild
       - run: yarn
       - run: yarn lint
-      - run: yarn package-win
+      - run: yarn workspace client package-win
       - uses: toko-bifrost/ms-teams-deploy-card@master
         if: always()
         with:

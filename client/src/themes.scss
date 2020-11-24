@@ -1,4 +1,4 @@
-/*
+/*!
  *     MC.fmly Inventory System
  *     Copyright (C) 2020  Joshua Hero H. Dela Cruz
  *
@@ -16,33 +16,20 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { useEffect, useState } from 'react';
-import axios from 'axios';
+/*****************************************
+ * * Custom themes
+ * Overwrites bootstrap's default theme
+ *****************************************/
 
-// Fetch products data
-async function getAll() {
-  let res = await axios.get(`/api/products`);
-  return res.data || [];
-}
+$theme-colors: (
+  'primary': #e6a195,
+  'secondary': #222126,
+  'success': #4de670,
+  'danger': #ec2738,
+  'warning': #faa142,
+  'info': #2579f6,
+  'dark': #313131
+);
 
-// Assign data to `products`
-export default function ProductService() {
-  const [products, setProducts] = useState(null);
-
-  useEffect(() => {
-    if (!products) {
-      fetchProducts().catch((e) => {
-        console.error(e);
-      });
-    }
-  }, [products]);
-
-  const fetchProducts = async () => {
-    return await getAll().then((data) => {
-      // Assign data to `products`
-      setProducts(data);
-    });
-  };
-
-  return [products];
-}
+/* set changes */
+@import '~bootstrap/scss/bootstrap';

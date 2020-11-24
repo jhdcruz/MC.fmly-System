@@ -1,0 +1,15 @@
+{
+  "extends": [
+    "stylelint-prettier/recommended"
+  ],
+  "rules": {
+    "at-rule-no-unknown": null
+  },
+  "ignoreFiles": [
+    "client/scripts/**/**",
+    "client/config/**/**",
+    "../server/**/**",
+    "**/node_modules/**/**"
+  ],
+  "configBaseDir": "./client/src"
+}

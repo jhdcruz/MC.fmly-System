@@ -1,4 +1,7 @@
-config/**/**
-scripts/**/**
-build/**/**
-node_modules/**/**
+# Dependencies
+**/node_modules/**/**
+
+# Front-End
+client/config/**/**
+client/scripts/**/**
+client/build/**/**

@@ -16,12 +16,32 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-const UserController = require('../controllers/user.controller');
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
-module.exports = (api) => {
-  api.get('/api/users', UserController.get);
-  api.get('/api/users/:name', UserController.findByName);
-  api.get('/api/users/:role', UserController.findByRole);
-  api.put('/api/users/:id', UserController.put);
-  api.delete('/api/users/:id', UserController.delete);
-};
+// Fetch products data
+async function getAll() {
+  let res = await axios.get(`/users`);
+  return res.data || [];
+}
+
+// Assign data to `products`
+export default function UserService() {
+  const [users, setUsers] = useState(null);
+
+  useEffect(() => {
+    if (!users) {
+      fetchUsers().catch((e) => {
+        console.error(e);
+      });
+    }
+  }, [users]);
+
+  const fetchUsers = async () => {
+    return await getAll().then((data) => {
+      setUsers(data);
+    });
+  };
+
+  return [users];
+}
