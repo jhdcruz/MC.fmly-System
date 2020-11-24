@@ -25,7 +25,7 @@ import { faBell } from '@fortawesome/free-solid-svg-icons';
 const Notice = styled(Toast)`
   position: fixed !important;
   bottom: 0;
-  right: 0;
+  left: 0;
   margin: 1rem 0.5rem;
   background-color: #1f252c !important;
   color: whitesmoke;
