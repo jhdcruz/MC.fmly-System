@@ -140,7 +140,7 @@ export default function App() {
    *******************************/
   const userVerify = useCallback((username, password) => {
     axios
-      .post(`/auth/login`, username, password)
+      .post(`https://mc-ims-api.herokuapp.com/auth/login`, username, password)
       .then((res) => {
         if (res.data === 'Credentials Mismatched!') {
           window.alert('Invalid username or password...');

@@ -21,7 +21,7 @@ import axios from 'axios';
 
 // Fetch products data
 async function getAll() {
-  let res = await axios.get(`/products`);
+  let res = await axios.get(`https://mc-ims-api.herokuapp.com/products`);
   return res.data || [];
 }
 

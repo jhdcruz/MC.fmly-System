@@ -21,7 +21,7 @@ import axios from 'axios';
 
 // Fetch suppliers data from API
 async function getAll() {
-  let res = await axios.get(`/suppliers`);
+  let res = await axios.get(`https://mc-ims-api.herokuapp.com/suppliers`);
   return res.data || [];
 }
 
