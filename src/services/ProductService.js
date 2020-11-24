@@ -25,8 +25,7 @@ async function getAll() {
   return res.data || [];
 }
 
-// Assign data to `products`
-const ProductService = () => {
+export default function ProductService() {
   const [products, setProducts] = useState();
 
   useEffect(() => {
@@ -40,11 +39,10 @@ const ProductService = () => {
   const fetchProducts = async () => {
     return await getAll().then((data) => {
       console.log(data);
+      // Assign data to `products`
       setProducts(data);
     });
   };
 
   return [products];
-};
-
-export default ProductService;
+}
