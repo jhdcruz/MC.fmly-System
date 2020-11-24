@@ -35,6 +35,10 @@ import PointOfSale from '../containers/PointOfSale';
 import NotFound from '../components/NotFound';
 import TabItem from '../components/TabItem';
 
+/*********************************
+ * * Cashier Permission Access
+ *********************************/
+
 export default function Cashier() {
   return (
     <Fragment>
@@ -68,6 +72,7 @@ export default function Cashier() {
                 mapStyles={mapStyles}
                 className="routerContent"
               >
+                {/* Redirect to role's default view */}
                 <Route exact path="/">
                   <Redirect from="/" to="/pos" />
                 </Route>

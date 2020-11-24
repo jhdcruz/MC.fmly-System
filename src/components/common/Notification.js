@@ -22,7 +22,7 @@ import { Toast } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBell } from '@fortawesome/free-solid-svg-icons';
 
-const Alert = styled(Toast)`
+const Notice = styled(Toast)`
   position: fixed !important;
   bottom: 0;
   right: 0;
@@ -59,19 +59,19 @@ export default function Notification(props) {
   const [show, setShow] = useState(true);
 
   return (
-    <Alert
+    <Notice
       onClose={() => setShow(false)}
       show={show}
       delay={props.delay}
       animation={true}
       autohide
     >
-      <Alert.Header>
+      <Notice.Header>
         <FontAwesomeIcon icon={faBell} className="mr-2" />
         <strong className="mr-auto">{props.title}</strong>
         <small>{props.time}</small>
-      </Alert.Header>
-      <Alert.Body>{props.message}</Alert.Body>
-    </Alert>
+      </Notice.Header>
+      <Notice.Body>{props.message}</Notice.Body>
+    </Notice>
   );
 }

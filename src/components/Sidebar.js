@@ -58,11 +58,15 @@ export default function Sidebar(props) {
             draggable={false}
             rounded
           />
-          {/* Custom Navigation per views*/}
+          {/* Pass priority navigation down to allow role-based views*/}
           {props.navigation}
 
           <hr />
+
+          {/* Pass secondary navigation down to allow role-based views*/}
           {props.bottom}
+
+          {/* Fixed navigation | All views */}
           <TabItem
             tab="Logout"
             overlay="Logout"

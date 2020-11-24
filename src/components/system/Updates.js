@@ -24,6 +24,10 @@ import { ListContainer, ListGroupItem, OutlineButton } from './__system.module';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTag } from '@fortawesome/free-solid-svg-icons';
 
+/*****************************************************
+ * * Get releases from project repository (GitHub API)
+ *****************************************************/
+
 export default function Updates() {
   const [releases] = Releases();
 

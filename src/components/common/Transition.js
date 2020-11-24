@@ -19,13 +19,11 @@
 // @ts-ignore
 import { spring } from 'react-router-transition';
 
-/*
- *
- * This is only a transition when navigating routes/pages.
- * Therefore NOT a component.
- *
- */
+/*********************************************************
+ * * This is only a transition when navigating routes/pages.
+ *********************************************************/
 
+// * Map out styles
 export const mapStyles = (styles) => {
   return {
     opacity: styles.opacity,
@@ -33,7 +31,7 @@ export const mapStyles = (styles) => {
   };
 };
 
-// ? wrap the `spring` helper to use a bouncy config
+// * Wrapped the `spring` helper to use a bouncy config
 const bounce = (val) => {
   return spring(val, {
     stiffness: 200,
@@ -41,6 +39,7 @@ const bounce = (val) => {
   });
 };
 
+// *  Bounce transition config
 export const bounceTransition = {
   // ? tart in a transparent, upscaled state
   atEnter: {

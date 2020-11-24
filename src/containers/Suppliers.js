@@ -68,7 +68,6 @@ export default function Suppliers() {
         cancel={handleClose}
       />
 
-      {/* Modal Handler */}
       <SearchBar
         modal={() => {
           showModal(true);

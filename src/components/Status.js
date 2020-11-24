@@ -22,6 +22,10 @@ import { Button, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircle } from '@fortawesome/free-solid-svg-icons';
 
+/*********************************
+ * * Server Status Display Icon
+ *********************************/
+
 export default function Status(props) {
   const [status, setStatus] = useState(500);
 

@@ -133,14 +133,15 @@ const LoginControl = styled.div`
 
 export default function App() {
   const { register, handleSubmit } = useForm();
-  const [auth, setAuth] = useState('');
+  const [auth, setAuth] = useState();
 
-  // * Auth Handler
+  /*******************************
+   * * Authentication Handler
+   *******************************/
   const userVerify = useCallback((username, password) => {
     axios
       .post(`/api/auth/login`, username, password)
       .then((res) => {
-        // console.log(res);
         if (res.data === 'Credentials Mismatched!') {
           window.alert('Invalid username or password...');
         } else {
@@ -160,7 +161,9 @@ export default function App() {
     window.alert('Please inform the System Admin.');
   };
 
-  // * Role-based views (based on exposed res.permission)
+  /*******************************
+   * * Role-based Views
+   *******************************/
   if (auth === 'admin') {
     return <Admin />;
   }
@@ -177,11 +180,12 @@ export default function App() {
     return <Cashier />;
   }
 
+  /*******************************
+   * * Login Form
+   *******************************/
   return (
     <LoginContainer fluid>
       <Img src={Brand} alt="Company Logo" rounded width={500} height={500} />
-
-      {/* News/Updates List Group */}
 
       {/* Login Form */}
       <LoginForm
@@ -197,6 +201,7 @@ export default function App() {
           rounded
         />
 
+        {/* Login Fields */}
         <Form.Group>
           <FormLabel htmlFor="username">Username:</FormLabel>
           <InputGroup>
@@ -238,6 +243,8 @@ export default function App() {
             />
           </InputGroup>
         </Form.Group>
+
+        {/* Login Buttons */}
         <LoginControl>
           <a
             style={{ color: '#e6a195' }}

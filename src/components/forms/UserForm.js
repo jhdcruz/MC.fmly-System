@@ -35,7 +35,7 @@ export default function UserForm(props) {
                 Name <Required>*</Required>
               </Form.Label>
               <Form.Control
-                className="circular-input"
+                className="input-box"
                 type="username"
                 placeholder="Username"
                 autoComplete="new-text"
@@ -49,7 +49,7 @@ export default function UserForm(props) {
                 Username <Required>*</Required>
               </Form.Label>
               <Form.Control
-                className="circular-input"
+                className="input-box"
                 type="username"
                 placeholder="Username"
                 autoComplete="new-text"
@@ -64,7 +64,7 @@ export default function UserForm(props) {
                 Password <Required>*</Required>
               </Form.Label>
               <Form.Control
-                className="circular-input"
+                className="input-box"
                 type="password"
                 placeholder="Password"
                 autoComplete="new-text"
@@ -81,7 +81,7 @@ export default function UserForm(props) {
                 Role <Required>*</Required>
               </Form.Label>
               <Form.Control
-                className="circular-input"
+                className="input-box"
                 placeholder="User role"
                 autoComplete="new-text"
                 autoSave="off"
@@ -95,7 +95,7 @@ export default function UserForm(props) {
                 Permission <Required>*</Required>
               </Form.Label>
               <Form.Control
-                className="circular-input"
+                className="input-box"
                 as="select"
                 defaultValue="Choose..."
                 required

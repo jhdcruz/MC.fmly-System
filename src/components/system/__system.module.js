@@ -19,6 +19,10 @@
 import styled from 'styled-components';
 import { Button, ListGroup } from 'react-bootstrap';
 
+/****************************************
+ * * Shared Styles between `system`
+ ****************************************/
+
 export const ListContainer = styled.div`
   background-color: rgba(0, 0, 0, 0.5);
   color: #e6a195;

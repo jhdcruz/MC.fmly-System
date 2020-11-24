@@ -19,9 +19,15 @@
 import styled from 'styled-components';
 import { Form } from 'react-bootstrap';
 
+/****************************************
+ * * Shared Styles between `forms`
+ ****************************************/
+
+// * Modal Form
 export const ModalForm = styled(Form)`
   color: whitesmoke;
 
+  // Input Icons
   .input-group-prepend span,
   .input-group-append span {
     margin: 0;
@@ -33,6 +39,7 @@ export const ModalForm = styled(Form)`
     border-radius: 0.5rem;
   }
 
+  // File Input
   .form-control-file {
     margin: 0;
     padding: 5px 15px;
@@ -42,7 +49,8 @@ export const ModalForm = styled(Form)`
     cursor: pointer;
   }
 
-  .circular-input {
+  // Inputs
+  .input-box {
     margin: 0;
     padding: 5px 15px;
     font-size: 1.3vw;
@@ -71,6 +79,7 @@ export const ModalForm = styled(Form)`
     border-bottom-right-radius: 0 !important;
   }
 
+  // Number inputs
   input[type='number']::-webkit-inner-spin-button {
     // Hide input inner control on [type=number]
     -webkit-appearance: none;
@@ -81,6 +90,7 @@ export const ModalForm = styled(Form)`
   }
 `;
 
+// * Required asterisk
 export const Required = styled.span`
   color: #ec2738;
 `;

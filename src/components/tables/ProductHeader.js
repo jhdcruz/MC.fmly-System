@@ -22,6 +22,10 @@ import { TableHeader } from './__tables.module';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
 
+/*********************************
+ * * Product Table Header <th>
+ *********************************/
+
 const TableContainer = createGlobalStyle`
   div.table-responsive {
     display: inline-flex !important;
@@ -95,7 +99,7 @@ export default function ProductHeader(props) {
             </TableHeader>
           </tr>
         </thead>
-        {/* Insert Dynamic data | containers/ */}
+        {/* Pass dynamic data as props */}
         <tbody>{props.data}</tbody>
       </ProductTable>
     </>

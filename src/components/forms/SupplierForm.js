@@ -47,7 +47,7 @@ export default function SupplierForm(props) {
                 Name <Required>*</Required>
               </Form.Label>
               <Form.Control
-                className="circular-input"
+                className="input-box"
                 type="text"
                 placeholder="Company/Supplier name"
                 autoComplete="new-text"
@@ -61,7 +61,7 @@ export default function SupplierForm(props) {
           <Form.Group controlId="formGridDescription">
             <Form.Label>Description</Form.Label>
             <Form.Control
-              className="circular-input"
+              className="input-box"
               as="textarea"
               placeholder="Brief info about the company... (drag on the lower right to expand)"
               autoComplete="new-text"
@@ -74,7 +74,7 @@ export default function SupplierForm(props) {
             <Form.Group as={Col} controlId="formGridCategory">
               <Form.Label>Address</Form.Label>
               <Form.Control
-                className="circular-input"
+                className="input-box"
                 as="textarea"
                 placeholder="Supplier physical address... (drag on the lower right to expand)"
                 autoComplete="new-text"
@@ -90,7 +90,7 @@ export default function SupplierForm(props) {
                 Type <Required>*</Required>
               </Form.Label>
               <Form.Control
-                className="circular-input"
+                className="input-box"
                 placeholder="It supplies..."
                 autoComplete="new-text"
                 autoSave="off"
@@ -106,7 +106,7 @@ export default function SupplierForm(props) {
                   <InputGroup.Text id="basic-addon1">https://</InputGroup.Text>
                 </InputGroup.Prepend>
                 <FormControl
-                  className="circular-input"
+                  className="input-box"
                   placeholder="sample.com"
                   autoComplete="new-text"
                   autoSave="off"
@@ -118,7 +118,7 @@ export default function SupplierForm(props) {
             <Form.Group as={Col} controlId="formGridContact">
               <Form.Label>Contact</Form.Label>
               <FormControl
-                className="circular-input"
+                className="input-box"
                 type="tel"
                 name="phone"
                 pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"

@@ -51,6 +51,10 @@ import {
   faUsers
 } from '@fortawesome/free-solid-svg-icons';
 
+/*********************************
+ * * Admin Permission Access
+ *********************************/
+
 export default function Admin() {
   return (
     <Fragment>
@@ -124,6 +128,7 @@ export default function Admin() {
                 mapStyles={mapStyles}
                 className="routerContent"
               >
+                {/* Redirect to role's default view */}
                 <Route exact path="/">
                   <Redirect from="/" to="/dashboard" />
                 </Route>

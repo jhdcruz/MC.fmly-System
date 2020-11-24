@@ -36,7 +36,7 @@ export default function ProductForm(props) {
                 Code (SKU) <Required>*</Required>
               </Form.Label>
               <Form.Control
-                className="circular-input"
+                className="input-box"
                 type="text"
                 placeholder="STC00001"
                 autoComplete="new-text"
@@ -51,7 +51,7 @@ export default function ProductForm(props) {
                 Name <Required>*</Required>
               </Form.Label>
               <Form.Control
-                className="circular-input"
+                className="input-box"
                 type="text"
                 placeholder="Heart Sticker"
                 autoComplete="new-text"
@@ -66,7 +66,7 @@ export default function ProductForm(props) {
             <Form.Group as={Col} controlId="formGridVariant">
               <Form.Label>Variant</Form.Label>
               <Form.Control
-                className="circular-input"
+                className="input-box"
                 placeholder="Black"
                 autoComplete="new-text"
                 autoSave="off"
@@ -79,7 +79,7 @@ export default function ProductForm(props) {
                 Type <Required>*</Required>
               </Form.Label>
               <Form.Control
-                className="circular-input"
+                className="input-box"
                 placeholder="Sticker"
                 autoComplete="new-text"
                 autoSave="off"
@@ -95,7 +95,7 @@ export default function ProductForm(props) {
                 Category <Required>*</Required>
               </Form.Label>
               <Form.Control
-                className="circular-input"
+                className="input-box"
                 placeholder="Papercraft"
                 autoComplete="new-text"
                 autoSave="off"
@@ -109,7 +109,7 @@ export default function ProductForm(props) {
                 Quantity <Required>*</Required>
               </Form.Label>
               <Form.Control
-                className="circular-input"
+                className="input-box"
                 type="number"
                 placeholder="10"
                 autoComplete="new-text"
@@ -126,7 +126,7 @@ export default function ProductForm(props) {
                   <InputGroup.Text>₱</InputGroup.Text>
                 </InputGroup.Prepend>
                 <FormControl
-                  className="circular-input"
+                  className="input-box"
                   type="number"
                   autoComplete="new-text"
                   autoSave="off"

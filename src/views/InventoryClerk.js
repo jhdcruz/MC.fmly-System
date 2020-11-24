@@ -43,6 +43,10 @@ import Suppliers from '../containers/Suppliers';
 import NotFound from '../components/NotFound';
 import TabItem from '../components/TabItem';
 
+/*********************************
+ * * Inventory Permission Access
+ *********************************/
+
 export default function InventoryClerk() {
   return (
     <Fragment>
@@ -89,6 +93,7 @@ export default function InventoryClerk() {
                   mapStyles={mapStyles}
                   className="routerContent"
                 >
+                  {/* Redirect to role's default view */}
                   <Route exact path="/">
                     <Redirect from="/" to="/recent" />
                   </Route>

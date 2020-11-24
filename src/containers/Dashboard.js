@@ -51,7 +51,7 @@ export default function Dashboard() {
         </Tab>
       </NavTabs>
 
-      {/* TODO: Move notices to Login | Store events to DB */}
+      {/* TODO: Move notices to Login */}
       <Notification
         delay="10000"
         title="Notice"

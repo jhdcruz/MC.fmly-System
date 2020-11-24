@@ -26,6 +26,11 @@ import { Tag } from './__tables.module';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPen, faTimes } from '@fortawesome/free-solid-svg-icons';
 
+/*********************************
+ * * Product Table Rows <td>
+ *********************************/
+
+// * Styled components
 const TableRow = styled.tr`
   color: white;
   background-color: #222126;
@@ -98,41 +103,49 @@ export default function ProductRow(product) {
   const [deleteModal, showDeleteModal] = useState(false);
   const handleClose = () => showEditModal(false);
 
+  // * Modals
+  const Modals = () => {
+    return (
+      <>
+        {/* DELETE Modal */}
+        <CustomModal
+          size="sm"
+          header="Delete product"
+          content="Are you sure?"
+          show={deleteModal}
+          onHide={() => showDeleteModal(false)}
+          submit={handleClose} // TODO: DELETE data
+          cancel={handleClose}
+          footer={
+            <>
+              <Button variant="outline-danger" onClick={handleClose}>
+                Yes
+              </Button>
+              <Button variant="outline-primary" onClick={handleClose}>
+                No
+              </Button>
+            </>
+          }
+          style={{
+            textAlign: 'center'
+          }}
+        />
+
+        {/* EDIT Modal */}
+        <ProductForm
+          header="Edit product"
+          show={editModal}
+          onHide={() => showEditModal(false)}
+          submit={handleClose} // TODO: PUT/PATCH data
+          cancel={handleClose}
+        />
+      </>
+    );
+  };
+
   return (
     <>
-      {/* DELETE Modal */}
-      <CustomModal
-        size="sm"
-        header="Delete product"
-        content="Are you sure?"
-        show={deleteModal}
-        onHide={() => showDeleteModal(false)}
-        submit={handleClose} // TODO: DELETE data
-        cancel={handleClose}
-        footer={
-          <>
-            <Button variant="outline-danger" onClick={handleClose}>
-              Yes
-            </Button>
-            <Button variant="outline-primary" onClick={handleClose}>
-              No
-            </Button>
-          </>
-        }
-        style={{
-          textAlign: 'center'
-        }}
-      />
-
-      {/* EDIT Modal */}
-      <ProductForm
-        header="Edit product"
-        show={editModal}
-        onHide={() => showEditModal(false)}
-        submit={handleClose} // TODO: PUT/PATCH data
-        cancel={handleClose}
-      />
-
+      <Modals />
       {/* Product | Table Row */}
       <TableRow className="product" key={product._id}>
         <TableData className="code" colSpan={1}>
@@ -219,6 +232,6 @@ export default function ProductRow(product) {
           </Tag>
         </TableData>
       </TableRow>
-    </>
+    </Modals>
   );
 }

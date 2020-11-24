@@ -42,6 +42,10 @@ import NotFound from '../components/NotFound';
 import TabItem from '../components/TabItem';
 import AuditLog from '../containers/AuditLog';
 
+/*********************************
+ * * Cashier Permission Access
+ *********************************/
+
 export default function SysAdmin() {
   return (
     <Fragment>
@@ -92,7 +96,7 @@ export default function SysAdmin() {
                 mapStyles={mapStyles}
                 className="routerContent"
               >
-                {/* Redirect to role default view */}
+                {/* Redirect to role's default view */}
                 <Route exact path="/">
                   <Redirect from="/" to="/sysinfo" />
                 </Route>

@@ -20,7 +20,11 @@ import styled from 'styled-components';
 import Spinner from 'react-bootstrap/Spinner';
 import Badge from 'react-bootstrap/Badge';
 
-// Table Heading
+/****************************************
+ * * Shared Styles between `tables`
+ ****************************************/
+
+// * Table Heading
 export const TableHeader = styled.th`
   font-size: 1.3vw;
   color: #c3c3c3;
@@ -33,7 +37,7 @@ export const TableHeader = styled.th`
   }
 `;
 
-// Loading Spinner
+// * Loading Spinner
 export const Loader = styled(Spinner)`
   margin: 10px auto;
   width: 3rem;
@@ -43,14 +47,14 @@ export const Loader = styled(Spinner)`
   top: 13rem;
 `;
 
-// Circular Color Badges
+// * Circular Color Badges
 export const Tag = styled(Badge)`
   font-size: 1.2vw;
   padding: 6px 10px 6px 0;
   box-shadow: 0 1px 5px 1px #1e1e1e;
 `;
 
-// Shows on no products registered
+// * Shows on no products registered
 export const NullItems = styled.h5`
   color: #c3c3c3;
   margin-bottom: 1rem;

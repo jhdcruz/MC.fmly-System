@@ -19,6 +19,11 @@
 import { Card, Image, ListGroup, ListGroupItem } from 'react-bootstrap';
 import styled from 'styled-components';
 
+/*********************************
+ * * Suppliers Card/Poster
+ *********************************/
+
+// * Styled components
 const CardBlock = styled(Card)`
   background-color: #222126;
   color: #d2d2d2;

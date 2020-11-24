@@ -16,11 +16,14 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-// GET updates from repo
 import { Image, ListGroup } from 'react-bootstrap';
 import Moment from 'react-moment';
 import Commits from '../../services/github/Commits';
 import { ListContainer, ListGroupItem } from './__system.module';
+
+/*****************************************************
+ * * Get commits from project repository (GitHub API)
+ *****************************************************/
 
 export default function Development() {
   const [commits] = Commits();

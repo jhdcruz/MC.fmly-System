@@ -120,6 +120,8 @@ export default function SearchBar(props) {
           <InputGroup.Text className="search-icon" as="button">
             <FontAwesomeIcon icon={faSearch} />
           </InputGroup.Text>
+
+          {/* Modal Handler */}
           <InputGroup.Text
             className="add-icon"
             as="button"

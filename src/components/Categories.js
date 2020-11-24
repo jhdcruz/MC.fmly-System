@@ -108,6 +108,7 @@ export default function Categories(props) {
           </Nav>
         </CategoryList>
         <CategoryTable>
+          {/* Product Form Modal */}
           <ProductForm
             header="Add new product"
             show={modal}
@@ -115,6 +116,7 @@ export default function Categories(props) {
             save={handleClose} // TODO: POST data
             cancel={handleClose}
           />
+          {/* Searchbar */}
           <SearchBar
             modal={() => {
               showModal(true);
@@ -126,6 +128,7 @@ export default function Categories(props) {
               </>
             }
           />
+          {/* Table dynamic data*/}
           <Tab.Content>{props.tables}</Tab.Content>
         </CategoryTable>
       </CatalogGrid>
