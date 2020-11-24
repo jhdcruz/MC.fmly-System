@@ -78,6 +78,9 @@ require('./routes/user.route')(api);
 require('./routes/product.route')(api);
 require('./routes/supplier.route')(api);
 
+// Serve static files
+api.use(express.static(path.join(__dirname, '/public')));
+
 // * Main API route | Allow all HTTP methods
 // https://expressjs.com/en/4x/api.html#app.METHOD
 api.all('/', (req, res) => {
@@ -98,7 +101,7 @@ api.all('/', (req, res) => {
 //   }
 // );
 
-// Serve empty index for invisible content
+// Fallback | Serve empty index for invisible content
 api.get('*', (req, res) => {
   res.sendFile(path.join(__dirname + '/index.html'));
 });
