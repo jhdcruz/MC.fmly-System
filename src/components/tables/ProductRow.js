@@ -232,6 +232,6 @@ export default function ProductRow(product) {
           </Tag>
         </TableData>
       </TableRow>
-    </Modals>
+    </>
   );
 }
