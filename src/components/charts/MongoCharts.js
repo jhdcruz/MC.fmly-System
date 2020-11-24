@@ -21,12 +21,12 @@ import styled from 'styled-components';
 export const Chart = styled.iframe`
   width: 44.5vw !important;
   height: 60vh !important;
-  background: #1e1e1e;
+  background: #222126;
   margin: 0.5rem 0.5rem 0 0;
 
   border: none;
   border-radius: 0.3rem;
-  box-shadow: 0 3px 6px #232323;
+  box-shadow: 1px 2px 8px 2px #232323;
 `;
 
 export const TypeDetails = () => {
