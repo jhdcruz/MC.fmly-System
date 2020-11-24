@@ -8,8 +8,6 @@
 
 **Status:**
 
-[comment]: <> (![CI/CD]&#40;https://github.com/jhdcruz/MC.fmly-System/workflows/Desktop%20Builds/badge.svg&#41;)
-
 [![CircleCI](https://circleci.com/gh/jhdcruz/MC.fmly-System.svg?style=svg&circle-token=4025b123b9ce80ae60a05556c04c74e50ceea7fd)](https://app.circleci.com/pipelines/github/jhdcruz/MC.fmly-System) ![CI](https://github.com/jhdcruz/MC.fmly-System/workflows/CI/badge.svg) [![Build Status](https://travis-ci.com/jhdcruz/MC.fmly-System.svg?token=fiiouVpFksoACZRN1N2B&branch=main)](https://travis-ci.com/jhdcruz/MC.fmly-System)
 
 **Source Code:**
@@ -31,10 +29,10 @@
 #### Specification
 
 - [Architecture](#architecture)
-- [Languages](#languages)
 - [Front-End](#front-end)
 - [Back-End](#back-end)
 - [Database](#database)
+- [APIs](#apis)
 - [Tools](#tools)
 
 #### Development
@@ -59,25 +57,19 @@
 
 <p align="center"><a href="https://www.mongodb.com/mern-stack">MERN Stack Architecture</a></p>
 
-### Languages:
-
-- [**JavaScript (ES2019/JSX)**](https://www.ecma-international.org/publications/standards/Ecma-262.htm) - _Main
-  implementation_
-- **HTML5** - _Compiled UI handler_
-- **CSS3** - _Stylesheet_
-
 ### Front-End:
 
-- [**React**](https://reactjs.org/) - _JS Library_
+- [**React**](https://reactjs.org/) - _Component-based UI_
 - [**Electron**](https://electronjs.org) - _X-Platform Desktop Integration_
 - [**Sass/Scss**](https://sass-lang.com) - _CSS Preprocessor_
-- [**MongoDB Charts**](https://mongodb.com/products/charts) - _Integrated Charts & Data Analytics_
+- [**MongoDB Charts**](https://mongodb.com/products/charts) - _Embeddable Charts & Data Analytics_
 - [**`react-bootstrap`**](https://react-bootstrap.github.io/) - _UI Toolkit for `React`_
-- [**`styled-components`**](https://styled-components.com/) - _ES6 Component Styling_
+- [**`styled-components`**](https://styled-components.com/) - _ES6+ Component Styling_
 
 ### Back-End:
 
 - [**Express**](https://expressjs.com) - _Server-side Framework_
+- [**Node.js**](https://nodejs.org) - _Web Server_
 - [**Axios**](https://github.com/axios/axios) - _HTTP Client_
 - [**Mongoose**](https://mongoosejs.com) - _Object Modeling_
 - [**`node-argon2`**](https://github.com/ranisalt/node-argon2) - _Node.js bindings for `Argon2` hashing algorithm_
@@ -89,6 +81,10 @@
 
 - [**MongoDB**](https://mongodb.com) - _Document database_
 
+### APIs
+
+- [**GitHub REST API**](https://docs.github.com/en/free-pro-team@latest/rest) - _System Commits & Releases_
+
 ### Tools
 
 - [**Vercel**](https://vercel.com) - _Web & API Deployment_
@@ -98,6 +94,7 @@
 - [**TravisCI**](https://travis-ci.com/) - _Continuous Integration (Secondary)_
 - [**GitHub Actions**](https://github.com/features/actions) - _Continuous Integration (Fallback)_
 - [**CodeFactor**](https://codefactor.io) - _Code Review_
+- [**CodeCov**](https://codecov.io/) - _Code Coverage_
 - [**SonarCloud**](https://sonarcloud.io/) - _Code Quality & Security_
 - [**WhiteSource Renovate**](https://renovate.whitesourcesoftware.com/) - _Automated Dependency Updates_
 - [**WhiteSource Bolt**](https://whitesourcesoftware.com/free-developer-tools/bolt/) - _Dependency Security_
@@ -116,11 +113,8 @@
 
 **Windows:**
 
-Can be either of the ff:
-
-- [**`MSBuild`**](https://docs.microsoft.com/en-us/visualstudio/msbuild/msbuild)
-- [**`windows-build-tools`**](https://www.npmjs.com/package/windows-build-tools)
 - [**`python2.7`**](https://getpython.org) - For native dependency rebuilds
+- [**`windows-build-tools`**](https://www.npmjs.com/package/windows-build-tools)
 
 **Linux:**
 
@@ -161,17 +155,19 @@ replace `yum` with your distro package provider.
 - **`MONGO_URL`** - **Required** _(Production User)_
 - `SENTRY_PROJECT_DSN` - _Application Monitoring_
 
-> Add your environment variables inside `/api/.env`.
+> Add your environment variables inside `/.env`.
 
 ```dotenv
-MONGO_ADMIN=[Your URI Here] # Don't add quotation marks
+MONGO_ADMIN=[Your URI Here]
 MONGO_URL=[Your URI Here]
 SENTRY_PROJECT_DSN=[Your DSN Here]
 ```
 
+> Do not add quotation marks between values!
+
 ## Install Dependencies
 
-You have to install the dependencies before running any of the scripts located in `/package.json`.
+You have to install all dependencies before running any of the scripts.
 
 ```shell
 yarn
@@ -200,15 +196,17 @@ yarn start
 You need to have a web provider that supports **`functions`**. Such as [**Vercel**](https://vercel.com), it can also be
 other provider such as DigitalOcean, AWS, etc...
 
+> This project uses [**Vercel**](https://vercel.com) as its provider.
+
 ```shell
 yarn build
 ```
 
-Front-end output on `./client/build/` directory. Ready to deploy to hosting.
+Output in `/build` directory. Ready to deploy to hosting.
 
 ### Desktop:
 
-The desktop version on production relies on loading the web app. You need to deploy the web app, then changing
+The desktop version on production relies on loading the web app. You need to deploy the web app, then change
 the `loadURL` link in `public/electron.js`.
 
 ```shell
@@ -219,25 +217,27 @@ Where `os` can be one of the ff:
 
 - `all` - all platforms (`win`, `mac`, `linux`)
 - `win` - Windows x64 (`x32` architecture is not supported.)
-- `mac` - MacOS
+- `mac` - MacOS 10+
 - `linux` - `deb`/`rpm` installer based on current linux system.
+- `ci` - For continuous integrations.
 
-Output on `release/` directory.
+Output on `/release` directory.
 
 **NOTE**
 
 Packaging the desktop app depends on the current system you have.
 
-Running `linux || mac` on a `win` system can throw an error due to missing required tools.
+Running `linux` or `mac` on a `win` system will throw an error due to missing required tools.
 
-Packaging the desktop app for `linux` can be made in `win` system inside `WSL`.
+Packaging the desktop app for `linux` can be made in `win` system inside `WSL` with
+fulfilled [prerequisites](#prerequisites).
 
 ### Testing
 
-**Unit test is planned**
+**Unit tests is planned**
 
 ## License
 
 This work is licensed under [GNU General Public License v3.0](https://opensource.org/licenses/GPL-3.0).
 
-> _License will not be applicable when in actual business use._
+> _License not applicable in actual business use._
