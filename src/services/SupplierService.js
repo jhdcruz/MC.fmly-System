@@ -19,13 +19,14 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
-// Fetch suppliers data from API
+// Fetch products data
 async function getAll() {
   let res = await axios.get(`/api/suppliers`);
   return res.data || [];
 }
 
-export default function SupplierService() {
+// Assign data to `products`
+const SupplierService = () => {
   const [suppliers, setSuppliers] = useState();
 
   useEffect(() => {
@@ -39,10 +40,11 @@ export default function SupplierService() {
   const fetchSuppliers = async () => {
     return await getAll().then((data) => {
       console.log(data);
-      // Assign data to `suppliers`
       setSuppliers(data);
     });
   };
 
   return [suppliers];
-}
+};
+
+export default SupplierService;
