@@ -21,6 +21,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const helmet = require('helmet');
+const path = require('path');
 const dotenv = require('dotenv');
 const dotenvExpand = require('dotenv-expand');
 const Rollbar = require('rollbar');
@@ -78,11 +79,20 @@ require('./routes/user.route')(api);
 require('./routes/product.route')(api);
 require('./routes/supplier.route')(api);
 
+// Serve static files from the React app
+api.use(express.static(path.join(__dirname, '../build')));
+
 // * Main API route | All HTTP Methods
 // https://expressjs.com/en/4x/api.html#app.METHOD
 api.all('/api', (req, res) => {
   res.setHeader('Content-Type', 'text/html');
   res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
+});
+
+// The "catchall" handler: for any request that doesn't
+// match one above, send back React's index.html file.
+api.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname + '../build/index.html'));
 });
 
 // Start rollbar logs
