@@ -42,9 +42,9 @@ import Suppliers from '../containers/Suppliers';
 import Users from '../containers/Users';
 import {
   faBoxes,
+  faChartBar,
   faFileInvoice,
   faHistory,
-  faHome,
   faServer,
   faShoppingCart,
   faTruck,
@@ -67,7 +67,7 @@ export default function Admin() {
                   tab="Dashboard"
                   overlay="Dashboard"
                   route={routes.DASHBOARD}
-                  icon={faHome}
+                  icon={faChartBar}
                 />
                 <TabItem
                   tab="Audit Log"
