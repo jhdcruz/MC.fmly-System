@@ -18,7 +18,7 @@
 
 [![time tracker](https://wakatime.com/badge/github/jhdcruz/MC.fmly-System.svg)](https://wakatime.com/badge/github/jhdcruz/MC.fmly-System) [![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=jhdcruz_MC.fmly-System&metric=ncloc)](https://sonarcloud.io/dashboard?id=jhdcruz_MC.fmly-System)
 
-### Inventory System specifically built for [MC.fmly](https://www.facebook.com/MC.fmly/).
+### Inventory System specifically built for MC.fmly.
 
 </div>
 
@@ -116,6 +116,10 @@
 - [**`python2.7`**](https://getpython.org) - For native dependency rebuilds
 - [**`windows-build-tools`**](https://www.npmjs.com/package/windows-build-tools)
 
+```shell
+npm i -g windows-build-tools # Should be in elevated shell.
+```
+
 **Linux:**
 
 - Debian
@@ -151,16 +155,14 @@ replace `yum` with your distro package provider.
 
 ## Environment Variables
 
-- **`MONGO_ADMIN`** - **Required** _(Admin user)_
 - **`MONGO_URL`** - **Required** _(Production User)_
-- `SENTRY_PROJECT_DSN` - _Application Monitoring_
+- `ROLLBAR_ID` - _Application Monitoring_
 
 > Add your environment variables inside `/.env`.
 
 ```dotenv
-MONGO_ADMIN=[Your URI Here]
 MONGO_URL=[Your URI Here]
-SENTRY_PROJECT_DSN=[Your DSN Here]
+ROLLBAR_ID=[Your ID Here]
 ```
 
 > Do not add quotation marks between values!
@@ -175,7 +177,11 @@ yarn
 
 ## Development
 
+<div align="center">
+
 ![](docs/diagram.svg)
+
+</div>
 
 ### Web App:
 
@@ -196,18 +202,18 @@ yarn start
 You need to have a web provider that supports **`functions`**. Such as [**Vercel**](https://vercel.com), it can also be
 other provider such as DigitalOcean, AWS, etc...
 
-> This project uses [**Vercel**](https://vercel.com) as its provider.
+> This project uses [**Vercel**](https://vercel.com) as its front-end provider, and [**Heroku**](https://heroku.com) as its back-end provider to bypass _Vercel's_ 12 API limit.
 
 ```shell
 yarn build
 ```
 
-Output in `/build` directory. Ready to deploy to hosting.
+Output in `./client/build` directory. Ready to deploy to hosting.
 
 ### Desktop:
 
 The desktop version on production relies on loading the web app. You need to deploy the web app, then change
-the `loadURL` link in `public/electron.js`.
+the `loadURL` link in `./client/public/electron.js`.
 
 ```shell
 cd client/ && package-[os]
