@@ -31,7 +31,7 @@ export default function Status(props) {
 
   // * Poke server to check for status
   const checkServer = axios
-    .get(`/api/auth/status`)
+    .get(`https://mc-ims-api.herokuapp.com/auth/status`)
     .then((res) => {
       if (res.status === 200) {
         setStatus(200);
