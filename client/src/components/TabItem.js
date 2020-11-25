@@ -21,6 +21,10 @@ import styled from 'styled-components';
 import { Nav, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+/************************
+ * * Sidebar Tabs
+ ************************/
+
 const TabRoutes = styled(Link)`
   color: #eccec9 !important;
   padding: 0.8rem 5px;
@@ -38,7 +42,7 @@ const TabRoutes = styled(Link)`
   }
 
   :hover {
-    border-left: 2px solid #eccec9;
+    border-left: 3px outset #eccec9;
     background-color: #303030 !important;
     box-shadow: 2px 5px 7px #222222;
   }

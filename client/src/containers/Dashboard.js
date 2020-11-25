@@ -16,7 +16,10 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { Row, Tab } from 'react-bootstrap';
+import Col from 'react-bootstrap/Col';
+import Tab from 'react-bootstrap/Tab';
+import Row from 'react-bootstrap/Row';
+import Maintenance from '../components/common/Maintenance';
 import {
   CategoryDetails,
   ProductMap,
@@ -24,17 +27,16 @@ import {
   TotalByCategory,
   TotalByTypes,
   TypeDetails
-} from '../components/mongodb/MongoCharts';
+} from '../components/charts/MongoCharts';
 import {
   InventoryCapacity,
   InventoryTotal,
   InventoryValue,
   TotalProducts,
   TotalSuppliers
-} from '../components/mongodb/MongoWidgets';
-import { OverStocked, UnderStocked } from '../components/mongodb/MongoTables';
+} from '../components/charts/MongoWidgets';
+import { OverStocked, UnderStocked } from '../components/charts/MongoTables';
 import { NavTabs, TabContainer } from './__containers.module';
-import Col from 'react-bootstrap/Col';
 
 export default function Dashboard() {
   return (
@@ -44,6 +46,7 @@ export default function Dashboard() {
       }}
     >
       <NavTabs defaultActiveKey="overview" id="Navigation Tabs" justify>
+        {/* Overview Tab */}
         <Tab
           eventKey="overview"
           title="Overview"
@@ -53,7 +56,7 @@ export default function Dashboard() {
         >
           <Row>
             <InventoryCapacity />
-            <Col>
+            <Col className="pt-1">
               <InventoryTotal />
               <InventoryValue />
               <TotalProducts />
@@ -65,13 +68,19 @@ export default function Dashboard() {
             <OverStocked />
           </Row>
         </Tab>
+
+        {/* Inventory Reports Tab */}
         <Tab
           eventKey="inventory"
           title="Inventory Reports"
           style={{
-            padding: '0 2rem'
+            padding: '0 2rem 1rem 2rem'
           }}
         >
+          <Row>
+            <ProductQuantityLines />
+            <ProductMap />
+          </Row>
           <Row>
             <TypeDetails />
             <CategoryDetails />
@@ -80,11 +89,9 @@ export default function Dashboard() {
             <TotalByCategory />
             <TotalByTypes />
           </Row>
-          <Row>
-            <ProductMap />
-            <ProductQuantityLines />
-          </Row>
         </Tab>
+
+        {/* Order Reports Tab */}
         <Tab
           eventKey="order"
           title="Order Reports"
@@ -92,7 +99,7 @@ export default function Dashboard() {
             padding: '0 2rem'
           }}
         >
-          ...
+          <Maintenance />
         </Tab>
       </NavTabs>
     </TabContainer>

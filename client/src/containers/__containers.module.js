@@ -26,7 +26,6 @@ import { Tabs } from 'react-bootstrap';
 export const TabContainer = styled.div`
   width: 100%;
   height: 100vh;
-  padding: 1.9rem 0 0 0;
   overflow: auto;
   display: inline-block;
 
@@ -39,14 +38,15 @@ export const TabContainer = styled.div`
 
 export const NavTabs = styled(Tabs)`
   width: 100%;
-  border: none;
+  padding-top: 1.9rem;
   background-color: #1e1e1e;
+  border: none;
 
   a {
     color: #e6a195 !important;
     background-color: #222126 !important;
     border: none !important;
-    border-bottom: 3px solid #e6a195 !important;
+    border-bottom: 3px ridge #e6a195 !important;
     border-radius: initial !important;
     outline: none !important;
 

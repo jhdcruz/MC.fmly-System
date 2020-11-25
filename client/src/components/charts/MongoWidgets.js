@@ -18,18 +18,22 @@
 
 import styled from 'styled-components';
 
+/*******************************
+ * * MongoDB Embeddable Charts
+ *******************************/
+
 const Widget = styled.iframe`
-  width: 22vw;
+  width: 23vw;
   height: 150px;
   background: #222126;
-  margin: 0.5rem 0.5rem 0.5rem 0;
-  border: none;
-  border-radius: 0.3rem;
+  margin: 0.3rem 1rem 0.3rem 0;
+  border: 3px ridge #e6a195;
+  border-radius: 0.4rem;
   box-shadow: 1px 2px 8px 2px #232323;
 `;
 
 const LargeWidget = styled(Widget)`
-  width: 24vw;
+  width: 36vw;
   height: 330px;
 `;
 

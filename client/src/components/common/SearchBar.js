@@ -27,24 +27,33 @@ const Search = styled.div`
   width: 30vw;
   margin: 3rem 2rem 0 1.5rem;
   position: fixed;
-  box-shadow: 0 0 12px #eccec9;
   background-color: #222126;
-  color: whitesmoke !important;
+  color: #d2d2d2 !important;
+  border: 3px ridge #e6a195;
   border-radius: 0.3rem;
   outline: none;
   z-index: 3;
 
 
+  button {
+    border: none;
+
+    :hover {
+      background-color: #303030;
+    }
+  }
+
   .search-icon {
     background-color: #222126;
-    color: whitesmoke !important;
+    color: #d2d2d2 !important;
     padding: 0 10px;
     outline: none;
+    border-right: 3px ridge #e6a195;
   }
 
   .add-icon {
     background-color: #222126;
-    color: whitesmoke !important;
+    color: #d2d2d2 !important;
     outline: none;
   }
 }
@@ -52,27 +61,34 @@ const Search = styled.div`
 // Dropdown
 .dropdown-toggle {
   background-color: #222126;
-  color: whitesmoke;
+  color: #d2d2d2;
   outline: none;
   border: none;
-  border-right: 1px solid whitesmoke;
+  border-right: 3px ridge #e6a195;
+
+  :active {
+    color: #d2d2d2 !important;
+  }
+
+  :hover {
+    background-color: #303030;
+  }
 }
 
 // Dropdown list popup
 .show {
   background-color: #222126;
-  color: whitesmoke;
+  color: #d2d2d2;
   box-shadow: 0 0 10px #eccec9;
   padding: 0;
 
   .dropdown-item {
     background-color: #222126;
-    color: whitesmoke;
+    color: #d2d2d2;
     padding: 7px 15px;
 
     :hover {
-      background-color: #181818;
-      color: whitesmoke;
+      background-color: #303030;
     }
   }
 }
@@ -82,10 +98,14 @@ input {
   margin: 0;
   font-size: 1.3vw;
   background-color: #222126;
-  color: whitesmoke;
+  color: #d2d2d2;
   border: none;
   border-right: 2px inset #d7b9b4;
   border-radius: 5rem;
+
+  :hover {
+    background-color: #303030;
+  }
 
   ::placeholder {
     color: #c4c4c4;

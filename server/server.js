@@ -24,19 +24,11 @@ const helmet = require('helmet');
 const path = require('path');
 const dotenv = require('dotenv');
 const dotenvExpand = require('dotenv-expand');
-const Rollbar = require('rollbar');
-// const { createProxyMiddleware } = require('http-proxy-middleware');
+const rollbar = require('./utils/rollbar');
 
 // set .env
 const env = dotenv.config();
 dotenvExpand(env);
-
-// * Rollbar config
-const rollbar = new Rollbar({
-  accessToken: `${process.env.ROLLBAR_ID}`,
-  captureUncaught: true,
-  captureUnhandledRejections: true
-});
 
 const api = express();
 

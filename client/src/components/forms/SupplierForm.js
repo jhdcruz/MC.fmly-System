@@ -24,6 +24,10 @@ import InputGroup from 'react-bootstrap/InputGroup';
 import CustomModal from '../common/CustomModal';
 import { ModalForm, Required } from './__forms.module';
 
+/*******************************
+ * * Supplier Modal Form
+ *******************************/
+
 export default function SupplierForm(props) {
   return (
     <CustomModal

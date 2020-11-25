@@ -18,14 +18,17 @@
 
 import styled from 'styled-components';
 
+/*******************************
+ * * MongoDB Embeddable Charts
+ *******************************/
+
 export const Chart = styled.iframe`
-  width: 36vw !important;
+  width: 42vw !important;
   min-width: 36vw !important;
-  max-width: 40vw !important;
-  height: 70vh !important;
+  height: 77vh !important;
   background: #222126;
   margin: 1.5em 0.5rem 1rem;
-  border: none;
+  border: 3px ridge #e6a195;
   border-radius: 0.3rem;
   box-shadow: 1px 2px 8px 2px #232323;
 `;

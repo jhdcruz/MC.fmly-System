@@ -46,7 +46,7 @@ export default function Status(props) {
       setStatus(500);
     });
 
-  // Set notice based on response
+  // * Set notice based on response
   const ServerStatus = () => {
     if (status === 200) {
       return <p className="m-0">System is operational.</p>;
@@ -65,7 +65,7 @@ export default function Status(props) {
             color: '#4de670',
             boxShadow: '0 0 7px 5px rgba(77, 230, 112, 0.4)',
             borderRadius: '100%',
-            outline: 'none'
+            outline: 'none !important'
           }}
         />
       );
@@ -77,7 +77,7 @@ export default function Status(props) {
           color: '#ec2738',
           boxShadow: '0 0 7px 5px rgba(236, 39, 56, 0.4)',
           borderRadius: '100%',
-          outline: 'none'
+          outline: 'none !important'
         }}
       />
     );
@@ -108,7 +108,8 @@ export default function Status(props) {
           type="button"
           style={{
             backgroundColor: 'transparent',
-            border: 'none'
+            border: 'none',
+            outline: 'none'
           }}
         >
           <StatusDisplay />

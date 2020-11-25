@@ -22,6 +22,10 @@ import Button from 'react-bootstrap/Button';
 import CustomModal from '../common/CustomModal';
 import { ModalForm, Required } from './__forms.module';
 
+/*******************************
+ * * User Modal Forms
+ *******************************/
+
 export default function UserForm(props) {
   return (
     <CustomModal

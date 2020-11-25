@@ -16,35 +16,13 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import axios from 'axios';
-import { useEffect, useState } from 'react';
+const Rollbar = require('rollbar');
 
-/************************
- * * Fetch Repo Releases
- ************************/
+// * Rollbar config
+const rollbar = new Rollbar({
+  accessToken: `${process.env.ROLLBAR_ID}`,
+  captureUncaught: true,
+  captureUnhandledRejections: true
+});
 
-async function getReleases() {
-  let res = await axios.get(
-    `https://api.github.com/repos/jhdcruz/MC.fmly-System/releases`
-  );
-  return res.data || [];
-}
-
-export default function Releases() {
-  const [releases, setReleases] = useState(null);
-
-  useEffect(() => {
-    if (!releases) {
-      fetchReleases().catch((e) => {
-        console.error(e);
-      });
-    }
-  });
-
-  const fetchReleases = async () => {
-    return await getReleases().then((data) => {
-      setReleases(data);
-    });
-  };
-  return [releases];
-}
+module.exports = rollbar;
