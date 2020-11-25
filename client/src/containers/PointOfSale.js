@@ -16,9 +16,7 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import loadable from '@loadable/component';
-
-const Maintenance = loadable(() => import('../components/common/Maintenance'));
+import Maintenance from '../components/common/Maintenance';
 
 export default function PointOfSale() {
   return <Maintenance />;

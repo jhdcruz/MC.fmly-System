@@ -18,12 +18,14 @@
 
 import { useState } from 'react';
 import styled from 'styled-components';
-import loadable from '@loadable/component';
-import { Col, Dropdown, Nav, Row, Tab } from 'react-bootstrap';
-import SearchBar from './common/SearchBar';
+import Col from 'react-bootstrap/Col';
+import Dropdown from 'react-bootstrap/Dropdown';
+import Nav from 'react-bootstrap/Nav';
+import Row from 'react-bootstrap/Row';
+import Tab from 'react-bootstrap/Tab';
 
-// * Lazy Imports
-const ProductForm = loadable(() => import('./forms/ProductForm'));
+import ProductForm from './forms/ProductForm';
+import SearchBar from './common/SearchBar';
 
 // * Styled Components
 const CatalogGrid = styled(Row)`
