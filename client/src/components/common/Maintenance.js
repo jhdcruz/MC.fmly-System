@@ -16,6 +16,21 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-export default function Settings() {
-  return <h1>No content yet.</h1>;
+import styled from 'styled-components';
+
+const Notice = styled.h2`
+  color: #e6a195;
+  background-color: rgba(35, 34, 36, 0.9);
+  padding: 3rem;
+  border-radius: 0.7rem;
+  margin: 5rem auto;
+  z-index: 99;
+`;
+
+export default function Maintenance() {
+  return (
+    <Notice>
+      <strong>This feature is currently under maintenance</strong>
+    </Notice>
+  );
 }
