@@ -46,7 +46,7 @@
     "react-router-transition": "2.0.0"
   },
   "devDependencies": {
-    "@babel/core": "7.12.8",
+    "@babel/core": "7.12.9",
     "@babel/plugin-transform-react-jsx": "7.12.7",
     "@fortawesome/fontawesome-svg-core": "1.2.32",
     "@fortawesome/free-solid-svg-icons": "5.15.1",
