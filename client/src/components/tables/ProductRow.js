@@ -101,7 +101,8 @@ const ProductControl = styled(Button)`
 export default function ProductRow(product) {
   const [editModal, showEditModal] = useState(false);
   const [deleteModal, showDeleteModal] = useState(false);
-  const handleClose = () => showEditModal(false);
+  const editModalClose = () => showEditModal(false);
+  const deleteModalClose = () => showDeleteModal(false);
 
   // * Modals
   const Modals = () => {
@@ -114,14 +115,12 @@ export default function ProductRow(product) {
           content="Are you sure?"
           show={deleteModal}
           onHide={() => showDeleteModal(false)}
-          submit={handleClose} // TODO: DELETE data
-          cancel={handleClose}
           footer={
             <>
-              <Button variant="outline-danger" onClick={handleClose}>
+              <Button variant="outline-danger" onClick={deleteModalClose}>
                 Yes
               </Button>
-              <Button variant="outline-primary" onClick={handleClose}>
+              <Button variant="outline-primary" onClick={deleteModalClose}>
                 No
               </Button>
             </>
@@ -136,8 +135,8 @@ export default function ProductRow(product) {
           header="Edit product"
           show={editModal}
           onHide={() => showEditModal(false)}
-          submit={handleClose} // TODO: PUT/PATCH data
-          cancel={handleClose}
+          submit={editModalClose} // TODO: PUT/PATCH data
+          cancel={editModalClose}
         />
       </>
     );
@@ -161,8 +160,8 @@ export default function ProductRow(product) {
               <ProductControl
                 variant="outline-success"
                 onClick={() => showEditModal(true)}
-                submit={handleClose} // TODO: POST data
-                close={handleClose}
+                submit={editModalClose} // TODO: POST data
+                close={editModalClose}
               >
                 <FontAwesomeIcon icon={faPen} />
               </ProductControl>
