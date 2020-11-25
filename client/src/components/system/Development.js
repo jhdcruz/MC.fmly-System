@@ -30,7 +30,11 @@ export default function Development() {
 
   return (
     <ListContainer>
-      <ListGroup>
+      <ListGroup
+        style={{
+          paddingBottom: '4.3rem'
+        }}
+      >
         {
           commits &&
             commits.map((commit) => (
