@@ -131,7 +131,7 @@ const LoginControl = styled.div`
   }
 `;
 
-export default function App() {
+export default function Login() {
   const { register, handleSubmit } = useForm();
   const [auth, setAuth] = useState();
 
@@ -150,8 +150,7 @@ export default function App() {
       })
       .catch((err) => {
         console.error(err);
-        window.alert(err);
-        window.alert('Please contact the System Administrator!');
+        window.alert(`${err}\n Please contact the System Administrator!`);
       });
   }, []);
 
