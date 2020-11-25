@@ -26,10 +26,12 @@ const Users = mongoose.model('users');
 exports.get = async (req, res) => {
   try {
     const users = await Users.find();
+    logger.log(`GET | Users data request`);
     return res.status(200).send(users);
   } catch (err) {
     console.error(err);
     rollbar.error(err);
+    logger.error(`Error fetching users list: ${err}`);
     res.status(500).send('Error fetching users');
   }
 };
@@ -75,10 +77,12 @@ exports.put = async (req, res) => {
       permission: req.body.permission,
       date: req.body.date
     });
+    logger.log(`User credentials updated: ${users}`);
     return res.status(202).send(users);
   } catch (err) {
     console.error(err);
     rollbar.error(err);
+    logger.error(`Error updating user credentials: ${err}`);
     res.status(500).send(`Error updating user ${id}`);
   }
 };
@@ -88,10 +92,12 @@ exports.delete = async (req, res) => {
   const { id } = req.query;
   try {
     const users = await Users.findByIdAndDelete(id);
+    logger.log(`User deleted with id: ${id}`);
     res.status(202).send(users);
   } catch (err) {
     console.error(err);
     rollbar.error(err);
+    logger.error(`Error deleting user: ${id} - [${err}]`);
     res.status(500).send(`Error deleting user ${id}`);
   }
 };
