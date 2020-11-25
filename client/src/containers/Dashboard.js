@@ -27,15 +27,15 @@ import {
   TotalByCategory,
   TotalByTypes,
   TypeDetails
-} from '../components/mongodb/MongoCharts';
+} from '../components/charts/MongoCharts';
 import {
   InventoryCapacity,
   InventoryTotal,
   InventoryValue,
   TotalProducts,
   TotalSuppliers
-} from '../components/mongodb/MongoWidgets';
-import { OverStocked, UnderStocked } from '../components/mongodb/MongoTables';
+} from '../components/charts/MongoWidgets';
+import { OverStocked, UnderStocked } from '../components/charts/MongoTables';
 import { NavTabs, TabContainer } from './__containers.module';
 
 export default function Dashboard() {
