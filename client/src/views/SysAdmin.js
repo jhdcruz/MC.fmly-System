@@ -17,18 +17,12 @@
  */
 
 import { Fragment } from 'react';
-import {
-  BrowserRouter as Router,
-  Redirect,
-  Route,
-  Switch
-} from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { Container } from 'react-bootstrap';
 import Sidebar from '../components/Sidebar';
 import routes from '../routes';
 import '../App.scss';
-import { AnimatedSwitch } from 'react-router-transition';
-import { bounceTransition, mapStyles } from '../components/common/Transition';
+import RouteTransition from '../components/RouteTransition';
 import {
   faChartBar,
   faHistory,
@@ -38,7 +32,6 @@ import {
 // Routes
 import Dashboard from '../containers/Dashboard';
 import SysInfo from '../containers/SysInfo';
-import NotFound from '../components/NotFound';
 import TabItem from '../components/TabItem';
 import AuditLog from '../containers/AuditLog';
 
@@ -53,8 +46,8 @@ export default function SysAdmin() {
         <Container fluid>
           <Sidebar
             navigation={
-              // Available routes based on role
               <>
+                {/*Available routes based on role*/}
                 <TabItem
                   tab="System Info"
                   overlay="System Info"
@@ -87,25 +80,18 @@ export default function SysAdmin() {
             }
           />
           <div id="pageRoutes" className="routerContainer">
-            <Switch>
-              {/* Router Transition */}`
-              <AnimatedSwitch
-                atEnter={bounceTransition.atEnter}
-                atLeave={bounceTransition.atLeave}
-                atActive={bounceTransition.atActive}
-                mapStyles={mapStyles}
-                className="routerContent"
-              >
-                {/* Redirect to role's default view */}
-                <Route exact path="/">
-                  <Redirect from="/" to="/sysinfo" />
-                </Route>
-                <Route exact path={routes.DASHBOARD} component={Dashboard} />
-                <Route path={routes.SYSINFO} component={SysInfo} />
-                <Route path={routes.AUDITLOG} component={AuditLog} />
-                <Route path={routes.NOTFOUND} component={NotFound} />
-              </AnimatedSwitch>
-            </Switch>
+            <RouteTransition
+              // * Default role view
+              view="/sysinfo"
+              // * View routes
+              children={
+                <>
+                  <Route exact path={routes.DASHBOARD} component={Dashboard} />
+                  <Route path={routes.SYSINFO} component={SysInfo} />
+                  <Route path={routes.AUDITLOG} component={AuditLog} />
+                </>
+              }
+            />
           </div>
         </Container>
       </Router>

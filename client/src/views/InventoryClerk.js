@@ -17,19 +17,13 @@
  */
 
 import { Fragment } from 'react';
-import {
-  BrowserRouter as Router,
-  Redirect,
-  Route,
-  Switch
-} from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { Container } from 'react-bootstrap';
 import Inventory from '../containers/Inventory';
 import Sidebar from '../components/Sidebar';
 import routes from '../routes';
 import '../App.scss';
-import { AnimatedSwitch } from 'react-router-transition';
-import { bounceTransition, mapStyles } from '../components/common/Transition';
+import RouteTransition from '../components/RouteTransition';
 import {
   faBoxes,
   faFileInvoice,
@@ -40,7 +34,6 @@ import {
 import AuditLog from '../containers/AuditLog';
 import Invoices from '../containers/Invoices';
 import Suppliers from '../containers/Suppliers';
-import NotFound from '../components/NotFound';
 import TabItem from '../components/TabItem';
 
 /*********************************
@@ -56,6 +49,7 @@ export default function InventoryClerk() {
             <Sidebar
               navigation={
                 <>
+                  {/* Role-specific views */}
                   <TabItem
                     tab="Audit Log"
                     overlay="Audit Log"
@@ -84,26 +78,19 @@ export default function InventoryClerk() {
               }
             />
             <div id="pageRoutes" className="routerContainer">
-              <Switch>
-                {/* Router Transition */}`
-                <AnimatedSwitch
-                  atEnter={bounceTransition.atEnter}
-                  atLeave={bounceTransition.atLeave}
-                  atActive={bounceTransition.atActive}
-                  mapStyles={mapStyles}
-                  className="routerContent"
-                >
-                  {/* Redirect to role's default view */}
-                  <Route exact path="/">
-                    <Redirect from="/" to="/recent" />
-                  </Route>
-                  <Route path={routes.AUDITLOG} component={AuditLog} />
-                  <Route path={routes.INVENTORY} component={Inventory} />
-                  <Route path={routes.INVOICES} component={Invoices} />
-                  <Route path={routes.SUPPLIERS} component={Suppliers} />
-                  <Route path={routes.NOTFOUND} component={NotFound} />
-                </AnimatedSwitch>
-              </Switch>
+              <RouteTransition
+                // * Default role view
+                view="/recent"
+                // * View routes
+                children={
+                  <>
+                    <Route path={routes.AUDITLOG} component={AuditLog} />
+                    <Route path={routes.INVENTORY} component={Inventory} />
+                    <Route path={routes.INVOICES} component={Invoices} />
+                    <Route path={routes.SUPPLIERS} component={Suppliers} />
+                  </>
+                }
+              />
             </div>
           </Container>
         </Router>

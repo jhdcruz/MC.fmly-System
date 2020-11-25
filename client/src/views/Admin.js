@@ -17,18 +17,11 @@
  */
 
 import { Fragment } from 'react';
-import {
-  BrowserRouter as Router,
-  Redirect,
-  Route,
-  Switch
-} from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Sidebar from '../components/Sidebar';
 import TabItem from '../components/TabItem';
-import NotFound from '../components/NotFound';
-import { AnimatedSwitch } from 'react-router-transition';
-import { bounceTransition, mapStyles } from '../components/common/Transition';
+import RouteTransition from '../components/RouteTransition';
 import routes from '../routes';
 import '../App.scss';
 // Routes
@@ -63,6 +56,7 @@ export default function Admin() {
           <Sidebar
             navigation={
               <>
+                {/* Role-specific views */}
                 <TabItem
                   tab="Dashboard"
                   overlay="Dashboard"
@@ -119,30 +113,23 @@ export default function Admin() {
             }
           />
           <div id="pageRoutes" className="routerContainer">
-            <Switch>
-              {/* Router Transition */}`
-              <AnimatedSwitch
-                atEnter={bounceTransition.atEnter}
-                atLeave={bounceTransition.atLeave}
-                atActive={bounceTransition.atActive}
-                mapStyles={mapStyles}
-                className="routerContent"
-              >
-                {/* Redirect to role's default view */}
-                <Route exact path="/">
-                  <Redirect from="/" to="/dashboard" />
-                </Route>
-                <Route path={routes.DASHBOARD} component={Dashboard} />
-                <Route path={routes.SYSINFO} component={SysInfo} />
-                <Route path={routes.AUDITLOG} component={AuditLog} />
-                <Route path={routes.INVENTORY} component={Inventory} />
-                <Route path={routes.INVOICES} component={Invoices} />
-                <Route path={routes.SUPPLIERS} component={Suppliers} />
-                <Route path={routes.POS} component={PointOfSale} />
-                <Route path={routes.USERS} component={Users} />
-                <Route path={routes.NOTFOUND} component={NotFound} />
-              </AnimatedSwitch>
-            </Switch>
+            <RouteTransition
+              // * Default role view
+              view="/dashboard"
+              // * View routes
+              children={
+                <>
+                  <Route path={routes.DASHBOARD} component={Dashboard} />
+                  <Route path={routes.SYSINFO} component={SysInfo} />
+                  <Route path={routes.AUDITLOG} component={AuditLog} />
+                  <Route path={routes.INVENTORY} component={Inventory} />
+                  <Route path={routes.INVOICES} component={Invoices} />
+                  <Route path={routes.SUPPLIERS} component={Suppliers} />
+                  <Route path={routes.POS} component={PointOfSale} />
+                  <Route path={routes.USERS} component={Users} />
+                </>
+              }
+            />
           </div>
         </Container>
       </Router>

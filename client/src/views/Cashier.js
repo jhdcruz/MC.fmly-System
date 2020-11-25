@@ -17,23 +17,17 @@
  */
 
 import { Fragment } from 'react';
-import {
-  BrowserRouter as Router,
-  Redirect,
-  Route,
-  Switch
-} from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Sidebar from '../components/Sidebar';
 import { Container } from 'react-bootstrap';
-import routes from '../routes';
-import { AnimatedSwitch } from 'react-router-transition';
-import { bounceTransition, mapStyles } from '../components/common/Transition';
 import { faList, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import TabItem from '../components/TabItem';
+import routes from '../routes';
+import RouteTransition from '../components/RouteTransition';
 import '../App.scss';
 // Routes
 import PointOfSale from '../containers/PointOfSale';
-import NotFound from '../components/NotFound';
-import TabItem from '../components/TabItem';
+import Catalog from '../containers/Catalog';
 
 /*********************************
  * * Cashier Permission Access
@@ -47,6 +41,7 @@ export default function Cashier() {
           <Sidebar
             navigation={
               <>
+                {/* Role-specific views */}
                 <TabItem
                   tab="Point of Sale"
                   overlay="Point of Sale"
@@ -63,23 +58,17 @@ export default function Cashier() {
             }
           />
           <div id="pageRoutes" className="routerContainer">
-            <Switch>
-              {/* Router Transition */}`
-              <AnimatedSwitch
-                atEnter={bounceTransition.atEnter}
-                atLeave={bounceTransition.atLeave}
-                atActive={bounceTransition.atActive}
-                mapStyles={mapStyles}
-                className="routerContent"
-              >
-                {/* Redirect to role's default view */}
-                <Route exact path="/">
-                  <Redirect from="/" to="/pos" />
-                </Route>
-                <Route path={routes.POS} component={PointOfSale} />
-                <Route path={routes.NOTFOUND} component={NotFound} />
-              </AnimatedSwitch>
-            </Switch>
+            <RouteTransition
+              // * Default role view
+              view="/pos"
+              // * View routes
+              children={
+                <>
+                  <Route path={routes.POS} component={PointOfSale} />
+                  <Route path={routes.CATALOG} component={Catalog} />
+                </>
+              }
+            />
           </div>
         </Container>
       </Router>
