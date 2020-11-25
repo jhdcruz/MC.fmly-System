@@ -88,22 +88,9 @@ api.all('/', (req, res) => {
   res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
 });
 
-// Production API Testing
-// api.all(
-//   '/',
-//   // Create proxy to the API domain
-//   createProxyMiddleware('https://mc-ims-api.herokuapp.com/', {
-//     changeOrigin: true
-//   }),
-//   (req, res) => {
-//     res.setHeader('Content-Type', 'text/html');
-//     res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
-//   }
-// );
-
 // Fallback | Serve empty index for invisible content
 api.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname + '/index.html'));
+  res.sendFile(path.join(__dirname + '/public/index.html'));
 });
 
 // Start rollbar logs
