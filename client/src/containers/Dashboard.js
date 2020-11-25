@@ -16,7 +16,9 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { Row, Tab } from 'react-bootstrap';
+import Col from 'react-bootstrap/Col';
+import Tab from 'react-bootstrap/Tab';
+import Row from 'react-bootstrap/Row';
 import {
   CategoryDetails,
   ProductMap,
@@ -34,7 +36,6 @@ import {
 } from '../components/mongodb/MongoWidgets';
 import { OverStocked, UnderStocked } from '../components/mongodb/MongoTables';
 import { NavTabs, TabContainer } from './__containers.module';
-import Col from 'react-bootstrap/Col';
 
 export default function Dashboard() {
   return (
