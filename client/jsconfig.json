@@ -2,7 +2,5 @@
   "compilerOptions": {
     "baseUrl": "./src"
   },
-  "exclude": [
-    "../node_modules",
-    "./client/config", "../scripts"]
+  "exclude": ["../node_modules", "./client/config", "../scripts"]
 }
