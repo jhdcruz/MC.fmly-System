@@ -18,12 +18,12 @@
     "web": "node ./scripts/start.js",
     "build": "node ./scripts/build.js",
     "lint": "prettier \"./src/**/**.{html,scss,js,jsx,ts,tsx}\" --write && eslint \"./src/**/**/*.{js,jsx,ts,tsx}\" && stylelint \"./src/**/**/*.{js,ts,tsx,css,scss,sass}\"",
-    "package-test": "yarn postinstall && yarn build && electron-builder build --dir",
-    "package-all": "yarn postinstall && yarn build && electron-builder build -mwl --publish never",
-    "package-ci": "yarn postinstall && yarn build && electron-builder build --publish never",
-    "package-linux": "yarn postinstall && yarn build && electron-builder build --linux --publish never",
-    "package-mac": "yarn postinstall && yarn build && electron-builder build --mac --publish never",
-    "package-win": "yarn postinstall && yarn build && electron-builder build --win --publish never"
+    "package-test": "yarn build && electron-builder build --dir",
+    "package-all": "yarn build && electron-builder build -mwl --publish never",
+    "package-ci": "yarn build && electron-builder build --publish never",
+    "package-linux": "yarn build && electron-builder build --linux --publish never",
+    "package-mac": "yarn build && electron-builder build --mac --publish never",
+    "package-win": "yarn build && electron-builder build --win --publish never"
   },
   "workspaces": {
     "nohoist": [
