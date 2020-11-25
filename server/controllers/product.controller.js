@@ -17,14 +17,8 @@
  */
 
 const mongoose = require('mongoose');
-const Rollbar = require('rollbar');
+const rollbar = require('../utils/rollbar');
 
-// * Rollbar config
-const rollbar = new Rollbar({
-  accessToken: `${process.env.ROLLBAR_ID}`,
-  captureUncaught: true,
-  captureUnhandledRejections: true
-});
 const Products = mongoose.model('products');
 
 // * GET | All Product
