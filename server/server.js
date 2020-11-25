@@ -25,7 +25,6 @@ const path = require('path');
 const dotenv = require('dotenv');
 const dotenvExpand = require('dotenv-expand');
 const Rollbar = require('rollbar');
-// const { createProxyMiddleware } = require('http-proxy-middleware');
 
 // set .env
 const env = dotenv.config();
