@@ -18,6 +18,10 @@
 
 import styled from 'styled-components';
 
+/*******************************
+ * * MongoDB Embeddable Charts
+ *******************************/
+
 export const Chart = styled.iframe`
   width: 36vw !important;
   min-width: 36vw !important;

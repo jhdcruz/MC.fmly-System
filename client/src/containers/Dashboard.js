@@ -44,6 +44,7 @@ export default function Dashboard() {
       }}
     >
       <NavTabs defaultActiveKey="overview" id="Navigation Tabs" justify>
+        {/* Overview Tab */}
         <Tab
           eventKey="overview"
           title="Overview"
@@ -65,6 +66,8 @@ export default function Dashboard() {
             <OverStocked />
           </Row>
         </Tab>
+
+        {/* Inventory Reports Tab */}
         <Tab
           eventKey="inventory"
           title="Inventory Reports"
@@ -85,6 +88,8 @@ export default function Dashboard() {
             <ProductQuantityLines />
           </Row>
         </Tab>
+
+        {/* Order Reports Tab */}
         <Tab
           eventKey="order"
           title="Order Reports"

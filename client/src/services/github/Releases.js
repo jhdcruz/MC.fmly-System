@@ -19,6 +19,10 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 
+/************************
+ * * Fetch Repo Releases
+ ************************/
+
 async function getReleases() {
   let res = await axios.get(
     `https://api.github.com/repos/jhdcruz/MC.fmly-System/releases`

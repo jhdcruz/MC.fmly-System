@@ -21,6 +21,10 @@ import styled from 'styled-components';
 import { Nav, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+/************************
+ * * Sidebar Tabs
+ ************************/
+
 const TabRoutes = styled(Link)`
   color: #eccec9 !important;
   padding: 0.8rem 5px;
