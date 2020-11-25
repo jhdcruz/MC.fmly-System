@@ -19,24 +19,24 @@
 import styled from 'styled-components';
 
 export const Chart = styled.iframe`
-  width: 44.5vw !important;
-  height: 60vh !important;
+  width: 36vw !important;
+  min-width: 36vw !important;
+  max-width: 40vw !important;
+  height: 70vh !important;
   background: #222126;
-  margin: 1.5em 0.5rem 0 1rem;
-
+  margin: 1.5em 0.5rem 1rem;
   border: none;
   border-radius: 0.3rem;
   box-shadow: 1px 2px 8px 2px #232323;
 `;
 
-export const TypeDetails = () => {
+export const UnderStocked = () => {
   return (
-    <Chart src="https://charts.mongodb.com/charts-pending-system-rgssg/embed/charts?id=a647f8d1-9cd1-43e0-bea5-7c966947f573&autoRefresh=true&maxDataAge=10&attribution=false&theme=dark" />
+    <Chart src="https://charts.mongodb.com/charts-pending-system-rgssg/embed/charts?id=0d482624-41e6-4733-b256-844e341f22c1&autoRefresh=true&maxDataAge=10&attribution=false&theme=dark" />
   );
 };
-
-export const CategoryDetails = () => {
+export const OverStocked = () => {
   return (
-    <Chart src="https://charts.mongodb.com/charts-pending-system-rgssg/embed/charts?id=c646a994-9c0b-43d5-8d45-d5ae1330b48c&autoRefresh=true&maxDataAge=10&attribution=false&theme=dark" />
+    <Chart src="https://charts.mongodb.com/charts-pending-system-rgssg/embed/charts?id=7ee94dc4-1e62-4d92-bc08-4eeb19d6b47f&autoRefresh=true&maxDataAge=10&attribution=false&theme=dark" />
   );
 };

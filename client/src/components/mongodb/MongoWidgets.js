@@ -19,13 +19,18 @@
 import styled from 'styled-components';
 
 const Widget = styled.iframe`
-  width: 22vw !important;
-  height: 150px !important;
+  width: 22vw;
+  height: 150px;
   background: #222126;
-  margin: 1rem 0.5rem 0.5rem 0;
+  margin: 0.5rem 0.5rem 0.5rem 0;
   border: none;
   border-radius: 0.3rem;
   box-shadow: 1px 2px 8px 2px #232323;
+`;
+
+const LargeWidget = styled(Widget)`
+  width: 24vw;
+  height: 330px;
 `;
 
 export const TotalSuppliers = () => {
@@ -46,8 +51,14 @@ export const InventoryValue = () => {
   );
 };
 
-export const InventoryCapacity = () => {
+export const InventoryTotal = () => {
   return (
     <Widget src="https://charts.mongodb.com/charts-pending-system-rgssg/embed/charts?id=ce5c27a4-d190-44f7-9958-f66af536d3fa&autoRefresh=true&maxDataAge=10&attribution=false&theme=dark" />
+  );
+};
+
+export const InventoryCapacity = () => {
+  return (
+    <LargeWidget src="https://charts.mongodb.com/charts-pending-system-rgssg/embed/charts?id=14fb2d3e-b3de-4dc5-9088-acc3dd2fdb0e&autoRefresh=true&maxDataAge=10&attribution=false&theme=dark" />
   );
 };

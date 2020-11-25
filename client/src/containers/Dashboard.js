@@ -17,39 +17,81 @@
  */
 
 import { Row, Tab } from 'react-bootstrap';
-import { CategoryDetails, TypeDetails } from '../components/charts/MongoCharts';
+import {
+  CategoryDetails,
+  ProductMap,
+  ProductQuantityLines,
+  TotalByCategory,
+  TotalByTypes,
+  TypeDetails
+} from '../components/mongodb/MongoCharts';
 import {
   InventoryCapacity,
+  InventoryTotal,
   InventoryValue,
   TotalProducts,
   TotalSuppliers
-} from '../components/charts/MongoWidgets';
+} from '../components/mongodb/MongoWidgets';
+import { OverStocked, UnderStocked } from '../components/mongodb/MongoTables';
 import { NavTabs, TabContainer } from './__containers.module';
+import Col from 'react-bootstrap/Col';
 
 export default function Dashboard() {
   return (
-    <TabContainer style={{ overflow: 'auto !important' }}>
+    <TabContainer
+      style={{
+        overflow: 'auto !important'
+      }}
+    >
       <NavTabs defaultActiveKey="overview" id="Navigation Tabs" justify>
         <Tab
           eventKey="overview"
           title="Overview"
           style={{
-            padding: '0 2rem'
+            padding: '1rem 2rem'
           }}
         >
           <Row>
             <InventoryCapacity />
-            <InventoryValue />
-            <TotalProducts />
-            <TotalSuppliers />
+            <Col>
+              <InventoryTotal />
+              <InventoryValue />
+              <TotalProducts />
+              <TotalSuppliers />
+            </Col>
           </Row>
-          <Row>...</Row>
+          <Row>
+            <UnderStocked />
+            <OverStocked />
+          </Row>
         </Tab>
-        <Tab eventKey="inventory" title="Inventory Reports">
-          <TypeDetails />
-          <CategoryDetails />
+        <Tab
+          eventKey="inventory"
+          title="Inventory Reports"
+          style={{
+            padding: '0 2rem'
+          }}
+        >
+          <Row>
+            <TypeDetails />
+            <CategoryDetails />
+          </Row>
+          <Row>
+            <TotalByCategory />
+            <TotalByTypes />
+          </Row>
+          <Row>
+            <ProductMap />
+            <ProductQuantityLines />
+          </Row>
         </Tab>
-        <Tab eventKey="order" title="Order Reports">
+        <Tab
+          eventKey="order"
+          title="Order Reports"
+          style={{
+            padding: '0 2rem'
+          }}
+        >
           ...
         </Tab>
       </NavTabs>
