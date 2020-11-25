@@ -19,6 +19,7 @@
 import Col from 'react-bootstrap/Col';
 import Tab from 'react-bootstrap/Tab';
 import Row from 'react-bootstrap/Row';
+import Maintenance from '../components/common/Maintenance';
 import {
   CategoryDetails,
   ProductMap,
@@ -73,7 +74,7 @@ export default function Dashboard() {
           eventKey="inventory"
           title="Inventory Reports"
           style={{
-            padding: '0 2rem'
+            padding: '0 2rem 1rem 2rem'
           }}
         >
           <Row>
@@ -98,7 +99,7 @@ export default function Dashboard() {
             padding: '0 2rem'
           }}
         >
-          ...
+          <Maintenance />
         </Tab>
       </NavTabs>
     </TabContainer>
