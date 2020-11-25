@@ -223,7 +223,11 @@ export default function ProductRow(product) {
         </TableData>
         <TableData className="createdAt">
           {/* Parse date to human-friendly format */}
-          <Moment format="MM-DD-YYYY / hh:mm:ss" date={product.createdAt} />
+          <Moment
+            format="D MMM YYYY | HH:mm"
+            date={product.createdAt}
+            withTitle
+          />
         </TableData>
         <TableData className="price">
           <Tag pill variant="dark">
