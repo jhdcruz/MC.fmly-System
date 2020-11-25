@@ -62,6 +62,7 @@ export default function Inventory() {
                 style={{ marginTop: '6rem' }}
               >
                 <ProductHeader
+                  map={products && products._id}
                   data={
                     products &&
                     products
@@ -90,6 +91,7 @@ export default function Inventory() {
                 style={{ marginTop: '6rem' }}
               >
                 <ProductHeader
+                  map={products && products._id}
                   data={products
                     .filter((pane) => pane.type === types.type)
                     .map((product) => ProductRow(product))}
@@ -109,6 +111,7 @@ export default function Inventory() {
       <>
         <Tab.Pane eventKey="default" style={{ marginTop: '6rem' }}>
           <ProductHeader
+            map={products && products._id}
             data={products && products.map((product) => ProductRow(product))}
           />
         </Tab.Pane>

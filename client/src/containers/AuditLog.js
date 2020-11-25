@@ -30,6 +30,7 @@ export default function AuditLog() {
   const ListProducts = () => {
     return (
       <ProductHeader
+        map={products && products._id}
         data={
           products && products.length !== null ? (
             // Reverse & limit result to 20 | prioritize new entries
