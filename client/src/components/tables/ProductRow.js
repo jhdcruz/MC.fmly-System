@@ -27,7 +27,7 @@ import { faPen, faTimes } from '@fortawesome/free-solid-svg-icons';
 // * Lazy Imports
 const ProductForm = loadable(() => import('../forms/ProductForm'));
 const CustomModal = loadable(() => import('../common/CustomModal'));
-const Moment = loadable.lib(() => import('react-moment'));
+const Moment = loadable(() => import('react-moment'));
 
 /*********************************
  * * Product Table Rows <td>
