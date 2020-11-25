@@ -65,7 +65,7 @@ export default function Status(props) {
             color: '#4de670',
             boxShadow: '0 0 7px 5px rgba(77, 230, 112, 0.4)',
             borderRadius: '100%',
-            outline: 'none'
+            outline: 'none !important'
           }}
         />
       );
@@ -77,7 +77,7 @@ export default function Status(props) {
           color: '#ec2738',
           boxShadow: '0 0 7px 5px rgba(236, 39, 56, 0.4)',
           borderRadius: '100%',
-          outline: 'none'
+          outline: 'none !important'
         }}
       />
     );
