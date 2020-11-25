@@ -19,8 +19,8 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 import { Button } from 'react-bootstrap';
-import ProductForm from '../forms/ProductForm';
 import Moment from 'react-moment';
+import ProductForm from '../forms/ProductForm';
 import CustomModal from '../common/CustomModal';
 import { Tag } from './__tables.module';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
