@@ -90,16 +90,16 @@
 - [**Vercel**](https://vercel.com) - _Web Deployment (Front-End)_
 - [**Heroku**](https://heroku.com) - _API Deployment (Back-End)_
 - [**Datadog**](https://datadog.com) - _Server/Database Monitoring_
+- [**LogDNA**](https://logdna.com) - _Log Management_
 - [**Rollbar**](https://rollbar.com) - _Application Monitoring_
 - [**CircleCI**](https://circleci.com/) - _Continuous Integration (Main)_
-- [**TravisCI**](https://travis-ci.com/) - _Continuous Integration (Secondary)_
-- [**GitHub Actions**](https://github.com/features/actions) - _Continuous Integration (Fallback)_
+- [**GitHub Actions**](https://github.com/features/actions) - _Continuous Integration (Secondary)_
+- [**TravisCI**](https://travis-ci.com/) - _Continuous Integration (Fallback)_
 - [**CodeFactor**](https://codefactor.io) - _Code Review_
 - [**CodeCov**](https://codecov.io/) - _Code Coverage_
 - [**SonarCloud**](https://sonarcloud.io/) - _Code Quality & Security_
-- [**WhiteSource Renovate**](https://renovate.whitesourcesoftware.com/) - _Automated Dependency Updates_
-- [**WhiteSource Bolt**](https://whitesourcesoftware.com/free-developer-tools/bolt/) - _Dependency Security_
 - [**Snyk**](https://snyk.io/) - _Dependency Security & Exploit POC_
+- [**WhiteSource Renovate**](https://renovate.whitesourcesoftware.com/) - _Automated Dependency Updates_
 
 > Boilerplate generated through ejected `create-react-app`.
 
@@ -175,8 +175,8 @@ ROLLBAR_ID=[Your ID Here]
 
 </div>
 
-This project uses yarn's [`workspaces`](https://classic.yarnpkg.com/en/docs/workspaces/) to seperate the **Front-End** and the **Back-End** and run `scripts` without
-navigating back & forth to project folders.
+This project uses yarn's [`workspaces`](https://classic.yarnpkg.com/en/docs/workspaces/) to seperate the **Front-End**
+and the **Back-End** and run `scripts` without navigating back & forth to project folders.
 
 > **Hoisting is set to `"*"`** to avoid compilation problems regarding missing dependencies.
 
