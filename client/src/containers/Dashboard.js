@@ -55,7 +55,7 @@ export default function Dashboard() {
         >
           <Row>
             <InventoryCapacity />
-            <Col>
+            <Col className="pt-1">
               <InventoryTotal />
               <InventoryValue />
               <TotalProducts />
@@ -77,16 +77,16 @@ export default function Dashboard() {
           }}
         >
           <Row>
+            <ProductQuantityLines />
+            <ProductMap />
+          </Row>
+          <Row>
             <TypeDetails />
             <CategoryDetails />
           </Row>
           <Row>
             <TotalByCategory />
             <TotalByTypes />
-          </Row>
-          <Row>
-            <ProductMap />
-            <ProductQuantityLines />
           </Row>
         </Tab>
 
