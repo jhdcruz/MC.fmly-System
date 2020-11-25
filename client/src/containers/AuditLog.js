@@ -16,12 +16,12 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+import Tab from 'react-bootstrap/Tab';
 import ProductRow from '../components/tables/ProductRow';
-import ProductService from '../services/ProductService';
-import { Loader } from '../components/tables/__tables.module';
-import { Tab } from 'react-bootstrap';
-import { NavTabs, TabContainer } from './__containers.module';
 import ProductHeader from '../components/tables/ProductHeader';
+import { Loader } from '../components/tables/__tables.module';
+import { NavTabs, TabContainer } from './__containers.module';
+import ProductService from '../services/ProductService';
 
 export default function AuditLog() {
   const [products] = ProductService();

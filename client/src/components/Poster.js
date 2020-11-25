@@ -16,7 +16,10 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { Card, Image, ListGroup, ListGroupItem } from 'react-bootstrap';
+import Card from 'react-bootstrap/Card';
+import Image from 'react-bootstrap/Image';
+import ListGroup from 'react-bootstrap/ListGroup';
+import ListGroupItem from 'react-bootstrap/ListGroupItem';
 import styled from 'styled-components';
 
 /*********************************

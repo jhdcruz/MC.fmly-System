@@ -17,12 +17,16 @@
  */
 
 import { useState } from 'react';
-import { CardDeck, Dropdown } from 'react-bootstrap';
+import loadable from '@loadable/component';
+import Dropdown from 'react-bootstrap/Dropdown';
+import CardDeck from 'react-bootstrap/CardDeck';
 import Poster from '../components/Poster';
 import SearchBar from '../components/common/SearchBar';
-import SupplierForm from '../components/forms/SupplierForm';
 import SupplierService from '../services/SupplierService';
 import Loader from '../components/common/Loader';
+
+// * Lazy Imports
+const SupplierForm = loadable(() => import('../components/forms/SupplierForm'));
 
 export default function Suppliers() {
   const [suppliers] = SupplierService();

@@ -17,7 +17,9 @@
  */
 
 import styled from 'styled-components';
-import { DropdownButton, FormControl, InputGroup } from 'react-bootstrap';
+import FormControl from 'react-bootstrap/FormControl';
+import InputGroup from 'react-bootstrap/InputGroup';
+import DropdownButton from 'react-bootstrap/DropdownButton';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faSearch } from '@fortawesome/free-solid-svg-icons';
 

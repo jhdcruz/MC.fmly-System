@@ -22,17 +22,9 @@ import Container from 'react-bootstrap/Container';
 import Sidebar from '../components/Sidebar';
 import TabItem from '../components/TabItem';
 import RouteTransition from '../components/RouteTransition';
+// Assets
 import routes from '../routes';
 import '../App.scss';
-// Routes
-import Dashboard from '../containers/Dashboard';
-import SysInfo from '../containers/SysInfo';
-import AuditLog from '../containers/AuditLog';
-import Invoices from '../containers/Invoices';
-import PointOfSale from '../containers/PointOfSale';
-import Inventory from '../containers/Inventory';
-import Suppliers from '../containers/Suppliers';
-import Users from '../containers/Users';
 import {
   faBoxes,
   faChartBar,
@@ -43,6 +35,15 @@ import {
   faTruck,
   faUsers
 } from '@fortawesome/free-solid-svg-icons';
+// Routes
+import Dashboard from '../containers/Dashboard';
+import SysInfo from '../containers/SysInfo';
+import AuditLog from '../containers/AuditLog';
+import Invoices from '../containers/Invoices';
+import PointOfSale from '../containers/PointOfSale';
+import Inventory from '../containers/Inventory';
+import Suppliers from '../containers/Suppliers';
+import Users from '../containers/Users';
 
 /*********************************
  * * Admin Permission Access

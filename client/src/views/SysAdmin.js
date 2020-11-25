@@ -18,7 +18,7 @@
 
 import { Fragment } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import { Container } from 'react-bootstrap';
+import Container from 'react-bootstrap/Container';
 import Sidebar from '../components/Sidebar';
 import routes from '../routes';
 import '../App.scss';

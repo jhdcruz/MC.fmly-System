@@ -18,13 +18,16 @@
 
 import { useState } from 'react';
 import styled from 'styled-components';
-import { Button } from 'react-bootstrap';
-import Moment from 'react-moment';
-import ProductForm from '../forms/ProductForm';
-import CustomModal from '../common/CustomModal';
+import loadable from '@loadable/component';
+import Button from 'react-bootstrap/Button';
 import { Tag } from './__tables.module';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPen, faTimes } from '@fortawesome/free-solid-svg-icons';
+
+// * Lazy Imports
+const ProductForm = loadable(() => import('../forms/ProductForm'));
+const CustomModal = loadable(() => import('../common/CustomModal'));
+const Moment = loadable.lib(() => import('react-moment'));
 
 /*********************************
  * * Product Table Rows <td>

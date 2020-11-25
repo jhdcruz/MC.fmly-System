@@ -18,7 +18,7 @@
 
 import { useState } from 'react';
 import styled from 'styled-components';
-import { Toast } from 'react-bootstrap';
+import Toast from 'react-bootstrap/Toast';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBell } from '@fortawesome/free-solid-svg-icons';
 

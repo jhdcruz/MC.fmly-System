@@ -17,7 +17,7 @@
  */
 
 import styled from 'styled-components';
-import { Modal } from 'react-bootstrap';
+import Modal from 'react-bootstrap/Modal';
 
 export const ModalView = styled(Modal)`
   // Background fade

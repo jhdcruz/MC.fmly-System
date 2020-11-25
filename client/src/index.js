@@ -18,11 +18,11 @@
 
 import { StrictMode } from 'react';
 import ReactDOM from 'react-dom';
-import Login from './Login';
+import Admin from './views/Admin';
 
 ReactDOM.render(
   <StrictMode>
-    <Login />
+    <Admin />
   </StrictMode>,
   document.getElementById('root')
 );

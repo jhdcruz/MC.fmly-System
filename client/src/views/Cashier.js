@@ -19,7 +19,7 @@
 import { Fragment } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Sidebar from '../components/Sidebar';
-import { Container } from 'react-bootstrap';
+import Container from 'react-bootstrap/Container';
 import { faList, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import TabItem from '../components/TabItem';
 import routes from '../routes';

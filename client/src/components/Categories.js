@@ -18,10 +18,14 @@
 
 import { useState } from 'react';
 import styled from 'styled-components';
+import loadable from '@loadable/component';
 import { Col, Dropdown, Nav, Row, Tab } from 'react-bootstrap';
 import SearchBar from './common/SearchBar';
-import ProductForm from './forms/ProductForm';
 
+// * Lazy Imports
+const ProductForm = loadable(() => import('./forms/ProductForm'));
+
+// * Styled Components
 const CatalogGrid = styled(Row)`
   display: flex;
   height: 100%;

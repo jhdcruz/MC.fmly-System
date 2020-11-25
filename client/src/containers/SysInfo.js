@@ -16,11 +16,14 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { Tab } from 'react-bootstrap';
+import loadable from '@loadable/component';
+import Tab from 'react-bootstrap/Tab';
 import { DBMetrics } from '../components/system/MongoMetrics';
-import Development from '../components/system/Development';
-import Updates from '../components/system/Updates';
 import { NavTabs, TabContainer } from './__containers.module';
+
+// * Lazy imports
+const Updates = loadable(() => import('../components/system/Development'));
+const Development = loadable(() => import('../components/system/Updates'));
 
 export default function SysInfo() {
   return (
