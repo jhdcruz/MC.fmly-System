@@ -23,8 +23,7 @@
     "package-ci": "yarn postinstall && yarn build && electron-builder build --publish never",
     "package-linux": "yarn postinstall && yarn build && electron-builder build --linux --publish never",
     "package-mac": "yarn postinstall && yarn build && electron-builder build --mac --publish never",
-    "package-win": "yarn postinstall && yarn build && electron-builder build --win --publish never",
-    "postinstall": "electron-builder install-app-deps"
+    "package-win": "yarn postinstall && yarn build && electron-builder build --win --publish never"
   },
   "workspaces": {
     "nohoist": [
