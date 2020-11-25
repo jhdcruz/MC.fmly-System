@@ -29,8 +29,7 @@ const Chart = styled.iframe`
   height: 60vh;
   background: #222126;
   margin: 1.5em auto 0 1rem;
-
-  border: none;
+  border: 3px ridge #e6a195;
   border-radius: 0.3rem;
   box-shadow: 1px 2px 8px 2px #232323;
 `;

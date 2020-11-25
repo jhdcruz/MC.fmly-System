@@ -79,7 +79,7 @@ const LoginContainer = styled(Container)`
 const LoginForm = styled(Form)`
   color: whitesmoke;
   background-color: #222126;
-  box-shadow: -7px 0 7px #1e1e1e;
+  box-shadow: rgba(230, 161, 149, 0.8) -3px 0px 8px 2px;
   margin: 0;
   height: 100vh;
   width: 500px;

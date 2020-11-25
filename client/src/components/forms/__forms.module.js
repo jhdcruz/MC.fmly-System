@@ -44,7 +44,7 @@ export const ModalForm = styled(Form)`
     margin: 0;
     padding: 5px 15px;
     font-size: 1.3vw;
-    color: whitesmoke;
+    color: #d2d2d2;
     vertical-align: middle;
     cursor: pointer;
   }
@@ -54,10 +54,10 @@ export const ModalForm = styled(Form)`
     margin: 0;
     padding: 5px 15px;
     font-size: 1.3vw;
-    background-color: #232323;
+    background-color: #222126;
     color: whitesmoke;
-    border: 2px inset #d7b9b4;
-    border-radius: 0.5rem;
+    border: 2px ridge #d7b9b4;
+    border-radius: 0.4rem;
     vertical-align: middle;
 
     ::placeholder {

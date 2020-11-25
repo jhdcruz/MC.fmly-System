@@ -43,6 +43,7 @@ const CategoryList = styled(Col)`
   padding: 5rem 1rem 1rem 1.2rem;
   color: whitesmoke;
   background-color: #222126;
+  border-right: 4px ridge #e6a195;
   box-shadow: -1px 0 6px #232323;
   z-index: 9;
   height: 105vh;

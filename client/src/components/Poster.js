@@ -35,6 +35,7 @@ const CardBlock = styled(Card)`
   margin: 2rem 1rem 2rem 0 !important;
   height: max-content;
   border-radius: 0.3rem;
+  border: 3px ridge #e6a195;
   z-index: 1;
 
   .card-body {

@@ -35,12 +35,12 @@ const SideMenu = styled.aside`
   padding: 2.5rem 0 0 0;
   height: 100vh;
   box-shadow: 4px 0 12px #2f2f2f;
-  border-right: 2px solid #d69185;
+  border-right: 4px ridge #d69185;
   overflow: auto !important;
 
   hr {
-    margin: 0;
-    border-top: 4px solid #d69185;
+    margin: 0.3rem 0;
+    border-top: 4px ridge #d69185;
   }
 `;
 

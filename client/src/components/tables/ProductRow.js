@@ -171,7 +171,7 @@ export default function ProductRow(product) {
         </TableData>
         <TableData className="name">{product.name}</TableData>
         <TableData className="variant">
-          <Tag pill variant="secondary">
+          <Tag pill variant="dark">
             {product.variant}
           </Tag>
         </TableData>
@@ -226,7 +226,7 @@ export default function ProductRow(product) {
           <Moment format="MM-DD-YYYY / hh:mm:ss" date={product.createdAt} />
         </TableData>
         <TableData className="price">
-          <Tag pill variant="secondary">
+          <Tag pill variant="dark">
             ₱{product.price}
           </Tag>
         </TableData>
