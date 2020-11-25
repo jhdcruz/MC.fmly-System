@@ -167,14 +167,6 @@ ROLLBAR_ID=[Your ID Here]
 
 > Do not add quotation marks between values!
 
-## Install Dependencies
-
-You have to install all dependencies before running any of the scripts.
-
-```shell
-yarn
-```
-
 ## Development
 
 <div align="center">
@@ -182,6 +174,17 @@ yarn
 ![](docs/diagram.svg)
 
 </div>
+
+This project uses yarn's [`workspaces`](https://classic.yarnpkg.com/en/docs/workspaces/) to seperate the **Front-End** and the **Back-End** and run `scripts` without
+navigating back & forth to project folders.
+
+> **Hoisting is set to `"*"`** to avoid compilation problems regarding missing dependencies.
+
+**You have to install all dependencies before running any of the scripts.**
+
+```shell
+yarn
+```
 
 ### Web App:
 
