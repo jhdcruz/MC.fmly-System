@@ -139,8 +139,7 @@
     "win": {
       "icon": "resources/icon192.png",
       "target": [
-        "nsis",
-        "msi"
+        "nsis"
       ]
     },
     "nsis": {
