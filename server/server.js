@@ -25,6 +25,7 @@ const path = require('path');
 const dotenv = require('dotenv');
 const dotenvExpand = require('dotenv-expand');
 const rollbar = require('./utils/rollbar');
+const logger = require('./utils/logger');
 
 // set .env
 const env = dotenv.config();
@@ -53,9 +54,11 @@ mongoose
     api.listen(PORT, () => {
       console.log(`⚡️ [SERVER]: Server is running at PORT: ${PORT}`);
     });
+    logger.info(`Server running at PORT: ${PORT}`);
   })
   .catch((err) => {
     rollbar.critical(err);
+    logger.fatal(err);
     console.error(err);
   });
 

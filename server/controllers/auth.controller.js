@@ -19,6 +19,7 @@
 const mongoose = require('mongoose');
 const argon2 = require('argon2');
 const rollbar = require('../utils/rollbar');
+const logger = require('../utils/logger');
 
 const Users = mongoose.model('users');
 
@@ -49,9 +50,11 @@ exports.register = async (req, res) => {
       date: req.body.date
     });
     res.status(201).send(insertResult);
+    logger.log(`New user registered: ${insertResult}`);
   } catch (err) {
     console.error(err);
     rollbar.error(err);
+    logger.error(`User registration error: ${err}`);
     res.status(500).send('Internal Server error occured');
   }
 };
@@ -66,6 +69,7 @@ exports.login = async (req, res) => {
       const cmp = await argon2.verify(user.password, req.body.password);
       if (cmp) {
         res.status(200).send(user.permission);
+        logger.log(`${user.username} Logged in.`);
       } else {
         res.send('Credentials Mismatched!');
       }
@@ -75,6 +79,7 @@ exports.login = async (req, res) => {
   } catch (err) {
     console.error(err);
     rollbar.error(err);
+    logger.error(`User login error: ${err}`);
     res.status(500).send('Internal Server error occured');
   }
 };
