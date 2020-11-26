@@ -30,7 +30,7 @@ export const ModalView = styled(Modal)`
 `;
 
 export const ModalHeader = styled(Modal.Header)`
-  background-color: #19191c;
+  background-color: #121416;
   border-bottom: 3px solid #e6a195;
 
   span {
