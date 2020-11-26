@@ -24,9 +24,8 @@ import { faPlus, faSearch } from '@fortawesome/free-solid-svg-icons';
 
 const Search = styled.div`
   width: 30vw;
-  margin: 3rem 2rem 0 1.5rem;
+  margin: 3rem 2rem 0 1rem;
   position: fixed;
-  left: 12.5rem;
   background-color: #222126;
   color: #d2d2d2 !important;
   border: 3px ridge #e6a195;
@@ -39,7 +38,7 @@ const Search = styled.div`
     border: none;
 
     :hover {
-      background-color: #303030;
+      background-color: #121416;
     }
   }
 
@@ -54,7 +53,6 @@ const Search = styled.div`
   .add-icon {
     background-color: #222126;
     color: #d2d2d2 !important;
-    padding-left: 0 3px;
     outline: none;
   }
 }
@@ -71,7 +69,7 @@ input {
   border-radius: 5rem;
 
   :hover {
-    background-color: #303030;
+    background-color: #121416;
   }
 
   ::placeholder {
