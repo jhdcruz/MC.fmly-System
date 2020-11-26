@@ -31,8 +31,8 @@ let triggeringProgrammaticBlur = false;
 function createWindow() {
   // Splashscreen
   const splash = new BrowserWindow({
-    width: 400,
-    height: 400,
+    width: 405,
+    height: 405,
     transparent: true,
     frame: false,
     alwaysOnTop: true
@@ -44,7 +44,7 @@ function createWindow() {
     show: false,
     minWidth: 1100,
     minHeight: 630,
-    icon: 'favicon.ico',
+    icon: 'logo192.ico',
     backgroundColor: '#222126',
     autoHideMenuBar: true,
     frame: process.platform === 'darwin',
