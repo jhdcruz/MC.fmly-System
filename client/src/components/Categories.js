@@ -32,6 +32,7 @@ const CatalogGrid = styled(Row)`
 const CategoryList = styled(Col)`
   position: absolute;
   width: 12.6rem;
+  max-width: 12.6rem;
   margin: 0 5rem 0 1rem;
   padding: 3rem 0.8rem 1rem 1.2rem;
   color: whitesmoke;
@@ -42,6 +43,7 @@ const CategoryList = styled(Col)`
   height: 100vh;
   overflow-y: auto;
   white-space: nowrap;
+  text-overflow: ellipsis;
 
   hr {
     border-top: 2px solid #e6a195;
