@@ -4,12 +4,13 @@
     "**/test/**",
     "**/tests/**",
     "**/*.test.*",
-    "**/*.spec.*"
+    "**/*.spec.*",
+    "**/*.module.*"
   ],
   "components": [
     {
       "type": "entry",
-      "patterns": ["client/src/App.js"]
+      "patterns": ["client/src/Login.js"]
     },
     {
       "type": "pages",
@@ -25,7 +26,10 @@
     },
     {
       "type": "services",
-      "patterns": ["client/src/services/*.js", "src/components/charts/*.js"]
+      "patterns": [
+        "client/src/services/**/*.js",
+        "client/src/components/charts/**/*.js"
+      ]
     },
     {
       "type": "models",
@@ -41,7 +45,7 @@
     },
     {
       "type": "server",
-      "patterns": ["server/index.js"]
+      "patterns": ["server/server.js"]
     }
   ],
   "output": [
@@ -67,11 +71,11 @@
         },
         {
           "first": true,
-          "type": "API",
+          "type": "Server",
           "components": ["server"]
         },
         {
-          "type": "Routes",
+          "type": "API",
           "components": ["routes"]
         },
         {
