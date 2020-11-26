@@ -1594,7 +1594,7 @@
     "@types/yargs" "^15.0.0"
     chalk "^4.0.0"
 
-"@logdna/logger@^2.1.1":
+"@logdna/logger@2.1.1":
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/@logdna/logger/-/logger-2.1.1.tgz#573f5b6e738e2acfa104643215cbda6021e881e3"
   integrity sha512-K9fZnhjS6p9BSZtXfUrvFq9Viop/4ecyxwjlsehXYnMNbUTdTc5qV27v1foZE1D2NMSNekq9gG8YOADJW/2sXQ==
