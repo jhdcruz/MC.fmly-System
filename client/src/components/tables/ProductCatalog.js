@@ -18,7 +18,6 @@
 
 import styled from 'styled-components';
 import Moment from 'react-moment';
-import ProductActions from './ProductActions';
 import { Tag } from './__tables.module';
 
 /*********************************
@@ -33,16 +32,16 @@ const TableRow = styled.tr`
   width: max-content !important;
   box-shadow: 0 3px 5px #232323;
 
+  .code {
+    padding-left: 1.7rem !important;
+  }
+
   .stock {
     padding-left: 1.7rem !important;
   }
 
   :hover {
     background-color: #161518 !important;
-
-    button {
-      visibility: visible;
-    }
   }
 
   // Row's border-radius
@@ -79,15 +78,12 @@ const TableData = styled.td`
   }
 `;
 
-export default function ProductRow(product) {
+export default function ProductCatalog(product) {
   return (
     <>
       {/* Product | Table Row */}
       <TableRow className="product" key={product._id}>
-        <TableData className="code" colSpan={1}>
-          <ProductActions />
-          {product.code}
-        </TableData>
+        <TableData className="code">{product.code}</TableData>
         <TableData className="name">{product.name}</TableData>
         <TableData className="variant">
           <Tag pill variant="dark">

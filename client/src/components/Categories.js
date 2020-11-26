@@ -16,16 +16,11 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { useState } from 'react';
 import styled from 'styled-components';
 import Col from 'react-bootstrap/Col';
-import Dropdown from 'react-bootstrap/Dropdown';
 import Nav from 'react-bootstrap/Nav';
 import Row from 'react-bootstrap/Row';
 import Tab from 'react-bootstrap/Tab';
-
-import ProductForm from './forms/ProductForm';
-import SearchBar from './common/SearchBar';
 
 // * Styled Components
 const CatalogGrid = styled(Row)`
@@ -95,10 +90,6 @@ const CategoryLine = styled.label`
 `;
 
 export default function Categories(props) {
-  // * Modal Handlers
-  const [modal, showModal] = useState(false);
-  const handleClose = () => showModal(false);
-
   return (
     <Tab.Container id="CategorySection" defaultActiveKey="default">
       <CatalogGrid>
@@ -115,26 +106,6 @@ export default function Categories(props) {
           </Nav>
         </CategoryList>
         <CategoryTable>
-          {/* Product Form Modal */}
-          <ProductForm
-            header="Add new product"
-            show={modal}
-            onHide={() => showModal(false)}
-            save={handleClose} // TODO: POST data
-            cancel={handleClose}
-          />
-          {/* Searchbar */}
-          <SearchBar
-            modal={() => {
-              showModal(true);
-            }}
-            filter={
-              <>
-                <Dropdown.Item href="#">Code</Dropdown.Item>
-                <Dropdown.Item href="#">Name</Dropdown.Item>
-              </>
-            }
-          />
           {/* Table dynamic data*/}
           <Tab.Content>{props.tables}</Tab.Content>
         </CategoryTable>

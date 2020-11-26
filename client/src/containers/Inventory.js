@@ -16,15 +16,23 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { Nav, Tab } from 'react-bootstrap';
+import { useState } from 'react';
+import Nav from 'react-bootstrap/Nav';
+import Tab from 'react-bootstrap/Tab';
 import Categories from '../components/Categories';
 import ProductHeader from '../components/tables/ProductHeader';
 import ProductRow from '../components/tables/ProductRow';
 import Loader from '../components/common/Loader';
 import ProductService from '../services/ProductService';
+import SearchBar from '../components/common/SearchBar';
+import ProductForm from '../components/forms/ProductForm';
 
 export default function Inventory() {
   const [products] = ProductService();
+
+  // * Modal Handlers
+  const [modal, showModal] = useState(false);
+  const handleClose = () => showModal(false);
 
   // * Removes duplicate properties | category
   const productCategories =
@@ -146,6 +154,20 @@ export default function Inventory() {
           ))
         }
         tables={<TableRoutes />}
+      />
+      {/*  Searchbar */}
+      <SearchBar
+        modal={() => {
+          showModal(true);
+        }}
+      />
+      {/* Product Form Modal */}
+      <ProductForm
+        header="Add new product"
+        show={modal}
+        onHide={() => showModal(false)}
+        save={handleClose} // TODO: POST data
+        cancel={handleClose}
       />
     </>
   );
