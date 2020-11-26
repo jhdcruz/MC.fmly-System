@@ -67,7 +67,6 @@ export default function Inventory() {
               <Tab.Pane
                 key={categories.category}
                 eventKey={categories.category}
-                style={{ marginTop: '6rem' }}
               >
                 <ProductHeader
                   map={products && products._id}
@@ -93,11 +92,7 @@ export default function Inventory() {
         <>
           {products &&
             productTypes.map((types) => (
-              <Tab.Pane
-                key={types.type}
-                eventKey={types.type}
-                style={{ marginTop: '6rem' }}
-              >
+              <Tab.Pane key={types.type} eventKey={types.type}>
                 <ProductHeader
                   _id={products && products._id}
                   data={products
@@ -117,7 +112,21 @@ export default function Inventory() {
   const TableRoutes = () => {
     return (
       <>
-        <Tab.Pane eventKey="default" style={{ marginTop: '6rem' }}>
+        {/* Product Form Modal */}
+        <ProductForm
+          header="Add new product"
+          show={modal}
+          onHide={() => showModal(false)}
+          save={handleClose} // TODO: POST data
+          cancel={handleClose}
+        />
+        {/*  Searchbar */}
+        <SearchBar
+          modal={() => {
+            showModal(true);
+          }}
+        />
+        <Tab.Pane eventKey="default">
           <ProductHeader
             _id={products && products._id}
             data={products && products.map((product) => ProductRow(product))}
@@ -154,20 +163,6 @@ export default function Inventory() {
           ))
         }
         tables={<TableRoutes />}
-      />
-      {/*  Searchbar */}
-      <SearchBar
-        modal={() => {
-          showModal(true);
-        }}
-      />
-      {/* Product Form Modal */}
-      <ProductForm
-        header="Add new product"
-        show={modal}
-        onHide={() => showModal(false)}
-        save={handleClose} // TODO: POST data
-        cancel={handleClose}
       />
     </>
   );
