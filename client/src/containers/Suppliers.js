@@ -58,7 +58,11 @@ export default function Suppliers() {
   };
 
   return (
-    <>
+    <div
+      style={{
+        overflow: 'auto'
+      }}
+    >
       {/* Modal */}
       <SupplierForm
         header="Add new supplier"
@@ -76,13 +80,13 @@ export default function Suppliers() {
       {/* Supplier group */}
       <CardDeck
         style={{
-          margin: '4.5rem 0 1rem',
+          margin: '5rem 0.5rem 1rem',
           padding: '1rem',
           overflow: 'auto'
         }}
       >
         <SuppliersList />
       </CardDeck>
-    </>
+    </div>
   );
 }

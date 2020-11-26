@@ -65,6 +65,7 @@ export default function Inventory() {
           {products &&
             productCategories.map((categories) => (
               <Tab.Pane
+                style={{ paddingTop: '6.7rem' }}
                 key={categories.category}
                 eventKey={categories.category}
               >
@@ -92,7 +93,11 @@ export default function Inventory() {
         <>
           {products &&
             productTypes.map((types) => (
-              <Tab.Pane key={types.type} eventKey={types.type}>
+              <Tab.Pane
+                key={types.type}
+                eventKey={types.type}
+                style={{ paddingTop: '6.7rem' }}
+              >
                 <ProductHeader
                   _id={products && products._id}
                   data={products
@@ -126,7 +131,7 @@ export default function Inventory() {
             showModal(true);
           }}
         />
-        <Tab.Pane eventKey="default">
+        <Tab.Pane eventKey="default" style={{ paddingTop: '6.7rem' }}>
           <ProductHeader
             _id={products && products._id}
             data={products && products.map((product) => ProductRow(product))}
