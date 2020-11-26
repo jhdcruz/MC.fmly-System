@@ -20,8 +20,11 @@ const { app, BrowserWindow } = require('electron');
 const isDev = require('electron-is-dev');
 const path = require('path');
 
+// Garbage collection protection
 const singleInstance = app.requestSingleInstanceLock();
 const isWindows = process.platform === 'win32';
+
+// Window focus fix
 let needsFocusFix = false;
 let triggeringProgrammaticBlur = false;
 
@@ -34,15 +37,15 @@ function createWindow() {
     frame: false,
     alwaysOnTop: true
   });
-  // Create the browser window.
+  // Main App
   const win = new BrowserWindow({
     width: 1250,
     height: 700,
     show: false,
     minWidth: 1100,
     minHeight: 630,
-    icon: 'favicon-black.ico',
-    backgroundColor: '#232323',
+    icon: 'icon.png',
+    backgroundColor: '#222126',
     autoHideMenuBar: true,
     frame: process.platform === 'darwin',
     webPreferences: {
