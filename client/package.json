@@ -137,7 +137,7 @@
       ]
     },
     "win": {
-      "icon": "resources/icon192.png",
+      "icon": "resources/icon.png",
       "target": [
         "nsis"
       ]
@@ -148,7 +148,7 @@
       "allowToChangeInstallationDirectory": true
     },
     "linux": {
-      "icon": "resources/icon192.png",
+      "icon": "resources/icon.png",
       "target": [
         "deb",
         "rpm"
@@ -159,13 +159,9 @@
       "buildResources": "resources",
       "output": "../release"
     },
-    "extraResources": [
-      "src/assets/fonts/**/**"
-    ],
     "extraFiles": [
-      "resources/*",
-      "README.md",
-      "LICENSE.txt"
+      "../README.md",
+      "resources/LICENSE.txt"
     ],
     "publish": {
       "provider": "github",
