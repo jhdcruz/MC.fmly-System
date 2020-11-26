@@ -26,7 +26,7 @@ const Widget = styled.iframe`
   width: 23vw;
   height: 150px;
   background: #222126;
-  margin: 0.3rem 1rem 0.3rem 0;
+  margin: 0.3rem 0 0.3rem 0.6rem;
   border: 3px ridge #e6a195;
   border-radius: 0.4rem;
   box-shadow: 1px 2px 8px 2px #232323;
