@@ -19,13 +19,15 @@
 import { useState } from 'react';
 import Nav from 'react-bootstrap/Nav';
 import Tab from 'react-bootstrap/Tab';
+// Components
 import Categories from '../components/Categories';
 import ProductHeader from '../components/tables/ProductHeader';
 import ProductRow from '../components/tables/ProductRow';
-import Loader from '../components/common/Loader';
 import ProductService from '../services/ProductService';
-import SearchBar from '../components/common/SearchBar';
 import ProductForm from '../components/forms/ProductForm';
+// Commons
+import Controls from '../components/common/Controls';
+import Loader from '../components/common/Loader';
 
 export default function Inventory() {
   const [products] = ProductService();
@@ -65,7 +67,6 @@ export default function Inventory() {
           {products &&
             productCategories.map((categories) => (
               <Tab.Pane
-                style={{ paddingTop: '6.7rem' }}
                 key={categories.category}
                 eventKey={categories.category}
               >
@@ -93,11 +94,7 @@ export default function Inventory() {
         <>
           {products &&
             productTypes.map((types) => (
-              <Tab.Pane
-                key={types.type}
-                eventKey={types.type}
-                style={{ paddingTop: '6.7rem' }}
-              >
+              <Tab.Pane key={types.type} eventKey={types.type}>
                 <ProductHeader
                   _id={products && products._id}
                   data={products
@@ -113,7 +110,6 @@ export default function Inventory() {
   };
 
   // * Display table based on clicked product category/type
-  // eslint-disable-next-line
   const TableRoutes = () => {
     return (
       <>
@@ -125,13 +121,11 @@ export default function Inventory() {
           submit={handleClose}
           cancel={handleClose}
         />
-        {/*  Searchbar */}
-        <SearchBar
-          modal={() => {
-            showModal(true);
-          }}
-        />
-        <Tab.Pane eventKey="default" style={{ paddingTop: '6.7rem' }}>
+        {/* Inventory Tab Controls */}
+        <Controls title="Add Product" modal={() => showModal(true)} />
+
+        {/* Tab Pane */}
+        <Tab.Pane eventKey="default">
           <ProductHeader
             _id={products && products._id}
             data={products && products.map((product) => ProductRow(product))}

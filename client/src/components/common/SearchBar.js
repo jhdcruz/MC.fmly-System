@@ -20,19 +20,16 @@ import styled from 'styled-components';
 import FormControl from 'react-bootstrap/FormControl';
 import InputGroup from 'react-bootstrap/InputGroup';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlus, faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 const Search = styled.div`
   width: 30vw;
-  position: absolute;
-  margin: 4rem 2rem 0 1.5rem;
   background-color: #222126;
   color: #d2d2d2 !important;
-  border: 3px ridge #e6a195;
   border-radius: 0.3rem;
   outline: none;
   z-index: 3;
-
+  box-shadow: 1px 2px 5px #1b1b1b;
 
   button {
     border: none;
@@ -48,12 +45,7 @@ const Search = styled.div`
     padding: 0 10px;
     outline: none;
     border: none;
-  }
-
-  .add-icon {
-    background-color: #222126;
-    color: #d2d2d2 !important;
-    outline: none;
+    border-right: 3px ridge #e6a195;
   }
 }
 
@@ -64,9 +56,6 @@ input {
   background-color: #222126;
   color: #d2d2d2;
   border: none;
-  border-right: 2px ridge #e6a195;
-  border-left: 2px ridge #e6a195;
-  border-radius: 5rem;
 
   :hover {
     background-color: #121416;
@@ -82,11 +71,11 @@ input {
     background-color: #1b1e21;
     color: whitesmoke;
     border-color: #d7b9b4;
-    box-shadow: 0 0 3px inset #d7b9b4;
+    box-shadow: none;
   }
 `;
 
-export default function SearchBar(props) {
+export default function SearchBar() {
   return (
     <Search>
       <InputGroup>
@@ -95,21 +84,7 @@ export default function SearchBar(props) {
             <FontAwesomeIcon icon={faSearch} />
           </InputGroup.Text>
         </InputGroup.Prepend>
-
-        {/* Search Input */}
-        <FormControl placeholder="Search" aria-describedby="searchbar" />
-
-        {/* Icon */}
-        <InputGroup.Append>
-          {/* Modal Handler */}
-          <InputGroup.Text
-            className="add-icon"
-            as="button"
-            onClick={props.modal}
-          >
-            <FontAwesomeIcon icon={faPlus} />
-          </InputGroup.Text>
-        </InputGroup.Append>
+        <FormControl placeholder="Search..." aria-describedby="searchbar" />
       </InputGroup>
     </Search>
   );
