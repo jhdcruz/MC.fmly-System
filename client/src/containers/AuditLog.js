@@ -22,6 +22,7 @@ import ProductHeader from '../components/tables/ProductHeader';
 import { Loader } from '../components/tables/__tables.module';
 import { NavTabs, TabContainer } from './__containers.module';
 import ProductService from '../services/ProductService';
+import Notification from '../components/common/Notification';
 
 export default function AuditLog() {
   const [products] = ProductService();
@@ -60,6 +61,16 @@ export default function AuditLog() {
           <ListProducts />
         </Tab>
       </NavTabs>
+      <Notification
+        delay={12000}
+        title="Guide"
+        message={
+          <p>
+            Scroll horizontally using <kbd>Shift</kbd> + <kbd>Scroll</kbd>, or
+            arrow keys
+          </p>
+        }
+      />
     </TabContainer>
   );
 }
