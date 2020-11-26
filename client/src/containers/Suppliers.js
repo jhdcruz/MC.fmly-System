@@ -19,10 +19,10 @@
 import { useState } from 'react';
 import CardDeck from 'react-bootstrap/CardDeck';
 import Poster from '../components/Poster';
-import SearchBar from '../components/common/SearchBar';
 import SupplierForm from '../components/forms/SupplierForm';
 import SupplierService from '../services/SupplierService';
 import Loader from '../components/common/Loader';
+import Controls from '../components/common/Controls';
 
 export default function Suppliers() {
   const [suppliers] = SupplierService();
@@ -68,19 +68,15 @@ export default function Suppliers() {
         header="Add new supplier"
         show={modal}
         onHide={() => showModal(false)}
-        save={handleClose} // TODO: POST data
+        save={handleClose}
         cancel={handleClose}
       />
 
-      <SearchBar
-        modal={() => {
-          showModal(true);
-        }}
-      />
+      <Controls title="Add Supplier" modal={() => showModal(true)} />
       {/* Supplier group */}
       <CardDeck
         style={{
-          margin: '5rem 0.5rem 1rem',
+          margin: '0 0.5rem 1rem',
           padding: '1rem',
           overflow: 'auto'
         }}

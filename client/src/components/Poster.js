@@ -32,7 +32,7 @@ const CardBlock = styled(Card)`
   color: #d2d2d2;
   box-shadow: 0 3px 6px #232323;
   padding: 1rem !important;
-  margin: 2rem 1rem 2rem 0 !important;
+  margin: 0.3rem 1rem 2rem 0 !important;
   height: max-content;
   border-radius: 0.3rem;
   border: 3px ridge #e6a195;
