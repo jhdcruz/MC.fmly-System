@@ -17,7 +17,6 @@
  */
 
 import { useState } from 'react';
-import Dropdown from 'react-bootstrap/Dropdown';
 import CardDeck from 'react-bootstrap/CardDeck';
 import Poster from '../components/Poster';
 import SearchBar from '../components/common/SearchBar';
@@ -73,19 +72,13 @@ export default function Suppliers() {
         modal={() => {
           showModal(true);
         }}
-        filter={
-          <>
-            {/* Filter Types */}
-            <Dropdown.Item href="#">Name</Dropdown.Item>
-            <Dropdown.Item href="#">Type</Dropdown.Item>
-          </>
-        }
       />
       {/* Supplier group */}
       <CardDeck
         style={{
           margin: '4.5rem 0 1rem',
-          padding: '1rem'
+          padding: '1rem',
+          overflow: 'auto'
         }}
       >
         <SuppliersList />
