@@ -18,7 +18,8 @@
 
 import styled from 'styled-components';
 import Moment from 'react-moment';
-import { Tag } from './__tables.module';
+import ProductActions from './ProductActions';
+import { Tag } from '../__tables.module';
 
 /*********************************
  * * Product Table Rows <td>
@@ -30,11 +31,7 @@ const TableRow = styled.tr`
   background-color: #222126;
   border-radius: 1rem;
   width: max-content !important;
-  box-shadow: 0 3px 5px #232323;
-
-  .code {
-    padding-left: 1.7rem !important;
-  }
+  box-shadow: 1px 2px 5px #1b1b1b;
 
   .stock {
     padding-left: 1.7rem !important;
@@ -42,6 +39,17 @@ const TableRow = styled.tr`
 
   :hover {
     background-color: #161518 !important;
+
+    button {
+      visibility: visible;
+    }
+
+    :active,
+    :focus,
+    ::selection {
+      outline: 3px ridge #e6a195 !important;
+      border: none;
+    }
   }
 
   // Row's border-radius
@@ -78,57 +86,38 @@ const TableData = styled.td`
   }
 `;
 
-export default function ProductCatalog(product) {
+export default function ProductRow(product) {
   return (
     <>
       {/* Product | Table Row */}
-      <TableRow className="product" key={product._id}>
-        <TableData className="code">{product.code}</TableData>
+      <TableRow className="product" key={product._id} tabIndex={0}>
+        <TableData className="code" colSpan={1}>
+          <ProductActions />
+          {product.code}
+        </TableData>
         <TableData className="name">{product.name}</TableData>
         <TableData className="variant">
-          <Tag pill variant="dark">
-            {product.variant}
-          </Tag>
+          <Tag variant="dark">{product.variant}</Tag>
         </TableData>
         <TableData className="type">
-          <Tag pill variant="primary">
-            {product.type}
-          </Tag>
+          <Tag variant="primary">{product.type}</Tag>
         </TableData>
         <TableData className="category">
-          <Tag pill variant="info">
-            {product.category}
-          </Tag>
+          <Tag variant="info">{product.category}</Tag>
         </TableData>
         <TableData className="stock">
           {/* Quantity Color Indicator */}
           {(() => {
             if (product.quantity <= 10) {
-              return (
-                <Tag pill variant="danger">
-                  {product.quantity}
-                </Tag>
-              );
+              return <Tag variant="danger">{product.quantity}</Tag>;
             }
             if (product.quantity <= 20) {
-              return (
-                <Tag pill variant="warning">
-                  {product.quantity}
-                </Tag>
-              );
+              return <Tag variant="warning">{product.quantity}</Tag>;
             }
             if (product.quantity <= 300) {
-              return (
-                <Tag pill variant="success">
-                  {product.quantity}
-                </Tag>
-              );
+              return <Tag variant="success">{product.quantity}</Tag>;
             } else {
-              return (
-                <Tag pill variant="dark">
-                  {product.quantity}
-                </Tag>
-              );
+              return <Tag variant="dark">{product.quantity}</Tag>;
             }
           })()}
         </TableData>
@@ -145,9 +134,7 @@ export default function ProductCatalog(product) {
           />
         </TableData>
         <TableData className="price">
-          <Tag pill variant="dark">
-            ₱{product.price}
-          </Tag>
+          <Tag variant="dark">₱{product.price}</Tag>
         </TableData>
       </TableRow>
     </>

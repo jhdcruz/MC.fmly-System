@@ -17,8 +17,8 @@
  */
 
 import Tab from 'react-bootstrap/Tab';
-import ProductRow from '../components/tables/ProductRow';
-import ProductHeader from '../components/tables/ProductHeader';
+import ProductRow from '../components/tables/products/ProductRow';
+import ProductHeader from '../components/tables/products/ProductHeader';
 import { Loader } from '../components/tables/__tables.module';
 import { NavTabs, TabContainer } from './__containers.module';
 import ProductService from '../services/ProductService';

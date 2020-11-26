@@ -18,8 +18,8 @@
 
 import styled from 'styled-components';
 import Moment from 'react-moment';
-import ProductActions from './ProductActions';
-import { Tag } from './__tables.module';
+import ProductActions from '../products/ProductActions';
+import { Tag } from '../__tables.module';
 
 /*********************************
  * * Product Table Rows <td>
@@ -86,55 +86,54 @@ const TableData = styled.td`
   }
 `;
 
-export default function ProductRow(product) {
+export default function UserRow(user) {
   return (
     <>
       {/* Product | Table Row */}
-      <TableRow className="product" key={product._id} tabIndex={0}>
-        <TableData className="code" colSpan={1}>
+      <TableRow className="product" key={user._id} tabIndex={0}>
+        <TableData className="actions" colSpan={1}>
           <ProductActions />
-          {product.code}
         </TableData>
-        <TableData className="name">{product.name}</TableData>
+        <TableData className="name">{user.name}</TableData>
         <TableData className="variant">
-          <Tag variant="dark">{product.variant}</Tag>
+          <Tag variant="dark">{user.variant}</Tag>
         </TableData>
         <TableData className="type">
-          <Tag variant="primary">{product.type}</Tag>
+          <Tag variant="primary">{user.type}</Tag>
         </TableData>
         <TableData className="category">
-          <Tag variant="info">{product.category}</Tag>
+          <Tag variant="info">{user.category}</Tag>
         </TableData>
         <TableData className="stock">
           {/* Quantity Color Indicator */}
           {(() => {
-            if (product.quantity <= 10) {
-              return <Tag variant="danger">{product.quantity}</Tag>;
+            if (user.quantity <= 10) {
+              return <Tag variant="danger">{user.quantity}</Tag>;
             }
-            if (product.quantity <= 20) {
-              return <Tag variant="warning">{product.quantity}</Tag>;
+            if (user.quantity <= 20) {
+              return <Tag variant="warning">{user.quantity}</Tag>;
             }
-            if (product.quantity <= 300) {
-              return <Tag variant="success">{product.quantity}</Tag>;
+            if (user.quantity <= 300) {
+              return <Tag variant="success">{user.quantity}</Tag>;
             } else {
-              return <Tag variant="dark">{product.quantity}</Tag>;
+              return <Tag variant="dark">{user.quantity}</Tag>;
             }
           })()}
         </TableData>
         <TableData className="updatedAt">
           {/* Parse date to human-friendly format */}
-          <Moment fromNow date={product.updatedAt} />
+          <Moment fromNow date={user.updatedAt} />
         </TableData>
         <TableData className="createdAt">
           {/* Parse date to human-friendly format */}
           <Moment
             format="D MMM YYYY | HH:mm"
-            date={product.createdAt}
+            date={user.createdAt}
             withTitle
           />
         </TableData>
         <TableData className="price">
-          <Tag variant="dark">₱{product.price}</Tag>
+          <Tag variant="dark">₱{user.price}</Tag>
         </TableData>
       </TableRow>
     </>

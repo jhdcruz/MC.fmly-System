@@ -19,8 +19,8 @@
 import Nav from 'react-bootstrap/Nav';
 import Tab from 'react-bootstrap/Tab';
 import Categories from '../components/Categories';
-import ProductHeader from '../components/tables/ProductHeader';
-import ProductCatalog from '../components/tables/ProductCatalog';
+import ProductHeader from '../components/tables/products/ProductHeader';
+import ProductCatalog from '../components/tables/products/ProductCatalog';
 import ProductService from '../services/ProductService';
 import Loader from '../components/common/Loader';
 

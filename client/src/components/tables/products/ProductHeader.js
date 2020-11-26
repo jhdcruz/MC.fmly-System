@@ -18,7 +18,7 @@
 
 import { Table } from 'react-bootstrap';
 import styled, { createGlobalStyle } from 'styled-components';
-import { TableHeader } from './__tables.module';
+import { TableHeader } from '../__tables.module';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
 
