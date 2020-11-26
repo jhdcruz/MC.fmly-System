@@ -122,7 +122,7 @@ export default function Inventory() {
           header="Add new product"
           show={modal}
           onHide={() => showModal(false)}
-          save={handleClose} // TODO: POST data
+          submit={handleClose}
           cancel={handleClose}
         />
         {/*  Searchbar */}

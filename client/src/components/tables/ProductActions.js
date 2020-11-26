@@ -96,7 +96,7 @@ export default function ProductActions() {
           variant="outline-success"
           onClick={() => showEditModal(true)}
           submit={editModalClose} // TODO: POST data
-          close={editModalClose}
+          cancel={editModalClose}
         >
           <FontAwesomeIcon icon={faPen} />
         </ProductControl>
