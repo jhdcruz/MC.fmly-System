@@ -19,8 +19,8 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 import Button from 'react-bootstrap/Button';
-import ProductForm from '../forms/ProductForm';
-import CustomModal from '../common/CustomModal';
+import ProductForm from '../../forms/ProductForm';
+import CustomModal from '../../common/CustomModal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPen, faTimes } from '@fortawesome/free-solid-svg-icons';
 

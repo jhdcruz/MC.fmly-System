@@ -21,8 +21,8 @@ import Nav from 'react-bootstrap/Nav';
 import Tab from 'react-bootstrap/Tab';
 // Components
 import Categories from '../components/Categories';
-import ProductHeader from '../components/tables/ProductHeader';
-import ProductRow from '../components/tables/ProductRow';
+import ProductHeader from '../components/tables/products/ProductHeader';
+import ProductRow from '../components/tables/products/ProductRow';
 import ProductService from '../services/ProductService';
 import ProductForm from '../components/forms/ProductForm';
 // Commons
