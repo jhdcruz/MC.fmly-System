@@ -43,6 +43,13 @@ const TableRow = styled.tr`
     button {
       visibility: visible;
     }
+
+    :active,
+    :focus,
+    ::selection {
+      outline: 3px ridge #e6a195 !important;
+      border: none;
+    }
   }
 
   // Row's border-radius
@@ -83,7 +90,7 @@ export default function ProductRow(product) {
   return (
     <>
       {/* Product | Table Row */}
-      <TableRow className="product" key={product._id}>
+      <TableRow className="product" key={product._id} tabIndex={0}>
         <TableData className="code" colSpan={1}>
           <ProductActions />
           {product.code}
