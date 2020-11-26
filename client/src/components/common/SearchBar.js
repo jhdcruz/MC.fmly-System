@@ -19,7 +19,6 @@
 import styled from 'styled-components';
 import FormControl from 'react-bootstrap/FormControl';
 import InputGroup from 'react-bootstrap/InputGroup';
-import DropdownButton from 'react-bootstrap/DropdownButton';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faSearch } from '@fortawesome/free-solid-svg-icons';
 
@@ -27,6 +26,7 @@ const Search = styled.div`
   width: 30vw;
   margin: 3rem 2rem 0 1.5rem;
   position: fixed;
+  left: 12.5rem;
   background-color: #222126;
   color: #d2d2d2 !important;
   border: 3px ridge #e6a195;
@@ -48,48 +48,14 @@ const Search = styled.div`
     color: #d2d2d2 !important;
     padding: 0 10px;
     outline: none;
-    border-right: 3px ridge #e6a195;
+    border: none;
   }
 
   .add-icon {
     background-color: #222126;
     color: #d2d2d2 !important;
+    padding-left: 0 3px;
     outline: none;
-  }
-}
-
-// Dropdown
-.dropdown-toggle {
-  background-color: #222126;
-  color: #d2d2d2;
-  outline: none;
-  border: none;
-  border-right: 3px ridge #e6a195;
-
-  :active {
-    color: #d2d2d2 !important;
-  }
-
-  :hover {
-    background-color: #303030;
-  }
-}
-
-// Dropdown list popup
-.show {
-  background-color: #222126;
-  color: #d2d2d2;
-  box-shadow: 0 0 10px #eccec9;
-  padding: 0;
-
-  .dropdown-item {
-    background-color: #222126;
-    color: #d2d2d2;
-    padding: 7px 15px;
-
-    :hover {
-      background-color: #303030;
-    }
   }
 }
 
@@ -100,7 +66,8 @@ input {
   background-color: #222126;
   color: #d2d2d2;
   border: none;
-  border-right: 2px inset #d7b9b4;
+  border-right: 2px ridge #e6a195;
+  border-left: 2px ridge #e6a195;
   border-radius: 5rem;
 
   :hover {
@@ -117,7 +84,7 @@ input {
     background-color: #1b1e21;
     color: whitesmoke;
     border-color: #d7b9b4;
-    box-shadow: 0 0 7px #d7b9b4;
+    box-shadow: 0 0 3px inset #d7b9b4;
   }
 `;
 
@@ -125,24 +92,17 @@ export default function SearchBar(props) {
   return (
     <Search>
       <InputGroup>
-        {/*Dropdown Category*/}
-        <DropdownButton
-          as={InputGroup.Prepend}
-          title="Filter"
-          id="input-group-dropdown-1"
-        >
-          {props.filter}
-        </DropdownButton>
+        <InputGroup.Prepend>
+          <InputGroup.Text className="search-icon" as="div">
+            <FontAwesomeIcon icon={faSearch} />
+          </InputGroup.Text>
+        </InputGroup.Prepend>
 
         {/* Search Input */}
         <FormControl placeholder="Search" aria-describedby="searchbar" />
 
         {/* Icon */}
         <InputGroup.Append>
-          <InputGroup.Text className="search-icon" as="button">
-            <FontAwesomeIcon icon={faSearch} />
-          </InputGroup.Text>
-
           {/* Modal Handler */}
           <InputGroup.Text
             className="add-icon"
