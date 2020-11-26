@@ -30,18 +30,16 @@ const CatalogGrid = styled(Row)`
 `;
 
 const CategoryList = styled(Col)`
-  position: fixed;
-  top: 96%;
-  transform: translateY(-100%);
-  max-width: 12rem;
-  margin: 2rem 5rem 0 1rem;
-  padding: 5rem 1rem 1rem 1.2rem;
+  position: absolute;
+  width: 12.6rem;
+  margin: 0 5rem 0 1rem;
+  padding: 3rem 0.8rem 1rem 1.2rem;
   color: whitesmoke;
   background-color: #222126;
   border-right: 4px ridge #e6a195;
   box-shadow: -1px 0 6px #232323;
   z-index: 9;
-  height: 105vh;
+  height: 100vh;
   overflow-y: auto;
   white-space: nowrap;
 
