@@ -18,14 +18,15 @@
 
 const mongoose = require('mongoose');
 const rollbar = require('../utils/rollbar');
+const logger = require("../utils/logger");
 
 const Suppliers = mongoose.model('suppliers');
 
 // * GET | All Suppliers
 exports.get = async (req, res) => {
   try {
-    const suppliers = await Suppliers.find();
     logger.log(`GET | Supplier data request`);
+    const suppliers = await Suppliers.find();
     return res.status(200).send(suppliers);
   } catch (err) {
     console.error(err);

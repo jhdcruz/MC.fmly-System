@@ -20,7 +20,7 @@ const { createLogger } = require('@logdna/logger');
 
 const options = {
   app: 'MC-IMS-API',
-  level: 'log' // set a default for when level is not provided in function calls
+  level: 'info'
 };
 
 const logger = createLogger(`${process.env.INGESTION_KEY}`, options);

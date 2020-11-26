@@ -19,14 +19,15 @@
 const mongoose = require('mongoose');
 const argon2 = require('argon2');
 const rollbar = require('../utils/rollbar');
+const logger = require('../utils/logger');
 
 const Users = mongoose.model('users');
 
 // * GET | All users
 exports.get = async (req, res) => {
   try {
-    const users = await Users.find();
     logger.log(`GET | Users data request`);
+    const users = await Users.find();
     return res.status(200).send(users);
   } catch (err) {
     console.error(err);
