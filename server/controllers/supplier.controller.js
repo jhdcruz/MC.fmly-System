@@ -25,12 +25,10 @@ const Suppliers = mongoose.model('suppliers');
 exports.get = async (req, res) => {
   try {
     const suppliers = await Suppliers.find();
-    logger.log(`GET | Supplier data request`);
     return res.status(200).send(suppliers);
   } catch (err) {
     console.error(err);
     rollbar.error(err);
-    logger.error(`Error fetching suppliers list: ${err}`);
     res.status(500).send('Error fetching suppliers');
   }
 };
@@ -65,12 +63,10 @@ exports.findByType = async (req, res) => {
 exports.post = async (req, res) => {
   try {
     const suppliers = await Suppliers.create(req.body);
-    logger.log(`POST | New supplier registered: ${req.body}`);
     return res.status(201).send(suppliers);
   } catch (err) {
     console.error(err);
     rollbar.error(err);
-    logger.error(`Error registering supplier: ${err}`);
     res.status(500).send('Error posting of suppliers');
   }
 };
@@ -80,12 +76,10 @@ exports.put = async (req, res) => {
   const { id } = req.query;
   try {
     const suppliers = await Suppliers.findByIdAndUpdate(id, req.body);
-    logger.log(`Supplier data updated with id: ${id}`);
     return res.status(202).send(suppliers);
   } catch (err) {
     console.error(err);
     rollbar.error(err);
-    logger.error(`Error updating supplier: ${err}`);
     res.status(500).send(`Error updating supplier ${id}`);
   }
 };
@@ -95,12 +89,10 @@ exports.delete = async (req, res) => {
   const { id } = req.query;
   try {
     const suppliers = await Suppliers.findByIdAndDelete(id);
-    logger.log(`Supplier deleted with id: ${id}`);
     return res.status(202).send(suppliers);
   } catch (err) {
     console.error(err);
     rollbar.error(err);
-    logger.error(`Error deleting supplier: ${err}`);
     res.status(500).send(`Error deleting supplier ${id}`);
   }
 };
