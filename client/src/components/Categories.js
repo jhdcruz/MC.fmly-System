@@ -37,7 +37,7 @@ const CategoryList = styled(Col)`
   padding: 3rem 0.8rem 1rem 1.2rem;
   color: whitesmoke;
   background-color: #222126;
-  border-right: 4px ridge #e6a195;
+  border-right: 3px ridge #e6a195;
   box-shadow: -1px 0 6px #232323;
   z-index: 9;
   height: 100vh;
