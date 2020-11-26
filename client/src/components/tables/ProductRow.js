@@ -31,7 +31,7 @@ const TableRow = styled.tr`
   background-color: #222126;
   border-radius: 1rem;
   width: max-content !important;
-  box-shadow: 0 3px 5px #232323;
+  box-shadow: 1px 2px 5px #1b1b1b;
 
   .stock {
     padding-left: 1.7rem !important;
@@ -97,49 +97,27 @@ export default function ProductRow(product) {
         </TableData>
         <TableData className="name">{product.name}</TableData>
         <TableData className="variant">
-          <Tag pill variant="dark">
-            {product.variant}
-          </Tag>
+          <Tag variant="dark">{product.variant}</Tag>
         </TableData>
         <TableData className="type">
-          <Tag pill variant="primary">
-            {product.type}
-          </Tag>
+          <Tag variant="primary">{product.type}</Tag>
         </TableData>
         <TableData className="category">
-          <Tag pill variant="info">
-            {product.category}
-          </Tag>
+          <Tag variant="info">{product.category}</Tag>
         </TableData>
         <TableData className="stock">
           {/* Quantity Color Indicator */}
           {(() => {
             if (product.quantity <= 10) {
-              return (
-                <Tag pill variant="danger">
-                  {product.quantity}
-                </Tag>
-              );
+              return <Tag variant="danger">{product.quantity}</Tag>;
             }
             if (product.quantity <= 20) {
-              return (
-                <Tag pill variant="warning">
-                  {product.quantity}
-                </Tag>
-              );
+              return <Tag variant="warning">{product.quantity}</Tag>;
             }
             if (product.quantity <= 300) {
-              return (
-                <Tag pill variant="success">
-                  {product.quantity}
-                </Tag>
-              );
+              return <Tag variant="success">{product.quantity}</Tag>;
             } else {
-              return (
-                <Tag pill variant="dark">
-                  {product.quantity}
-                </Tag>
-              );
+              return <Tag variant="dark">{product.quantity}</Tag>;
             }
           })()}
         </TableData>
@@ -156,9 +134,7 @@ export default function ProductRow(product) {
           />
         </TableData>
         <TableData className="price">
-          <Tag pill variant="dark">
-            ₱{product.price}
-          </Tag>
+          <Tag variant="dark">₱{product.price}</Tag>
         </TableData>
       </TableRow>
     </>

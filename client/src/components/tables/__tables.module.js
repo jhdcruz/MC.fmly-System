@@ -51,7 +51,8 @@ export const Loader = styled(Spinner)`
 export const Tag = styled(Badge)`
   font-size: 1.2vw;
   padding: 6px 10px 6px 0;
-  box-shadow: 0 1px 5px 1px #1e1e1e;
+  border-radius: 0.3rem;
+  box-shadow: 1px 2px 5px #1b1b1b;
 `;
 
 // * Shows on no products registered
