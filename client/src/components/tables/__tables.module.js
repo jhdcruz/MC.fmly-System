@@ -51,7 +51,7 @@ export const TableContainer = createGlobalStyle`
     }
 
     #UsersTable {
-      width: 94vw !important;
+      width: 93vw !important;
       padding: 0 1rem 1rem 1rem;
       overflow: auto !important;
       height: max-content;
