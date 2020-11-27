@@ -80,6 +80,7 @@ export default function Suppliers() {
                 <Poster
                   key={supplier._id}
                   delete={() => showDeleteModal(true)}
+                  edit={() => showAddModal(true)}
                   icon={supplier.icon}
                   name={supplier.name}
                   description={supplier.description}

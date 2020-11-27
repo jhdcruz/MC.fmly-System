@@ -42,8 +42,16 @@ export const TableContainer = createGlobalStyle`
       height: max-content;
     }
 
+    #SuppliersTable {
+      width: 140vw !important;
+      padding: 0 1rem 1rem 1rem;
+      overflow: auto !important;
+      height: max-content;
+      table-layout: fixed;
+    }
+
     #UsersTable {
-      width: 93vw !important;
+      width: 94vw !important;
       padding: 0 1rem 1rem 1rem;
       overflow: auto !important;
       height: max-content;
@@ -90,7 +98,7 @@ export const TableRow = styled.tr`
   color: white;
   background-color: #222126;
   border-radius: 1rem;
-  width: max-content !important;
+  width: 100vw !important;
   box-shadow: 1px 2px 5px #1b1b1b;
 
   .permission {
@@ -135,6 +143,7 @@ export const TableData = styled.td`
   padding: 1.2rem 1rem 1.2rem 0 !important;
   margin: 0 1rem !important;
   border: none !important;
+  table-layout: fixed;
   white-space: nowrap;
   overflow: hidden !important;
   text-overflow: ellipsis !important;

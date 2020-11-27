@@ -19,11 +19,14 @@
 import Tab from 'react-bootstrap/Tab';
 // Components
 import ProductHeader from '../components/tables/products/ProductHeader';
+import SupplierHeader from '../components/tables/suppliers/SupplierHeader';
 import UserHeader from '../components/tables/users/UserHeader';
 import ProductRow from '../components/tables/products/ProductRow';
+import SupplierRow from '../components/tables/suppliers/SupplierRow';
 import UserRow from '../components/tables/users/UserRow';
 // Services
 import ProductService from '../services/ProductService';
+import SupplierService from '../services/SupplierService';
 import UserService from '../services/UserService';
 // Commons
 import Notification from '../components/common/Notification';
@@ -32,6 +35,7 @@ import { Loader } from '../components/tables/__tables.module';
 
 export default function AuditLog() {
   const [products] = ProductService();
+  const [suppliers] = SupplierService();
   const [users] = UserService();
 
   // * Recent Product List (Max. 10)
@@ -47,6 +51,27 @@ export default function AuditLog() {
               .slice(Math.max(products.length - 10, 0))
               .reverse()
               .map((product) => ProductRow(product))
+          ) : (
+            <Loader variant="primary" animation="border" role="status" />
+          )
+        }
+      />
+    );
+  };
+
+  // * Recent Suppliers List (Max. 10)
+  const ListSuppliers = () => {
+    return (
+      <SupplierHeader
+        _id={suppliers && suppliers._id}
+        data={
+          suppliers && suppliers.length !== null ? (
+            // Reverse & limit result to 10 | prioritize new entries
+            suppliers &&
+            suppliers
+              .slice(Math.max(suppliers.length - 10, 0))
+              .reverse()
+              .map((supplier) => SupplierRow(supplier))
           ) : (
             <Loader variant="primary" animation="border" role="status" />
           )
@@ -83,7 +108,7 @@ export default function AuditLog() {
           <ListProducts />
         </Tab>
         <Tab eventKey="suppliers" title="Suppliers">
-          <ListProducts />
+          <ListSuppliers />
         </Tab>
         <Tab eventKey="Users" title="Users">
           <ListUsers />
