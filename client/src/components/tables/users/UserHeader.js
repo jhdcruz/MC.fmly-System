@@ -25,42 +25,33 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
 
 /*********************************
- * * Products Table Header <th>
+ * * Users Table Header <th>
  *********************************/
 
-export default function ProductHeader(props) {
+export default function UserHeader(props) {
   return (
     <>
       <TableContainer />
       <FluidContainer hover responsive>
         <thead>
           <tr>
-            <TableHeader id="ItemCode" className="actions">
-              SKU <FontAwesomeIcon icon={faCaretDown} />
+            <TableHeader id="UserName" className="actions">
+              Username <FontAwesomeIcon icon={faCaretDown} />
             </TableHeader>
-            <TableHeader id="ProductName">
-              Product <FontAwesomeIcon icon={faCaretDown} />
+            <TableHeader id="Name">
+              Name <FontAwesomeIcon icon={faCaretDown} />
             </TableHeader>
-            <TableHeader id="Variant">
-              Variant <FontAwesomeIcon icon={faCaretDown} />
+            <TableHeader id="Role">
+              Role <FontAwesomeIcon icon={faCaretDown} />
             </TableHeader>
-            <TableHeader id="ItemType">
-              Type <FontAwesomeIcon icon={faCaretDown} />
-            </TableHeader>
-            <TableHeader id="Category">
-              Category <FontAwesomeIcon icon={faCaretDown} />
-            </TableHeader>
-            <TableHeader id="Quantity">
-              Quantity <FontAwesomeIcon icon={faCaretDown} />
+            <TableHeader id="Permission">
+              Permission <FontAwesomeIcon icon={faCaretDown} />
             </TableHeader>
             <TableHeader id="UpdatedAt">
               Updated <FontAwesomeIcon icon={faCaretDown} />
             </TableHeader>
             <TableHeader id="CreatedAt">
               Created <FontAwesomeIcon icon={faCaretDown} />
-            </TableHeader>
-            <TableHeader id="Price">
-              Price ₱ <FontAwesomeIcon icon={faCaretDown} />
             </TableHeader>
           </tr>
         </thead>
