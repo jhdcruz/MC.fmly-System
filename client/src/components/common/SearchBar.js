@@ -29,7 +29,7 @@ const Search = styled.div`
   border-radius: 0.3rem;
   outline: none;
   z-index: 3;
-  box-shadow: 1px 2px 5px #1b1b1b;
+  box-shadow: 3px 3px 8px #1b1b1b;
 
   button {
     border: none;
