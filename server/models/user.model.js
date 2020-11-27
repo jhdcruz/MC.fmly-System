@@ -46,10 +46,6 @@ const userSchema = new Schema(
       type: String,
       trim: true,
       lowercase: true
-    },
-    date: {
-      type: Date,
-      default: Date.now
     }
   },
   { timestamps: true }
