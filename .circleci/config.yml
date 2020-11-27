@@ -3,10 +3,18 @@ version: 2.1
 #orbs:
 #  codecov: codecov/codecov@1.0.2
 
-#workflows:
-#  main:
-#    jobs:
-#      - build:
+workflows:
+  build:
+    jobs:
+      - build
+      - release:
+          requires:
+            - build
+          filters:
+            tags:
+              only: /^v.*/
+            branches:
+              ignore: /.*/
 
 jobs:
   build:
@@ -46,6 +54,16 @@ jobs:
             -F local_username=$CIRCLE_USERNAME
       - store_artifacts:
           path: ~/repo/release/
-#     - codecov/upload:
-#         file: coverage
+  #     - codecov/upload:
+  #         file: coverage
 
+  release:
+    docker:
+      - image: cibuilds/github:latest
+    steps:
+      - attach_workspace:
+          at: ./artifacts
+      - run:
+          name: "Publish Release on GitHub"
+          command: |
+            ghr -t ${GITHUB_TOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME} -c ${CIRCLE_SHA1} --delete Latest ./artifacts/
