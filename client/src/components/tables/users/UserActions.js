@@ -57,7 +57,7 @@ export default function UserActions() {
 
         {/* EDIT Modal */}
         <UserForm
-          header="Edit product"
+          header="Edit user"
           show={editModal}
           onHide={() => showEditModal(false)}
           submit={editModalClose} // TODO: PUT/PATCH data
