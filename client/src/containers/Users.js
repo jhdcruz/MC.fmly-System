@@ -16,8 +16,50 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import Maintenance from '../components/common/Maintenance';
+import { useState } from 'react';
+// Components
+import UserHeader from '../components/tables/users/UserHeader';
+import UserRow from '../components/tables/users/UserRow';
+import UserService from '../services/UserService';
+import UserForm from '../components/forms/UserForm';
+// Commons
+import Controls from '../components/common/Controls';
+import Loader from '../components/common/Loader';
 
 export default function Users() {
-  return <Maintenance />;
+  const [users] = UserService();
+
+  // * Modal Handlers
+  const [modal, showModal] = useState(false);
+  const handleClose = () => showModal(false);
+
+  return (
+    <div
+      style={{
+        overflow: 'auto',
+        margin: '0 auto'
+      }}
+    >
+      {/* User Form Modal */}
+      <UserForm
+        header="Add new user"
+        show={modal}
+        onHide={() => showModal(false)}
+        submit={handleClose}
+        cancel={handleClose}
+      />
+
+      {/* Tab Controls */}
+      <Controls title="Add User" modal={() => showModal(true)} />
+
+      {/* Users Table */}
+      {users && true ? (
+        <UserHeader
+          data={users && users.map((user) => UserRow(user)).reverse()}
+        />
+      ) : (
+        <Loader />
+      )}
+    </div>
+  );
 }
