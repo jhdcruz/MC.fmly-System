@@ -17,8 +17,8 @@
  */
 
 import Moment from 'react-moment';
-import ProductActions from '../products/ProductActions';
 import { TableData, TableRow, Tag } from '../__tables.module';
+import UserActions from './UserActions';
 
 /*********************************
  * * Product Table Rows <td>
@@ -30,7 +30,7 @@ export default function UserRow(user) {
       {/* Product | Table Row */}
       <TableRow className="product" key={user._id} tabIndex={0}>
         <TableData>
-          <ProductActions />
+          <UserActions />
           <Tag variant="dark">{user.username}</Tag>
         </TableData>
         <TableData className="name">{user.name}</TableData>
