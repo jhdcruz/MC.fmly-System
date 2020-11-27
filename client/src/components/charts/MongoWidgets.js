@@ -27,7 +27,7 @@ const Widget = styled.iframe`
   height: 150px;
   background: #222126;
   margin: 0.3rem 0 0.3rem 0.6rem;
-  border: 3px ridge #e6a195;
+  border: 2px outset #e6a195;
   border-radius: 0.4rem;
   box-shadow: 3px 3px 8px #1b1b1b;
 `;
