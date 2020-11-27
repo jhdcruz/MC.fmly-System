@@ -17,29 +17,57 @@
  */
 
 import Tab from 'react-bootstrap/Tab';
-import ProductRow from '../components/tables/products/ProductRow';
+// Components
 import ProductHeader from '../components/tables/products/ProductHeader';
-import { Loader } from '../components/tables/__tables.module';
-import { NavTabs, TabContainer } from './__containers.module';
+import UserHeader from '../components/tables/users/UserHeader';
+import ProductRow from '../components/tables/products/ProductRow';
+import UserRow from '../components/tables/users/UserRow';
+// Services
 import ProductService from '../services/ProductService';
+import UserService from '../services/UserService';
+// Commons
 import Notification from '../components/common/Notification';
+import { NavTabs, TabContainer } from './__containers.module';
+import { Loader } from '../components/tables/__tables.module';
 
 export default function AuditLog() {
   const [products] = ProductService();
+  const [users] = UserService();
 
-  // * Show loading until products are ready to render
+  // * Recent Product List (Max. 10)
   const ListProducts = () => {
     return (
       <ProductHeader
         _id={products && products._id}
         data={
           products && products.length !== null ? (
-            // Reverse & limit result to 20 | prioritize new entries
+            // Reverse & limit result to 10 | prioritize new entries
             products &&
             products
-              .slice(Math.max(products.length - 20, 0))
+              .slice(Math.max(products.length - 10, 0))
               .reverse()
               .map((product) => ProductRow(product))
+          ) : (
+            <Loader variant="primary" animation="border" role="status" />
+          )
+        }
+      />
+    );
+  };
+
+  // * Recent User List (Max. 10)
+  const ListUsers = () => {
+    return (
+      <UserHeader
+        _id={users && users._id}
+        data={
+          users && users.length !== null ? (
+            // Reverse & limit result to 10 | prioritize new entries
+            users &&
+            users
+              .slice(Math.max(users.length - 10, 0))
+              .reverse()
+              .map((product) => UserRow(product))
           ) : (
             <Loader variant="primary" animation="border" role="status" />
           )
@@ -58,7 +86,7 @@ export default function AuditLog() {
           <ListProducts />
         </Tab>
         <Tab eventKey="Users" title="Users">
-          <ListProducts />
+          <ListUsers />
         </Tab>
       </NavTabs>
       <Notification
