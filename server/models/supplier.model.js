@@ -53,7 +53,7 @@ const supplierSchema = new Schema(
     },
     contact: {
       type: String,
-      default: '',
+      default: 'N/A',
       unique: false
     }
   },
