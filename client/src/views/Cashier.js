@@ -23,7 +23,7 @@ import Container from 'react-bootstrap/Container';
 import { faList, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import TabItem from '../components/TabItem';
 import routes from '../routes';
-import RouteTransition from '../components/RouteTransition';
+import RouteTransition from '../components/common/RouteTransition';
 import '../App.scss';
 // Routes
 import PointOfSale from '../containers/PointOfSale';

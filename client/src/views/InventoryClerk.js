@@ -23,7 +23,7 @@ import Inventory from '../containers/Inventory';
 import Sidebar from '../components/Sidebar';
 import routes from '../routes';
 import '../App.scss';
-import RouteTransition from '../components/RouteTransition';
+import RouteTransition from '../components/common/RouteTransition';
 import {
   faBoxes,
   faFileInvoice,

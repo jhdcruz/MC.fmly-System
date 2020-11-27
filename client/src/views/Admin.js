@@ -21,7 +21,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Sidebar from '../components/Sidebar';
 import TabItem from '../components/TabItem';
-import RouteTransition from '../components/RouteTransition';
+import RouteTransition from '../components/common/RouteTransition';
 // Assets
 import routes from '../routes';
 import '../App.scss';
