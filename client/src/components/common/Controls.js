@@ -25,6 +25,7 @@ import Button from 'react-bootstrap/Button';
 const ControlSection = styled.div`
   display: inline-flex;
   width: 100vw;
+  height: max-content;
   margin: 4rem 1rem 0;
   padding: 0 0.5rem;
 
