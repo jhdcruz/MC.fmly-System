@@ -46,6 +46,24 @@ jobs:
             -F local_username=$CIRCLE_USERNAME
       - store_artifacts:
           path: ~/repo/release/
-#     - codecov/upload:
-#         file: coverage
+  #     - codecov/upload:
+  #         file: coverage
 
+  release:
+    docker:
+      - image: cibuilds/github:latest
+    requires:
+      - build
+      filters:
+        branches:
+          ignore: /.*/
+        tags:
+          only: v/^\d+\.\d+\.\d+$/
+    steps:
+      - attach_workspace:
+          at: ./artifacts
+      - run:
+          name: "Publish Release on GitHub"
+          command: |
+            VERSION=$(my-binary --version)
+            ghr -t ${GITHUB_TOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME} -c ${CIRCLE_SHA1} -delete ${VERSION} ./artifacts/
