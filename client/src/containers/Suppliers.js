@@ -21,8 +21,8 @@ import CardDeck from 'react-bootstrap/CardDeck';
 import Poster from '../components/Poster';
 import SupplierForm from '../components/forms/SupplierForm';
 import SupplierService from '../services/SupplierService';
-import Loader from '../components/common/Loader';
 import Controls from '../components/common/Controls';
+import Loader from '../components/common/Loader';
 
 export default function Suppliers() {
   const [suppliers] = SupplierService();
@@ -30,32 +30,6 @@ export default function Suppliers() {
   // * Modal Handlers
   const [modal, showModal] = useState(false);
   const handleClose = () => showModal(false);
-
-  const SuppliersList = () => {
-    // Wait for suppliers list | loader
-    if (suppliers && suppliers.length !== null) {
-      return (
-        <>
-          {suppliers &&
-            suppliers
-              .map((supplier) => (
-                <Poster
-                  key={supplier._id}
-                  icon={supplier.icon}
-                  name={supplier.name}
-                  description={supplier.description}
-                  type={supplier.type}
-                  address={supplier.address}
-                  website={supplier.website}
-                  contact={supplier.contact}
-                />
-              ))
-              .reverse()}
-        </>
-      );
-    }
-    return <Loader />;
-  };
 
   return (
     <div
@@ -81,7 +55,11 @@ export default function Suppliers() {
           overflow: 'auto'
         }}
       >
-        <SuppliersList />
+        {suppliers && true ? (
+          suppliers && suppliers.map((supplier) => Poster(supplier)).reverse()
+        ) : (
+          <Loader />
+        )}
       </CardDeck>
     </div>
   );
