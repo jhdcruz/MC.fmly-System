@@ -29,7 +29,7 @@ const Widget = styled.iframe`
   margin: 0.3rem 0 0.3rem 0.6rem;
   border: 3px ridge #e6a195;
   border-radius: 0.4rem;
-  box-shadow: 1px 2px 8px 2px #232323;
+  box-shadow: 3px 3px 8px #1b1b1b;
 `;
 
 const LargeWidget = styled(Widget)`

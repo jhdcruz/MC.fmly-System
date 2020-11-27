@@ -29,14 +29,18 @@ const Chart = styled.iframe`
   height: 60vh;
   background: #222126;
   margin: 1.5em auto 0 1rem;
-  border: 3px ridge #e6a195;
   border-radius: 0.3rem;
-  box-shadow: 1px 2px 8px 2px #232323;
+  border: 3px ridge #e6a195;
+  box-shadow: 3px 3px 8px #1b1b1b;
 `;
 
-const LargeChart = styled(Chart)`
+const WideChart = styled(Chart)`
   width: 85.5vw;
   max-width: 85.5vw;
+`;
+
+const LargeChart = styled(WideChart)`
+  height: 70vh;
 `;
 
 export const TypeDetails = () => {
@@ -71,6 +75,6 @@ export const ProductMap = () => {
 
 export const ProductQuantityLines = () => {
   return (
-    <LargeChart src="https://charts.mongodb.com/charts-pending-system-rgssg/embed/charts?id=5893384e-3df6-420c-bbfc-7689d93de7f8&autoRefresh=true&maxDataAge=10&attribution=false&theme=dark" />
+    <WideChart src="https://charts.mongodb.com/charts-pending-system-rgssg/embed/charts?id=5893384e-3df6-420c-bbfc-7689d93de7f8&autoRefresh=true&maxDataAge=10&attribution=false&theme=dark" />
   );
 };
