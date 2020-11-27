@@ -12,11 +12,11 @@ workflows:
       - release
         requires:
           - build
-        filters:
-          branches:
-            ignore: /.*/
-          tags:
-            only: v/^\d+\.\d+\.\d+$/
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: v/^\d+\.\d+\.\d+$/
 
 
 jobs:
