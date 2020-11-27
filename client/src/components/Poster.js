@@ -23,7 +23,7 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import ListGroupItem from 'react-bootstrap/ListGroupItem';
 import Button from 'react-bootstrap/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faGlobe, faPen, faTimes } from '@fortawesome/free-solid-svg-icons';
 
 /*********************************
  * * Suppliers Card/Poster
@@ -38,9 +38,10 @@ const CardBlock = styled(Card)`
   margin: 0.3rem 1rem 2rem 0 !important;
   height: max-content;
   border-radius: 0.3rem;
-  border: 3px ridge #e6a195;
+  border: 2px outset #e6a195;
   z-index: 1;
 
+  // * Card Body
   .card-body {
     padding: 1rem 1.25rem 0.5rem 1.25rem;
 
@@ -54,12 +55,27 @@ const CardBlock = styled(Card)`
     }
   }
 
+  // * Card Line-seperated content
   .list-group-flush,
   .list-group-item {
     background-color: #222126;
     color: #d2d2d2;
     border-top: 1px solid #565656 !important;
     border-bottom: 1px solid #565656 !important;
+  }
+
+  // * Card Footer
+  .card-footer {
+    padding: 0.75rem 1.25rem 0 1.25rem;
+
+    a {
+      font-size: 1.3rem;
+      color: #e6a195;
+
+      :hover {
+        color: #9b6b65;
+      }
+    }
   }
 `;
 
@@ -74,17 +90,30 @@ export default function Poster(props) {
         <Card.Title>
           <Image src={props.icon} alt="Supplier Icon" width={40} height={40} />
           <strong>{props.name}</strong>
+          {/* Control Buttons */}
           <Button
             style={{
               float: 'right',
               backgroundColor: 'transparent',
-              color: '#d4d4d4',
+              color: '#ec2738',
               border: 'none',
               outline: 'none'
             }}
             onClick={props.delete}
           >
             <FontAwesomeIcon icon={faTimes} />
+          </Button>
+          <Button
+            style={{
+              float: 'right',
+              backgroundColor: 'transparent',
+              color: '#4de670',
+              border: 'none',
+              outline: 'none'
+            }}
+            onClick={props.edit}
+          >
+            <FontAwesomeIcon icon={faPen} />
           </Button>
         </Card.Title>
       </Card.Body>
@@ -96,9 +125,16 @@ export default function Poster(props) {
         <ListGroupItem>{props.address}</ListGroupItem>
       </ListGroup>
       <Card.Footer>
-        <CardLink href={props.website}>Website</CardLink>
-        <CardLink className="text-muted float-right" href="#">
+        <CardLink className="text-muted" href="#">
           {props.contact}
+        </CardLink>
+        <CardLink
+          className="float-right"
+          href={props.website}
+          target="_blank"
+          rel="noreferrer"
+        >
+          <FontAwesomeIcon icon={faGlobe} />
         </CardLink>
       </Card.Footer>
     </CardBlock>
