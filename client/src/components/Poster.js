@@ -16,11 +16,14 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+import styled from 'styled-components';
 import Card from 'react-bootstrap/Card';
 import Image from 'react-bootstrap/Image';
 import ListGroup from 'react-bootstrap/ListGroup';
 import ListGroupItem from 'react-bootstrap/ListGroupItem';
-import styled from 'styled-components';
+import Button from 'react-bootstrap/Button';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
 /*********************************
  * * Suppliers Card/Poster
@@ -30,7 +33,7 @@ import styled from 'styled-components';
 const CardBlock = styled(Card)`
   background-color: #222126;
   color: #d2d2d2;
-  box-shadow: 0 3px 6px #232323;
+  box-shadow: 3px 3px 8px #1b1b1b;
   padding: 1rem !important;
   margin: 0.3rem 1rem 2rem 0 !important;
   height: max-content;
@@ -71,6 +74,18 @@ export default function Poster(props) {
         <Card.Title>
           <Image src={props.icon} alt="Supplier Icon" width={40} height={40} />
           <strong>{props.name}</strong>
+          <Button
+            style={{
+              float: 'right',
+              backgroundColor: 'transparent',
+              color: '#d4d4d4',
+              border: 'none',
+              outline: 'none'
+            }}
+            onClick={props.delete}
+          >
+            <FontAwesomeIcon icon={faTimes} />
+          </Button>
         </Card.Title>
       </Card.Body>
       <ListGroup className="list-group-flush">

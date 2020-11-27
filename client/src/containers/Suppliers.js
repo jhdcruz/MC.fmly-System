@@ -19,17 +19,82 @@
 import { useState } from 'react';
 import CardDeck from 'react-bootstrap/CardDeck';
 import Poster from '../components/Poster';
-import SupplierForm from '../components/forms/SupplierForm';
 import SupplierService from '../services/SupplierService';
 import Controls from '../components/common/Controls';
 import Loader from '../components/common/Loader';
+import CustomModal from '../components/common/CustomModal';
+import Button from 'react-bootstrap/Button';
+import SupplierForm from '../components/forms/SupplierForm';
 
 export default function Suppliers() {
   const [suppliers] = SupplierService();
 
   // * Modal Handlers
-  const [modal, showModal] = useState(false);
-  const handleClose = () => showModal(false);
+  const [addModal, showAddModal] = useState(false);
+  const [deleteModal, showDeleteModal] = useState(false);
+  const closeAddModal = () => showAddModal(false);
+  const closeDeleteModal = () => showDeleteModal(false);
+
+  const Modals = () => {
+    return (
+      <>
+        <CustomModal
+          size="sm"
+          header="Remove supplier"
+          content="Are you sure?"
+          show={deleteModal}
+          onHide={() => showDeleteModal(false)}
+          footer={
+            <>
+              <Button variant="outline-danger" onClick={closeDeleteModal}>
+                Yes
+              </Button>
+              <Button variant="outline-primary" onClick={closeDeleteModal}>
+                No
+              </Button>
+            </>
+          }
+          style={{
+            textAlign: 'center'
+          }}
+        />
+        <SupplierForm
+          header="Add new supplier"
+          show={addModal}
+          onHide={() => showAddModal(false)}
+          save={closeAddModal}
+          cancel={closeAddModal}
+        />
+      </>
+    );
+  };
+
+  const SuppliersList = () => {
+    // Wait for suppliers list | loader
+    if (suppliers && suppliers.length !== null) {
+      return (
+        <>
+          {suppliers &&
+            suppliers
+              .map((supplier) => (
+                <Poster
+                  key={supplier._id}
+                  delete={() => showDeleteModal(true)}
+                  icon={supplier.icon}
+                  name={supplier.name}
+                  description={supplier.description}
+                  type={supplier.type}
+                  address={supplier.address}
+                  website={supplier.website}
+                  contact={supplier.contact}
+                />
+              ))
+              .reverse()}
+        </>
+      );
+    }
+    return <Loader />;
+  };
 
   return (
     <div
@@ -37,16 +102,8 @@ export default function Suppliers() {
         overflow: 'auto'
       }}
     >
-      {/* Modal */}
-      <SupplierForm
-        header="Add new supplier"
-        show={modal}
-        onHide={() => showModal(false)}
-        save={handleClose}
-        cancel={handleClose}
-      />
-
-      <Controls title="Add Supplier" modal={() => showModal(true)} />
+      <Modals />
+      <Controls title="Add Supplier" modal={() => showAddModal(true)} />
       {/* Supplier group */}
       <CardDeck
         style={{
@@ -55,11 +112,7 @@ export default function Suppliers() {
           overflow: 'auto'
         }}
       >
-        {suppliers && true ? (
-          suppliers && suppliers.map((supplier) => Poster(supplier)).reverse()
-        ) : (
-          <Loader />
-        )}
+        <SuppliersList />
       </CardDeck>
     </div>
   );
