@@ -7,14 +7,14 @@ workflows:
   build:
     jobs:
       - build
-  publish:
-    jobs:
-      - release
-        requires:
-          - build
-          tags:
-            only: v/^\d+\.\d+\.\d+$/
-
+      - release:
+          requires:
+            - build
+          filters:
+            tags:
+              only: /^v.*/
+            branches:
+              ignore: /.*/
 
 jobs:
   build:
