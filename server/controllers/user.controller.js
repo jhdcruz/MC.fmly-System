@@ -74,6 +74,7 @@ exports.put = async (req, res) => {
     const users = await Users.findByIdAndUpdate(id, {
       username: req.body.username,
       password: hashedPwd,
+      name: req.body.name,
       role: req.body.role,
       permission: req.body.permission,
       date: req.body.date

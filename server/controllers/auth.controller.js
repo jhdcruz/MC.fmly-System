@@ -45,6 +45,7 @@ exports.register = async (req, res) => {
     const insertResult = await Users.create({
       username: req.body.username,
       password: hashedPwd,
+      name: req.body.name,
       role: req.body.role,
       permission: req.body.permission,
       date: req.body.date
