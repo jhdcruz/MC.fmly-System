@@ -3,10 +3,21 @@ version: 2.1
 #orbs:
 #  codecov: codecov/codecov@1.0.2
 
-#workflows:
-#  main:
-#    jobs:
-#      - build:
+workflows:
+  build:
+    jobs:
+      - build
+  publish:
+    jobs:
+      - release
+        requires:
+          - build
+        filters:
+          branches:
+            ignore: /.*/
+          tags:
+            only: v/^\d+\.\d+\.\d+$/
+
 
 jobs:
   build:
@@ -52,13 +63,6 @@ jobs:
   release:
     docker:
       - image: cibuilds/github:latest
-    requires:
-      - build
-      filters:
-        branches:
-          ignore: /.*/
-        tags:
-          only: v/^\d+\.\d+\.\d+$/
     steps:
       - attach_workspace:
           at: ./artifacts
