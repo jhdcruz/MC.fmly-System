@@ -16,75 +16,13 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import styled from 'styled-components';
 import Moment from 'react-moment';
 import ProductActions from './ProductActions';
-import { Tag } from '../__tables.module';
+import { TableData, TableRow, Tag } from '../__tables.module';
 
 /*********************************
  * * Product Table Rows <td>
  *********************************/
-
-// * Styled components
-const TableRow = styled.tr`
-  color: white;
-  background-color: #222126;
-  border-radius: 1rem;
-  width: max-content !important;
-  box-shadow: 1px 2px 5px #1b1b1b;
-
-  .stock {
-    padding-left: 1.7rem !important;
-  }
-
-  :hover {
-    background-color: #161518 !important;
-
-    button {
-      visibility: visible;
-    }
-
-    :active,
-    :focus,
-    ::selection {
-      outline: 3px ridge #e6a195 !important;
-      border: none;
-    }
-  }
-
-  // Row's border-radius
-  td:first-child {
-    border-left-style: solid;
-    border-top-left-radius: 0.3rem;
-    border-bottom-left-radius: 0.3rem;
-  }
-
-  td:last-child {
-    border-right-style: solid;
-    border-bottom-right-radius: 0.3rem;
-    border-top-right-radius: 0.3rem;
-  }
-`;
-
-const TableData = styled.td`
-  color: white;
-  text-indent: 0.6rem;
-  font-size: 1.2vw;
-  width: max-content !important;
-  padding: 1.2rem 1rem 1.2rem 0 !important;
-  margin: 0 1rem !important;
-  border: none !important;
-  white-space: nowrap;
-  overflow: hidden !important;
-  text-overflow: ellipsis !important;
-
-  p {
-    display: inline-block;
-    vertical-align: middle;
-    margin: 0;
-    padding: 0 10px 0 0;
-  }
-`;
 
 export default function ProductRow(product) {
   return (

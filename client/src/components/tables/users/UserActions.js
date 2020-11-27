@@ -18,13 +18,13 @@
 
 import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
-import ProductForm from '../../forms/ProductForm';
+import UserForm from '../../forms/UserForm';
 import CustomModal from '../../common/CustomModal';
 import { RowButtons, RowControls } from '../__tables.module';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPen, faTimes } from '@fortawesome/free-solid-svg-icons';
 
-export default function ProductActions() {
+export default function UserActions() {
   const [editModal, showEditModal] = useState(false);
   const [deleteModal, showDeleteModal] = useState(false);
   const editModalClose = () => showEditModal(false);
@@ -36,7 +36,7 @@ export default function ProductActions() {
         {/* DELETE Modal */}
         <CustomModal
           size="sm"
-          header="Delete product"
+          header="Delete user"
           content="Are you sure?"
           show={deleteModal}
           onHide={() => showDeleteModal(false)}
@@ -56,7 +56,7 @@ export default function ProductActions() {
         />
 
         {/* EDIT Modal */}
-        <ProductForm
+        <UserForm
           header="Edit product"
           show={editModal}
           onHide={() => showEditModal(false)}

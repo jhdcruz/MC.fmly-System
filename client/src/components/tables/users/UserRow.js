@@ -16,107 +16,40 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import styled from 'styled-components';
 import Moment from 'react-moment';
 import ProductActions from '../products/ProductActions';
-import { Tag } from '../__tables.module';
+import { TableData, TableRow, Tag } from '../__tables.module';
 
 /*********************************
  * * Product Table Rows <td>
  *********************************/
-
-// * Styled components
-const TableRow = styled.tr`
-  color: white;
-  background-color: #222126;
-  border-radius: 1rem;
-  width: max-content !important;
-  box-shadow: 1px 2px 5px #1b1b1b;
-
-  .stock {
-    padding-left: 1.7rem !important;
-  }
-
-  :hover {
-    background-color: #161518 !important;
-
-    button {
-      visibility: visible;
-    }
-
-    :active,
-    :focus,
-    ::selection {
-      outline: 3px ridge #e6a195 !important;
-      border: none;
-    }
-  }
-
-  // Row's border-radius
-  td:first-child {
-    border-left-style: solid;
-    border-top-left-radius: 0.3rem;
-    border-bottom-left-radius: 0.3rem;
-  }
-
-  td:last-child {
-    border-right-style: solid;
-    border-bottom-right-radius: 0.3rem;
-    border-top-right-radius: 0.3rem;
-  }
-`;
-
-const TableData = styled.td`
-  color: white;
-  text-indent: 0.6rem;
-  font-size: 1.2vw;
-  width: max-content !important;
-  padding: 1.2rem 1rem 1.2rem 0 !important;
-  margin: 0 1rem !important;
-  border: none !important;
-  white-space: nowrap;
-  overflow: hidden !important;
-  text-overflow: ellipsis !important;
-
-  p {
-    display: inline-block;
-    vertical-align: middle;
-    margin: 0;
-    padding: 0 10px 0 0;
-  }
-`;
 
 export default function UserRow(user) {
   return (
     <>
       {/* Product | Table Row */}
       <TableRow className="product" key={user._id} tabIndex={0}>
-        <TableData className="actions" colSpan={1}>
+        <TableData>
           <ProductActions />
+          <Tag variant="dark">{user.username}</Tag>
         </TableData>
         <TableData className="name">{user.name}</TableData>
-        <TableData className="variant">
-          <Tag variant="dark">{user.variant}</Tag>
+        <TableData className="role">
+          <Tag variant="primary">{user.role}</Tag>
         </TableData>
-        <TableData className="type">
-          <Tag variant="primary">{user.type}</Tag>
-        </TableData>
-        <TableData className="category">
-          <Tag variant="info">{user.category}</Tag>
-        </TableData>
-        <TableData className="stock">
-          {/* Quantity Color Indicator */}
+        <TableData className="permission">
+          {/* Permission Color Indicator */}
           {(() => {
-            if (user.quantity <= 10) {
-              return <Tag variant="danger">{user.quantity}</Tag>;
+            if (user.permission === 'admin') {
+              return <Tag variant="warning">{user.permission}</Tag>;
             }
-            if (user.quantity <= 20) {
-              return <Tag variant="warning">{user.quantity}</Tag>;
+            if (user.permission === 'sysadmin') {
+              return <Tag variant="danger">{user.permission}</Tag>;
             }
-            if (user.quantity <= 300) {
-              return <Tag variant="success">{user.quantity}</Tag>;
+            if (user.permission === 'inventory') {
+              return <Tag variant="success">{user.permission}</Tag>;
             } else {
-              return <Tag variant="dark">{user.quantity}</Tag>;
+              return <Tag variant="info">{user.permission}</Tag>;
             }
           })()}
         </TableData>
@@ -126,14 +59,7 @@ export default function UserRow(user) {
         </TableData>
         <TableData className="createdAt">
           {/* Parse date to human-friendly format */}
-          <Moment
-            format="D MMM YYYY | HH:mm"
-            date={user.createdAt}
-            withTitle
-          />
-        </TableData>
-        <TableData className="price">
-          <Tag variant="dark">₱{user.price}</Tag>
+          <Moment format="D MMM YYYY | HH:mm" date={user.createdAt} withTitle />
         </TableData>
       </TableRow>
     </>
