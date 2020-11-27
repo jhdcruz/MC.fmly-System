@@ -21,11 +21,11 @@ import styled from 'styled-components';
 
 const Loading = styled(Spinner)`
   margin: 10px auto;
-  width: 3rem;
-  height: 3rem;
-  position: absolute;
-  right: 50%;
-  top: 35%;
+  width: 2rem;
+  height: 2rem;
+  position: fixed;
+  top: 50vh;
+  left: 50vw;
   z-index: 99;
 `;
 
