@@ -35,8 +35,15 @@ export const TableContainer = createGlobalStyle`
     padding: 0 0 0 0.5rem !important;
     overflow: auto !important;
 
-    table {
+    #ProductsTable {
       width: max-content !important;
+      padding: 0 1rem 1rem 1rem;
+      overflow: auto !important;
+      height: max-content;
+    }
+
+    #UsersTable {
+      width: 93vw !important;
       padding: 0 1rem 1rem 1rem;
       overflow: auto !important;
       height: max-content;

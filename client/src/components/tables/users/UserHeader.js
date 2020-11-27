@@ -32,7 +32,7 @@ export default function UserHeader(props) {
   return (
     <>
       <TableContainer />
-      <FluidContainer hover responsive>
+      <FluidContainer id="UsersTable" hover responsive>
         <thead>
           <tr>
             <TableHeader id="UserName" className="actions">

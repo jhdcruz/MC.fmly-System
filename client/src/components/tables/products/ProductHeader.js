@@ -32,7 +32,7 @@ export default function ProductHeader(props) {
   return (
     <>
       <TableContainer />
-      <FluidContainer hover responsive>
+      <FluidContainer id="ProductsTable" hover responsive>
         <thead>
           <tr>
             <TableHeader id="ItemCode" className="actions">
