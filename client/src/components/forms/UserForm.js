@@ -29,6 +29,7 @@ import { ModalForm, Required } from './__forms.module';
 export default function UserForm(props) {
   return (
     <CustomModal
+      {...props}
       size="lg"
       header={props.header}
       title={props.title}
@@ -42,22 +43,22 @@ export default function UserForm(props) {
               </Form.Label>
               <Form.Control
                 className="input-box"
-                type="username"
-                placeholder="Username"
+                type="text"
+                placeholder="John Doe"
                 autoComplete="new-text"
                 autoSave="off"
                 required
               />
             </Form.Group>
 
-            <Form.Group as={Col} controlId="formGridName">
+            <Form.Group as={Col} controlId="formGridUsername">
               <Form.Label>
                 Username <Required>*</Required>
               </Form.Label>
               <Form.Control
                 className="input-box"
                 type="username"
-                placeholder="Username"
+                placeholder="jdoe"
                 autoComplete="new-text"
                 autoSave="off"
                 required
@@ -72,7 +73,7 @@ export default function UserForm(props) {
               <Form.Control
                 className="input-box"
                 type="password"
-                placeholder="Password"
+                placeholder="***********"
                 autoComplete="new-text"
                 autoSave="off"
                 required
@@ -88,7 +89,7 @@ export default function UserForm(props) {
               </Form.Label>
               <Form.Control
                 className="input-box"
-                placeholder="User role"
+                placeholder="Inventory Clerk"
                 autoComplete="new-text"
                 autoSave="off"
                 required
