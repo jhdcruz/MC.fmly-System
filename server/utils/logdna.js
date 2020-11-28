@@ -23,6 +23,6 @@ const options = {
   level: 'info'
 };
 
-const logger = createLogger(`${process.env.INGESTION_KEY}`, options);
+const logdna = createLogger(`${process.env.INGESTION_KEY}`, options);
 
-module.exports = logger;
+module.exports = logdna;

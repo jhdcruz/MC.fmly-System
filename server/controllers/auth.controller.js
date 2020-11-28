@@ -19,7 +19,7 @@
 const mongoose = require('mongoose');
 const argon2 = require('argon2');
 const rollbar = require('../utils/rollbar');
-const logger = require('../utils/logger');
+const logger = require('../utils/logdna');
 
 const Users = mongoose.model('users');
 

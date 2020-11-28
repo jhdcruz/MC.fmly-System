@@ -18,7 +18,7 @@
 
 const mongoose = require('mongoose');
 const rollbar = require('../utils/rollbar');
-const logger = require("../utils/logger");
+const logger = require("../utils/logdna");
 
 const Suppliers = mongoose.model('suppliers');
 
