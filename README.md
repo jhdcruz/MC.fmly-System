@@ -81,22 +81,17 @@
 
 - [**MongoDB**](https://mongodb.com) - _Document database_
 
-### APIs
-
-- [**GitHub REST API**](https://docs.github.com/en/free-pro-team@latest/rest) - _System Commits & Releases_
-
 ### Tools
 
-- [**Vercel**](https://vercel.com) - _Web Deployment (Front-End)_
-- [**Heroku**](https://heroku.com) - _API Deployment (Back-End)_
-- [**Datadog**](https://datadog.com) - _Server/Database Monitoring_
+- [**Vercel**](https://vercel.com) - _Web/Client Deployment (Front-End)_
+- [**Heroku**](https://heroku.com) - _Server/API Deployment (Back-End)_
+- [**Datadog**](https://datadog.com) - _Server/Database Metrics Monitoring_
 - [**LogDNA**](https://logdna.com) - _Log Management_
-- [**Rollbar**](https://rollbar.com) - _Application Monitoring_
-- [**CircleCI**](https://circleci.com/) - _Continuous Integration (Main)_
-- [**GitHub Actions**](https://github.com/features/actions) - _Continuous Integration (Secondary)_
-- [**TravisCI**](https://travis-ci.com/) - _Continuous Integration (Fallback)_
+- [**Airbrake**](https://airbrake.io) - _Error Monitoring & Performance Insights_
+- [**Rollbar**](https://rollbar.com) - _Error Tracking Software_
+- [**GitHub Actions**](https://github.com/features/actions) - _Continuous Integration (Main)_
+- [**CircleCI**](https://circleci.com/) - _Continuous Integration (Secondary)_
 - [**CodeFactor**](https://codefactor.io) - _Code Review_
-- [**CodeCov**](https://codecov.io/) - _Code Coverage_
 - [**SonarCloud**](https://sonarcloud.io/) - _Code Quality & Security_
 - [**Snyk**](https://snyk.io/) - _Dependency Security & Exploit POC_
 - [**WhiteSource Renovate**](https://renovate.whitesourcesoftware.com/) - _Automated Dependency Updates_
