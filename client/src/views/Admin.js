@@ -39,7 +39,7 @@ import {
 import Dashboard from '../containers/Dashboard';
 import SysInfo from '../containers/SysInfo';
 import AuditLog from '../containers/AuditLog';
-import Invoices from '../containers/Invoices';
+import Transactions from '../containers/Transactions';
 import PointOfSale from '../containers/PointOfSale';
 import Inventory from '../containers/Inventory';
 import Suppliers from '../containers/Suppliers';
@@ -65,9 +65,9 @@ export default function Admin() {
                   icon={faChartBar}
                 />
                 <TabItem
-                  tab="Audit Log"
-                  overlay="Audit Log"
-                  route={routes.AUDITLOG}
+                  tab="Recent"
+                  overlay="Recent"
+                  route={routes.RECENT}
                   icon={faHistory}
                 />
                 <TabItem
@@ -77,8 +77,8 @@ export default function Admin() {
                   icon={faBoxes}
                 />
                 <TabItem
-                  tab="Invoices"
-                  overlay="Invoices"
+                  tab="Transactions"
+                  overlay="Transactions"
                   route={routes.INVOICES}
                   icon={faFileInvoice}
                 />
@@ -122,9 +122,9 @@ export default function Admin() {
                 <>
                   <Route path={routes.DASHBOARD} component={Dashboard} />
                   <Route path={routes.SYSINFO} component={SysInfo} />
-                  <Route path={routes.AUDITLOG} component={AuditLog} />
+                  <Route path={routes.RECENT} component={AuditLog} />
                   <Route path={routes.INVENTORY} component={Inventory} />
-                  <Route path={routes.INVOICES} component={Invoices} />
+                  <Route path={routes.INVOICES} component={Transactions} />
                   <Route path={routes.SUPPLIERS} component={Suppliers} />
                   <Route path={routes.POS} component={PointOfSale} />
                   <Route path={routes.USERS} component={Users} />

@@ -25,7 +25,6 @@ import '../App.scss';
 import RouteTransition from '../components/common/RouteTransition';
 import {
   faChartBar,
-  faHistory,
   faServer,
   faUsers
 } from '@fortawesome/free-solid-svg-icons';
@@ -33,7 +32,7 @@ import {
 import Dashboard from '../containers/Dashboard';
 import SysInfo from '../containers/SysInfo';
 import TabItem from '../components/TabItem';
-import AuditLog from '../containers/AuditLog';
+import Users from '../containers/Users';
 
 /*********************************
  * * Cashier Permission Access
@@ -60,12 +59,6 @@ export default function SysAdmin() {
                   route={routes.DASHBOARD}
                   icon={faChartBar}
                 />
-                <TabItem
-                  tab="Audit Log"
-                  overlay="Audit Log"
-                  route={routes.AUDITLOG}
-                  icon={faHistory}
-                />
               </>
             }
             bottom={
@@ -88,7 +81,7 @@ export default function SysAdmin() {
                 <>
                   <Route exact path={routes.DASHBOARD} component={Dashboard} />
                   <Route path={routes.SYSINFO} component={SysInfo} />
-                  <Route path={routes.AUDITLOG} component={AuditLog} />
+                  <Route path={routes.USERS} component={Users} />
                 </>
               }
             />

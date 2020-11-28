@@ -23,7 +23,7 @@
 module.exports = {
   DASHBOARD: '/dashboard',
   SYSINFO: '/sysinfo',
-  AUDITLOG: '/recent',
+  RECENT: '/recent',
   INVENTORY: '/inventory',
   INVOICES: '/invoices',
   SUPPLIERS: '/suppliers',

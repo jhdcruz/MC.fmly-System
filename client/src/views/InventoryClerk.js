@@ -32,7 +32,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 // Views
 import AuditLog from '../containers/AuditLog';
-import Invoices from '../containers/Invoices';
+import Transactions from '../containers/Transactions';
 import Suppliers from '../containers/Suppliers';
 import TabItem from '../components/TabItem';
 
@@ -51,9 +51,9 @@ export default function InventoryClerk() {
                 <>
                   {/* Role-specific views */}
                   <TabItem
-                    tab="Audit Log"
-                    overlay="Audit Log"
-                    route={routes.AUDITLOG}
+                    tab="Recent"
+                    overlay="Recent"
+                    route={routes.RECENT}
                     icon={faHistory}
                   />
                   <TabItem
@@ -84,9 +84,9 @@ export default function InventoryClerk() {
                 // * View routes
                 children={
                   <>
-                    <Route path={routes.AUDITLOG} component={AuditLog} />
+                    <Route path={routes.RECENT} component={AuditLog} />
                     <Route path={routes.INVENTORY} component={Inventory} />
-                    <Route path={routes.INVOICES} component={Invoices} />
+                    <Route path={routes.INVOICES} component={Transactions} />
                     <Route path={routes.SUPPLIERS} component={Suppliers} />
                   </>
                 }
