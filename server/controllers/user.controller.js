@@ -63,7 +63,7 @@ exports.findByRole = async (req, res) => {
   }
 };
 
-// * PATCH | Overwrite current user
+// * PATCH | Update current user
 exports.patch = async (req, res) => {
   const { id } = req.query;
   try {

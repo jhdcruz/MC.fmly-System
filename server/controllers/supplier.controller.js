@@ -76,7 +76,7 @@ exports.post = async (req, res) => {
   }
 };
 
-// * PATCH | Overwrite a supplier
+// * PATCH | Update a supplier
 exports.patch = async (req, res) => {
   const { id } = req.query;
   try {
