@@ -63,8 +63,8 @@ exports.findByRole = async (req, res) => {
   }
 };
 
-// * PUT | Overwrite current user
-exports.put = async (req, res) => {
+// * PATCH | Overwrite current user
+exports.patch = async (req, res) => {
   const { id } = req.query;
   try {
     // Rehash password when changing

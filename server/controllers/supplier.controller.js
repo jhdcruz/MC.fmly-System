@@ -76,8 +76,8 @@ exports.post = async (req, res) => {
   }
 };
 
-// * PUT | Overwrite a supplier
-exports.put = async (req, res) => {
+// * PATCH | Overwrite a supplier
+exports.patch = async (req, res) => {
   const { id } = req.query;
   try {
     const suppliers = await Suppliers.findByIdAndUpdate(id, req.body);
