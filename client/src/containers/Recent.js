@@ -28,13 +28,13 @@ import UserRow from '../components/tables/users/UserRow';
 import ProductService from '../services/ProductService';
 import SupplierService from '../services/SupplierService';
 import UserService from '../services/UserService';
-import TransactionService from "../services/TransactionService";
+import TransactionService from '../services/TransactionService';
 // Commons
 import Notification from '../components/common/Notification';
 import { NavTabs, TabContainer } from './__containers.module';
 import { Loader } from '../components/tables/__tables.module';
-import TransactionRow from "../components/tables/transactions/TransactionRow";
-import TransactionHeader from "../components/tables/transactions/TransactionHeader";
+import TransactionRow from '../components/tables/transactions/TransactionRow';
+import TransactionHeader from '../components/tables/transactions/TransactionHeader';
 
 export default function Recent() {
   const [products] = ProductService();
@@ -135,8 +135,11 @@ export default function Recent() {
         <Tab eventKey="suppliers" title="Suppliers">
           <ListSuppliers />
         </Tab>
-        <Tab eventKey="Users" title="Users">
+        <Tab eventKey="users" title="Users">
           <ListUsers />
+        </Tab>
+        <Tab eventKey="transactions" title="Transactions">
+          <ListTransactions />
         </Tab>
       </NavTabs>
       <Notification
