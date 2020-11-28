@@ -24,6 +24,8 @@ const helmet = require('helmet');
 const path = require('path');
 const dotenv = require('dotenv');
 const dotenvExpand = require('dotenv-expand');
+const airbrakeExpress = require('@airbrake/node/dist/instrumentation/express');
+const airbrake = require('./utils/airbrake');
 const rollbar = require('./utils/rollbar');
 const logger = require('./utils/logger');
 
@@ -66,14 +68,16 @@ mongoose
 require('./models/user.model');
 require('./models/product.model');
 require('./models/supplier.model');
+require('./models/transaction.model');
 
 // * Routes Imports
 require('./routes/auth.route')(api);
 require('./routes/user.route')(api);
 require('./routes/product.route')(api);
 require('./routes/supplier.route')(api);
+require('./routes/transaction.route')(api);
 
-// Serve static files
+// * Serve static files
 api.use(express.static(path.join(__dirname, '/public')));
 
 // * Main API route | Allow all HTTP methods
@@ -83,12 +87,13 @@ api.all('/', (req, res) => {
   res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
 });
 
-// Fallback | Serve empty index for invisible content
+// * Fallback | Serve empty index for invisible content
 api.get('*', (req, res) => {
   res.sendFile(path.join(__dirname + '/public/index.html'));
 });
 
-// Start rollbar logs
+// * AppMon middlewares
 api.use(rollbar.errorHandler());
+api.use(airbrakeExpress.makeMiddleware(airbrake));
 
 module.exports = api;
