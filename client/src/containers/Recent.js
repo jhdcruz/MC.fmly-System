@@ -28,15 +28,19 @@ import UserRow from '../components/tables/users/UserRow';
 import ProductService from '../services/ProductService';
 import SupplierService from '../services/SupplierService';
 import UserService from '../services/UserService';
+import TransactionService from "../services/TransactionService";
 // Commons
 import Notification from '../components/common/Notification';
 import { NavTabs, TabContainer } from './__containers.module';
 import { Loader } from '../components/tables/__tables.module';
+import TransactionRow from "../components/tables/transactions/TransactionRow";
+import TransactionHeader from "../components/tables/transactions/TransactionHeader";
 
-export default function AuditLog() {
+export default function Recent() {
   const [products] = ProductService();
   const [suppliers] = SupplierService();
   const [users] = UserService();
+  const [transactions] = TransactionService();
 
   // * Recent Product List (Max. 10)
   const ListProducts = () => {
@@ -92,7 +96,28 @@ export default function AuditLog() {
             users
               .slice(Math.max(users.length - 10, 0))
               .reverse()
-              .map((product) => UserRow(product))
+              .map((user) => UserRow(user))
+          ) : (
+            <Loader variant="primary" animation="border" role="status" />
+          )
+        }
+      />
+    );
+  };
+
+  // * Recent Transactions List (Max. 10)
+  const ListTransactions = () => {
+    return (
+      <TransactionHeader
+        _id={transactions && transactions._id}
+        data={
+          transactions && transactions.length !== null ? (
+            // Reverse & limit result to 10 | prioritize new entries
+            transactions &&
+            transactions
+              .slice(Math.max(transactions.length - 10, 0))
+              .reverse()
+              .map((transaction) => TransactionRow(transaction))
           ) : (
             <Loader variant="primary" animation="border" role="status" />
           )

@@ -38,7 +38,7 @@ import {
 // Routes
 import Dashboard from '../containers/Dashboard';
 import SysInfo from '../containers/SysInfo';
-import AuditLog from '../containers/AuditLog';
+import Recent from '../containers/Recent';
 import Transactions from '../containers/Transactions';
 import PointOfSale from '../containers/PointOfSale';
 import Inventory from '../containers/Inventory';
@@ -122,7 +122,7 @@ export default function Admin() {
                 <>
                   <Route path={routes.DASHBOARD} component={Dashboard} />
                   <Route path={routes.SYSINFO} component={SysInfo} />
-                  <Route path={routes.RECENT} component={AuditLog} />
+                  <Route path={routes.RECENT} component={Recent} />
                   <Route path={routes.INVENTORY} component={Inventory} />
                   <Route path={routes.INVOICES} component={Transactions} />
                   <Route path={routes.SUPPLIERS} component={Suppliers} />
