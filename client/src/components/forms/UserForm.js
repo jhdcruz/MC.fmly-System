@@ -61,7 +61,9 @@ export default function UserForm(props) {
                 required
               />
             </Form.Group>
+          </Form.Row>
 
+          <Form.Row>
             <Form.Group as={Col} controlId="formGridUsername">
               <Form.Label>
                 Username <Required>*</Required>
@@ -77,7 +79,7 @@ export default function UserForm(props) {
             </Form.Group>
 
             {/* User Password | Auto-rehash on submit */}
-            <Form.Group controlId="formGridDescription">
+            <Form.Group as={Col} controlId="formGridDescription">
               <Form.Label>
                 Password <Required>*</Required>
               </Form.Label>
