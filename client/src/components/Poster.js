@@ -23,7 +23,12 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import ListGroupItem from 'react-bootstrap/ListGroupItem';
 import Button from 'react-bootstrap/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGlobe, faPen, faTimes } from '@fortawesome/free-solid-svg-icons';
+import {
+  faGlobe,
+  faPen,
+  faPhone,
+  faTimes
+} from '@fortawesome/free-solid-svg-icons';
 
 /*********************************
  * * Suppliers Card/Poster
@@ -41,6 +46,10 @@ const CardBlock = styled(Card)`
   border: 2px outset #e6a195;
   z-index: 1;
 
+  :hover {
+    background-color: #121416;
+  }
+
   // * Card Body
   .card-body {
     padding: 1rem 1.25rem 0.5rem 1.25rem;
@@ -53,12 +62,26 @@ const CardBlock = styled(Card)`
     strong {
       vertical-align: middle;
     }
+
+    button {
+      float: right;
+      border: none;
+      visibility: hidden;
+    }
+
+    :hover {
+      background-color: #121416;
+
+      button {
+        visibility: visible;
+      }
+    }
   }
 
   // * Card Line-seperated content
   .list-group-flush,
   .list-group-item {
-    background-color: #222126;
+    background-color: transparent;
     color: #d2d2d2;
     border-top: 1px solid #565656 !important;
     border-bottom: 1px solid #565656 !important;
@@ -66,10 +89,10 @@ const CardBlock = styled(Card)`
 
   // * Card Footer
   .card-footer {
-    padding: 0.75rem 1.25rem 0 1.25rem;
+    padding: 0.75rem 0.5rem 0;
 
     a {
-      font-size: 1.3rem;
+      font-size: 1rem;
       color: #e6a195;
 
       :hover {
@@ -85,34 +108,16 @@ const CardLink = styled(Card.Link)`
 
 export default function Poster(props) {
   return (
-    <CardBlock>
+    <CardBlock tabIndex={0}>
       <Card.Body>
         <Card.Title>
           <Image src={props.icon} alt="Supplier Icon" width={40} height={40} />
           <strong>{props.name}</strong>
           {/* Control Buttons */}
-          <Button
-            style={{
-              float: 'right',
-              backgroundColor: 'transparent',
-              color: '#ec2738',
-              border: 'none',
-              outline: 'none'
-            }}
-            onClick={props.delete}
-          >
+          <Button variant="outline-danger" onClick={props.delete}>
             <FontAwesomeIcon icon={faTimes} />
           </Button>
-          <Button
-            style={{
-              float: 'right',
-              backgroundColor: 'transparent',
-              color: '#4de670',
-              border: 'none',
-              outline: 'none'
-            }}
-            onClick={props.edit}
-          >
+          <Button variant="outline-success" onClick={props.edit}>
             <FontAwesomeIcon icon={faPen} />
           </Button>
         </Card.Title>
@@ -126,7 +131,7 @@ export default function Poster(props) {
       </ListGroup>
       <Card.Footer>
         <CardLink className="text-muted" href="#">
-          {props.contact}
+          <FontAwesomeIcon icon={faPhone} /> {props.contact}
         </CardLink>
         <CardLink
           className="float-right"
