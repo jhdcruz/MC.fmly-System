@@ -21,6 +21,11 @@ const { Schema } = mongoose;
 
 const userSchema = new Schema(
   {
+    image: {
+      type: String,
+      default:
+        'https://i.imgur.com/mgrAQIn.png'
+    },
     username: {
       type: String,
       unique: true,
