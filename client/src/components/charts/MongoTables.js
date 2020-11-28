@@ -22,7 +22,7 @@ import styled from 'styled-components';
  * * MongoDB Embeddable Charts
  *******************************/
 
-export const Chart = styled.iframe`
+const Table = styled.iframe`
   width: 42vw !important;
   min-width: 36vw !important;
   height: 77vh !important;
@@ -35,11 +35,11 @@ export const Chart = styled.iframe`
 
 export const UnderStocked = () => {
   return (
-    <Chart src="https://charts.mongodb.com/charts-pending-system-rgssg/embed/charts?id=0d482624-41e6-4733-b256-844e341f22c1&autoRefresh=true&maxDataAge=10&attribution=false&theme=dark" />
+    <Table src="https://charts.mongodb.com/charts-pending-system-rgssg/embed/charts?id=0d482624-41e6-4733-b256-844e341f22c1&autoRefresh=true&maxDataAge=10&attribution=false&theme=dark" />
   );
 };
 export const OverStocked = () => {
   return (
-    <Chart src="https://charts.mongodb.com/charts-pending-system-rgssg/embed/charts?id=7ee94dc4-1e62-4d92-bc08-4eeb19d6b47f&autoRefresh=true&maxDataAge=10&attribution=false&theme=dark" />
+    <Table src="https://charts.mongodb.com/charts-pending-system-rgssg/embed/charts?id=7ee94dc4-1e62-4d92-bc08-4eeb19d6b47f&autoRefresh=true&maxDataAge=10&attribution=false&theme=dark" />
   );
 };
