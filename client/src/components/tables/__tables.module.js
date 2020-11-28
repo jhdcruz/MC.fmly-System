@@ -57,6 +57,13 @@ export const TableContainer = createGlobalStyle`
       height: max-content;
     }
 
+    #TransactionsTable {
+      width: 93vw !important;
+      padding: 0 1rem 1rem 1rem;
+      overflow: auto !important;
+      height: max-content;
+    }
+
     .actions {
       text-align: center;
     }
@@ -101,7 +108,7 @@ export const TableRow = styled.tr`
   width: 100vw !important;
   box-shadow: 1px 2px 5px #1b1b1b;
 
-  .permission {
+  .permission, .payment {
     text-transform: capitalize;
   }
 
