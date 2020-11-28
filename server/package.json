@@ -22,7 +22,7 @@
     "lint": "prettier \"./**/**.{js,ts}\" --write && eslint \"./**/**/*.{js,ts}\""
   },
   "dependencies": {
-    "@airbrake/node": "^1.4.1",
+    "@airbrake/node": "1.4.1",
     "@logdna/logger": "2.1.1",
     "argon2": "0.27.0",
     "axios": "0.21.0",
