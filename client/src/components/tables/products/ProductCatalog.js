@@ -23,7 +23,7 @@ import { TableData, TableRow, Tag } from '../__tables.module';
  * * Product Table Rows <td> | No Controls
  *****************************************/
 
-export default function ProductRow(product) {
+export default function ProductCatalog(product) {
   return (
     <>
       {/* Product | Table Row */}
