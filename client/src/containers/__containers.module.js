@@ -17,7 +17,7 @@
  */
 
 import styled from 'styled-components';
-import { Tabs } from 'react-bootstrap';
+import Tabs from 'react-bootstrap/Tabs';
 
 /****************************************
  * * Shared Styles between `containers`

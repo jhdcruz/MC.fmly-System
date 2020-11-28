@@ -17,7 +17,7 @@
  */
 
 import styled from 'styled-components';
-import { Form } from 'react-bootstrap';
+import Form from 'react-bootstrap/Form';
 
 /****************************************
  * * Shared Styles between `forms`

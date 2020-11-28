@@ -17,7 +17,8 @@
  */
 
 import styled from 'styled-components';
-import { Button, ListGroup } from 'react-bootstrap';
+import Button from 'react-bootstrap/Button';
+import ListGroup from 'react-bootstrap/ListGroup';
 
 /****************************************
  * * Shared Styles between `system`
