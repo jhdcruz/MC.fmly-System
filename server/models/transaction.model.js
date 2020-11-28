@@ -43,6 +43,10 @@ const transactionSchema = new Schema(
       trim: true,
       default: 'Pending'
     },
+    payment: {
+      type: String,
+      lowercase: true
+    },
     date: {
       type: Date,
       required: true

@@ -40,6 +40,9 @@ export default function TransactionRow(transaction) {
         <TableData className="total">
           <Tag variant="info">₱{transaction.total}</Tag>
         </TableData>
+        <TableData className="payment">
+          <Tag variant="info">₱{transaction.payment}</Tag>
+        </TableData>
         <TableData className="receipt">
           <a href={transaction.receipt} target="_blank" rel="noreferrer">
             <Tag variant="primary">
