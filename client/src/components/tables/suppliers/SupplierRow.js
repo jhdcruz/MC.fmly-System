@@ -33,21 +33,18 @@ export default function SupplierRow(supplier) {
       <TableRow className="supplier" key={supplier._id} tabIndex={0}>
         <TableData className="name">
           <SupplierActions />
-          <Tag variant="warning">{supplier.name}</Tag>
+          <Tag variant="primary">{supplier.name}</Tag>
         </TableData>
         <TableData className="description">{supplier.description}</TableData>
         <TableData className="type">{supplier.type}</TableData>
         <TableData className="contact">
-          <Tag variant="info">{supplier.contact}</Tag>
+          <Tag variant="dark">{supplier.contact}</Tag>
         </TableData>
         <TableData className="website">
           <a href={supplier.website} target="_blank" rel="noreferrer">
-            <Tag variant="primary">
+            <Tag variant="info">
               <FontAwesomeIcon
                 icon={faGlobe}
-                style={{
-                  color: '#1e1e1e'
-                }}
               />
             </Tag>
           </a>
