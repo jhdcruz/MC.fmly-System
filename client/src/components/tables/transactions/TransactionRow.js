@@ -33,15 +33,7 @@ export default function TransactionRow(transaction) {
       <TableRow className="transaction" key={transaction._id} tabIndex={0}>
         <TableData className="order_id">
           <TransactionActions />
-          <Tag variant="warning">{transaction.order_id}</Tag>
-        </TableData>
-        <TableData className="name">{transaction.name}</TableData>
-        <TableData className="status">{transaction.status}</TableData>
-        <TableData className="total">
-          <Tag variant="info">₱{transaction.total}</Tag>
-        </TableData>
-        <TableData className="payment">
-          <Tag variant="info">₱{transaction.payment}</Tag>
+          <Tag variant="dark">{transaction.order_id}</Tag>
         </TableData>
         <TableData className="receipt">
           <a href={transaction.receipt} target="_blank" rel="noreferrer">
@@ -55,10 +47,27 @@ export default function TransactionRow(transaction) {
             </Tag>
           </a>
         </TableData>
+        <TableData className="name">{transaction.name}</TableData>
+        <TableData className="status">
+          {/* Quantity Color Indicator */}
+          {(() => {
+            if (transaction.status === 'Completed') {
+              return <Tag variant="success">{transaction.status}</Tag>;
+            } else {
+              return <Tag variant="danger">{transaction.status}</Tag>;
+            }
+          })()}
+        </TableData>
+        <TableData className="total">
+          <Tag variant="warning">₱{transaction.total}</Tag>
+        </TableData>
+        <TableData className="payment">
+          <Tag variant="info">{transaction.payment}</Tag>
+        </TableData>
         <TableData className="date">
           {/* Parse date to human-friendly format */}
           <Moment
-            format="D MMM YYYY | HH:mm"
+            format="D MMM YYYY"
             date={transaction.date}
             withTitle
           />
