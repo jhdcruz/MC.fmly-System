@@ -38,9 +38,6 @@ export default function TransactionHeader(props) {
             <TableHeader id="OrderId" className="actions">
               Order ID <FontAwesomeIcon icon={faCaretDown} />
             </TableHeader>
-            <TableHeader id="Receipt">
-              Receipt <FontAwesomeIcon icon={faCaretDown} />
-            </TableHeader>
             <TableHeader id="Name">
               Name <FontAwesomeIcon icon={faCaretDown} />
             </TableHeader>
@@ -52,6 +49,9 @@ export default function TransactionHeader(props) {
             </TableHeader>
             <TableHeader id="Payment">
               Payment <FontAwesomeIcon icon={faCaretDown} />
+            </TableHeader>
+            <TableHeader id="Receipt">
+              Receipt <FontAwesomeIcon icon={faCaretDown} />
             </TableHeader>
             <TableHeader id="Date">
               Date <FontAwesomeIcon icon={faCaretDown} />
