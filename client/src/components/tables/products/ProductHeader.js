@@ -60,7 +60,7 @@ export default function ProductHeader(props) {
               Created <FontAwesomeIcon icon={faCaretDown} />
             </TableHeader>
             <TableHeader id="Price">
-              Price ₱ <FontAwesomeIcon icon={faCaretDown} />
+              Price <FontAwesomeIcon icon={faCaretDown} />
             </TableHeader>
           </tr>
         </thead>
