@@ -23,6 +23,6 @@ module.exports = (api) => {
   api.get('/products/:name', ProductController.findByName);
   api.get('/products/:code', ProductController.findByCode);
   api.post('/products', ProductController.post);
-  api.put('/products/:id', ProductController.put);
+  api.put('/products/:id', ProductController.patch);
   api.delete('/products/:id', ProductController.delete);
 };

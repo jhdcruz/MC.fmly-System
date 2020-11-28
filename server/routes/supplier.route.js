@@ -23,6 +23,6 @@ module.exports = (api) => {
   api.get('/suppliers/:name', SupplierController.findByName);
   api.get('/suppliers/:type', SupplierController.findByType);
   api.post('/suppliers', SupplierController.post);
-  api.put('/suppliers/:id', SupplierController.put);
+  api.put('/suppliers/:id', SupplierController.patch);
   api.delete('/suppliers/:id', SupplierController.delete);
 };

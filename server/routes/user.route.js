@@ -22,6 +22,6 @@ module.exports = (api) => {
   api.get('/users', UserController.get);
   api.get('/users/:name', UserController.findByName);
   api.get('/users/:role', UserController.findByRole);
-  api.put('/users/:id', UserController.put);
+  api.put('/users/:id', UserController.patch);
   api.delete('/users/:id', UserController.delete);
 };
