@@ -25,9 +25,9 @@ const path = require('path');
 const dotenv = require('dotenv');
 const dotenvExpand = require('dotenv-expand');
 const airbrakeExpress = require('@airbrake/node/dist/instrumentation/express');
-const airbrake = require('./utils/airbrake');
-const rollbar = require('./utils/rollbar');
-const logger = require('./utils/logdna');
+const airbrake = require('./middlewares/airbrake');
+const rollbar = require('./middlewares/rollbar');
+const logger = require('./middlewares/logdna');
 
 // set .env
 const env = dotenv.config();
