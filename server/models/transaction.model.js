@@ -21,9 +21,11 @@ const { Schema } = mongoose;
 
 const transactionSchema = new Schema(
   {
+    receipt: {
+      type: String
+    },
     name: {
-      type: String,
-      minLength: 4
+      type: String
     },
     order_id: {
       type: String,
@@ -32,7 +34,7 @@ const transactionSchema = new Schema(
       trim: true,
       minLength: 6
     },
-    price: {
+    total: {
       type: Number,
       trim: true
     },
