@@ -36,6 +36,17 @@ export default function UserForm(props) {
       content={
         <ModalForm autoComplete="new-text" autoSave="off">
           <Form.Row>
+            {/* Supplier Icon */}
+            <Form.Group controlId="formGridName">
+              <Form.Label>Logo</Form.Label>
+              <Form.File
+                type="file"
+                name="image"
+                id="inputFileControl"
+                accept="image/*"
+              />
+            </Form.Group>
+
             {/* User desired name */}
             <Form.Group as={Col} controlId="formGridName">
               <Form.Label>
