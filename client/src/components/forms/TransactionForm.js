@@ -39,13 +39,13 @@ export default function TransactionForm(props) {
         <ModalForm autoComplete="new-text" autoSave="off">
           <Form.Row>
             {/* Supplier Icon */}
-            <Form.Group controlId="formGridName">
+            <Form.Group controlId="formGridReceipt">
               <Form.Label>Receipt</Form.Label>
               <Form.File type="file" name="receipt" id="inputFileControl" />
             </Form.Group>
 
             {/* Supplier Name */}
-            <Form.Group as={Col} controlId="formGridName">
+            <Form.Group as={Col} controlId="formGridOID">
               <Form.Label>
                 Order ID <Required>*</Required>
               </Form.Label>
@@ -62,35 +62,38 @@ export default function TransactionForm(props) {
           </Form.Row>
 
           {/* Supplier Description */}
-          <Form.Group controlId="formGridDescription">
-            <Form.Label>Name</Form.Label>
-            <Form.Control
-              className="input-box"
-              as="textarea"
-              name="name"
-              placeholder="Buyer's Name"
-              autoComplete="new-text"
-              autoSave="off"
-            />
-          </Form.Group>
-
           <Form.Row>
-            {/* Product Category */}
-            <Form.Group as={Col} controlId="formGridCategory">
-              <Form.Label>Status</Form.Label>
+            <Form.Group as={Col} controlId="formGridName">
+              <Form.Label>Name</Form.Label> <Required>*</Required>
               <Form.Control
                 className="input-box"
-                name="status"
-                as="textarea"
-                placeholder="Order status"
+                name="name"
+                placeholder="Buyer's Name"
                 autoComplete="new-text"
                 autoSave="off"
+                required
               />
+            </Form.Group>
+
+            {/* Transaction Category */}
+            <Form.Group as={Col} controlId="formGridStatus">
+              <Form.Label>
+                Status <Required>*</Required>
+              </Form.Label>
+              <Form.Control
+                className="input-box"
+                as="select"
+                defaultValue="Choose..."
+                required
+              >
+                <option>Completed</option>
+                <option>Pending</option>
+              </Form.Control>
             </Form.Group>
           </Form.Row>
 
           <Form.Row>
-            {/* Product Type */}
+            {/* Transaction Type */}
             <Form.Group as={Col} controlId="formGridType">
               <Form.Label>
                 Total <Required>*</Required>
@@ -98,6 +101,7 @@ export default function TransactionForm(props) {
               <Form.Control
                 className="input-box"
                 name="total"
+                type="number"
                 placeholder="Total amount"
                 autoComplete="new-text"
                 autoSave="off"
@@ -105,9 +109,9 @@ export default function TransactionForm(props) {
               />
             </Form.Group>
 
-            {/* Product Quantity */}
+            {/* Transaction Quantity */}
             <Form.Group as={Col} controlId="formGridWebite">
-              <Form.Label>Date</Form.Label>
+              <Form.Label>Date</Form.Label> <Required>*</Required>
               <InputGroup>
                 <FormControl
                   className="input-box"
