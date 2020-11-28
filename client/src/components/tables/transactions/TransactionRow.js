@@ -17,8 +17,8 @@
  */
 
 import Moment from 'react-moment';
+import TransactionActions from './TransactionActions';
 import { TableData, TableRow, Tag } from '../__tables.module';
-import SupplierActions from './SupplierActions';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFile } from '@fortawesome/free-solid-svg-icons';
 
@@ -32,7 +32,7 @@ export default function TransactionRow(transaction) {
       {/* Product | Table Row */}
       <TableRow className="transaction" key={transaction._id} tabIndex={0}>
         <TableData className="order_id">
-          <SupplierActions />
+          <TransactionActions />
           <Tag variant="warning">{transaction.order_id}</Tag>
         </TableData>
         <TableData className="name">{transaction.name}</TableData>

@@ -24,7 +24,7 @@ import { RowButtons, RowControls } from '../__tables.module';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPen, faTimes } from '@fortawesome/free-solid-svg-icons';
 
-export default function SupplierActions() {
+export default function TransactionActions() {
   const [editModal, showEditModal] = useState(false);
   const [deleteModal, showDeleteModal] = useState(false);
   const editModalClose = () => showEditModal(false);
