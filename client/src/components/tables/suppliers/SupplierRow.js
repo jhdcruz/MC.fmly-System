@@ -43,9 +43,7 @@ export default function SupplierRow(supplier) {
         <TableData className="website">
           <a href={supplier.website} target="_blank" rel="noreferrer">
             <Tag variant="info">
-              <FontAwesomeIcon
-                icon={faGlobe}
-              />
+              <FontAwesomeIcon icon={faGlobe} />
             </Tag>
           </a>
         </TableData>
