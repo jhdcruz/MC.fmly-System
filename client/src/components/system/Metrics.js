@@ -22,7 +22,7 @@ import styled from 'styled-components';
  * * Embed MongoDB Atlas Metrics (Datadog)
  *****************************************************/
 
-export const Chart = styled.iframe`
+const Chart = styled.iframe`
   width: 100% !important;
   height: 97vh !important;
   background: #222126;

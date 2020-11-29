@@ -17,7 +17,7 @@
  */
 
 import Tab from 'react-bootstrap/Tab';
-import { DBMetrics } from '../components/system/MongoMetrics';
+import { DBMetrics } from '../components/system/Metrics';
 import Logs from '../components/system/Logs';
 import Updates from '../components/system/Updates';
 import Development from '../components/system/Development';
