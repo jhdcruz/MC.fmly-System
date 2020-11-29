@@ -25,7 +25,7 @@ import TransactionService from '../services/TransactionService';
 import Controls from '../components/common/Controls';
 import Loader from '../components/common/Loader';
 
-export default function Users() {
+export default function Transactions() {
   const [transactions] = TransactionService();
 
   // * Modal Handlers

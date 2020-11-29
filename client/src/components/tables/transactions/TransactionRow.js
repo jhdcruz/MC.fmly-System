@@ -35,18 +35,6 @@ export default function TransactionRow(transaction) {
           <TransactionActions />
           <Tag variant="dark">{transaction.order_id}</Tag>
         </TableData>
-        <TableData className="receipt">
-          <a href={transaction.receipt} target="_blank" rel="noreferrer">
-            <Tag variant="primary">
-              <FontAwesomeIcon
-                icon={faFile}
-                style={{
-                  color: '#1e1e1e'
-                }}
-              />
-            </Tag>
-          </a>
-        </TableData>
         <TableData className="name">{transaction.name}</TableData>
         <TableData className="status">
           {/* Quantity Color Indicator */}
@@ -64,13 +52,21 @@ export default function TransactionRow(transaction) {
         <TableData className="payment">
           <Tag variant="info">{transaction.payment}</Tag>
         </TableData>
+        <TableData className="receipt">
+          <a href={transaction.receipt} target="_blank" rel="noreferrer">
+            <Tag variant="primary">
+              <FontAwesomeIcon
+                icon={faFile}
+                style={{
+                  color: '#1e1e1e'
+                }}
+              />
+            </Tag>
+          </a>
+        </TableData>
         <TableData className="date">
           {/* Parse date to human-friendly format */}
-          <Moment
-            format="D MMM YYYY"
-            date={transaction.date}
-            withTitle
-          />
+          <Moment format="D MMM YYYY" date={transaction.date} withTitle />
         </TableData>
         <TableData className="createdAt">
           {/* Parse date to human-friendly format */}
