@@ -19,20 +19,25 @@
 import Col from 'react-bootstrap/Col';
 import Tab from 'react-bootstrap/Tab';
 import Row from 'react-bootstrap/Row';
-import Maintenance from '../components/common/Maintenance';
 import {
   CategoryDetails,
+  OrdersPerMonth,
+  OrderStatus,
   ProductMap,
   ProductQuantityLines,
   TotalByCategory,
   TotalByTypes,
+  TotalRevenueChart,
   TypeDetails
 } from '../components/charts/MongoCharts';
 import {
+  CompletedOrders,
   InventoryCapacity,
   InventoryTotal,
   InventoryValue,
+  PendingOrders,
   TotalProducts,
+  TotalRevenue,
   TotalSuppliers
 } from '../components/charts/MongoWidgets';
 import { OverStocked, UnderStocked } from '../components/charts/MongoTables';
@@ -96,10 +101,23 @@ export default function Dashboard() {
           eventKey="order"
           title="Order Reports"
           style={{
-            padding: '0 2rem'
+            padding: '1rem 2rem'
           }}
         >
-          <Maintenance />
+          <Row>
+            >
+            <Col className="p-0 pt-1">
+              <TotalRevenue />
+              <PendingOrders />
+              <CompletedOrders />
+            </Col>
+            <TotalRevenueChart />
+          </Row>
+
+          <Row>
+            <OrderStatus />
+            <OrdersPerMonth />
+          </Row>
         </Tab>
       </NavTabs>
     </TabContainer>

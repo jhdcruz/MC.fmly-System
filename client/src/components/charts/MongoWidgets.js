@@ -37,6 +37,7 @@ const LargeWidget = styled(Widget)`
   height: 330px;
 `;
 
+// * Inventory
 export const TotalSuppliers = () => {
   return (
     <Widget src="https://charts.mongodb.com/charts-pending-system-rgssg/embed/charts?id=d4bb6a84-d360-42f0-880e-0bf274210410&autoRefresh=true&maxDataAge=10&attribution=false&theme=dark" />
@@ -64,5 +65,24 @@ export const InventoryTotal = () => {
 export const InventoryCapacity = () => {
   return (
     <LargeWidget src="https://charts.mongodb.com/charts-pending-system-rgssg/embed/charts?id=14fb2d3e-b3de-4dc5-9088-acc3dd2fdb0e&autoRefresh=true&maxDataAge=10&attribution=false&theme=dark" />
+  );
+};
+
+// * Transactions / Orders
+export const TotalRevenue = () => {
+  return (
+    <Widget src="https://charts.mongodb.com/charts-pending-system-rgssg/embed/charts?id=1907e4c5-2282-46ca-984a-13616e8a9c49&autoRefresh=true&maxDataAge=10&attribution=false&theme=dark" />
+  );
+};
+
+export const PendingOrders = () => {
+  return (
+    <Widget src="https://charts.mongodb.com/charts-pending-system-rgssg/embed/charts?id=77d75a38-f2bf-47be-a560-c6b9fb169e8a&autoRefresh=true&maxDataAge=10&attribution=false&theme=dark" />
+  );
+};
+
+export const CompletedOrders = () => {
+  return (
+    <Widget src="https://charts.mongodb.com/charts-pending-system-rgssg/embed/charts?id=08f2c3e9-382b-4423-9a5f-6197e12b5e15&autoRefresh=true&maxDataAge=10&attribution=false&theme=dark" />
   );
 };
