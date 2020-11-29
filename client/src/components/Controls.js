@@ -19,7 +19,7 @@
 import styled from 'styled-components';
 import SearchBar from './common/SearchBar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faPlus, faThLarge } from '@fortawesome/free-solid-svg-icons';
 import Button from 'react-bootstrap/Button';
 
 const ControlSection = styled.div`
@@ -29,15 +29,12 @@ const ControlSection = styled.div`
   margin: 4rem 1rem 0;
   padding: 0 0.5rem;
   overflow: hidden;
-
-  button {
-    margin: 0 0.4rem;
-  }
 `;
 
 const Control = styled(Button)`
   color: #c4c4c4;
   background-color: #222126;
+  margin: 0 0.3rem;
   border-radius: 0.3rem;
   border: none;
   box-shadow: 1px 2px 5px #1b1b1b;
@@ -57,6 +54,14 @@ export default function Controls({ modal }) {
       <SearchBar />
       <Control onClick={modal}>
         <FontAwesomeIcon icon={faPlus} />
+      </Control>
+
+      {/* Views Types */}
+      <Control>
+        <FontAwesomeIcon icon={faBars} />
+      </Control>
+      <Control>
+        <FontAwesomeIcon icon={faThLarge} />
       </Control>
     </ControlSection>
   );

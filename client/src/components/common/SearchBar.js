@@ -24,29 +24,24 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 const Search = styled.div`
   width: 30vw;
+  margin-right: 0.5rem;
   background-color: #222126;
   color: #d2d2d2 !important;
   border-radius: 0.3rem;
   outline: none;
   z-index: 3;
   box-shadow: 3px 3px 8px #1b1b1b;
+}
 
-  button {
-    border: none;
+.search-icon {
+  background-color: #222126;
+  color: #d2d2d2 !important;
+  padding: 0 10px;
+  outline: none;
+  border: none;
+  border-right: 3px ridge #e6a195;
+}
 
-    :hover {
-      background-color: #121416;
-    }
-  }
-
-  .search-icon {
-    background-color: #222126;
-    color: #d2d2d2 !important;
-    padding: 0 10px;
-    outline: none;
-    border: none;
-    border-right: 3px ridge #e6a195;
-  }
 }
 
 // Searchbar input
