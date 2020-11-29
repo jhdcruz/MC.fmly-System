@@ -108,7 +108,6 @@
 
 **Windows:**
 
-- [**`python2.7`**](https://getpython.org) - For native dependency rebuilds
 - [**`windows-build-tools`**](https://www.npmjs.com/package/windows-build-tools)
 
 ```shell
@@ -120,18 +119,16 @@ npm i -g windows-build-tools # Should be in elevated shell.
 - Debian
   - `dpkg`
   - `dpkg-dev`
-  - `python2.7`
 
 ```shell
-sudo apt install dpkg dpkg-dev python2.7
+sudo apt install dpkg dpkg-dev
 ```
 
 - Red Hat
   - `rpm`
-  - `python2.7`
 
 ```shell
-sudo yum install rpm python2.7
+sudo yum install rpm
 ```
 
 replace `yum` with your distro package provider.
@@ -139,9 +136,8 @@ replace `yum` with your distro package provider.
 **MacOS**
 
 - `rpm`
-- `python2.7`
 
-> `brew install rpm python2.7`
+> `brew install rpm
 
 **Optional:**
 
@@ -157,7 +153,6 @@ replace `yum` with your distro package provider.
 
 ```dotenv
 MONGO_URL=[Your URI Here]
-ROLLBAR_ID=[Your ID Here]
 ```
 
 > Do not add quotation marks between values!
@@ -214,7 +209,7 @@ The desktop version on production relies on loading the web app. You need to dep
 the `loadURL` link in `./client/public/electron.js`.
 
 ```shell
-cd client/ && package-[os]
+yarn workspace client package-[os]
 ```
 
 Where `os` can be one of the ff:
@@ -223,7 +218,7 @@ Where `os` can be one of the ff:
 - `win` - Windows x64 (`x32` architecture is not supported.)
 - `mac` - MacOS 10+
 - `linux` - `deb`/`rpm` installer based on current linux system.
-- `ci` - For continuous integrations.
+- `ci` - For continuous integrations. _Automatic OS Detection._
 
 Output on `/release` directory.
 
