@@ -20,7 +20,7 @@ import { useState } from 'react';
 import CardDeck from 'react-bootstrap/CardDeck';
 import Poster from '../components/Poster';
 import SupplierService from '../services/SupplierService';
-import Controls from '../components/common/Controls';
+import Controls from '../components/Controls';
 import Loader from '../components/common/Loader';
 import CustomModal from '../components/common/CustomModal';
 import Button from 'react-bootstrap/Button';

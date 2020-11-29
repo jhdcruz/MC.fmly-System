@@ -23,7 +23,7 @@ import UserRow from '../components/tables/users/UserRow';
 import UserService from '../services/UserService';
 import UserForm from '../components/forms/UserForm';
 // Commons
-import Controls from '../components/common/Controls';
+import Controls from '../components/Controls';
 import Loader from '../components/common/Loader';
 
 export default function Users() {

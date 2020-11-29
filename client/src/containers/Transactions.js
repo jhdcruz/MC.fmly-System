@@ -22,7 +22,7 @@ import TransactionRow from '../components/tables/transactions/TransactionRow';
 import TransactionForm from '../components/forms/TransactionForm';
 import TransactionService from '../services/TransactionService';
 // Commons
-import Controls from '../components/common/Controls';
+import Controls from '../components/Controls';
 import Loader from '../components/common/Loader';
 
 export default function Transactions() {

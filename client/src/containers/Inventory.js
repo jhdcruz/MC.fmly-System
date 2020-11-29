@@ -26,7 +26,7 @@ import ProductRow from '../components/tables/products/ProductRow';
 import ProductService from '../services/ProductService';
 import ProductForm from '../components/forms/ProductForm';
 // Commons
-import Controls from '../components/common/Controls';
+import Controls from '../components/Controls';
 import Loader from '../components/common/Loader';
 
 export default function Inventory() {

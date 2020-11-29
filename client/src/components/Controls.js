@@ -17,7 +17,7 @@
  */
 
 import styled from 'styled-components';
-import SearchBar from './SearchBar';
+import SearchBar from './common/SearchBar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import Button from 'react-bootstrap/Button';

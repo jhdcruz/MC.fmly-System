@@ -111,7 +111,7 @@ export default function Poster(props) {
     <CardBlock tabIndex={0}>
       <Card.Body>
         <Card.Title>
-          <Image src={props.icon} alt="Supplier Icon" width={40} height={40} />
+          <Image src={props.icon} width={40} height={40} />
           <strong>{props.name}</strong>
           {/* Control Buttons */}
           <Button variant="outline-danger" onClick={props.delete}>
