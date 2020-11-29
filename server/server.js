@@ -44,6 +44,9 @@ api.use(helmet());
 api.use(bodyParser.urlencoded({ extended: false }));
 api.use(bodyParser.json());
 
+// * Airbrake Performance Monitoring
+api.use(airbrakeExpress.makeMiddleware(airbrake));
+
 // * Connect to the Database || MongoDB Atlas
 mongoose
   .connect(`${process.env.MONGO_ADMIN}` || `${process.env.MONGO_URL}`, {
@@ -94,6 +97,6 @@ api.get('*', (req, res) => {
 
 // * AppMon middlewares
 api.use(rollbar.errorHandler());
-api.use(airbrakeExpress.makeMiddleware(airbrake));
+api.use(airbrakeExpress.makeErrorHandler(airbrake));
 
 module.exports = api;
