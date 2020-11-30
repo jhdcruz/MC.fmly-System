@@ -20,7 +20,7 @@ import { Redirect, Route, Switch } from 'react-router-dom';
 import { AnimatedSwitch, spring } from 'react-router-transition';
 
 /*********************************************************
- * * This is only a transition when navigating routes/pages.
+ * * Transition when navigating routes/pages.
  *********************************************************/
 
 export default function RouteTransition({ children, view }) {

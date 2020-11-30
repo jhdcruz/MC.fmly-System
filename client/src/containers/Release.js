@@ -16,23 +16,29 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import Spinner from 'react-bootstrap/Spinner';
-import styled from 'styled-components';
+// GET updates from repo
+import { ListGroup } from 'react-bootstrap';
+import Releases from '../services/github/Releases';
+import Updates from '../components/system/Updates';
+import Loader from '../components/common/Loader';
+import { ListContainer } from '../components/system/__system.module';
 
-/************************
- * * Spinner/Loading
- ************************/
+/*****************************************************
+ * * Get releases from project repository (GitHub API)
+ *****************************************************/
 
-const Loading = styled(Spinner)`
-  margin: 10px auto;
-  width: 2rem;
-  height: 2rem;
-  position: fixed;
-  top: 50vh;
-  left: 50vw;
-  z-index: 99;
-`;
+export default function Release() {
+  const [releases] = Releases();
 
-export default function Loader() {
-  return <Loading variant="primary" animation="border" role="status" />;
+  return (
+    <ListContainer>
+      <ListGroup>
+        {releases && true ? (
+          releases && releases.map((release) => Updates(release))
+        ) : (
+          <Loader />
+        )}
+      </ListGroup>
+    </ListContainer>
+  );
 }

@@ -18,11 +18,10 @@
 
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
-import FormControl from 'react-bootstrap/FormControl';
-import Button from 'react-bootstrap/Button';
-import InputGroup from 'react-bootstrap/InputGroup';
 import CustomModal from '../common/CustomModal';
 import { ModalForm, Required } from './__forms.module';
+import Button from 'react-bootstrap/Button';
+import { FormControl, InputGroup } from 'react-bootstrap';
 
 /*******************************
  * * Transactions Modal Form
@@ -38,30 +37,30 @@ export default function TransactionForm(props) {
       content={
         <ModalForm autoComplete="new-text" autoSave="off">
           <Form.Row>
-            {/* Supplier Icon */}
+            {/* Transaction Receipt */}
             <Form.Group controlId="formGridReceipt">
               <Form.Label>Receipt</Form.Label>
               <Form.File type="file" name="receipt" id="inputFileControl" />
             </Form.Group>
 
-            {/* Supplier Name */}
-            <Form.Group as={Col} controlId="formGridOID">
-              <Form.Label>
-                Order ID <Required>*</Required>
-              </Form.Label>
-              <Form.Control
-                className="input-box"
-                type="text"
-                name="order_id"
-                placeholder="Order/Transaction ID"
-                autoComplete="new-text"
-                autoSave="off"
-                required
-              />
+            <Form.Group as={Col} controlId="formGridPrice">
+              <Form.Label>Order ID</Form.Label>
+              <InputGroup className="mb-3">
+                <InputGroup.Prepend>
+                  <InputGroup.Text>#</InputGroup.Text>
+                </InputGroup.Prepend>
+                <FormControl
+                  className="input-box"
+                  name="order_id"
+                  placeholder="Order/Transaction ID"
+                  autoComplete="new-text"
+                  autoSave="off"
+                />
+              </InputGroup>
             </Form.Group>
           </Form.Row>
 
-          {/* Supplier Description */}
+          {/* Transaction Buyer Name */}
           <Form.Row>
             <Form.Group as={Col} controlId="formGridName">
               <Form.Label>Name</Form.Label> <Required>*</Required>
@@ -75,7 +74,7 @@ export default function TransactionForm(props) {
               />
             </Form.Group>
 
-            {/* Transaction Category */}
+            {/* Transaction Status */}
             <Form.Group as={Col} controlId="formGridStatus">
               <Form.Label>
                 Status <Required>*</Required>
@@ -94,19 +93,36 @@ export default function TransactionForm(props) {
 
           <Form.Row>
             {/* Transaction Type */}
-            <Form.Group as={Col} controlId="formGridType">
+            <Form.Group as={Col} controlId="formGridPrice">
+              <Form.Label>Total Amount</Form.Label>
+              <InputGroup className="mb-3">
+                <InputGroup.Prepend>
+                  <InputGroup.Text>₱</InputGroup.Text>
+                </InputGroup.Prepend>
+                <FormControl
+                  className="input-box"
+                  type="number"
+                  placeholder="Total Amount"
+                  autoComplete="new-text"
+                  autoSave="off"
+                />
+              </InputGroup>
+            </Form.Group>
+
+            {/* Transaction Payment Method */}
+            <Form.Group as={Col} controlId="formGridStatus">
               <Form.Label>
-                Total <Required>*</Required>
+                Payment Method <Required>*</Required>
               </Form.Label>
               <Form.Control
                 className="input-box"
-                name="total"
-                type="number"
-                placeholder="Total amount"
-                autoComplete="new-text"
-                autoSave="off"
+                as="select"
+                defaultValue="Choose..."
                 required
-              />
+              >
+                <option>Cash</option>
+                <option>Card</option>
+              </Form.Control>
             </Form.Group>
 
             {/* Transaction Quantity */}

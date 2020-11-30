@@ -16,23 +16,8 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import Spinner from 'react-bootstrap/Spinner';
-import styled from 'styled-components';
+import UsersList from '../containers/UsersList';
 
-/************************
- * * Spinner/Loading
- ************************/
-
-const Loading = styled(Spinner)`
-  margin: 10px auto;
-  width: 2rem;
-  height: 2rem;
-  position: fixed;
-  top: 50vh;
-  left: 50vw;
-  z-index: 99;
-`;
-
-export default function Loader() {
-  return <Loading variant="primary" animation="border" role="status" />;
+export default function Users() {
+  return <UsersList />;
 }

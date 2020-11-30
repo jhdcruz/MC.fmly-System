@@ -16,23 +16,27 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import Spinner from 'react-bootstrap/Spinner';
 import styled from 'styled-components';
+import Card from 'react-bootstrap/Card';
+import placeholder from '../../assets/img/logo.svg';
 
-/************************
- * * Spinner/Loading
- ************************/
-
-const Loading = styled(Spinner)`
-  margin: 10px auto;
-  width: 2rem;
-  height: 2rem;
-  position: fixed;
-  top: 50vh;
-  left: 50vw;
-  z-index: 99;
+const CardContainer = styled(Card)`
+  font-size: 1.2vw;
+  color: #c4c4c4;
+  background-color: #222126;
 `;
 
-export default function Loader() {
-  return <Loading variant="primary" animation="border" role="status" />;
+export default function CardOverlay(props) {
+  return (
+    <CardContainer>
+      <Card.Img src={placeholder} alt="Image" />
+      <Card.ImgOverlay>
+        <Card.Title>
+          {props.title} {props.subtitle}
+        </Card.Title>
+        <Card.Text>{props.content}</Card.Text>
+        <Card.Text>{props.footer}</Card.Text>
+      </Card.ImgOverlay>
+    </CardContainer>
+  );
 }

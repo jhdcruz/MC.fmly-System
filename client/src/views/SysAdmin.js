@@ -19,7 +19,7 @@
 import { Fragment } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
-import Sidebar from '../components/Sidebar';
+import Sidebar from '../components/sidebar/Sidebar';
 import routes from '../routes';
 import '../App.scss';
 import RouteTransition from '../components/common/RouteTransition';
@@ -29,10 +29,10 @@ import {
   faUsers
 } from '@fortawesome/free-solid-svg-icons';
 // Routes
-import Dashboard from '../containers/Dashboard';
-import SysInfo from '../containers/SysInfo';
-import TabItem from '../components/TabItem';
-import Users from '../containers/Users';
+import Dashboard from '../pages/Dashboard';
+import SysInfo from '../pages/SysInfo';
+import TabItem from '../components/sidebar/TabItem';
+import Users from '../pages/Users';
 
 /*********************************
  * * Cashier Permission Access
@@ -64,8 +64,8 @@ export default function SysAdmin() {
             bottom={
               <>
                 <TabItem
-                  tab="User Management"
-                  overlay="User Management"
+                  tab="Users Management"
+                  overlay="Users Management"
                   route={routes.USERS}
                   icon={faUsers}
                 />

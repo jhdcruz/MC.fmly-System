@@ -22,6 +22,10 @@ import Toast from 'react-bootstrap/Toast';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBell } from '@fortawesome/free-solid-svg-icons';
 
+/************************
+ * * Toast Notification
+ ************************/
+
 const Notice = styled(Toast)`
   position: fixed;
   bottom: 0;

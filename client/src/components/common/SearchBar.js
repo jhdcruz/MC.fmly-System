@@ -22,6 +22,10 @@ import InputGroup from 'react-bootstrap/InputGroup';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
+/****************
+ * * Searchbar
+ ***************/
+
 const Search = styled.div`
   width: 30vw;
   margin-right: 0.5rem;

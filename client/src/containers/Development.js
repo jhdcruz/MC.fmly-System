@@ -16,25 +16,32 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import styled from 'styled-components';
+import { ListGroup } from 'react-bootstrap';
+import Commit from '../components/system/Commit';
+import Commits from '../services/github/Commits';
+import Loader from '../components/common/Loader';
+import { ListContainer } from '../components/system/__system.module';
 
-/************************
- * * Maintenance Notice
- ************************/
+/*****************************************************
+ * * Get commits from project repository (GitHub API)
+ *****************************************************/
 
-const Notice = styled.h2`
-  color: #e6a195;
-  background-color: rgba(35, 34, 36, 0.9);
-  padding: 3rem;
-  border-radius: 0.7rem;
-  margin: 5rem auto;
-  z-index: 99;
-`;
+export default function Development() {
+  const [commits] = Commits();
 
-export default function Maintenance() {
   return (
-    <Notice>
-      <strong>This feature is currently under maintenance</strong>
-    </Notice>
+    <ListContainer>
+      <ListGroup
+        style={{
+          paddingBottom: '4.3rem'
+        }}
+      >
+        {commits && true ? (
+          commits && commits.map((commit) => Commit(commit))
+        ) : (
+          <Loader />
+        )}
+      </ListGroup>
+    </ListContainer>
   );
 }

@@ -16,23 +16,30 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import Spinner from 'react-bootstrap/Spinner';
 import styled from 'styled-components';
 
-/************************
- * * Spinner/Loading
- ************************/
+/*****************************************************
+ * * Embed MongoDB Atlas Metrics (Datadog)
+ *****************************************************/
 
-const Loading = styled(Spinner)`
-  margin: 10px auto;
-  width: 2rem;
-  height: 2rem;
-  position: fixed;
-  top: 50vh;
-  left: 50vw;
-  z-index: 99;
+const Frame = styled.iframe`
+  width: 100% !important;
+  height: 97vh !important;
+  background: #222126;
+  border: none;
+  box-shadow: 0 3px 6px #232323;
+
+  iframe.webform-frame {
+    background-color: #222126 !important;
+    overflow: hidden !important;
+  }
 `;
 
-export default function Loader() {
-  return <Loading variant="primary" animation="border" role="status" />;
-}
+export const DBMetrics = () => {
+  return (
+    <Frame
+      sandbox="allow-pointer-lock allow-same-origin allow-scripts"
+      src="https://p.datadoghq.com/sb/iiar95vh75yuvxwz-4f36a4b929487e20c789f3c806178482?theme=dark"
+    />
+  );
+};

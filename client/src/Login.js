@@ -16,27 +16,26 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { useCallback, useState } from 'react';
-import axios from 'axios';
-import styled from 'styled-components';
-import { useForm } from 'react-hook-form';
-// Bootstrap
-import Button from 'react-bootstrap/Button';
-import Container from 'react-bootstrap/Container';
-import Form from 'react-bootstrap/Form';
-import Image from 'react-bootstrap/Image';
-import InputGroup from 'react-bootstrap/InputGroup';
+import { useCallback, useState } from "react";
+import axios from "axios";
+import styled from "styled-components";
+import { useForm } from "react-hook-form";
+import Button from "react-bootstrap/Button";
+import Container from "react-bootstrap/Container";
+import Form from "react-bootstrap/Form";
+import Image from "react-bootstrap/Image";
+import InputGroup from "react-bootstrap/InputGroup";
+import Status from "./containers/Status";
 // Assets
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faKey, faUser } from '@fortawesome/free-solid-svg-icons';
-import Brand from './assets/img/profile.png';
-import './App.scss';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faKey, faUser } from "@fortawesome/free-solid-svg-icons";
+import Brand from "./assets/img/logo.svg";
+import "./App.scss";
 // Views
-import Admin from './views/Admin';
-import Cashier from './views/Cashier';
-import SysAdmin from './views/SysAdmin';
-import InventoryClerk from './views/InventoryClerk';
-import Status from './components/Status';
+import Admin from "./views/Admin";
+import Cashier from "./views/Cashier";
+import SysAdmin from "./views/SysAdmin";
+import InventoryClerk from "./views/InventoryClerk";
 
 /* ===========================
  * Styled Components

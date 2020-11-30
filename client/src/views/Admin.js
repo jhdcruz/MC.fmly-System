@@ -19,8 +19,8 @@
 import { Fragment } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
-import Sidebar from '../components/Sidebar';
-import TabItem from '../components/TabItem';
+import Sidebar from '../components/sidebar/Sidebar';
+import TabItem from '../components/sidebar/TabItem';
 import RouteTransition from '../components/common/RouteTransition';
 // Assets
 import routes from '../routes';
@@ -36,14 +36,14 @@ import {
   faUsers
 } from '@fortawesome/free-solid-svg-icons';
 // Routes
-import Dashboard from '../containers/Dashboard';
-import SysInfo from '../containers/SysInfo';
-import Recent from '../containers/Recent';
-import Transactions from '../containers/Transactions';
-import PointOfSale from '../containers/PointOfSale';
-import Inventory from '../containers/Inventory';
-import Suppliers from '../containers/Suppliers';
-import Users from '../containers/Users';
+import Dashboard from '../pages/Dashboard';
+import Recent from '../pages/Recent';
+import Inventory from '../pages/Inventory';
+import Transactions from '../pages/Transactions';
+import Suppliers from '../pages/Suppliers';
+import PointOfSale from '../pages/PointOfSale';
+import Users from '../pages/Users';
+import SysInfo from '../pages/SysInfo';
 
 /*********************************
  * * Admin Permission Access
@@ -99,8 +99,8 @@ export default function Admin() {
             bottom={
               <>
                 <TabItem
-                  tab="User Management"
-                  overlay="User Management"
+                  tab="Users Management"
+                  overlay="Users Management"
                   route={routes.USERS}
                   icon={faUsers}
                 />
