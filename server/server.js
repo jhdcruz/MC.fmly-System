@@ -82,17 +82,15 @@ require('./routes/transaction.route')(api);
 
 // * Serve static files
 api.use(express.static(path.join(__dirname, '/public')));
+api.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname + '/public/index.html'));
+});
 
 // * Main API route | Allow all HTTP methods
 // https://expressjs.com/en/4x/api.html#app.METHOD
 api.all('/', (req, res) => {
   res.setHeader('Content-Type', 'text/html');
   res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
-});
-
-// * Fallback | Serve empty index for invisible content
-api.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname + '/public/index.html'));
 });
 
 // * AppMon middlewares
