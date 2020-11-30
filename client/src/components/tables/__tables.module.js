@@ -17,73 +17,37 @@
  */
 
 import styled, { createGlobalStyle } from 'styled-components';
-import Table from 'react-bootstrap/Table';
-import Spinner from 'react-bootstrap/Spinner';
 import Badge from 'react-bootstrap/Badge';
-import Button from 'react-bootstrap/Button';
 
 /****************************************
  * * Shared Styles between `tables`
  ****************************************/
 
-// * Tables Container
-export const TableContainer = createGlobalStyle`
+// * Tables
+export const TableModule = createGlobalStyle`
   div.table-responsive {
     display: inline-flex !important;
     width: max-content;
     height: 100%;
-    padding: 0 0 0 0.5rem !important;
+    padding: 0 0 0 0.5rem;
     overflow: auto !important;
 
-    #ProductsTable {
-      width: max-content !important;
-      padding: 0 1rem 1rem 1rem;
+    table {
+      display: inline-table;
+      height: 100vh;
+      width: 100%;
+      margin: 0;
       overflow: auto !important;
-      height: max-content;
-    }
+      background-color: transparent;
 
-    #SuppliersTable {
-      width: 140vw !important;
-      padding: 0 1rem 1rem 1rem;
-      overflow: auto !important;
-      height: max-content;
-      table-layout: fixed;
-    }
-
-    #UsersTable {
-      width: 93vw !important;
-      padding: 0 1rem 1rem 1rem;
-      overflow: auto !important;
-      height: max-content;
-    }
-
-    #TransactionsTable {
-      width: 93vw !important;
-      padding: 0 1rem 1rem 1rem;
-      overflow: auto !important;
-      height: max-content;
+      // * Table Data Margins / Seperators
+      border-collapse: separate;
+      border-spacing: 0 1rem;
     }
 
     .actions {
       text-align: center;
     }
-  }
-`;
-
-// * Actual Table
-export const FluidContainer = styled(Table)`
-  display: inline-table;
-  height: 100vh;
-  width: 100%;
-  margin: 0;
-  overflow: auto !important;
-  background-color: transparent;
-  border-collapse: separate;
-  border-spacing: 0 1rem;
-
-  th,
-  td {
-    vertical-align: middle !important;
   }
 `;
 
@@ -93,6 +57,7 @@ export const TableHeader = styled.th`
   color: #c3c3c3;
   border: none !important;
   width: max-content !important;
+  vertical-align: middle !important;
 
   :hover {
     color: #22a1f5;
@@ -155,6 +120,7 @@ export const TableData = styled.td`
   white-space: nowrap;
   overflow: hidden !important;
   text-overflow: ellipsis !important;
+  vertical-align: middle !important;
 
   .actions {
     display: inline-block;
@@ -162,32 +128,6 @@ export const TableData = styled.td`
     margin: 0;
     padding: 0 10px 0 0;
   }
-`;
-
-// * Row Actions/Modals
-export const RowButtons = styled.div`
-  margin: 0 auto;
-  width: max-content;
-  height: max-content;
-`;
-
-// * Row Actions/Modals Buttons
-export const RowControls = styled(Button)`
-  visibility: hidden;
-  padding: 5px 10px;
-  margin: 0 3px;
-  font-size: 1.1vw;
-  border: none;
-`;
-
-// * Loading Spinner
-export const Loader = styled(Spinner)`
-  margin: 10px auto;
-  width: 3rem;
-  height: 3rem;
-  position: absolute;
-  right: 50%;
-  top: 13rem;
 `;
 
 // * Color Badges

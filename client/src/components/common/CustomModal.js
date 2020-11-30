@@ -19,6 +19,10 @@
 import styled from 'styled-components';
 import Modal from 'react-bootstrap/Modal';
 
+/********************************
+ * * Cutomizable/Reusable Modal
+ ********************************/
+
 export const ModalView = styled(Modal)`
   // Background fade
   background-color: rgba(45, 45, 45, 0.2);

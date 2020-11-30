@@ -22,6 +22,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faPlus, faThLarge } from '@fortawesome/free-solid-svg-icons';
 import Button from 'react-bootstrap/Button';
 
+/**************************************
+ * * Searchbar w/ Additional Controls
+ **************************************/
+
 const ControlSection = styled.div`
   display: inline-flex;
   width: 92vw;

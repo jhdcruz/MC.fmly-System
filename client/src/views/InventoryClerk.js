@@ -19,8 +19,7 @@
 import { Fragment } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
-import Inventory from '../containers/Inventory';
-import Sidebar from '../components/Sidebar';
+import Sidebar from '../components/sidebar/Sidebar';
 import routes from '../routes';
 import '../App.scss';
 import RouteTransition from '../components/common/RouteTransition';
@@ -31,10 +30,11 @@ import {
   faTruck
 } from '@fortawesome/free-solid-svg-icons';
 // Views
-import Recent from '../containers/Recent';
-import Transactions from '../containers/Transactions';
-import Suppliers from '../containers/Suppliers';
-import TabItem from '../components/TabItem';
+import Recent from '../pages/Recent';
+import TabItem from '../components/sidebar/TabItem';
+import Inventory from '../pages/Inventory';
+import Suppliers from '../pages/Suppliers';
+import Transactions from '../pages/Transactions';
 
 /*********************************
  * * Inventory Permission Access

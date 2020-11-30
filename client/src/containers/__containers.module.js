@@ -19,10 +19,6 @@
 import styled from 'styled-components';
 import Tabs from 'react-bootstrap/Tabs';
 
-/****************************************
- * * Shared Styles between `containers`
- ****************************************/
-
 export const TabContainer = styled.div`
   width: 100%;
   height: 100vh;

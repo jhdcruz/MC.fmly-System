@@ -38,8 +38,7 @@ export default function SupplierForm(props) {
       content={
         <ModalForm autoComplete="new-text" autoSave="off">
           <Form.Row>
-            {/* Supplier Icon */}
-            <Form.Group controlId="formGridName">
+            <Form.Group controlId="formGridLogo">
               <Form.Label>Logo</Form.Label>
               <Form.File
                 type="file"
@@ -49,7 +48,6 @@ export default function SupplierForm(props) {
               />
             </Form.Group>
 
-            {/* Supplier Name */}
             <Form.Group as={Col} controlId="formGridName">
               <Form.Label>
                 Name <Required>*</Required>
@@ -65,7 +63,6 @@ export default function SupplierForm(props) {
             </Form.Group>
           </Form.Row>
 
-          {/* Supplier Description */}
           <Form.Group controlId="formGridDescription">
             <Form.Label>Description</Form.Label>
             <Form.Control
@@ -78,7 +75,6 @@ export default function SupplierForm(props) {
           </Form.Group>
 
           <Form.Row>
-            {/* Product Category */}
             <Form.Group as={Col} controlId="formGridCategory">
               <Form.Label>Address</Form.Label>
               <Form.Control
@@ -89,24 +85,22 @@ export default function SupplierForm(props) {
                 autoSave="off"
               />
             </Form.Group>
-          </Form.Row>
 
-          <Form.Row>
-            {/* Product Type */}
             <Form.Group as={Col} controlId="formGridType">
               <Form.Label>
                 Type <Required>*</Required>
               </Form.Label>
               <Form.Control
                 className="input-box"
-                placeholder="It supplies..."
+                as="textarea"
+                placeholder="It supplies... (drag on the lower right to expand)"
                 autoComplete="new-text"
                 autoSave="off"
-                required
               />
             </Form.Group>
+          </Form.Row>
 
-            {/* Product Quantity */}
+          <Form.Row>
             <Form.Group as={Col} controlId="formGridWebite">
               <Form.Label>Website</Form.Label>
               <InputGroup>
@@ -122,7 +116,6 @@ export default function SupplierForm(props) {
               </InputGroup>
             </Form.Group>
 
-            {/* Product Price */}
             <Form.Group as={Col} controlId="formGridContact">
               <Form.Label>Contact</Form.Label>
               <FormControl
