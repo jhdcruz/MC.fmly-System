@@ -25,9 +25,14 @@ const path = require('path');
 const dotenv = require('dotenv');
 const dotenvExpand = require('dotenv-expand');
 const airbrakeExpress = require('@airbrake/node/dist/instrumentation/express');
-const airbrake = require('./middlewares/airbrake');
 const rollbar = require('./middlewares/rollbar');
 const logger = require('./middlewares/logdna');
+const Airbrake = require('@airbrake/node');
+
+const airbrake = new Airbrake.Notifier({
+  projectId: `${process.env.AIRBRAKE_PROJECT_ID}`,
+  projectKey: `${process.env.AIRBRAKE_PROJECT_KEY}`
+});
 
 // set .env
 const env = dotenv.config();
@@ -43,9 +48,6 @@ api.use(cors());
 api.use(helmet());
 api.use(bodyParser.urlencoded({ extended: false }));
 api.use(bodyParser.json());
-
-// * Airbrake Performance Monitoring
-api.use(airbrakeExpress.makeMiddleware(airbrake));
 
 // * Connect to the Database || MongoDB Atlas
 mongoose
@@ -66,6 +68,9 @@ mongoose
     logger.fatal(err);
     console.error(err);
   });
+
+// * Airbrake Performance Monitoring
+api.use(airbrakeExpress.makeMiddleware(airbrake));
 
 // * Model Imports
 require('./models/user.model');
