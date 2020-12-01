@@ -22,7 +22,6 @@ import Badge from 'react-bootstrap/Badge';
 // * Color Badges
 const Chip = styled(Badge)`
   font-size: 1.2vw;
-  padding: 6px 10px 6px 0;
   border-radius: 0.3rem;
   box-shadow: 1px 2px 5px #1b1b1b;
 `;
