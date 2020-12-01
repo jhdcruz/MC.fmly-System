@@ -13,8 +13,12 @@
       "patterns": ["client/src/Login.js"]
     },
     {
-      "type": "pages",
+      "type": "permissions",
       "patterns": ["client/src/views/*.js"]
+    },
+    {
+      "type": "pages",
+      "patterns": ["client/src/pages/*.js"]
     },
     {
       "type": "containers",
@@ -54,23 +58,6 @@
       "groups": [
         {
           "first": true,
-          "type": "Client",
-          "components": ["entry"]
-        },
-        {
-          "type": "Roles",
-          "components": ["pages"]
-        },
-        {
-          "type": "Views",
-          "components": ["containers"]
-        },
-        {
-          "type": "Services",
-          "components": ["services"]
-        },
-        {
-          "first": true,
           "type": "Server",
           "components": ["server"]
         },
@@ -85,6 +72,27 @@
         {
           "type": "Functions",
           "components": ["functions"]
+        },
+        {
+          "first": true,
+          "type": "Client",
+          "components": ["entry"]
+        },
+        {
+          "type": "Permissions",
+          "components": ["permissions"]
+        },
+        {
+          "type": "Pages",
+          "components": ["pages"]
+        },
+        {
+          "type": "Containers",
+          "components": ["containers"]
+        },
+        {
+          "type": "Services",
+          "components": ["services"]
         }
       ]
     }
