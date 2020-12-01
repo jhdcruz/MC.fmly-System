@@ -48,13 +48,15 @@ export default function ProductRow(product) {
           {/* Quantity Color Indicator */}
           {(() => {
             if (product.quantity <= 10) {
-              return <Tag variant="danger" content={product.quantity} />;
-            } else if (product.quantity <= 20) {
-              return <Tag variant="warning" content={product.quantity} />;
-            } else if (product.quantity <= 300) {
-              return <Tag variant="success" content={product.quantity} />;
+              return <Tag variant="danger">{product.quantity}</Tag>;
+            }
+            if (product.quantity <= 20) {
+              return <Tag variant="warning">{product.quantity}</Tag>;
+            }
+            if (product.quantity <= 300) {
+              return <Tag variant="success">{product.quantity}</Tag>;
             } else {
-              return <Tag variant="dark" content={product.quantity} />;
+              return <Tag variant="dark">{product.quantity}</Tag>;
             }
           })()}
         </TableData>

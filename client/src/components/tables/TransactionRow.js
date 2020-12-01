@@ -41,11 +41,9 @@ export default function TransactionRow(transaction) {
           {/* Quantity Color Indicator */}
           {(() => {
             if (transaction.status === 'Completed') {
-              return <Tag variant="success" content={transaction.status} />;
-            } else if (transaction.status === 'Cancelled') {
-              return <Tag variant="dark" content={transaction.status} />;
+              return <Tag variant="success">{transaction.status}</Tag>;
             } else {
-              return <Tag variant="danger" content={transaction.status} />;
+              return <Tag variant="danger">{transaction.status}</Tag>;
             }
           })()}
         </TableData>
