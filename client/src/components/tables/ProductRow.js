@@ -18,7 +18,8 @@
 
 import Moment from 'react-moment';
 import EntryActions from '../common/EntryActions';
-import { TableData, TableRow, Tag } from './__tables.module';
+import { TableData, TableRow } from './__tables.module';
+import Tag from '../common/Tag';
 
 /*********************************
  * * Product Table Row

@@ -17,10 +17,11 @@
  */
 
 import Moment from 'react-moment';
-import { TableData, TableRow, Tag } from './__tables.module';
+import { TableData, TableRow } from './__tables.module';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFile } from '@fortawesome/free-solid-svg-icons';
 import EntryActions from '../common/EntryActions';
+import Tag from '../common/Tag';
 
 /*********************************
  * * Transaction Table Row
