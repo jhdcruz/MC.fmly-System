@@ -65,7 +65,7 @@ export default function InventoryClerk() {
                   <TabItem
                     tab="Invoices"
                     overlay="Invoices"
-                    route={routes.INVOICES}
+                    route={routes.TRANSACTIONS}
                     icon={faFileInvoice}
                   />
                   <TabItem
@@ -86,7 +86,7 @@ export default function InventoryClerk() {
                   <>
                     <Route path={routes.RECENT} component={Recent} />
                     <Route path={routes.INVENTORY} component={Inventory} />
-                    <Route path={routes.INVOICES} component={Transactions} />
+                    <Route path={routes.TRANSACTIONS} component={Transactions} />
                     <Route path={routes.SUPPLIERS} component={Suppliers} />
                   </>
                 }

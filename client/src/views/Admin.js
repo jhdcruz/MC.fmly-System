@@ -79,7 +79,7 @@ export default function Admin() {
                 <TabItem
                   tab="Transactions"
                   overlay="Transactions"
-                  route={routes.INVOICES}
+                  route={routes.TRANSACTIONS}
                   icon={faFileInvoice}
                 />
                 <TabItem
@@ -124,7 +124,7 @@ export default function Admin() {
                   <Route path={routes.SYSINFO} component={SysInfo} />
                   <Route path={routes.RECENT} component={Recent} />
                   <Route path={routes.INVENTORY} component={Inventory} />
-                  <Route path={routes.INVOICES} component={Transactions} />
+                  <Route path={routes.TRANSACTIONS} component={Transactions} />
                   <Route path={routes.SUPPLIERS} component={Suppliers} />
                   <Route path={routes.POS} component={PointOfSale} />
                   <Route path={routes.USERS} component={Users} />

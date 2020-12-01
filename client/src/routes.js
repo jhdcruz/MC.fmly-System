@@ -25,7 +25,7 @@ module.exports = {
   SYSINFO: '/sysinfo',
   RECENT: '/recent',
   INVENTORY: '/inventory',
-  INVOICES: '/invoices',
+  TRANSACTIONS: '/transactions',
   SUPPLIERS: '/suppliers',
   USERS: '/users',
   POS: '/pos'
