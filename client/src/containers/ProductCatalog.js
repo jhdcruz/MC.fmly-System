@@ -19,11 +19,11 @@
 import Tab from 'react-bootstrap/Tab';
 import Nav from 'react-bootstrap/Nav';
 import Categories from '../components/Categories';
-import CatalogRow from '../components/tables/CatalogRow';
-import ProductHeader from '../components/tables/ProductHeader';
+import CardOverlay from '../components/cards/CardOverlay';
 import ProductService from '../services/ProductService';
 import SearchBar from '../components/common/SearchBar';
 import Loader from '../components/common/Loader';
+import Tag from '../components/common/Tag';
 
 /*********************************
  * * Product List, No Actions | POS
@@ -32,6 +32,61 @@ import Loader from '../components/common/Loader';
 
 export default function ProductCatalog() {
   const [products] = ProductService();
+
+  // * Catalog Content
+  const Catalog = (product) => {
+    return (
+      <CardOverlay
+        _id={product._id}
+        title={
+          <>
+            {product.name}{' '}
+            <Tag variant="primary" content={<>₱{product.price}</>} />
+          </>
+        }
+        variant="dark"
+        content={
+          <>
+            <Tag variant="info" content={product.variant} />{' '}
+            {(() => {
+              if (product.quantity <= 10) {
+                return (
+                  <Tag
+                    variant="danger"
+                    content={<>Qty. {product.quantity}</>}
+                  />
+                );
+              } else if (product.quantity <= 20) {
+                return (
+                  <Tag
+                    variant="warning"
+                    content={<>Qty. {product.quantity}</>}
+                  />
+                );
+              } else if (product.quantity <= 300) {
+                return (
+                  <Tag
+                    variant="success"
+                    content={<>Qty. {product.quantity}</>}
+                  />
+                );
+              } else {
+                return (
+                  <Tag variant="dark" content={<>Qty. {product.quantity}</>} />
+                );
+              }
+            })()}
+          </>
+        }
+        footer={
+          <>
+            <Tag variant="dark" content={product.category} />{' '}
+            <Tag variant="dark" content={product.type} />
+          </>
+        }
+      />
+    );
+  };
 
   // * Removes duplicate properties | category
   const productCategories =
@@ -68,15 +123,9 @@ export default function ProductCatalog() {
                   key={categories.category}
                   eventKey={categories.category}
                 >
-                  <ProductHeader
-                    map={products && products._id}
-                    data={
-                      products &&
-                      products
-                        .filter((pane) => pane.category === categories.category)
-                        .map((product) => CatalogRow(product))
-                    }
-                  />
+                  {products
+                    .filter((pane) => pane.category === categories.category)
+                    .map((product) => Catalog(product))}
                 </Tab.Pane>
               ))}
           </>
@@ -96,12 +145,9 @@ export default function ProductCatalog() {
             {products &&
               productTypes.map((types) => (
                 <Tab.Pane key={types.type} eventKey={types.type}>
-                  <ProductHeader
-                    _id={products && products._id}
-                    data={products
-                      .filter((pane) => pane.type === types.type)
-                      .map((product) => CatalogRow(product))}
-                  />
+                  {products
+                    .filter((pane) => pane.type === types.type)
+                    .map((product) => Catalog(product))}
                 </Tab.Pane>
               ))}
           </>
@@ -112,17 +158,14 @@ export default function ProductCatalog() {
     );
   };
 
-  // * Display table based on clicked product category/type
-  const TableRoutes = () => {
+  // * Display cards based on clicked product category/type
+  const CardPanes = () => {
     return (
       <>
         <SearchBar />
         {/* Filtered Tables */}
         <Tab.Pane eventKey="default">
-          <ProductHeader
-            _id={products && products._id}
-            data={products && products.map((product) => CatalogRow(product))}
-          />
+          {products && products.map((product) => Catalog(product))}
         </Tab.Pane>
         <CategoryFilter />
         <TypeFilter />
@@ -152,7 +195,7 @@ export default function ProductCatalog() {
             </Nav.Item>
           ))
         }
-        tables={<TableRoutes />}
+        tables={<CardPanes />}
       />
     </>
   );

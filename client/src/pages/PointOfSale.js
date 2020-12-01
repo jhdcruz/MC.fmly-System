@@ -16,8 +16,8 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import Maintenance from '../components/common/Maintenance';
+import ProductCatalog from '../containers/ProductCatalog';
 
 export default function PointOfSale() {
-  return <Maintenance />;
+  return <ProductCatalog />;
 }

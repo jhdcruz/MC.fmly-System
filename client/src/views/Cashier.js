@@ -21,7 +21,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Sidebar from '../components/sidebar/Sidebar';
 import TabItem from '../components/sidebar/TabItem';
-import { faList, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import RouteTransition from '../components/common/RouteTransition';
 import routes from '../routes';
 import '../App.scss';
@@ -46,12 +46,6 @@ export default function Cashier() {
                   overlay="Point of Sale"
                   route={routes.POS}
                   icon={faShoppingCart}
-                />
-                <TabItem
-                  tab="Catalog"
-                  overlay="Catalog"
-                  route={routes.CATALOG}
-                  icon={faList}
                 />
               </>
             }
