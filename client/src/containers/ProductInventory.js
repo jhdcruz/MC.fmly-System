@@ -27,10 +27,10 @@ import ProductService from '../services/ProductService';
 import Controls from '../components/Controls';
 import Loader from '../components/common/Loader';
 
-/******************************
+/******************************************
  * * Product Inventory
- * TODO: Extract && Simplify
- ******************************/
+ * TODO: Extract Filters for reusability
+ ******************************************/
 
 export default function ProductInventory() {
   const [products] = ProductService();
