@@ -42,11 +42,9 @@ export default function UserRow(user) {
           {(() => {
             if (user.permission === 'admin') {
               return <Tag variant="warning">{user.permission}</Tag>;
-            }
-            if (user.permission === 'sysadmin') {
+            } else if (user.permission === 'sysadmin') {
               return <Tag variant="danger">{user.permission}</Tag>;
-            }
-            if (user.permission === 'inventory') {
+            } else if (user.permission === 'inventory') {
               return <Tag variant="success">{user.permission}</Tag>;
             } else {
               return <Tag variant="info">{user.permission}</Tag>;

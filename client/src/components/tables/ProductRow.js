@@ -48,11 +48,9 @@ export default function ProductRow(product) {
           {(() => {
             if (product.quantity <= 10) {
               return <Tag variant="danger">{product.quantity}</Tag>;
-            }
-            if (product.quantity <= 20) {
+            } else if (product.quantity <= 20) {
               return <Tag variant="warning">{product.quantity}</Tag>;
-            }
-            if (product.quantity <= 300) {
+            } else if (product.quantity <= 300) {
               return <Tag variant="success">{product.quantity}</Tag>;
             } else {
               return <Tag variant="dark">{product.quantity}</Tag>;
