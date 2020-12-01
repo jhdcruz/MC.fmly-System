@@ -66,7 +66,6 @@ export default function TabItem(props) {
           {props.tab}
         </Tooltip>
       }
-      // name={props.overlay}
     >
       <TabRoutes to={props.route} draggable={false} onClick={props.state}>
         <Nav.Link as="li">
