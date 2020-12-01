@@ -25,10 +25,9 @@ import SearchBar from '../components/common/SearchBar';
 import Loader from '../components/common/Loader';
 import Tag from '../components/common/Tag';
 
-/*********************************
+/************************************
  * * Product List, No Actions | POS
- * TODO: Merge with `Inventory`
- *********************************/
+ ************************************/
 
 export default function ProductCatalog() {
   const [products] = ProductService();

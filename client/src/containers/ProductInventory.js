@@ -29,7 +29,7 @@ import Loader from '../components/common/Loader';
 
 /******************************************
  * * Product Inventory
- * TODO: Extract Filters for reusability
+ * TODO: Extract filters for reusability
  ******************************************/
 
 export default function ProductInventory() {
