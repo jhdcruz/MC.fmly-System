@@ -41,8 +41,10 @@ export default function TransactionRow(transaction) {
           {(() => {
             if (transaction.status === 'Completed') {
               return <Tag variant="success">{transaction.status}</Tag>;
-            } else {
+            } else if (transaction.status === 'Pending') {
               return <Tag variant="danger">{transaction.status}</Tag>;
+            } else {
+              return <Tag variant="dark">{transaction.status}</Tag>;
             }
           })()}
         </TableData>
