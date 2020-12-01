@@ -24,6 +24,7 @@ const CardContainer = styled(Card)`
   width: 100%;
   height: max-content !important;
   color: #eccec9;
+  cursor: pointer;
   margin: 1rem 0.5rem 0 0;
   border-radius: 0.3rem;
   background-color: #222126;
@@ -42,6 +43,14 @@ const CardContainer = styled(Card)`
       margin: 2.5vh 0;
     }
   }
+
+  :hover,
+  :focus {
+    background-color: #161518;
+    border: #e6a195 ridge 2px !important;
+    border-radius: 0.3rem;
+    outline: none;
+  }
 `;
 
 const CardImage = styled(Card.Img)`
@@ -52,7 +61,7 @@ const CardImage = styled(Card.Img)`
 
 export default function CardOverlay(props) {
   return (
-    <CardContainer key={props._id}>
+    <CardContainer key={props._id} tabIndex={0}>
       <CardImage src={placeholder} alt="Image" />
       <Card.ImgOverlay>
         <Card.Title>{props.title}</Card.Title>
