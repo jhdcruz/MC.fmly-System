@@ -21,19 +21,41 @@ import Card from 'react-bootstrap/Card';
 import placeholder from '../../assets/img/logo.svg';
 
 const CardContainer = styled(Card)`
-  font-size: 1.2vw;
-  color: #c4c4c4;
+  width: 100%;
+  height: max-content !important;
+  color: #eccec9;
+  margin: 1rem 0.5rem 0 0;
+  border-radius: 0.3rem;
   background-color: #222126;
+  box-shadow: 3px 3px 8px #1b1b1b;
+
+  .card-img-overlay {
+    padding: 1rem;
+    margin-left: 7.1vw;
+
+    .card-title {
+      font-size: 1.3vw;
+    }
+
+    .card-text {
+      font-size: 1.2vw;
+      margin: 2.5vh 0;
+    }
+  }
+`;
+
+const CardImage = styled(Card.Img)`
+  height: 20vh;
+  width: 14vh;
+  margin: auto 0.5rem;
 `;
 
 export default function CardOverlay(props) {
   return (
-    <CardContainer>
-      <Card.Img src={placeholder} alt="Image" />
+    <CardContainer key={props._id}>
+      <CardImage src={placeholder} alt="Image" />
       <Card.ImgOverlay>
-        <Card.Title>
-          {props.title} {props.subtitle}
-        </Card.Title>
+        <Card.Title>{props.title}</Card.Title>
         <Card.Text>{props.content}</Card.Text>
         <Card.Text>{props.footer}</Card.Text>
       </Card.ImgOverlay>
