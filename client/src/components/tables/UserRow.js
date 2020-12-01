@@ -17,9 +17,8 @@
  */
 
 import Moment from 'react-moment';
-import { TableData, TableRow } from './__tables.module';
+import { TableData, TableRow, Tag } from './__tables.module';
 import EntryActions from '../common/EntryActions';
-import Tag from '../common/Tag';
 
 /*********************************
  * * User Table Row

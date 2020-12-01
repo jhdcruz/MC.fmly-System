@@ -60,7 +60,7 @@ export const TableHeader = styled.th`
   vertical-align: middle !important;
 
   :hover {
-    color: #22a1f5;
+    color: #2549cb;
     cursor: pointer;
   }
 `;
@@ -78,18 +78,15 @@ export const TableRow = styled.tr`
     text-transform: capitalize;
   }
 
-  :hover {
+  :hover,
+  :active,
+  :focus {
     background-color: #161518 !important;
+    border-radius: 0.3rem;
+    outline: #e6a195 ridge 2px !important;
 
     button {
       visibility: visible;
-    }
-
-    :active,
-    :focus,
-    ::selection {
-      outline: 3px ridge #e6a195 !important;
-      border: none;
     }
   }
 
@@ -128,6 +125,16 @@ export const TableData = styled.td`
     margin: 0;
     padding: 0 10px 0 0;
   }
+`;
+
+// * Color Badges
+// ! Different from Tag component
+// ! because of width/padding bug in tables
+export const Tag = styled(Badge)`
+  font-size: 1.2vw;
+  padding: 6px 10px 6px 0;
+  border-radius: 0.3rem;
+  box-shadow: 1px 2px 5px #1b1b1b;
 `;
 
 // * When there are no items in table
