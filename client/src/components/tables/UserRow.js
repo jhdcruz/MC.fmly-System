@@ -42,15 +42,13 @@ export default function UserRow(user) {
           {/* Permission Color Indicator */}
           {(() => {
             if (user.permission === 'admin') {
-              return <Tag variant="warning">{user.permission}</Tag>;
-            }
-            if (user.permission === 'sysadmin') {
-              return <Tag variant="danger">{user.permission}</Tag>;
-            }
-            if (user.permission === 'inventory') {
-              return <Tag variant="success">{user.permission}</Tag>;
+              return <Tag variant="warning" content={user.permission} />;
+            } else if (user.permission === 'sysadmin') {
+              return <Tag variant="danger" content={user.permission} />;
+            } else if (user.permission === 'inventory') {
+              return <Tag variant="success" content={user.permission} />;
             } else {
-              return <Tag variant="info">{user.permission}</Tag>;
+              return <Tag variant="info" content={user.permission} />;
             }
           })()}
         </TableData>
