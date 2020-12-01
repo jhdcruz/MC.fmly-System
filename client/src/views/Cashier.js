@@ -18,16 +18,15 @@
 
 import { Fragment } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import Sidebar from '../components/sidebar/Sidebar';
 import Container from 'react-bootstrap/Container';
+import Sidebar from '../components/sidebar/Sidebar';
 import TabItem from '../components/sidebar/TabItem';
+import { faList, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import RouteTransition from '../components/common/RouteTransition';
 import routes from '../routes';
 import '../App.scss';
-import { faList, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 // Routes
 import PointOfSale from '../pages/PointOfSale';
-import Catalog from '../pages/Catalog';
 
 /*********************************
  * * Cashier Permission Access
@@ -65,7 +64,6 @@ export default function Cashier() {
               children={
                 <>
                   <Route path={routes.POS} component={PointOfSale} />
-                  <Route path={routes.CATALOG} component={Catalog} />
                 </>
               }
             />

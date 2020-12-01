@@ -28,7 +28,5 @@ module.exports = {
   INVOICES: '/invoices',
   SUPPLIERS: '/suppliers',
   USERS: '/users',
-  POS: '/pos',
-  CATALOG: '/catalog',
-  NOTFOUND: '/*'
+  POS: '/pos'
 };
