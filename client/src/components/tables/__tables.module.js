@@ -128,7 +128,7 @@ export const TableData = styled.td`
 `;
 
 // * Color Badges
-// ! Different from Tag component
+// ! Different from <Tag /> component
 // ! because of width/padding bug in tables
 export const Tag = styled(Badge)`
   font-size: 1.2vw;
