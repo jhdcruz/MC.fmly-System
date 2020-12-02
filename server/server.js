@@ -86,6 +86,11 @@ api.get('*', (req, res) => {
 api.all('/', (req, res) => {
   res.setHeader('Content-Type', 'text/html');
   res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
+  res.setHeader(
+    'Access-Control-Allow-Origin',
+    'https://deuz.systems,https://*.vercel.app,http://localhost'
+  );
+  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With');
 });
 
 // * AppMon middlewares
