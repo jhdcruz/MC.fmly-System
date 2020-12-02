@@ -28,7 +28,8 @@ const productSchema = new Schema(
       trim: true
     },
     name: {
-      type: String
+      type: String,
+      trim: true
     },
     variant: {
       type: String,

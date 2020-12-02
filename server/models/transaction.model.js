@@ -25,7 +25,8 @@ const transactionSchema = new Schema(
       type: String
     },
     name: {
-      type: String
+      type: String,
+      trim: true
     },
     order_id: {
       type: String,

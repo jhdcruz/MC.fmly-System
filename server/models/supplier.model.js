@@ -29,6 +29,7 @@ const supplierSchema = new Schema(
     },
     name: {
       type: String,
+      trim: true,
       required: true
     },
     description: {
@@ -39,6 +40,7 @@ const supplierSchema = new Schema(
     type: {
       type: String,
       default: '',
+      trim: true,
       unique: false
     },
     address: {
@@ -49,11 +51,13 @@ const supplierSchema = new Schema(
     website: {
       type: String,
       default: '',
+      trim: true,
       unique: false
     },
     contact: {
       type: String,
       default: 'N/A',
+      trim: true,
       unique: false
     }
   },
