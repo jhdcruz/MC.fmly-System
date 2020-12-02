@@ -57,8 +57,9 @@ const CardBlock = styled(Card)`
       vertical-align: middle;
     }
 
+    .actions,
     button {
-      float: right;
+      float: right !important;
       border: none;
       visibility: hidden;
     }
