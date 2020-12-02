@@ -74,9 +74,8 @@
 
 html,
 body {
-  font-family: 'Noto Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji',
-    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  font-family: 'Noto Sans', sans-serif !important;
+  font-weight: normal;
   background-color: #39373a;
   width: 100%;
   height: 100%;
