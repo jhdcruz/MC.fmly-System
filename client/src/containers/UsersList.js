@@ -22,7 +22,6 @@ import UserService from '../services/UserService';
 import UserRow from '../components/tables/UserRow';
 import { AddUser, DeleteUser, EditUser } from './modals/UserModal';
 import Controls from '../components/Controls';
-// Commons
 import Loader from '../components/common/Loader';
 
 export default function UsersList() {
