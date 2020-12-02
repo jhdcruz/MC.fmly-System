@@ -21,37 +21,9 @@
  *********************************/
 
 @use 'themes';
-
-// Fonts
-@font-face {
-  font-family: 'Noto Sans';
-  src: local('Noto Sans'),
-    url('assets/fonts/Noto_Sans/NotoSans-Regular.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Noto Sans';
-  src: local('Noto Sans'),
-    url('assets/fonts/Noto_Sans/NotoSans-Bold.ttf') format('truetype');
-  font-weight: bold;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Noto Sans';
-  src: local('Noto Sans'),
-    url('assets/fonts/Noto_Sans/NotoSans-Italic.ttf') format('truetype');
-  font-weight: normal;
-  font-style: italic;
-  font-display: swap;
-}
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400&display=swap');
 
 // Tag-level
-
 * {
   margin: 0;
   padding: 0;
