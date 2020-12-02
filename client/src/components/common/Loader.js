@@ -28,8 +28,8 @@ const Loading = styled(Spinner)`
   width: 2rem;
   height: 2rem;
   position: fixed;
-  top: 50vh;
-  left: 50vw;
+  top: 45vh;
+  left: 45vw;
   z-index: 99;
 `;
 
