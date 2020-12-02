@@ -39,7 +39,7 @@ function createWindow() {
   });
   // Main App
   const win = new BrowserWindow({
-    width: 1250,
+    width: 1280,
     height: 700,
     show: false,
     minWidth: 1100,
@@ -49,7 +49,7 @@ function createWindow() {
     autoHideMenuBar: true,
     frame: process.platform === 'darwin',
     webPreferences: {
-      nodeIntegration: true,
+      contextIsolation: true,
       enableRemoteModule: true,
       webviewTag: true,
       preload: path.join(__dirname, 'preload.js')
