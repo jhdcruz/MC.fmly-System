@@ -26,7 +26,7 @@ import { ModalForm, Required } from './__forms.module';
  * * User Modal Forms
  *******************************/
 
-export default function EmployeeForm(props) {
+export default function UserForm(props) {
   return (
     <CustomModal
       {...props}

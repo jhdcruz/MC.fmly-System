@@ -42,7 +42,7 @@ import Inventory from '../pages/Inventory';
 import Transactions from '../pages/Transactions';
 import Suppliers from '../pages/Suppliers';
 import PointOfSale from '../pages/PointOfSale';
-import Employees from '../pages/Employees';
+import Users from '../pages/Users';
 import SysInfo from '../pages/SysInfo';
 
 /*********************************
@@ -101,7 +101,7 @@ export default function Admin() {
                 <TabItem
                   tab="Users Management"
                   overlay="Users Management"
-                  route={routes.EMPLOYEES}
+                  route={routes.USERS}
                   icon={faUsers}
                 />
                 <TabItem
@@ -127,7 +127,7 @@ export default function Admin() {
                   <Route path={routes.TRANSACTIONS} component={Transactions} />
                   <Route path={routes.SUPPLIERS} component={Suppliers} />
                   <Route path={routes.POS} component={PointOfSale} />
-                  <Route path={routes.EMPLOYEES} component={Employees} />
+                  <Route path={routes.USERS} component={Users} />
                 </>
               }
             />

@@ -27,6 +27,6 @@ module.exports = {
   INVENTORY: '/inventory',
   TRANSACTIONS: '/transactions',
   SUPPLIERS: '/suppliers',
-  EMPLOYEES: '/employees',
+  USERS: '/users',
   POS: '/pos'
 };

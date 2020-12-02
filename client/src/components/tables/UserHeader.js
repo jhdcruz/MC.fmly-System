@@ -31,7 +31,7 @@ const UsersTable = styled(Table)`
   padding: 0 1rem 1rem !important;
 `;
 
-export default function EmployeeHeader(props) {
+export default function UserHeader(props) {
   return (
     <>
       <TableModule />

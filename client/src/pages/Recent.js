@@ -19,7 +19,7 @@
 import Tab from 'react-bootstrap/Tab';
 import RecentSuppliers from '../containers/recent/RecentSuppliers';
 import RecentProducts from '../containers/recent/RecentProducts';
-import RecentEmployees from '../containers/recent/RecentEmployees';
+import RecentUsers from '../containers/recent/RecentUsers';
 import RecentTransactions from '../containers/recent/RecentTransactions';
 import Notification from '../components/common/Notification';
 import { NavTabs, TabContainer } from '../containers/__containers.module';
@@ -35,7 +35,7 @@ export default function Recent() {
           <RecentSuppliers />
         </Tab>
         <Tab eventKey="users" title="Users">
-          <RecentEmployees />
+          <RecentUsers />
         </Tab>
         <Tab eventKey="transactions" title="Transactions">
           <RecentTransactions />

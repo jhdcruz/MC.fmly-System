@@ -17,14 +17,14 @@
  */
 
 import { useState } from 'react';
-import EmployeeHeader from '../components/tables/EmployeeHeader';
+import UserHeader from '../components/tables/UserHeader';
 import UserService from '../services/UserService';
-import EmployeeRow from '../components/tables/EmployeeRow';
+import UserRow from '../components/tables/UserRow';
 import { AddUser, DeleteUser, EditUser } from './modals/UserModal';
 import Controls from '../components/Controls';
 import Loader from '../components/common/Loader';
 
-export default function EmployeeList() {
+export default function UsersList() {
   const [users] = UserService();
 
   // * Modal State Handlers | Until API's done
@@ -64,12 +64,12 @@ export default function EmployeeList() {
       <Controls modal={() => showAddModal(true)} />
       {/* Users Table */}
       {users && true ? (
-        <EmployeeHeader
+        <UserHeader
           data={
             users &&
             users
               .map((user) => (
-                <EmployeeRow
+                <UserRow
                   edit={() => showEditModal(true)}
                   delete={() => showDeleteModal(true)}
                   id={user.id}

@@ -16,8 +16,8 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import EmployeeList from '../containers/EmployeeList';
+import UsersList from '../containers/UsersList';
 
-export default function Employees() {
-  return <EmployeeList />;
+export default function Users() {
+  return <UsersList />;
 }
