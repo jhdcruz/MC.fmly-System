@@ -24,6 +24,8 @@ const helmet = require('helmet');
 const path = require('path');
 const dotenv = require('dotenv');
 const dotenvExpand = require('dotenv-expand');
+const airbrake = require('./middlewares/airbrake');
+const airbrakeExpress = require('@airbrake/node/dist/instrumentation/express');
 const rollbar = require('./middlewares/rollbar');
 const logger = require('./middlewares/logdna');
 
@@ -75,6 +77,9 @@ require('./routes/product.route')(api);
 require('./routes/supplier.route')(api);
 require('./routes/transaction.route')(api);
 
+// * Airbrake Perfomance Monitoring
+api.use(airbrakeExpress.makeMiddleware(airbrake));
+
 // * Serve static files
 api.use(express.static(path.join(__dirname, '/public')));
 api.get('*', (req, res) => {
@@ -95,5 +100,6 @@ api.all('/', (req, res) => {
 
 // * AppMon middlewares
 api.use(rollbar.errorHandler());
+api.use(airbrakeExpress.makeErrorHandler(airbrake));
 
 module.exports = api;
