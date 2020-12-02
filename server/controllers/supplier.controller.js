@@ -29,7 +29,6 @@ exports.get = async (req, res) => {
     const suppliers = await Suppliers.find();
     return res.status(200).send(suppliers);
   } catch (err) {
-    console.error(err);
     rollbar.error(err);
     logger.error(`Error fetching suppliers list: ${err}`);
     res.status(500).send('Error fetching suppliers');
@@ -43,7 +42,6 @@ exports.findByName = async (req, res) => {
     const suppliers = await Suppliers.findOne(name, req.body);
     return res.status(200).send(suppliers);
   } catch (err) {
-    console.error(err);
     rollbar.error(err);
     res.status(500).send(`Cannot find supplier ${name}`);
   }
@@ -56,7 +54,6 @@ exports.findByType = async (req, res) => {
     const suppliers = await Suppliers.findOne(type, req.body);
     return res.status(200).send(suppliers);
   } catch (err) {
-    console.error(err);
     rollbar.error(err);
     res.status(500).send(`Cannot find supplier that supplies: ${type}`);
   }
@@ -69,7 +66,6 @@ exports.post = async (req, res) => {
     logger.log(`POST | New supplier registered: ${req.body}`);
     return res.status(201).send(suppliers);
   } catch (err) {
-    console.error(err);
     rollbar.error(err);
     logger.error(`Error registering supplier: ${err}`);
     res.status(500).send('Error posting of suppliers');
@@ -84,7 +80,6 @@ exports.patch = async (req, res) => {
     logger.log(`Supplier data updated with id: ${id}`);
     return res.status(202).send(suppliers);
   } catch (err) {
-    console.error(err);
     rollbar.error(err);
     logger.error(`Error updating supplier: ${err}`);
     res.status(500).send(`Error updating supplier ${id}`);
@@ -99,7 +94,6 @@ exports.delete = async (req, res) => {
     logger.log(`Supplier deleted with id: ${id}`);
     return res.status(202).send(suppliers);
   } catch (err) {
-    console.error(err);
     rollbar.error(err);
     logger.error(`Error deleting supplier: ${err}`);
     res.status(500).send(`Error deleting supplier ${id}`);

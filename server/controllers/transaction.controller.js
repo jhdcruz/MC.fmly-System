@@ -29,7 +29,6 @@ exports.get = async (req, res) => {
     const transactions = await Transactions.find();
     return res.status(200).send(transactions);
   } catch (err) {
-    console.error(err);
     rollbar.error(err);
     logger.error(`Error fetching transactions list: ${err}`);
     res.status(500).send('Error fetching transactions');
@@ -43,7 +42,6 @@ exports.findByName = async (req, res) => {
     const transactions = await Transactions.findOne(name, req.body);
     return res.status(200).send(transactions);
   } catch (err) {
-    console.error(err);
     rollbar.error(err);
     res.status(500).send(`Cannot find transaction ${name}`);
   }
@@ -56,7 +54,6 @@ exports.findById = async (req, res) => {
     const transactions = await Transactions.findOne(id, req.body);
     return res.status(200).send(transactions);
   } catch (err) {
-    console.error(err);
     rollbar.error(err);
     res.status(500).send(`Cannot find transaction that supplies: ${type}`);
   }
@@ -69,7 +66,6 @@ exports.post = async (req, res) => {
     logger.log(`POST | New transaction registered: ${req.body}`);
     return res.status(201).send(transactions);
   } catch (err) {
-    console.error(err);
     rollbar.error(err);
     logger.error(`Error registering transaction: ${err}`);
     res.status(500).send('Error posting of transactions');
@@ -84,7 +80,6 @@ exports.patch = async (req, res) => {
     logger.log(`Transaction data updated with id: ${id}`);
     return res.status(202).send(transactions);
   } catch (err) {
-    console.error(err);
     rollbar.error(err);
     logger.error(`Error updating transaction: ${err}`);
     res.status(500).send(`Error updating transaction ${id}`);
@@ -99,7 +94,6 @@ exports.delete = async (req, res) => {
     logger.log(`Transaction deleted with id: ${id}`);
     return res.status(202).send(transactions);
   } catch (err) {
-    console.error(err);
     rollbar.error(err);
     logger.error(`Error deleting transaction: ${err}`);
     res.status(500).send(`Error deleting transaction ${id}`);

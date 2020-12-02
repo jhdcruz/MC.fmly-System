@@ -26,9 +26,9 @@ const Users = mongoose.model('users');
 // * GET | Server Status
 exports.status = async (req, res) => {
   try {
+    logger.log('GET | Server status probe');
     return res.status(200).sendStatus(200);
   } catch (err) {
-    console.error(err);
     res.status(500).sendStatus(500);
     rollbar.error(err);
   }
@@ -36,7 +36,6 @@ exports.status = async (req, res) => {
 
 // * POST | User Registration
 exports.register = async (req, res) => {
-  console.log(req.body);
   try {
     // Hash password on register
     const hashedPwd = await argon2.hash(req.body.password, {
@@ -53,7 +52,6 @@ exports.register = async (req, res) => {
     res.status(201).send(insertResult);
     logger.log(`New user registered: ${insertResult}`);
   } catch (err) {
-    console.error(err);
     rollbar.error(err);
     logger.error(`User registration error: ${err}`);
     res.status(500).send('Internal Server error occured');
@@ -64,21 +62,23 @@ exports.register = async (req, res) => {
 exports.login = async (req, res) => {
   try {
     const user = await Users.findOne({ username: req.body.username });
-    console.log(user);
     if (user) {
       // Dehash password and compare
       const cmp = await argon2.verify(user.password, req.body.password);
       if (cmp) {
-        logger.log(`${user.username} Logged in.`);
+        logger.log(`${user.username} logged in.`);
         res.status(200).send(user.permission);
       } else {
+        logger.warning(
+          `Invalid credentials submitted for: ${req.body.username}`
+        );
         res.send('Credentials Mismatched!');
       }
     } else {
+      logger.warning(`Invalid credentials submitted for: ${req.body.username}`);
       res.send('Credentials Mismatched!');
     }
   } catch (err) {
-    console.error(err);
     rollbar.error(err);
     logger.error(`User login error: ${err}`);
     res.status(500).send('Internal Server error occured');

@@ -30,7 +30,6 @@ exports.get = async (req, res) => {
     const users = await Users.find();
     return res.status(200).send(users);
   } catch (err) {
-    console.error(err);
     rollbar.error(err);
     logger.error(`Error fetching users list: ${err}`);
     res.status(500).send('Error fetching users');
@@ -44,7 +43,6 @@ exports.findByName = async (req, res) => {
     const users = await Users.findOne(name, req.body);
     return res.status(200).send(users);
   } catch (err) {
-    console.error(err);
     rollbar.error(err);
     res.status(500).send(`Cannot find user: ${name}`);
   }
@@ -57,7 +55,6 @@ exports.findByRole = async (req, res) => {
     const users = await Users.findOne(role, req.body);
     return res.status(200).send(users);
   } catch (err) {
-    console.error(err);
     rollbar.error(err);
     res.status(500).send(`Cannot find ${role} users`);
   }
@@ -82,7 +79,6 @@ exports.patch = async (req, res) => {
     logger.log(`User credentials updated: ${users}`);
     return res.status(202).send(users);
   } catch (err) {
-    console.error(err);
     rollbar.error(err);
     logger.error(`Error updating user credentials: ${err}`);
     res.status(500).send(`Error updating user ${id}`);
@@ -97,7 +93,6 @@ exports.delete = async (req, res) => {
     logger.log(`User deleted with id: ${id}`);
     res.status(202).send(users);
   } catch (err) {
-    console.error(err);
     rollbar.error(err);
     logger.error(`Error deleting user: ${id} - [${err}]`);
     res.status(500).send(`Error deleting user ${id}`);
