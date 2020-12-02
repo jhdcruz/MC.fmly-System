@@ -79,7 +79,7 @@ const CategoryTable = styled(Col)`
   overflow: auto !important;
   width: 100%;
   height: 100vh;
-  padding: 1rem 0.5rem 1rem 1rem;
+  padding: 3rem 0.5rem 1rem 1rem;
   margin-left: 13.2rem;
 `;
 

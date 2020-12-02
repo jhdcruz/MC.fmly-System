@@ -78,7 +78,15 @@ export const TableRow = styled.tr`
     text-transform: capitalize;
   }
 
-  :hover,
+  :hover {
+    background-color: #161518 !important;
+    border-radius: 0.3rem;
+
+    button {
+      visibility: visible;
+    }
+  }
+
   :active,
   :focus {
     background-color: #161518 !important;

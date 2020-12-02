@@ -72,7 +72,7 @@ export default function TransactionsList() {
   };
 
   return (
-    <div className="m-0 overflow-auto">
+    <div className="overflow-auto m-0 pt-5">
       <Modals />
       <Controls modal={() => showAddModal(true)} />
 

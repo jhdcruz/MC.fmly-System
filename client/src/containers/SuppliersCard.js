@@ -63,7 +63,7 @@ export default function SuppliersCard() {
   };
 
   return (
-    <div className="overflow-auto">
+    <div className="overflow-auto pt-5">
       <Modals />
       <Controls modal={() => showAddModal(true)} />
       {/* Supplier group */}
