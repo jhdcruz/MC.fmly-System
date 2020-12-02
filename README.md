@@ -32,7 +32,6 @@
 - [Front-End](#front-end)
 - [Back-End](#back-end)
 - [Database](#database)
-- [APIs](#apis)
 - [Tools](#tools)
 
 #### Development
