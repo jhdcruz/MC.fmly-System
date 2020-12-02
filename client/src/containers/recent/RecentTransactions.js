@@ -18,15 +18,17 @@
 import { useState } from 'react';
 import TransactionHeader from '../../components/tables/TransactionHeader';
 import TransactionRow from '../../components/tables/TransactionRow';
+import { DeleteTransaction, EditTransaction } from '../modals/TransactionModal';
+import { NoInvoice } from '../modals/InvoiceModal';
 import TransactionService from '../../services/TransactionService';
 import Loader from '../../components/common/Loader';
-import { DeleteTransaction, EditTransaction } from '../modals/TransactionModal';
 
 export default function RecentTransactions() {
   const [transactions] = TransactionService();
   // * Modal State Handlers | Until API's done
   const [editModal, showEditModal] = useState(false);
   const [deleteModal, showDeleteModal] = useState(false);
+  const [invoiceModal, showInvoiceModal] = useState(false);
 
   // * Modals
   const Modals = () => {
@@ -44,6 +46,12 @@ export default function RecentTransactions() {
           save={() => showDeleteModal(false)}
           close={() => showDeleteModal(false)}
         />
+        <NoInvoice
+          show={invoiceModal}
+          onHide={() => showInvoiceModal(false)}
+          save={() => showInvoiceModal(false)}
+          close={() => showInvoiceModal(false)}
+        />
       </>
     );
   };
@@ -51,35 +59,44 @@ export default function RecentTransactions() {
   return (
     <>
       <Modals />
-      <TransactionHeader
-        _id={transactions && transactions._id}
-        data={
-          transactions && transactions.length !== null ? (
-            // Reverse & limit result to 10 | prioritize new entries
+      {transactions && true ? (
+        <TransactionHeader
+          data={
             transactions &&
             transactions
               .slice(Math.max(transactions.length - 10, 0))
               .reverse()
               .map((transaction) => (
                 <TransactionRow
-                  delete={() => showDeleteModal(true)}
                   edit={() => showEditModal(true)}
-                  _id={transaction._id}
+                  delete={() => showDeleteModal(true)}
+                  id={transaction.id}
                   order_id={transaction.order_id}
                   name={transaction.name}
                   status={transaction.status}
                   total={transaction.total}
                   payment={transaction.payment}
-                  receipt={transaction.receipt}
                   date={transaction.date}
                   createdAt={transaction.createdAt}
+                  receipt={
+                    transaction.receipt && true ? (
+                      // eslint-disable-next-line jsx-a11y/anchor-has-content
+                      <a
+                        href={transaction.receipt}
+                        target="_blank"
+                        rel="noreferrer"
+                      />
+                    ) : (
+                      () => showInvoiceModal(true)
+                    )
+                  }
                 />
               ))
-          ) : (
-            <Loader />
-          )
-        }
-      />
+          }
+        />
+      ) : (
+        <Loader />
+      )}
     </>
   );
 }
