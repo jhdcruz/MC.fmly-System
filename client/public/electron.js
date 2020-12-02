@@ -51,7 +51,6 @@ function createWindow() {
     webPreferences: {
       contextIsolation: true,
       enableRemoteModule: true,
-      webviewTag: true,
       preload: path.join(__dirname, 'preload.js')
     }
   });
