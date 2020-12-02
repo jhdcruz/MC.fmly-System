@@ -18,9 +18,6 @@
 
 import { useState } from 'react';
 import TransactionHeader from '../components/tables/TransactionHeader';
-import TransactionService from '../services/TransactionService';
-import Controls from '../components/Controls';
-import Loader from '../components/common/Loader';
 import TransactionRow from '../components/tables/TransactionRow';
 import {
   AddTransaction,
@@ -28,6 +25,9 @@ import {
   EditTransaction
 } from './modals/TransactionModal';
 import { NoInvoice } from './modals/InvoiceModal';
+import TransactionService from '../services/TransactionService';
+import Controls from '../components/Controls';
+import Loader from '../components/common/Loader';
 
 export default function TransactionsList() {
   const [transactions] = TransactionService();
@@ -76,7 +76,7 @@ export default function TransactionsList() {
       <Modals />
       <Controls modal={() => showAddModal(true)} />
 
-      {/* Users Table */}
+      {/* Transactions Table */}
       {transactions && true ? (
         <TransactionHeader
           data={
