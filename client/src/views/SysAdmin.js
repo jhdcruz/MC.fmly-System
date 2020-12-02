@@ -32,7 +32,7 @@ import {
 import Dashboard from '../pages/Dashboard';
 import SysInfo from '../pages/SysInfo';
 import TabItem from '../components/sidebar/TabItem';
-import Users from '../pages/Users';
+import Employees from '../pages/Employees';
 
 /*********************************
  * * Cashier Permission Access
@@ -66,7 +66,7 @@ export default function SysAdmin() {
                 <TabItem
                   tab="Users Management"
                   overlay="Users Management"
-                  route={routes.USERS}
+                  route={routes.EMPLOYEES}
                   icon={faUsers}
                 />
               </>
@@ -81,7 +81,7 @@ export default function SysAdmin() {
                 <>
                   <Route exact path={routes.DASHBOARD} component={Dashboard} />
                   <Route path={routes.SYSINFO} component={SysInfo} />
-                  <Route path={routes.USERS} component={Users} />
+                  <Route path={routes.EMPLOYEES} component={Employees} />
                 </>
               }
             />

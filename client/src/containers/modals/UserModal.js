@@ -18,13 +18,13 @@
 
 import Button from 'react-bootstrap/Button';
 import CustomModal from '../../components/common/CustomModal';
-import UserForm from '../../components/forms/UserForm';
+import EmployeeForm from '../../components/forms/EmployeeForm';
 
 // TODO: API Communication
 
 export const EditUser = (props) => {
   return (
-    <UserForm
+    <EmployeeForm
       header="Edit user"
       show={props.show}
       onHide={props.onHide}
@@ -37,7 +37,7 @@ export const EditUser = (props) => {
 
 export const AddUser = (props) => {
   return (
-    <UserForm
+    <EmployeeForm
       header="Add user"
       show={props.show}
       onHide={props.onHide}

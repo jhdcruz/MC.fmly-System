@@ -24,7 +24,7 @@ import EntryActions from '../common/EntryActions';
  * * User Table Row
  *********************************/
 
-export default function UserRow(user) {
+export default function EmployeeRow(user) {
   return (
     <>
       {/* User | Table Row */}

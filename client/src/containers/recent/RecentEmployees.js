@@ -17,13 +17,13 @@
  */
 
 import { useState } from 'react';
-import UserHeader from '../../components/tables/UserHeader';
-import UserRow from '../../components/tables/UserRow';
+import EmployeeHeader from '../../components/tables/EmployeeHeader';
+import EmployeeRow from '../../components/tables/EmployeeRow';
 import { DeleteUser, EditUser } from '../modals/UserModal';
 import UserService from '../../services/UserService';
 import Loader from '../../components/common/Loader';
 
-export default function RecentUsers() {
+export default function RecentEmployees() {
   const [users] = UserService();
   // * Modal State Handlers | Until API's done
   const [editModal, showEditModal] = useState(false);
@@ -52,7 +52,7 @@ export default function RecentUsers() {
   return (
     <>
       <Modals />
-      <UserHeader
+      <EmployeeHeader
         _id={users && users._id}
         data={
           users && users.length !== null ? (
@@ -62,7 +62,7 @@ export default function RecentUsers() {
               .slice(Math.max(users.length - 10, 0))
               .reverse()
               .map((user) => (
-                <UserRow
+                <EmployeeRow
                   delete={() => showDeleteModal(true)}
                   edit={() => showEditModal(true)}
                   _id={user._id}
