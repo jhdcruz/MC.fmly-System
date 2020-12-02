@@ -27,6 +27,7 @@ import {
   DeleteTransaction,
   EditTransaction
 } from './modals/TransactionModal';
+import { NoInvoice } from './modals/InvoiceModal';
 
 export default function TransactionsList() {
   const [transactions] = TransactionService();
@@ -35,11 +36,13 @@ export default function TransactionsList() {
   const [addModal, showAddModal] = useState(false);
   const [editModal, showEditModal] = useState(false);
   const [deleteModal, showDeleteModal] = useState(false);
+  const [invoiceModal, showInvoiceModal] = useState(false);
 
   // * Modals
   const Modals = () => {
     return (
       <>
+        {/* Transaction Modals */}
         <AddTransaction
           show={addModal}
           onHide={() => showAddModal(false)}
@@ -58,6 +61,12 @@ export default function TransactionsList() {
           save={() => showDeleteModal(false)}
           close={() => showDeleteModal(false)}
         />
+        <NoInvoice
+          show={invoiceModal}
+          onHide={() => showInvoiceModal(false)}
+          save={() => showInvoiceModal(false)}
+          close={() => showInvoiceModal(false)}
+        />
       </>
     );
   };
@@ -72,23 +81,32 @@ export default function TransactionsList() {
         <TransactionHeader
           data={
             transactions &&
-            transactions
-              .map((transaction) => (
-                <TransactionRow
-                  edit={() => showEditModal(true)}
-                  delete={() => showDeleteModal(true)}
-                  id={transaction.id}
-                  order_id={transaction.order_id}
-                  name={transaction.name}
-                  status={transaction.status}
-                  total={transaction.total}
-                  payment={transaction.payment}
-                  receipt={transaction.receipt}
-                  date={transaction.date}
-                  createdAt={transaction.createdAt}
-                />
-              ))
-              .reverse()
+            transactions.map((transaction) => (
+              <TransactionRow
+                edit={() => showEditModal(true)}
+                delete={() => showDeleteModal(true)}
+                id={transaction.id}
+                order_id={transaction.order_id}
+                name={transaction.name}
+                status={transaction.status}
+                total={transaction.total}
+                payment={transaction.payment}
+                date={transaction.date}
+                createdAt={transaction.createdAt}
+                receipt={
+                  transaction.receipt && true ? (
+                    // eslint-disable-next-line jsx-a11y/anchor-has-content
+                    <a
+                      href={transaction.receipt}
+                      target="_blank"
+                      rel="noreferrer"
+                    />
+                  ) : (
+                    () => showInvoiceModal(true)
+                  )
+                }
+              />
+            ))
           }
         />
       ) : (

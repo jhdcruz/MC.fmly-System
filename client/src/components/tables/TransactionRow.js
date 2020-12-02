@@ -17,6 +17,7 @@
  */
 
 import Moment from 'react-moment';
+import Button from 'react-bootstrap/Button';
 import { TableData, TableRow, Tag } from './__tables.module';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFile } from '@fortawesome/free-solid-svg-icons';
@@ -55,16 +56,14 @@ export default function TransactionRow(transaction) {
           <Tag variant="info">{transaction.payment}</Tag>
         </TableData>
         <TableData className="receipt">
-          <a href={transaction.receipt} target="_blank" rel="noreferrer">
-            <Tag variant="primary">
-              <FontAwesomeIcon
-                icon={faFile}
-                style={{
-                  color: '#1e1e1e'
-                }}
-              />
-            </Tag>
-          </a>
+          <Button onClick={transaction.receipt}>
+            <FontAwesomeIcon
+              icon={faFile}
+              style={{
+                color: '#1e1e1e'
+              }}
+            />
+          </Button>
         </TableData>
         <TableData className="date">
           {/* Parse date to human-friendly format */}
