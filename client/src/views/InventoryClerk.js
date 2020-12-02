@@ -86,7 +86,10 @@ export default function InventoryClerk() {
                   <>
                     <Route path={routes.RECENT} component={Recent} />
                     <Route path={routes.INVENTORY} component={Inventory} />
-                    <Route path={routes.TRANSACTIONS} component={Transactions} />
+                    <Route
+                      path={routes.TRANSACTIONS}
+                      component={Transactions}
+                    />
                     <Route path={routes.SUPPLIERS} component={Suppliers} />
                   </>
                 }
