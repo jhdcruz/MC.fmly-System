@@ -27,6 +27,7 @@ import Tag from '../components/common/Tag';
 
 /************************************
  * * Product List, No Actions | POS
+ * TODO: POS functionality
  ************************************/
 
 export default function ProductCatalog() {
@@ -36,7 +37,7 @@ export default function ProductCatalog() {
   const Catalog = (product) => {
     return (
       <CardOverlay
-        _id={product._id}
+        key={product._id}
         title={
           <>
             {product.name}{' '}
@@ -160,7 +161,11 @@ export default function ProductCatalog() {
   // * Display cards based on clicked product category/type
   const CardPanes = () => {
     return (
-      <>
+      <div
+        style={{
+          overflowX: 'hidden'
+        }}
+      >
         <SearchBar />
         {/* Filtered Tables */}
         <Tab.Pane eventKey="default">
@@ -168,7 +173,7 @@ export default function ProductCatalog() {
         </Tab.Pane>
         <CategoryFilter />
         <TypeFilter />
-      </>
+      </div>
     );
   };
 
