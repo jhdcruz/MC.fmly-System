@@ -176,7 +176,8 @@ export default function ProductCatalog() {
     <>
       {/* Display 'categories' component */}
       <Categories
-        categories={
+        main="Categories"
+        mainTabs={
           products &&
           productCategories.map((product) => (
             <Nav.Item key={product.category}>
@@ -186,7 +187,8 @@ export default function ProductCatalog() {
             </Nav.Item>
           ))
         }
-        types={
+        secondary="Types"
+        secondaryTabs={
           products &&
           productTypes.map((product) => (
             <Nav.Item key={product.type}>
@@ -194,7 +196,7 @@ export default function ProductCatalog() {
             </Nav.Item>
           ))
         }
-        tables={<CardPanes />}
+        content={<CardPanes />}
       />
     </>
   );

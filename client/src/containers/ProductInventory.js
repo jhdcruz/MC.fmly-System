@@ -189,7 +189,8 @@ export default function ProductInventory() {
     <>
       {/* Display 'categories' component */}
       <Categories
-        categories={
+        main="Categories"
+        mainTabs={
           products &&
           productCategories.map((product) => (
             <Nav.Item key={product.category}>
@@ -199,7 +200,8 @@ export default function ProductInventory() {
             </Nav.Item>
           ))
         }
-        types={
+        secondary="Types"
+        secondaryTabs={
           products &&
           productTypes.map((product) => (
             <Nav.Item key={product.type}>
@@ -207,7 +209,7 @@ export default function ProductInventory() {
             </Nav.Item>
           ))
         }
-        tables={<TableRoutes />}
+        content={<TableRoutes />}
       />
     </>
   );
