@@ -75,7 +75,7 @@ const CategoryList = styled(Col)`
   }
 `;
 
-const CategoryTable = styled(Col)`
+const CategoryContent = styled(Col)`
   overflow: auto !important;
   width: 100%;
   height: 100vh;
@@ -95,20 +95,20 @@ export default function Categories(props) {
       <CatalogGrid>
         <CategoryList sm={2}>
           <Nav variant="pills" className="flex-column">
-            <CategoryLine>Category</CategoryLine>
+            <CategoryLine>{props.main}</CategoryLine>
             <Nav.Item>
               <Nav.Link eventKey="default">All</Nav.Link>
             </Nav.Item>
-            {props.categories}
+            {props.mainTabs}
             <hr />
-            <CategoryLine>Types</CategoryLine>
-            {props.types}
+            <CategoryLine>{props.secondary}</CategoryLine>
+            {props.secondaryTabs}
           </Nav>
         </CategoryList>
-        <CategoryTable>
-          {/* Table dynamic data*/}
-          <Tab.Content>{props.tables}</Tab.Content>
-        </CategoryTable>
+        <CategoryContent>
+          {/* Categories dynamic content*/}
+          <Tab.Content>{props.content}</Tab.Content>
+        </CategoryContent>
       </CatalogGrid>
     </Tab.Container>
   );
