@@ -20,8 +20,10 @@ import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Button from 'react-bootstrap/Button';
 
-const ButtonControl = styled(Button)`
+const RegularButton = styled(Button)`
   color: #c4c4c4;
+  width: max-content;
+  height: max-content;
   background-color: #222126;
   margin: 0 0.3rem;
   border-radius: 0.3rem;
@@ -31,16 +33,29 @@ const ButtonControl = styled(Button)`
   :hover,
   :active,
   :focus {
-    color: #d2d2d2 !important;
+    color: #e6a195 !important;
     background-color: #121416 !important;
-    box-shadow: none !important;
   }
 `;
 
-export default function Control({ icon, content, action }) {
+const LargeButton = styled(RegularButton)`
+  height: 10vh;
+  font-size: 1.3vw;
+  width: max-content;
+`;
+
+export const Control = ({ icon, content, action }) => {
   return (
-    <ButtonControl onClick={action}>
+    <RegularButton onClick={action}>
       <FontAwesomeIcon icon={icon} /> {content}
-    </ButtonControl>
+    </RegularButton>
   );
-}
+};
+
+export const LargeControl = ({ icon, content, action }) => {
+  return (
+    <LargeButton onClick={action}>
+      <FontAwesomeIcon icon={icon} /> {content}
+    </LargeButton>
+  );
+};

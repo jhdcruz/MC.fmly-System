@@ -32,7 +32,7 @@ const CardContainer = styled(Card)`
 
   .card-img-overlay {
     padding: 1rem;
-    margin-left: 7.1vw;
+    margin-left: 7.2vw;
 
     .card-title {
       font-size: 1.3vw;
@@ -60,7 +60,7 @@ const CardImage = styled(Card.Img)`
 
 export default function CardOverlay(props) {
   return (
-    <CardContainer key={props._id}>
+    <CardContainer key={props.key} onClick={props.action}>
       <CardImage src={placeholder} alt="Image" />
       <Card.ImgOverlay>
         <Card.Title>{props.title}</Card.Title>
