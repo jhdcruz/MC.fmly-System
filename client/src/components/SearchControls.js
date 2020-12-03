@@ -20,7 +20,7 @@ import styled from 'styled-components';
 import SearchBar from './common/SearchBar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faPlus, faThLarge } from '@fortawesome/free-solid-svg-icons';
-import Control from './Control';
+import { Control } from './Control';
 
 /**************************************
  * * Searchbar w/ Add & View Controls
