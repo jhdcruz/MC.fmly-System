@@ -26,7 +26,7 @@ import {
 } from './modals/TransactionModal';
 import { NoInvoice } from './modals/InvoiceModal';
 import TransactionService from '../services/TransactionService';
-import Controls from '../components/Controls';
+import SearchControls from '../components/SearchControls';
 import Loader from '../components/common/Loader';
 
 export default function TransactionsList() {
@@ -74,7 +74,7 @@ export default function TransactionsList() {
   return (
     <div className="overflow-auto m-0 pt-5">
       <Modals />
-      <Controls modal={() => showAddModal(true)} />
+      <SearchControls modal={() => showAddModal(true)} />
 
       {/* Transactions Table */}
       {transactions && true ? (

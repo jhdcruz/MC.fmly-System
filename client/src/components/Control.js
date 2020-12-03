@@ -17,25 +17,10 @@
  */
 
 import styled from 'styled-components';
-import SearchBar from './common/SearchBar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars, faPlus, faThLarge } from '@fortawesome/free-solid-svg-icons';
 import Button from 'react-bootstrap/Button';
 
-/**************************************
- * * Searchbar w/ Additional Controls
- **************************************/
-
-const ControlSection = styled.div`
-  display: inline-flex;
-  width: 92vw;
-  height: max-content;
-  margin: 0.3rem 1rem 0;
-  padding: 0 0.5rem;
-  overflow: hidden;
-`;
-
-const Control = styled(Button)`
+const ButtonControl = styled(Button)`
   color: #c4c4c4;
   background-color: #222126;
   margin: 0 0.3rem;
@@ -52,21 +37,10 @@ const Control = styled(Button)`
   }
 `;
 
-export default function Controls({ modal }) {
+export default function Control({ icon, content, action }) {
   return (
-    <ControlSection>
-      <SearchBar />
-      <Control onClick={modal}>
-        <FontAwesomeIcon icon={faPlus} />
-      </Control>
-
-      {/* Views Types */}
-      <Control>
-        <FontAwesomeIcon icon={faBars} />
-      </Control>
-      <Control>
-        <FontAwesomeIcon icon={faThLarge} />
-      </Control>
-    </ControlSection>
+    <ButtonControl onClick={action}>
+      <FontAwesomeIcon icon={icon} /> {content}
+    </ButtonControl>
   );
 }
