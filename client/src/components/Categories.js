@@ -76,11 +76,11 @@ const CategoryList = styled(Col)`
 `;
 
 const CategoryContent = styled(Col)`
-  overflow: auto !important;
   width: 100%;
   height: 100vh;
-  padding: 3rem 0.5rem 1rem 1rem;
-  margin-left: 13.2rem;
+  padding: 3rem 0 1rem 1rem;
+  margin: 0 0.5rem 0 13.2rem;
+  overflow: auto !important;
 `;
 
 const CategoryLine = styled.label`
