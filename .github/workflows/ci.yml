@@ -40,5 +40,5 @@ jobs:
       - name: Archive production artifacts
         uses: actions/upload-artifact@v2.2.1
         with:
-          name: desktop installers
-          path: client/release/*
+          name: binary releases
+          path: release/*
