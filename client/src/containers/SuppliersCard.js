@@ -19,7 +19,7 @@
 import { useState } from 'react';
 import CardDeck from 'react-bootstrap/CardDeck';
 import SupplierService from '../services/SupplierService';
-import Controls from '../components/Controls';
+import SearchControls from '../components/SearchControls';
 import Loader from '../components/common/Loader';
 import Poster from '../components/cards/Poster';
 import {
@@ -65,7 +65,7 @@ export default function SuppliersCard() {
   return (
     <div className="overflow-auto pt-5">
       <Modals />
-      <Controls modal={() => showAddModal(true)} />
+      <SearchControls modal={() => showAddModal(true)} />
       {/* Supplier group */}
       <CardDeck
         style={{

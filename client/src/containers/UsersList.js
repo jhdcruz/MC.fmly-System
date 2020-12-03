@@ -21,7 +21,7 @@ import UserHeader from '../components/tables/UserHeader';
 import UserService from '../services/UserService';
 import UserRow from '../components/tables/UserRow';
 import { AddUser, DeleteUser, EditUser } from './modals/UserModal';
-import Controls from '../components/Controls';
+import SearchControls from '../components/SearchControls';
 import Loader from '../components/common/Loader';
 
 export default function UsersList() {
@@ -61,7 +61,7 @@ export default function UsersList() {
   return (
     <div className="overflow-auto m-0 pt-5">
       <Modals />
-      <Controls modal={() => showAddModal(true)} />
+      <SearchControls modal={() => showAddModal(true)} />
       {/* Users Table */}
       {users && true ? (
         <UserHeader

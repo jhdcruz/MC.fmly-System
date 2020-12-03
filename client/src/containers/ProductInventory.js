@@ -24,7 +24,7 @@ import ProductHeader from '../components/tables/ProductHeader';
 import ProductRow from '../components/tables/ProductRow';
 import { AddProduct, DeleteProduct, EditProduct } from './modals/ProductModal';
 import ProductService from '../services/ProductService';
-import Controls from '../components/Controls';
+import SearchControls from '../components/SearchControls';
 import Loader from '../components/common/Loader';
 
 /******************************************
@@ -170,7 +170,7 @@ export default function ProductInventory() {
       <>
         <Modals />
         {/* Inventory Tab Controls */}
-        <Controls modal={() => showAddModal(true)} />
+        <SearchControls modal={() => showAddModal(true)} />
 
         {/* Filtered Tables */}
         <Tab.Pane eventKey="default">
