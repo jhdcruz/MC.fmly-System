@@ -86,10 +86,9 @@
 - [**Heroku**](https://heroku.com) - _Server/API Deployment (Back-End)_
 - [**Datadog**](https://datadog.com) - _Server/Database Metrics Monitoring_
 - [**LogDNA**](https://logdna.com) - _Log Management_
-- [**Airbrake**](https://airbrake.io) - _Error Monitoring & Performance Insights_
 - [**Rollbar**](https://rollbar.com) - _Error Tracking Software_
-- [**GitHub Actions**](https://github.com/features/actions) - _Continuous Integration (Main)_
-- [**CircleCI**](https://circleci.com/) - _Continuous Integration (Secondary)_
+- [**GitHub Actions**](https://github.com/features/actions) - _Continuous Integration_
+- [**CircleCI**](https://circleci.com/) - _Continuous Integration (Fallback)_
 - [**CodeFactor**](https://codefactor.io) - _Code Review_
 - [**SonarCloud**](https://sonarcloud.io/) - _Code Quality & Security_
 - [**Snyk**](https://snyk.io/) - _Dependency Security & Exploit POC_
