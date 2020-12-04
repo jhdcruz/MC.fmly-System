@@ -133,7 +133,12 @@ export default function PosDisplay(props) {
             content="Checkout"
             action={props.checkout}
           />
-          <Control icon={faTrash} action={props.clear} />
+          <Control
+            tooltip="Clear"
+            placement="top"
+            icon={faTrash}
+            action={props.clear}
+          />
         </Row>
       </PosControls>
     </PosContainer>

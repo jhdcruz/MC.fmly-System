@@ -49,7 +49,7 @@ const LargeButton = styled(RegularButton)`
 export const Control = (props) => {
   return (
     <OverlayTrigger
-      placement="bottom"
+      placement={props.placement}
       delay={{
         show: 250,
         hide: 400

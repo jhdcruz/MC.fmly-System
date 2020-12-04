@@ -40,11 +40,26 @@ export default function SearchControls(props) {
       <SearchBar />
 
       {/* Add Entry Modal */}
-      <Control tooltip={props.add} action={props.modal} icon={faPlus} />
+      <Control
+        placement="bottom"
+        tooltip={props.add}
+        action={props.modal}
+        icon={faPlus}
+      />
 
       {/* Views Types */}
-      <Control tooltip={props.list} action={props.listView} icon={faBars} />
-      <Control tooltip={props.card} action={props.cardView} icon={faThLarge} />
+      <Control
+        placement="bottom"
+        tooltip={props.list}
+        action={props.listView}
+        icon={faBars}
+      />
+      <Control
+        placement="bottom"
+        tooltip={props.card}
+        action={props.cardView}
+        icon={faThLarge}
+      />
     </ControlSection>
   );
 }
