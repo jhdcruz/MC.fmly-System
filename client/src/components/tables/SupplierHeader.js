@@ -52,7 +52,7 @@ export default function SupplierHeader(props) {
           </tr>
         </thead>
         {/* Pass dynamic data as props */}
-        <tbody key={props._id}>{props.data}</tbody>
+        <tbody>{props.data}</tbody>
       </SuppliersTable>
     </>
   );

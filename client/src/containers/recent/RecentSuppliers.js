@@ -41,7 +41,6 @@ export default function RecentSuppliers() {
     <>
       <Modals />
       <SupplierHeader
-        _id={suppliers && suppliers._id}
         data={
           suppliers && suppliers.length !== null ? (
             // Reverse & limit result to 10 | prioritize new entries

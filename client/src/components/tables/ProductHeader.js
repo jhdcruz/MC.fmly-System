@@ -55,7 +55,7 @@ export default function ProductHeader(props) {
           </tr>
         </thead>
         {/* Pass dynamic data as props */}
-        <tbody key={props._id}>{props.data}</tbody>
+        <tbody>{props.data}</tbody>
       </ProductsTable>
     </>
   );

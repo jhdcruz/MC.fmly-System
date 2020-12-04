@@ -40,7 +40,6 @@ export default function RecentProducts() {
     <>
       <Modals />
       <ProductHeader
-        _id={products && products._id}
         data={
           products && products.length !== null ? (
             // Reverse & limit result to 10 | prioritize new entries

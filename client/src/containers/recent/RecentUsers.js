@@ -40,7 +40,6 @@ export default function RecentUsers() {
     <>
       <Modals />
       <UserHeader
-        _id={users && users._id}
         data={
           users && users.length !== null ? (
             // Reverse & limit result to 10 | prioritize new entries
