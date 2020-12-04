@@ -15,6 +15,7 @@ import {
   EditSupplier
 } from './modals/SupplierModal';
 
+// TODO: Add Categories by types
 export default function SuppliersCard() {
   const [suppliers] = SupplierService();
 
@@ -53,7 +54,7 @@ export default function SuppliersCard() {
     <div className="overflow-auto pt-5">
       <Modals />
       <SearchControls
-        add="Add Product"
+        add="Add Supplier"
         list="List View"
         card="Card View"
         modal={() => showAddModal(true)}

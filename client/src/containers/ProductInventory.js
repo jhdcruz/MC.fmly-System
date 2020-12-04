@@ -6,7 +6,7 @@
 import { useState } from 'react';
 import Tab from 'react-bootstrap/Tab';
 import Nav from 'react-bootstrap/Nav';
-import Categories from '../components/Categories';
+import Categories from '../components/sidebar/Categories';
 import ProductHeader from '../components/tables/ProductHeader';
 import ProductRow from '../components/tables/ProductRow';
 import { AddProduct, DeleteProduct, EditProduct } from './modals/ProductModal';
@@ -53,7 +53,7 @@ export default function ProductInventory() {
     );
   };
 
-  const ProductList = (product) => {
+  const ProductTable = (product) => {
     return (
       <ProductRow
         edit={() => showEditModal(true)}
@@ -107,13 +107,14 @@ export default function ProductInventory() {
                   key={categories.category}
                   eventKey={categories.category}
                 >
+                  {/* TODO: Prevent header re-render */}
                   <ProductHeader
                     map={products && products._id}
                     data={
                       products &&
                       products
                         .filter((pane) => pane.category === categories.category)
-                        .map((product) => ProductList(product))
+                        .map((product) => ProductTable(product))
                     }
                   />
                 </Tab.Pane>
@@ -139,7 +140,7 @@ export default function ProductInventory() {
                     _id={products && products._id}
                     data={products
                       .filter((pane) => pane.type === types.type)
-                      .map((product) => ProductList(product))}
+                      .map((product) => ProductTable(product))}
                   />
                 </Tab.Pane>
               ))}
@@ -152,7 +153,7 @@ export default function ProductInventory() {
   };
 
   // * Display table based on clicked product category/type
-  const TableRoutes = () => {
+  const Products = () => {
     return (
       <>
         <Modals />
@@ -168,7 +169,7 @@ export default function ProductInventory() {
         <Tab.Pane eventKey="default">
           <ProductHeader
             _id={products && products._id}
-            data={products && products.map((product) => ProductList(product))}
+            data={products && products.map((product) => ProductTable(product))}
           />
         </Tab.Pane>
         <CategoryFilter />
@@ -178,31 +179,26 @@ export default function ProductInventory() {
   };
 
   return (
-    <>
-      {/* Display 'categories' component */}
-      <Categories
-        main="Categories"
-        mainTabs={
-          products &&
-          productCategories.map((product) => (
-            <Nav.Item key={product.category}>
-              <Nav.Link eventKey={product.category}>
-                {product.category}
-              </Nav.Link>
-            </Nav.Item>
-          ))
-        }
-        secondary="Types"
-        secondaryTabs={
-          products &&
-          productTypes.map((product) => (
-            <Nav.Item key={product.type}>
-              <Nav.Link eventKey={product.type}>{product.type}</Nav.Link>
-            </Nav.Item>
-          ))
-        }
-        content={<TableRoutes />}
-      />
-    </>
+    <Categories
+      main="Categories"
+      mainTabs={
+        products &&
+        productCategories.map((product) => (
+          <Nav.Item key={product.category}>
+            <Nav.Link eventKey={product.category}>{product.category}</Nav.Link>
+          </Nav.Item>
+        ))
+      }
+      secondary="Types"
+      secondaryTabs={
+        products &&
+        productTypes.map((product) => (
+          <Nav.Item key={product.type}>
+            <Nav.Link eventKey={product.type}>{product.type}</Nav.Link>
+          </Nav.Item>
+        ))
+      }
+      content={<Products />}
+    />
   );
 }

@@ -5,7 +5,7 @@
 
 import Nav from 'react-bootstrap/Nav';
 import Tab from 'react-bootstrap/Tab';
-import Categories from '../components/Categories';
+import Categories from '../components/sidebar/Categories';
 import CardOverlay from '../components/cards/CardOverlay';
 import ProductService from '../services/ProductService';
 import SearchBar from '../components/common/SearchBar';
