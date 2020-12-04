@@ -15,13 +15,13 @@ export const TableModule = createGlobalStyle`
   div.table-responsive {
     display: inline-flex !important;
     width: max-content;
-    height: 100%;
+    height: 100vh;
     padding: 0 0 0 0.5rem;
     overflow: auto !important;
 
     table {
       display: inline-table;
-      height: 100vh;
+      height: max-content;
       width: 100%;
       margin: 0;
       overflow: auto !important;
