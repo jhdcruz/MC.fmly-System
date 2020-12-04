@@ -16,8 +16,8 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import Tab from 'react-bootstrap/Tab';
 import Nav from 'react-bootstrap/Nav';
+import Tab from 'react-bootstrap/Tab';
 import Categories from '../components/Categories';
 import CardOverlay from '../components/cards/CardOverlay';
 import ProductService from '../services/ProductService';
@@ -161,19 +161,16 @@ export default function ProductCatalog() {
   // * Display cards based on clicked product category/type
   const CardPanes = () => {
     return (
-      <div
-        style={{
-          overflowX: 'hidden'
-        }}
-      >
+      <>
         <SearchBar />
-        {/* Filtered Tables */}
+        {/* Filtered Tables */};
         <Tab.Pane eventKey="default">
           {products && products.map((product) => Catalog(product))}
         </Tab.Pane>
-        <CategoryFilter />
-        <TypeFilter />
-      </div>
+        ;
+        <CategoryFilter />;
+        <TypeFilter />;
+      </>
     );
   };
 

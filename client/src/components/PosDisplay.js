@@ -116,7 +116,7 @@ export default function PosDisplay(props) {
               <InputGroup.Prepend>
                 <InputGroup.Text>VAT:</InputGroup.Text>
               </InputGroup.Prepend>
-              <FormControl placeholder="Default: 12" type="number" />
+              <FormControl placeholder="12" type="number" />
               <InputGroup.Append>
                 <InputGroup.Text>%</InputGroup.Text>
               </InputGroup.Append>
