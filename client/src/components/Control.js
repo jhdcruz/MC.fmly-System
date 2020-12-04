@@ -17,8 +17,10 @@
  */
 
 import styled from 'styled-components';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Button from 'react-bootstrap/Button';
+import Tooltip from 'react-bootstrap/Tooltip';
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const RegularButton = styled(Button)`
   color: #c4c4c4;
@@ -44,18 +46,44 @@ const LargeButton = styled(RegularButton)`
   width: max-content;
 `;
 
-export const Control = ({ icon, content, action }) => {
+export const Control = (props) => {
   return (
-    <RegularButton onClick={action}>
-      <FontAwesomeIcon icon={icon} /> {content}
-    </RegularButton>
+    <OverlayTrigger
+      placement="bottom"
+      delay={{
+        show: 250,
+        hide: 400
+      }}
+      overlay={
+        <Tooltip id="button-tooltip" {...props}>
+          {props.tooltip}
+        </Tooltip>
+      }
+    >
+      <RegularButton onClick={props.action}>
+        <FontAwesomeIcon icon={props.icon} /> {props.content}
+      </RegularButton>
+    </OverlayTrigger>
   );
 };
 
-export const LargeControl = ({ icon, content, action }) => {
+export const LargeControl = (props) => {
   return (
-    <LargeButton onClick={action}>
-      <FontAwesomeIcon icon={icon} /> {content}
-    </LargeButton>
+    <OverlayTrigger
+      placement="bottom"
+      delay={{
+        show: 250,
+        hide: 400
+      }}
+      overlay={
+        <Tooltip id="button-tooltip" {...props}>
+          {props.tooltip}
+        </Tooltip>
+      }
+    >
+      <LargeButton onClick={props.action}>
+        <FontAwesomeIcon icon={props.icon} /> {props.content}
+      </LargeButton>
+    </OverlayTrigger>
   );
 };
