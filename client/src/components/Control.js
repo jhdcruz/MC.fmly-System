@@ -69,21 +69,8 @@ export const Control = (props) => {
 
 export const LargeControl = (props) => {
   return (
-    <OverlayTrigger
-      placement="bottom"
-      delay={{
-        show: 250,
-        hide: 400
-      }}
-      overlay={
-        <Tooltip id="button-tooltip" {...props}>
-          {props.tooltip}
-        </Tooltip>
-      }
-    >
-      <LargeButton onClick={props.action}>
-        <FontAwesomeIcon icon={props.icon} /> {props.content}
-      </LargeButton>
-    </OverlayTrigger>
+    <LargeButton onClick={props.action}>
+      <FontAwesomeIcon icon={props.icon} /> {props.content}
+    </LargeButton>
   );
 };
