@@ -46,14 +46,14 @@ export default function TransactionsList() {
         <AddTransaction
           show={addModal}
           onHide={() => showAddModal(false)}
-          save={() => showAddModal(false)}
-          close={() => showAddModal(false)}
+          submit={() => showAddModal(false)}
+          cancel={() => showAddModal(false)}
         />
         <EditTransaction
           show={editModal}
           onHide={() => showEditModal(false)}
-          save={() => showEditModal(false)}
-          close={() => showEditModal(false)}
+          submit={() => showEditModal(false)}
+          cancel={() => showEditModal(false)}
         />
         <DeleteTransaction
           show={deleteModal}
@@ -74,7 +74,12 @@ export default function TransactionsList() {
   return (
     <div className="overflow-auto m-0 pt-5">
       <Modals />
-      <SearchControls modal={() => showAddModal(true)} />
+      <SearchControls
+        add="Add Product"
+        list="List View"
+        card="Card View"
+        modal={() => showAddModal(true)}
+      />
 
       {/* Transactions Table */}
       {transactions && true ? (

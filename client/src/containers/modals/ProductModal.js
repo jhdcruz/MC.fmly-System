@@ -29,8 +29,8 @@ export const EditProduct = (props) => {
       show={props.show}
       onHide={props.onHide}
       // TODO: PATCH entry
-      submit={props.save}
-      cancel={props.close}
+      submit={props.submit}
+      cancel={props.cancel}
     />
   );
 };
@@ -42,8 +42,8 @@ export const AddProduct = (props) => {
       show={props.show}
       onHide={props.onHide}
       // TODO: POST entry
-      submit={props.save}
-      cancel={props.close}
+      submit={props.submit}
+      cancel={props.cancel}
     />
   );
 };

@@ -39,14 +39,14 @@ export default function UsersList() {
         <AddUser
           show={addModal}
           onHide={() => showAddModal(false)}
-          save={() => showAddModal(false)}
-          close={() => showAddModal(false)}
+          submit={() => showAddModal(false)}
+          cancel={() => showAddModal(false)}
         />
         <EditUser
           show={editModal}
           onHide={() => showEditModal(false)}
-          save={() => showEditModal(false)}
-          close={() => showEditModal(false)}
+          submit={() => showEditModal(false)}
+          cancel={() => showEditModal(false)}
         />
         <DeleteUser
           show={deleteModal}
@@ -61,7 +61,12 @@ export default function UsersList() {
   return (
     <div className="overflow-auto m-0 pt-5">
       <Modals />
-      <SearchControls modal={() => showAddModal(true)} />
+      <SearchControls
+        add="Add Product"
+        list="List View"
+        card="Card View"
+        modal={() => showAddModal(true)}
+      />
       {/* Users Table */}
       {users && true ? (
         <UserHeader

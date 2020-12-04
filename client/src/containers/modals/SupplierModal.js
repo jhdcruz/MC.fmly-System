@@ -29,8 +29,8 @@ export const EditSupplier = (props) => {
       show={props.show}
       onHide={props.onHide}
       // TODO: PATCH entry
-      submit={props.save}
-      cancel={props.close}
+      submit={props.submit}
+      cancel={props.cancel}
     />
   );
 };
@@ -42,8 +42,8 @@ export const AddSupplier = (props) => {
       show={props.show}
       onHide={props.onHide}
       // TODO: POST entry
-      submit={props.save}
-      cancel={props.close}
+      submit={props.submit}
+      cancel={props.cancel}
     />
   );
 };
