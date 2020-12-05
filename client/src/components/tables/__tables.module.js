@@ -15,7 +15,7 @@ export const TableModule = createGlobalStyle`
   div.table-responsive {
     display: inline-flex !important;
     width: max-content;
-    height: 100vh;
+    height: max-content;
     padding: 0 0 0 0.5rem;
     overflow: auto !important;
 
