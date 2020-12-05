@@ -13,14 +13,15 @@ const CardContainer = styled(Card)`
   height: max-content !important;
   color: #eccec9;
   cursor: pointer;
-  margin: 0 0.5rem 1rem 0;
+  margin: 0 0.5rem 0.5rem 0;
   border-radius: 0.3rem;
   background-color: #222126;
   box-shadow: 3px 3px 8px #1b1b1b;
 
   .card-img-overlay {
     padding: 1rem;
-    margin-left: 7.2vw;
+    margin-left: 7.5vw;
+    height: max-content;
 
     .card-title {
       font-size: 1.3vw;
