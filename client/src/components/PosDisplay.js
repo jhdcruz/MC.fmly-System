@@ -97,6 +97,7 @@ export default function PosDisplay(props) {
         <Row>
           <Col>
             <h4>Items: {props.items || 0}</h4>
+            <h4>Subtotal: {props.subtotal || '0.00'}</h4>
           </Col>
           <Col>
             <InputGroup className="mb-3">
