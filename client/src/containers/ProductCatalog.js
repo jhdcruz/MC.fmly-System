@@ -150,7 +150,7 @@ export default function ProductCatalog() {
     return (
       <>
         <SearchBar />
-        {/* Filtered Tables */};
+        {/* Filtered Tables */}
         <Tab.Pane eventKey="default">
           {products && products.map((product) => Catalog(product))}
         </Tab.Pane>
