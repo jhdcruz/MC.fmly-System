@@ -12,6 +12,7 @@ import ProductHeader from '../components/tables/ProductHeader';
 import ProductRow from '../components/tables/ProductRow';
 import { AddProduct, DeleteProduct, EditProduct } from './modals/ProductModal';
 import ProductService from '../services/ProductService';
+import ProductsCard from './ProductsCard';
 import SearchControls from '../components/SearchControls';
 import Loader from '../components/common/Loader';
 
@@ -22,13 +23,13 @@ import Loader from '../components/common/Loader';
 
 export default function ProductInventory() {
   const [products] = ProductService();
+  const [view, setView] = useState();
 
   // * Modal State Handlers | Until API's done
   const [addModal, showAddModal] = useState(false);
   const [editModal, showEditModal] = useState(false);
   const [deleteModal, showDeleteModal] = useState(false);
 
-  // * Modals
   const Modals = () => {
     return (
       <>
@@ -161,8 +162,7 @@ export default function ProductInventory() {
         {/* Inventory Tab Controls */}
         <SearchControls
           add="Add Product"
-          list="List View"
-          card="Card View"
+          cardView={() => setView('card')}
           modal={() => showAddModal(true)}
         />
 
@@ -179,6 +179,9 @@ export default function ProductInventory() {
     );
   };
 
+  if (view === 'card') {
+    return <ProductsCard />;
+  }
   return (
     <Categories
       main="Categories"
