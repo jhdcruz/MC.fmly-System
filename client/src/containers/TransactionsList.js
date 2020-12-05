@@ -20,9 +20,11 @@ import Tab from 'react-bootstrap/Tab';
 import UserHeader from '../components/tables/UserHeader';
 import Loader from '../components/common/Loader';
 import Nav from 'react-bootstrap/Nav';
+import TransactionsCard from './TransactionsCard';
 
 export default function TransactionsList() {
   const [transactions] = TransactionService();
+  const [view, setView] = useState();
 
   // * Modal State Handlers | Until API's done
   const [addModal, showAddModal] = useState(false);
@@ -177,9 +179,8 @@ export default function TransactionsList() {
       <>
         <Modals />
         <SearchControls
-          add="Add Product"
-          list="List View"
-          card="Card View"
+          add="Add Transaction"
+          cardView={() => setView('card')}
           modal={() => showAddModal(true)}
         />
 
@@ -197,6 +198,9 @@ export default function TransactionsList() {
     );
   };
 
+  if (view === 'card') {
+    return <TransactionsCard />;
+  }
   return (
     <Categories
       main="Status"
