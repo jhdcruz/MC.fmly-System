@@ -73,8 +73,9 @@ export default function TransactionForm(props) {
                 defaultValue="Choose..."
                 required
               >
-                <option>Completed</option>
                 <option>Pending</option>
+                <option>Completed</option>
+                <option>Cancelled</option>
               </Form.Control>
             </Form.Group>
           </Form.Row>
