@@ -41,16 +41,28 @@ const CardContainer = styled(Card)`
   }
 `;
 
+const CardBlock = styled(CardContainer)`
+  width: 35vw;
+  height: 28vh !important;
+  color: #eccec9;
+  cursor: pointer;
+  margin: 1vw;
+  display: inline-block;
+  border-radius: 0.3rem;
+  background-color: #222126;
+  box-shadow: 3px 3px 8px #1b1b1b;
+`;
+
 const CardImage = styled(Card.Img)`
   height: 20vh;
   width: 14vh;
   margin: auto 0.5rem;
 `;
 
-export default function CardOverlay(props) {
+export const CardOverlay = (props) => {
   return (
     <CardContainer key={props.key} onClick={props.action}>
-      <CardImage src={placeholder} alt="Image" />
+      <CardImage src={placeholder} alt="Item Logo" />
       <Card.ImgOverlay>
         <Card.Title>{props.title}</Card.Title>
         <Card.Text>{props.content}</Card.Text>
@@ -58,4 +70,18 @@ export default function CardOverlay(props) {
       </Card.ImgOverlay>
     </CardContainer>
   );
-}
+};
+
+export const CardDeck = (props) => {
+  return (
+    <CardBlock key={props.key} onClick={props.action}>
+      <CardImage src={placeholder} alt="Item Logo" />
+      <Card.ImgOverlay>
+        <Card.Title>{props.title}</Card.Title>
+        <Card.Text>{props.content}</Card.Text>
+        <Card.Text>{props.footer}</Card.Text>
+        <Card.Text>{props.date}</Card.Text>
+      </Card.ImgOverlay>
+    </CardBlock>
+  );
+};

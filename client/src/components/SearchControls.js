@@ -38,13 +38,13 @@ export default function SearchControls(props) {
       {/* Views Types */}
       <Control
         placement="bottom"
-        tooltip={props.list}
+        tooltip="List View"
         action={props.listView}
         icon={faBars}
       />
       <Control
         placement="bottom"
-        tooltip={props.card}
+        tooltip="Card View"
         action={props.cardView}
         icon={faThLarge}
       />

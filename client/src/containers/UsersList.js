@@ -14,9 +14,11 @@ import SearchControls from '../components/SearchControls';
 import UserService from '../services/UserService';
 import { AddUser, DeleteUser, EditUser } from './modals/UserModal';
 import Loader from '../components/common/Loader';
+import UsersCard from './UsersCard';
 
 export default function UsersList() {
   const [users] = UserService();
+  const [view, setView] = useState();
 
   // * Modal State Handlers | Until API's done
   const [addModal, showAddModal] = useState(false);
@@ -49,7 +51,7 @@ export default function UsersList() {
     );
   };
 
-  const Employees = (user) => {
+  const Users = (user) => {
     return (
       <UserRow
         edit={() => showEditModal(true)}
@@ -103,7 +105,7 @@ export default function UsersList() {
                       users &&
                       users
                         .filter((pane) => pane.permission === user.permission)
-                        .map((userByPermission) => Employees(userByPermission))
+                        .map((userByPermission) => Users(userByPermission))
                     }
                   />
                 </Tab.Pane>
@@ -129,7 +131,7 @@ export default function UsersList() {
                     _id={users && users._id}
                     data={users
                       .filter((pane) => pane.role === user.role)
-                      .map((userByRole) => Employees(userByRole))}
+                      .map((userByRole) => Users(userByRole))}
                   />
                 </Tab.Pane>
               ))}
@@ -147,14 +149,13 @@ export default function UsersList() {
         <Modals />
         <SearchControls
           add="Add User"
-          list="List View"
-          card="Card View"
+          cardView={() => setView('card')}
           modal={() => showAddModal(true)}
         />
 
         <Tab.Pane eventKey="default">
           <UserHeader
-            data={users && users.map((user) => Employees(user)).reverse()}
+            data={users && users.map((user) => Users(user)).reverse()}
           />
         </Tab.Pane>
         <PermissionFilter />
@@ -163,6 +164,9 @@ export default function UsersList() {
     );
   };
 
+  if (view === 'card') {
+    return <UsersCard />;
+  }
   return (
     <Categories
       main="Permissions"
