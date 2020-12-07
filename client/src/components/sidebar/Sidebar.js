@@ -4,8 +4,10 @@
  *     Licensed under GNU General Public License 3.0 or later
  */
 
-import { Container, Image, Nav } from 'react-bootstrap';
 import styled from 'styled-components';
+import Container from 'react-bootstrap/Container';
+import Image from 'react-bootstrap/Image';
+import Nav from 'react-bootstrap/Nav';
 import TabItem from './TabItem';
 import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 import Brand from '../../assets/img/profile.png';
