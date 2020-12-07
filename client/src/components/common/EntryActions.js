@@ -34,12 +34,14 @@ export default function EntryActions(props) {
     <span className="actions">
       <EntryButtons>
         {/* Modal Action Icons */}
-        <EntryControl variant="outline-danger" onClick={props.delete}>
-          <FontAwesomeIcon icon={faTimes} />
-        </EntryControl>
-        <EntryControl variant="outline-success" onClick={props.edit}>
-          <FontAwesomeIcon icon={faPen} />
-        </EntryControl>
+        <span className="mr-2">
+          <EntryControl variant="outline-danger" onClick={props.delete}>
+            <FontAwesomeIcon icon={faTimes} />
+          </EntryControl>
+          <EntryControl variant="outline-success" onClick={props.edit}>
+            <FontAwesomeIcon icon={faPen} />
+          </EntryControl>
+        </span>
       </EntryButtons>
     </span>
   );

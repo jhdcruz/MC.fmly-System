@@ -26,7 +26,8 @@ export default function ProductHeader(props) {
       <ProductsTable hover responsive>
         <thead>
           <tr>
-            <TableHeader id="ItemCode" className="actions">
+            <TableHeader className="actions" />
+            <TableHeader id="ItemCode">
               SKU <FontAwesomeIcon icon={faCaretDown} />
             </TableHeader>
             <TableHeader id="ProductName">

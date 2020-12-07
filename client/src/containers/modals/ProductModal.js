@@ -5,8 +5,13 @@
  */
 
 import Button from 'react-bootstrap/Button';
-import CustomModal from '../../components/common/CustomModal';
+import Form from 'react-bootstrap/Form';
+import Col from 'react-bootstrap/Col';
+import InputGroup from 'react-bootstrap/InputGroup';
+import FormControl from 'react-bootstrap/FormControl';
 import ProductForm from '../../components/forms/ProductForm';
+import CustomModal from '../../components/common/CustomModal';
+import { ModalForm } from '../../components/forms/__forms.module';
 
 // TODO: API Communication
 
@@ -53,6 +58,66 @@ export const DeleteProduct = (props) => {
           </Button>
           <Button variant="outline-primary" onClick={props.close}>
             No
+          </Button>
+        </>
+      }
+    />
+  );
+};
+
+export const QuickEdit = (props) => {
+  return (
+    <CustomModal
+      className="text-center"
+      size="sm"
+      header="Quick Edit"
+      content={
+        <ModalForm>
+          <Form.Group as={Col} controlId="formGridQuantity">
+            <Form.Label>Quantity</Form.Label>
+            <InputGroup>
+              <InputGroup.Prepend
+                style={{
+                  fontSize: '1vw'
+                }}
+              >
+                <InputGroup.Text>±</InputGroup.Text>
+              </InputGroup.Prepend>
+              <FormControl
+                className="input-box"
+                type="number"
+                autoComplete="new-text"
+                autoSave="off"
+              />
+            </InputGroup>
+          </Form.Group>
+
+          <Form.Group as={Col} controlId="formGridPrice">
+            <Form.Label>Price</Form.Label>
+            <InputGroup>
+              <InputGroup.Prepend>
+                <InputGroup.Text>₱</InputGroup.Text>
+              </InputGroup.Prepend>
+              <FormControl
+                className="input-box"
+                type="number"
+                autoComplete="new-text"
+                autoSave="off"
+              />
+            </InputGroup>
+          </Form.Group>
+        </ModalForm>
+      }
+      show={props.show}
+      onHide={props.onHide}
+      footer={
+        <>
+          {/* TODO: DELETE entry */}
+          <Button variant="outline-danger" onClick={props.save}>
+            Yes
+          </Button>
+          <Button variant="outline-primary" onClick={props.close}>
+            Cancel
           </Button>
         </>
       }
