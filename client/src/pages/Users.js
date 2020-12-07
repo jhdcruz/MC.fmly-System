@@ -4,7 +4,7 @@
  *     Licensed under GNU General Public License 3.0 or later
  */
 
-import UsersList from '../containers/UsersList';
+import UsersList from '../containers/users/UsersList';
 
 export default function Users() {
   return <UsersList />;

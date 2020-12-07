@@ -4,7 +4,7 @@
  *     Licensed under GNU General Public License 3.0 or later
  */
 
-import ProductCatalog from '../containers/ProductCatalog';
+import ProductCatalog from '../containers/products/ProductCatalog';
 import PosDisplay from '../components/PosDisplay';
 
 export default function PointOfSale() {

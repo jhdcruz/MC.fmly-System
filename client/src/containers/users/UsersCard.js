@@ -7,16 +7,19 @@
 import { useState } from 'react';
 import Nav from 'react-bootstrap/Nav';
 import Tab from 'react-bootstrap/Tab';
-import Categories from '../components/sidebar/Categories';
-import UserHeader from '../components/tables/UserHeader';
-import UserRow from '../components/tables/UserRow';
-import SearchControls from '../components/SearchControls';
-import UserService from '../services/UserService';
-import { AddUser, DeleteUser, EditUser } from './modals/UserModal';
-import Loader from '../components/common/Loader';
-import UsersCard from './UsersCard';
+import Categories from '../../components/sidebar/Categories';
+import SearchControls from '../../components/SearchControls';
+import UserService from '../../services/UserService';
+import { AddUser, DeleteUser, EditUser } from '../modals/UserModal';
+import Loader from '../../components/common/Loader';
+import UsersList from './UsersList';
+import { CardDeck } from '../../components/cards/CardOverlay';
+import Tag from '../../components/common/Tag';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCalendarAlt, faHistory } from '@fortawesome/free-solid-svg-icons';
+import Moment from 'react-moment';
 
-export default function UsersList() {
+export default function UsersCard() {
   const [users] = UserService();
   const [view, setView] = useState();
 
@@ -51,18 +54,39 @@ export default function UsersList() {
     );
   };
 
-  const Users = (user) => {
+  const UserCard = (user) => {
     return (
-      <UserRow
-        edit={() => showEditModal(true)}
-        delete={() => showDeleteModal(true)}
-        id={user.id}
-        username={user.username}
-        name={user.name}
-        role={user.role}
-        permission={user.permission}
-        updatedAt={user.updatedAt}
-        createdAt={user.createdAt}
+      <CardDeck
+        action={() => showEditModal(true)}
+        key={user._id}
+        title={user.name}
+        variant="dark"
+        content={
+          <>
+            <Tag variant="primary" content={user.username} />{' '}
+            <Tag variant="dark" content={user.role} />
+          </>
+        }
+        footer={(() => {
+          if (user.permission === 'admin') {
+            return <Tag variant="warning" content={user.permission} />;
+          } else if (user.permission === 'sysadmin') {
+            return <Tag variant="danger" content={user.permission} />;
+          } else if (user.permission === 'inventory') {
+            return <Tag variant="success" content={user.permission} />;
+          } else {
+            return <Tag variant="info" content={user.permission} />;
+          }
+        })()}
+        date={
+          <>
+            <FontAwesomeIcon icon={faCalendarAlt} />{' '}
+            <Moment format="D MMM YYYY" date={user.createdAt} fromNow />
+            {' | '}
+            <FontAwesomeIcon icon={faHistory} />{' '}
+            <Moment fromNow date={user.updatedAt} />
+          </>
+        }
       />
     );
   };
@@ -99,25 +123,20 @@ export default function UsersList() {
             {users &&
               userPermissions.map((user) => (
                 <Tab.Pane key={user.permission} eventKey={user.permission}>
-                  {/* TODO: Prevent header re-render */}
-                  <UserHeader
-                    data={
-                      users &&
-                      users
-                        .filter((pane) => pane.permission === user.permission)
-                        .map((userByPermission) => Users(userByPermission))
-                    }
-                  />
+                  {users &&
+                    users
+                      .filter((pane) => pane.permission === user.permission)
+                      .map((userByPermission) => UserCard(userByPermission))}
                 </Tab.Pane>
               ))}
           </>
         ) : (
           <Loader />
         )}
+        ;
       </>
     );
   };
-
   // * Filter users by types
   const RoleFilter = () => {
     return (
@@ -127,12 +146,9 @@ export default function UsersList() {
             {users &&
               userRoles.map((user) => (
                 <Tab.Pane key={user.role} eventKey={user.role}>
-                  <UserHeader
-                    _id={users && users._id}
-                    data={users
-                      .filter((pane) => pane.role === user.role)
-                      .map((userByRole) => Users(userByRole))}
-                  />
+                  {users
+                    .filter((pane) => pane.role === user.role)
+                    .map((userByRole) => UserCard(userByRole))}
                 </Tab.Pane>
               ))}
           </>
@@ -143,20 +159,18 @@ export default function UsersList() {
     );
   };
 
-  const EmployeeList = () => {
+  const UserCards = () => {
     return (
       <>
         <Modals />
         <SearchControls
           add="Add User"
-          cardView={() => setView('card')}
+          listView={() => setView('list')}
           modal={() => showAddModal(true)}
         />
 
         <Tab.Pane eventKey="default">
-          <UserHeader
-            data={users && users.map((user) => Users(user)).reverse()}
-          />
+          {users && users.map((user) => UserCard(user)).reverse()}
         </Tab.Pane>
         <PermissionFilter />
         <RoleFilter />
@@ -164,8 +178,8 @@ export default function UsersList() {
     );
   };
 
-  if (view === 'card') {
-    return <UsersCard />;
+  if (view === 'list') {
+    return <UsersList />;
   }
   return (
     <Categories
@@ -187,7 +201,7 @@ export default function UsersList() {
           </Nav.Item>
         ))
       }
-      content={<EmployeeList />}
+      content={<UserCards />}
     />
   );
 }

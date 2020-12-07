@@ -4,7 +4,7 @@
  *     Licensed under GNU General Public License 3.0 or later
  */
 
-import TransactionsList from '../containers/TransactionsList';
+import TransactionsList from '../containers/transactions/TransactionsList';
 
 export default function Transactions() {
   return <TransactionsList />;

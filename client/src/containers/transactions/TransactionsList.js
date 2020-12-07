@@ -5,20 +5,20 @@
  */
 
 import { useState } from 'react';
-import TransactionHeader from '../components/tables/TransactionHeader';
-import TransactionRow from '../components/tables/TransactionRow';
+import TransactionHeader from '../../components/tables/TransactionHeader';
+import TransactionRow from '../../components/tables/TransactionRow';
 import {
   AddTransaction,
   DeleteTransaction,
   EditTransaction
-} from './modals/TransactionModal';
-import { NoInvoice } from './modals/InvoiceModal';
-import TransactionService from '../services/TransactionService';
-import SearchControls from '../components/SearchControls';
-import Categories from '../components/sidebar/Categories';
+} from '../modals/TransactionModal';
+import { NoInvoice } from '../modals/InvoiceModal';
+import TransactionService from '../../services/TransactionService';
+import SearchControls from '../../components/SearchControls';
+import Categories from '../../components/sidebar/Categories';
 import Tab from 'react-bootstrap/Tab';
-import UserHeader from '../components/tables/UserHeader';
-import Loader from '../components/common/Loader';
+import UserHeader from '../../components/tables/UserHeader';
+import Loader from '../../components/common/Loader';
 import Nav from 'react-bootstrap/Nav';
 import TransactionsCard from './TransactionsCard';
 

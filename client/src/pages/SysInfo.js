@@ -7,8 +7,8 @@
 import Tab from 'react-bootstrap/Tab';
 import { DBMetrics } from '../components/embeds/Metrics';
 import Logs from '../components/embeds/Logs';
-import Release from '../containers/Release';
-import Development from '../containers/Development';
+import Release from '../containers/sysinfo/Release';
+import Development from '../containers/sysinfo/Development';
 import { NavTabs, TabContainer } from '../containers/__containers.module';
 
 export default function SysInfo() {

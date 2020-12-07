@@ -7,19 +7,19 @@
 import { useState } from 'react';
 import Tab from 'react-bootstrap/Tab';
 import Nav from 'react-bootstrap/Nav';
-import Categories from '../components/sidebar/Categories';
-import ProductHeader from '../components/tables/ProductHeader';
-import ProductRow from '../components/tables/ProductRow';
+import Categories from '../../components/sidebar/Categories';
+import ProductHeader from '../../components/tables/ProductHeader';
+import ProductRow from '../../components/tables/ProductRow';
 import {
   AddProduct,
   DeleteProduct,
   EditProduct,
   QuickEdit
-} from './modals/ProductModal';
-import ProductService from '../services/ProductService';
+} from '../modals/ProductModal';
+import ProductService from '../../services/ProductService';
 import ProductsCard from './ProductsCard';
-import SearchControls from '../components/SearchControls';
-import Loader from '../components/common/Loader';
+import SearchControls from '../../components/SearchControls';
+import Loader from '../../components/common/Loader';
 
 /******************************************
  * * Product Inventory

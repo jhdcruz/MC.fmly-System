@@ -4,27 +4,64 @@
  *     Licensed under GNU General Public License 3.0 or later
  */
 
+import { useState } from 'react';
 import Nav from 'react-bootstrap/Nav';
 import Tab from 'react-bootstrap/Tab';
-import Categories from '../components/sidebar/Categories';
-import { CardOverlay } from '../components/cards/CardOverlay';
-import ProductService from '../services/ProductService';
-import SearchBar from '../components/common/SearchBar';
-import Loader from '../components/common/Loader';
-import Tag from '../components/common/Tag';
+import Moment from 'react-moment';
+import Categories from '../../components/sidebar/Categories';
+import SearchControls from '../../components/SearchControls';
+import { CardDeck } from '../../components/cards/CardOverlay';
+import { AddProduct, DeleteProduct, EditProduct } from '../modals/ProductModal';
+import ProductService from '../../services/ProductService';
+import ProductInventory from './ProductInventory';
+import Loader from '../../components/common/Loader';
+import Tag from '../../components/common/Tag';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCalendarAlt, faHistory } from '@fortawesome/free-solid-svg-icons';
+import Notification from '../../components/common/Notification';
 
 /************************************
- * * Product List, No Actions | POS
- * TODO: POS functionality
+ * * Product List | Card View
  ************************************/
 
-export default function ProductCatalog() {
+export default function ProductsCard() {
   const [products] = ProductService();
+  const [view, setView] = useState();
 
-  // * Catalog Content
-  const Catalog = (product) => {
+  // * Modal State Handlers | Until API's done
+  const [addModal, showAddModal] = useState(false);
+  const [editModal, showEditModal] = useState(false);
+  const [deleteModal, showDeleteModal] = useState(false);
+
+  const Modals = () => {
     return (
-      <CardOverlay
+      <>
+        <AddProduct
+          show={addModal}
+          onHide={() => showAddModal(false)}
+          submit={() => showAddModal(false)}
+          cancel={() => showAddModal(false)}
+        />
+        <EditProduct
+          show={editModal}
+          onHide={() => showEditModal(false)}
+          submit={() => showEditModal(false)}
+          cancel={() => showEditModal(false)}
+        />
+        <DeleteProduct
+          show={deleteModal}
+          onHide={() => showDeleteModal(false)}
+          save={() => showDeleteModal(false)}
+          close={() => showDeleteModal(false)}
+        />
+      </>
+    );
+  };
+
+  const ProductCard = (product) => {
+    return (
+      <CardDeck
+        action={() => showEditModal(true)}
         key={product._id}
         title={
           <>
@@ -72,6 +109,15 @@ export default function ProductCatalog() {
             <Tag variant="dark" content={product.type} />
           </>
         }
+        date={
+          <>
+            <FontAwesomeIcon icon={faCalendarAlt} />{' '}
+            <Moment format="D MMM YYYY" date={product.createdAt} fromNow />
+            {' | '}
+            <FontAwesomeIcon icon={faHistory} />{' '}
+            <Moment fromNow date={product.updatedAt} />
+          </>
+        }
       />
     );
   };
@@ -113,7 +159,7 @@ export default function ProductCatalog() {
                 >
                   {products
                     .filter((pane) => pane.category === categories.category)
-                    .map((product) => Catalog(product))}
+                    .map((product) => ProductCard(product))}
                 </Tab.Pane>
               ))}
           </>
@@ -123,7 +169,6 @@ export default function ProductCatalog() {
       </>
     );
   };
-
   // * Filter products by types
   const TypeFilter = () => {
     return (
@@ -135,7 +180,7 @@ export default function ProductCatalog() {
                 <Tab.Pane key={types.type} eventKey={types.type}>
                   {products
                     .filter((pane) => pane.type === types.type)
-                    .map((product) => Catalog(product))}
+                    .map((product) => ProductCard(product))}
                 </Tab.Pane>
               ))}
           </>
@@ -147,21 +192,29 @@ export default function ProductCatalog() {
   };
 
   // * Display cards based on clicked product category/type
-  const CardPanes = () => {
+  const ProductCards = () => {
     return (
       <>
-        <SearchBar />
+        <Modals />
+        {/* Inventory Tab Controls */}
+        <SearchControls
+          add="Add Product"
+          listView={() => setView('list')}
+          modal={() => showAddModal(true)}
+        />
         {/* Filtered Tables */}
         <Tab.Pane eventKey="default">
-          {products && products.map((product) => Catalog(product))}
+          {products && products.map((product) => ProductCard(product))}
         </Tab.Pane>
-        ;
-        <CategoryFilter />;
-        <TypeFilter />;
+        <CategoryFilter />
+        <TypeFilter />
       </>
     );
   };
 
+  if (view === 'list') {
+    return <ProductInventory />;
+  }
   return (
     <>
       {/* Display 'categories' component */}
@@ -186,7 +239,13 @@ export default function ProductCatalog() {
             </Nav.Item>
           ))
         }
-        content={<CardPanes />}
+        content={<ProductCards />}
+      />
+      <Notification
+        delay={7000}
+        title="Notice"
+        time="System Admin"
+        message="Card view currently has limited functionality compared to List/Table view."
       />
     </>
   );

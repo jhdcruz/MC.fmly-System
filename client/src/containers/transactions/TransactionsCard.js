@@ -8,22 +8,22 @@ import { useState } from 'react';
 import Nav from 'react-bootstrap/Nav';
 import Tab from 'react-bootstrap/Tab';
 import Moment from 'react-moment';
-import Categories from '../components/sidebar/Categories';
-import SearchControls from '../components/SearchControls';
-import { CardDeck } from '../components/cards/CardOverlay';
-import { NoInvoice } from './modals/InvoiceModal';
-import TransactionService from '../services/TransactionService';
+import Categories from '../../components/sidebar/Categories';
+import SearchControls from '../../components/SearchControls';
+import { CardDeck } from '../../components/cards/CardOverlay';
+import { NoInvoice } from '../modals/InvoiceModal';
+import TransactionService from '../../services/TransactionService';
 import TransactionsList from './TransactionsList';
-import Loader from '../components/common/Loader';
-import Tag from '../components/common/Tag';
+import Loader from '../../components/common/Loader';
+import Tag from '../../components/common/Tag';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarAlt, faHistory } from '@fortawesome/free-solid-svg-icons';
 import {
   AddTransaction,
   DeleteTransaction,
   EditTransaction
-} from './modals/TransactionModal';
-import Notification from '../components/common/Notification';
+} from '../modals/TransactionModal';
+import Notification from '../../components/common/Notification';
 
 /************************************
  * * Transaction List | Card View

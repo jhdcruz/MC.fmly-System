@@ -5,10 +5,10 @@
  */
 
 import { ListGroup } from 'react-bootstrap';
-import Commit from '../components/system/Commit';
-import Commits from '../services/github/Commits';
-import Loader from '../components/common/Loader';
-import { ListContainer } from '../components/system/__system.module';
+import Commit from '../../components/system/Commit';
+import Commits from '../../services/github/Commits';
+import Loader from '../../components/common/Loader';
+import { ListContainer } from '../../components/system/__system.module';
 
 /*****************************************************
  * * Get commits from project repository (GitHub API)
