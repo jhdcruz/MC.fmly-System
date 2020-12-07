@@ -28,7 +28,8 @@ export default function TransactionHeader(props) {
       <TransactionsTable hover responsive>
         <thead>
           <tr>
-            <TableHeader id="OrderId" className="actions">
+            <TableHeader id="ItemCode" className="actions" />
+            <TableHeader id="OrderId">
               Order ID <FontAwesomeIcon icon={faCaretDown} />
             </TableHeader>
             <TableHeader id="Name">
