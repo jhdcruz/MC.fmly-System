@@ -5,7 +5,7 @@
  */
 
 import styled from 'styled-components';
-import { Control } from './Control';
+import { Control } from './common/Control';
 import SearchBar from './common/SearchBar';
 import { faBars, faPlus, faThLarge } from '@fortawesome/free-solid-svg-icons';
 

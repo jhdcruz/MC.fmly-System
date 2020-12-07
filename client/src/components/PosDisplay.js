@@ -9,7 +9,7 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import InputGroup from 'react-bootstrap/InputGroup';
 import FormControl from 'react-bootstrap/FormControl';
-import { Control, LargeControl } from './Control';
+import { Control, LargeControl } from './common/Control';
 import { faShoppingBasket, faTrash } from '@fortawesome/free-solid-svg-icons';
 
 const PosContainer = styled.div`
