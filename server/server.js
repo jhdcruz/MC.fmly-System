@@ -53,12 +53,14 @@ mongoose
     // * Run server at $PORT
     api.listen(PORT, () => {
       console.log(`⚡️ [SERVER]: Server is running at PORT: ${PORT}`);
-      logger.info(`Server started at PORT: ${PORT}`);
     });
   })
   .catch((err) => {
     rollbar.critical(err);
-    logger.fatal(err);
+    logger.fatal('DB Connection failed', {
+      indexMeta: true,
+      err
+    });
     console.error(err);
   });
 

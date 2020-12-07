@@ -1,8 +1,7 @@
 const { createLogger } = require('@logdna/logger');
 
 const options = {
-  app: 'MC-IMS-API',
-  level: 'info'
+  app: 'MC-IMS-API'
 };
 
 const logdna = createLogger(`${process.env.INGESTION_KEY}`, options);

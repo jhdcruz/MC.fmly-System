@@ -19,7 +19,10 @@ exports.get = async (req, res) => {
     return res.status(200).send(users);
   } catch (err) {
     rollbar.error(err);
-    logger.error(`Error fetching users list: ${err}`);
+    logger.error('Error fetching users list', {
+      indexMeta: true,
+      err
+    });
     res.status(500).send('Error fetching users');
   }
 };
@@ -68,7 +71,10 @@ exports.patch = async (req, res) => {
     return res.status(202).send(users);
   } catch (err) {
     rollbar.error(err);
-    logger.error(`Error updating user credentials: ${err}`);
+    logger.error('Error updating user credentials', {
+      indexMeta: true,
+      err
+    });
     res.status(500).send(`Error updating user ${id}`);
   }
 };
@@ -82,7 +88,10 @@ exports.delete = async (req, res) => {
     res.status(202).send(users);
   } catch (err) {
     rollbar.error(err);
-    logger.error(`Error deleting user: ${id} - [${err}]`);
+    logger.error(`Error deleting user: ${id}`, {
+      indexMeta: true,
+      err
+    });
     res.status(500).send(`Error deleting user ${id}`);
   }
 };
