@@ -67,7 +67,7 @@ const CategoryContent = styled(Col)`
   width: 100%;
   height: 100vh;
   padding: 3rem 0 1rem 1rem;
-  margin: 0 0.5rem 0 13.2rem;
+  margin: 0 0 0 13.2rem;
   overflow: auto !important;
 `;
 
