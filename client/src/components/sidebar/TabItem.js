@@ -4,16 +4,26 @@
  *     Licensed under GNU General Public License 3.0 or later
  */
 
-import { Link } from 'react-router-dom';
-import styled from 'styled-components';
-import { Nav, OverlayTrigger, Tooltip } from 'react-bootstrap';
+import { NavLink } from 'react-router-dom';
+import styled, { createGlobalStyle } from 'styled-components';
+import Nav from 'react-bootstrap/Nav';
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
+import Tooltip from 'react-bootstrap/Tooltip';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 /************************
  * * Sidebar Tabs
  ************************/
 
-const TabRoutes = styled(Link)`
+const ActiveNav = createGlobalStyle`
+  a.active {
+    border-left: 3px outset #eccec9;
+    background-color: #303030 !important;
+    box-shadow: 2px 5px 7px #222222;
+  }
+`;
+
+const TabRoutes = styled(NavLink)`
   color: #eccec9 !important;
   padding: 0.8rem 5px;
 
@@ -30,7 +40,6 @@ const TabRoutes = styled(Link)`
   }
 
   :hover {
-    border-left: 3px outset #eccec9;
     background-color: #303030 !important;
     box-shadow: 2px 5px 7px #222222;
   }
@@ -43,23 +52,32 @@ const FAIcon = styled(FontAwesomeIcon)`
 
 export default function TabItem(props) {
   return (
-    <OverlayTrigger
-      placement="right"
-      delay={{
-        show: 250,
-        hide: 400
-      }}
-      overlay={
-        <Tooltip id="button-tooltip" {...props}>
-          {props.tab}
-        </Tooltip>
-      }
-    >
-      <TabRoutes to={props.route} draggable={false} onClick={props.state}>
-        <Nav.Link as="li">
-          <FAIcon icon={props.icon} />
-        </Nav.Link>
-      </TabRoutes>
-    </OverlayTrigger>
+    <>
+      <ActiveNav />
+      <OverlayTrigger
+        placement="right"
+        delay={{
+          show: 250,
+          hide: 400
+        }}
+        overlay={
+          <Tooltip id="button-tooltip" {...props}>
+            {props.tab}
+          </Tooltip>
+        }
+      >
+        <TabRoutes
+          to={{
+            pathname: props.route
+          }}
+          draggable={false}
+          onClick={props.state}
+        >
+          <Nav.Link as="li">
+            <FAIcon icon={props.icon} />
+          </Nav.Link>
+        </TabRoutes>
+      </OverlayTrigger>
+    </>
   );
 }

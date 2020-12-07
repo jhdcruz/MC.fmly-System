@@ -47,7 +47,6 @@ const CategoryList = styled(Col)`
     outline: none;
 
     :hover {
-      border-left: 2px outset #eccec9;
       background-color: #303030;
       box-shadow: 2px 5px 7px #222222;
       outline: none;
@@ -56,7 +55,7 @@ const CategoryList = styled(Col)`
 
   .nav-link.active {
     color: #eccec9;
-    border-left: 2px inset #d7b9b4;
+    border-left: 3px outset #d7b9b4;
     background-color: #333333;
     box-shadow: 2px 5px 7px #222222;
     text-shadow: 2px 5px 3px #222222;
