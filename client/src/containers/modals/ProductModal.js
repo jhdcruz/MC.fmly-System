@@ -112,9 +112,9 @@ export const QuickEdit = (props) => {
       onHide={props.onHide}
       footer={
         <>
-          {/* TODO: DELETE entry */}
+          {/* TODO: PATCH/PUT update */}
           <Button variant="outline-danger" onClick={props.save}>
-            Yes
+            Save
           </Button>
           <Button variant="outline-primary" onClick={props.close}>
             Cancel
