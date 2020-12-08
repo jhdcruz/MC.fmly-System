@@ -4,37 +4,21 @@
  *     Licensed under GNU General Public License 3.0 or later
  */
 
-import { useState } from 'react';
-import axios from 'axios';
 import Button from 'react-bootstrap/Button';
 import Tooltip from 'react-bootstrap/Tooltip';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircle } from '@fortawesome/free-solid-svg-icons';
+import ApiService from '../services/ApiService';
 
 /*********************************
  * * Server Status Display Icon
  *********************************/
 
 export default function Status(props) {
-  const [status, setStatus] = useState();
+  const status = ApiService();
 
-  // * Poke server to check for status
-  const checkServer = axios
-    .get(`https://mc-ims-api.herokuapp.com/auth/status`)
-    .then((res) => {
-      if (res.status === 200) {
-        setStatus(200);
-      } else {
-        setStatus(res.status);
-      }
-    })
-    .catch((err) => {
-      console.error(err);
-      setStatus(500);
-    });
-
-  // * Set notice based on response
+  // * Set tooltip notice based on response
   const ServerStatus = () => {
     if (status === 200) {
       return <p className="m-0">System is operational.</p>;
@@ -80,7 +64,6 @@ export default function Status(props) {
         bottom: '1.5rem',
         right: '1.5rem'
       }}
-      onLoad={() => checkServer}
     >
       <OverlayTrigger
         placement={props.placement}
