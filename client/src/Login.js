@@ -31,9 +31,9 @@ import InventoryClerk from './views/InventoryClerk';
  * ============================
  */
 const Img = styled(Image)`
-  width: 500px;
-  height: 500px;
-  margin: 13vh 6vw;
+  width: 75vh;
+  height: auto;
+  margin: auto 7vw;
   user-select: none;
   -webkit-user-drag: none;
 `;
@@ -52,13 +52,15 @@ const LoginContainer = styled(Container)`
   // Show only login form in <1025px
   @media only screen and (max-width: 1025px) {
     form {
-      padding: 25% 10%;
+      padding: 13vh 20vw;
       width: 100%;
-      background-color: rgba(19, 19, 19, 0.8);
+      background-color: #222126;
+      border: 3px ridge #e6a195;
 
       img {
-        margin: 5% 32% !important;
-        display: none;
+        margin: 0 auto 2vh auto;
+        width: 10rem;
+        display: block;
       }
     }
   }
@@ -77,7 +79,8 @@ const LoginForm = styled(Form)`
   overflow: hidden !important;
 
   img {
-    margin: 0 20% 2vh 20% !important;
+    margin: 0 auto 2vh auto;
+    display: block;
   }
 `;
 
@@ -180,13 +183,7 @@ export default function Login() {
         autoSave="off"
         onSubmit={handleSubmit(userVerify)}
       >
-        <Image
-          src={Brand}
-          width={100}
-          height={100}
-          alt="Rebranded Company Logo"
-          rounded
-        />
+        <Image src={Brand} width={250} alt="Rebranded Company Logo" rounded />
 
         {/* Login Fields */}
         <Form.Group>
