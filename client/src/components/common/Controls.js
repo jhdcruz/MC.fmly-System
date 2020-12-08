@@ -15,7 +15,7 @@ const RegularButton = styled(Button)`
   width: max-content;
   height: max-content;
   background-color: #222126;
-  margin: 0 0.3rem;
+  margin: 0.3rem;
   border-radius: 0.3rem;
   border: none;
   box-shadow: 1px 2px 5px #1b1b1b;
@@ -29,12 +29,13 @@ const RegularButton = styled(Button)`
 `;
 
 const LargeButton = styled(RegularButton)`
+  width: max-content;
   height: 10vh;
   font-size: 1.3vw;
-  width: max-content;
+  padding: 0.5rem 1rem;
 `;
 
-export const Control = (props) => {
+export const ControlOverlay = (props) => {
   return (
     <OverlayTrigger
       placement={props.placement}
@@ -52,6 +53,14 @@ export const Control = (props) => {
         <FontAwesomeIcon icon={props.icon} /> {props.content}
       </RegularButton>
     </OverlayTrigger>
+  );
+};
+
+export const Control = (props) => {
+  return (
+    <RegularButton onClick={props.action}>
+      <FontAwesomeIcon icon={props.icon} /> {props.content}
+    </RegularButton>
   );
 };
 
