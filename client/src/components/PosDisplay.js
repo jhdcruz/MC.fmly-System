@@ -41,7 +41,7 @@ const PosControls = styled(Col)`
 
   // * Select all child elements
   * {
-    font-size: 1.5vw;
+    font-size: 1.1rem;
     color: #d2d2d2;
   }
 
@@ -50,7 +50,7 @@ const PosControls = styled(Col)`
   .input-group-append span {
     margin: 0;
     padding: 0 15px;
-    font-size: 1.3vw;
+    font-size: 1.1rem;
     background-color: #141414;
     color: #999999;
     border: none;
@@ -62,7 +62,7 @@ const PosControls = styled(Col)`
   .form-control {
     margin: 0;
     padding: 5px 15px;
-    font-size: 1.3vw;
+    font-size: 1.1rem;
     background-color: #222126;
     color: whitesmoke;
     border: none;
@@ -72,7 +72,7 @@ const PosControls = styled(Col)`
 
     ::placeholder {
       color: #c4c4c4;
-      font-size: 1.2vw;
+      font-size: 1rem;
     }
 
     :active,
