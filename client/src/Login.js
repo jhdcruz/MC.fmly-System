@@ -49,6 +49,12 @@ const LoginContainer = styled(Container)`
   overflow: hidden !important;
   z-index: 1;
 
+  #Logo {
+    margin: 0 auto 2vh auto;
+    width: 10rem;
+    display: block;
+  }
+
   // Show only login form in <1025px
   @media only screen and (max-width: 1025px) {
     form {
@@ -56,27 +62,22 @@ const LoginContainer = styled(Container)`
       width: 100%;
       background-color: #222126;
       border: 3px ridge #e6a195;
-
-      img {
-        margin: 0 auto 2vh auto;
-        width: 10rem;
-        display: block;
-      }
     }
   }
 `;
 
 const LoginForm = styled(Form)`
+  width: 500px;
+  height: 100vh;
+  margin: 0;
+  padding: 10vh 10vw;
   color: whitesmoke;
   background-color: #222126;
-  box-shadow: rgba(230, 161, 149, 0.8) -3px 0px 8px 2px;
-  margin: 0;
-  height: 100vh;
-  width: 500px;
-  padding: 10vh 10vw;
+  border-left: 4px ridge #e6a195;
+  box-shadow: rgba(230, 161, 149, 0.8) -1px 0px 8px;
+  overflow: hidden !important;
   position: fixed;
   right: 0;
-  overflow: hidden !important;
 
   img {
     margin: 0 auto 2vh auto;
@@ -183,7 +184,13 @@ export default function Login() {
         autoSave="off"
         onSubmit={handleSubmit(userVerify)}
       >
-        <Image src={Brand} width={250} alt="Rebranded Company Logo" rounded />
+        <Image
+          id="Logo"
+          src={Brand}
+          width={250}
+          alt="Rebranded MC.fmly Logo"
+          rounded
+        />
 
         {/* Login Fields */}
         <Form.Group>
