@@ -68,6 +68,7 @@ export default function ProductCatalog() {
         }
         footer={
           <>
+            <Tag variant="dark" content={product.code} />{' '}
             <Tag variant="dark" content={product.category} />{' '}
             <Tag variant="dark" content={product.type} />
           </>
@@ -155,9 +156,8 @@ export default function ProductCatalog() {
         <Tab.Pane eventKey="default">
           {products && products.map((product) => Catalog(product))}
         </Tab.Pane>
-        ;
-        <CategoryFilter />;
-        <TypeFilter />;
+        <CategoryFilter />
+        <TypeFilter />
       </>
     );
   };
