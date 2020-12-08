@@ -5,13 +5,13 @@
  */
 
 import ProductCatalog from '../containers/products/ProductCatalog';
-import PosDisplay from '../components/PosDisplay';
+import PosControls from '../containers/pos/PosControls';
 
 export default function PointOfSale() {
   return (
     <>
       <ProductCatalog />
-      <PosDisplay />
+      <PosControls />
     </>
   );
 }

@@ -9,8 +9,12 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import InputGroup from 'react-bootstrap/InputGroup';
 import FormControl from 'react-bootstrap/FormControl';
-import { Control, LargeControl } from './common/Controls';
-import { faShoppingBasket, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { ControlOverlay, LargeControl } from './common/Controls';
+import {
+  faPrint,
+  faShoppingBasket,
+  faTrash
+} from '@fortawesome/free-solid-svg-icons';
 
 const PosContainer = styled.div`
   height: 100vh;
@@ -119,7 +123,8 @@ export default function PosDisplay(props) {
             content="Checkout"
             action={props.checkout}
           />
-          <Control
+          <LargeControl icon={faPrint} content="Print" action={props.print} />
+          <ControlOverlay
             tooltip="Clear"
             placement="top"
             icon={faTrash}
