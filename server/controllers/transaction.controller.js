@@ -20,7 +20,7 @@ exports.get = async (req, res) => {
     rollbar.error(err);
     logger.error('Error fetching transactions list', {
       indexMeta: true,
-      err
+      meta: { err }
     });
     res.status(500).send('Error fetching transactions');
   }
@@ -60,7 +60,7 @@ exports.post = async (req, res) => {
     rollbar.error(err);
     logger.error('Error registering transaction', {
       indexMeta: true,
-      err
+      meta: { err }
     });
     res.status(500).send('Error posting of transactions');
   }
@@ -77,7 +77,7 @@ exports.patch = async (req, res) => {
     rollbar.error(err);
     logger.error('Error updating transaction', {
       indexMeta: true,
-      err
+      meta: { err }
     });
     res.status(500).send(`Error updating transaction ${id}`);
   }
@@ -94,7 +94,7 @@ exports.delete = async (req, res) => {
     rollbar.error(err);
     logger.error('Error deleting transaction', {
       indexMeta: true,
-      err
+      meta: { err }
     });
     res.status(500).send(`Error deleting transaction ${id}`);
   }

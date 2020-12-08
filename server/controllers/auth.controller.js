@@ -10,7 +10,6 @@ const rollbar = require('../middlewares/rollbar');
 const logger = require('../middlewares/logdna');
 
 const Users = mongoose.model('users');
-indexMeta: true, err;
 
 // * GET | Server Status
 exports.status = async (req, res) => {
@@ -44,7 +43,7 @@ exports.register = async (req, res) => {
     rollbar.error(err);
     logger.error('User registration error', {
       indexMeta: true,
-      err
+      meta: { err }
     });
     res.status(500).send('Internal Server error occured');
   }
@@ -63,14 +62,14 @@ exports.login = async (req, res) => {
       } else {
         logger.warn(`Invalid credentials submitted for: ${req.body.username}`, {
           indexMeta: true,
-          err
+          meta: { err }
         });
         res.send('Credentials Mismatched!');
       }
     } else {
       logger.warn(`Invalid credentials submitted for: ${req.body.username}`, {
         indexMeta: true,
-        err
+        meta: { err }
       });
       res.send('Credentials Mismatched!');
     }
@@ -78,7 +77,7 @@ exports.login = async (req, res) => {
     rollbar.error(err);
     logger.error('User login error', {
       indexMeta: true,
-      err
+      meta: { err }
     });
     res.status(500).send('Internal Server error occured');
   }

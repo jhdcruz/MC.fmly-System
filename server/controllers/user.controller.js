@@ -21,7 +21,7 @@ exports.get = async (req, res) => {
     rollbar.error(err);
     logger.error('Error fetching users list', {
       indexMeta: true,
-      err
+      meta: { err }
     });
     res.status(500).send('Error fetching users');
   }
@@ -73,7 +73,7 @@ exports.patch = async (req, res) => {
     rollbar.error(err);
     logger.error('Error updating user credentials', {
       indexMeta: true,
-      err
+      meta: { err }
     });
     res.status(500).send(`Error updating user ${id}`);
   }
@@ -90,7 +90,7 @@ exports.delete = async (req, res) => {
     rollbar.error(err);
     logger.error(`Error deleting user: ${id}`, {
       indexMeta: true,
-      err
+      meta: { err }
     });
     res.status(500).send(`Error deleting user ${id}`);
   }

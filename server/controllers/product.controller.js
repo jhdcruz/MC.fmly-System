@@ -20,7 +20,7 @@ exports.get = async (req, res) => {
     rollbar.error(err);
     logger.error('Products fetch error', {
       indexMeta: true,
-      err
+      meta: { err }
     });
     res.status(500).send('Error fetching products');
   }
@@ -60,7 +60,7 @@ exports.post = async (req, res) => {
     rollbar.error(err);
     logger.error('POST | Product register error', {
       indexMeta: true,
-      err
+      meta: { err }
     });
     res.status(500).send(`Error posting product: ${err}`);
   }
@@ -77,7 +77,7 @@ exports.patch = async (req, res) => {
     rollbar.error(err);
     logger.error('Error updating product', {
       indexMeta: true,
-      err
+      meta: { err }
     });
     res.status(500).send(`Error updating product ${id}`);
   }
@@ -94,7 +94,7 @@ exports.delete = async (req, res) => {
     rollbar.error(err);
     logger.error('Error deleting product', {
       indexMeta: true,
-      err
+      meta: { err }
     });
     res.status(500).send(`Error deleting product ${id}`);
   }

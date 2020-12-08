@@ -20,7 +20,7 @@ exports.get = async (req, res) => {
     rollbar.error(err);
     logger.error('Error fetching suppliers list', {
       indexMeta: true,
-      err
+      meta: { err }
     });
     res.status(500).send('Error fetching suppliers');
   }
@@ -60,7 +60,7 @@ exports.post = async (req, res) => {
     rollbar.error(err);
     logger.error('Error registering supplier', {
       indexMeta: true,
-      err
+      meta: { err }
     });
     res.status(500).send('Error posting of suppliers');
   }
@@ -77,7 +77,7 @@ exports.patch = async (req, res) => {
     rollbar.error(err);
     logger.error('Error updating supplier', {
       indexMeta: true,
-      err
+      meta: { err }
     });
     res.status(500).send(`Error updating supplier ${id}`);
   }
@@ -94,7 +94,7 @@ exports.delete = async (req, res) => {
     rollbar.error(err);
     logger.error('Error deleting supplier', {
       indexMeta: true,
-      err
+      meta: { err }
     });
     res.status(500).send(`Error deleting supplier ${id}`);
   }
