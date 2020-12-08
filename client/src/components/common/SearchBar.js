@@ -39,7 +39,6 @@ const Search = styled.div`
 // Searchbar input
 input {
   margin: 0;
-  font-size: 1.3vw;
   background-color: #222126;
   color: #d2d2d2;
   border: none;
@@ -50,7 +49,6 @@ input {
 
   ::placeholder {
     color: #c4c4c4;
-    font-size: 1.2vw;
   }
 
   :active,
