@@ -8,7 +8,7 @@ import { useState } from 'react';
 import SupplierHeader from '../../components/tables/SupplierHeader';
 import SupplierService from '../../services/SupplierService';
 import Loader from '../../components/common/Loader';
-import { DeleteSupplier, EditSupplier } from '../suppliers/SupplierModal';
+import { DeleteSupplier, EditSupplier } from '../suppliers/SupplierModals';
 import SupplierRow from '../../components/tables/SupplierRow';
 
 export default function RecentSuppliers() {

@@ -22,7 +22,7 @@ import {
   AddTransaction,
   DeleteTransaction,
   EditTransaction
-} from './TransactionModal';
+} from './TransactionModals';
 import Notification from '../../components/common/Notification';
 
 /************************************

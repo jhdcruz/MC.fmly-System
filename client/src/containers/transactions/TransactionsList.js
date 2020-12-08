@@ -10,9 +10,9 @@ import TransactionRow from '../../components/tables/TransactionRow';
 import {
   AddTransaction,
   DeleteTransaction,
-  EditTransaction
-} from './TransactionModal';
-import { NoInvoice } from './InvoiceModal';
+  EditTransaction,
+  NoInvoice
+} from './TransactionModals';
 import TransactionService from '../../services/TransactionService';
 import SearchControls from '../../components/SearchControls';
 import Categories from '../../components/sidebar/Categories';

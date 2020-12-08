@@ -12,7 +12,7 @@ import UserHeader from '../../components/tables/UserHeader';
 import UserRow from '../../components/tables/UserRow';
 import SearchControls from '../../components/SearchControls';
 import UserService from '../../services/UserService';
-import { AddUser, DeleteUser, EditUser } from './UserModal';
+import { AddUser, DeleteUser, EditUser } from './UserModals';
 import Loader from '../../components/common/Loader';
 import UsersCard from './UsersCard';
 

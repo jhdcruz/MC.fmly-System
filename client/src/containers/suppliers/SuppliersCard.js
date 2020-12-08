@@ -14,7 +14,7 @@ import {
   AddSupplier,
   DeleteSupplier,
   EditSupplier
-} from './SupplierModal';
+} from './SupplierModals';
 
 // TODO: Add Categories by types
 export default function SuppliersCard() {
