@@ -11,7 +11,6 @@ import Moment from 'react-moment';
 import Categories from '../../components/sidebar/Categories';
 import SearchControls from '../../components/SearchControls';
 import { CardDeck } from '../../components/cards/CardOverlay';
-import { NoInvoice } from './InvoiceModal';
 import TransactionService from '../../services/TransactionService';
 import TransactionsList from './TransactionsList';
 import Loader from '../../components/common/Loader';
@@ -21,7 +20,8 @@ import { faCalendarAlt, faHistory } from '@fortawesome/free-solid-svg-icons';
 import {
   AddTransaction,
   DeleteTransaction,
-  EditTransaction
+  EditTransaction,
+  NoInvoice
 } from './TransactionModals';
 import Notification from '../../components/common/Notification';
 
