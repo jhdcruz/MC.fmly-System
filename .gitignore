@@ -19,6 +19,7 @@
 **/build
 **/release
 functions/
+**/.env
 
 # misc
 **/.vercel
