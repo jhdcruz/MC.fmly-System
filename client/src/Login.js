@@ -74,7 +74,7 @@ const LoginForm = styled(Form)`
   color: whitesmoke;
   background-color: #222126;
   border-left: 4px ridge #e6a195;
-  box-shadow: rgba(230, 161, 149, 0.8) -1px 0px 8px;
+  box-shadow: rgba(230, 161, 149, 0.2) -1px 0px 8px;
   overflow: hidden !important;
   position: fixed;
   right: 0;
