@@ -11,7 +11,7 @@ import Moment from 'react-moment';
 import Categories from '../../components/sidebar/Categories';
 import SearchControls from '../../components/SearchControls';
 import { CardDeck } from '../../components/cards/CardOverlay';
-import { NoInvoice } from '../modals/InvoiceModal';
+import { NoInvoice } from './InvoiceModal';
 import TransactionService from '../../services/TransactionService';
 import TransactionsList from './TransactionsList';
 import Loader from '../../components/common/Loader';
@@ -22,7 +22,7 @@ import {
   AddTransaction,
   DeleteTransaction,
   EditTransaction
-} from '../modals/TransactionModal';
+} from './TransactionModal';
 import Notification from '../../components/common/Notification';
 
 /************************************

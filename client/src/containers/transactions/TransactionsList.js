@@ -11,8 +11,8 @@ import {
   AddTransaction,
   DeleteTransaction,
   EditTransaction
-} from '../modals/TransactionModal';
-import { NoInvoice } from '../modals/InvoiceModal';
+} from './TransactionModal';
+import { NoInvoice } from './InvoiceModal';
 import TransactionService from '../../services/TransactionService';
 import SearchControls from '../../components/SearchControls';
 import Categories from '../../components/sidebar/Categories';

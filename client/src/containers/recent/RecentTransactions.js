@@ -6,8 +6,8 @@
 import { useState } from 'react';
 import TransactionHeader from '../../components/tables/TransactionHeader';
 import TransactionRow from '../../components/tables/TransactionRow';
-import { DeleteTransaction, EditTransaction } from '../modals/TransactionModal';
-import { NoInvoice } from '../modals/InvoiceModal';
+import { DeleteTransaction, EditTransaction } from '../transactions/TransactionModal';
+import { NoInvoice } from '../transactions/InvoiceModal';
 import TransactionService from '../../services/TransactionService';
 import Loader from '../../components/common/Loader';
 

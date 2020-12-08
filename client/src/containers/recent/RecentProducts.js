@@ -9,7 +9,7 @@ import ProductHeader from '../../components/tables/ProductHeader';
 import ProductRow from '../../components/tables/ProductRow';
 import ProductService from '../../services/ProductService';
 import Loader from '../../components/common/Loader';
-import { DeleteProduct, EditProduct } from '../modals/ProductModal';
+import { DeleteProduct, EditProduct } from '../products/ProductModal';
 
 export default function RecentProducts() {
   const [products] = ProductService();

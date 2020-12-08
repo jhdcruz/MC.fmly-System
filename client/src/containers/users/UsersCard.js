@@ -10,7 +10,7 @@ import Tab from 'react-bootstrap/Tab';
 import Categories from '../../components/sidebar/Categories';
 import SearchControls from '../../components/SearchControls';
 import UserService from '../../services/UserService';
-import { AddUser, DeleteUser, EditUser } from '../modals/UserModal';
+import { AddUser, DeleteUser, EditUser } from './UserModal';
 import Loader from '../../components/common/Loader';
 import UsersList from './UsersList';
 import { CardDeck } from '../../components/cards/CardOverlay';

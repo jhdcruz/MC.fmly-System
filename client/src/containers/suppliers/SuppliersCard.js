@@ -6,15 +6,15 @@
 
 import { useState } from 'react';
 import CardDeck from 'react-bootstrap/CardDeck';
-import SupplierService from '../services/SupplierService';
-import SearchControls from '../components/SearchControls';
-import Loader from '../components/common/Loader';
-import Poster from '../components/cards/Poster';
+import SupplierService from '../../services/SupplierService';
+import SearchControls from '../../components/SearchControls';
+import Loader from '../../components/common/Loader';
+import Poster from '../../components/cards/Poster';
 import {
   AddSupplier,
   DeleteSupplier,
   EditSupplier
-} from './modals/SupplierModal';
+} from './SupplierModal';
 
 // TODO: Add Categories by types
 export default function SuppliersCard() {

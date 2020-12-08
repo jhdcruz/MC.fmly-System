@@ -93,7 +93,6 @@ export default function Dashboard() {
           }}
         >
           <Row>
-            >
             <Col className="p-0 pt-1">
               <TotalRevenue />
               <PendingOrders />

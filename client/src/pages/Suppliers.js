@@ -4,7 +4,7 @@
  *     Licensed under GNU General Public License 3.0 or later
  */
 
-import SuppliersCard from '../containers/SuppliersCard';
+import SuppliersCard from '../containers/suppliers/SuppliersCard';
 
 export default function Suppliers() {
   return <SuppliersCard />;

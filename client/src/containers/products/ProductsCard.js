@@ -11,7 +11,7 @@ import Moment from 'react-moment';
 import Categories from '../../components/sidebar/Categories';
 import SearchControls from '../../components/SearchControls';
 import { CardDeck } from '../../components/cards/CardOverlay';
-import { AddProduct, DeleteProduct, EditProduct } from '../modals/ProductModal';
+import { AddProduct, DeleteProduct, EditProduct } from './ProductModal';
 import ProductService from '../../services/ProductService';
 import ProductInventory from './ProductInventory';
 import Loader from '../../components/common/Loader';

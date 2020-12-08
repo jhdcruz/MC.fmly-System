@@ -7,7 +7,7 @@
 import { useState } from 'react';
 import UserHeader from '../../components/tables/UserHeader';
 import UserRow from '../../components/tables/UserRow';
-import { DeleteUser, EditUser } from '../modals/UserModal';
+import { DeleteUser, EditUser } from '../users/UserModal';
 import UserService from '../../services/UserService';
 import Loader from '../../components/common/Loader';
 

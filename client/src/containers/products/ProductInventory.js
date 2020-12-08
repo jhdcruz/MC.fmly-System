@@ -15,7 +15,7 @@ import {
   DeleteProduct,
   EditProduct,
   QuickEdit
-} from '../modals/ProductModal';
+} from './ProductModal';
 import ProductService from '../../services/ProductService';
 import ProductsCard from './ProductsCard';
 import SearchControls from '../../components/SearchControls';
