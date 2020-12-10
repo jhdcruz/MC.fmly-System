@@ -255,9 +255,8 @@ export default function Login() {
             Login
           </Button>
         </LoginControl>
-
         {/* Server Status Icon */}
-        <Status placement="left" />
+        <Status />
       </LoginForm>
     </LoginContainer>
   );

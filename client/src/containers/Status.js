@@ -61,18 +61,18 @@ export default function Status(props) {
     <div
       style={{
         position: 'absolute',
-        bottom: '1.5rem',
-        right: '1.5rem'
+        bottom: '1rem',
+        left: '0.8rem'
       }}
     >
       <OverlayTrigger
-        placement={props.placement}
+        placement="right"
         delay={{
           show: 100,
           hide: 300
         }}
         overlay={
-          <Tooltip id="">
+          <Tooltip id="server-status">
             <ServerStatus />
           </Tooltip>
         }
