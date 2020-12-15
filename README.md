@@ -58,21 +58,21 @@
 
 ### Front-End:
 
-- [**React**](https://reactjs.org/) - _Component-based UI_
-- [**Electron**](https://electronjs.org) - _X-Platform Desktop Integration_
-- [**Sass/Scss**](https://sass-lang.com) - _CSS Preprocessor_
-- [**MongoDB Charts**](https://mongodb.com/products/charts) - _Embeddable Charts & Data Analytics_
+- [**`react`**](https://reactjs.org/) - _Component-based UI_
+- [**`electron`**](https://electronjs.org) - _X-Platform Desktop Integration_
 - [**`react-bootstrap`**](https://react-bootstrap.github.io/) - _UI Toolkit for `React`_
 - [**`styled-components`**](https://styled-components.com/) - _ES6+ Component Styling_
+- [**Sass/Scss**](https://sass-lang.com) - _CSS Preprocessor_
+- [**MongoDB Charts**](https://mongodb.com/products/charts) - _Embeddable Charts & Data Analytics_
 
 ### Back-End:
 
-- [**Express**](https://expressjs.com) - _Server-side Framework_
 - [**Node.js**](https://nodejs.org) - _Web Server_
-- [**Axios**](https://github.com/axios/axios) - _HTTP Client_
-- [**Mongoose**](https://mongoosejs.com) - _Object Modeling_
+- [**`express`**](https://expressjs.com) - _Server-side Framework_
+- [**`mongoose`**](https://mongoosejs.com) - _Object Modeling_
+- [**`axios`**](https://github.com/axios/axios) - _HTTP Client_
 - [**`node-argon2`**](https://github.com/ranisalt/node-argon2) - _Node.js bindings for `Argon2` hashing algorithm_
-  - [`Argon2`](https://github.com/P-H-C/phc-winner-argon2) - A password-hashing function that summarizes the **state of
+  - [**Argon2**](https://github.com/P-H-C/phc-winner-argon2) - A password-hashing function that summarizes the **state of
     the art in the design** of memory-hard functions and can be used to hash passwords for credential storage, key
     derivation, or other applications.
 
@@ -94,7 +94,7 @@
 - [**Snyk**](https://snyk.io/) - _Dependency Security & Exploit POC_
 - [**WhiteSource Renovate**](https://renovate.whitesourcesoftware.com/) - _Automated Dependency Updates_
 
-> Boilerplate generated through ejected `create-react-app`.
+> Client boilerplate generated through ejected `create-react-app`.
 
 ---
 
@@ -135,7 +135,9 @@ replace `yum` with your distro package provider.
 
 - `rpm`
 
-> `brew install rpm
+```shell
+brew install rpm
+```
 
 **Optional:**
 
@@ -193,7 +195,7 @@ yarn start
 You need to have a web provider that supports **`functions`**. Such as [**Vercel**](https://vercel.com), it can also be
 other provider such as DigitalOcean, AWS, etc...
 
-> This project uses [**Vercel**](https://vercel.com) as its front-end provider, and [**Heroku**](https://heroku.com) as its back-end provider to bypass _Vercel's_ 12 API limit.
+> This project uses [**Vercel**](https://vercel.com) as its front-end provider, and [**Heroku**](https://heroku.com) as its back-end provider to bypass _Vercel's_ 12 API endpoint limit.
 
 ```shell
 yarn build
