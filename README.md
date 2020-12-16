@@ -71,9 +71,10 @@
 - [**`express`**](https://expressjs.com) - _Server-side Framework_
 - [**`mongoose`**](https://mongoosejs.com) - _Object Modeling_
 - [**`axios`**](https://github.com/axios/axios) - _HTTP Client_
+- [**`react-query`**](https://github.com/axios/axios) - _Data & State Synchronization_
 - [**`node-argon2`**](https://github.com/ranisalt/node-argon2) - _Node.js bindings for `Argon2` hashing algorithm_
-  - [**Argon2**](https://github.com/P-H-C/phc-winner-argon2) - A password-hashing function that summarizes the **state of
-    the art in the design** of memory-hard functions and can be used to hash passwords for credential storage, key
+  - [**Argon2**](https://github.com/P-H-C/phc-winner-argon2) - A password-hashing function that summarizes the **state
+    of the art in the design** of memory-hard functions and can be used to hash passwords for credential storage, key
     derivation, or other applications.
 
 ### Database:
@@ -94,7 +95,7 @@
 - [**Snyk**](https://snyk.io/) - _Dependency Security & Exploit POC_
 - [**WhiteSource Renovate**](https://renovate.whitesourcesoftware.com/) - _Automated Dependency Updates_
 
-> Client boilerplate generated through ejected `create-react-app`.
+> See `package.json` in both workspace for complete dependency list.
 
 ---
 
@@ -162,6 +163,8 @@ MONGO_URL=[Your URI Here]
 <div align="center">
 
 ![](docs/diagram.svg)
+
+<i>Computer-generated diagram by <a href="https://arkit.pro">Arkit.pro</a>.</i>
 
 </div>
 
