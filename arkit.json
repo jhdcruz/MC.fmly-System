@@ -10,30 +10,27 @@
   "components": [
     {
       "type": "entry",
-      "patterns": ["client/src/Login.js"]
+      "patterns": ["client/src/Login.jsx"]
     },
     {
       "type": "permissions",
-      "patterns": ["client/src/views/*.js"]
+      "patterns": ["client/src/views/*.jsx"]
     },
     {
       "type": "pages",
-      "patterns": ["client/src/pages/*.js"]
+      "patterns": ["client/src/pages/*.jsx"]
     },
     {
       "type": "containers",
-      "patterns": ["client/src/containers/**/*.js"]
+      "patterns": ["client/src/containers/**/*.jsx"]
     },
     {
       "type": "components",
-      "patterns": ["client/src/components/**/**/*.js"]
+      "patterns": ["client/src/components/**/**/*.jsx"]
     },
     {
       "type": "services",
-      "patterns": [
-        "client/src/services/**/*.js",
-        "client/src/components/charts/**/*.js"
-      ]
+      "patterns": ["client/src/services/**/*.jsx"]
     },
     {
       "type": "models",
