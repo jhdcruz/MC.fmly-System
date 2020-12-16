@@ -2,11 +2,13 @@
 
 <div align="center">
 
-![](docs/diagram.svg)
+![](https://github.com/jhdcruz/MC.fmly-System/blob/main/docs/diagram.svg)
 
 <i>Computer-generated diagram by <a href="https://arkit.pro">Arkit.pro</a>.</i>
 
 </div>
+
+<br />
 
 This project uses yarn's [`workspaces`](https://classic.yarnpkg.com/en/docs/workspaces/) to seperate the **Front-End**
 and the **Back-End** and run `scripts` without navigating back & forth to project folders.
