@@ -8,7 +8,7 @@ import { Fragment } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Sidebar from '../components/sidebar/Sidebar';
-import routes from '../routes';
+import routes from '../utils/routes';
 import '../App.scss';
 import RouteTransition from '../components/common/RouteTransition';
 import {
