@@ -46,7 +46,7 @@
   },
   "devDependencies": {
     "@babel/core": "7.12.10",
-    "@babel/plugin-transform-react-jsx": "7.12.10",
+    "@babel/plugin-transform-react-jsx": "7.12.11",
     "@fortawesome/fontawesome-svg-core": "1.2.32",
     "@fortawesome/free-solid-svg-icons": "5.15.1",
     "@fortawesome/react-fontawesome": "0.1.13",
