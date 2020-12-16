@@ -21,8 +21,18 @@
       ".jsx",
       ".scss"
     ],
-    "react": {
-      "version": "detect"
+    "import/resolver": {
+      "node": {
+        "extensions": [
+          ".js",
+          ".ts",
+          ".jsx",
+          ".tsx"
+        ]
+      },
+      "react": {
+        "version": "detect"
+      }
     }
   }
 }
