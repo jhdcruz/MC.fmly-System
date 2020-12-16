@@ -31,7 +31,7 @@ const RegularButton = styled(Button)`
 const LargeButton = styled(RegularButton)`
   width: max-content;
   height: 10vh;
-  font-size: 1.3vw;
+  font-size: 1rem;
   padding: 0.5rem 1rem;
 `;
 

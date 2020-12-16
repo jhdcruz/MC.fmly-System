@@ -9,26 +9,32 @@ import Card from 'react-bootstrap/Card';
 import placeholder from '../../assets/img/logo.svg';
 
 const CardContainer = styled(Card)`
-  width: 100%;
   height: max-content !important;
   color: #eccec9;
   cursor: pointer;
   margin: 0 0.5rem 1rem 0;
+  padding: 1.5rem 0.5rem 1rem;
   border-radius: 0.3rem;
+  vertical-align: middle;
   background-color: #222126;
   box-shadow: 3px 3px 8px #1b1b1b;
 
+  // * Reset bootstrap defaults
+  position: static !important;
+  display: block !important;
+
   .card-img-overlay {
-    padding: 1rem;
-    margin-left: 7.5vw;
+    padding: 0;
     height: max-content;
+    vertical-align: middle;
+    display: inline-block;
+    position: static;
 
     .card-title {
-      font-size: 1.3vw;
+      font-size: 1.1rem;
     }
 
     .card-text {
-      font-size: 1.2vw;
       margin: 2.5vh 0;
     }
   }
@@ -43,20 +49,25 @@ const CardContainer = styled(Card)`
 
 const CardBlock = styled(CardContainer)`
   width: 35vw;
-  height: 28vh !important;
   color: #eccec9;
   cursor: pointer;
   margin: 0.8vw;
-  display: inline-block;
+  display: inline-block !important;
   border-radius: 0.3rem;
   background-color: #222126;
   box-shadow: 3px 3px 8px #1b1b1b;
+
+  @media only screen and (max-width: 1053px) {
+    display: block !important;
+    width: 95% !important;
+    margin: 1rem 0.5rem;
+  }
 `;
 
 const CardImage = styled(Card.Img)`
-  height: 20vh;
-  width: 14vh;
-  margin: auto 0.5rem;
+  height: auto;
+  width: 7rem;
+  margin: auto 0.7rem 0.5rem 0;
 `;
 
 export const CardOverlay = (props) => {

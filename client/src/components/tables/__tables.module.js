@@ -41,7 +41,6 @@ export const TableModule = createGlobalStyle`
 
 // * Table Heading
 export const TableHeader = styled.th`
-  font-size: 1.3vw;
   color: #c3c3c3;
   border: none !important;
   width: max-content !important;
@@ -104,7 +103,6 @@ export const TableRow = styled.tr`
 export const TableData = styled.td`
   color: white;
   text-indent: 0.6rem;
-  font-size: 1.2vw;
   width: max-content !important;
   padding: 1.2rem 1rem 1.2rem 0 !important;
   margin: 0 1rem !important;
@@ -127,10 +125,10 @@ export const TableData = styled.td`
 // ! Different from <Tag /> component
 // ! because of width/padding bug in tables
 export const Tag = styled(Badge)`
-  font-size: 1.2vw;
   padding: 6px 10px 6px 0;
   border-radius: 0.3rem;
   box-shadow: 1px 2px 5px #1b1b1b;
+  font-size: 0.97rem;
 `;
 
 // * When there are no items in table

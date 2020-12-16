@@ -70,7 +70,7 @@ const LoginForm = styled(Form)`
   width: 500px;
   height: 100vh;
   margin: 0;
-  padding: 10vh 10vw;
+  padding: 10vh 7rem;
   color: whitesmoke;
   background-color: #222126;
   border-left: 4px ridge #e6a195;
@@ -255,9 +255,8 @@ export default function Login() {
             Login
           </Button>
         </LoginControl>
-
         {/* Server Status Icon */}
-        <Status placement="left" />
+        <Status />
       </LoginForm>
     </LoginContainer>
   );

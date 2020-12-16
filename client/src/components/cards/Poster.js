@@ -75,7 +75,6 @@ const CardBlock = styled(Card)`
     padding: 0.75rem 0.5rem 0;
 
     a {
-      font-size: 1rem;
       color: #e6a195;
 
       :hover {
