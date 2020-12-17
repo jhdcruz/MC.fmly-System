@@ -1,5 +1,3 @@
-# Prerequisites
-
 - [`Node.js v14.15.0+`](https://nodejs.org/en/) - Package manager
 - [`yarn v1.22+`](https://yarnpkg.com/getting-started/install) - Package & Project manager
 - [`MongoDB Cluster`](https://mongodb.com/) - MongoDB Cluster URI

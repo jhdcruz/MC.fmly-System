@@ -1,5 +1,3 @@
-# Development
-
 <div align="center">
 
 ![](https://github.com/jhdcruz/MC.fmly-System/blob/main/docs/diagram.svg)

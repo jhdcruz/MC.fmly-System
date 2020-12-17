@@ -1,5 +1,3 @@
-# Specifications
-
 - [Architecture](#architecture)
 - [Front-End](#front-end)
 - [Back-End](#back-end)
