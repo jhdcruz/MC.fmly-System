@@ -4,32 +4,20 @@
  *     Licensed under GNU General Public License 3.0 or later
  */
 
-import { useCallback, useState } from 'react';
-import axios from 'axios';
 import styled from 'styled-components';
-import { useForm } from 'react-hook-form';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Image from 'react-bootstrap/Image';
 import InputGroup from 'react-bootstrap/InputGroup';
-import Status from './containers/Status';
-// Assets
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faKey, faUser } from '@fortawesome/free-solid-svg-icons';
-import Brand from './assets/img/logo.svg';
-import './App.scss';
-// Views
-import Admin from './views/Admin';
-import Cashier from './views/Cashier';
-import SysAdmin from './views/SysAdmin';
-import InventoryClerk from './views/InventoryClerk';
+import Brand from '../assets/img/logo.svg';
 
-/* ===========================
+/****************************
+ * * Login Form UI
+ ****************************/
 
- * Styled Components
- * ============================
- */
 const Img = styled(Image)`
   width: 75vh;
   height: auto;
@@ -58,7 +46,7 @@ const LoginContainer = styled(Container)`
   // Show only login form in <1025px
   @media only screen and (max-width: 1025px) {
     form {
-      padding: 13vh 20vw;
+      padding: 5rem 7rem;
       width: 100%;
       background-color: #222126;
       border: 3px ridge #e6a195;
@@ -66,11 +54,11 @@ const LoginContainer = styled(Container)`
   }
 `;
 
-const LoginForm = styled(Form)`
+const LForm = styled(Form)`
   width: 500px;
   height: 100vh;
   margin: 0;
-  padding: 10vh 10vw;
+  padding: 5rem 7rem;
   color: whitesmoke;
   background-color: #222126;
   border-left: 4px ridge #e6a195;
@@ -129,61 +117,13 @@ const LoginControl = styled.div`
   }
 `;
 
-export default function Login() {
-  const { register, handleSubmit } = useForm();
-  const [auth, setAuth] = useState();
-
-  /*******************************
-   * * Authentication Handler
-   *******************************/
-  const userVerify = useCallback((username, password) => {
-    axios
-      .post(`https://mc-ims-api.herokuapp.com/auth/login`, username, password)
-      .then((res) => {
-        if (res.data === 'Credentials Mismatched!') {
-          window.alert('Invalid username or password...');
-        } else {
-          setAuth(res.data);
-        }
-      })
-      .catch((err) => {
-        console.error(err);
-        window.alert(`${err}\n Please contact the System Administrator!`);
-      });
-  }, []);
-
-  // * Forgot Credentials/Password Alert
-  const forgotCreds = (e) => {
-    e.preventDefault();
-    window.alert('Please inform the System Admin.');
-  };
-
-  /*******************************
-   * * Role-based Views
-   *******************************/
-  if (auth === 'admin') {
-    return <Admin />;
-  } else if (auth === 'sysadmin') {
-    return <SysAdmin />;
-  } else if (auth === 'inventory') {
-    return <InventoryClerk />;
-  } else if (auth === 'cashier') {
-    return <Cashier />;
-  }
-
-  /*******************************
-   * * Login Form
-   *******************************/
+export default function LoginForm(props) {
   return (
     <LoginContainer fluid>
       <Img src={Brand} alt="Company Logo" rounded width={500} height={500} />
 
       {/* Login Form */}
-      <LoginForm
-        autoComplete="off"
-        autoSave="off"
-        onSubmit={handleSubmit(userVerify)}
-      >
+      <LForm autoComplete="off" autoSave="off" onSubmit={props.submit}>
         <Image
           id="Logo"
           src={Brand}
@@ -207,7 +147,7 @@ export default function Login() {
               placeholder="Username"
               autoComplete="new-text"
               autoSave="off"
-              ref={register}
+              ref={props.username}
               autoFocus={true}
               tabIndex={1}
               required
@@ -228,7 +168,7 @@ export default function Login() {
               placeholder="Password"
               autoComplete="new-text"
               autoSave="off"
-              ref={register}
+              ref={props.password}
               tabIndex={2}
               required
             />
@@ -241,7 +181,7 @@ export default function Login() {
             style={{ color: '#e6a195' }}
             href="#"
             className="primary float-left"
-            onClick={forgotCreds}
+            onClick={props.forgotten}
             tabIndex={4}
           >
             Forgot credentials
@@ -255,10 +195,7 @@ export default function Login() {
             Login
           </Button>
         </LoginControl>
-
-        {/* Server Status Icon */}
-        <Status placement="left" />
-      </LoginForm>
+      </LForm>
     </LoginContainer>
   );
 }
