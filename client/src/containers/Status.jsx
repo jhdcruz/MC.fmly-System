@@ -16,11 +16,11 @@ import ApiService from '../services/ApiService';
  *********************************/
 
 export default function Status(props) {
-  const status = ApiService();
+  const { data } = ApiService();
 
   // * Set tooltip notice based on response
   const ServerStatus = () => {
-    if (status === 200) {
+    if (data === 'OK') {
       return <p className="m-0">System is operational.</p>;
     } else {
       return <p className="m-0">System is currently down.</p>;
@@ -33,8 +33,8 @@ export default function Status(props) {
       <FontAwesomeIcon
         icon={faCircle}
         style={{
-          color: status ? '#4de670' : '#ec2738',
-          boxShadow: status
+          color: data ? '#4de670' : '#ec2738',
+          boxShadow: data
             ? '0 0 7px 5px rgba(77, 230, 112, 0.4)'
             : '0 0 7px 5px rgba(236, 39, 56, 0.4)',
           borderRadius: '100%',
@@ -49,7 +49,8 @@ export default function Status(props) {
       style={{
         position: 'absolute',
         bottom: '1.5rem',
-        right: '1.5rem'
+        right: '1.5rem',
+        zIndex: 3
       }}
     >
       <OverlayTrigger

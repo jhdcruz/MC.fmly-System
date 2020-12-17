@@ -11,10 +11,10 @@ export default function ApiService() {
   return useQuery(
     'status',
     async () => {
-      const { status } = await axios.get(
+      const { data } = await axios.get(
         'https://mc-ims-api.herokuapp.com/auth/status'
       );
-      return status;
+      return data;
     },
     { refetchInterval: 10000 }
   );
