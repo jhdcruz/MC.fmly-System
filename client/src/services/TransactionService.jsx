@@ -8,14 +8,10 @@ import axios from 'axios';
 import { useQuery } from 'react-query';
 
 export default function TransactionService() {
-  return useQuery(
-    'transactions',
-    async () => {
-      const { data } = await axios.get(
-        'https://mc-ims-api.herokuapp.com/transactions'
-      );
-      return data;
-    },
-    { refetchIntervalInBackground: true }
-  );
+  return useQuery('transactions', async () => {
+    const { data } = await axios.get(
+      'https://mc-ims-api.herokuapp.com/transactions'
+    );
+    return data;
+  });
 }
