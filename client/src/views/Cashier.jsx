@@ -15,6 +15,7 @@ import routes from '../utils/routes';
 import '../global.scss';
 // Routes
 import PointOfSale from '../pages/PointOfSale';
+import Status from '../containers/Status';
 
 /*********************************
  * * Cashier Permission Access
@@ -37,6 +38,7 @@ export default function Cashier() {
                 />
               </>
             }
+            bottom={<Status placement="right" left="0.8rem" />}
           />
           <div id="pageRoutes" className="routerContainer">
             <RouteTransition

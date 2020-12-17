@@ -23,6 +23,7 @@ import TabItem from '../components/sidebar/TabItem';
 import Inventory from '../pages/Inventory';
 import Suppliers from '../pages/Suppliers';
 import Transactions from '../pages/Transactions';
+import Status from '../containers/Status';
 
 /*********************************
  * * Inventory Permission Access
@@ -64,6 +65,7 @@ export default function InventoryClerk() {
                   />
                 </>
               }
+              bottom={<Status placement="right" left="0.8rem" />}
             />
             <div id="pageRoutes" className="routerContainer">
               <RouteTransition

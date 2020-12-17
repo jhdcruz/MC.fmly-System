@@ -32,6 +32,7 @@ import Suppliers from '../pages/Suppliers';
 import PointOfSale from '../pages/PointOfSale';
 import Users from '../pages/Users';
 import SysInfo from '../pages/SysInfo';
+import Status from '../containers/Status';
 
 /*********************************
  * * Admin Permission Access
@@ -98,6 +99,7 @@ export default function Admin() {
                   route={routes.SYSINFO}
                   icon={faServer}
                 />
+                <Status placement="right" left="0.8rem" />
               </>
             }
           />
