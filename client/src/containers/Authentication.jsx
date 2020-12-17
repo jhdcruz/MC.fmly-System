@@ -45,9 +45,10 @@ export default function Authentication() {
     window.alert('Please inform the System Admin.');
   };
 
-  /*******************************
+  /*******************************************
    * * Role-based Views
-   *******************************/
+   * TODO: Refactor to switch(); if possible
+   *******************************************/
   if (auth === 'admin') {
     return <Admin />;
   } else if (auth === 'sysadmin') {
