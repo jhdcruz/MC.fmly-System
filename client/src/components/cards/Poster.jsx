@@ -13,10 +13,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGlobe, faPhone } from '@fortawesome/free-solid-svg-icons';
 import EntryActions from '../common/EntryActions';
 
-/*********************************
- * * Suppliers Card/Poster
- *********************************/
-
 const CardBlock = styled(Card)`
   background-color: #222126;
   color: #d2d2d2;

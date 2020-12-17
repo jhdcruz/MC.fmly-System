@@ -29,7 +29,7 @@ import Recent from '../pages/Recent';
 import Inventory from '../pages/Inventory';
 import Transactions from '../pages/Transactions';
 import Suppliers from '../pages/Suppliers';
-import PointOfSale from '../pages/PointOfSale';
+import Pos from '../pages/Pos';
 import Users from '../pages/Users';
 import SysInfo from '../pages/SysInfo';
 import Status from '../containers/Status';
@@ -116,7 +116,7 @@ export default function Admin() {
                   <Route path={routes.INVENTORY} component={Inventory} />
                   <Route path={routes.TRANSACTIONS} component={Transactions} />
                   <Route path={routes.SUPPLIERS} component={Suppliers} />
-                  <Route path={routes.POS} component={PointOfSale} />
+                  <Route path={routes.POS} component={Pos} />
                   <Route path={routes.USERS} component={Users} />
                 </>
               }

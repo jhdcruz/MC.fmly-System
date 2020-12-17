@@ -14,7 +14,7 @@ import RouteTransition from '../components/common/RouteTransition';
 import routes from '../utils/routes';
 import '../global.scss';
 // Routes
-import PointOfSale from '../pages/PointOfSale';
+import Pos from '../pages/Pos';
 import Status from '../containers/Status';
 
 /*********************************
@@ -47,7 +47,7 @@ export default function Cashier() {
               // * View routes
               children={
                 <>
-                  <Route path={routes.POS} component={PointOfSale} />
+                  <Route path={routes.POS} component={Pos} />
                 </>
               }
             />

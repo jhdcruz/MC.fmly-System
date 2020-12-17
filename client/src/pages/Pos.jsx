@@ -7,7 +7,7 @@
 import ProductCatalog from '../containers/products/ProductCatalog';
 import PosControls from '../containers/pos/PosControls';
 
-export default function PointOfSale() {
+export default function Pos() {
   return (
     <>
       <ProductCatalog />
