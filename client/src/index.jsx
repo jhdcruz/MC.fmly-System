@@ -17,9 +17,10 @@
  */
 
 import { StrictMode } from 'react';
-import ReactDOM from 'react-dom';
 import { QueryClient, QueryClientProvider } from 'react-query';
-import Admin from './views/Admin';
+import ReactDOM from 'react-dom';
+import Login from './pages/Login';
+import 'global.scss';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -33,7 +34,7 @@ const queryClient = new QueryClient({
 ReactDOM.render(
   <StrictMode>
     <QueryClientProvider client={queryClient}>
-      <Admin />
+      <Login />
     </QueryClientProvider>
   </StrictMode>,
   document.getElementById('root')
