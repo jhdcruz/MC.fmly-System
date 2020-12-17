@@ -22,7 +22,7 @@
     "lint": "prettier \"./**/**.{js,ts}\" --write && eslint \"./**/**/*.{js,ts}\""
   },
   "dependencies": {
-    "@logdna/logger": "2.1.1",
+    "@logdna/logger": "2.1.2",
     "argon2": "0.27.1",
     "body-parser": "1.19.0",
     "cors": "2.8.5",
