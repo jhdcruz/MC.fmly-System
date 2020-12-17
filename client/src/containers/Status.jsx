@@ -50,6 +50,7 @@ export default function Status(props) {
         position: 'absolute',
         bottom: '1.5rem',
         right: '1.5rem',
+        left: props.left,
         zIndex: 3
       }}
     >
