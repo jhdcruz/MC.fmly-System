@@ -64,14 +64,14 @@ exports.login = async (req, res) => {
           indexMeta: true,
           meta: { err }
         });
-        res.send('Credentials Mismatched!');
+        res.sendStatus(401).send('Unauthorized');
       }
     } else {
       logger.warn(`Invalid credentials submitted for: ${req.body.username}`, {
         indexMeta: true,
         meta: { err }
       });
-      res.send('Credentials Mismatched!');
+      res.sendStatus(401).send('Unauthorized');
     }
   } catch (err) {
     rollbar.error(err);
@@ -79,6 +79,6 @@ exports.login = async (req, res) => {
       indexMeta: true,
       meta: { err }
     });
-    res.status(500).send('Internal Server error occured');
+    res.sendStatus(500);
   }
 };
