@@ -12,7 +12,7 @@ import TabItem from '../components/sidebar/TabItem';
 import RouteTransition from '../components/common/RouteTransition';
 // Assets
 import routes from '../utils/routes';
-import '../App.scss';
+import '../global.scss';
 import {
   faBoxes,
   faChartBar,
