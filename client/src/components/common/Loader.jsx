@@ -6,21 +6,37 @@
 
 import Spinner from 'react-bootstrap/Spinner';
 import styled from 'styled-components';
+import logoGif from '../../assets/img/logo.gif';
 
 /************************
  * * Spinner/Loading
  ************************/
 
 const Loading = styled(Spinner)`
-  margin: 10px auto;
-  width: 2rem;
-  height: 2rem;
-  position: fixed;
-  top: 45vh;
-  left: 45vw;
+  display: block;
+  margin: 5rem auto;
   z-index: 99;
 `;
 
-export default function Loader() {
+const ImgLoader = styled.div`
+  background-color: rgba(15, 15, 15, 0.5);
+  width: max-content;
+  height: max-content;
+  margin: 20vh auto;
+  padding: 0.5rem;
+  border-radius: 1rem;
+  display: block;
+  z-index: 5;
+`;
+
+export const Loader = () => {
   return <Loading variant="primary" animation="border" role="status" />;
-}
+};
+
+export const Fallback = () => {
+  return (
+    <ImgLoader>
+      <img src={logoGif} alt="Loading..." width={250} height={250} />
+    </ImgLoader>
+  );
+};
