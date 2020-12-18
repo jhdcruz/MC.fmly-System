@@ -4,20 +4,22 @@
  *     Licensed under GNU General Public License 3.0 or later
  */
 
-import { useState } from 'react';
+import { lazy, Suspense, useState } from 'react';
 import Nav from 'react-bootstrap/Nav';
 import Tab from 'react-bootstrap/Tab';
-import Moment from 'react-moment';
 import Categories from '../../components/sidebar/Categories';
 import SearchControls from '../../components/SearchControls';
 import { CardDeck } from '../../components/cards/CardOverlay';
 import { AddProduct, DeleteProduct, EditProduct } from './ProductModals';
 import ProductService from '../../services/ProductService';
-import Loader from '../../components/common/Loader';
+import { Loader } from '../../components/common/Loader';
 import Tag from '../../components/common/Tag';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarAlt, faHistory } from '@fortawesome/free-solid-svg-icons';
 import Notification from '../../components/common/Notification';
+
+// * Lazy imports
+const Moment = lazy(() => import('react-moment'));
 
 /************************************
  * * Product List | Card View
@@ -110,10 +112,14 @@ export default function ProductsCard(props) {
         date={
           <>
             <FontAwesomeIcon icon={faCalendarAlt} />{' '}
-            <Moment format="D MMM YYYY" date={product.createdAt} fromNow />
+            <Suspense fallback="—">
+              <Moment format="D MMM YYYY" date={product.createdAt} fromNow />
+            </Suspense>
             {' | '}
             <FontAwesomeIcon icon={faHistory} />{' '}
-            <Moment fromNow date={product.updatedAt} />
+            <Suspense fallback="—">
+              <Moment fromNow date={product.updatedAt} />
+            </Suspense>
           </>
         }
       />

@@ -4,19 +4,21 @@
  *     Licensed under GNU General Public License 3.0 or later
  */
 
-import { useState } from 'react';
+import { lazy, Suspense, useState } from 'react';
 import Nav from 'react-bootstrap/Nav';
 import Tab from 'react-bootstrap/Tab';
 import Categories from '../../components/sidebar/Categories';
 import SearchControls from '../../components/SearchControls';
 import UserService from '../../services/UserService';
 import { AddUser, DeleteUser, EditUser } from './UserModals';
-import Loader from '../../components/common/Loader';
+import { Loader } from '../../components/common/Loader';
 import { CardDeck } from '../../components/cards/CardOverlay';
 import Tag from '../../components/common/Tag';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarAlt, faHistory } from '@fortawesome/free-solid-svg-icons';
-import Moment from 'react-moment';
+
+// * Lazy imports
+const Moment = lazy(() => import('react-moment'));
 
 export default function UsersCard(props) {
   const { data } = UserService();
@@ -79,10 +81,14 @@ export default function UsersCard(props) {
         date={
           <>
             <FontAwesomeIcon icon={faCalendarAlt} />{' '}
-            <Moment format="D MMM YYYY" date={user.createdAt} fromNow />
+            <Suspense fallback="—">
+              <Moment format="D MMM YYYY" date={user.createdAt} fromNow />
+            </Suspense>
             {' | '}
             <FontAwesomeIcon icon={faHistory} />{' '}
-            <Moment fromNow date={user.updatedAt} />
+            <Suspense fallback="—">
+              <Moment fromNow date={user.updatedAt} />
+            </Suspense>
           </>
         }
       />
