@@ -6,19 +6,19 @@
 
 import Nav from 'react-bootstrap/Nav';
 import Tab from 'react-bootstrap/Tab';
-import Categories from '../../components/sidebar/Categories';
+import { Loader } from '../../components/common/Loader';
 import { CardOverlay } from '../../components/cards/CardOverlay';
-import ProductService from '../../services/ProductService';
+import Categories from '../../components/sidebar/Categories';
 import SearchBar from '../../components/common/SearchBar';
-import Loader from '../../components/common/Loader';
 import Tag from '../../components/common/Tag';
+import ProductService from '../../services/ProductService';
 
 /************************************
  * * Product List, No Actions | POS
  * TODO: POS functionality
  ************************************/
 
-export default function ProductCatalog() {
+export default function PosCatalog() {
   const { data } = ProductService();
 
   // * Catalog Content
@@ -102,47 +102,28 @@ export default function ProductCatalog() {
   // * Filter products by category
   const CategoryFilter = () => {
     return (
-      <>
-        {data && true ? (
-          <>
-            {data &&
-              productCategories.map((categories) => (
-                <Tab.Pane
-                  key={categories.category}
-                  eventKey={categories.category}
-                >
-                  {data
-                    .filter((pane) => pane.category === categories.category)
-                    .map((product) => Catalog(product))}
-                </Tab.Pane>
-              ))}
-          </>
-        ) : (
-          <Loader />
-        )}
-      </>
+      data &&
+      productCategories.map((categories) => (
+        <Tab.Pane key={categories.category} eventKey={categories.category}>
+          {data
+            .filter((pane) => pane.category === categories.category)
+            .map((product) => Catalog(product))}
+        </Tab.Pane>
+      ))
     );
   };
 
   // * Filter products by types
   const TypeFilter = () => {
     return (
-      <>
-        {data && true ? (
-          <>
-            {data &&
-              productTypes.map((types) => (
-                <Tab.Pane key={types.type} eventKey={types.type}>
-                  {data
-                    .filter((pane) => pane.type === types.type)
-                    .map((product) => Catalog(product))}
-                </Tab.Pane>
-              ))}
-          </>
-        ) : (
-          <Loader />
-        )}
-      </>
+      data &&
+      productTypes.map((types) => (
+        <Tab.Pane key={types.type} eventKey={types.type}>
+          {data
+            .filter((pane) => pane.type === types.type)
+            .map((product) => Catalog(product))}
+        </Tab.Pane>
+      ))
     );
   };
 
@@ -151,17 +132,20 @@ export default function ProductCatalog() {
     return (
       <>
         <SearchBar />
-        {/* Filtered Tables */}
-        <Tab.Pane eventKey="default">
-          {data && data.map((product) => Catalog(product))}
-        </Tab.Pane>
-        ;
-        <CategoryFilter />;
-        <TypeFilter />;
+        {data && true ? (
+          <>
+            <Tab.Pane eventKey="default">
+              {data && data.map((product) => Catalog(product))}
+            </Tab.Pane>
+            <CategoryFilter />
+            <TypeFilter />
+          </>
+        ) : (
+          <Loader />
+        )}
       </>
     );
   };
-
   return (
     <>
       {/* Display 'categories' component */}

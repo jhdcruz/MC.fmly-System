@@ -4,7 +4,7 @@
  *     Licensed under GNU General Public License 3.0 or later
  */
 
-import ProductCatalog from '../containers/products/ProductCatalog';
+import ProductCatalog from '../containers/pos/PosCatalog';
 import PosControls from '../containers/pos/PosControls';
 
 export default function Pos() {
