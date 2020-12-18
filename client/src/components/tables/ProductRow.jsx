@@ -20,22 +20,20 @@ export default function ProductRow(product) {
         <TableData style={{ padding: '0.75rem 0' }}>
           <EntryActions edit={product.edit} delete={product.delete} />
         </TableData>
-        <TableData className="code" colSpan={1} onClick={product.action}>
+        <TableData className="code" colSpan={1}>
           {product.code}
         </TableData>
-        <TableData className="name" onClick={product.action}>
-          {product.name}
-        </TableData>
-        <TableData className="variant" onClick={product.action}>
+        <TableData className="name">{product.name}</TableData>
+        <TableData className="variant">
           <Tag variant="dark">{product.variant}</Tag>
         </TableData>
-        <TableData className="type" onClick={product.action}>
+        <TableData className="type">
           <Tag variant="primary">{product.type}</Tag>
         </TableData>
-        <TableData className="category" onClick={product.action}>
+        <TableData className="category">
           <Tag variant="info">{product.category}</Tag>
         </TableData>
-        <TableData className="stock" onClick={product.action}>
+        <TableData className="stock">
           {/* Quantity Color Indicator */}
           {(() => {
             if (product.quantity <= 10) {
@@ -49,11 +47,11 @@ export default function ProductRow(product) {
             }
           })()}
         </TableData>
-        <TableData className="updatedAt" onClick={product.action}>
+        <TableData className="updatedAt">
           {/* Parse date to human-friendly format */}
           <Moment fromNow date={product.updatedAt} />
         </TableData>
-        <TableData className="createdAt" onClick={product.action}>
+        <TableData className="createdAt">
           {/* Parse date to human-friendly format */}
           <Moment
             format="D MMM YYYY | HH:mm"
@@ -61,7 +59,7 @@ export default function ProductRow(product) {
             withTitle
           />
         </TableData>
-        <TableData className="price" onClick={product.action}>
+        <TableData className="price">
           <Tag variant="dark">₱{product.price}</Tag>
         </TableData>
       </TableRow>
