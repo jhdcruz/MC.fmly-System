@@ -7,13 +7,13 @@
 import { useState } from 'react';
 import Nav from 'react-bootstrap/Nav';
 import Tab from 'react-bootstrap/Tab';
+import { Loader } from '../../components/common/Loader';
 import SearchControls from '../../components/SearchControls';
 import Categories from '../../components/sidebar/Categories';
 import UserHeader from '../../components/tables/UserHeader';
 import UserRow from '../../components/tables/UserRow';
 import UserService from '../../services/UserService';
 import { AddUser, DeleteUser, EditUser } from './UserModals';
-import Loader from '../../components/common/Loader';
 
 export default function UsersList(props) {
   const { data } = UserService();
@@ -66,7 +66,7 @@ export default function UsersList(props) {
   };
 
   // * Removes duplicate properties | permissions
-  const userPermissions =
+  const employeePermissions =
     data &&
     data
       .filter(
@@ -78,7 +78,7 @@ export default function UsersList(props) {
       .reverse();
 
   // * Removes duplicate properties | roles
-  const userRoles =
+  const employeeRoles =
     data &&
     data
       .filter(
@@ -91,53 +91,36 @@ export default function UsersList(props) {
   // * Filter users by category
   const PermissionFilter = () => {
     return (
-      <>
-        {data && true ? (
-          <>
-            {data &&
-              userPermissions.map((user) => (
-                <Tab.Pane key={user.permission} eventKey={user.permission}>
-                  {/* TODO: Prevent header re-render */}
-                  <UserHeader
-                    data={
-                      data &&
-                      data
-                        .filter((pane) => pane.permission === user.permission)
-                        .map((userByPermission) => Users(userByPermission))
-                    }
-                  />
-                </Tab.Pane>
-              ))}
-          </>
-        ) : (
-          <Loader />
-        )}
-      </>
+      data &&
+      employeePermissions.map((employee) => (
+        <Tab.Pane key={employee.permission} eventKey={employee.permission}>
+          <UserHeader
+            data={
+              data &&
+              data
+                .filter((pane) => pane.permission === employee.permission)
+                .map((employeeByPermission) => Users(employeeByPermission))
+            }
+          />
+        </Tab.Pane>
+      ))
     );
   };
 
   // * Filter users by types
   const RoleFilter = () => {
     return (
-      <>
-        {data && true ? (
-          <>
-            {data &&
-              userRoles.map((user) => (
-                <Tab.Pane key={user.role} eventKey={user.role}>
-                  <UserHeader
-                    _id={data && data._id}
-                    data={data
-                      .filter((pane) => pane.role === user.role)
-                      .map((userByRole) => Users(userByRole))}
-                  />
-                </Tab.Pane>
-              ))}
-          </>
-        ) : (
-          <Loader />
-        )}
-      </>
+      data &&
+      employeeRoles.map((employee) => (
+        <Tab.Pane key={employee.role} eventKey={employee.role}>
+          <UserHeader
+            _id={data && data._id}
+            data={data
+              .filter((pane) => pane.role === employee.role)
+              .map((employeeByRole) => Users(employeeByRole))}
+          />
+        </Tab.Pane>
+      ))
     );
   };
 
@@ -146,18 +129,24 @@ export default function UsersList(props) {
       <>
         <Modals />
         <SearchControls
-          add="Add User"
+          add="Add Employee"
           cardView={props.view}
           modal={() => showAddModal(true)}
         />
 
-        <Tab.Pane eventKey="default">
-          <UserHeader
-            data={data && data.map((user) => Users(user)).reverse()}
-          />
-        </Tab.Pane>
-        <PermissionFilter />
-        <RoleFilter />
+        {data && true ? (
+          <>
+            <Tab.Pane eventKey="default">
+              <UserHeader
+                data={data && data.map((employee) => Users(employee)).reverse()}
+              />
+            </Tab.Pane>
+            <PermissionFilter />
+            <RoleFilter />
+          </>
+        ) : (
+          <Loader />
+        )}
       </>
     );
   };
@@ -167,18 +156,20 @@ export default function UsersList(props) {
       main="Permissions"
       mainTabs={
         data &&
-        userPermissions.map((user) => (
-          <Nav.Item key={user.permission}>
-            <Nav.Link eventKey={user.permission}>{user.permission}</Nav.Link>
+        employeePermissions.map((employee) => (
+          <Nav.Item key={employee.permission}>
+            <Nav.Link eventKey={employee.permission}>
+              {employee.permission}
+            </Nav.Link>
           </Nav.Item>
         ))
       }
       secondary="Roles"
       secondaryTabs={
         data &&
-        userRoles.map((user) => (
-          <Nav.Item key={user.role}>
-            <Nav.Link eventKey={user.role}>{user.role}</Nav.Link>
+        employeeRoles.map((employee) => (
+          <Nav.Item key={employee.role}>
+            <Nav.Link eventKey={employee.role}>{employee.role}</Nav.Link>
           </Nav.Item>
         ))
       }

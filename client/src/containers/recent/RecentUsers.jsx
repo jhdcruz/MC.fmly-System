@@ -9,7 +9,7 @@ import UserHeader from '../../components/tables/UserHeader';
 import UserRow from '../../components/tables/UserRow';
 import { DeleteUser, EditUser } from '../users/UserModals';
 import UserService from '../../services/UserService';
-import Loader from '../../components/common/Loader';
+import { Loader } from '../../components/common/Loader';
 
 export default function RecentUsers() {
   const { data } = UserService();

@@ -9,10 +9,10 @@ import SearchControls from '../../components/SearchControls';
 import SupplierService from '../../services/SupplierService';
 import { AddSupplier, DeleteSupplier, EditSupplier } from './SupplierModals';
 import Poster from '../../components/cards/Poster';
-import Loader from '../../components/common/Loader';
+import { Loader } from '../../components/common/Loader';
 import CardDeck from 'react-bootstrap/CardDeck';
 
-// TODO: Add Categories by types
+// TODO: Add <Categories /> by types
 export default function SuppliersCard(props) {
   const { data } = SupplierService();
 

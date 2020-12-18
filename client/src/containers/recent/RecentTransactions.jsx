@@ -12,7 +12,7 @@ import {
   NoInvoice
 } from '../transactions/TransactionModals';
 import TransactionService from '../../services/TransactionService';
-import Loader from '../../components/common/Loader';
+import { Loader } from '../../components/common/Loader';
 
 export default function RecentTransactions() {
   const { data } = TransactionService();

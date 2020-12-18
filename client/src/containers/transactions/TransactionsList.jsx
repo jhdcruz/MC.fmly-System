@@ -19,7 +19,7 @@ import SearchControls from '../../components/SearchControls';
 import Categories from '../../components/sidebar/Categories';
 import UserHeader from '../../components/tables/UserHeader';
 import TransactionService from '../../services/TransactionService';
-import Loader from '../../components/common/Loader';
+import { Loader } from '../../components/common/Loader';
 
 export default function TransactionsList(props) {
   const { data } = TransactionService();

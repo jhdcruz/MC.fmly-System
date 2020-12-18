@@ -6,9 +6,9 @@
 
 // GET updates from repo
 import { ListGroup } from 'react-bootstrap';
-import Releases from '../../services/github/Releases';
 import Updates from '../../components/system/Updates';
-import Loader from '../../components/common/Loader';
+import Releases from '../../services/github/Releases';
+import { Loader } from '../../components/common/Loader';
 import { ListContainer } from '../../components/system/__system.module';
 
 /*****************************************************

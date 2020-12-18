@@ -9,7 +9,7 @@ import SupplierHeader from '../../components/tables/SupplierHeader';
 import SupplierRow from '../../components/tables/SupplierRow';
 import { AddSupplier, DeleteSupplier, EditSupplier } from './SupplierModals';
 import SupplierService from '../../services/SupplierService';
-import Loader from '../../components/common/Loader';
+import { Loader } from '../../components/common/Loader';
 import SearchControls from '../../components/SearchControls';
 import Tab from 'react-bootstrap/Tab';
 

@@ -10,15 +10,10 @@ import Nav from 'react-bootstrap/Nav';
 import Categories from '../../components/sidebar/Categories';
 import ProductHeader from '../../components/tables/ProductHeader';
 import ProductRow from '../../components/tables/ProductRow';
-import {
-  AddProduct,
-  DeleteProduct,
-  EditProduct,
-  QuickEdit
-} from './ProductModals';
+import { AddProduct, DeleteProduct, EditProduct } from './ProductModals';
 import ProductService from '../../services/ProductService';
 import SearchControls from '../../components/SearchControls';
-import Loader from '../../components/common/Loader';
+import { Loader } from '../../components/common/Loader';
 
 /******************************************
  * * Product Inventory
@@ -32,7 +27,6 @@ export default function ProductInventory(props) {
   const [addModal, showAddModal] = useState(false);
   const [editModal, showEditModal] = useState(false);
   const [deleteModal, showDeleteModal] = useState(false);
-  const [quickEditModal, showQuickEditModal] = useState(false);
 
   const Modals = () => {
     return (
@@ -55,12 +49,6 @@ export default function ProductInventory(props) {
           save={() => showDeleteModal(false)}
           close={() => showDeleteModal(false)}
         />
-        <QuickEdit
-          show={quickEditModal}
-          onHide={() => showQuickEditModal(false)}
-          save={() => showQuickEditModal(false)}
-          close={() => showQuickEditModal(false)}
-        />
       </>
     );
   };
@@ -70,7 +58,6 @@ export default function ProductInventory(props) {
       <ProductRow
         edit={() => showEditModal(true)}
         delete={() => showDeleteModal(true)}
-        action={() => showQuickEditModal(true)}
         _id={product._id}
         code={product.code}
         name={product.name}

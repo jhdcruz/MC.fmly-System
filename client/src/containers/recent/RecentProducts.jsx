@@ -8,8 +8,8 @@ import { useState } from 'react';
 import ProductHeader from '../../components/tables/ProductHeader';
 import ProductRow from '../../components/tables/ProductRow';
 import ProductService from '../../services/ProductService';
-import Loader from '../../components/common/Loader';
-import { DeleteProduct, EditProduct } from '../products/ProductModals';
+import { Loader } from '../../components/common/Loader';
+import { DeleteProduct, EditProduct } from '../inventory/ProductModals';
 
 export default function RecentProducts() {
   const { data } = ProductService();
