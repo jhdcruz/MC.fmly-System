@@ -10,7 +10,7 @@ import Image from 'react-bootstrap/Image';
 import Nav from 'react-bootstrap/Nav';
 import TabItem from './TabItem';
 import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
-import Brand from '../../assets/img/profile.png';
+import Brand from '../../assets/img/logo.png';
 
 const SideNav = styled(Container)`
   width: 4.5rem;
