@@ -4,6 +4,7 @@
  *     Licensed under GNU General Public License 3.0 or later
  */
 
+import { useEffect } from 'react';
 import Tab from 'react-bootstrap/Tab';
 import { DBMetrics } from '../components/embeds/Metrics';
 import Logs from '../components/embeds/Logs';
@@ -12,6 +13,14 @@ import Development from '../containers/sysinfo/Development';
 import { NavTabs, TabContainer } from '../containers/__containers.module';
 
 export default function SysInfo() {
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://cdn.logdna.net/js/embed.js';
+    script.async = true;
+    script.defer = true;
+    document.body.appendChild(script);
+  });
+
   return (
     <TabContainer>
       <NavTabs defaultActiveKey="overview" id="System Tabs" justify>

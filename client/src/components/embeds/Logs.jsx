@@ -5,8 +5,7 @@
  */
 
 import styled from 'styled-components';
-import Loader from '../common/Loader';
-import { useEffect } from 'react';
+import { Loader } from '../common/Loader';
 
 /*****************************************************
  * * Embed API Logs (LogDNA)
@@ -24,14 +23,6 @@ const LogContainer = styled.div`
 `;
 
 export default function Logs() {
-  useEffect(() => {
-    const script = document.createElement('script');
-    script.src = 'https://cdn.logdna.net/js/embed.js';
-    script.async = true;
-    script.defer = true;
-    document.body.appendChild(script);
-  });
-
   return (
     <LogContainer>
       <blockquote
