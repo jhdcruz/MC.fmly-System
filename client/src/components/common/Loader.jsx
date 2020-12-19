@@ -24,9 +24,13 @@ const ImgLoader = styled.div`
   height: max-content;
   margin: 20vh auto;
   padding: 0.5rem;
-  border-radius: 1rem;
+  border-radius: 50%;
   display: block;
   z-index: 5;
+
+  img {
+    border-radius: 50%;
+  }
 `;
 
 export const Loader = () => {
@@ -36,7 +40,7 @@ export const Loader = () => {
 export const Fallback = () => {
   return (
     <ImgLoader>
-      <img src={logoGif} alt="Loading..." width={250} height={250} />
+      <img src={logoGif} alt="Loading..." width={200} height={200} />
     </ImgLoader>
   );
 };
