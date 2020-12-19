@@ -7,8 +7,8 @@
 import { useState } from 'react';
 import ProductHeader from '../../components/tables/ProductHeader';
 import ProductRow from '../../components/tables/ProductRow';
+import { Fallback } from '../../components/common/Loader';
 import ProductService from '../../services/ProductService';
-import { Loader } from '../../components/common/Loader';
 import { DeleteProduct, EditProduct } from '../inventory/ProductModals';
 
 export default function RecentProducts() {
@@ -65,7 +65,7 @@ export default function RecentProducts() {
                 />
               ))
           ) : (
-            <Loader />
+            <Fallback />
           )
         }
       />

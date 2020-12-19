@@ -7,19 +7,18 @@
 import { useState } from 'react';
 import Nav from 'react-bootstrap/Nav';
 import Tab from 'react-bootstrap/Tab';
+import Categories from '../../components/sidebar/Categories';
+import SearchControls from '../../components/SearchControls';
 import TransactionHeader from '../../components/tables/TransactionHeader';
 import TransactionRow from '../../components/tables/TransactionRow';
+import { Fallback } from '../../components/common/Loader';
 import {
   AddTransaction,
   DeleteTransaction,
   EditTransaction,
   NoInvoice
 } from './TransactionModals';
-import SearchControls from '../../components/SearchControls';
-import Categories from '../../components/sidebar/Categories';
-import UserHeader from '../../components/tables/UserHeader';
 import TransactionService from '../../services/TransactionService';
-import { Loader } from '../../components/common/Loader';
 
 export default function TransactionsList(props) {
   const { data } = TransactionService();
@@ -113,31 +112,21 @@ export default function TransactionsList(props) {
   const StatusFilter = () => {
     return (
       <>
-        {data && true ? (
-          <>
-            {data &&
-              transactionStatus.map((transaction) => (
-                <Tab.Pane
-                  key={transaction.status}
-                  eventKey={transaction.status}
-                >
-                  {/* TODO: Prevent header re-render */}
-                  <UserHeader
-                    data={
-                      data &&
-                      data
-                        .filter((pane) => pane.status === transaction.status)
-                        .map((transactionByStatus) =>
-                          Transactions(transactionByStatus)
-                        )
-                    }
-                  />
-                </Tab.Pane>
-              ))}
-          </>
-        ) : (
-          <Loader />
-        )}
+        {data &&
+          transactionStatus.map((transaction) => (
+            <Tab.Pane key={transaction.status} eventKey={transaction.status}>
+              <TransactionHeader
+                data={
+                  data &&
+                  data
+                    .filter((pane) => pane.status === transaction.status)
+                    .map((transactionByStatus) =>
+                      Transactions(transactionByStatus)
+                    )
+                }
+              />
+            </Tab.Pane>
+          ))}
       </>
     );
   };
@@ -146,28 +135,19 @@ export default function TransactionsList(props) {
   const PaymentFilter = () => {
     return (
       <>
-        {data && true ? (
-          <>
-            {data &&
-              transactionPayment.map((transaction) => (
-                <Tab.Pane
-                  key={transaction.payment}
-                  eventKey={transaction.payment}
-                >
-                  <UserHeader
-                    _id={data && data._id}
-                    data={data
-                      .filter((pane) => pane.payment === transaction.payment)
-                      .map((transactionByPayment) =>
-                        Transactions(transactionByPayment)
-                      )}
-                  />
-                </Tab.Pane>
-              ))}
-          </>
-        ) : (
-          <Loader />
-        )}
+        {data &&
+          transactionPayment.map((transaction) => (
+            <Tab.Pane key={transaction.payment} eventKey={transaction.payment}>
+              <TransactionHeader
+                _id={data && data._id}
+                data={data
+                  .filter((pane) => pane.payment === transaction.payment)
+                  .map((transactionByPayment) =>
+                    Transactions(transactionByPayment)
+                  )}
+              />
+            </Tab.Pane>
+          ))}
       </>
     );
   };
@@ -182,13 +162,21 @@ export default function TransactionsList(props) {
           modal={() => showAddModal(true)}
         />
 
-        <Tab.Pane eventKey="default">
-          <TransactionHeader
-            data={data && data.map((transaction) => Transactions(transaction))}
-          />
-        </Tab.Pane>
-        <StatusFilter />
-        <PaymentFilter />
+        {data && true ? (
+          <>
+            <Tab.Pane eventKey="default">
+              <TransactionHeader
+                data={
+                  data && data.map((transaction) => Transactions(transaction))
+                }
+              />
+            </Tab.Pane>
+            <StatusFilter />
+            <PaymentFilter />
+          </>
+        ) : (
+          <Fallback />
+        )}
       </>
     );
   };

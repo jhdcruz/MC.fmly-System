@@ -5,13 +5,13 @@
  */
 
 import { useState } from 'react';
+import Tab from 'react-bootstrap/Tab';
+import SearchControls from '../../components/SearchControls';
 import SupplierHeader from '../../components/tables/SupplierHeader';
 import SupplierRow from '../../components/tables/SupplierRow';
-import { AddSupplier, DeleteSupplier, EditSupplier } from './SupplierModals';
 import SupplierService from '../../services/SupplierService';
-import { Loader } from '../../components/common/Loader';
-import SearchControls from '../../components/SearchControls';
-import Tab from 'react-bootstrap/Tab';
+import { Fallback } from '../../components/common/Loader';
+import { AddSupplier, DeleteSupplier, EditSupplier } from './SupplierModals';
 
 export default function SuppliersList(props) {
   const { data } = SupplierService();
@@ -78,7 +78,7 @@ export default function SuppliersList(props) {
                   />
                 ))
             ) : (
-              <Loader />
+              <Fallback />
             )
           }
         />

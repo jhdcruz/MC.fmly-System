@@ -10,18 +10,13 @@ import Tab from 'react-bootstrap/Tab';
 import Categories from '../../components/sidebar/Categories';
 import SearchControls from '../../components/SearchControls';
 import { CardDeck } from '../../components/cards/CardOverlay';
-import TransactionService from '../../services/TransactionService';
-import { Loader } from '../../components/common/Loader';
-import Tag from '../../components/common/Tag';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarAlt, faHistory } from '@fortawesome/free-solid-svg-icons';
-import {
-  AddTransaction,
-  DeleteTransaction,
-  EditTransaction,
-  NoInvoice
-} from './TransactionModals';
+import { AddTransaction, DeleteTransaction, EditTransaction, NoInvoice } from './TransactionModals';
+import { Fallback } from '../../components/common/Loader';
+import Tag from '../../components/common/Tag';
 import Notification from '../../components/common/Notification';
+import TransactionService from '../../services/TransactionService';
 
 // * Lazy imports
 const Moment = lazy(() => import('react-moment'));
@@ -150,27 +145,18 @@ export default function TransactionsCard(props) {
   const StatusFilter = () => {
     return (
       <>
-        {data && true ? (
-          <>
-            {data &&
-              transactionStatus.map((transaction) => (
-                <Tab.Pane
-                  key={transaction.status}
-                  eventKey={transaction.status}
-                >
-                  {/* TODO: Prevent header re-render */}
-                  {data &&
-                    data
-                      .filter((pane) => pane.status === transaction.status)
-                      .map((transactionByStatus) =>
-                        TransactionCard(transactionByStatus)
-                      )}
-                </Tab.Pane>
-              ))}
-          </>
-        ) : (
-          <Loader />
-        )}
+        {data &&
+          transactionStatus.map((transaction) => (
+            <Tab.Pane key={transaction.status} eventKey={transaction.status}>
+              {/* TODO: Prevent header re-render */}
+              {data &&
+                data
+                  .filter((pane) => pane.status === transaction.status)
+                  .map((transactionByStatus) =>
+                    TransactionCard(transactionByStatus)
+                  )}
+            </Tab.Pane>
+          ))}
       </>
     );
   };
@@ -179,25 +165,16 @@ export default function TransactionsCard(props) {
   const PaymentFilter = () => {
     return (
       <>
-        {data && true ? (
-          <>
-            {data &&
-              transactionPayment.map((transaction) => (
-                <Tab.Pane
-                  key={transaction.payment}
-                  eventKey={transaction.payment}
-                >
-                  {data
-                    .filter((pane) => pane.payment === transaction.payment)
-                    .map((transactionByPayment) =>
-                      TransactionCard(transactionByPayment)
-                    )}
-                </Tab.Pane>
-              ))}
-          </>
-        ) : (
-          <Loader />
-        )}
+        {data &&
+          transactionPayment.map((transaction) => (
+            <Tab.Pane key={transaction.payment} eventKey={transaction.payment}>
+              {data
+                .filter((pane) => pane.payment === transaction.payment)
+                .map((transactionByPayment) =>
+                  TransactionCard(transactionByPayment)
+                )}
+            </Tab.Pane>
+          ))}
       </>
     );
   };
@@ -213,12 +190,18 @@ export default function TransactionsCard(props) {
           listView={props.view}
           modal={() => showAddModal(true)}
         />
-        {/* Filtered Tables */}
-        <Tab.Pane eventKey="default">
-          {data && data.map((transaction) => TransactionCard(transaction))}
-        </Tab.Pane>
-        <StatusFilter />
-        <PaymentFilter />
+
+        {data && true ? (
+          <>
+            <Tab.Pane eventKey="default">
+              {data && data.map((transaction) => TransactionCard(transaction))}
+            </Tab.Pane>
+            <StatusFilter />
+            <PaymentFilter />
+          </>
+        ) : (
+          <Fallback />
+        )}
       </>
     );
   };

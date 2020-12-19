@@ -9,13 +9,12 @@ import Nav from 'react-bootstrap/Nav';
 import Tab from 'react-bootstrap/Tab';
 import Categories from '../../components/sidebar/Categories';
 import SearchControls from '../../components/SearchControls';
-import UserService from '../../services/UserService';
-import { AddUser, DeleteUser, EditUser } from './UserModals';
-import { Loader } from '../../components/common/Loader';
 import { CardDeck } from '../../components/cards/CardOverlay';
-import Tag from '../../components/common/Tag';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarAlt, faHistory } from '@fortawesome/free-solid-svg-icons';
+import Tag from '../../components/common/Tag';
+import UserService from '../../services/UserService';
+import { AddUser, DeleteUser, EditUser } from './UserModals';
 
 // * Lazy imports
 const Moment = lazy(() => import('react-moment'));
@@ -122,43 +121,31 @@ export default function UsersCard(props) {
   const PermissionFilter = () => {
     return (
       <>
-        {data && true ? (
-          <>
-            {data &&
-              userPermissions.map((user) => (
-                <Tab.Pane key={user.permission} eventKey={user.permission}>
-                  {data &&
-                    data
-                      .filter((pane) => pane.permission === user.permission)
-                      .map((userByPermission) => UserCard(userByPermission))}
-                </Tab.Pane>
-              ))}
-          </>
-        ) : (
-          <Loader />
-        )}
-        ;
+        {data &&
+          userPermissions.map((user) => (
+            <Tab.Pane key={user.permission} eventKey={user.permission}>
+              {data &&
+                data
+                  .filter((pane) => pane.permission === user.permission)
+                  .map((userByPermission) => UserCard(userByPermission))}
+            </Tab.Pane>
+          ))}
       </>
     );
   };
+
   // * Filter users by types
   const RoleFilter = () => {
     return (
       <>
-        {data && true ? (
-          <>
-            {data &&
-              userRoles.map((user) => (
-                <Tab.Pane key={user.role} eventKey={user.role}>
-                  {data
-                    .filter((pane) => pane.role === user.role)
-                    .map((userByRole) => UserCard(userByRole))}
-                </Tab.Pane>
-              ))}
-          </>
-        ) : (
-          <Loader />
-        )}
+        {data &&
+          userRoles.map((user) => (
+            <Tab.Pane key={user.role} eventKey={user.role}>
+              {data
+                .filter((pane) => pane.role === user.role)
+                .map((userByRole) => UserCard(userByRole))}
+            </Tab.Pane>
+          ))}
       </>
     );
   };
@@ -173,11 +160,17 @@ export default function UsersCard(props) {
           modal={() => showAddModal(true)}
         />
 
-        <Tab.Pane eventKey="default">
-          {data && data.map((user) => UserCard(user)).reverse()}
-        </Tab.Pane>
-        <PermissionFilter />
-        <RoleFilter />
+        {data && true ? (
+          <>
+            <Tab.Pane eventKey="default">
+              {data && data.map((user) => UserCard(user)).reverse()}
+            </Tab.Pane>
+            <PermissionFilter />
+            <RoleFilter />
+          </>
+        ) : (
+          <fallback />
+        )}
       </>
     );
   };

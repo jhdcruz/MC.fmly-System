@@ -6,10 +6,10 @@
 
 import { useState } from 'react';
 import SupplierHeader from '../../components/tables/SupplierHeader';
-import SupplierService from '../../services/SupplierService';
-import { Loader } from '../../components/common/Loader';
-import { DeleteSupplier, EditSupplier } from '../suppliers/SupplierModals';
 import SupplierRow from '../../components/tables/SupplierRow';
+import { Fallback } from '../../components/common/Loader';
+import SupplierService from '../../services/SupplierService';
+import { DeleteSupplier, EditSupplier } from '../suppliers/SupplierModals';
 
 export default function RecentSuppliers() {
   const { data } = SupplierService();
@@ -64,7 +64,7 @@ export default function RecentSuppliers() {
                 />
               ))
           ) : (
-            <Loader />
+            <Fallback />
           )
         }
       />

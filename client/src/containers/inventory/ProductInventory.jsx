@@ -10,14 +10,13 @@ import Nav from 'react-bootstrap/Nav';
 import Categories from '../../components/sidebar/Categories';
 import ProductHeader from '../../components/tables/ProductHeader';
 import ProductRow from '../../components/tables/ProductRow';
-import { AddProduct, DeleteProduct, EditProduct } from './ProductModals';
-import ProductService from '../../services/ProductService';
 import SearchControls from '../../components/SearchControls';
-import { Loader } from '../../components/common/Loader';
+import ProductService from '../../services/ProductService';
+import { Fallback } from '../../components/common/Loader';
+import { AddProduct, DeleteProduct, EditProduct } from './ProductModals';
 
 /******************************************
  * * Product Inventory
- * TODO: Extract filters for reusability
  ******************************************/
 
 export default function ProductInventory(props) {
@@ -99,30 +98,20 @@ export default function ProductInventory(props) {
   const CategoryFilter = () => {
     return (
       <>
-        {data && true ? (
-          <>
-            {data &&
-              productCategories.map((categories) => (
-                <Tab.Pane
-                  key={categories.category}
-                  eventKey={categories.category}
-                >
-                  {/* TODO: Prevent header re-render */}
-                  <ProductHeader
-                    map={data && data._id}
-                    data={
-                      data &&
-                      data
-                        .filter((pane) => pane.category === categories.category)
-                        .map((product) => ProductTable(product))
-                    }
-                  />
-                </Tab.Pane>
-              ))}
-          </>
-        ) : (
-          <Loader />
-        )}
+        {data &&
+          productCategories.map((categories) => (
+            <Tab.Pane key={categories.category} eventKey={categories.category}>
+              <ProductHeader
+                map={data && data._id}
+                data={
+                  data &&
+                  data
+                    .filter((pane) => pane.category === categories.category)
+                    .map((product) => ProductTable(product))
+                }
+              />
+            </Tab.Pane>
+          ))}
       </>
     );
   };
@@ -131,23 +120,17 @@ export default function ProductInventory(props) {
   const TypeFilter = () => {
     return (
       <>
-        {data && true ? (
-          <>
-            {data &&
-              productTypes.map((types) => (
-                <Tab.Pane key={types.type} eventKey={types.type}>
-                  <ProductHeader
-                    _id={data && data._id}
-                    data={data
-                      .filter((pane) => pane.type === types.type)
-                      .map((product) => ProductTable(product))}
-                  />
-                </Tab.Pane>
-              ))}
-          </>
-        ) : (
-          <Loader />
-        )}
+        {data &&
+          productTypes.map((types) => (
+            <Tab.Pane key={types.type} eventKey={types.type}>
+              <ProductHeader
+                _id={data && data._id}
+                data={data
+                  .filter((pane) => pane.type === types.type)
+                  .map((product) => ProductTable(product))}
+              />
+            </Tab.Pane>
+          ))}
       </>
     );
   };
@@ -164,15 +147,20 @@ export default function ProductInventory(props) {
           modal={() => showAddModal(true)}
         />
 
-        {/* Filtered Tables */}
-        <Tab.Pane eventKey="default">
-          <ProductHeader
-            _id={data && data._id}
-            data={data && data.map((product) => ProductTable(product))}
-          />
-        </Tab.Pane>
-        <CategoryFilter />
-        <TypeFilter />
+        {data && true ? (
+          <>
+            <Tab.Pane eventKey="default">
+              <ProductHeader
+                _id={data && data._id}
+                data={data && data.map((product) => ProductTable(product))}
+              />
+            </Tab.Pane>
+            <CategoryFilter />
+            <TypeFilter />
+          </>
+        ) : (
+          <Fallback />
+        )}
       </>
     );
   };

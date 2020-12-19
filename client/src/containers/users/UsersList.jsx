@@ -7,7 +7,7 @@
 import { useState } from 'react';
 import Nav from 'react-bootstrap/Nav';
 import Tab from 'react-bootstrap/Tab';
-import { Loader } from '../../components/common/Loader';
+import { Fallback } from '../../components/common/Loader';
 import SearchControls from '../../components/SearchControls';
 import Categories from '../../components/sidebar/Categories';
 import UserHeader from '../../components/tables/UserHeader';
@@ -145,7 +145,7 @@ export default function UsersList(props) {
             <RoleFilter />
           </>
         ) : (
-          <Loader />
+          <Fallback />
         )}
       </>
     );

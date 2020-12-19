@@ -6,16 +6,15 @@
 
 import Nav from 'react-bootstrap/Nav';
 import Tab from 'react-bootstrap/Tab';
-import { Loader } from '../../components/common/Loader';
-import { CardOverlay } from '../../components/cards/CardOverlay';
-import Categories from '../../components/sidebar/Categories';
 import SearchBar from '../../components/common/SearchBar';
+import Categories from '../../components/sidebar/Categories';
+import { Fallback } from '../../components/common/Loader';
+import { CardOverlay } from '../../components/cards/CardOverlay';
 import Tag from '../../components/common/Tag';
 import ProductService from '../../services/ProductService';
 
 /************************************
  * * Product List, No Actions | POS
- * TODO: POS functionality
  ************************************/
 
 export default function PosCatalog() {
@@ -141,7 +140,7 @@ export default function PosCatalog() {
             <TypeFilter />
           </>
         ) : (
-          <Loader />
+          <Fallback />
         )}
       </>
     );

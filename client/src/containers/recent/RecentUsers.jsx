@@ -7,9 +7,9 @@
 import { useState } from 'react';
 import UserHeader from '../../components/tables/UserHeader';
 import UserRow from '../../components/tables/UserRow';
-import { DeleteUser, EditUser } from '../users/UserModals';
+import { Fallback } from '../../components/common/Loader';
 import UserService from '../../services/UserService';
-import { Loader } from '../../components/common/Loader';
+import { DeleteUser, EditUser } from '../users/UserModals';
 
 export default function RecentUsers() {
   const { data } = UserService();
@@ -62,7 +62,7 @@ export default function RecentUsers() {
                 />
               ))
           ) : (
-            <Loader />
+            <Fallback />
           )
         }
       />

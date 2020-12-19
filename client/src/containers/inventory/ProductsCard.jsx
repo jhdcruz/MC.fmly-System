@@ -7,16 +7,16 @@
 import { lazy, Suspense, useState } from 'react';
 import Nav from 'react-bootstrap/Nav';
 import Tab from 'react-bootstrap/Tab';
-import Categories from '../../components/sidebar/Categories';
 import SearchControls from '../../components/SearchControls';
+import Categories from '../../components/sidebar/Categories';
 import { CardDeck } from '../../components/cards/CardOverlay';
 import { AddProduct, DeleteProduct, EditProduct } from './ProductModals';
-import ProductService from '../../services/ProductService';
-import { Loader } from '../../components/common/Loader';
-import Tag from '../../components/common/Tag';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarAlt, faHistory } from '@fortawesome/free-solid-svg-icons';
+import Tag from '../../components/common/Tag';
+import { Fallback } from '../../components/common/Loader';
 import Notification from '../../components/common/Notification';
+import ProductService from '../../services/ProductService';
 
 // * Lazy imports
 const Moment = lazy(() => import('react-moment'));
@@ -153,22 +153,14 @@ export default function ProductsCard(props) {
   const CategoryFilter = () => {
     return (
       <>
-        {data && true ? (
-          <>
-            {data &&
-              productCategories.map((categories) => (
-                <Tab.Pane
-                  key={categories.category}
-                  eventKey={categories.category}
-                >
-                  {data
-                    .filter((pane) => pane.category === categories.category)
-                    .map((product) => ProductCard(product))}
-                </Tab.Pane>
-              ))}
-          </>
-        ) : (
-          <Loader />
+        {data &&
+          productCategories.map((categories) => (
+            <Tab.Pane key={categories.category} eventKey={categories.category}>
+              {data
+                .filter((pane) => pane.category === categories.category)
+                .map((product) => ProductCard(product))}
+            </Tab.Pane>
+          ))}
         )}
       </>
     );
@@ -177,20 +169,14 @@ export default function ProductsCard(props) {
   const TypeFilter = () => {
     return (
       <>
-        {data && true ? (
-          <>
-            {data &&
-              productTypes.map((types) => (
-                <Tab.Pane key={types.type} eventKey={types.type}>
-                  {data
-                    .filter((pane) => pane.type === types.type)
-                    .map((product) => ProductCard(product))}
-                </Tab.Pane>
-              ))}
-          </>
-        ) : (
-          <Loader />
-        )}
+        {data &&
+          productTypes.map((types) => (
+            <Tab.Pane key={types.type} eventKey={types.type}>
+              {data
+                .filter((pane) => pane.type === types.type)
+                .map((product) => ProductCard(product))}
+            </Tab.Pane>
+          ))}
       </>
     );
   };
@@ -206,12 +192,18 @@ export default function ProductsCard(props) {
           listView={props.view}
           modal={() => showAddModal(true)}
         />
-        {/* Filtered Tables */}
-        <Tab.Pane eventKey="default">
-          {data && data.map((product) => ProductCard(product))}
-        </Tab.Pane>
-        <CategoryFilter />
-        <TypeFilter />
+
+        {data && true ? (
+          <>
+            <Tab.Pane eventKey="default">
+              {data && data.map((product) => ProductCard(product))}
+            </Tab.Pane>
+            <CategoryFilter />
+            <TypeFilter />
+          </>
+        ) : (
+          <Fallback />
+        )}
       </>
     );
   };

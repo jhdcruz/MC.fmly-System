@@ -6,13 +6,13 @@
 import { useState } from 'react';
 import TransactionHeader from '../../components/tables/TransactionHeader';
 import TransactionRow from '../../components/tables/TransactionRow';
+import { Fallback } from '../../components/common/Loader';
+import TransactionService from '../../services/TransactionService';
 import {
   DeleteTransaction,
   EditTransaction,
   NoInvoice
 } from '../transactions/TransactionModals';
-import TransactionService from '../../services/TransactionService';
-import { Loader } from '../../components/common/Loader';
 
 export default function RecentTransactions() {
   const { data } = TransactionService();
@@ -86,7 +86,7 @@ export default function RecentTransactions() {
           }
         />
       ) : (
-        <Loader />
+        <Fallback />
       )}
     </>
   );
