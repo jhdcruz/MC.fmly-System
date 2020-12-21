@@ -19,7 +19,11 @@ export default function PosModals(props) {
         content={
           <>
             <p>Payment Methods:</p>
-            <LargeControl icon={faWallet} content="Cash" action={props.checkoutCash} />
+            <LargeControl
+              icon={faWallet}
+              content="Cash"
+              action={props.checkoutCash}
+            />
             <LargeControl
               icon={faCreditCard}
               content="Card"
