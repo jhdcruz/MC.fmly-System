@@ -15,7 +15,7 @@ import logoGif from '../../assets/img/logo.gif';
 const Loading = styled(Spinner)`
   display: block;
   margin: 5rem auto;
-  z-index: 99;
+  z-index: 5;
 `;
 
 const ImgLoader = styled.div`
