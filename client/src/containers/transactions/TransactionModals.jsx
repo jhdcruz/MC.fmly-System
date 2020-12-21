@@ -8,74 +8,59 @@ import Button from 'react-bootstrap/Button';
 import CustomModal from '../../components/common/CustomModal';
 import TransactionForm from '../../components/forms/TransactionForm';
 
-// TODO: API Communication
-
-export const EditTransaction = (props) => {
+export default function TransactionModals(props) {
   return (
-    <TransactionForm
-      header="Edit transaction"
-      show={props.show}
-      onHide={props.onHide}
-      // TODO: PATCH entry
-      submit={props.submit}
-      cancel={props.cancel}
-    />
+    <>
+      <TransactionForm
+        header="Add transaction"
+        show={props.addModal}
+        onHide={props.addHide}
+        // TODO: POST entry
+        submit={props.addSubmit}
+        cancel={props.addCancel}
+      />
+      <TransactionForm
+        header="Edit transaction"
+        show={props.editModal}
+        onHide={props.editHide}
+        // TODO: PATCH entry
+        submit={props.editSubmit}
+        cancel={props.editCancel}
+      />
+      <CustomModal
+        className="text-center"
+        size="sm"
+        header="Remove transaction"
+        content="Are you sure?"
+        show={props.deleteModal}
+        onHide={props.deleteHide}
+        footer={
+          <>
+            {/* TODO: DELETE entry */}
+            <Button variant="outline-danger" onClick={props.deleteSubmit}>
+              Yes
+            </Button>
+            <Button variant="outline-primary" onClick={props.deleteCancel}>
+              No
+            </Button>
+          </>
+        }
+      />
+      <CustomModal
+        className="text-center"
+        size="sm"
+        header="Invoice"
+        content="No invoice record for this transaction."
+        show={props.invoiceModal}
+        onHide={props.invoiceHide}
+        footer={
+          <>
+            <Button variant="outline-primary" onClick={props.invoiceClose}>
+              Close
+            </Button>
+          </>
+        }
+      />
+    </>
   );
-};
-
-export const AddTransaction = (props) => {
-  return (
-    <TransactionForm
-      header="Add transaction"
-      show={props.show}
-      onHide={props.onHide}
-      // TODO: POST entry
-      submit={props.submit}
-      cancel={props.cancel}
-    />
-  );
-};
-
-export const DeleteTransaction = (props) => {
-  return (
-    <CustomModal
-      className="text-center"
-      size="sm"
-      header="Remove transaction"
-      content="Are you sure?"
-      show={props.show}
-      onHide={props.onHide}
-      footer={
-        <>
-          {/* TODO: DELETE entry */}
-          <Button variant="outline-danger" onClick={props.save}>
-            Yes
-          </Button>
-          <Button variant="outline-primary" onClick={props.close}>
-            No
-          </Button>
-        </>
-      }
-    />
-  );
-};
-
-export const NoInvoice = (props) => {
-  return (
-    <CustomModal
-      className="text-center"
-      size="sm"
-      header="Invoice"
-      content="No invoice record for this transaction."
-      show={props.show}
-      onHide={props.onHide}
-      footer={
-        <>
-          <Button variant="outline-primary" onClick={props.close}>
-            Close
-          </Button>
-        </>
-      }
-    />
-  );
-};
+}

@@ -4,14 +4,15 @@
  *     Licensed under GNU General Public License 3.0 or later
  */
 
-import { useState } from 'react';
+import { lazy, Suspense, useState } from 'react';
 import Tab from 'react-bootstrap/Tab';
 import SearchControls from '../../components/SearchControls';
 import SupplierHeader from '../../components/tables/SupplierHeader';
 import SupplierRow from '../../components/tables/SupplierRow';
 import SupplierService from '../../services/SupplierService';
-import { Fallback } from '../../components/common/Loader';
-import { AddSupplier, DeleteSupplier, EditSupplier } from './SupplierModals';
+import { Fallback, Loader } from '../../components/common/Loader';
+
+const SupplierModals = lazy(() => import('./SupplierModals'));
 
 export default function SuppliersList(props) {
   const { data } = SupplierService();
@@ -24,26 +25,22 @@ export default function SuppliersList(props) {
   // * Modals
   const Modals = () => {
     return (
-      <>
-        <AddSupplier
-          show={addModal}
-          onHide={() => showEditModal(false)}
-          save={() => showEditModal(false)}
-          close={() => showEditModal(false)}
+      <Suspense fallback={<Loader />}>
+        <SupplierModals
+          addModal={addModal}
+          editModal={editModal}
+          deleteModal={deleteModal}
+          addHide={() => showAddModal(false)}
+          addSubmit={() => showAddModal(false)}
+          addCancel={() => showAddModal(false)}
+          editHide={() => showEditModal(false)}
+          editSubmit={() => showEditModal(false)}
+          editCancel={() => showEditModal(false)}
+          deleteHide={() => showDeleteModal(false)}
+          deleteSubmit={() => showDeleteModal(false)}
+          deleteCancel={() => showDeleteModal(false)}
         />
-        <EditSupplier
-          show={editModal}
-          onHide={() => showEditModal(false)}
-          save={() => showEditModal(false)}
-          close={() => showEditModal(false)}
-        />
-        <DeleteSupplier
-          show={deleteModal}
-          onHide={() => showDeleteModal(false)}
-          save={() => showDeleteModal(false)}
-          close={() => showDeleteModal(false)}
-        />
-      </>
+      </Suspense>
     );
   };
 

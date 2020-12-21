@@ -8,54 +8,42 @@ import Button from 'react-bootstrap/Button';
 import ProductForm from '../../components/forms/ProductForm';
 import CustomModal from '../../components/common/CustomModal';
 
-// TODO: API Communication
-
-export const EditProduct = (props) => {
+export default function ProductModals(props) {
   return (
-    <ProductForm
-      header="Edit product"
-      show={props.show}
-      onHide={props.onHide}
-      // TODO: PATCH entry
-      submit={props.submit}
-      cancel={props.cancel}
-    />
+    <>
+      <ProductForm
+        header="Add product"
+        show={props.addModal}
+        onHide={props.addHide}
+        submit={props.addSubmit}
+        cancel={props.addCancel}
+      />
+      <ProductForm
+        header="Edit product"
+        show={props.editModal}
+        onHide={props.editHide}
+        submit={props.editSubmit}
+        cancel={props.editCancel}
+      />
+      <CustomModal
+        className="text-center"
+        size="sm"
+        header="Remove product"
+        content="Are you sure?"
+        show={props.deleteModal}
+        onHide={props.deleteHide}
+        footer={
+          <>
+            {/* TODO: DELETE entry */}
+            <Button variant="outline-danger" onClick={props.deleteSubmit}>
+              Yes
+            </Button>
+            <Button variant="outline-primary" onClick={props.deleteCancel}>
+              No
+            </Button>
+          </>
+        }
+      />
+    </>
   );
-};
-
-export const AddProduct = (props) => {
-  return (
-    <ProductForm
-      header="Add product"
-      show={props.show}
-      onHide={props.onHide}
-      // TODO: POST entry
-      submit={props.submit}
-      cancel={props.cancel}
-    />
-  );
-};
-
-export const DeleteProduct = (props) => {
-  return (
-    <CustomModal
-      className="text-center"
-      size="sm"
-      header="Remove product"
-      content="Are you sure?"
-      show={props.show}
-      onHide={props.onHide}
-      footer={
-        <>
-          {/* TODO: DELETE entry */}
-          <Button variant="outline-danger" onClick={props.save}>
-            Yes
-          </Button>
-          <Button variant="outline-primary" onClick={props.close}>
-            No
-          </Button>
-        </>
-      }
-    />
-  );
-};
+}

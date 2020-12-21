@@ -4,13 +4,14 @@
  *     Licensed under GNU General Public License 3.0 or later
  */
 
-import { useState } from 'react';
+import { lazy, Suspense, useState } from 'react';
 import SearchControls from '../../components/SearchControls';
 import SupplierService from '../../services/SupplierService';
-import { AddSupplier, DeleteSupplier, EditSupplier } from './SupplierModals';
 import Poster from '../../components/cards/Poster';
-import { Fallback } from '../../components/common/Loader';
+import { Fallback, Loader } from '../../components/common/Loader';
 import CardDeck from 'react-bootstrap/CardDeck';
+
+const SupplierModals = lazy(() => import('./SupplierModals'));
 
 // TODO: Add <Categories /> by types
 export default function SuppliersCard(props) {
@@ -24,26 +25,22 @@ export default function SuppliersCard(props) {
   // * Modals
   const Modals = () => {
     return (
-      <>
-        <AddSupplier
-          show={addModal}
-          onHide={() => showAddModal(false)}
-          submit={() => showAddModal(false)}
-          cancel={() => showAddModal(false)}
+      <Suspense fallback={<Loader />}>
+        <SupplierModals
+          addModal={addModal}
+          editModal={editModal}
+          deleteModal={deleteModal}
+          addHide={() => showAddModal(false)}
+          addSubmit={() => showAddModal(false)}
+          addCancel={() => showAddModal(false)}
+          editHide={() => showEditModal(false)}
+          editSubmit={() => showEditModal(false)}
+          editCancel={() => showEditModal(false)}
+          deleteHide={() => showDeleteModal(false)}
+          deleteSubmit={() => showDeleteModal(false)}
+          deleteCancel={() => showDeleteModal(false)}
         />
-        <EditSupplier
-          show={editModal}
-          onHide={() => showEditModal(false)}
-          submit={() => showEditModal(false)}
-          cancel={() => showEditModal(false)}
-        />
-        <DeleteSupplier
-          show={deleteModal}
-          onHide={() => showDeleteModal(false)}
-          save={() => showDeleteModal(false)}
-          close={() => showDeleteModal(false)}
-        />
-      </>
+      </Suspense>
     );
   };
 

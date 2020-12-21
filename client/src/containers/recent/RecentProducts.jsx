@@ -4,12 +4,13 @@
  *     Licensed under GNU General Public License 3.0 or later
  */
 
-import { useState } from 'react';
+import { lazy, Suspense, useState } from 'react';
 import ProductHeader from '../../components/tables/ProductHeader';
 import ProductRow from '../../components/tables/ProductRow';
-import { Fallback } from '../../components/common/Loader';
+import { Fallback, Loader } from '../../components/common/Loader';
 import ProductService from '../../services/ProductService';
-import { DeleteProduct, EditProduct } from '../inventory/ProductModals';
+
+const ProductModals = lazy(() => import('../inventory/ProductModals'));
 
 export default function RecentProducts() {
   const { data } = ProductService();
@@ -20,20 +21,18 @@ export default function RecentProducts() {
   // * Modals
   const Modals = () => {
     return (
-      <>
-        <EditProduct
-          show={editModal}
-          onHide={() => showEditModal(false)}
-          save={() => showEditModal(false)}
-          close={() => showEditModal(false)}
+      <Suspense fallback={<Loader />}>
+        <ProductModals
+          editModal={editModal}
+          deleteModal={deleteModal}
+          editHide={() => showEditModal(false)}
+          editSubmit={() => showEditModal(false)}
+          editCancel={() => showEditModal(false)}
+          deleteHide={() => showDeleteModal(false)}
+          deleteSubmit={() => showDeleteModal(false)}
+          deleteCancel={() => showDeleteModal(false)}
         />
-        <DeleteProduct
-          show={deleteModal}
-          onHide={() => showDeleteModal(false)}
-          save={() => showDeleteModal(false)}
-          close={() => showDeleteModal(false)}
-        />
-      </>
+      </Suspense>
     );
   };
 

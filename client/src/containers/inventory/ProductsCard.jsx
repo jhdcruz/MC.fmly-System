@@ -10,15 +10,15 @@ import Tab from 'react-bootstrap/Tab';
 import SearchControls from '../../components/SearchControls';
 import Categories from '../../components/sidebar/Categories';
 import { CardDeck } from '../../components/cards/CardOverlay';
-import { AddProduct, DeleteProduct, EditProduct } from './ProductModals';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarAlt, faHistory } from '@fortawesome/free-solid-svg-icons';
 import Tag from '../../components/common/Tag';
-import { Fallback } from '../../components/common/Loader';
+import { Fallback, Loader } from '../../components/common/Loader';
 import Notification from '../../components/common/Notification';
 import ProductService from '../../services/ProductService';
 
 // * Lazy imports
+const ProductModals = lazy(() => import('./ProductModals'));
 const Moment = lazy(() => import('react-moment'));
 
 /************************************
@@ -35,26 +35,22 @@ export default function ProductsCard(props) {
 
   const Modals = () => {
     return (
-      <>
-        <AddProduct
-          show={addModal}
-          onHide={() => showAddModal(false)}
-          submit={() => showAddModal(false)}
-          cancel={() => showAddModal(false)}
+      <Suspense fallback={<Loader />}>
+        <ProductModals
+          addModal={addModal}
+          editModal={editModal}
+          deleteModal={deleteModal}
+          addHide={() => showAddModal(false)}
+          addSubmit={() => showAddModal(false)}
+          addCancel={() => showAddModal(false)}
+          editHide={() => showEditModal(false)}
+          editSubmit={() => showEditModal(false)}
+          editCancel={() => showEditModal(false)}
+          deleteHide={() => showDeleteModal(false)}
+          deleteSubmit={() => showDeleteModal(false)}
+          deleteCancel={() => showDeleteModal(false)}
         />
-        <EditProduct
-          show={editModal}
-          onHide={() => showEditModal(false)}
-          submit={() => showEditModal(false)}
-          cancel={() => showEditModal(false)}
-        />
-        <DeleteProduct
-          show={deleteModal}
-          onHide={() => showDeleteModal(false)}
-          save={() => showDeleteModal(false)}
-          close={() => showDeleteModal(false)}
-        />
-      </>
+      </Suspense>
     );
   };
 

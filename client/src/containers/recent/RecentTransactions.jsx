@@ -3,16 +3,15 @@
  *     Copyright (C) 2020  Joshua Hero Dela Cruz
  *     Licensed under GNU General Public License 3.0 or later
  */
-import { useState } from 'react';
+import { lazy, Suspense, useState } from 'react';
 import TransactionHeader from '../../components/tables/TransactionHeader';
 import TransactionRow from '../../components/tables/TransactionRow';
-import { Fallback } from '../../components/common/Loader';
+import { Fallback, Loader } from '../../components/common/Loader';
 import TransactionService from '../../services/TransactionService';
-import {
-  DeleteTransaction,
-  EditTransaction,
-  NoInvoice
-} from '../transactions/TransactionModals';
+
+const TransactionModals = lazy(() =>
+  import('../transactions/TransactionModals')
+);
 
 export default function RecentTransactions() {
   const { data } = TransactionService();
@@ -24,26 +23,20 @@ export default function RecentTransactions() {
   // * Modals
   const Modals = () => {
     return (
-      <>
-        <EditTransaction
-          show={editModal}
-          onHide={() => showEditModal(false)}
-          save={() => showEditModal(false)}
-          close={() => showEditModal(false)}
+      <Suspense fallback={<Loader />}>
+        <TransactionModals
+          editModal={editModal}
+          deleteModal={deleteModal}
+          invoiceModal={invoiceModal}
+          editHide={() => showEditModal(false)}
+          editSubmit={() => showEditModal(false)}
+          editCancel={() => showEditModal(false)}
+          deleteHide={() => showDeleteModal(false)}
+          deleteSubmit={() => showDeleteModal(false)}
+          deleteCancel={() => showDeleteModal(false)}
+          invoiceClose={() => showInvoiceModal(false)}
         />
-        <DeleteTransaction
-          show={deleteModal}
-          onHide={() => showDeleteModal(false)}
-          save={() => showDeleteModal(false)}
-          close={() => showDeleteModal(false)}
-        />
-        <NoInvoice
-          show={invoiceModal}
-          onHide={() => showInvoiceModal(false)}
-          save={() => showInvoiceModal(false)}
-          close={() => showInvoiceModal(false)}
-        />
-      </>
+      </Suspense>
     );
   };
 

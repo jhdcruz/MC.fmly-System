@@ -4,21 +4,22 @@
  *     Licensed under GNU General Public License 3.0 or later
  */
 
-import { useState } from 'react';
+import { lazy, Suspense, useState } from 'react';
 import Nav from 'react-bootstrap/Nav';
 import Tab from 'react-bootstrap/Tab';
-import { Fallback } from '../../components/common/Loader';
+import { Fallback, Loader } from '../../components/common/Loader';
 import SearchControls from '../../components/SearchControls';
 import Categories from '../../components/sidebar/Categories';
 import UserHeader from '../../components/tables/UserHeader';
 import UserRow from '../../components/tables/UserRow';
 import UserService from '../../services/UserService';
-import { AddUser, DeleteUser, EditUser } from './UserModals';
+
+const UserModals = lazy(() => import('./UserModals'));
 
 export default function UsersList(props) {
   const { data } = UserService();
 
-  // * Modal State Handlers | Until API's done
+  // * Modal State Handlers
   const [addModal, showAddModal] = useState(false);
   const [editModal, showEditModal] = useState(false);
   const [deleteModal, showDeleteModal] = useState(false);
@@ -26,26 +27,22 @@ export default function UsersList(props) {
   // * Modals
   const Modals = () => {
     return (
-      <>
-        <AddUser
-          show={addModal}
-          onHide={() => showAddModal(false)}
-          submit={() => showAddModal(false)}
-          cancel={() => showAddModal(false)}
+      <Suspense fallback={<Loader />}>
+        <UserModals
+          addModal={addModal}
+          editModal={editModal}
+          deleteModal={deleteModal}
+          addHide={() => showAddModal(false)}
+          addSubmit={() => showAddModal(false)}
+          addCancel={() => showAddModal(false)}
+          editHide={() => showEditModal(false)}
+          editSubmit={() => showEditModal(false)}
+          editCancel={() => showEditModal(false)}
+          deleteHide={() => showDeleteModal(false)}
+          deleteSubmit={() => showDeleteModal(false)}
+          deleteCancel={() => showDeleteModal(false)}
         />
-        <EditUser
-          show={editModal}
-          onHide={() => showEditModal(false)}
-          submit={() => showEditModal(false)}
-          cancel={() => showEditModal(false)}
-        />
-        <DeleteUser
-          show={deleteModal}
-          onHide={() => showDeleteModal(false)}
-          save={() => showDeleteModal(false)}
-          close={() => showDeleteModal(false)}
-        />
-      </>
+      </Suspense>
     );
   };
 

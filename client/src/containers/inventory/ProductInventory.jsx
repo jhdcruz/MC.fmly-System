@@ -4,7 +4,7 @@
  *     Licensed under GNU General Public License 3.0 or later
  */
 
-import { useState } from 'react';
+import { lazy, Suspense, useState } from 'react';
 import Tab from 'react-bootstrap/Tab';
 import Nav from 'react-bootstrap/Nav';
 import Categories from '../../components/sidebar/Categories';
@@ -12,8 +12,9 @@ import ProductHeader from '../../components/tables/ProductHeader';
 import ProductRow from '../../components/tables/ProductRow';
 import SearchControls from '../../components/SearchControls';
 import ProductService from '../../services/ProductService';
-import { Fallback } from '../../components/common/Loader';
-import { AddProduct, DeleteProduct, EditProduct } from './ProductModals';
+import { Fallback, Loader } from '../../components/common/Loader';
+
+const ProductModals = lazy(() => import('./ProductModals'));
 
 /******************************************
  * * Product Inventory
@@ -29,26 +30,22 @@ export default function ProductInventory(props) {
 
   const Modals = () => {
     return (
-      <>
-        <AddProduct
-          show={addModal}
-          onHide={() => showAddModal(false)}
-          submit={() => showAddModal(false)}
-          cancel={() => showAddModal(false)}
+      <Suspense fallback={<Loader />}>
+        <ProductModals
+          addModal={addModal}
+          editModal={editModal}
+          deleteModal={deleteModal}
+          addHide={() => showAddModal(false)}
+          addSubmit={() => showAddModal(false)}
+          addCancel={() => showAddModal(false)}
+          editHide={() => showEditModal(false)}
+          editSubmit={() => showEditModal(false)}
+          editCancel={() => showEditModal(false)}
+          deleteHide={() => showDeleteModal(false)}
+          deleteSubmit={() => showDeleteModal(false)}
+          deleteCancel={() => showDeleteModal(false)}
         />
-        <EditProduct
-          show={editModal}
-          onHide={() => showEditModal(false)}
-          submit={() => showEditModal(false)}
-          cancel={() => showEditModal(false)}
-        />
-        <DeleteProduct
-          show={deleteModal}
-          onHide={() => showDeleteModal(false)}
-          save={() => showDeleteModal(false)}
-          close={() => showDeleteModal(false)}
-        />
-      </>
+      </Suspense>
     );
   };
 

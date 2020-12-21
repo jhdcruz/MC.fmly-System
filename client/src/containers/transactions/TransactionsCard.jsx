@@ -12,13 +12,13 @@ import SearchControls from '../../components/SearchControls';
 import { CardDeck } from '../../components/cards/CardOverlay';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarAlt, faHistory } from '@fortawesome/free-solid-svg-icons';
-import { AddTransaction, DeleteTransaction, EditTransaction, NoInvoice } from './TransactionModals';
-import { Fallback } from '../../components/common/Loader';
+import { Fallback, Loader } from '../../components/common/Loader';
 import Tag from '../../components/common/Tag';
 import Notification from '../../components/common/Notification';
 import TransactionService from '../../services/TransactionService';
 
 // * Lazy imports
+const TransactionModals = lazy(() => import('./TransactionModals'));
 const Moment = lazy(() => import('react-moment'));
 
 /************************************
@@ -36,32 +36,24 @@ export default function TransactionsCard(props) {
 
   const Modals = () => {
     return (
-      <>
-        <AddTransaction
-          show={addModal}
-          onHide={() => showAddModal(false)}
-          submit={() => showAddModal(false)}
-          cancel={() => showAddModal(false)}
+      <Suspense fallback={<Loader />}>
+        <TransactionModals
+          addModal={addModal}
+          editModal={editModal}
+          deleteModal={deleteModal}
+          invoiceModal={invoiceModal}
+          addHide={() => showAddModal(false)}
+          addSubmit={() => showAddModal(false)}
+          addCancel={() => showAddModal(false)}
+          editHide={() => showEditModal(false)}
+          editSubmit={() => showEditModal(false)}
+          editCancel={() => showEditModal(false)}
+          deleteHide={() => showDeleteModal(false)}
+          deleteSubmit={() => showDeleteModal(false)}
+          deleteCancel={() => showDeleteModal(false)}
+          invoiceClose={() => showInvoiceModal(false)}
         />
-        <EditTransaction
-          show={editModal}
-          onHide={() => showEditModal(false)}
-          submit={() => showEditModal(false)}
-          cancel={() => showEditModal(false)}
-        />
-        <DeleteTransaction
-          show={deleteModal}
-          onHide={() => showDeleteModal(false)}
-          save={() => showDeleteModal(false)}
-          close={() => showDeleteModal(false)}
-        />
-        <NoInvoice
-          show={invoiceModal}
-          onHide={() => showInvoiceModal(false)}
-          save={() => showInvoiceModal(false)}
-          close={() => showInvoiceModal(false)}
-        />
-      </>
+      </Suspense>
     );
   };
 

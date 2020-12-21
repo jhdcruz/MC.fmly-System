@@ -4,21 +4,17 @@
  *     Licensed under GNU General Public License 3.0 or later
  */
 
-import { useState } from 'react';
+import { lazy, Suspense, useState } from 'react';
 import Nav from 'react-bootstrap/Nav';
 import Tab from 'react-bootstrap/Tab';
 import Categories from '../../components/sidebar/Categories';
 import SearchControls from '../../components/SearchControls';
 import TransactionHeader from '../../components/tables/TransactionHeader';
 import TransactionRow from '../../components/tables/TransactionRow';
-import { Fallback } from '../../components/common/Loader';
-import {
-  AddTransaction,
-  DeleteTransaction,
-  EditTransaction,
-  NoInvoice
-} from './TransactionModals';
+import { Fallback, Loader } from '../../components/common/Loader';
 import TransactionService from '../../services/TransactionService';
+
+const TransactionModals = lazy(() => import('./TransactionModals'));
 
 export default function TransactionsList(props) {
   const { data } = TransactionService();
@@ -31,32 +27,24 @@ export default function TransactionsList(props) {
 
   const Modals = () => {
     return (
-      <>
-        <AddTransaction
-          show={addModal}
-          onHide={() => showAddModal(false)}
-          submit={() => showAddModal(false)}
-          cancel={() => showAddModal(false)}
+      <Suspense fallback={<Loader />}>
+        <TransactionModals
+          addModal={addModal}
+          editModal={editModal}
+          deleteModal={deleteModal}
+          invoiceModal={invoiceModal}
+          addHide={() => showAddModal(false)}
+          addSubmit={() => showAddModal(false)}
+          addCancel={() => showAddModal(false)}
+          editHide={() => showEditModal(false)}
+          editSubmit={() => showEditModal(false)}
+          editCancel={() => showEditModal(false)}
+          deleteHide={() => showDeleteModal(false)}
+          deleteSubmit={() => showDeleteModal(false)}
+          deleteCancel={() => showDeleteModal(false)}
+          invoiceClose={() => showInvoiceModal(false)}
         />
-        <EditTransaction
-          show={editModal}
-          onHide={() => showEditModal(false)}
-          submit={() => showEditModal(false)}
-          cancel={() => showEditModal(false)}
-        />
-        <DeleteTransaction
-          show={deleteModal}
-          onHide={() => showDeleteModal(false)}
-          save={() => showDeleteModal(false)}
-          close={() => showDeleteModal(false)}
-        />
-        <NoInvoice
-          show={invoiceModal}
-          onHide={() => showInvoiceModal(false)}
-          save={() => showInvoiceModal(false)}
-          close={() => showInvoiceModal(false)}
-        />
-      </>
+      </Suspense>
     );
   };
 

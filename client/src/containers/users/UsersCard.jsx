@@ -13,10 +13,11 @@ import { CardDeck } from '../../components/cards/CardOverlay';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarAlt, faHistory } from '@fortawesome/free-solid-svg-icons';
 import Tag from '../../components/common/Tag';
+import { Loader } from '../../components/common/Loader';
 import UserService from '../../services/UserService';
-import { AddUser, DeleteUser, EditUser } from './UserModals';
 
 // * Lazy imports
+const UserModals = lazy(() => import('./UserModals'));
 const Moment = lazy(() => import('react-moment'));
 
 export default function UsersCard(props) {
@@ -30,26 +31,22 @@ export default function UsersCard(props) {
   // * Modals
   const Modals = () => {
     return (
-      <>
-        <AddUser
-          show={addModal}
-          onHide={() => showAddModal(false)}
-          submit={() => showAddModal(false)}
-          cancel={() => showAddModal(false)}
+      <Suspense fallback={<Loader />}>
+        <UserModals
+          addModal={addModal}
+          editModal={editModal}
+          deleteModal={deleteModal}
+          addHide={() => showAddModal(false)}
+          addSubmit={() => showAddModal(false)}
+          addCancel={() => showAddModal(false)}
+          editHide={() => showEditModal(false)}
+          editSubmit={() => showEditModal(false)}
+          editCancel={() => showEditModal(false)}
+          deleteHide={() => showDeleteModal(false)}
+          deleteSubmit={() => showDeleteModal(false)}
+          deleteCancel={() => showDeleteModal(false)}
         />
-        <EditUser
-          show={editModal}
-          onHide={() => showEditModal(false)}
-          submit={() => showEditModal(false)}
-          cancel={() => showEditModal(false)}
-        />
-        <DeleteUser
-          show={deleteModal}
-          onHide={() => showDeleteModal(false)}
-          save={() => showDeleteModal(false)}
-          close={() => showDeleteModal(false)}
-        />
-      </>
+      </Suspense>
     );
   };
 
