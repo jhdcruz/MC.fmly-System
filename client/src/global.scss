@@ -9,12 +9,26 @@
  *********************************/
 
 @use 'themes';
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400&display=swap');
 
 // Tag-level
 * {
   margin: 0;
   padding: 0;
+}
+
+html,
+body {
+  font-family: 'Noto Sans', sans-serif !important;
+  font-weight: normal;
+  background-color: #39373a;
+  width: 100%;
+  height: 100%;
+  font-size: 1rem;
+  padding: 0;
+  margin: 0;
+  overflow: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 
   ::-webkit-scrollbar {
     background: transparent;
@@ -32,23 +46,9 @@
   }
 }
 
-html,
-body {
-  font-family: 'Noto Sans', sans-serif !important;
-  font-weight: normal;
-  background-color: #39373a;
-  width: 100%;
-  height: 100%;
-  font-size: 1rem;
-  padding: 0;
-  margin: 0;
-  overflow: auto;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
 // Prevents dragging of links
-a {
+a,
+img {
   text-decoration: none !important;
   -webkit-user-drag: none;
   -khtml-user-drag: none;
