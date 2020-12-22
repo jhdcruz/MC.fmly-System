@@ -4,9 +4,11 @@
  *     Licensed under GNU General Public License 3.0 or later
  */
 
-import Moment from 'react-moment';
+import { lazy, Suspense } from 'react';
 import { TableData, TableRow, Tag } from './__tables.module';
 import EntryActions from '../common/EntryActions';
+
+const Moment = lazy(() => import('react-moment'));
 
 /*********************************
  * * User Table Row
@@ -41,11 +43,19 @@ export default function UserRow(user) {
         </TableData>
         <TableData className="updatedAt">
           {/* Parse date to human-friendly format */}
-          <Moment fromNow date={user.updatedAt} />
+          <Suspense fallback="—">
+            <Moment fromNow date={user.updatedAt} />
+          </Suspense>
         </TableData>
         <TableData className="createdAt">
           {/* Parse date to human-friendly format */}
-          <Moment format="D MMM YYYY | HH:mm" date={user.createdAt} withTitle />
+          <Suspense fallback="—">
+            <Moment
+              format="D MMM YYYY | HH:mm"
+              date={user.createdAt}
+              withTitle
+            />
+          </Suspense>
         </TableData>
       </TableRow>
     </>

@@ -4,12 +4,14 @@
  *     Licensed under GNU General Public License 3.0 or later
  */
 
-import Moment from 'react-moment';
+import { lazy, Suspense } from 'react';
 import Button from 'react-bootstrap/Button';
 import { TableData, TableRow, Tag } from './__tables.module';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFile } from '@fortawesome/free-solid-svg-icons';
 import EntryActions from '../common/EntryActions';
+
+const Moment = lazy(() => import('react-moment'));
 
 /*********************************
  * * Transaction Table Row
@@ -55,11 +57,15 @@ export default function TransactionRow(transaction) {
         </TableData>
         <TableData className="date">
           {/* Parse date to human-friendly format */}
-          <Moment format="D MMM YYYY" date={transaction.date} withTitle />
+          <Suspense fallback="—">
+            <Moment format="D MMM YYYY" date={transaction.date} withTitle />
+          </Suspense>
         </TableData>
         <TableData className="createdAt">
           {/* Parse date to human-friendly format */}
-          <Moment fromNow date={transaction.createdAt} />
+          <Suspense fallback="—">
+            <Moment fromNow date={transaction.createdAt} />
+          </Suspense>
         </TableData>
       </TableRow>
     </>

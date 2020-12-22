@@ -4,9 +4,11 @@
  *     Licensed under GNU General Public License 3.0 or later
  */
 
-import Moment from 'react-moment';
+import { lazy, Suspense } from 'react';
 import EntryActions from '../common/EntryActions';
 import { TableData, TableRow, Tag } from './__tables.module';
+
+const Moment = lazy(() => import('react-moment'));
 
 /*********************************
  * * Product Table Row
@@ -49,18 +51,24 @@ export default function ProductRow(product) {
         </TableData>
         <TableData className="updatedAt">
           {/* Parse date to human-friendly format */}
-          <Moment fromNow date={product.updatedAt} />
+          <Suspense fallback="—">
+            <Moment fromNow date={product.updatedAt} />
+          </Suspense>
         </TableData>
         <TableData className="createdAt">
           {/* Parse date to human-friendly format */}
-          <Moment
-            format="D MMM YYYY | HH:mm"
-            date={product.createdAt}
-            withTitle
-          />
+          <Suspense fallback="—">
+            <Moment
+              format="D MMM YYYY | HH:mm"
+              date={product.createdAt}
+              withTitle
+            />
+          </Suspense>
         </TableData>
         <TableData className="price">
-          <Tag variant="dark">₱{product.price}</Tag>
+          <Suspense fallback="—">
+            <Tag variant="dark">₱{product.price}</Tag>
+          </Suspense>
         </TableData>
       </TableRow>
     </>
