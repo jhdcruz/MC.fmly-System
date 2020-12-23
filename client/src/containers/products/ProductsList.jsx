@@ -20,7 +20,7 @@ const ProductModals = lazy(() => import('./ProductModals'));
  * * Product Inventory
  ******************************************/
 
-export default function ProductInventory(props) {
+export default function ProductsList(props) {
   const { data } = ProductService();
 
   // * Modal State Handlers | Until API's done

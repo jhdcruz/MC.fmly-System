@@ -5,14 +5,14 @@
  */
 
 import { useState } from 'react';
-import ProductInventory from '../containers/inventory/ProductInventory';
-import ProductsCard from '../containers/inventory/ProductsCard';
+import ProductsList from '../containers/products/ProductsList';
+import ProductsCard from '../containers/products/ProductsCard';
 
 export default function Inventory() {
   const [view, setView] = useState('list');
 
   return view === 'list' ? (
-    <ProductInventory view={() => setView('card')} />
+    <ProductsList view={() => setView('card')} />
   ) : (
     <ProductsCard view={() => setView('list')} />
   );

@@ -10,7 +10,7 @@ import ProductRow from '../../components/tables/ProductRow';
 import { Fallback, Loader } from '../../components/common/Loader';
 import ProductService from '../../services/ProductService';
 
-const ProductModals = lazy(() => import('../inventory/ProductModals'));
+const ProductModals = lazy(() => import('../products/ProductModals'));
 
 export default function RecentProducts() {
   const { data } = ProductService();
