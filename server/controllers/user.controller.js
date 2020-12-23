@@ -28,10 +28,10 @@ exports.get = async (req, res) => {
 };
 
 // * GET | Find user by name
-exports.findByName = async (req, res) => {
-  const { name } = req.query;
+exports.getNames = async (req, res) => {
+  const name = req.params.name;
   try {
-    const users = await Users.findOne(name, req.body);
+    const users = await Users.find({ name: name });
     return res.status(200).send(users);
   } catch (err) {
     rollbar.error(err);
@@ -40,14 +40,26 @@ exports.findByName = async (req, res) => {
 };
 
 // * GET | Find user by role
-exports.findByRole = async (req, res) => {
-  const { role } = req.query;
+exports.getRoles = async (req, res) => {
+  const role = req.params.role;
   try {
-    const users = await Users.findOne(role, req.body);
+    const users = await Users.find({ role: role });
     return res.status(200).send(users);
   } catch (err) {
     rollbar.error(err);
     res.status(500).send(`Cannot find ${role} users`);
+  }
+};
+
+// * GET | Find user by username
+exports.findByUserName = async (req, res) => {
+  const username = req.params.username;
+  try {
+    const users = await Users.findOne({ username: username });
+    return res.status(200).send(users);
+  } catch (err) {
+    rollbar.error(err);
+    res.status(500).send(`Cannot find ${username}`);
   }
 };
 

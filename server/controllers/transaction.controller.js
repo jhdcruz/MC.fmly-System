@@ -26,27 +26,67 @@ exports.get = async (req, res) => {
   }
 };
 
-// * GET | Find transactions by buyer's name
-exports.findByName = async (req, res) => {
-  const { name } = req.query;
+// * GET | Filter transaction by payment
+exports.findByPayment = async (req, res) => {
+  const payment = req.params.payment;
   try {
-    const transactions = await Transactions.findOne(name, req.body);
+    const transactions = await Transactions.find({ payment: payment });
     return res.status(200).send(transactions);
   } catch (err) {
     rollbar.error(err);
-    res.status(500).send(`Cannot find transaction ${name}`);
+    logger.error(`Error fetching ${payment} transactions`, {
+      indexMeta: true,
+      meta: { err }
+    });
+    res.status(500).send(`Cannot find ${payment} transactions.`);
+  }
+};
+
+// * GET | Filter transaction by status
+exports.findByStatus = async (req, res) => {
+  const status = req.params.status;
+  try {
+    const transactions = await Transactions.find({ status: status });
+    return res.status(200).send(transactions);
+  } catch (err) {
+    rollbar.error(err);
+    logger.error(`Error fetching ${status} transactions`, {
+      indexMeta: true,
+      meta: { err }
+    });
+    res.status(500).send(`Cannot find ${status} transactions`);
+  }
+};
+
+// * GET | Filter transactions by buyer's name
+exports.findByName = async (req, res) => {
+  const name = req.params.name;
+  try {
+    const transactions = await Transactions.find({ name: name });
+    return res.status(200).send(transactions);
+  } catch (err) {
+    rollbar.error(err);
+    logger.error(`Error fetching buyer ${name}`, {
+      indexMeta: true,
+      meta: { err }
+    });
+    res.status(500).send(`Cannot find buyer ${name}`);
   }
 };
 
 // * GET | Find transaction by order ID
-exports.findById = async (req, res) => {
-  const { id } = req.query;
+exports.findByOrderId = async (req, res) => {
+  const order_id = req.params.order_id;
   try {
-    const transactions = await Transactions.findOne(id, req.body);
+    const transactions = await Transactions.findOne({ order_id: order_id });
     return res.status(200).send(transactions);
   } catch (err) {
     rollbar.error(err);
-    res.status(500).send(`Cannot find transaction that supplies: ${type}`);
+    logger.error(`Error fetching transaction #${order_id}`, {
+      indexMeta: true,
+      meta: { err }
+    });
+    res.status(500).send(`Cannot find transaction #${order_id}.`);
   }
 };
 

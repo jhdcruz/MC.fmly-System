@@ -15,9 +15,9 @@ const Users = mongoose.model('users');
 exports.status = async (req, res) => {
   try {
     logger.log('GET | Server status probe');
-    return res.status(200).sendStatus(200);
+    return res.sendStatus(200);
   } catch (err) {
-    res.status(500).sendStatus(500);
+    res.sendStatus(500);
     rollbar.error(err);
   }
 };
@@ -60,18 +60,12 @@ exports.login = async (req, res) => {
         logger.log(`${user.username} logged in.`);
         res.status(200).send(user.permission);
       } else {
-        logger.warn(`Invalid credentials submitted for: ${req.body.username}`, {
-          indexMeta: true,
-          meta: { err }
-        });
-        res.sendStatus(401).send('Unauthorized');
+        logger.warn(`Invalid credentials submitted for: ${req.body.username}`);
+        res.status(401).send('Unauthorized');
       }
     } else {
-      logger.warn(`Invalid credentials submitted for: ${req.body.username}`, {
-        indexMeta: true,
-        meta: { err }
-      });
-      res.sendStatus(401).send('Unauthorized');
+      logger.warn(`Invalid credentials submitted for: ${req.body.username}`);
+      res.status(401).send('Unauthorized');
     }
   } catch (err) {
     rollbar.error(err);

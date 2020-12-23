@@ -26,27 +26,51 @@ exports.get = async (req, res) => {
   }
 };
 
-// * GET | Product by name
-exports.findByName = async (req, res) => {
-  const { name } = req.query;
+// * GET | Filter Products by category
+exports.findByCategory = async (req, res) => {
+  const category = req.params.category;
   try {
-    const products = await Products.findOne(name, req.body);
+    const products = await Products.find({ category: category });
     return res.status(200).send(products);
   } catch (err) {
     rollbar.error(err);
-    res.status(500).send(`Cannot find product ${name}`);
+    res.status(500).send(`Cannot find '${category}' products`);
+  }
+};
+
+// * GET | Filter Products by type
+exports.findByType = async (req, res) => {
+  const type = req.params.type;
+  try {
+    const products = await Products.find({ type: type });
+    return res.status(200).send(products);
+  } catch (err) {
+    rollbar.error(err);
+    res.status(500).send(`Cannot find '${type}' products`);
+  }
+};
+
+// * GET | Filter Product by name
+exports.findByName = async (req, res) => {
+  const name = req.params.name;
+  try {
+    const products = await Products.find({ name: name });
+    return res.status(200).send(products);
+  } catch (err) {
+    rollbar.error(err);
+    res.status(500).send(`Cannot find product '${name}`);
   }
 };
 
 // * GET | Product by code
 exports.findByCode = async (req, res) => {
-  const { code } = req.query;
+  const code = req.params.code;
   try {
-    const products = await Products.findOne(code, req.body);
+    const products = await Products.findOne({ code: code });
     return res.status(200).send(products);
   } catch (err) {
     rollbar.error(err);
-    res.status(500).send(`Cannot find product ${code}`);
+    res.status(500).send(`Cannot find product ${req.query}`);
   }
 };
 

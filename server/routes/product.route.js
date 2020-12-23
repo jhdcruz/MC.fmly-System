@@ -8,8 +8,10 @@ const ProductController = require('../controllers/product.controller');
 
 module.exports = (api) => {
   api.get('/products', ProductController.get);
+  api.get('/products/category/:category', ProductController.findByCategory);
+  api.get('/products/type/:type', ProductController.findByType);
   api.get('/products/:name', ProductController.findByName);
-  api.get('/products/:code', ProductController.findByCode);
+  api.get('/products/id/:code', ProductController.findByCode);
   api.post('/products', ProductController.post);
   api.put('/products/:id', ProductController.patch);
   api.delete('/products/:id', ProductController.delete);

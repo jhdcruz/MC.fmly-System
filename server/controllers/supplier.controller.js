@@ -28,9 +28,9 @@ exports.get = async (req, res) => {
 
 // * GET | Find supplier by name
 exports.findByName = async (req, res) => {
-  const { name } = req.query;
+  const name = req.params.name;
   try {
-    const suppliers = await Suppliers.findOne(name, req.body);
+    const suppliers = await Suppliers.find({ name: name });
     return res.status(200).send(suppliers);
   } catch (err) {
     rollbar.error(err);
@@ -38,11 +38,11 @@ exports.findByName = async (req, res) => {
   }
 };
 
-// * GET | Find supplier by type
+// * GET | Filter supplier by type
 exports.findByType = async (req, res) => {
-  const { type } = req.query;
+  const type = req.params.type;
   try {
-    const suppliers = await Suppliers.findOne(type, req.body);
+    const suppliers = await Suppliers.find({ type: type });
     return res.status(200).send(suppliers);
   } catch (err) {
     rollbar.error(err);
