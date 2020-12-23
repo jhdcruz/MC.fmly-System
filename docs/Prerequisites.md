@@ -44,13 +44,16 @@ brew install rpm
 
 ## Environment Variables
 
-- **`MONGO_URL`** - **Required** _(Production User)_
-- `ROLLBAR_ID` - _Application Monitoring_
+Create a file called `.env` in `server/` derived from a template located in `./server/.env.template`.
 
-> Add your environment variables inside `/.env`.
+**Required:**
+
+- **`MONGO_ADMIN`** - **Required**
+
+Add your environment variables inside `./server/.env`.
 
 ```dotenv
-MONGO_URL=[Your URI Here]
+MONGO_ADMIN=[Your URI Here]
 ```
 
 > Do not add quotation marks between values!

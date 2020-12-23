@@ -6,14 +6,13 @@
     | - .github/                  # GitHub config & workflows
     | - client/                   # Client workspace/project
     | - server/                   # Server workspace/project
-    | - release/                  # Compile electron output (Desktop app)
+    | - release/                  # Compiled electron output (Desktop app)
     | - docs/                     # Project docs (GH Wiki)
     | .editorconfig               # Diverse editor config (for various TEs & IDEs)
     | .eslintignore               # Ignored files for eslint linting & checks
     | .gitignore                  # Ignored files for git
     | .prettierignore             # Ignored files for prettier
     | .prettierrc                 # Prettier config for code formatting
-    | .stylelintrc                # Stylelint config for code linting
     | .travis.yml                 # Travis CI config
     | .yarnrc                     # Yarn project-specific config
     | .arkit.json                 # Arkit config for diagram generation
@@ -37,6 +36,7 @@
     | - scripts/      # Custom scripts such as running and building (w/ hot reload), and tests
     | - src/          # Main source files (every client's source code goes here)
     | .eslintrc       # Eslint configuration for code linting and rules
+    | .stylelintrc    # Stylelint config for code linting
     | jsconfig.json   # JS-specific compiler options
     | package.json    # client's specific metadata
 ```
@@ -52,9 +52,8 @@
     | - services/     # Services/API calls, etc...
     | - utils/        # Project utilities (constants, routes, etc...)
     | - views/        # Available views for each user roles (ports to pages/)
-    | App.scss        # Global styles
+    | global.scss     # Global styles
     | index.jsx       # Entry point for the App.
-    | Login.jsx       # Login form
     | themes.scss     # Override themes for react-bootstrap
 ```
 
