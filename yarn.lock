@@ -11286,10 +11286,10 @@ react-overlays@^4.1.0:
     uncontrollable "^7.0.0"
     warning "^4.0.3"
 
-react-query@3.5.2:
-  version "3.5.2"
-  resolved "https://registry.yarnpkg.com/react-query/-/react-query-3.5.2.tgz#e6a97e012cbe2d9b743d118fea2d0836792d6e93"
-  integrity sha512-yF+xelnIaNN+Dfn0czzS2c6EspX/0cIm6bTb4RHh9hJ9HDLzSoukHi8bF8kITTI0/O6O9b7ku8iMLv50ZJo1TA==
+react-query@3.5.4:
+  version "3.5.4"
+  resolved "https://registry.yarnpkg.com/react-query/-/react-query-3.5.4.tgz#371a9e2c40cae6139b6e78378d31cecc16b3cb12"
+  integrity sha512-ZhJbXyjMD5yB4t942SHwrRSqlk5lfND7VM1u+eq3JrV3LshCpw5hdlhepFs3sW/xxJpo/h+PbM1jREpx9iSPuQ==
   dependencies:
     "@babel/runtime" "^7.5.5"
     match-sorter "^6.0.2"
