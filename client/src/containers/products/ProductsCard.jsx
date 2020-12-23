@@ -15,6 +15,7 @@ import { faCalendarAlt, faHistory } from '@fortawesome/free-solid-svg-icons';
 import Tag from '../../components/common/Tag';
 import { Fallback, Loader } from '../../components/common/Loader';
 import Notification from '../../components/common/Notification';
+import { productCategories, productTypes } from './ProductFilters';
 import ProductService from '../../services/ProductService';
 
 // * Lazy imports
@@ -122,35 +123,12 @@ export default function ProductsCard(props) {
     );
   };
 
-  // * Removes duplicate properties | category
-  const productCategories =
-    data &&
-    data
-      .filter(
-        (items, index, self) =>
-          index ===
-          self.findIndex((deduped) => deduped.category === items.category)
-      )
-      // Sort items
-      .reverse();
-
-  // * Removes duplicate properties | type
-  const productTypes =
-    data &&
-    data
-      .filter(
-        (items, index, self) =>
-          index === self.findIndex((deduped) => deduped.type === items.type)
-      )
-      // Sort items
-      .reverse();
-
   // * Filter products by category
   const CategoryFilter = () => {
     return (
       <>
         {data &&
-          productCategories.map((categories) => (
+          productCategories(data).map((categories) => (
             <Tab.Pane key={categories.category} eventKey={categories.category}>
               {data
                 .filter((pane) => pane.category === categories.category)
@@ -166,7 +144,7 @@ export default function ProductsCard(props) {
     return (
       <>
         {data &&
-          productTypes.map((types) => (
+          productTypes(data).map((types) => (
             <Tab.Pane key={types.type} eventKey={types.type}>
               {data
                 .filter((pane) => pane.type === types.type)
@@ -211,7 +189,7 @@ export default function ProductsCard(props) {
         main="Categories"
         mainTabs={
           data &&
-          productCategories.map((product) => (
+          productCategories(data).map((product) => (
             <Nav.Item key={product.category}>
               <Nav.Link eventKey={product.category}>
                 {product.category}
@@ -222,7 +200,7 @@ export default function ProductsCard(props) {
         secondary="Types"
         secondaryTabs={
           data &&
-          productTypes.map((product) => (
+          productTypes(data).map((product) => (
             <Nav.Item key={product.type}>
               <Nav.Link eventKey={product.type}>{product.type}</Nav.Link>
             </Nav.Item>

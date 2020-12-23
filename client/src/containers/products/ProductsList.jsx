@@ -11,8 +11,9 @@ import Categories from '../../components/sidebar/Categories';
 import ProductHeader from '../../components/tables/ProductHeader';
 import ProductRow from '../../components/tables/ProductRow';
 import SearchControls from '../../components/SearchControls';
-import ProductService from '../../services/ProductService';
 import { Fallback, Loader } from '../../components/common/Loader';
+import { productCategories, productTypes } from './ProductFilters';
+import ProductService from '../../services/ProductService';
 
 const ProductModals = lazy(() => import('./ProductModals'));
 
@@ -68,35 +69,12 @@ export default function ProductsList(props) {
     );
   };
 
-  // * Removes duplicate properties | category
-  const productCategories =
-    data &&
-    data
-      .filter(
-        (items, index, self) =>
-          index ===
-          self.findIndex((deduped) => deduped.category === items.category)
-      )
-      // Sort items
-      .reverse();
-
-  // * Removes duplicate properties | type
-  const productTypes =
-    data &&
-    data
-      .filter(
-        (items, index, self) =>
-          index === self.findIndex((deduped) => deduped.type === items.type)
-      )
-      // Sort items
-      .reverse();
-
   // * Filter products by category
   const CategoryFilter = () => {
     return (
       <>
         {data &&
-          productCategories.map((categories) => (
+          productCategories(data).map((categories) => (
             <Tab.Pane key={categories.category} eventKey={categories.category}>
               <ProductHeader
                 map={data && data._id}
@@ -118,7 +96,7 @@ export default function ProductsList(props) {
     return (
       <>
         {data &&
-          productTypes.map((types) => (
+          productTypes(data).map((types) => (
             <Tab.Pane key={types.type} eventKey={types.type}>
               <ProductHeader
                 _id={data && data._id}
@@ -167,7 +145,7 @@ export default function ProductsList(props) {
       main="Categories"
       mainTabs={
         data &&
-        productCategories.map((product) => (
+        productCategories(data).map((product) => (
           <Nav.Item key={product.category}>
             <Nav.Link eventKey={product.category}>{product.category}</Nav.Link>
           </Nav.Item>
@@ -176,7 +154,7 @@ export default function ProductsList(props) {
       secondary="Types"
       secondaryTabs={
         data &&
-        productTypes.map((product) => (
+        productTypes(data).map((product) => (
           <Nav.Item key={product.type}>
             <Nav.Link eventKey={product.type}>{product.type}</Nav.Link>
           </Nav.Item>

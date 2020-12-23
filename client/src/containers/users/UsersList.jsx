@@ -12,6 +12,7 @@ import SearchControls from '../../components/SearchControls';
 import Categories from '../../components/sidebar/Categories';
 import UserHeader from '../../components/tables/UserHeader';
 import UserRow from '../../components/tables/UserRow';
+import { userPermissions, userRoles } from './UserFilters';
 import UserService from '../../services/UserService';
 
 const UserModals = lazy(() => import('./UserModals'));
@@ -62,41 +63,18 @@ export default function UsersList(props) {
     );
   };
 
-  // * Removes duplicate properties | permissions
-  const employeePermissions =
-    data &&
-    data
-      .filter(
-        (items, index, self) =>
-          index ===
-          self.findIndex((deduped) => deduped.permission === items.permission)
-      )
-      // Sort items
-      .reverse();
-
-  // * Removes duplicate properties | roles
-  const employeeRoles =
-    data &&
-    data
-      .filter(
-        (items, index, self) =>
-          index === self.findIndex((deduped) => deduped.role === items.role)
-      )
-      // Sort items
-      .reverse();
-
   // * Filter users by category
   const PermissionFilter = () => {
     return (
       data &&
-      employeePermissions.map((employee) => (
-        <Tab.Pane key={employee.permission} eventKey={employee.permission}>
+      userPermissions(data).map((user) => (
+        <Tab.Pane key={user.permission} eventKey={user.permission}>
           <UserHeader
             data={
               data &&
               data
-                .filter((pane) => pane.permission === employee.permission)
-                .map((employeeByPermission) => Users(employeeByPermission))
+                .filter((pane) => pane.permission === user.permission)
+                .map((userByPermission) => Users(userByPermission))
             }
           />
         </Tab.Pane>
@@ -108,20 +86,20 @@ export default function UsersList(props) {
   const RoleFilter = () => {
     return (
       data &&
-      employeeRoles.map((employee) => (
-        <Tab.Pane key={employee.role} eventKey={employee.role}>
+      userRoles(data).map((user) => (
+        <Tab.Pane key={user.role} eventKey={user.role}>
           <UserHeader
             _id={data && data._id}
             data={data
-              .filter((pane) => pane.role === employee.role)
-              .map((employeeByRole) => Users(employeeByRole))}
+              .filter((pane) => pane.role === user.role)
+              .map((userByRole) => Users(userByRole))}
           />
         </Tab.Pane>
       ))
     );
   };
 
-  const EmployeeList = () => {
+  const UserList = () => {
     return (
       <>
         <Modals />
@@ -135,7 +113,7 @@ export default function UsersList(props) {
           <>
             <Tab.Pane eventKey="default">
               <UserHeader
-                data={data && data.map((employee) => Users(employee)).reverse()}
+                data={data && data.map((user) => Users(user)).reverse()}
               />
             </Tab.Pane>
             <PermissionFilter />
@@ -153,24 +131,22 @@ export default function UsersList(props) {
       main="Permissions"
       mainTabs={
         data &&
-        employeePermissions.map((employee) => (
-          <Nav.Item key={employee.permission}>
-            <Nav.Link eventKey={employee.permission}>
-              {employee.permission}
-            </Nav.Link>
+        userPermissions(data).map((user) => (
+          <Nav.Item key={user.permission}>
+            <Nav.Link eventKey={user.permission}>{user.permission}</Nav.Link>
           </Nav.Item>
         ))
       }
       secondary="Roles"
       secondaryTabs={
         data &&
-        employeeRoles.map((employee) => (
-          <Nav.Item key={employee.role}>
-            <Nav.Link eventKey={employee.role}>{employee.role}</Nav.Link>
+        userRoles(data).map((user) => (
+          <Nav.Item key={user.role}>
+            <Nav.Link eventKey={user.role}>{user.role}</Nav.Link>
           </Nav.Item>
         ))
       }
-      content={<EmployeeList />}
+      content={<UserList />}
     />
   );
 }

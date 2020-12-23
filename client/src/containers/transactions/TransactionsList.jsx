@@ -12,6 +12,7 @@ import SearchControls from '../../components/SearchControls';
 import TransactionHeader from '../../components/tables/TransactionHeader';
 import TransactionRow from '../../components/tables/TransactionRow';
 import { Fallback, Loader } from '../../components/common/Loader';
+import { transactionPayment, transactionStatus } from './TransactionFilters';
 import TransactionService from '../../services/TransactionService';
 
 const TransactionModals = lazy(() => import('./TransactionModals'));
@@ -73,35 +74,12 @@ export default function TransactionsList(props) {
     );
   };
 
-  // * Removes duplicate properties | status
-  const transactionStatus =
-    data &&
-    data
-      .filter(
-        (items, index, self) =>
-          index === self.findIndex((deduped) => deduped.status === items.status)
-      )
-      // Sort items
-      .reverse();
-
-  // * Removes duplicate properties | payment
-  const transactionPayment =
-    data &&
-    data
-      .filter(
-        (items, index, self) =>
-          index ===
-          self.findIndex((deduped) => deduped.payment === items.payment)
-      )
-      // Sort items
-      .reverse();
-
   // * Filter transactions by status
   const StatusFilter = () => {
     return (
       <>
         {data &&
-          transactionStatus.map((transaction) => (
+          transactionStatus(data).map((transaction) => (
             <Tab.Pane key={transaction.status} eventKey={transaction.status}>
               <TransactionHeader
                 data={
@@ -124,7 +102,7 @@ export default function TransactionsList(props) {
     return (
       <>
         {data &&
-          transactionPayment.map((transaction) => (
+          transactionPayment(data).map((transaction) => (
             <Tab.Pane key={transaction.payment} eventKey={transaction.payment}>
               <TransactionHeader
                 _id={data && data._id}
@@ -174,7 +152,7 @@ export default function TransactionsList(props) {
       main="Status"
       mainTabs={
         data &&
-        transactionStatus.map((transaction) => (
+        transactionStatus(data).map((transaction) => (
           <Nav.Item key={transaction.status}>
             <Nav.Link eventKey={transaction.status}>
               {transaction.status}
@@ -185,7 +163,7 @@ export default function TransactionsList(props) {
       secondary="Payment"
       secondaryTabs={
         data &&
-        transactionPayment.map((transaction) => (
+        transactionPayment(data).map((transaction) => (
           <Nav.Item key={transaction.payment}>
             <Nav.Link eventKey={transaction.payment}>
               {transaction.payment}

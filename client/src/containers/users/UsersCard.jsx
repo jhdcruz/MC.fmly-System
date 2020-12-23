@@ -12,8 +12,9 @@ import SearchControls from '../../components/SearchControls';
 import { CardDeck } from '../../components/cards/CardOverlay';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarAlt, faHistory } from '@fortawesome/free-solid-svg-icons';
+import { Fallback, Loader } from '../../components/common/Loader';
+import { userPermissions, userRoles } from './UserFilters';
 import Tag from '../../components/common/Tag';
-import { Loader } from '../../components/common/Loader';
 import UserService from '../../services/UserService';
 
 // * Lazy imports
@@ -91,35 +92,12 @@ export default function UsersCard(props) {
     );
   };
 
-  // * Removes duplicate properties | permissions
-  const userPermissions =
-    data &&
-    data
-      .filter(
-        (items, index, self) =>
-          index ===
-          self.findIndex((deduped) => deduped.permission === items.permission)
-      )
-      // Sort items
-      .reverse();
-
-  // * Removes duplicate properties | roles
-  const userRoles =
-    data &&
-    data
-      .filter(
-        (items, index, self) =>
-          index === self.findIndex((deduped) => deduped.role === items.role)
-      )
-      // Sort items
-      .reverse();
-
   // * Filter users by category
   const PermissionFilter = () => {
     return (
       <>
         {data &&
-          userPermissions.map((user) => (
+          userPermissions(data).map((user) => (
             <Tab.Pane key={user.permission} eventKey={user.permission}>
               {data &&
                 data
@@ -136,7 +114,7 @@ export default function UsersCard(props) {
     return (
       <>
         {data &&
-          userRoles.map((user) => (
+          userRoles(data).map((user) => (
             <Tab.Pane key={user.role} eventKey={user.role}>
               {data
                 .filter((pane) => pane.role === user.role)
@@ -166,7 +144,7 @@ export default function UsersCard(props) {
             <RoleFilter />
           </>
         ) : (
-          <fallback />
+          <Fallback />
         )}
       </>
     );
@@ -177,7 +155,7 @@ export default function UsersCard(props) {
       main="Permissions"
       mainTabs={
         data &&
-        userPermissions.map((user) => (
+        userPermissions(data).map((user) => (
           <Nav.Item key={user.permission}>
             <Nav.Link eventKey={user.permission}>{user.permission}</Nav.Link>
           </Nav.Item>
@@ -186,7 +164,7 @@ export default function UsersCard(props) {
       secondary="Roles"
       secondaryTabs={
         data &&
-        userRoles.map((user) => (
+        userRoles(data).map((user) => (
           <Nav.Item key={user.role}>
             <Nav.Link eventKey={user.role}>{user.role}</Nav.Link>
           </Nav.Item>
