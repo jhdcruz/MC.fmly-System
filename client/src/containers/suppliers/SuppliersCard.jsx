@@ -5,11 +5,11 @@
  */
 
 import { lazy, Suspense, useState } from 'react';
+import CardDeck from 'react-bootstrap/CardDeck';
 import SearchControls from '../../components/SearchControls';
 import SupplierService from '../../services/SupplierService';
 import Poster from '../../components/cards/Poster';
 import { Fallback, Loader } from '../../components/common/Loader';
-import CardDeck from 'react-bootstrap/CardDeck';
 
 const SupplierModals = lazy(() => import('./SupplierModals'));
 
@@ -44,7 +44,24 @@ export default function SuppliersCard(props) {
     );
   };
 
-  const SupplierCards = () => {
+  const PosterCard = (supplier) => {
+    return (
+      <Poster
+        key={supplier._id}
+        delete={() => showDeleteModal(true)}
+        edit={() => showEditModal(true)}
+        icon={supplier.icon}
+        name={supplier.name}
+        description={supplier.description}
+        type={supplier.type}
+        address={supplier.address}
+        website={supplier.website}
+        contact={supplier.contact}
+      />
+    );
+  };
+
+  const SupplierCard = () => {
     return (
       <CardDeck
         style={{
@@ -55,25 +72,7 @@ export default function SuppliersCard(props) {
       >
         {/* Render <Loading /> while fetching suppliers */}
         {data && true ? (
-          <>
-            {data &&
-              data
-                .map((supplier) => (
-                  <Poster
-                    key={supplier._id}
-                    delete={() => showDeleteModal(true)}
-                    edit={() => showEditModal(true)}
-                    icon={supplier.icon}
-                    name={supplier.name}
-                    description={supplier.description}
-                    type={supplier.type}
-                    address={supplier.address}
-                    website={supplier.website}
-                    contact={supplier.contact}
-                  />
-                ))
-                .reverse()}
-          </>
+          <>{data && data.map((supplier) => PosterCard(supplier)).reverse()}</>
         ) : (
           <Fallback />
         )}
@@ -90,7 +89,7 @@ export default function SuppliersCard(props) {
         modal={() => showAddModal(true)}
       />
 
-      <SupplierCards />
+      <SupplierCard />
     </div>
   );
 }
