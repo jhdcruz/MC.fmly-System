@@ -25,17 +25,20 @@ export default function Authentication() {
    *******************************/
   const userVerify = useCallback((username, password) => {
     axios
-      .post(`https://mc-ims-api.herokuapp.com/auth/login`, username, password)
+      .post(`/auth/login`, username, password)
       .then((res) => {
-        if (res.status === 200) {
+        if (res.data) {
           setAuth(res.data);
         } else {
           window.alert('Invalid username or password...');
         }
       })
       .catch((err) => {
-        console.error(err);
-        window.alert(`${err}\n Please contact the System Administrator!`);
+        if (err.status === 401) {
+          window.alert(`Invalid username or password!`);
+        } else {
+          window.alert(`${err}\n Please contact the System Administrator!`);
+        }
       });
   }, []);
 

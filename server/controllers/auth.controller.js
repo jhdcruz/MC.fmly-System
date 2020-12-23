@@ -61,11 +61,11 @@ exports.login = async (req, res) => {
         res.status(200).send(user.permission);
       } else {
         logger.warn(`Invalid credentials submitted for: ${req.body.username}`);
-        res.status(401).send('Unauthorized');
+        res.sendStatus(401);
       }
     } else {
-      logger.warn(`Invalid credentials submitted for: ${req.body.username}`);
-      res.status(401).send('Unauthorized');
+      logger.warn(`User ${req.body.username} doesn't exist.`);
+      res.sendStatus(401);
     }
   } catch (err) {
     rollbar.error(err);
