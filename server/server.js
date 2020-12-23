@@ -44,7 +44,7 @@ api.use(bodyParser.json());
 
 // * Connect to the Database || MongoDB Atlas
 mongoose
-  .connect(`${process.env.MONGO_ADMIN}` || `${process.env.MONGO_URL}`, {
+  .connect(`${process.env.MONGO_URL}` || `${process.env.MONGO_ADMIN}`, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true
@@ -90,7 +90,7 @@ api.all('/', (req, res) => {
   res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
   res.setHeader(
     'Access-Control-Allow-Origin',
-    'https://deuz.systems,https://*.vercel.app,http://localhost'
+    'https://deuz.systems,https://preview.deuz.systems,https://*.vercel.app,http://localhost'
   );
   res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With');
 });
