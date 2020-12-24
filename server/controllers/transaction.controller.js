@@ -62,7 +62,12 @@ exports.findByStatus = async (req, res) => {
 exports.findByName = async (req, res) => {
   const name = req.params.name;
   try {
-    const transactions = await Transactions.find({ name: name });
+    const transactions = await Transactions.find({
+      name: {
+        $regex: name,
+        $options: 'i'
+      }
+    });
     return res.status(200).send(transactions);
   } catch (err) {
     rollbar.error(err);
@@ -78,7 +83,12 @@ exports.findByName = async (req, res) => {
 exports.findByOrderId = async (req, res) => {
   const order_id = req.params.order_id;
   try {
-    const transactions = await Transactions.findOne({ order_id: order_id });
+    const transactions = await Transactions.find({
+      order_id: {
+        $regex: order_id,
+        $options: 'i'
+      }
+    });
     return res.status(200).send(transactions);
   } catch (err) {
     rollbar.error(err);

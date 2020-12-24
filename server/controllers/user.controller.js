@@ -31,7 +31,12 @@ exports.get = async (req, res) => {
 exports.getNames = async (req, res) => {
   const name = req.params.name;
   try {
-    const users = await Users.find({ name: name });
+    const users = await Users.find({
+      name: {
+        $regex: name,
+        $options: 'i'
+      }
+    });
     return res.status(200).send(users);
   } catch (err) {
     rollbar.error(err);
@@ -55,7 +60,12 @@ exports.getRoles = async (req, res) => {
 exports.findByUserName = async (req, res) => {
   const username = req.params.username;
   try {
-    const users = await Users.findOne({ username: username });
+    const users = await Users.find({
+      username: {
+        $regex: username,
+        $options: 'i'
+      }
+    });
     return res.status(200).send(users);
   } catch (err) {
     rollbar.error(err);

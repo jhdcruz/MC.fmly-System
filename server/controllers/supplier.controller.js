@@ -30,7 +30,12 @@ exports.get = async (req, res) => {
 exports.findByName = async (req, res) => {
   const name = req.params.name;
   try {
-    const suppliers = await Suppliers.find({ name: name });
+    const suppliers = await Suppliers.find({
+      name: {
+        $regex: name,
+        $options: 'i'
+      }
+    });
     return res.status(200).send(suppliers);
   } catch (err) {
     rollbar.error(err);

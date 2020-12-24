@@ -54,7 +54,12 @@ exports.findByType = async (req, res) => {
 exports.findByName = async (req, res) => {
   const name = req.params.name;
   try {
-    const products = await Products.find({ name: name });
+    const products = await Products.find({
+      name: {
+        $regex: name,
+        $options: 'i'
+      }
+    });
     return res.status(200).send(products);
   } catch (err) {
     rollbar.error(err);
@@ -66,7 +71,12 @@ exports.findByName = async (req, res) => {
 exports.findByCode = async (req, res) => {
   const code = req.params.code;
   try {
-    const products = await Products.findOne({ code: code });
+    const products = await Products.findOne({
+      code: {
+        $regex: code,
+        $options: 'i'
+      }
+    });
     return res.status(200).send(products);
   } catch (err) {
     rollbar.error(err);
