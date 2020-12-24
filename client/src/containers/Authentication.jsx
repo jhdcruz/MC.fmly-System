@@ -4,16 +4,18 @@
  *     Licensed under GNU General Public License 3.0 or later
  */
 
-import { useCallback, useState } from 'react';
+import { lazy, Suspense, useCallback, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
 import Status from './Status';
 import LoginForm from '../components/LoginForm';
+import { Fallback } from 'components/common/Loader';
+
 // Views
-import Admin from '../views/Admin';
-import Cashier from '../views/Cashier';
-import SysAdmin from '../views/SysAdmin';
-import InventoryClerk from '../views/InventoryClerk';
+const Admin = lazy(() => import('../views/Admin'));
+const Cashier = lazy(() => import('../views/Cashier'));
+const SysAdmin = lazy(() => import('../views/SysAdmin'));
+const InventoryClerk = lazy(() => import('../views/InventoryClerk'));
 
 export default function Authentication() {
   const { register, handleSubmit } = useForm();
@@ -33,12 +35,8 @@ export default function Authentication() {
           window.alert('Invalid username or password...');
         }
       })
-      .catch((err) => {
-        if (err.status === 401) {
-          window.alert(`Invalid username or password!`);
-        } else {
-          window.alert(`${err}\n Please contact the System Administrator!`);
-        }
+      .catch(() => {
+        window.alert('Invalid username or password.');
       });
   }, []);
 
@@ -50,21 +48,37 @@ export default function Authentication() {
 
   /*******************************************
    * * Role-based Views
-   * TODO: Refactor to switch(); if possible
    *******************************************/
-  if (auth === 'admin') {
-    return <Admin />;
-  } else if (auth === 'sysadmin') {
-    return <SysAdmin />;
-  } else if (auth === 'inventory') {
-    return <InventoryClerk />;
-  } else if (auth === 'cashier') {
-    return <Cashier />;
+
+  switch (auth) {
+    case 'admin':
+      return (
+        <Suspense fallback={<Fallback />}>
+          <Admin />
+        </Suspense>
+      );
+    case 'sysadmin':
+      return (
+        <Suspense fallback={<Fallback />}>
+          <SysAdmin />
+        </Suspense>
+      );
+    case 'inventory':
+      return (
+        <Suspense fallback={<Fallback />}>
+          <InventoryClerk />
+        </Suspense>
+      );
+    case 'cashier':
+      return (
+        <Suspense fallback={<Fallback />}>
+          <Cashier />
+        </Suspense>
+      );
+    default:
+      break;
   }
 
-  /*******************************
-   * * Login Form
-   *******************************/
   return (
     <>
       <LoginForm
