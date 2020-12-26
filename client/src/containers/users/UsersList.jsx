@@ -14,6 +14,7 @@ import UserHeader from '../../components/tables/UserHeader';
 import UserRow from '../../components/tables/UserRow';
 import { userPermissions, userRoles } from './UserFilters';
 import UserService from '../../services/UserService';
+import ResetScroll from '../../components/ResetScroll';
 
 const UserModals = lazy(() => import('./UserModals'));
 
@@ -69,6 +70,7 @@ export default function UsersList(props) {
       data &&
       userPermissions(data).map((user) => (
         <Tab.Pane key={user.permission} eventKey={user.permission}>
+          <ResetScroll />
           <UserHeader
             data={
               data &&
@@ -88,6 +90,7 @@ export default function UsersList(props) {
       data &&
       userRoles(data).map((user) => (
         <Tab.Pane key={user.role} eventKey={user.role}>
+          <ResetScroll />
           <UserHeader
             _id={data && data._id}
             data={data
@@ -112,6 +115,7 @@ export default function UsersList(props) {
         {data && true ? (
           <>
             <Tab.Pane eventKey="default">
+              <ResetScroll />
               <UserHeader
                 data={data && data.map((user) => Users(user)).reverse()}
               />

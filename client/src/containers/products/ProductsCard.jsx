@@ -12,10 +12,11 @@ import Categories from '../../components/sidebar/Categories';
 import { CardDeck } from '../../components/cards/CardOverlay';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarAlt, faHistory } from '@fortawesome/free-solid-svg-icons';
-import Tag from '../../components/common/Tag';
 import { Fallback, Loader } from '../../components/common/Loader';
-import Notification from '../../components/common/Notification';
 import { productCategories, productTypes } from './ProductFilters';
+import ResetScroll from '../../components/ResetScroll';
+import Tag from '../../components/common/Tag';
+import Notification from '../../components/common/Notification';
 import ProductService from '../../services/ProductService';
 
 // * Lazy imports
@@ -130,6 +131,7 @@ export default function ProductsCard(props) {
         {data &&
           productCategories(data).map((categories) => (
             <Tab.Pane key={categories.category} eventKey={categories.category}>
+              <ResetScroll />
               {data
                 .filter((pane) => pane.category === categories.category)
                 .map((product) => ProductCard(product))}
@@ -146,6 +148,7 @@ export default function ProductsCard(props) {
         {data &&
           productTypes(data).map((types) => (
             <Tab.Pane key={types.type} eventKey={types.type}>
+              <ResetScroll />
               {data
                 .filter((pane) => pane.type === types.type)
                 .map((product) => ProductCard(product))}
@@ -170,6 +173,7 @@ export default function ProductsCard(props) {
         {data && true ? (
           <>
             <Tab.Pane eventKey="default">
+              <ResetScroll />
               {data && data.map((product) => ProductCard(product))}
             </Tab.Pane>
             <CategoryFilter />

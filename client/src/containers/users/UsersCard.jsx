@@ -16,6 +16,7 @@ import { Fallback, Loader } from '../../components/common/Loader';
 import { userPermissions, userRoles } from './UserFilters';
 import Tag from '../../components/common/Tag';
 import UserService from '../../services/UserService';
+import ResetScroll from '../../components/ResetScroll';
 
 // * Lazy imports
 const UserModals = lazy(() => import('./UserModals'));
@@ -99,6 +100,7 @@ export default function UsersCard(props) {
         {data &&
           userPermissions(data).map((user) => (
             <Tab.Pane key={user.permission} eventKey={user.permission}>
+              <ResetScroll />
               {data &&
                 data
                   .filter((pane) => pane.permission === user.permission)
@@ -116,6 +118,7 @@ export default function UsersCard(props) {
         {data &&
           userRoles(data).map((user) => (
             <Tab.Pane key={user.role} eventKey={user.role}>
+              <ResetScroll />
               {data
                 .filter((pane) => pane.role === user.role)
                 .map((userByRole) => UserCard(userByRole))}
@@ -138,6 +141,7 @@ export default function UsersCard(props) {
         {data && true ? (
           <>
             <Tab.Pane eventKey="default">
+              <ResetScroll />
               {data && data.map((user) => UserCard(user)).reverse()}
             </Tab.Pane>
             <PermissionFilter />

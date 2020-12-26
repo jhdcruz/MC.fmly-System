@@ -10,6 +10,7 @@ import SearchControls from '../../components/SearchControls';
 import SupplierService from '../../services/SupplierService';
 import Poster from '../../components/cards/Poster';
 import { Fallback, Loader } from '../../components/common/Loader';
+import ResetScroll from '../../components/ResetScroll';
 
 const SupplierModals = lazy(() => import('./SupplierModals'));
 
@@ -72,7 +73,10 @@ export default function SuppliersCard(props) {
       >
         {/* Render <Loading /> while fetching suppliers */}
         {data && true ? (
-          <>{data && data.map((supplier) => PosterCard(supplier)).reverse()}</>
+          <>
+            <ResetScroll />
+            {data && data.map((supplier) => PosterCard(supplier)).reverse()}
+          </>
         ) : (
           <Fallback />
         )}

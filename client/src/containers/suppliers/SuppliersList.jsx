@@ -11,6 +11,7 @@ import SupplierHeader from '../../components/tables/SupplierHeader';
 import SupplierRow from '../../components/tables/SupplierRow';
 import { Fallback, Loader } from '../../components/common/Loader';
 import SupplierService from '../../services/SupplierService';
+import ResetScroll from '../../components/ResetScroll';
 
 const SupplierModals = lazy(() => import('./SupplierModals'));
 
@@ -72,6 +73,7 @@ export default function SuppliersList(props) {
 
       {data && true ? (
         <Tab.Pane>
+          <ResetScroll />
           <SupplierHeader
             data={
               data && data.reverse().map((supplier) => SupplierList(supplier))

@@ -14,6 +14,7 @@ import TransactionRow from '../../components/tables/TransactionRow';
 import { Fallback, Loader } from '../../components/common/Loader';
 import { transactionPayment, transactionStatus } from './TransactionFilters';
 import TransactionService from '../../services/TransactionService';
+import ResetScroll from '../../components/ResetScroll';
 
 const TransactionModals = lazy(() => import('./TransactionModals'));
 
@@ -81,6 +82,7 @@ export default function TransactionsList(props) {
         {data &&
           transactionStatus(data).map((transaction) => (
             <Tab.Pane key={transaction.status} eventKey={transaction.status}>
+              <ResetScroll />
               <TransactionHeader
                 data={
                   data &&
@@ -104,6 +106,7 @@ export default function TransactionsList(props) {
         {data &&
           transactionPayment(data).map((transaction) => (
             <Tab.Pane key={transaction.payment} eventKey={transaction.payment}>
+              <ResetScroll />
               <TransactionHeader
                 _id={data && data._id}
                 data={data
@@ -131,6 +134,7 @@ export default function TransactionsList(props) {
         {data && true ? (
           <>
             <Tab.Pane eventKey="default">
+              <ResetScroll />
               <TransactionHeader
                 data={
                   data && data.map((transaction) => Transactions(transaction))

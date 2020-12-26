@@ -17,6 +17,7 @@ import Tag from '../../components/common/Tag';
 import Notification from '../../components/common/Notification';
 import { transactionPayment, transactionStatus } from './TransactionFilters';
 import TransactionService from '../../services/TransactionService';
+import ResetScroll from '../../components/ResetScroll';
 
 // * Lazy imports
 const TransactionModals = lazy(() => import('./TransactionModals'));
@@ -118,7 +119,7 @@ export default function TransactionsCard(props) {
         {data &&
           transactionStatus(data).map((transaction) => (
             <Tab.Pane key={transaction.status} eventKey={transaction.status}>
-              {/* TODO: Prevent header re-render */}
+              <ResetScroll />
               {data &&
                 data
                   .filter((pane) => pane.status === transaction.status)
@@ -138,6 +139,7 @@ export default function TransactionsCard(props) {
         {data &&
           transactionPayment(data).map((transaction) => (
             <Tab.Pane key={transaction.payment} eventKey={transaction.payment}>
+              <ResetScroll />
               {data
                 .filter((pane) => pane.payment === transaction.payment)
                 .map((transactionByPayment) =>
@@ -164,6 +166,7 @@ export default function TransactionsCard(props) {
         {data && true ? (
           <>
             <Tab.Pane eventKey="default">
+              <ResetScroll />
               {data && data.map((transaction) => TransactionCard(transaction))}
             </Tab.Pane>
             <StatusFilter />

@@ -11,6 +11,7 @@ import Categories from '../../components/sidebar/Categories';
 import ProductHeader from '../../components/tables/ProductHeader';
 import ProductRow from '../../components/tables/ProductRow';
 import SearchControls from '../../components/SearchControls';
+import ResetScroll from '../../components/ResetScroll';
 import { Fallback, Loader } from '../../components/common/Loader';
 import { productCategories, productTypes } from './ProductFilters';
 import ProductService from '../../services/ProductService';
@@ -76,6 +77,7 @@ export default function ProductsList(props) {
         {data &&
           productCategories(data).map((categories) => (
             <Tab.Pane key={categories.category} eventKey={categories.category}>
+              <ResetScroll />
               <ProductHeader
                 map={data && data._id}
                 data={
@@ -98,6 +100,7 @@ export default function ProductsList(props) {
         {data &&
           productTypes(data).map((types) => (
             <Tab.Pane key={types.type} eventKey={types.type}>
+              <ResetScroll />
               <ProductHeader
                 _id={data && data._id}
                 data={data
@@ -125,6 +128,7 @@ export default function ProductsList(props) {
         {data && true ? (
           <>
             <Tab.Pane eventKey="default">
+              <ResetScroll />
               <ProductHeader
                 _id={data && data._id}
                 data={data && data.map((product) => ProductTable(product))}
