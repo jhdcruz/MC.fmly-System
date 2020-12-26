@@ -10,12 +10,14 @@ import Tab from 'react-bootstrap/Tab';
 import Categories from '../../components/sidebar/Categories';
 import SearchControls from '../../components/SearchControls';
 import TransactionHeader from '../../components/tables/TransactionHeader';
-import TransactionRow from '../../components/tables/TransactionRow';
 import { Fallback, Loader } from '../../components/common/Loader';
 import { transactionPayment, transactionStatus } from './TransactionFilters';
 import TransactionService from '../../services/TransactionService';
 import ResetScroll from '../../components/ResetScroll';
 
+const TransactionRow = lazy(() =>
+  import('../../components/tables/TransactionRow')
+);
 const TransactionModals = lazy(() => import('./TransactionModals'));
 
 export default function TransactionsList(props) {
@@ -52,26 +54,28 @@ export default function TransactionsList(props) {
 
   const Transactions = (transaction) => {
     return (
-      <TransactionRow
-        edit={() => showEditModal(true)}
-        delete={() => showDeleteModal(true)}
-        id={transaction.id}
-        order_id={transaction.order_id}
-        name={transaction.name}
-        status={transaction.status}
-        total={transaction.total}
-        payment={transaction.payment}
-        date={transaction.date}
-        createdAt={transaction.createdAt}
-        receipt={
-          transaction.receipt && true ? (
-            // eslint-disable-next-line jsx-a11y/anchor-has-content
-            <a href={transaction.receipt} target="_blank" rel="noreferrer" />
-          ) : (
-            () => showInvoiceModal(true)
-          )
-        }
-      />
+      <Suspense fallback={<Loader />}>
+        <TransactionRow
+          edit={() => showEditModal(true)}
+          delete={() => showDeleteModal(true)}
+          id={transaction.id}
+          order_id={transaction.order_id}
+          name={transaction.name}
+          status={transaction.status}
+          total={transaction.total}
+          payment={transaction.payment}
+          date={transaction.date}
+          createdAt={transaction.createdAt}
+          receipt={
+            transaction.receipt && true ? (
+              // eslint-disable-next-line jsx-a11y/anchor-has-content
+              <a href={transaction.receipt} target="_blank" rel="noreferrer" />
+            ) : (
+              () => showInvoiceModal(true)
+            )
+          }
+        />
+      </Suspense>
     );
   };
 

@@ -5,14 +5,14 @@
  */
 
 import { lazy, Suspense, useState } from 'react';
+import { Fallback, Loader } from '../../components/common/Loader';
 import Tab from 'react-bootstrap/Tab';
 import SearchControls from '../../components/SearchControls';
 import SupplierHeader from '../../components/tables/SupplierHeader';
-import SupplierRow from '../../components/tables/SupplierRow';
-import { Fallback, Loader } from '../../components/common/Loader';
 import SupplierService from '../../services/SupplierService';
 import ResetScroll from '../../components/ResetScroll';
 
+const SupplierRow = lazy(() => import('../../components/tables/SupplierRow'));
 const SupplierModals = lazy(() => import('./SupplierModals'));
 
 export default function SuppliersList(props) {
@@ -47,18 +47,20 @@ export default function SuppliersList(props) {
 
   const SupplierList = (supplier) => {
     return (
-      <SupplierRow
-        delete={() => showDeleteModal(true)}
-        edit={() => showEditModal(true)}
-        key={supplier._id}
-        icon={supplier.icon}
-        name={supplier.name}
-        description={supplier.description}
-        type={supplier.type}
-        address={supplier.address}
-        website={supplier.website}
-        contact={supplier.contact}
-      />
+      <Suspense fallback={<Loader />}>
+        <SupplierRow
+          delete={() => showDeleteModal(true)}
+          edit={() => showEditModal(true)}
+          key={supplier._id}
+          icon={supplier.icon}
+          name={supplier.name}
+          description={supplier.description}
+          type={supplier.type}
+          address={supplier.address}
+          website={supplier.website}
+          contact={supplier.contact}
+        />
+      </Suspense>
     );
   };
 

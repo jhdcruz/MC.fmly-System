@@ -4,11 +4,13 @@
  *     Licensed under GNU General Public License 3.0 or later
  */
 import { lazy, Suspense, useState } from 'react';
-import TransactionHeader from '../../components/tables/TransactionHeader';
-import TransactionRow from '../../components/tables/TransactionRow';
 import { Fallback, Loader } from '../../components/common/Loader';
+import TransactionHeader from '../../components/tables/TransactionHeader';
 import TransactionService from '../../services/TransactionService';
 
+const TransactionRow = lazy(() =>
+  import('../../components/tables/TransactionRow')
+);
 const TransactionModals = lazy(() =>
   import('../transactions/TransactionModals')
 );
@@ -51,30 +53,32 @@ export default function RecentTransactions() {
               .slice(Math.max(data.length - 10, 0))
               .reverse()
               .map((transaction) => (
-                <TransactionRow
-                  edit={() => showEditModal(true)}
-                  delete={() => showDeleteModal(true)}
-                  id={transaction.id}
-                  order_id={transaction.order_id}
-                  name={transaction.name}
-                  status={transaction.status}
-                  total={transaction.total}
-                  payment={transaction.payment}
-                  date={transaction.date}
-                  createdAt={transaction.createdAt}
-                  receipt={
-                    transaction.receipt && true ? (
-                      // eslint-disable-next-line jsx-a11y/anchor-has-content
-                      <a
-                        href={transaction.receipt}
-                        target="_blank"
-                        rel="noreferrer"
-                      />
-                    ) : (
-                      () => showInvoiceModal(true)
-                    )
-                  }
-                />
+                <Suspense fallback={<Loader />}>
+                  <TransactionRow
+                    edit={() => showEditModal(true)}
+                    delete={() => showDeleteModal(true)}
+                    id={transaction.id}
+                    order_id={transaction.order_id}
+                    name={transaction.name}
+                    status={transaction.status}
+                    total={transaction.total}
+                    payment={transaction.payment}
+                    date={transaction.date}
+                    createdAt={transaction.createdAt}
+                    receipt={
+                      transaction.receipt && true ? (
+                        // eslint-disable-next-line jsx-a11y/anchor-has-content
+                        <a
+                          href={transaction.receipt}
+                          target="_blank"
+                          rel="noreferrer"
+                        />
+                      ) : (
+                        () => showInvoiceModal(true)
+                      )
+                    }
+                  />
+                </Suspense>
               ))
           }
         />

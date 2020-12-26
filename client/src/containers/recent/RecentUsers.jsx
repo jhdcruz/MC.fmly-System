@@ -5,11 +5,11 @@
  */
 
 import { lazy, Suspense, useState } from 'react';
-import UserHeader from '../../components/tables/UserHeader';
-import UserRow from '../../components/tables/UserRow';
 import { Fallback, Loader } from '../../components/common/Loader';
+import UserHeader from '../../components/tables/UserHeader';
 import UserService from '../../services/UserService';
 
+const UserRow = lazy(() => import('../../components/tables/UserRow'));
 const UserModals = lazy(() => import('../users/UserModals'));
 
 export default function RecentUsers() {
@@ -48,17 +48,19 @@ export default function RecentUsers() {
               .slice(Math.max(data.length - 10, 0))
               .reverse()
               .map((user) => (
-                <UserRow
-                  delete={() => showDeleteModal(true)}
-                  edit={() => showEditModal(true)}
-                  _id={user._id}
-                  username={user.username}
-                  name={user.name}
-                  role={user.role}
-                  permission={user.permission}
-                  updatedAt={user.updatedAt}
-                  createdAt={user.createdAt}
-                />
+                <Suspense fallback={<Loader />}>
+                  <UserRow
+                    delete={() => showDeleteModal(true)}
+                    edit={() => showEditModal(true)}
+                    _id={user._id}
+                    username={user.username}
+                    name={user.name}
+                    role={user.role}
+                    permission={user.permission}
+                    updatedAt={user.updatedAt}
+                    createdAt={user.createdAt}
+                  />
+                </Suspense>
               ))
           ) : (
             <Fallback />

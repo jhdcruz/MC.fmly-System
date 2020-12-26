@@ -7,15 +7,15 @@
 import { lazy, Suspense, useState } from 'react';
 import Nav from 'react-bootstrap/Nav';
 import Tab from 'react-bootstrap/Tab';
-import { Fallback, Loader } from '../../components/common/Loader';
+import ResetScroll from '../../components/ResetScroll';
+import UserHeader from '../../components/tables/UserHeader';
 import SearchControls from '../../components/SearchControls';
 import Categories from '../../components/sidebar/Categories';
-import UserHeader from '../../components/tables/UserHeader';
-import UserRow from '../../components/tables/UserRow';
+import { Fallback, Loader } from '../../components/common/Loader';
 import { userPermissions, userRoles } from './UserFilters';
 import UserService from '../../services/UserService';
-import ResetScroll from '../../components/ResetScroll';
 
+const UserRow = lazy(() => import('../../components/tables/UserRow'));
 const UserModals = lazy(() => import('./UserModals'));
 
 export default function UsersList(props) {
@@ -50,17 +50,19 @@ export default function UsersList(props) {
 
   const Users = (user) => {
     return (
-      <UserRow
-        edit={() => showEditModal(true)}
-        delete={() => showDeleteModal(true)}
-        id={user.id}
-        username={user.username}
-        name={user.name}
-        role={user.role}
-        permission={user.permission}
-        updatedAt={user.updatedAt}
-        createdAt={user.createdAt}
-      />
+      <Suspense fallback={<Loader />}>
+        <UserRow
+          edit={() => showEditModal(true)}
+          delete={() => showDeleteModal(true)}
+          id={user.id}
+          username={user.username}
+          name={user.name}
+          role={user.role}
+          permission={user.permission}
+          updatedAt={user.updatedAt}
+          createdAt={user.createdAt}
+        />
+      </Suspense>
     );
   };
 

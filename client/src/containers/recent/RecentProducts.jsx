@@ -5,11 +5,11 @@
  */
 
 import { lazy, Suspense, useState } from 'react';
-import ProductHeader from '../../components/tables/ProductHeader';
-import ProductRow from '../../components/tables/ProductRow';
 import { Fallback, Loader } from '../../components/common/Loader';
+import ProductHeader from '../../components/tables/ProductHeader';
 import ProductService from '../../services/ProductService';
 
+const ProductRow = lazy(() => import('../../components/tables/ProductRow'));
 const ProductModals = lazy(() => import('../products/ProductModals'));
 
 export default function RecentProducts() {
@@ -48,20 +48,22 @@ export default function RecentProducts() {
               .slice(Math.max(data.length - 10, 0))
               .reverse()
               .map((product) => (
-                <ProductRow
-                  delete={() => showDeleteModal(true)}
-                  edit={() => showEditModal(true)}
-                  _id={product._id}
-                  code={product.code}
-                  name={product.name}
-                  variant={product.variant}
-                  type={product.type}
-                  category={product.category}
-                  quantity={product.quantity}
-                  updatedAt={product.updatedAt}
-                  createdAt={product.createdAt}
-                  price={product.price}
-                />
+                <Suspense fallback={<Loader />}>
+                  <ProductRow
+                    delete={() => showDeleteModal(true)}
+                    edit={() => showEditModal(true)}
+                    _id={product._id}
+                    code={product.code}
+                    name={product.name}
+                    variant={product.variant}
+                    type={product.type}
+                    category={product.category}
+                    quantity={product.quantity}
+                    updatedAt={product.updatedAt}
+                    createdAt={product.createdAt}
+                    price={product.price}
+                  />
+                </Suspense>
               ))
           ) : (
             <Fallback />

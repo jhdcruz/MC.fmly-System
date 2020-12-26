@@ -9,13 +9,13 @@ import Tab from 'react-bootstrap/Tab';
 import Nav from 'react-bootstrap/Nav';
 import Categories from '../../components/sidebar/Categories';
 import ProductHeader from '../../components/tables/ProductHeader';
-import ProductRow from '../../components/tables/ProductRow';
 import SearchControls from '../../components/SearchControls';
 import ResetScroll from '../../components/ResetScroll';
 import { Fallback, Loader } from '../../components/common/Loader';
 import { productCategories, productTypes } from './ProductFilters';
 import ProductService from '../../services/ProductService';
 
+const ProductRow = lazy(() => import('../../components/tables/ProductRow'));
 const ProductModals = lazy(() => import('./ProductModals'));
 
 /******************************************
@@ -53,20 +53,22 @@ export default function ProductsList(props) {
 
   const ProductTable = (product) => {
     return (
-      <ProductRow
-        edit={() => showEditModal(true)}
-        delete={() => showDeleteModal(true)}
-        _id={product._id}
-        code={product.code}
-        name={product.name}
-        variant={product.variant}
-        type={product.type}
-        category={product.category}
-        quantity={product.quantity}
-        updatedAt={product.updatedAt}
-        createdAt={product.createdAt}
-        price={product.price}
-      />
+      <Suspense fallback={<Loader />}>
+        <ProductRow
+          edit={() => showEditModal(true)}
+          delete={() => showDeleteModal(true)}
+          _id={product._id}
+          code={product.code}
+          name={product.name}
+          variant={product.variant}
+          type={product.type}
+          category={product.category}
+          quantity={product.quantity}
+          updatedAt={product.updatedAt}
+          createdAt={product.createdAt}
+          price={product.price}
+        />
+      </Suspense>
     );
   };
 

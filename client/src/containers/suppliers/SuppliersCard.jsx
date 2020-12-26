@@ -5,13 +5,13 @@
  */
 
 import { lazy, Suspense, useState } from 'react';
+import { Fallback, Loader } from '../../components/common/Loader';
+import ResetScroll from '../../components/ResetScroll';
 import CardDeck from 'react-bootstrap/CardDeck';
 import SearchControls from '../../components/SearchControls';
 import SupplierService from '../../services/SupplierService';
-import Poster from '../../components/cards/Poster';
-import { Fallback, Loader } from '../../components/common/Loader';
-import ResetScroll from '../../components/ResetScroll';
 
+const Poster = lazy(() => import('../../components/cards/Poster'));
 const SupplierModals = lazy(() => import('./SupplierModals'));
 
 // TODO: Add <Categories /> by types
@@ -47,18 +47,20 @@ export default function SuppliersCard(props) {
 
   const PosterCard = (supplier) => {
     return (
-      <Poster
-        key={supplier._id}
-        delete={() => showDeleteModal(true)}
-        edit={() => showEditModal(true)}
-        icon={supplier.icon}
-        name={supplier.name}
-        description={supplier.description}
-        type={supplier.type}
-        address={supplier.address}
-        website={supplier.website}
-        contact={supplier.contact}
-      />
+      <Suspense fallback={<Loader />}>
+        <Poster
+          key={supplier._id}
+          delete={() => showDeleteModal(true)}
+          edit={() => showEditModal(true)}
+          icon={supplier.icon}
+          name={supplier.name}
+          description={supplier.description}
+          type={supplier.type}
+          address={supplier.address}
+          website={supplier.website}
+          contact={supplier.contact}
+        />
+      </Suspense>
     );
   };
 

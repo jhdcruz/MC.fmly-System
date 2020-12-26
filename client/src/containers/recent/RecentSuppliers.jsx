@@ -5,11 +5,11 @@
  */
 
 import { lazy, Suspense, useState } from 'react';
-import SupplierHeader from '../../components/tables/SupplierHeader';
-import SupplierRow from '../../components/tables/SupplierRow';
 import { Fallback, Loader } from '../../components/common/Loader';
+import SupplierHeader from '../../components/tables/SupplierHeader';
 import SupplierService from '../../services/SupplierService';
 
+const SupplierRow = lazy(() => import('../../components/tables/SupplierRow'));
 const SupplierModals = lazy(() => import('../suppliers/SupplierModals'));
 
 export default function RecentSuppliers() {
@@ -48,18 +48,20 @@ export default function RecentSuppliers() {
               .slice(Math.max(data.length - 10, 0))
               .reverse()
               .map((supplier) => (
-                <SupplierRow
-                  delete={() => showDeleteModal(true)}
-                  edit={() => showEditModal(true)}
-                  key={supplier._id}
-                  icon={supplier.icon}
-                  name={supplier.name}
-                  description={supplier.description}
-                  type={supplier.type}
-                  address={supplier.address}
-                  website={supplier.website}
-                  contact={supplier.contact}
-                />
+                <Suspense fallback={<Loader />}>
+                  <SupplierRow
+                    delete={() => showDeleteModal(true)}
+                    edit={() => showEditModal(true)}
+                    key={supplier._id}
+                    icon={supplier.icon}
+                    name={supplier.name}
+                    description={supplier.description}
+                    type={supplier.type}
+                    address={supplier.address}
+                    website={supplier.website}
+                    contact={supplier.contact}
+                  />
+                </Suspense>
               ))
           ) : (
             <Fallback />
