@@ -8,7 +8,7 @@ import { lazy, Suspense, useCallback, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
 import Status from './Status';
-import LoginForm from '../components/LoginForm';
+import LoginForm from '../components/forms/LoginForm';
 import { Fallback } from 'components/common/Loader';
 
 // Views

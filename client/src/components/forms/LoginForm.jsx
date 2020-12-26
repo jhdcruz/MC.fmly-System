@@ -12,7 +12,7 @@ import Image from 'react-bootstrap/Image';
 import InputGroup from 'react-bootstrap/InputGroup';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faKey, faUser } from '@fortawesome/free-solid-svg-icons';
-import Brand from '../assets/img/logo.svg';
+import Brand from '../../assets/img/logo.svg';
 
 /****************************
  * * Login Form UI
