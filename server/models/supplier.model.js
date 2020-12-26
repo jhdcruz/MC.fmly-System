@@ -26,7 +26,7 @@ const supplierSchema = new Schema(
       unique: false
     },
     type: {
-      type: String,
+      type: [String],
       default: '',
       trim: true,
       unique: false
