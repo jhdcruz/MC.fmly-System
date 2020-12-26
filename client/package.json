@@ -177,10 +177,10 @@
     "plugins": [
       [
         "@babel/plugin-transform-react-jsx",
-        "@babel/plugin-syntax-dynamic-import",
         {
           "runtime": "automatic"
-        }
+        },
+        "@babel/plugin-syntax-dynamic-import"
       ]
     ],
     "presets": [
