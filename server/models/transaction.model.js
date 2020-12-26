@@ -7,9 +7,6 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
-// * Dedicated schema for orders
-const orderSchema = new Schema({ order: String });
-
 const transactionSchema = new Schema(
   {
     receipt: {
@@ -35,7 +32,7 @@ const transactionSchema = new Schema(
       default: 'Pending'
     },
     order_list: {
-      order: [orderSchema]
+      order: [String]
     },
     payment: {
       type: String,
