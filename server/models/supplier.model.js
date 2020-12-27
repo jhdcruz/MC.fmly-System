@@ -25,8 +25,9 @@ const supplierSchema = new Schema(
       default: '',
       unique: false
     },
-    type: {
-      type: [String],
+    category: {
+      tags: [String],
+      type: String,
       default: '',
       trim: true,
       unique: false
