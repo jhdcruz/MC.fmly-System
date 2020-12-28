@@ -18,7 +18,7 @@ import {
 
 const PosContainer = styled.div`
   height: 100vh;
-  width: 46vw;
+  width: 45vw;
   min-width: 40vw;
   margin: 0 auto;
 `;
