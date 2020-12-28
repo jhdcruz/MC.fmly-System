@@ -10,17 +10,25 @@ import Image from 'react-bootstrap/Image';
 import ListGroup from 'react-bootstrap/ListGroup';
 import ListGroupItem from 'react-bootstrap/ListGroupItem';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGlobe, faPhone } from '@fortawesome/free-solid-svg-icons';
+import {
+  faGlobe,
+  faMapMarkerAlt,
+  faPhone
+} from '@fortawesome/free-solid-svg-icons';
 import EntryActions from '../common/EntryActions';
+import Tag from '../common/Tag';
 
 const CardBlock = styled(Card)`
-  background-color: #222126;
-  color: #d2d2d2;
-  box-shadow: 3px 3px 8px #1b1b1b;
-  padding: 1rem !important;
-  margin: 0.3rem 1rem 2rem 0 !important;
+  display: inline-block;
+  width: 37vw;
   height: max-content;
+  padding: 1rem 1.5rem !important;
+  margin: 0.3rem 1rem 0 0 !important;
+  color: #d2d2d2;
+  background-color: #222126;
+  box-shadow: 3px 3px 8px #1b1b1b;
   border-radius: 0.3rem;
+  vertical-align: top;
   border: 2px outset #e6a195;
   z-index: 1;
 
@@ -30,7 +38,7 @@ const CardBlock = styled(Card)`
 
   // * Card Body
   .card-body {
-    padding: 1rem 1.25rem 0.5rem 1.25rem;
+    padding: 1rem 0 0.5rem 0;
 
     img {
       border-radius: 12px;
@@ -57,63 +65,81 @@ const CardBlock = styled(Card)`
     }
   }
 
-  // * Card Line-seperated content
   .list-group-flush,
   .list-group-item {
     background-color: transparent;
     color: #d2d2d2;
-    border-top: 1px solid #565656 !important;
-    border-bottom: 1px solid #565656 !important;
+    padding: 0.5rem 0;
+
+    #tags {
+      display: flex;
+      overflow: auto;
+      vertical-align: middle;
+    }
+
+    :hover {
+      background-color: #121416;
+
+      button {
+        visibility: visible;
+      }
+    }
+
+    hr {
+      border: 1px solid #e6a195 !important;
+      margin: 0 !important;
+    }
   }
 
   // * Card Footer
   .card-footer {
-    padding: 0.75rem 0.5rem 0;
-
-    a {
-      font-size: 1rem;
-      color: #e6a195;
-
-      :hover {
-        color: #9b6b65;
-      }
-    }
+    padding: 1rem 0 0 0;
   }
 `;
 
 const CardLink = styled(Card.Link)`
-  color: #2579f6;
+  font-size: 1rem;
+  color: #e6a195;
+
+  :hover {
+    color: #9b6b65;
+  }
 `;
 
 export default function Poster(props) {
   return (
-    <CardBlock tabIndex={0}>
+    <CardBlock>
       <Card.Body>
         <Card.Title>
           <Image src={props.icon} width={40} height={40} />
-          <strong>{props.name}</strong>
+          <strong>{props.name} </strong>
+          {props.website ? (
+            <CardLink href={props.website} target="_blank" rel="noreferrer">
+              <FontAwesomeIcon icon={faGlobe} />
+            </CardLink>
+          ) : (
+            ''
+          )}
           {/* Control Buttons */}
           <EntryActions edit={props.edit} delete={props.delete} />
         </Card.Title>
       </Card.Body>
       <ListGroup className="list-group-flush">
         <ListGroupItem>{props.description}</ListGroupItem>
-        <ListGroupItem>
-          <i>{props.type}</i>
+        <hr />
+        <ListGroupItem id="tags">
+          <span className="text-muted">Tags: </span>
+          {props.category.map((category) => (
+            <Tag variant="dark" index={category} content={category} />
+          ))}
         </ListGroupItem>
-        <ListGroupItem>{props.address}</ListGroupItem>
       </ListGroup>
       <Card.Footer>
-        <CardLink className="text-muted" href="#">
-          <FontAwesomeIcon icon={faPhone} /> {props.contact}
+        <CardLink href={`https://www.google.com/maps/place/${props.address}`}>
+          <FontAwesomeIcon icon={faMapMarkerAlt} /> {props.address}
         </CardLink>
-        <CardLink
-          className="float-right"
-          href={props.website}
-          target="_blank"
-          rel="noreferrer"
-        >
-          <FontAwesomeIcon icon={faGlobe} />
+        <CardLink className="float-right text-muted">
+          <FontAwesomeIcon icon={faPhone} /> {props.contact}
         </CardLink>
       </Card.Footer>
     </CardBlock>
