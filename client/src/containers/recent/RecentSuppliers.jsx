@@ -39,9 +39,9 @@ export default function RecentSuppliers() {
   return (
     <>
       <Modals />
-      <SupplierHeader
-        data={
-          data && true ? (
+      {data && true ? (
+        <SupplierHeader
+          data={
             // Reverse & limit result to 10 | prioritize new entries
             data &&
             data
@@ -63,11 +63,11 @@ export default function RecentSuppliers() {
                   />
                 </Suspense>
               ))
-          ) : (
-            <Fallback />
-          )
-        }
-      />
+          }
+        />
+      ) : (
+        <Fallback />
+      )}
     </>
   );
 }

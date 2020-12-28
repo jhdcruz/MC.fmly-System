@@ -39,9 +39,9 @@ export default function RecentProducts() {
   return (
     <>
       <Modals />
-      <ProductHeader
-        data={
-          data && true ? (
+      {data && true ? (
+        <ProductHeader
+          data={
             // Reverse & limit result to 10 | prioritize new entries
             data &&
             data
@@ -65,11 +65,11 @@ export default function RecentProducts() {
                   />
                 </Suspense>
               ))
-          ) : (
-            <Fallback />
-          )
-        }
-      />
+          }
+        />
+      ) : (
+        <Fallback />
+      )}
     </>
   );
 }

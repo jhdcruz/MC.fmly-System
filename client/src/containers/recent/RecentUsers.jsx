@@ -39,9 +39,9 @@ export default function RecentUsers() {
   return (
     <>
       <Modals />
-      <UserHeader
-        data={
-          data && true ? (
+      {data && true ? (
+        <UserHeader
+          data={
             // Reverse & limit result to 10 | prioritize new entries
             data &&
             data
@@ -62,11 +62,11 @@ export default function RecentUsers() {
                   />
                 </Suspense>
               ))
-          ) : (
-            <Fallback />
-          )
-        }
-      />
+          }
+        />
+      ) : (
+        <Fallback />
+      )}
     </>
   );
 }
