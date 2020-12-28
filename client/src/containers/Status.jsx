@@ -18,15 +18,6 @@ import ApiService from '../services/ApiService';
 export default function Status(props) {
   const { data } = ApiService();
 
-  // * Set tooltip notice based on response
-  const ServerStatus = () => {
-    if (data === 'OK') {
-      return <p className="m-0">System is operational.</p>;
-    } else {
-      return <p className="m-0">System is currently down.</p>;
-    }
-  };
-
   // * Display Status Icon based on response
   const StatusDisplay = () => {
     return (
@@ -62,7 +53,11 @@ export default function Status(props) {
         }}
         overlay={
           <Tooltip id="">
-            <ServerStatus />
+            {data && true ? (
+              <p className="m-0">System is operational.</p>
+            ) : (
+              <p className="m-0">System is currently down.</p>
+            )}
           </Tooltip>
         }
       >
