@@ -8,10 +8,10 @@ import { lazy, Suspense, useCallback, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
 import Status from './Status';
-import LoginForm from '../components/forms/LoginForm';
 import { Fallback } from 'components/common/Loader';
 
 // Views
+const LoginForm = lazy(() => import('../components/forms/LoginForm'));
 const Admin = lazy(() => import('../views/Admin'));
 const Cashier = lazy(() => import('../views/Cashier'));
 const SysAdmin = lazy(() => import('../views/SysAdmin'));
@@ -80,7 +80,7 @@ export default function Authentication() {
   }
 
   return (
-    <>
+    <Suspense fallback={<Fallback />}>
       <LoginForm
         username={register}
         password={register}
@@ -88,6 +88,6 @@ export default function Authentication() {
         forgotten={forgotCreds}
       />
       <Status placement="left" />
-    </>
+    </Suspense>
   );
 }
