@@ -6,15 +6,15 @@
 
 import { lazy, Suspense, useState } from 'react';
 import { Fallback, Loader } from '../../components/common/Loader';
-import SearchControls from '../../components/SearchControls';
-import SupplierService from '../../services/SupplierService';
-import Categories from '../../components/sidebar/Categories';
-import ResetScroll from '../../components/ResetScroll';
-import supplierCategories from './SupplierFilters';
 import Tab from 'react-bootstrap/Tab';
 import Nav from 'react-bootstrap/Nav';
 import Tooltip from 'react-bootstrap/Tooltip';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
+import SearchControls from '../../components/SearchControls';
+import Categories from '../../components/sidebar/Categories';
+import ResetScroll from '../../components/ResetScroll';
+import SupplierService from '../../services/SupplierService';
+import { supplierCategories } from './SupplierFilters';
 
 const Poster = lazy(() => import('../../components/cards/Poster'));
 const SupplierModals = lazy(() => import('./SupplierModals'));

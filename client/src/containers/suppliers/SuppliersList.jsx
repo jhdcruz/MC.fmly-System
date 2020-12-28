@@ -8,14 +8,14 @@ import { lazy, Suspense, useState } from 'react';
 import { Fallback, Loader } from '../../components/common/Loader';
 import Nav from 'react-bootstrap/Nav';
 import Tab from 'react-bootstrap/Tab';
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
+import Tooltip from 'react-bootstrap/Tooltip';
 import Categories from '../../components/sidebar/Categories';
 import SupplierHeader from '../../components/tables/SupplierHeader';
 import SearchControls from '../../components/SearchControls';
-import SupplierService from '../../services/SupplierService';
-import supplierCategories from './SupplierFilters';
 import ResetScroll from '../../components/ResetScroll';
-import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
-import Tooltip from 'react-bootstrap/Tooltip';
+import SupplierService from '../../services/SupplierService';
+import { supplierCategories } from './SupplierFilters';
 
 const SupplierRow = lazy(() => import('../../components/tables/SupplierRow'));
 const SupplierModals = lazy(() => import('./SupplierModals'));

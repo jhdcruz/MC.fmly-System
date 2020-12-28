@@ -5,8 +5,6 @@
  */
 
 // * Removes duplicate properties | category
-function supplierCategories(data) {
+export function supplierCategories(data) {
   return [...new Set(data)];
 }
-
-module.exports = supplierCategories;
