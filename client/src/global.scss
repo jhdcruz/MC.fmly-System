@@ -32,7 +32,7 @@ body {
 
   ::-webkit-scrollbar {
     background: transparent;
-    width: 13px;
+    width: 8px;
   }
 
   ::-webkit-scrollbar-track {
@@ -40,9 +40,9 @@ body {
   }
 
   ::-webkit-scrollbar-thumb {
-    background-color: #222222;
-    border-radius: 10px;
-    border: 2px solid #333;
+    background-color: #e6a195;
+    border: 3px solid #222126;
+    border-radius: 5px;
   }
 }
 
@@ -62,7 +62,7 @@ img {
   display: inline;
   width: 100% !important;
   height: 100vh;
-  overflow: hidden;
+  overflow: auto;
   -webkit-user-drag: none;
   -khtml-user-drag: none;
   -moz-user-drag: none;
