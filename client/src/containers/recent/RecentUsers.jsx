@@ -41,7 +41,7 @@ export default function RecentUsers() {
       <Modals />
       <UserHeader
         data={
-          data && data.length !== null ? (
+          data && true ? (
             // Reverse & limit result to 10 | prioritize new entries
             data &&
             data
