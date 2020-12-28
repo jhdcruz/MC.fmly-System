@@ -128,7 +128,7 @@ export default function Poster(props) {
         <ListGroupItem>{props.description}</ListGroupItem>
         <hr />
         <ListGroupItem id="tags">
-          <span className="text-muted">Tags: </span>
+          <span className="text-muted pt-1 pr-1">Tags: </span>
           {props.category.map((category) => (
             <Tag variant="dark" index={category} content={category} />
           ))}
