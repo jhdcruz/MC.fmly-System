@@ -57,8 +57,8 @@ export default function TabItem(props) {
       <OverlayTrigger
         placement="right"
         delay={{
-          show: 250,
-          hide: 400
+          show: 0,
+          hide: 150
         }}
         overlay={
           <Tooltip id="button-tooltip" {...props}>
