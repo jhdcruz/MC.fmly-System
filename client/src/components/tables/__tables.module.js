@@ -23,8 +23,7 @@ export const TableModule = createGlobalStyle`
     table {
       display: inline-table;
       height: max-content;
-      width: 100%;
-      padding: 0 1rem 0 0 !important;
+      padding: 0 1rem 0.25rem !important;
       margin: 0;
       overflow: auto !important;
       background-color: transparent;
