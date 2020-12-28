@@ -10,10 +10,15 @@ import Badge from 'react-bootstrap/Badge';
 // * Color Badges
 const Chip = styled(Badge)`
   font-size: 1rem;
+  margin: 0.35rem 0.5rem 0.35rem 0;
   border-radius: 0.3rem;
   box-shadow: 1px 2px 5px #1b1b1b;
 `;
 
-export default function Tag({ variant, content }) {
-  return <Chip variant={variant}>{content}</Chip>;
+export default function Tag({ index, variant, content }) {
+  return (
+    <Chip variant={variant} key={index}>
+      {content}
+    </Chip>
+  );
 }
