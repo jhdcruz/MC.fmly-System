@@ -26,11 +26,17 @@ const supplierSchema = new Schema(
       unique: false
     },
     category: {
-      tags: [String],
-      type: String,
+      type: [String],
       default: '',
       trim: true,
-      unique: false
+      unique: false,
+      index: {
+        unique: true,
+        collation: {
+          locale: 'en',
+          strength: 2
+        }
+      }
     },
     address: {
       type: String,
