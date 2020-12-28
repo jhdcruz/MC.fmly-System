@@ -17,13 +17,14 @@ export const TableModule = createGlobalStyle`
     display: inline-flex !important;
     width: max-content;
     height: max-content;
-    padding: 0 0 0 0.5rem;
+    padding: 0;
     overflow: auto !important;
 
     table {
       display: inline-table;
       height: max-content;
       width: 100%;
+      padding: 0 1rem 0 0 !important;
       margin: 0;
       overflow: auto !important;
       background-color: transparent;
@@ -104,15 +105,15 @@ export const TableRow = styled.tr`
 export const TableData = styled.td`
   color: white;
   text-indent: 0.6rem;
-  font-size: 1.2vw;
+  font-size: 1rem;
   width: max-content !important;
   padding: 1.2rem 1rem 1.2rem 0 !important;
   margin: 0 1rem !important;
   border: none !important;
   table-layout: fixed;
   white-space: nowrap;
-  overflow: hidden !important;
-  text-overflow: ellipsis !important;
+  overflow: auto !important;
+  text-overflow: clip !important;
   vertical-align: middle !important;
 
   .actions {
@@ -127,8 +128,9 @@ export const TableData = styled.td`
 // ! Different from <Tag /> component
 // ! because of width/padding bug in tables
 export const Tag = styled(Badge)`
-  font-size: 1.2vw;
+  font-size: 1rem;
   padding: 6px 10px 6px 0;
+  margin: 0 0.35rem 0 0;
   border-radius: 0.3rem;
   box-shadow: 1px 2px 5px #1b1b1b;
 `;
