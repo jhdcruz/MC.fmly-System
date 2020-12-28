@@ -31,7 +31,7 @@
     "dotenv-expand": "5.1.0",
     "express": "4.17.1",
     "helmet": "4.3.1",
-    "mongoose": "5.11.8",
+    "mongoose": "5.11.9",
     "rollbar": "2.19.4"
   },
   "devDependencies": {
