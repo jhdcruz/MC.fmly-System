@@ -100,7 +100,7 @@ export default function SuppliersList(props) {
 
   return (
     <Categories
-      main="Categories"
+      main="Tags"
       mainTabs={
         data &&
         supplierCategories(data).map((supplier) => (

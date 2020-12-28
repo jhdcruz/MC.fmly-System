@@ -89,6 +89,7 @@ export default function SuppliersCard(props) {
       </>
     );
   };
+
   const SupplierCard = () => {
     return (
       <>
@@ -116,7 +117,7 @@ export default function SuppliersCard(props) {
 
   return (
     <Categories
-      main="Categories"
+      main="Tags"
       mainTabs={
         data &&
         supplierCategories(data).map((supplier) => (
