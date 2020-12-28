@@ -110,13 +110,13 @@ export default function PosCatalog() {
       <>
         <SearchBar />
         {data && true ? (
-          <>
+          <div className="mt-3">
             <Tab.Pane eventKey="default">
               {data && data.map((product) => Catalog(product))}
             </Tab.Pane>
             <CategoryFilter />
             <TypeFilter />
-          </>
+          </div>
         ) : (
           <Fallback />
         )}
