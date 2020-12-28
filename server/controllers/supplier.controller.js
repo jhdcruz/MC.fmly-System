@@ -67,7 +67,7 @@ exports.post = async (req, res) => {
       indexMeta: true,
       meta: { err }
     });
-    res.status(500).send('Error posting of suppliers');
+    res.status(500).send(`Error posting of suppliers: ${err}`);
   }
 };
 
