@@ -31,8 +31,18 @@ const transactionSchema = new Schema(
       trim: true,
       default: 'Pending'
     },
-    order_list: {
-      order: [String]
+    order: {
+      type: [String],
+      default: 'No order record',
+      trim: true,
+      unique: false,
+      index: {
+        unique: true,
+        collation: {
+          locale: 'en',
+          strength: 2
+        }
+      }
     },
     payment: {
       type: String,
@@ -45,5 +55,4 @@ const transactionSchema = new Schema(
   },
   { timestamps: true }
 );
-
 mongoose.model('transactions', transactionSchema);
