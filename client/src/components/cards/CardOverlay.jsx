@@ -24,12 +24,13 @@ const CardContainer = styled(Card)`
     height: max-content;
 
     .card-title {
-      font-size: 1.3vw;
+      font-size: 1.1rem;
+      margin: 0;
     }
 
     .card-text {
-      font-size: 1.2vw;
-      margin: 2.5vh 0;
+      font-size: 1.1rem;
+      margin: 0;
     }
   }
 
