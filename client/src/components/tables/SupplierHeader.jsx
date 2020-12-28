@@ -15,7 +15,7 @@ import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
  *********************************/
 
 const SuppliersTable = styled(Table)`
-  width: 140vw !important;
+  width: 100vw !important;
   padding: 0 1rem 1rem 1rem;
   overflow: auto !important;
   table-layout: fixed;

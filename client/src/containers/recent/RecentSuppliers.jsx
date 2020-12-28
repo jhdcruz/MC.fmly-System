@@ -56,7 +56,7 @@ export default function RecentSuppliers() {
                     icon={supplier.icon}
                     name={supplier.name}
                     description={supplier.description}
-                    type={supplier.type}
+                    category={supplier.category}
                     address={supplier.address}
                     website={supplier.website}
                     contact={supplier.contact}

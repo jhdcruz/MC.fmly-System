@@ -6,11 +6,16 @@
 
 import { lazy, Suspense, useState } from 'react';
 import { Fallback, Loader } from '../../components/common/Loader';
+import Nav from 'react-bootstrap/Nav';
 import Tab from 'react-bootstrap/Tab';
-import SearchControls from '../../components/SearchControls';
+import Categories from '../../components/sidebar/Categories';
 import SupplierHeader from '../../components/tables/SupplierHeader';
+import SearchControls from '../../components/SearchControls';
 import SupplierService from '../../services/SupplierService';
+import supplierCategories from './SupplierFilters';
 import ResetScroll from '../../components/ResetScroll';
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
+import Tooltip from 'react-bootstrap/Tooltip';
 
 const SupplierRow = lazy(() => import('../../components/tables/SupplierRow'));
 const SupplierModals = lazy(() => import('./SupplierModals'));
@@ -55,7 +60,7 @@ export default function SuppliersList(props) {
           icon={supplier.icon}
           name={supplier.name}
           description={supplier.description}
-          type={supplier.type}
+          category={supplier.category}
           address={supplier.address}
           website={supplier.website}
           contact={supplier.contact}
@@ -64,27 +69,64 @@ export default function SuppliersList(props) {
     );
   };
 
-  return (
-    <>
-      <Modals />
-      <SearchControls
-        add="Add Transaction"
-        cardView={props.view}
-        modal={() => showAddModal(true)}
-      />
+  const ListView = () => {
+    return (
+      <>
+        <Modals />
+        <SearchControls
+          add="Add Supplier"
+          cardView={props.view}
+          modal={() => showAddModal(true)}
+        />
 
-      {data && true ? (
-        <Tab.Pane>
-          <ResetScroll />
-          <SupplierHeader
-            data={
-              data && data.reverse().map((supplier) => SupplierList(supplier))
-            }
-          />
-        </Tab.Pane>
-      ) : (
-        <Fallback />
-      )}
-    </>
+        {data && true ? (
+          <>
+            <Tab.Pane eventKey="default">
+              <ResetScroll />
+              <SupplierHeader
+                data={
+                  data &&
+                  data.reverse().map((supplier) => SupplierList(supplier))
+                }
+              />
+            </Tab.Pane>
+          </>
+        ) : (
+          <Fallback />
+        )}
+      </>
+    );
+  };
+
+  return (
+    <Categories
+      main="Categories"
+      mainTabs={
+        data &&
+        supplierCategories(data).map((supplier) => (
+          <>
+            {supplier.category.map((category) => (
+              <OverlayTrigger
+                placement="right"
+                delay={{
+                  show: 500,
+                  hide: 250
+                }}
+                overlay={
+                  <Tooltip id="button-tooltip" {...props}>
+                    {category}
+                  </Tooltip>
+                }
+              >
+                <Nav.Item key={category}>
+                  <Nav.Link eventKey={category}>{category}</Nav.Link>
+                </Nav.Item>
+              </OverlayTrigger>
+            ))}
+          </>
+        ))
+      }
+      content={<ListView />}
+    />
   );
 }

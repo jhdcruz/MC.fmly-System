@@ -8,6 +8,7 @@ import { lazy, Suspense } from 'react';
 import { TableData, TableRow, Tag } from './__tables.module';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGlobe } from '@fortawesome/free-solid-svg-icons';
+import Button from 'react-bootstrap/Button';
 import EntryActions from '../common/EntryActions';
 
 const Moment = lazy(() => import('react-moment'));
@@ -23,19 +24,23 @@ export default function SupplierRow(supplier) {
       <TableRow className="supplier" key={supplier._id} tabIndex={0}>
         <TableData className="name">
           <EntryActions edit={supplier.edit} delete={supplier.delete} />
-          <Tag variant="primary">{supplier.name}</Tag>
+          <Tag variant="warning">{supplier.name}</Tag>
         </TableData>
         <TableData className="description">{supplier.description}</TableData>
-        <TableData className="type">{supplier.type}</TableData>
+        <TableData className="type">
+          {supplier.category.map((category) => (
+            <Tag variant="dark" key={category}>
+              {category}
+            </Tag>
+          ))}
+        </TableData>
         <TableData className="contact">
-          <Tag variant="dark">{supplier.contact}</Tag>
+          <Tag variant="info">{supplier.contact}</Tag>
         </TableData>
         <TableData className="website">
-          <a href={supplier.website} target="_blank" rel="noreferrer">
-            <Tag variant="info">
-              <FontAwesomeIcon icon={faGlobe} />
-            </Tag>
-          </a>
+          <Button href={supplier.website} target="_blank" rel="noreferrer">
+            <FontAwesomeIcon icon={faGlobe} />
+          </Button>
         </TableData>
         <TableData className="updatedAt">
           {/* Parse date to human-friendly format */}

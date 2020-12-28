@@ -6,15 +6,19 @@
 
 import { lazy, Suspense, useState } from 'react';
 import { Fallback, Loader } from '../../components/common/Loader';
-import ResetScroll from '../../components/ResetScroll';
-import CardDeck from 'react-bootstrap/CardDeck';
 import SearchControls from '../../components/SearchControls';
 import SupplierService from '../../services/SupplierService';
+import Categories from '../../components/sidebar/Categories';
+import ResetScroll from '../../components/ResetScroll';
+import supplierCategories from './SupplierFilters';
+import Tab from 'react-bootstrap/Tab';
+import Nav from 'react-bootstrap/Nav';
+import Tooltip from 'react-bootstrap/Tooltip';
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 
 const Poster = lazy(() => import('../../components/cards/Poster'));
 const SupplierModals = lazy(() => import('./SupplierModals'));
 
-// TODO: Add <Categories /> by types
 export default function SuppliersCard(props) {
   const { data } = SupplierService();
 
@@ -55,7 +59,7 @@ export default function SuppliersCard(props) {
           icon={supplier.icon}
           name={supplier.name}
           description={supplier.description}
-          type={supplier.type}
+          category={supplier.category}
           address={supplier.address}
           website={supplier.website}
           contact={supplier.contact}
@@ -64,38 +68,81 @@ export default function SuppliersCard(props) {
     );
   };
 
+  // * Filter suppliers by category
+  const CategoryFilter = () => {
+    return (
+      <>
+        {data &&
+          supplierCategories(data).map((supplier) => (
+            <>
+              {supplier.category.map((category) => (
+                <Tab.Pane key={category} eventKey={category}>
+                  <ResetScroll />
+                  {data
+                    .filter((pane) => pane === category)
+                    .map((suppliers) => PosterCard(suppliers))
+                    .reverse()}
+                </Tab.Pane>
+              ))}
+            </>
+          ))}
+      </>
+    );
+  };
   const SupplierCard = () => {
     return (
-      <CardDeck
-        style={{
-          margin: '0 0.5rem 1rem',
-          padding: '1rem',
-          overflow: 'auto'
-        }}
-      >
-        {/* Render <Loading /> while fetching suppliers */}
+      <>
+        <Modals />
+        <SearchControls
+          add="Add Supplier"
+          listView={props.view}
+          modal={() => showAddModal(true)}
+        />
+
         {data && true ? (
           <>
             <ResetScroll />
-            {data && data.map((supplier) => PosterCard(supplier)).reverse()}
+            <Tab.Pane eventKey="default">
+              {data && data.map((supplier) => PosterCard(supplier)).reverse()}
+            </Tab.Pane>
+            <CategoryFilter />
           </>
         ) : (
           <Fallback />
         )}
-      </CardDeck>
+      </>
     );
   };
 
   return (
-    <div className="overflow-auto pt-5">
-      <Modals />
-      <SearchControls
-        add="Add Supplier"
-        listView={props.view}
-        modal={() => showAddModal(true)}
-      />
-
-      <SupplierCard />
-    </div>
+    <Categories
+      main="Categories"
+      mainTabs={
+        data &&
+        supplierCategories(data).map((supplier) => (
+          <>
+            {supplier.category.map((category) => (
+              <OverlayTrigger
+                placement="right"
+                delay={{
+                  show: 500,
+                  hide: 250
+                }}
+                overlay={
+                  <Tooltip id="button-tooltip" {...props}>
+                    {category}
+                  </Tooltip>
+                }
+              >
+                <Nav.Item key={category}>
+                  <Nav.Link eventKey={category}>{category}</Nav.Link>
+                </Nav.Item>
+              </OverlayTrigger>
+            ))}
+          </>
+        ))
+      }
+      content={<SupplierCard />}
+    />
   );
 }
