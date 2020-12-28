@@ -20,18 +20,19 @@ const CatalogGrid = styled(Row)`
 const CategoryList = styled(Col)`
   color: whitesmoke;
   background-color: #222126;
-  width: 12.6rem;
-  max-width: 12.6rem;
+  width: 13rem;
+  max-width: 13rem;
   height: 100vh;
-  margin: 0 5rem 0 1rem;
+  margin: 0 0 0 1rem;
   padding: 3rem 0.8rem 1rem 1.2rem;
   border-right: 3px ridge #e6a195;
   box-shadow: -1px 0 6px #232323;
   text-overflow: ellipsis;
   text-transform: capitalize;
-  white-space: nowrap;
   position: absolute;
+  white-space: nowrap;
   overflow-y: auto;
+  overflow-x: hidden;
   z-index: 9;
 
   hr {
@@ -67,7 +68,7 @@ const CategoryContent = styled(Col)`
   width: max-content;
   height: 100vh;
   padding: 3rem 0 1rem 1rem;
-  margin: 0 0 0 13.2rem;
+  margin: 0 0 0 13.5rem;
   overflow: auto !important;
 `;
 
@@ -88,7 +89,9 @@ export default function Categories(props) {
               <Nav.Link eventKey="default">All</Nav.Link>
             </Nav.Item>
             {props.mainTabs}
-            <hr />
+
+            {/* * Add Line when there's a secondary nav */}
+            {props.secondary ? <hr /> : ''}
             <CategoryLine>{props.secondary}</CategoryLine>
             {props.secondaryTabs}
           </Nav>
