@@ -42,7 +42,8 @@ export default function Status(props) {
         bottom: '1.5rem',
         right: '1.5rem',
         left: props.left,
-        zIndex: 3
+        zIndex: 3,
+        width: 'max-content'
       }}
     >
       <OverlayTrigger
