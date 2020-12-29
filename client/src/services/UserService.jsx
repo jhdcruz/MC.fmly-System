@@ -8,8 +8,17 @@ import axios from 'axios';
 import { useQuery } from 'react-query';
 
 export default function UserService() {
-  return useQuery('users', async () => {
-    const { data } = await axios.get('https://mc-ims-api.herokuapp.com/users');
-    return data;
-  });
+  return useQuery(
+    'users',
+    async () => {
+      const { data } = await axios.get(
+        'https://mc-ims-api.herokuapp.com/users'
+      );
+      return data;
+    },
+    {
+      refetchIntervalInBackground: true,
+      refetchOnWindowFocus: false
+    }
+  );
 }

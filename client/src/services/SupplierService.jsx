@@ -8,10 +8,17 @@ import axios from 'axios';
 import { useQuery } from 'react-query';
 
 export default function SupplierService() {
-  return useQuery('suppliers', async () => {
-    const { data } = await axios.get(
-      'https://mc-ims-api.herokuapp.com/suppliers'
-    );
-    return data;
-  });
+  return useQuery(
+    'suppliers',
+    async () => {
+      const { data } = await axios.get(
+        'https://mc-ims-api.herokuapp.com/suppliers'
+      );
+      return data;
+    },
+    {
+      refetchIntervalInBackground: true,
+      refetchOnWindowFocus: false
+    }
+  );
 }
