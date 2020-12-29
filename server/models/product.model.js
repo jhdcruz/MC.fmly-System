@@ -22,17 +22,17 @@ const productSchema = new Schema(
     variant: {
       type: String,
       trim: true,
-      caseFirst: 'on'
+      lowercase: true
     },
     type: {
       type: String,
       trim: true,
-      caseFirst: 'on'
+      lowercase: true
     },
     category: {
       type: String,
       trim: true,
-      caseFirst: 'on'
+      lowercase: true
     },
     quantity: {
       type: Number,
