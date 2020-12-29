@@ -11,7 +11,7 @@ import Sidebar from '../components/sidebar/Sidebar';
 import TabItem from '../components/sidebar/TabItem';
 import RouteTransition from '../components/common/RouteTransition';
 // Assets
-import routes from '../utils/routes';
+import routes from '../constants/routes';
 import '../global.scss';
 import {
   faBoxes,

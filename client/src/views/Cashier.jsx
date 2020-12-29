@@ -11,7 +11,7 @@ import Sidebar from '../components/sidebar/Sidebar';
 import TabItem from '../components/sidebar/TabItem';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import RouteTransition from '../components/common/RouteTransition';
-import routes from '../utils/routes';
+import routes from '../constants/routes';
 import '../global.scss';
 // Routes
 import Pos from '../pages/Pos';
