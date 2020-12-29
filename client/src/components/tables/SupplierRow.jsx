@@ -5,7 +5,7 @@
  */
 
 import { lazy, Suspense } from 'react';
-import { TableData, TableRow, Tag } from './__tables.module';
+import { TableData, TableRow, Tag } from './Tables.module';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGlobe } from '@fortawesome/free-solid-svg-icons';
 import Button from 'react-bootstrap/Button';
@@ -27,10 +27,10 @@ export default function SupplierRow(supplier) {
           <Tag variant="warning">{supplier.name}</Tag>
         </TableData>
         <TableData className="description">{supplier.description}</TableData>
-        <TableData className="type">
-          {supplier.category.map((category) => (
-            <Tag variant="dark" key={category}>
-              {category}
+        <TableData className="tags">
+          {supplier.category.map((tags) => (
+            <Tag variant="dark" key={tags}>
+              {tags}
             </Tag>
           ))}
         </TableData>

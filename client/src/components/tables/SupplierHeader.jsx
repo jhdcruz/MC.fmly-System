@@ -6,7 +6,7 @@
 
 import Table from 'react-bootstrap/Table';
 import styled from 'styled-components';
-import { TableHeader, TableModule } from './__tables.module';
+import { TableHeader, TableModule } from './Tables.module';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
 
@@ -35,8 +35,8 @@ export default function SupplierHeader(props) {
             <TableHeader id="Description">
               Description <FontAwesomeIcon icon={faCaretDown} />
             </TableHeader>
-            <TableHeader id="Type">
-              Type <FontAwesomeIcon icon={faCaretDown} />
+            <TableHeader id="Tags">
+              Tags <FontAwesomeIcon icon={faCaretDown} />
             </TableHeader>
             <TableHeader id="Contact">
               Contact <FontAwesomeIcon icon={faCaretDown} />
