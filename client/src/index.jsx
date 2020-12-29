@@ -20,16 +20,10 @@ import { StrictMode } from 'react';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import ReactDOM from 'react-dom';
 import Login from './pages/Login';
+import clientOpts from './utils/queryClient';
 import 'global.scss';
 
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      // * Set cache max age
-      cacheTime: 60000 // ? ms
-    }
-  }
-});
+const queryClient = new QueryClient(clientOpts);
 
 ReactDOM.render(
   <StrictMode>
