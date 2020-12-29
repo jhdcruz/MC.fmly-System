@@ -17,8 +17,9 @@ export default function ApiService() {
       return data;
     },
     {
-      refetchInterval: 10000,
-      refetchIntervalInBackground: false
+      refetchInterval: 60000,
+      refetchIntervalInBackground: true,
+      refetchOnWindowFocus: false
     }
   );
 }
