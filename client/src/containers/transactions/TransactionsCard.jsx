@@ -12,7 +12,7 @@ import SearchControls from '../../components/SearchControls';
 import { CardDeck } from '../../components/cards/CardOverlay';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarAlt, faHistory } from '@fortawesome/free-solid-svg-icons';
-import { Fallback, Loader } from '../../components/common/Loader';
+import { Fallback } from '../../components/common/Loader';
 import Tag from '../../components/common/Tag';
 import Notification from '../../components/common/Notification';
 import { transactionPayment, transactionStatus } from './TransactionFilters';
@@ -38,7 +38,7 @@ export default function TransactionsCard(props) {
 
   const Modals = () => {
     return (
-      <Suspense fallback={<Loader />}>
+      <Suspense fallback="">
         <TransactionModals
           addModal={addModal}
           editModal={editModal}

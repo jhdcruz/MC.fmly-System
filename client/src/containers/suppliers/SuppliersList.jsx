@@ -31,7 +31,7 @@ export default function SuppliersList(props) {
   // * Modals
   const Modals = () => {
     return (
-      <Suspense fallback={<Loader />}>
+      <Suspense fallback="">
         <SupplierModals
           addModal={addModal}
           editModal={editModal}

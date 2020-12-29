@@ -29,7 +29,7 @@ export default function UsersList(props) {
   // * Modals
   const Modals = () => {
     return (
-      <Suspense fallback={<Loader />}>
+      <Suspense fallback="">
         <UserModals
           addModal={addModal}
           editModal={editModal}

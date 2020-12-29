@@ -31,7 +31,7 @@ export default function TransactionsList(props) {
 
   const Modals = () => {
     return (
-      <Suspense fallback={<Loader />}>
+      <Suspense fallback="">
         <TransactionModals
           addModal={addModal}
           editModal={editModal}

@@ -30,7 +30,7 @@ export default function SuppliersCard(props) {
   // * Modals
   const Modals = () => {
     return (
-      <Suspense fallback={<Loader />}>
+      <Suspense fallback="">
         <SupplierModals
           addModal={addModal}
           editModal={editModal}

@@ -12,7 +12,7 @@ import SearchControls from '../../components/SearchControls';
 import { CardDeck } from '../../components/cards/CardOverlay';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarAlt, faHistory } from '@fortawesome/free-solid-svg-icons';
-import { Fallback, Loader } from '../../components/common/Loader';
+import { Fallback } from '../../components/common/Loader';
 import { userPermissions, userRoles } from './UserFilters';
 import Tag from '../../components/common/Tag';
 import UserService from '../../services/UserService';
@@ -33,7 +33,7 @@ export default function UsersCard(props) {
   // * Modals
   const Modals = () => {
     return (
-      <Suspense fallback={<Loader />}>
+      <Suspense fallback="">
         <UserModals
           addModal={addModal}
           editModal={editModal}

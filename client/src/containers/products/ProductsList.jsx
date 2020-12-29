@@ -32,7 +32,7 @@ export default function ProductsList(props) {
 
   const Modals = () => {
     return (
-      <Suspense fallback={<Loader />}>
+      <Suspense fallback="">
         <ProductModals
           addModal={addModal}
           editModal={editModal}

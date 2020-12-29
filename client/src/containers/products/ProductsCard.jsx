@@ -12,7 +12,7 @@ import Categories from '../../components/sidebar/Categories';
 import { CardDeck } from '../../components/cards/CardOverlay';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarAlt, faHistory } from '@fortawesome/free-solid-svg-icons';
-import { Fallback, Loader } from '../../components/common/Loader';
+import { Fallback } from '../../components/common/Loader';
 import { productCategories, productTypes } from './ProductFilters';
 import ResetScroll from '../../components/ResetScroll';
 import Tag from '../../components/common/Tag';
@@ -37,7 +37,7 @@ export default function ProductsCard(props) {
 
   const Modals = () => {
     return (
-      <Suspense fallback={<Loader />}>
+      <Suspense fallback="">
         <ProductModals
           addModal={addModal}
           editModal={editModal}
