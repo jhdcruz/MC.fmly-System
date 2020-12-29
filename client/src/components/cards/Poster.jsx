@@ -27,18 +27,27 @@ const CardBlock = styled(Card)`
   color: #d2d2d2;
   background-color: #222126;
   box-shadow: 3px 3px 8px #1b1b1b;
+  border: 3px solid transparent;
   border-radius: 0.3rem;
   vertical-align: top;
-  border: 2px outset #e6a195;
   z-index: 1;
 
   :hover {
-    background-color: #121416;
+    background-color: #161518;
+    border: 3px ridge #e6a195;
+    border-radius: 0.3rem;
+    outline: none;
+
+    button {
+      visibility: visible;
+    }
   }
 
   // * Card Body
   .card-body {
     padding: 1rem 0 0.5rem 0;
+    border: none;
+    border-bottom: 2px solid #e6a195 !important;
 
     img {
       border-radius: 12px;
@@ -70,19 +79,12 @@ const CardBlock = styled(Card)`
     background-color: transparent;
     color: #d2d2d2;
     padding: 0.5rem 0;
+    border: none;
 
     #tags {
       display: flex;
       overflow: auto;
       vertical-align: middle;
-    }
-
-    :hover {
-      background-color: #121416;
-
-      button {
-        visibility: visible;
-      }
     }
 
     hr {
@@ -94,6 +96,8 @@ const CardBlock = styled(Card)`
   // * Card Footer
   .card-footer {
     padding: 1rem 0 0 0;
+    border: none;
+    border-top: 2px solid #e6a195 !important;
   }
 `;
 
