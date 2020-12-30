@@ -17,6 +17,7 @@ import { userPermissions, userRoles } from './UserFilters';
 import Tag from '../../components/common/Tag';
 import UserService from '../../services/UserService';
 import ResetScroll from '../../components/ResetScroll';
+import Notification from '../../components/common/Notification';
 
 // * Lazy imports
 const UserModals = lazy(() => import('./UserModals'));
@@ -155,26 +156,34 @@ export default function UsersCard(props) {
   };
 
   return (
-    <Categories
-      main="Permissions"
-      mainTabs={
-        data &&
-        userPermissions(data).map((user) => (
-          <Nav.Item key={user.permission}>
-            <Nav.Link eventKey={user.permission}>{user.permission}</Nav.Link>
-          </Nav.Item>
-        ))
-      }
-      secondary="Roles"
-      secondaryTabs={
-        data &&
-        userRoles(data).map((user) => (
-          <Nav.Item key={user.role}>
-            <Nav.Link eventKey={user.role}>{user.role}</Nav.Link>
-          </Nav.Item>
-        ))
-      }
-      content={<UserCards />}
-    />
+    <>
+      <Categories
+        main="Permissions"
+        mainTabs={
+          data &&
+          userPermissions(data).map((user) => (
+            <Nav.Item key={user.permission}>
+              <Nav.Link eventKey={user.permission}>{user.permission}</Nav.Link>
+            </Nav.Item>
+          ))
+        }
+        secondary="Roles"
+        secondaryTabs={
+          data &&
+          userRoles(data).map((user) => (
+            <Nav.Item key={user.role}>
+              <Nav.Link eventKey={user.role}>{user.role}</Nav.Link>
+            </Nav.Item>
+          ))
+        }
+        content={<UserCards />}
+      />
+      <Notification
+        delay={7000}
+        title="Notice"
+        time="System Admin"
+        message="Card view currently has limited functionality compared to List/Table view."
+      />
+    </>
   );
 }

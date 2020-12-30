@@ -4,7 +4,7 @@
  *     Licensed under GNU General Public License 3.0 or later
  */
 
-import { useState } from 'react';
+import { memo, useState } from 'react';
 import styled from 'styled-components';
 import Toast from 'react-bootstrap/Toast';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -47,7 +47,7 @@ const Notice = styled(Toast)`
   }
 `;
 
-export default function Notification(props) {
+const Notification = memo((props) => {
   const [show, setShow] = useState(true);
 
   return (
@@ -66,4 +66,6 @@ export default function Notification(props) {
       <Notice.Body>{props.message}</Notice.Body>
     </Notice>
   );
-}
+});
+
+export default Notification;
