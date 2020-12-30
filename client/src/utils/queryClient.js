@@ -7,8 +7,8 @@
 const clientOpts = {
   defaultOptions: {
     queries: {
-      // * Set cache max age
-      cacheTime: 60000 // ? ms
+      cacheTime: 300000,
+      staleTime: 30000
     }
   }
 };
