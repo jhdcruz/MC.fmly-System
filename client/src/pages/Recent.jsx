@@ -10,23 +10,32 @@ import RecentProducts from '../containers/recent/RecentProducts';
 import RecentUsers from '../containers/recent/RecentUsers';
 import RecentTransactions from '../containers/recent/RecentTransactions';
 import Notification from '../components/common/Notification';
-import { NavTabs, TabContainer } from '../containers/__containers.module';
+import { NavTabs, TabContainer } from '../containers/Containers.module';
+import ErrorBoundary from '../components/common/ErrorBoundary';
 
 export default function Recent() {
   return (
     <TabContainer>
       <NavTabs defaultActiveKey="products" id="Navigation Tabs" justify>
         <Tab eventKey="products" title="Products">
-          <RecentProducts />
+          <ErrorBoundary>
+            <RecentProducts />
+          </ErrorBoundary>
         </Tab>
         <Tab eventKey="suppliers" title="Suppliers">
-          <RecentSuppliers />
+          <ErrorBoundary>
+            <RecentSuppliers />
+          </ErrorBoundary>
         </Tab>
         <Tab eventKey="users" title="Users">
-          <RecentUsers />
+          <ErrorBoundary>
+            <RecentUsers />
+          </ErrorBoundary>
         </Tab>
         <Tab eventKey="transactions" title="Transactions">
-          <RecentTransactions />
+          <ErrorBoundary>
+            <RecentTransactions />
+          </ErrorBoundary>
         </Tab>
       </NavTabs>
       <Notification

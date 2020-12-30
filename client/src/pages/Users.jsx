@@ -7,13 +7,18 @@
 import { useState } from 'react';
 import UsersList from '../containers/users/UsersList';
 import UsersCard from '../containers/users/UsersCard';
+import ErrorBoundary from '../components/common/ErrorBoundary';
 
 export default function Users() {
   const [view, setView] = useState('list');
 
-  return view === 'list' ? (
-    <UsersList view={() => setView('card')} />
-  ) : (
-    <UsersCard view={() => setView('list')} />
+  return (
+    <ErrorBoundary>
+      {view === 'list' ? (
+        <UsersList view={() => setView('card')} />
+      ) : (
+        <UsersCard view={() => setView('list')} />
+      )}
+    </ErrorBoundary>
   );
 }

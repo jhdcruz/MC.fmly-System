@@ -7,13 +7,18 @@
 import { useState } from 'react';
 import ProductsList from '../containers/products/ProductsList';
 import ProductsCard from '../containers/products/ProductsCard';
+import ErrorBoundary from '../components/common/ErrorBoundary';
 
 export default function Inventory() {
   const [view, setView] = useState('list');
 
-  return view === 'list' ? (
-    <ProductsList view={() => setView('card')} />
-  ) : (
-    <ProductsCard view={() => setView('list')} />
+  return (
+    <ErrorBoundary>
+      {view === 'list' ? (
+        <ProductsList view={() => setView('card')} />
+      ) : (
+        <ProductsCard view={() => setView('list')} />
+      )}
+    </ErrorBoundary>
   );
 }

@@ -5,7 +5,12 @@
  */
 
 import Authentication from '../containers/Authentication';
+import ErrorBoundary from '../components/common/ErrorBoundary';
 
 export default function Login() {
-  return <Authentication />;
+  return (
+    <ErrorBoundary>
+      <Authentication />
+    </ErrorBoundary>
+  );
 }

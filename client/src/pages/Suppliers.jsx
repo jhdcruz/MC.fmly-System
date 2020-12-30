@@ -7,13 +7,18 @@
 import { useState } from 'react';
 import SuppliersList from '../containers/suppliers/SuppliersList';
 import SuppliersCard from '../containers/suppliers/SuppliersCard';
+import ErrorBoundary from '../components/common/ErrorBoundary';
 
 export default function Suppliers() {
   const [view, setView] = useState('card');
 
-  return view === 'list' ? (
-    <SuppliersList view={() => setView('card')} />
-  ) : (
-    <SuppliersCard view={() => setView('list')} />
+  return (
+    <ErrorBoundary>
+      {view === 'list' ? (
+        <SuppliersList view={() => setView('card')} />
+      ) : (
+        <SuppliersCard view={() => setView('list')} />
+      )}
+    </ErrorBoundary>
   );
 }

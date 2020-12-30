@@ -30,6 +30,7 @@ import {
   TotalSuppliers
 } from '../components/embeds/MongoWidgets';
 import { OverStocked, UnderStocked } from '../components/embeds/MongoTables';
+import ErrorBoundary from '../components/common/ErrorBoundary';
 
 export default function Dashboard() {
   return (
@@ -47,19 +48,21 @@ export default function Dashboard() {
             padding: '1rem 2rem'
           }}
         >
-          <Row>
-            <InventoryCapacity />
-            <Col className="pt-1">
-              <InventoryTotal />
-              <InventoryValue />
-              <TotalProducts />
-              <TotalSuppliers />
-            </Col>
-          </Row>
-          <Row>
-            <UnderStocked />
-            <OverStocked />
-          </Row>
+          <ErrorBoundary>
+            <Row>
+              <InventoryCapacity />
+              <Col className="pt-1">
+                <InventoryTotal />
+                <InventoryValue />
+                <TotalProducts />
+                <TotalSuppliers />
+              </Col>
+            </Row>
+            <Row>
+              <UnderStocked />
+              <OverStocked />
+            </Row>
+          </ErrorBoundary>
         </Tab>
 
         {/* Inventory Reports Tab */}
@@ -70,18 +73,20 @@ export default function Dashboard() {
             padding: '0 2rem 1rem 2rem'
           }}
         >
-          <Row>
-            <ProductQuantityLines />
-            <ProductMap />
-          </Row>
-          <Row>
-            <TypeDetails />
-            <CategoryDetails />
-          </Row>
-          <Row>
-            <TotalByCategory />
-            <TotalByTypes />
-          </Row>
+          <ErrorBoundary>
+            <Row>
+              <ProductQuantityLines />
+              <ProductMap />
+            </Row>
+            <Row>
+              <TypeDetails />
+              <CategoryDetails />
+            </Row>
+            <Row>
+              <TotalByCategory />
+              <TotalByTypes />
+            </Row>
+          </ErrorBoundary>
         </Tab>
 
         {/* Order Reports Tab */}
@@ -92,19 +97,21 @@ export default function Dashboard() {
             padding: '1rem 2rem'
           }}
         >
-          <Row>
-            <Col className="p-0 pt-1">
-              <TotalRevenue />
-              <PendingOrders />
-              <CompletedOrders />
-            </Col>
-            <TotalRevenueChart />
-          </Row>
+          <ErrorBoundary>
+            <Row>
+              <Col className="p-0 pt-1">
+                <TotalRevenue />
+                <PendingOrders />
+                <CompletedOrders />
+              </Col>
+              <TotalRevenueChart />
+            </Row>
 
-          <Row>
-            <OrderStatus />
-            <OrdersPerMonth />
-          </Row>
+            <Row>
+              <OrderStatus />
+              <OrdersPerMonth />
+            </Row>
+          </ErrorBoundary>
         </Tab>
       </NavTabs>
     </TabContainer>

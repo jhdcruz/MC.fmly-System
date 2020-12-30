@@ -10,7 +10,8 @@ import { DBMetrics } from '../components/embeds/Metrics';
 import Logs from '../components/embeds/Logs';
 import Release from '../containers/sysinfo/Release';
 import Development from '../containers/sysinfo/Development';
-import { NavTabs, TabContainer } from '../containers/__containers.module';
+import { NavTabs, TabContainer } from '../containers/Containers.module';
+import ErrorBoundary from '../components/common/ErrorBoundary';
 
 export default function SysInfo() {
   useEffect(() => {
@@ -25,16 +26,24 @@ export default function SysInfo() {
     <TabContainer>
       <NavTabs defaultActiveKey="overview" id="System Tabs" justify>
         <Tab eventKey="overview" title="Overview">
-          <DBMetrics />
+          <ErrorBoundary>
+            <DBMetrics />
+          </ErrorBoundary>
         </Tab>
         <Tab eventKey="logs" title="Logs">
-          <Logs />
+          <ErrorBoundary>
+            <Logs />
+          </ErrorBoundary>
         </Tab>
         <Tab eventKey="updates" title="Updates">
-          <Development />
+          <ErrorBoundary>
+            <Development />
+          </ErrorBoundary>
         </Tab>
         <Tab eventKey="releases" title="Releases">
-          <Release />
+          <ErrorBoundary>
+            <Release />
+          </ErrorBoundary>
         </Tab>
       </NavTabs>
     </TabContainer>

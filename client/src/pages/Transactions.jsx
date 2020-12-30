@@ -7,13 +7,18 @@
 import { useState } from 'react';
 import TransactionsList from '../containers/transactions/TransactionsList';
 import TransactionsCard from '../containers/transactions/TransactionsCard';
+import ErrorBoundary from '../components/common/ErrorBoundary';
 
 export default function Transactions() {
   const [view, setView] = useState('list');
 
-  return view === 'list' ? (
-    <TransactionsList view={() => setView('card')} />
-  ) : (
-    <TransactionsCard view={() => setView('list')} />
+  return (
+    <ErrorBoundary>
+      {view === 'list' ? (
+        <TransactionsList view={() => setView('card')} />
+      ) : (
+        <TransactionsCard view={() => setView('list')} />
+      )}
+    </ErrorBoundary>
   );
 }

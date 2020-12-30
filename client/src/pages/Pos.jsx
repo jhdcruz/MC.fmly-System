@@ -6,12 +6,13 @@
 
 import ProductCatalog from '../containers/pos/PosCatalog';
 import PosControls from '../containers/pos/PosControls';
+import ErrorBoundary from '../components/common/ErrorBoundary';
 
 export default function Pos() {
   return (
-    <>
+    <ErrorBoundary>
       <ProductCatalog />
       <PosControls />
-    </>
+    </ErrorBoundary>
   );
 }

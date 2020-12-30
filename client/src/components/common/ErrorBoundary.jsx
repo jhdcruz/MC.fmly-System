@@ -5,6 +5,8 @@
  */
 
 import { Component } from 'react';
+import Image from 'react-bootstrap/Image';
+import logo from '../../assets/img/logo.svg';
 
 class ErrorBoundary extends Component {
   constructor(props) {
@@ -17,9 +19,25 @@ class ErrorBoundary extends Component {
   }
 
   render() {
-    // TODO: Update UI
     if (this.state.hasError) {
-      return <h1>Something went wrong.</h1>;
+      return (
+        <div
+          style={{
+            width: 'max-content',
+            textAlign: 'center',
+            margin: '20vh auto',
+            color: 'whitesmoke',
+            backgroundColor: '#222126',
+            boxShadow: '3px 3px 8px #1b1b1b',
+            borderRadius: '0.5rem',
+            padding: '1.5rem'
+          }}
+        >
+          <Image src={logo} width={200} height={200} />
+          <h3>Something went wrong.</h3>
+          <h6>Please try again later or inform the System Admin.</h6>
+        </div>
+      );
     }
 
     return this.props.children;
