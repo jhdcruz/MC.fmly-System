@@ -5,7 +5,7 @@
  */
 
 import { lazy, Suspense } from 'react';
-import { TableData, TableRow, Tag } from './__tables.module';
+import { TableData, TableRow, Tag } from './Tables.module';
 import EntryActions from '../common/EntryActions';
 
 const Moment = lazy(() => import('react-moment'));

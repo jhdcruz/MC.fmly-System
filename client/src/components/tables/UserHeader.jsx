@@ -6,7 +6,7 @@
 
 import styled from 'styled-components';
 import Table from 'react-bootstrap/Table';
-import { TableHeader, TableModule } from './__tables.module';
+import { TableHeader, TableModule } from './Tables.module';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
 

@@ -4,7 +4,7 @@
  *     Licensed under GNU General Public License 3.0 or later
  */
 
-import { ListGroupItem } from './__system.module';
+import { ListGroupItem } from './System.module';
 import { Image } from 'react-bootstrap';
 import Moment from 'react-moment';
 

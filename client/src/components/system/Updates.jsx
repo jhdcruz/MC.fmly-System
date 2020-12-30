@@ -5,7 +5,7 @@
  */
 
 import Moment from 'react-moment';
-import { ListGroupItem, OutlineButton } from './__system.module';
+import { ListGroupItem, OutlineButton } from './System.module';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTag } from '@fortawesome/free-solid-svg-icons';
 

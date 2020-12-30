@@ -7,7 +7,7 @@
 import Col from 'react-bootstrap/Col';
 import Tab from 'react-bootstrap/Tab';
 import Row from 'react-bootstrap/Row';
-import { NavTabs, TabContainer } from '../containers/__containers.module';
+import { NavTabs, TabContainer } from '../containers/Containers.module';
 import {
   CategoryDetails,
   OrdersPerMonth,

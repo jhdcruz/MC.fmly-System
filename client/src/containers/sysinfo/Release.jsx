@@ -9,7 +9,7 @@ import { ListGroup } from 'react-bootstrap';
 import Updates from '../../components/system/Updates';
 import Releases from '../../services/github/Releases';
 import { Loader } from '../../components/common/Loader';
-import { ListContainer } from '../../components/system/__system.module';
+import { ListContainer } from '../../components/system/System.module';
 
 /*****************************************************
  * * Get releases from project repository (GitHub API)

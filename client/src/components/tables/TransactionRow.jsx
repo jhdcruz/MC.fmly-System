@@ -6,7 +6,7 @@
 
 import { lazy, Suspense } from 'react';
 import Button from 'react-bootstrap/Button';
-import { TableData, TableRow, Tag } from './__tables.module';
+import { TableData, TableRow, Tag } from './Tables.module';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFile } from '@fortawesome/free-solid-svg-icons';
 import EntryActions from '../common/EntryActions';
