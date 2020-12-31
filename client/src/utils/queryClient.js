@@ -4,7 +4,9 @@
  *     Licensed under GNU General Public License 3.0 or later
  */
 
-const clientOpts = {
+import { QueryClient } from 'react-query';
+
+const queryOpts = {
   defaultOptions: {
     queries: {
       cacheTime: 300000,
@@ -13,4 +15,4 @@ const clientOpts = {
   }
 };
 
-module.exports = clientOpts;
+export const queryClient = new QueryClient(queryOpts);
