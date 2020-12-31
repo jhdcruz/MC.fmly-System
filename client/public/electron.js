@@ -39,11 +39,11 @@ function createWindow() {
   });
   // Main App
   const win = new BrowserWindow({
-    width: 1280,
+    width: 1265,
     height: 700,
     show: false,
-    minWidth: 1100,
-    minHeight: 630,
+    minWidth: 1200,
+    minHeight: 675,
     icon: 'logo192.ico',
     backgroundColor: '#222126',
     autoHideMenuBar: true,
