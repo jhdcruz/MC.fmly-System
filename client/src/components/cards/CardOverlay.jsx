@@ -9,19 +9,30 @@ import Card from 'react-bootstrap/Card';
 import placeholder from '../../assets/img/logo.svg';
 
 const CardContainer = styled(Card)`
-  width: 100%;
+  width: 25.5rem;
+  min-height: 9rem;
   height: max-content !important;
   color: #eccec9;
   cursor: pointer;
   margin: 0 0.5rem 1rem 0;
+  border: 3px solid transparent;
   border-radius: 0.3rem;
+  word-break: keep-all;
+  text-overflow: clip;
   background-color: #222126;
+  display: inline-block;
+  position: static;
+  vertical-align: middle;
   box-shadow: 3px 3px 8px #1b1b1b;
 
   .card-img-overlay {
-    padding: 1rem;
-    margin-left: 7.5vw;
+    width: max-content;
     height: max-content;
+    margin: 0;
+    padding: 1rem 1rem 1rem 0 !important;
+    display: inline-block;
+    vertical-align: middle;
+    position: static;
 
     .card-title {
       font-size: 1.1rem;
@@ -29,7 +40,7 @@ const CardContainer = styled(Card)`
     }
 
     .card-text {
-      font-size: 1.1rem;
+      font-size: 1rem;
       margin: 0;
     }
   }
@@ -43,20 +54,25 @@ const CardContainer = styled(Card)`
 `;
 
 const CardBlock = styled(CardContainer)`
-  width: 35vw;
-  height: 28vh !important;
+  width: max-content;
+  min-width: 28rem;
+  max-width: 40rem;
+  height: max-content !important;
   color: #eccec9;
+  background-color: #222126;
   cursor: pointer;
   margin: 0.8vw;
-  display: inline-block;
   border-radius: 0.3rem;
-  background-color: #222126;
+  border: 3px solid transparent !important;
+  display: inline-block;
+  position: static;
+  vertical-align: middle;
   box-shadow: 3px 3px 8px #1b1b1b;
 `;
 
 const CardImage = styled(Card.Img)`
-  height: 20vh;
-  width: 14vh;
+  width: 7.5rem;
+  height: auto;
   margin: auto 0.5rem;
 `;
 
@@ -81,7 +97,7 @@ export const CardDeck = (props) => {
         <Card.Title>{props.title}</Card.Title>
         <Card.Text>{props.content}</Card.Text>
         <Card.Text>{props.footer}</Card.Text>
-        <Card.Text>{props.date}</Card.Text>
+        <Card.Text className="mt-2">{props.date}</Card.Text>
       </Card.ImgOverlay>
     </CardBlock>
   );

@@ -20,10 +20,12 @@ import Tag from '../common/Tag';
 
 const CardBlock = styled(Card)`
   display: inline-block;
-  width: 37vw;
+  width: max-content;
+  min-width: 20rem;
+  max-width: 29rem;
   height: max-content;
   padding: 1rem 1.5rem !important;
-  margin: 0.3rem 1rem 0 0 !important;
+  margin: 0.5rem 0.5rem 0 !important;
   color: #d2d2d2;
   background-color: #222126;
   box-shadow: 3px 3px 8px #1b1b1b;
