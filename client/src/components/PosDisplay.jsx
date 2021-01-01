@@ -19,13 +19,13 @@ import {
 const PosContainer = styled.div`
   height: 100vh;
   width: 45vw;
-  min-width: 40vw;
-  margin: 0 auto;
+  margin: 0 1rem;
 `;
 
 const PosCart = styled(Col)`
   height: 65vh;
   width: 50vw;
+  min-height: 26rem;
   min-width: 40vw;
   padding: 0;
   background-color: rgba(33, 34, 38, 0.3);

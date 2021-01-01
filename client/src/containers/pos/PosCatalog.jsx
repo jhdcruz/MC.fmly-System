@@ -13,6 +13,7 @@ import { CardOverlay } from '../../components/cards/CardOverlay';
 import { productCategories, productTypes } from '../products/ProductFilters';
 import Tag from '../../components/common/Tag';
 import ProductService from '../../services/ProductService';
+import PosControls from './PosControls';
 
 /************************************
  * * Product List, No Actions | POS
@@ -132,7 +133,6 @@ export default function PosCatalog() {
   };
   return (
     <>
-      {/* Display 'categories' component */}
       <Categories
         main="Categories"
         mainTabs={
@@ -156,6 +156,7 @@ export default function PosCatalog() {
         }
         content={<CardPanes />}
       />
+      <PosControls />
     </>
   );
 }
