@@ -10,7 +10,7 @@ import ApiStatus from './ApiStatus';
 import { Fallback } from 'components/common/Loader';
 import { AuthApi } from '../api/Auth';
 
-// Views
+// * Lazy import views
 const LoginForm = lazy(() => import('../components/Login/LoginForm'));
 const Admin = lazy(() => import('../views/Admin'));
 const Cashier = lazy(() => import('../views/Cashier'));
@@ -46,7 +46,6 @@ export default function Authentication() {
   /*******************************************
    * * Role-based Views
    *******************************************/
-
   switch (auth) {
     case 'admin':
       return (
