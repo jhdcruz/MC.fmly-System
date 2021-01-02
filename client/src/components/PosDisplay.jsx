@@ -9,7 +9,7 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import InputGroup from 'react-bootstrap/InputGroup';
 import FormControl from 'react-bootstrap/FormControl';
-import { ControlOverlay, LargeControl } from './common/Controls';
+import { LargeControl, TooltipControl } from './common/Controls';
 import {
   faPrint,
   faShoppingBasket,
@@ -124,7 +124,7 @@ export default function PosDisplay(props) {
             action={props.checkout}
           />
           <LargeControl icon={faPrint} content="Print" action={props.print} />
-          <ControlOverlay
+          <TooltipControl
             tooltip="Clear"
             placement="top"
             icon={faTrash}

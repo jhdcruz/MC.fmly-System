@@ -10,7 +10,7 @@ import Tooltip from 'react-bootstrap/Tooltip';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-const RegularButton = styled(Button)`
+const ControlButton = styled(Button)`
   color: #c4c4c4;
   width: max-content;
   height: max-content;
@@ -28,7 +28,7 @@ const RegularButton = styled(Button)`
   }
 `;
 
-const LargeButton = styled(RegularButton)`
+const LargeButton = styled(ControlButton)`
   width: max-content;
   height: 10vh;
   font-size: 1.3vw;
@@ -36,7 +36,7 @@ const LargeButton = styled(RegularButton)`
 `;
 
 // * Button w/ Tooltip
-export const ControlOverlay = (props) => {
+export const TooltipControl = (props) => {
   return (
     <OverlayTrigger
       placement={props.placement}
@@ -50,18 +50,18 @@ export const ControlOverlay = (props) => {
         </Tooltip>
       }
     >
-      <RegularButton onClick={props.action}>
+      <ControlButton onClick={props.action}>
         <FontAwesomeIcon icon={props.icon} /> {props.content}
-      </RegularButton>
+      </ControlButton>
     </OverlayTrigger>
   );
 };
 
 export const Control = (props) => {
   return (
-    <RegularButton onClick={props.action}>
+    <ControlButton onClick={props.action}>
       <FontAwesomeIcon icon={props.icon} /> {props.content}
-    </RegularButton>
+    </ControlButton>
   );
 };
 

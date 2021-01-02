@@ -5,7 +5,7 @@
  */
 
 import styled from 'styled-components';
-import { ControlOverlay } from './common/Controls';
+import { TooltipControl } from './common/Controls';
 import SearchBar from './common/SearchBar';
 import { faBars, faPlus, faThLarge } from '@fortawesome/free-solid-svg-icons';
 
@@ -28,7 +28,7 @@ export default function SearchControls(props) {
       <SearchBar />
 
       {/* Add Entry Modal */}
-      <ControlOverlay
+      <TooltipControl
         placement="bottom"
         tooltip={props.add}
         action={props.modal}
@@ -36,13 +36,13 @@ export default function SearchControls(props) {
       />
 
       {/* Views Types */}
-      <ControlOverlay
+      <TooltipControl
         placement="bottom"
         tooltip="List View"
         action={props.listView}
         icon={faBars}
       />
-      <ControlOverlay
+      <TooltipControl
         placement="bottom"
         tooltip="Card View"
         action={props.cardView}
