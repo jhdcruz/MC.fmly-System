@@ -21,29 +21,30 @@ export default function Authentication() {
   const { register, handleSubmit } = useForm();
   const [auth, setAuth] = useState();
 
-  /*******************************
-   * * Authentication Handler
-   * TODO: Session-based tokens
-   *******************************/
+  // * Authentication Handler
   const userVerify = useCallback((username, password) => {
-    axios
+    try {
+      axios
         .post(`${process.env.REACT_APP_API}/auth/login`, username, password)
-      .then((res) => {
-        if (res.data) {
-          setAuth(res.data);
-        } else {
-          window.alert('Invalid username or password...');
-        }
-      })
-      .catch(() => {
-        window.alert('Invalid username or password.');
-      });
+        .then((res) => {
+          if (res.data) {
+            setAuth(res.data);
+          } else {
+            alert('Invalid username or password...');
+          }
+        })
+        .catch(() => {
+          alert('Invalid username or password...');
+        });
+    } catch (err) {
+      alert(`${err}\nPlease inform the system admin.`);
+    }
   }, []);
 
   // * Forgot Credentials/Password Alert
   const forgotCreds = (e) => {
     e.preventDefault();
-    window.alert('Please inform the System Admin.');
+    alert('Please inform the System Admin.');
   };
 
   /*******************************************
