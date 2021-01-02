@@ -11,9 +11,7 @@ import { TransactionsApi } from '../../api/Transactions';
 const TransactionRow = lazy(() =>
   import('../../components/Transactions/TransactionRow')
 );
-const TransactionModals = lazy(() =>
-  import('../Transactions/Modals')
-);
+const TransactionModals = lazy(() => import('../Transactions/Modals'));
 
 export default function RTransactions() {
   const { data } = TransactionsApi();

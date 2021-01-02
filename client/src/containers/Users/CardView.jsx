@@ -9,19 +9,14 @@ import Nav from 'react-bootstrap/Nav';
 import Tab from 'react-bootstrap/Tab';
 import Categories from '../../components/Sidebar/Categories';
 import SearchControls from '../../components/common/SearchControls';
-import { ExpandedCard } from '../../components/common/ItemCard';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCalendarAlt, faHistory } from '@fortawesome/free-solid-svg-icons';
 import { Fallback } from '../../components/common/Loader';
-import { userPermissions, userRoles } from './Filters';
-import Tag from '../../components/common/Tag';
-import ResetScroll from '../../components/common/ResetScroll';
 import Notification from '../../components/common/Notification';
 import { UsersApi } from '../../api/Users';
+import { userPermissions, userRoles } from './Filters';
+import { UserCard } from '../../components/Users/Card';
 
 // * Lazy imports
 const UserModals = lazy(() => import('./Modals'));
-const Moment = lazy(() => import('react-moment'));
 
 export default function CardView(props) {
   const { data } = UsersApi();
@@ -53,47 +48,6 @@ export default function CardView(props) {
     );
   };
 
-  const UserCard = (user) => {
-    return (
-      <ExpandedCard
-        action={() => showEditModal(true)}
-        key={user._id}
-        title={user.name}
-        variant="dark"
-        content={
-          <>
-            <Tag variant="primary" content={user.username} />{' '}
-            <Tag variant="dark" content={user.role} />
-          </>
-        }
-        footer={(() => {
-          if (user.permission === 'admin') {
-            return <Tag variant="warning" content={user.permission} />;
-          } else if (user.permission === 'sysadmin') {
-            return <Tag variant="danger" content={user.permission} />;
-          } else if (user.permission === 'inventory') {
-            return <Tag variant="success" content={user.permission} />;
-          } else {
-            return <Tag variant="info" content={user.permission} />;
-          }
-        })()}
-        date={
-          <>
-            <FontAwesomeIcon icon={faCalendarAlt} />{' '}
-            <Suspense fallback="—">
-              <Moment format="D MMM YYYY" date={user.createdAt} fromNow />
-            </Suspense>
-            {' | '}
-            <FontAwesomeIcon icon={faHistory} />{' '}
-            <Suspense fallback="—">
-              <Moment fromNow date={user.updatedAt} />
-            </Suspense>
-          </>
-        }
-      />
-    );
-  };
-
   // * Filter users by category
   const PermissionFilter = () => {
     return (
@@ -101,11 +55,12 @@ export default function CardView(props) {
         {data &&
           userPermissions(data).map((user) => (
             <Tab.Pane key={user.permission} eventKey={user.permission}>
-              <ResetScroll />
               {data &&
                 data
                   .filter((pane) => pane.permission === user.permission)
-                  .map((userByPermission) => UserCard(userByPermission))}
+                  .map((userByPermission) =>
+                    UserCard(userByPermission, () => showEditModal(true))
+                  )}
             </Tab.Pane>
           ))}
       </>
@@ -119,10 +74,11 @@ export default function CardView(props) {
         {data &&
           userRoles(data).map((user) => (
             <Tab.Pane key={user.role} eventKey={user.role}>
-              <ResetScroll />
               {data
                 .filter((pane) => pane.role === user.role)
-                .map((userByRole) => UserCard(userByRole))}
+                .map((userByRole) =>
+                  UserCard(userByRole, () => showEditModal(true))
+                )}
             </Tab.Pane>
           ))}
       </>
@@ -142,8 +98,10 @@ export default function CardView(props) {
         {data && true ? (
           <>
             <Tab.Pane eventKey="default">
-              <ResetScroll />
-              {data && data.map((user) => UserCard(user)).reverse()}
+              {data &&
+                data
+                  .map((user) => UserCard(user, () => showEditModal(true)))
+                  .reverse()}
             </Tab.Pane>
             <PermissionFilter />
             <RoleFilter />

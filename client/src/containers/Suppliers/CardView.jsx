@@ -5,18 +5,17 @@
  */
 
 import { lazy, Suspense, useState } from 'react';
-import { Fallback, Loader } from '../../components/common/Loader';
+import { Fallback } from '../../components/common/Loader';
 import Tab from 'react-bootstrap/Tab';
 import Nav from 'react-bootstrap/Nav';
 import Tooltip from 'react-bootstrap/Tooltip';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
-import SearchControls from '../../components/common/SearchControls';
 import Categories from '../../components/Sidebar/Categories';
-import ResetScroll from '../../components/common/ResetScroll';
+import Poster from '../../components/Suppliers/Poster';
+import SearchControls from '../../components/common/SearchControls';
 import { supplierCategories } from './Filters';
 import { SuppliersApi } from '../../api/Suppliers';
 
-const Poster = lazy(() => import('../../components/Suppliers/Poster'));
 const SupplierModals = lazy(() => import('./Modals'));
 
 export default function CardView(props) {
@@ -49,25 +48,6 @@ export default function CardView(props) {
     );
   };
 
-  const PosterCard = (supplier) => {
-    return (
-      <Suspense fallback={<Loader />}>
-        <Poster
-          key={supplier._id}
-          delete={() => showDeleteModal(true)}
-          edit={() => showEditModal(true)}
-          icon={supplier.icon}
-          name={supplier.name}
-          description={supplier.description}
-          category={supplier.category}
-          address={supplier.address}
-          website={supplier.website}
-          contact={supplier.contact}
-        />
-      </Suspense>
-    );
-  };
-
   // * Filter suppliers by category
   const CategoryFilter = () => {
     return (
@@ -77,10 +57,15 @@ export default function CardView(props) {
             <>
               {supplier.category.map((category) => (
                 <Tab.Pane key={category} eventKey={category}>
-                  <ResetScroll />
                   {data
                     .filter((pane) => pane === category)
-                    .map((suppliers) => PosterCard(suppliers))
+                    .map((suppliers) =>
+                      Poster(
+                        suppliers,
+                        () => showEditModal(true),
+                        () => showDeleteModal(true)
+                      )
+                    )
                     .reverse()}
                 </Tab.Pane>
               ))}
@@ -102,9 +87,17 @@ export default function CardView(props) {
 
         {data && true ? (
           <>
-            <ResetScroll />
             <Tab.Pane eventKey="default">
-              {data && data.map((supplier) => PosterCard(supplier)).reverse()}
+              {data &&
+                data
+                  .map((supplier) =>
+                    Poster(
+                      supplier,
+                      () => showEditModal(true),
+                      () => showDeleteModal(true)
+                    )
+                  )
+                  .reverse()}
             </Tab.Pane>
             <CategoryFilter />
           </>

@@ -17,7 +17,7 @@ const Moment = lazy(() => import('react-moment'));
  * * Transaction Table Row
  *********************************/
 
-export default function TransactionRow(transaction, edit, del) {
+export default function TransactionRow(transaction, edit, del, invoice) {
   return (
     <>
       {/* Product | Table Row */}
@@ -46,7 +46,21 @@ export default function TransactionRow(transaction, edit, del) {
           <Tag variant="info">{transaction.payment}</Tag>
         </TableData>
         <TableData className="receipt">
-          <Button onClick={transaction.receipt}>
+          <Button
+            onClick={
+              transaction.receipt && true ? (
+                // eslint-disable-next-line jsx-a11y/anchor-has-content
+                <a
+                  href={transaction.receipt}
+                  target="_blank"
+                  rel="noreferrer"
+                />
+              ) : (
+                // ? else show no invoice modal
+                invoice
+              )
+            }
+          >
             <FontAwesomeIcon
               icon={faFile}
               style={{

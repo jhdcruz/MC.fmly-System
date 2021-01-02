@@ -5,21 +5,18 @@
  */
 
 import { lazy, Suspense, useState } from 'react';
-import { Fallback, Loader } from '../../components/common/Loader';
+import { Fallback } from '../../components/common/Loader';
 import Nav from 'react-bootstrap/Nav';
 import Tab from 'react-bootstrap/Tab';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Tooltip from 'react-bootstrap/Tooltip';
 import Categories from '../../components/Sidebar/Categories';
 import SupplierHeader from '../../components/Suppliers/SupplierHeader';
+import SupplierRow from '../../components/Suppliers/SupplierRow';
 import SearchControls from '../../components/common/SearchControls';
-import ResetScroll from '../../components/common/ResetScroll';
-import { supplierCategories } from './Filters';
 import { SuppliersApi } from '../../api/Suppliers';
+import { supplierCategories } from './Filters';
 
-const SupplierRow = lazy(() =>
-  import('../../components/Suppliers/SupplierRow')
-);
 const SupplierModals = lazy(() => import('./Modals'));
 
 export default function ListView(props) {
@@ -52,25 +49,6 @@ export default function ListView(props) {
     );
   };
 
-  const SupplierList = (supplier) => {
-    return (
-      <Suspense fallback={<Loader />}>
-        <SupplierRow
-          delete={() => showDeleteModal(true)}
-          edit={() => showEditModal(true)}
-          key={supplier._id}
-          icon={supplier.icon}
-          name={supplier.name}
-          description={supplier.description}
-          category={supplier.category}
-          address={supplier.address}
-          website={supplier.website}
-          contact={supplier.contact}
-        />
-      </Suspense>
-    );
-  };
-
   const SuppliersList = () => {
     return (
       <>
@@ -82,17 +60,20 @@ export default function ListView(props) {
         />
 
         {data && true ? (
-          <>
-            <Tab.Pane eventKey="default">
-              <ResetScroll />
-              <SupplierHeader
-                data={
-                  data &&
-                  data.reverse().map((supplier) => SupplierList(supplier))
-                }
-              />
-            </Tab.Pane>
-          </>
+          <Tab.Pane eventKey="default">
+            <SupplierHeader
+              data={
+                data &&
+                data.reverse().map((supplier) =>
+                  SupplierRow(
+                    supplier,
+                    () => showEditModal(true),
+                    () => showDeleteModal(true)
+                  )
+                )
+              }
+            />
+          </Tab.Pane>
         ) : (
           <Fallback />
         )}

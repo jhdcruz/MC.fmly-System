@@ -9,7 +9,9 @@ import { Fallback, Loader } from '../../components/common/Loader';
 import SupplierHeader from '../../components/Suppliers/SupplierHeader';
 import { SuppliersApi } from '../../api/Suppliers';
 
-const SupplierRow = lazy(() => import('../../components/Suppliers/SupplierRow'));
+const SupplierRow = lazy(() =>
+  import('../../components/Suppliers/SupplierRow')
+);
 const SupplierModals = lazy(() => import('../Suppliers/Modals'));
 
 export default function RSuppliers() {

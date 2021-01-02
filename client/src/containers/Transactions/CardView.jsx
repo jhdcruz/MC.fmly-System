@@ -9,19 +9,15 @@ import Nav from 'react-bootstrap/Nav';
 import Tab from 'react-bootstrap/Tab';
 import Categories from '../../components/Sidebar/Categories';
 import SearchControls from '../../components/common/SearchControls';
-import { ExpandedCard } from '../../components/common/ItemCard';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCalendarAlt, faHistory } from '@fortawesome/free-solid-svg-icons';
 import { Fallback } from '../../components/common/Loader';
-import Tag from '../../components/common/Tag';
 import Notification from '../../components/common/Notification';
 import ResetScroll from '../../components/common/ResetScroll';
 import { transactionPayment, transactionStatus } from './Filters';
 import { TransactionsApi } from '../../api/Transactions';
+import { TransactionCard } from '../../components/Transactions/Card';
 
 // * Lazy imports
 const TransactionModals = lazy(() => import('./Modals'));
-const Moment = lazy(() => import('react-moment'));
 
 /************************************
  * * Transaction List | Card View
@@ -59,72 +55,19 @@ export default function CardView(props) {
     );
   };
 
-  // * Transaction Card Body
-  const TransactionCard = (transaction) => {
-    return (
-      <ExpandedCard
-        action={() => showInvoiceModal(true)}
-        key={transaction._id}
-        title={
-          <>
-            {transaction.name}{' '}
-            {(() => {
-              if (transaction.status === 'Completed') {
-                return <Tag variant="success" content={transaction.status} />;
-              } else if (transaction.status === 'Pending') {
-                return <Tag variant="danger" content={transaction.status} />;
-              } else {
-                return <Tag variant="dark" content={transaction.status} />;
-              }
-            })()}
-          </>
-        }
-        variant="dark"
-        content={
-          <>
-            <Tag variant="info" content={transaction.order_id} />{' '}
-            <Tag variant="warning" content={<>₱{transaction.total}</>} />{' '}
-          </>
-        }
-        footer={
-          <>
-            <Tag variant="dark" content={transaction.payment} />
-          </>
-        }
-        date={
-          <>
-            <FontAwesomeIcon icon={faCalendarAlt} />{' '}
-            <Suspense fallback="—">
-              <Moment
-                format="D MMM YYYY"
-                date={transaction.createdAt}
-                fromNow
-              />
-            </Suspense>
-            {' | '}
-            <FontAwesomeIcon icon={faHistory} />{' '}
-            <Suspense fallback="—">
-              <Moment fromNow date={transaction.updatedAt} />
-            </Suspense>
-          </>
-        }
-      />
-    );
-  };
-
   // * Filter transactions by status
   const StatusFilter = () => {
     return (
       <>
         {data &&
-          transactionStatus(data).map((transaction) => (
-            <Tab.Pane key={transaction.status} eventKey={transaction.status}>
+          transactionStatus(data).map((statuses) => (
+            <Tab.Pane key={statuses.status} eventKey={statuses.status}>
               <ResetScroll />
               {data &&
                 data
-                  .filter((pane) => pane.status === transaction.status)
-                  .map((transactionByStatus) =>
-                    TransactionCard(transactionByStatus)
+                  .filter((pane) => pane.status === statuses.status)
+                  .map((transaction) =>
+                    TransactionCard(transaction, () => showEditModal(true))
                   )}
             </Tab.Pane>
           ))}
@@ -137,13 +80,13 @@ export default function CardView(props) {
     return (
       <>
         {data &&
-          transactionPayment(data).map((transaction) => (
-            <Tab.Pane key={transaction.payment} eventKey={transaction.payment}>
+          transactionPayment(data).map((payments) => (
+            <Tab.Pane key={payments.payment} eventKey={payments.payment}>
               <ResetScroll />
               {data
-                .filter((pane) => pane.payment === transaction.payment)
-                .map((transactionByPayment) =>
-                  TransactionCard(transactionByPayment)
+                .filter((pane) => pane.payment === payments.payment)
+                .map((transaction) =>
+                  TransactionCard(transaction, () => showEditModal(true))
                 )}
             </Tab.Pane>
           ))}
@@ -167,7 +110,10 @@ export default function CardView(props) {
           <>
             <Tab.Pane eventKey="default">
               <ResetScroll />
-              {data && data.map((transaction) => TransactionCard(transaction))}
+              {data &&
+                data.map((transaction) =>
+                  TransactionCard(transaction, () => showEditModal(true))
+                )}
             </Tab.Pane>
             <StatusFilter />
             <PaymentFilter />

@@ -10,14 +10,11 @@ import Tab from 'react-bootstrap/Tab';
 import Categories from '../../components/Sidebar/Categories';
 import SearchControls from '../../components/common/SearchControls';
 import TransactionHeader from '../../components/Transactions/TransactionHeader';
-import { Fallback, Loader } from '../../components/common/Loader';
-import { transactionPayment, transactionStatus } from './Filters';
-import ResetScroll from '../../components/common/ResetScroll';
+import TransactionRow from '../../components/Transactions/TransactionRow';
+import { Fallback } from '../../components/common/Loader';
 import { TransactionsApi } from '../../api/Transactions';
+import { transactionPayment, transactionStatus } from './Filters';
 
-const TransactionRow = lazy(() =>
-  import('../../components/Transactions/TransactionRow')
-);
 const TransactionModals = lazy(() => import('./Modals'));
 
 export default function ListView(props) {
@@ -52,33 +49,6 @@ export default function ListView(props) {
     );
   };
 
-  const Transactions = (transaction) => {
-    return (
-      <Suspense fallback={<Loader />}>
-        <TransactionRow
-          edit={() => showEditModal(true)}
-          delete={() => showDeleteModal(true)}
-          id={transaction.id}
-          order_id={transaction.order_id}
-          name={transaction.name}
-          status={transaction.status}
-          total={transaction.total}
-          payment={transaction.payment}
-          date={transaction.date}
-          createdAt={transaction.createdAt}
-          receipt={
-            transaction.receipt && true ? (
-              // eslint-disable-next-line jsx-a11y/anchor-has-content
-              <a href={transaction.receipt} target="_blank" rel="noreferrer" />
-            ) : (
-              () => showInvoiceModal(true)
-            )
-          }
-        />
-      </Suspense>
-    );
-  };
-
   // * Filter transactions by status
   const StatusFilter = () => {
     return (
@@ -86,14 +56,18 @@ export default function ListView(props) {
         {data &&
           transactionStatus(data).map((transaction) => (
             <Tab.Pane key={transaction.status} eventKey={transaction.status}>
-              <ResetScroll />
               <TransactionHeader
                 data={
                   data &&
                   data
                     .filter((pane) => pane.status === transaction.status)
                     .map((transactionByStatus) =>
-                      Transactions(transactionByStatus)
+                      TransactionRow(
+                        transactionByStatus,
+                        () => showEditModal(true),
+                        () => showDeleteModal(true),
+                        () => showInvoiceModal(true)
+                      )
                     )
                 }
               />
@@ -110,13 +84,17 @@ export default function ListView(props) {
         {data &&
           transactionPayment(data).map((transaction) => (
             <Tab.Pane key={transaction.payment} eventKey={transaction.payment}>
-              <ResetScroll />
               <TransactionHeader
                 _id={data && data._id}
                 data={data
                   .filter((pane) => pane.payment === transaction.payment)
                   .map((transactionByPayment) =>
-                    Transactions(transactionByPayment)
+                    TransactionRow(
+                      transactionByPayment,
+                      () => showEditModal(true),
+                      () => showDeleteModal(true),
+                      () => showInvoiceModal(true)
+                    )
                   )}
               />
             </Tab.Pane>
@@ -138,10 +116,17 @@ export default function ListView(props) {
         {data && true ? (
           <>
             <Tab.Pane eventKey="default">
-              <ResetScroll />
               <TransactionHeader
                 data={
-                  data && data.map((transaction) => Transactions(transaction))
+                  data &&
+                  data.map((transaction) =>
+                    TransactionRow(
+                      transaction,
+                      () => showEditModal(true),
+                      () => showDeleteModal(true),
+                      () => showInvoiceModal(true)
+                    )
+                  )
                 }
               />
             </Tab.Pane>

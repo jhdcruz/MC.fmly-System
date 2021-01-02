@@ -112,7 +112,7 @@ const CardLink = styled(Card.Link)`
   }
 `;
 
-export default function Poster(props) {
+export default function Poster(props, edit, del) {
   return (
     <CardBlock>
       <Card.Body>
@@ -127,7 +127,7 @@ export default function Poster(props) {
             ''
           )}
           {/* Control Buttons */}
-          <EntryActions edit={props.edit} delete={props.delete} />
+          <EntryActions edit={edit} delete={del} />
         </Card.Title>
       </Card.Body>
       <ListGroup className="list-group-flush">
