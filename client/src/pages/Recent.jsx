@@ -10,7 +10,7 @@ import RProducts from '../containers/Recent/RProducts';
 import RUsers from '../containers/Recent/RUsers';
 import RTransactions from '../containers/Recent/RTransactions';
 import Notification from '../components/common/Notification';
-import { NavTabs, TabContainer } from '../containers/Containers.module';
+import { NavTabs, TabContainer } from '../components/common/modules/Tabs';
 import ErrorBoundary from '../components/common/ErrorBoundary';
 
 export default function Recent() {

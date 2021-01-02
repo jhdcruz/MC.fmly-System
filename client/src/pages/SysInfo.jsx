@@ -10,7 +10,7 @@ import { DBMetrics } from '../components/SysInfo/Metrics';
 import Logs from '../components/SysInfo/Logs';
 import Release from '../containers/SysInfo/Release';
 import Development from '../containers/SysInfo/Development';
-import { NavTabs, TabContainer } from '../containers/Containers.module';
+import { NavTabs, TabContainer } from '../components/common/modules/Tabs';
 import ErrorBoundary from '../components/common/ErrorBoundary';
 
 export default function SysInfo() {
