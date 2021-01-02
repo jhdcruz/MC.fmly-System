@@ -11,7 +11,7 @@ import { Fallback } from 'components/common/Loader';
 import { AuthApi } from '../api/Auth';
 
 // Views
-const LoginForm = lazy(() => import('../components/forms/LoginForm'));
+const LoginForm = lazy(() => import('../components/Login/LoginForm'));
 const Admin = lazy(() => import('../views/Admin'));
 const Cashier = lazy(() => import('../views/Cashier'));
 const SysAdmin = lazy(() => import('../views/SysAdmin'));

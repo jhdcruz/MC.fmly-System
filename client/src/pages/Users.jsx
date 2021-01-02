@@ -5,8 +5,8 @@
  */
 
 import { useState } from 'react';
-import UsersList from '../containers/users/UsersList';
-import UsersCard from '../containers/users/UsersCard';
+import ListView from '../containers/Users/ListView';
+import CardView from '../containers/Users/CardView';
 import ErrorBoundary from '../components/common/ErrorBoundary';
 
 export default function Users() {
@@ -15,9 +15,9 @@ export default function Users() {
   return (
     <ErrorBoundary>
       {view === 'list' ? (
-        <UsersList view={() => setView('card')} />
+        <ListView view={() => setView('card')} />
       ) : (
-        <UsersCard view={() => setView('list')} />
+        <CardView view={() => setView('list')} />
       )}
     </ErrorBoundary>
   );

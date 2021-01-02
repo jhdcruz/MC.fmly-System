@@ -7,7 +7,7 @@
 import { Fragment } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
-import Sidebar from '../components/sidebar/Sidebar';
+import Sidebar from '../components/Sidebar/Sidebar';
 import routes from '../constants/routes';
 import '../global.scss';
 import RouteTransition from '../components/common/RouteTransition';
@@ -19,7 +19,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 // Views
 import Recent from '../pages/Recent';
-import TabItem from '../components/sidebar/TabItem';
+import TabItem from '../components/Sidebar/TabItem';
 import Inventory from '../pages/Inventory';
 import Suppliers from '../pages/Suppliers';
 import Transactions from '../pages/Transactions';

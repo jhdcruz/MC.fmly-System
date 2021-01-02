@@ -5,8 +5,8 @@
  */
 
 import { useState } from 'react';
-import TransactionsList from '../containers/transactions/TransactionsList';
-import TransactionsCard from '../containers/transactions/TransactionsCard';
+import ListView from '../containers/Transactions/ListView';
+import CardView from '../containers/Transactions/CardView';
 import ErrorBoundary from '../components/common/ErrorBoundary';
 
 export default function Transactions() {
@@ -15,9 +15,9 @@ export default function Transactions() {
   return (
     <ErrorBoundary>
       {view === 'list' ? (
-        <TransactionsList view={() => setView('card')} />
+        <ListView view={() => setView('card')} />
       ) : (
-        <TransactionsCard view={() => setView('list')} />
+        <CardView view={() => setView('list')} />
       )}
     </ErrorBoundary>
   );

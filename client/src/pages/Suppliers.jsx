@@ -5,8 +5,8 @@
  */
 
 import { useState } from 'react';
-import SuppliersList from '../containers/suppliers/SuppliersList';
-import SuppliersCard from '../containers/suppliers/SuppliersCard';
+import ListView from '../containers/Suppliers/ListView';
+import CardView from '../containers/Suppliers/CardView';
 import ErrorBoundary from '../components/common/ErrorBoundary';
 
 export default function Suppliers() {
@@ -15,9 +15,9 @@ export default function Suppliers() {
   return (
     <ErrorBoundary>
       {view === 'list' ? (
-        <SuppliersList view={() => setView('card')} />
+        <ListView view={() => setView('card')} />
       ) : (
-        <SuppliersCard view={() => setView('list')} />
+        <CardView view={() => setView('list')} />
       )}
     </ErrorBoundary>
   );

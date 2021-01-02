@@ -5,10 +5,10 @@
  */
 
 import Tab from 'react-bootstrap/Tab';
-import RecentSuppliers from '../containers/recent/RecentSuppliers';
-import RecentProducts from '../containers/recent/RecentProducts';
-import RecentUsers from '../containers/recent/RecentUsers';
-import RecentTransactions from '../containers/recent/RecentTransactions';
+import RSuppliers from '../containers/Recent/RSuppliers';
+import RProducts from '../containers/Recent/RProducts';
+import RUsers from '../containers/Recent/RUsers';
+import RTransactions from '../containers/Recent/RTransactions';
 import Notification from '../components/common/Notification';
 import { NavTabs, TabContainer } from '../containers/Containers.module';
 import ErrorBoundary from '../components/common/ErrorBoundary';
@@ -19,22 +19,22 @@ export default function Recent() {
       <NavTabs defaultActiveKey="products" id="Navigation Tabs" justify>
         <Tab eventKey="products" title="Products">
           <ErrorBoundary>
-            <RecentProducts />
+            <RProducts />
           </ErrorBoundary>
         </Tab>
         <Tab eventKey="suppliers" title="Suppliers">
           <ErrorBoundary>
-            <RecentSuppliers />
+            <RSuppliers />
           </ErrorBoundary>
         </Tab>
         <Tab eventKey="users" title="Users">
           <ErrorBoundary>
-            <RecentUsers />
+            <RUsers />
           </ErrorBoundary>
         </Tab>
         <Tab eventKey="transactions" title="Transactions">
           <ErrorBoundary>
-            <RecentTransactions />
+            <RTransactions />
           </ErrorBoundary>
         </Tab>
       </NavTabs>

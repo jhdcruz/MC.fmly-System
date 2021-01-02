@@ -7,7 +7,7 @@
 import { Fragment } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
-import Sidebar from '../components/sidebar/Sidebar';
+import Sidebar from '../components/Sidebar/Sidebar';
 import routes from '../constants/routes';
 import '../global.scss';
 import RouteTransition from '../components/common/RouteTransition';
@@ -19,7 +19,7 @@ import {
 // Routes
 import Dashboard from '../pages/Dashboard';
 import SysInfo from '../pages/SysInfo';
-import TabItem from '../components/sidebar/TabItem';
+import TabItem from '../components/Sidebar/TabItem';
 import Users from '../pages/Users';
 import ApiStatus from '../containers/ApiStatus';
 

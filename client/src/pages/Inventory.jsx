@@ -5,8 +5,8 @@
  */
 
 import { useState } from 'react';
-import ProductsList from '../containers/products/ProductsList';
-import ProductsCard from '../containers/products/ProductsCard';
+import ListView from '../containers/Inventory/ListView';
+import CardView from '../containers/Inventory/CardView';
 import ErrorBoundary from '../components/common/ErrorBoundary';
 
 export default function Inventory() {
@@ -15,9 +15,9 @@ export default function Inventory() {
   return (
     <ErrorBoundary>
       {view === 'list' ? (
-        <ProductsList view={() => setView('card')} />
+        <ListView view={() => setView('card')} />
       ) : (
-        <ProductsCard view={() => setView('list')} />
+        <CardView view={() => setView('list')} />
       )}
     </ErrorBoundary>
   );

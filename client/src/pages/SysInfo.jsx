@@ -6,10 +6,10 @@
 
 import { useEffect } from 'react';
 import Tab from 'react-bootstrap/Tab';
-import { DBMetrics } from '../components/embeds/Metrics';
-import Logs from '../components/embeds/Logs';
-import Release from '../containers/sysinfo/Release';
-import Development from '../containers/sysinfo/Development';
+import { DBMetrics } from '../components/SysInfo/Metrics';
+import Logs from '../components/SysInfo/Logs';
+import Release from '../containers/SysInfo/Release';
+import Development from '../containers/SysInfo/Development';
 import { NavTabs, TabContainer } from '../containers/Containers.module';
 import ErrorBoundary from '../components/common/ErrorBoundary';
 

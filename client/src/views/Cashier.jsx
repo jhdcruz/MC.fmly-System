@@ -7,8 +7,8 @@
 import { Fragment } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
-import Sidebar from '../components/sidebar/Sidebar';
-import TabItem from '../components/sidebar/TabItem';
+import Sidebar from '../components/Sidebar/Sidebar';
+import TabItem from '../components/Sidebar/TabItem';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import RouteTransition from '../components/common/RouteTransition';
 import routes from '../constants/routes';

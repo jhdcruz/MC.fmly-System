@@ -18,7 +18,7 @@ import {
   TotalByTypes,
   TotalRevenueChart,
   TypeDetails
-} from '../components/embeds/MongoCharts';
+} from '../components/Dashboard/MongoCharts';
 import {
   CompletedOrders,
   InventoryCapacity,
@@ -28,8 +28,8 @@ import {
   TotalProducts,
   TotalRevenue,
   TotalSuppliers
-} from '../components/embeds/MongoWidgets';
-import { OverStocked, UnderStocked } from '../components/embeds/MongoTables';
+} from '../components/Dashboard/MongoWidgets';
+import { OverStocked, UnderStocked } from '../components/Dashboard/MongoTables';
 import ErrorBoundary from '../components/common/ErrorBoundary';
 
 export default function Dashboard() {
