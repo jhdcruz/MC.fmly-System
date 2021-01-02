@@ -11,10 +11,9 @@ import Categories from '../../components/Sidebar/Categories';
 import SearchControls from '../../components/common/SearchControls';
 import { Fallback } from '../../components/common/Loader';
 import Notification from '../../components/common/Notification';
-import ResetScroll from '../../components/common/ResetScroll';
-import { transactionPayment, transactionStatus } from './Filters';
-import { TransactionsApi } from '../../api/Transactions';
 import { TransactionCard } from '../../components/Transactions/Card';
+import { TransactionsApi } from '../../api/Transactions';
+import { transactionPayment, transactionStatus } from './Filters';
 
 // * Lazy imports
 const TransactionModals = lazy(() => import('./Modals'));
@@ -62,7 +61,6 @@ export default function CardView(props) {
         {data &&
           transactionStatus(data).map((statuses) => (
             <Tab.Pane key={statuses.status} eventKey={statuses.status}>
-              <ResetScroll />
               {data &&
                 data
                   .filter((pane) => pane.status === statuses.status)
@@ -82,7 +80,6 @@ export default function CardView(props) {
         {data &&
           transactionPayment(data).map((payments) => (
             <Tab.Pane key={payments.payment} eventKey={payments.payment}>
-              <ResetScroll />
               {data
                 .filter((pane) => pane.payment === payments.payment)
                 .map((transaction) =>
@@ -109,7 +106,6 @@ export default function CardView(props) {
         {data && true ? (
           <>
             <Tab.Pane eventKey="default">
-              <ResetScroll />
               {data &&
                 data.map((transaction) =>
                   TransactionCard(transaction, () => showEditModal(true))

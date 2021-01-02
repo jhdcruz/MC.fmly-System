@@ -8,7 +8,7 @@
 import { ListGroup } from 'react-bootstrap';
 import Updates from '../../components/SysInfo/Updates';
 import { Loader } from '../../components/common/Loader';
-import { ListContainer } from '../../components/SysInfo/SysInfo.module';
+import { ListContainer } from '../../components/SysInfo/modules/SysInfo';
 import { ReleasesApi } from '../../api/github/Releases';
 
 /*****************************************************

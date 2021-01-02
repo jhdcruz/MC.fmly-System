@@ -10,7 +10,6 @@ import Tab from 'react-bootstrap/Tab';
 import SearchControls from '../../components/common/SearchControls';
 import Categories from '../../components/Sidebar/Categories';
 import { Fallback } from '../../components/common/Loader';
-import ResetScroll from '../../components/common/ResetScroll';
 import Notification from '../../components/common/Notification';
 import { ProductCard } from '../../components/Products/Card';
 import { ProductsApi } from '../../api/Products';
@@ -59,7 +58,6 @@ export default function CardView(props) {
         {data &&
           productCategories(data).map((categories) => (
             <Tab.Pane key={categories.category} eventKey={categories.category}>
-              <ResetScroll />
               {data
                 .filter((pane) => pane.category === categories.category)
                 .map((product) =>
@@ -78,7 +76,6 @@ export default function CardView(props) {
         {data &&
           productTypes(data).map((types) => (
             <Tab.Pane key={types.type} eventKey={types.type}>
-              <ResetScroll />
               {data
                 .filter((pane) => pane.type === types.type)
                 .map((product) =>
@@ -105,7 +102,6 @@ export default function CardView(props) {
         {data && true ? (
           <>
             <Tab.Pane eventKey="default">
-              <ResetScroll />
               {data &&
                 data.map((product) =>
                   ProductCard(product, () => showEditModal(true))
