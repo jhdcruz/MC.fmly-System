@@ -1,5 +1,16 @@
 {
   "singleQuote": true,
   "tabWidth": 2,
-  "trailingComma": "none"
+  "trailingComma": "none",
+  "overrides": [
+    {
+      "files": [
+        "*.html"
+      ],
+      "options": {
+        "tabWidth": 2,
+        "singleQuote": false
+      }
+    }
+  ]
 }
