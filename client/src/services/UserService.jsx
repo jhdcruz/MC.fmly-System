@@ -11,9 +11,7 @@ export default function UserService() {
   return useQuery(
     'users',
     async () => {
-      const { data } = await axios.get(
-        'https://mc-ims-api.herokuapp.com/users'
-      );
+      const { data } = await axios.get(`${process.env.REACT_APP_API}/users`);
       return data;
     },
     {

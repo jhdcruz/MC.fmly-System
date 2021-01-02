@@ -11,9 +11,7 @@ export default function ProductService() {
   return useQuery(
     'products',
     async () => {
-      const { data } = await axios.get(
-        'https://mc-ims-api.herokuapp.com/products'
-      );
+      const { data } = await axios.get(`${process.env.REACT_APP_API}/products`);
       return data;
     },
     {

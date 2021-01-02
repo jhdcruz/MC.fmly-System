@@ -7,13 +7,13 @@
 import axios from 'axios';
 import { useQuery } from 'react-query';
 
-// Fetch suppliers data from API
+// * Fetch github repo releases
 export default function Releases() {
   return useQuery(
     'releases',
     async () => {
       const { data } = await axios.get(
-        'https://api.github.com/repos/jhdcruz/MC.fmly-System/releases'
+        `${process.env.REACT_APP_GITHUB_URL}/releases`
       );
       return data;
     },

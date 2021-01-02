@@ -12,7 +12,7 @@ export default function SupplierService() {
     'suppliers',
     async () => {
       const { data } = await axios.get(
-        'https://mc-ims-api.herokuapp.com/suppliers'
+        `${process.env.REACT_APP_API}/suppliers`
       );
       return data;
     },

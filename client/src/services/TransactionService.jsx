@@ -12,7 +12,7 @@ export default function TransactionService() {
     'transactions',
     async () => {
       const { data } = await axios.get(
-        'https://mc-ims-api.herokuapp.com/transactions'
+        `${process.env.REACT_APP_API}/transactions`
       );
       return data;
     },

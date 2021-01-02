@@ -12,7 +12,7 @@ export default function ApiService() {
     'status',
     async () => {
       const { data } = await axios.get(
-        'https://mc-ims-api.herokuapp.com/auth/status'
+        `${process.env.REACT_APP_API}/auth/status`
       );
       return data;
     },

@@ -27,7 +27,7 @@ export default function Authentication() {
    *******************************/
   const userVerify = useCallback((username, password) => {
     axios
-      .post(`https://mc-ims-api.herokuapp.com/auth/login`, username, password)
+        .post(`${process.env.REACT_APP_API}/auth/login`, username, password)
       .then((res) => {
         if (res.data) {
           setAuth(res.data);
