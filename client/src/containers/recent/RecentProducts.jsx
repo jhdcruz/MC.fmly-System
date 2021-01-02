@@ -7,13 +7,14 @@
 import { lazy, Suspense, useState } from 'react';
 import { Fallback, Loader } from '../../components/common/Loader';
 import ProductHeader from '../../components/tables/ProductHeader';
-import ProductService from '../../services/ProductService';
+import { ProductsApi } from '../../api/Products';
 
 const ProductRow = lazy(() => import('../../components/tables/ProductRow'));
 const ProductModals = lazy(() => import('../products/ProductModals'));
 
 export default function RecentProducts() {
-  const { data } = ProductService();
+  const { data } = ProductsApi();
+
   // * Modal State Handlers | Until API's done
   const [editModal, showEditModal] = useState(false);
   const [deleteModal, showDeleteModal] = useState(false);

@@ -7,16 +7,18 @@
 import axios from 'axios';
 import { useQuery } from 'react-query';
 
-// * Fetch github repo releases
-export default function Releases() {
+export const TransactionsApi = () => {
   return useQuery(
-    'releases',
+    'transactions',
     async () => {
       const { data } = await axios.get(
-        `${process.env.REACT_APP_GITHUB_URL}/releases`
+        `${process.env.REACT_APP_API}/transactions`
       );
       return data;
     },
-    { refetchInterval: 60000 }
+    {
+      refetchIntervalInBackground: true,
+      refetchOnWindowFocus: false
+    }
   );
-}
+};

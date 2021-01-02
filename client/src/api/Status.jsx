@@ -7,18 +7,19 @@
 import axios from 'axios';
 import { useQuery } from 'react-query';
 
-export default function TransactionService() {
+export const StatusApi = () => {
   return useQuery(
-    'transactions',
+    'status',
     async () => {
       const { data } = await axios.get(
-        `${process.env.REACT_APP_API}/transactions`
+        `${process.env.REACT_APP_API}/auth/status`
       );
       return data;
     },
     {
+      refetchInterval: 60000,
       refetchIntervalInBackground: true,
       refetchOnWindowFocus: false
     }
   );
-}
+};

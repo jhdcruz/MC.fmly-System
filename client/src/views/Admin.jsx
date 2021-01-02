@@ -32,7 +32,7 @@ import Suppliers from '../pages/Suppliers';
 import Pos from '../pages/Pos';
 import Users from '../pages/Users';
 import SysInfo from '../pages/SysInfo';
-import Status from '../containers/Status';
+import ApiStatus from '../containers/ApiStatus';
 
 /*********************************
  * * Admin Permission Access
@@ -99,7 +99,7 @@ export default function Admin() {
                   route={routes.SYSINFO}
                   icon={faServer}
                 />
-                <Status placement="right" left="0.8rem" />
+                <ApiStatus placement="right" left="0.8rem" />
               </>
             }
           />

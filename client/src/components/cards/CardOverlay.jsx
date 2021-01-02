@@ -89,7 +89,7 @@ export const CardOverlay = (props) => {
   );
 };
 
-export const CardDeck = (props) => {
+export const ExpandedCard = (props) => {
   return (
     <CardBlock key={props.key} onClick={props.action}>
       <CardImage src={placeholder} alt="Item Logo" />

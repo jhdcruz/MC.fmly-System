@@ -13,13 +13,13 @@ import SearchControls from '../../components/SearchControls';
 import Categories from '../../components/sidebar/Categories';
 import { Fallback, Loader } from '../../components/common/Loader';
 import { userPermissions, userRoles } from './UserFilters';
-import UserService from '../../services/UserService';
+import { UsersApi } from '../../api/Users';
 
 const UserRow = lazy(() => import('../../components/tables/UserRow'));
 const UserModals = lazy(() => import('./UserModals'));
 
 export default function UsersList(props) {
-  const { data } = UserService();
+  const { data } = UsersApi();
 
   // * Modal State Handlers
   const [addModal, showAddModal] = useState(false);

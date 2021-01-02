@@ -7,13 +7,14 @@
 import { lazy, Suspense, useState } from 'react';
 import { Fallback, Loader } from '../../components/common/Loader';
 import UserHeader from '../../components/tables/UserHeader';
-import UserService from '../../services/UserService';
+import { UsersApi } from '../../api/Users';
 
 const UserRow = lazy(() => import('../../components/tables/UserRow'));
 const UserModals = lazy(() => import('../users/UserModals'));
 
 export default function RecentUsers() {
-  const { data } = UserService();
+  const { data } = UsersApi();
+
   // * Modal State Handlers | Until API's done
   const [editModal, showEditModal] = useState(false);
   const [deleteModal, showDeleteModal] = useState(false);

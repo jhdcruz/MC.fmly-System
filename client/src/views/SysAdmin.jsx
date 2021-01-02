@@ -21,7 +21,7 @@ import Dashboard from '../pages/Dashboard';
 import SysInfo from '../pages/SysInfo';
 import TabItem from '../components/sidebar/TabItem';
 import Users from '../pages/Users';
-import Status from '../containers/Status';
+import ApiStatus from '../containers/ApiStatus';
 
 /*********************************
  * * Cashier Permission Access
@@ -58,7 +58,7 @@ export default function SysAdmin() {
                   route={routes.USERS}
                   icon={faUsers}
                 />
-                <Status placement="right" left="0.8rem" />
+                <ApiStatus placement="right" left="0.8rem" />
               </>
             }
           />

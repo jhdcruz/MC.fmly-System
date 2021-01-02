@@ -9,22 +9,22 @@ import Nav from 'react-bootstrap/Nav';
 import Tab from 'react-bootstrap/Tab';
 import Categories from '../../components/sidebar/Categories';
 import SearchControls from '../../components/SearchControls';
-import { CardDeck } from '../../components/cards/CardOverlay';
+import { ExpandedCard } from '../../components/cards/CardOverlay';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarAlt, faHistory } from '@fortawesome/free-solid-svg-icons';
 import { Fallback } from '../../components/common/Loader';
 import { userPermissions, userRoles } from './UserFilters';
 import Tag from '../../components/common/Tag';
-import UserService from '../../services/UserService';
 import ResetScroll from '../../components/ResetScroll';
 import Notification from '../../components/common/Notification';
+import { UsersApi } from '../../api/Users';
 
 // * Lazy imports
 const UserModals = lazy(() => import('./UserModals'));
 const Moment = lazy(() => import('react-moment'));
 
 export default function UsersCard(props) {
-  const { data } = UserService();
+  const { data } = UsersApi();
 
   // * Modal State Handlers | Until API's done
   const [addModal, showAddModal] = useState(false);
@@ -55,7 +55,7 @@ export default function UsersCard(props) {
 
   const UserCard = (user) => {
     return (
-      <CardDeck
+      <ExpandedCard
         action={() => showEditModal(true)}
         key={user._id}
         title={user.name}

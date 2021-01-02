@@ -7,18 +7,20 @@
 import axios from 'axios';
 import { useQuery } from 'react-query';
 
-export default function SupplierService() {
+// * Fetch github repo commits
+export const CommitsApi = () => {
   return useQuery(
-    'suppliers',
+    'commits',
     async () => {
       const { data } = await axios.get(
-        `${process.env.REACT_APP_API}/suppliers`
+        `${process.env.REACT_APP_GITHUB_URL}/commits`
       );
       return data;
     },
     {
+      refetchInterval: 60000,
       refetchIntervalInBackground: true,
       refetchOnWindowFocus: false
     }
   );
-}
+};

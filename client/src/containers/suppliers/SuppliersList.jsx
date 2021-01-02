@@ -14,14 +14,14 @@ import Categories from '../../components/sidebar/Categories';
 import SupplierHeader from '../../components/tables/SupplierHeader';
 import SearchControls from '../../components/SearchControls';
 import ResetScroll from '../../components/ResetScroll';
-import SupplierService from '../../services/SupplierService';
 import { supplierCategories } from './SupplierFilters';
+import { SuppliersApi } from '../../api/Suppliers';
 
 const SupplierRow = lazy(() => import('../../components/tables/SupplierRow'));
 const SupplierModals = lazy(() => import('./SupplierModals'));
 
 export default function SuppliersList(props) {
-  const { data } = SupplierService();
+  const { data } = SuppliersApi();
 
   // * Modal State Handlers | Until API's done
   const [addModal, showAddModal] = useState(false);

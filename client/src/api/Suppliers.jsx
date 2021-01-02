@@ -7,11 +7,13 @@
 import axios from 'axios';
 import { useQuery } from 'react-query';
 
-export default function UserService() {
+export const SuppliersApi = () => {
   return useQuery(
-    'users',
+    'suppliers',
     async () => {
-      const { data } = await axios.get(`${process.env.REACT_APP_API}/users`);
+      const { data } = await axios.get(
+        `${process.env.REACT_APP_API}/suppliers`
+      );
       return data;
     },
     {
@@ -19,4 +21,4 @@ export default function UserService() {
       refetchOnWindowFocus: false
     }
   );
-}
+};

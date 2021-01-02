@@ -7,13 +7,13 @@
 import { lazy, Suspense, useState } from 'react';
 import { Fallback, Loader } from '../../components/common/Loader';
 import SupplierHeader from '../../components/tables/SupplierHeader';
-import SupplierService from '../../services/SupplierService';
+import { SuppliersApi } from '../../api/Suppliers';
 
 const SupplierRow = lazy(() => import('../../components/tables/SupplierRow'));
 const SupplierModals = lazy(() => import('../suppliers/SupplierModals'));
 
 export default function RecentSuppliers() {
-  const { data } = SupplierService();
+  const { data } = SuppliersApi();
 
   // * Modal State Handlers | Until API's done
   const [editModal, showEditModal] = useState(false);

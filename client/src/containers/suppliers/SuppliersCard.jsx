@@ -13,14 +13,14 @@ import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import SearchControls from '../../components/SearchControls';
 import Categories from '../../components/sidebar/Categories';
 import ResetScroll from '../../components/ResetScroll';
-import SupplierService from '../../services/SupplierService';
 import { supplierCategories } from './SupplierFilters';
+import { SuppliersApi } from '../../api/Suppliers';
 
 const Poster = lazy(() => import('../../components/cards/Poster'));
 const SupplierModals = lazy(() => import('./SupplierModals'));
 
 export default function SuppliersCard(props) {
-  const { data } = SupplierService();
+  const { data } = SuppliersApi();
 
   // * Modal State Handlers | Until API's done
   const [addModal, showAddModal] = useState(false);

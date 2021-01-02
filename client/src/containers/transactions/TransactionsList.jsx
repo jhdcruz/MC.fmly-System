@@ -12,8 +12,8 @@ import SearchControls from '../../components/SearchControls';
 import TransactionHeader from '../../components/tables/TransactionHeader';
 import { Fallback, Loader } from '../../components/common/Loader';
 import { transactionPayment, transactionStatus } from './TransactionFilters';
-import TransactionService from '../../services/TransactionService';
 import ResetScroll from '../../components/ResetScroll';
+import { TransactionsApi } from '../../api/Transactions';
 
 const TransactionRow = lazy(() =>
   import('../../components/tables/TransactionRow')
@@ -21,7 +21,7 @@ const TransactionRow = lazy(() =>
 const TransactionModals = lazy(() => import('./TransactionModals'));
 
 export default function TransactionsList(props) {
-  const { data } = TransactionService();
+  const { data } = TransactionsApi();
 
   // * Modal State Handlers | Until API's done
   const [addModal, showAddModal] = useState(false);

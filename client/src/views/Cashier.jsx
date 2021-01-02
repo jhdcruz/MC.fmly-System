@@ -15,7 +15,7 @@ import routes from '../constants/routes';
 import '../global.scss';
 // Routes
 import Pos from '../pages/Pos';
-import Status from '../containers/Status';
+import ApiStatus from '../containers/ApiStatus';
 
 /*********************************
  * * Cashier Permission Access
@@ -38,7 +38,7 @@ export default function Cashier() {
                 />
               </>
             }
-            bottom={<Status placement="right" left="0.8rem" />}
+            bottom={<ApiStatus placement="right" left="0.8rem" />}
           />
           <div id="pageRoutes" className="routerContainer">
             <RouteTransition

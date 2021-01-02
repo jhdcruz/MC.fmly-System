@@ -6,16 +6,16 @@
 
 import { ListGroup } from 'react-bootstrap';
 import Commit from '../../components/system/Commit';
-import Commits from '../../services/github/Commits';
 import { Loader } from '../../components/common/Loader';
 import { ListContainer } from '../../components/system/System.module';
+import { CommitsApi } from '../../api/github/Commits';
 
 /*****************************************************
  * * Get commits from project repository (GitHub API)
  *****************************************************/
 
 export default function Development() {
-  const { data } = Commits();
+  const { data } = CommitsApi();
 
   return (
     <ListContainer>

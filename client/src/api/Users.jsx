@@ -7,19 +7,16 @@
 import axios from 'axios';
 import { useQuery } from 'react-query';
 
-export default function ApiService() {
+export const UsersApi = () => {
   return useQuery(
-    'status',
+    'users',
     async () => {
-      const { data } = await axios.get(
-        `${process.env.REACT_APP_API}/auth/status`
-      );
+      const { data } = await axios.get(`${process.env.REACT_APP_API}/users`);
       return data;
     },
     {
-      refetchInterval: 60000,
       refetchIntervalInBackground: true,
       refetchOnWindowFocus: false
     }
   );
-}
+};

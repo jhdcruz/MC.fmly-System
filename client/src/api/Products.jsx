@@ -7,7 +7,7 @@
 import axios from 'axios';
 import { useQuery } from 'react-query';
 
-export default function ProductService() {
+export const ProductsApi = () => {
   return useQuery(
     'products',
     async () => {
@@ -19,4 +19,4 @@ export default function ProductService() {
       refetchOnWindowFocus: false
     }
   );
-}
+};

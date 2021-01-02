@@ -12,7 +12,7 @@ import { Fallback } from '../../components/common/Loader';
 import { CardOverlay } from '../../components/cards/CardOverlay';
 import { productCategories, productTypes } from '../products/ProductFilters';
 import Tag from '../../components/common/Tag';
-import ProductService from '../../services/ProductService';
+import { ProductsApi } from '../../api/Products';
 import PosControls from './PosControls';
 
 /************************************
@@ -20,7 +20,7 @@ import PosControls from './PosControls';
  ************************************/
 
 export default function PosCatalog() {
-  const { data } = ProductService();
+  const { data } = ProductsApi();
 
   // * Catalog Content
   const Catalog = (product) => {

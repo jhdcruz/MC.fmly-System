@@ -7,16 +7,16 @@
 // GET updates from repo
 import { ListGroup } from 'react-bootstrap';
 import Updates from '../../components/system/Updates';
-import Releases from '../../services/github/Releases';
 import { Loader } from '../../components/common/Loader';
 import { ListContainer } from '../../components/system/System.module';
+import { ReleasesApi } from '../../api/github/Releases';
 
 /*****************************************************
  * * Get releases from project repository (GitHub API)
  *****************************************************/
 
 export default function Release() {
-  const { data } = Releases();
+  const { data } = ReleasesApi();
 
   return (
     <ListContainer>

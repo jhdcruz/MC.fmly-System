@@ -9,15 +9,15 @@ import Nav from 'react-bootstrap/Nav';
 import Tab from 'react-bootstrap/Tab';
 import Categories from '../../components/sidebar/Categories';
 import SearchControls from '../../components/SearchControls';
-import { CardDeck } from '../../components/cards/CardOverlay';
+import { ExpandedCard } from '../../components/cards/CardOverlay';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarAlt, faHistory } from '@fortawesome/free-solid-svg-icons';
 import { Fallback } from '../../components/common/Loader';
 import Tag from '../../components/common/Tag';
 import Notification from '../../components/common/Notification';
-import { transactionPayment, transactionStatus } from './TransactionFilters';
-import TransactionService from '../../services/TransactionService';
 import ResetScroll from '../../components/ResetScroll';
+import { transactionPayment, transactionStatus } from './TransactionFilters';
+import { TransactionsApi } from '../../api/Transactions';
 
 // * Lazy imports
 const TransactionModals = lazy(() => import('./TransactionModals'));
@@ -28,7 +28,7 @@ const Moment = lazy(() => import('react-moment'));
  ************************************/
 
 export default function TransactionsCard(props) {
-  const { data } = TransactionService();
+  const { data } = TransactionsApi();
 
   // * Modal State Handlers | Until API's done
   const [addModal, showAddModal] = useState(false);
@@ -62,7 +62,7 @@ export default function TransactionsCard(props) {
   // * Transaction Card Body
   const TransactionCard = (transaction) => {
     return (
-      <CardDeck
+      <ExpandedCard
         action={() => showInvoiceModal(true)}
         key={transaction._id}
         title={

@@ -13,7 +13,7 @@ import SearchControls from '../../components/SearchControls';
 import ResetScroll from '../../components/ResetScroll';
 import { Fallback, Loader } from '../../components/common/Loader';
 import { productCategories, productTypes } from './ProductFilters';
-import ProductService from '../../services/ProductService';
+import { ProductsApi } from '../../api/Products';
 
 const ProductRow = lazy(() => import('../../components/tables/ProductRow'));
 const ProductModals = lazy(() => import('./ProductModals'));
@@ -23,7 +23,7 @@ const ProductModals = lazy(() => import('./ProductModals'));
  ******************************************/
 
 export default function ProductsList(props) {
-  const { data } = ProductService();
+  const { data } = ProductsApi();
 
   // * Modal State Handlers | Until API's done
   const [addModal, showAddModal] = useState(false);

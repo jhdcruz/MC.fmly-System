@@ -9,14 +9,14 @@ import Tooltip from 'react-bootstrap/Tooltip';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircle } from '@fortawesome/free-solid-svg-icons';
-import ApiService from '../services/ApiService';
+import { StatusApi } from '../api/Status';
 
 /*********************************
  * * Server Status Display Icon
  *********************************/
 
-export default function Status(props) {
-  const { data } = ApiService();
+export default function ApiStatus(props) {
+  const { data } = StatusApi();
 
   // * Display Status Icon based on response
   const StatusDisplay = () => {

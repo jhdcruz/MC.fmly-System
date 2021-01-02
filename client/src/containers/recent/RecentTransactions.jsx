@@ -6,7 +6,7 @@
 import { lazy, Suspense, useState } from 'react';
 import { Fallback, Loader } from '../../components/common/Loader';
 import TransactionHeader from '../../components/tables/TransactionHeader';
-import TransactionService from '../../services/TransactionService';
+import { TransactionsApi } from '../../api/Transactions';
 
 const TransactionRow = lazy(() =>
   import('../../components/tables/TransactionRow')
@@ -16,7 +16,8 @@ const TransactionModals = lazy(() =>
 );
 
 export default function RecentTransactions() {
-  const { data } = TransactionService();
+  const { data } = TransactionsApi();
+
   // * Modal State Handlers | Until API's done
   const [editModal, showEditModal] = useState(false);
   const [deleteModal, showDeleteModal] = useState(false);

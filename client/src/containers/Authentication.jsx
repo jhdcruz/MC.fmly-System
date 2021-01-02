@@ -6,9 +6,9 @@
 
 import { lazy, Suspense, useCallback, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import axios from 'axios';
-import Status from './Status';
+import ApiStatus from './ApiStatus';
 import { Fallback } from 'components/common/Loader';
+import { AuthApi } from '../api/Auth';
 
 // Views
 const LoginForm = lazy(() => import('../components/forms/LoginForm'));
@@ -24,15 +24,11 @@ export default function Authentication() {
   // * Authentication Handler
   const userVerify = useCallback((username, password) => {
     try {
-      axios
-        .post(`${process.env.REACT_APP_API}/auth/login`, username, password)
-        .then((res) => {
-          if (res.data) {
-            setAuth(res.data);
-          } else {
-            alert('Invalid username or password...');
-          }
-        })
+      AuthApi({
+        username,
+        password
+      })
+        .then((res) => setAuth(res.data))
         .catch(() => {
           alert('Invalid username or password...');
         });
@@ -88,7 +84,7 @@ export default function Authentication() {
         submit={handleSubmit(userVerify)}
         forgotten={forgotCreds}
       />
-      <Status placement="left" />
+      <ApiStatus placement="left" />
     </Suspense>
   );
 }

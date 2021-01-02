@@ -9,7 +9,7 @@ import Nav from 'react-bootstrap/Nav';
 import Tab from 'react-bootstrap/Tab';
 import SearchControls from '../../components/SearchControls';
 import Categories from '../../components/sidebar/Categories';
-import { CardDeck } from '../../components/cards/CardOverlay';
+import { ExpandedCard } from '../../components/cards/CardOverlay';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarAlt, faHistory } from '@fortawesome/free-solid-svg-icons';
 import { Fallback } from '../../components/common/Loader';
@@ -17,7 +17,7 @@ import { productCategories, productTypes } from './ProductFilters';
 import ResetScroll from '../../components/ResetScroll';
 import Tag from '../../components/common/Tag';
 import Notification from '../../components/common/Notification';
-import ProductService from '../../services/ProductService';
+import { ProductsApi } from '../../api/Products';
 
 // * Lazy imports
 const ProductModals = lazy(() => import('./ProductModals'));
@@ -28,7 +28,7 @@ const Moment = lazy(() => import('react-moment'));
  ************************************/
 
 export default function ProductsCard(props) {
-  const { data } = ProductService();
+  const { data } = ProductsApi();
 
   // * Modal State Handlers | Until API's done
   const [addModal, showAddModal] = useState(false);
@@ -58,7 +58,7 @@ export default function ProductsCard(props) {
 
   const ProductCard = (product) => {
     return (
-      <CardDeck
+      <ExpandedCard
         action={() => showEditModal(true)}
         key={product._id}
         title={
