@@ -5,7 +5,7 @@
  */
 
 import styled from 'styled-components';
-import { TableHeader, TableModule } from '../common/modules/Tables';
+import { TableHeader, TableModule } from '../../common/modules/Tables';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
 import Table from 'react-bootstrap/Table';
@@ -19,7 +19,7 @@ const ProductsTable = styled(Table)`
   height: max-content !important;
 `;
 
-export default function ProductHeader(props) {
+export default function Header(props) {
   return (
     <>
       <TableModule />

@@ -5,20 +5,20 @@
  */
 
 import Button from 'react-bootstrap/Button';
-import ProductForm from '../../components/Products/ProductForm';
+import PForm from '../../components/Products/PForm';
 import CustomModal from '../../components/common/CustomModal';
 
 export default function Modals(props) {
   return (
     <>
-      <ProductForm
+      <PForm
         header="Add product"
         show={props.addModal}
         onHide={props.addHide}
         submit={props.addSubmit}
         cancel={props.addCancel}
       />
-      <ProductForm
+      <PForm
         header="Edit product"
         show={props.editModal}
         onHide={props.editHide}

@@ -8,8 +8,8 @@ import { lazy, Suspense, useState } from 'react';
 import Tab from 'react-bootstrap/Tab';
 import Nav from 'react-bootstrap/Nav';
 import Categories from '../../components/Sidebar/Categories';
-import ProductHeader from '../../components/Products/ProductHeader';
-import ProductRow from '../../components/Products/ProductRow';
+import Header from '../../components/Products/table/Header';
+import Row from '../../components/Products/table/Row';
 import SearchControls from '../../components/common/SearchControls';
 import { Fallback } from '../../components/common/Loader';
 import { ProductsApi } from '../../api/Products';
@@ -57,14 +57,14 @@ export default function ListView(props) {
         {data &&
           productCategories(data).map((categories) => (
             <Tab.Pane key={categories.category} eventKey={categories.category}>
-              <ProductHeader
+              <Header
                 map={data && data._id}
                 data={
                   data &&
                   data
                     .filter((pane) => pane.category === categories.category)
                     .map((product) =>
-                      ProductRow(
+                      Row(
                         product,
                         () => showEditModal(true),
                         () => showDeleteModal(true)
@@ -85,12 +85,12 @@ export default function ListView(props) {
         {data &&
           productTypes(data).map((types) => (
             <Tab.Pane key={types.type} eventKey={types.type}>
-              <ProductHeader
+              <Header
                 _id={data && data._id}
                 data={data
                   .filter((pane) => pane.type === types.type)
                   .map((product) =>
-                    ProductRow(
+                    Row(
                       product,
                       () => showEditModal(true),
                       () => showDeleteModal(true)
@@ -117,12 +117,12 @@ export default function ListView(props) {
           <>
             {/* Display table based on clicked product category/type */}
             <Tab.Pane eventKey="default">
-              <ProductHeader
+              <Header
                 _id={data && data._id}
                 data={
                   data &&
                   data.map((product) =>
-                    ProductRow(
+                    Row(
                       product,
                       () => showEditModal(true),
                       () => showDeleteModal(true)

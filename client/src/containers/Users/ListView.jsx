@@ -7,8 +7,8 @@
 import { lazy, Suspense, useState } from 'react';
 import Nav from 'react-bootstrap/Nav';
 import Tab from 'react-bootstrap/Tab';
-import UserHeader from '../../components/Users/UserHeader';
-import UserRow from '../../components/Users/UserRow';
+import Header from '../../components/Users/table/Header';
+import Row from '../../components/Users/table/Row';
 import SearchControls from '../../components/common/SearchControls';
 import Categories from '../../components/Sidebar/Categories';
 import { Fallback } from '../../components/common/Loader';
@@ -53,13 +53,13 @@ export default function ListView(props) {
       data &&
       userPermissions(data).map((user) => (
         <Tab.Pane key={user.permission} eventKey={user.permission}>
-          <UserHeader
+          <Header
             data={
               data &&
               data
                 .filter((pane) => pane.permission === user.permission)
                 .map((userByPermission) =>
-                  UserRow(
+                  Row(
                     userByPermission,
                     () => showEditModal(true),
                     () => showDeleteModal(true)
@@ -78,12 +78,12 @@ export default function ListView(props) {
       data &&
       userRoles(data).map((user) => (
         <Tab.Pane key={user.role} eventKey={user.role}>
-          <UserHeader
+          <Header
             _id={data && data._id}
             data={data
               .filter((pane) => pane.role === user.role)
               .map((userByRole) =>
-                UserRow(
+                Row(
                   userByRole,
                   () => showEditModal(true),
                   () => showDeleteModal(true)
@@ -108,12 +108,12 @@ export default function ListView(props) {
         {data && true ? (
           <>
             <Tab.Pane eventKey="default">
-              <UserHeader
+              <Header
                 data={
                   data &&
                   data
                     .map((user) =>
-                      UserRow(
+                      Row(
                         user,
                         () => showEditModal(true),
                         () => showDeleteModal(true)

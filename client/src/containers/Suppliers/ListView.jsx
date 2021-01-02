@@ -11,8 +11,8 @@ import Tab from 'react-bootstrap/Tab';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Tooltip from 'react-bootstrap/Tooltip';
 import Categories from '../../components/Sidebar/Categories';
-import SupplierHeader from '../../components/Suppliers/SupplierHeader';
-import SupplierRow from '../../components/Suppliers/SupplierRow';
+import Header from '../../components/Suppliers/table/Header';
+import Row from '../../components/Suppliers/table/Row';
 import SearchControls from '../../components/common/SearchControls';
 import { SuppliersApi } from '../../api/Suppliers';
 import { supplierCategories } from './Filters';
@@ -61,11 +61,11 @@ export default function ListView(props) {
 
         {data && true ? (
           <Tab.Pane eventKey="default">
-            <SupplierHeader
+            <Header
               data={
                 data &&
                 data.reverse().map((supplier) =>
-                  SupplierRow(
+                  Row(
                     supplier,
                     () => showEditModal(true),
                     () => showDeleteModal(true)

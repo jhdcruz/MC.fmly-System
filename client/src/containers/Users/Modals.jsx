@@ -5,13 +5,13 @@
  */
 
 import Button from 'react-bootstrap/Button';
-import UserForm from '../../components/Users/UserForm';
+import UForm from '../../components/Users/UForm';
 import CustomModal from '../../components/common/CustomModal';
 
 export default function Modals(props) {
   return (
     <>
-      <UserForm
+      <UForm
         header="Add user"
         show={props.addModal}
         onHide={props.addHide}
@@ -19,7 +19,7 @@ export default function Modals(props) {
         submit={props.addSubmit}
         cancel={props.addCancel}
       />
-      <UserForm
+      <UForm
         header="Edit user"
         show={props.editModal}
         onHide={props.editHide}

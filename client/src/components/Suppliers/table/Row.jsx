@@ -5,11 +5,11 @@
  */
 
 import { lazy, Suspense } from 'react';
-import { TableData, TableRow, Tag } from '../common/modules/Tables';
+import { TableData, TableRow, Tag } from '../../common/modules/Tables';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGlobe } from '@fortawesome/free-solid-svg-icons';
 import Button from 'react-bootstrap/Button';
-import EntryActions from '../common/EntryActions';
+import EntryActions from '../../common/EntryActions';
 
 const Moment = lazy(() => import('react-moment'));
 
@@ -17,7 +17,7 @@ const Moment = lazy(() => import('react-moment'));
  * * Supplier Table Row
  *********************************/
 
-export default function SupplierRow(supplier, edit, del) {
+export default function Row(supplier, edit, del) {
   return (
     <>
       {/* Product | Table Row */}

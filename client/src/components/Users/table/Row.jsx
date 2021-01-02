@@ -5,8 +5,8 @@
  */
 
 import { lazy, Suspense } from 'react';
-import { TableData, TableRow, Tag } from '../common/modules/Tables';
-import EntryActions from '../common/EntryActions';
+import { TableData, TableRow, Tag } from '../../common/modules/Tables';
+import EntryActions from '../../common/EntryActions';
 
 const Moment = lazy(() => import('react-moment'));
 
@@ -14,7 +14,7 @@ const Moment = lazy(() => import('react-moment'));
  * * User Table Row
  *********************************/
 
-export default function UserRow(user, edit, del) {
+export default function Row(user, edit, del) {
   return (
     <>
       {/* User | Table Row */}

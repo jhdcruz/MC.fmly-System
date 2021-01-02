@@ -6,40 +6,48 @@
 
 import styled from 'styled-components';
 import Table from 'react-bootstrap/Table';
-import { TableHeader, TableModule } from '../common/modules/Tables';
+import { TableHeader, TableModule } from '../../common/modules/Tables';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
 
 /*********************************
- * * Users Table Header
+ * * Transaction Table Header
  *********************************/
 
-const UsersTable = styled(Table)`
+const TransactionsTable = styled(Table)`
   width: 93vw !important;
-  padding: 0 1rem 1rem !important;
+  padding: 0 1rem 1rem 1rem;
+  overflow: auto !important;
+  height: max-content !important;
 `;
 
-export default function UserHeader(props) {
+export default function Header(props) {
   return (
     <>
       <TableModule />
-      <UsersTable hover responsive>
+      <TransactionsTable hover responsive>
         <thead>
           <tr>
-            <TableHeader id="UserName" className="actions">
-              Username <FontAwesomeIcon icon={faCaretDown} />
+            <TableHeader id="OrderId" className="actions">
+              Order ID <FontAwesomeIcon icon={faCaretDown} />
             </TableHeader>
             <TableHeader id="Name">
               Name <FontAwesomeIcon icon={faCaretDown} />
             </TableHeader>
-            <TableHeader id="Role">
-              Role <FontAwesomeIcon icon={faCaretDown} />
+            <TableHeader id="Status">
+              Status <FontAwesomeIcon icon={faCaretDown} />
             </TableHeader>
-            <TableHeader id="Permission">
-              Permission <FontAwesomeIcon icon={faCaretDown} />
+            <TableHeader id="Total">
+              Total <FontAwesomeIcon icon={faCaretDown} />
             </TableHeader>
-            <TableHeader id="UpdatedAt">
-              Updated <FontAwesomeIcon icon={faCaretDown} />
+            <TableHeader id="Payment">
+              Payment <FontAwesomeIcon icon={faCaretDown} />
+            </TableHeader>
+            <TableHeader id="Receipt">
+              Receipt <FontAwesomeIcon icon={faCaretDown} />
+            </TableHeader>
+            <TableHeader id="Date">
+              Date <FontAwesomeIcon icon={faCaretDown} />
             </TableHeader>
             <TableHeader id="CreatedAt">
               Created <FontAwesomeIcon icon={faCaretDown} />
@@ -48,7 +56,7 @@ export default function UserHeader(props) {
         </thead>
         {/* Pass dynamic data as props */}
         <tbody>{props.data}</tbody>
-      </UsersTable>
+      </TransactionsTable>
     </>
   );
 }

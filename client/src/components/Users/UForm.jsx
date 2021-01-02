@@ -14,7 +14,7 @@ import { ModalForm, Required } from '../common/modules/Forms';
  * * User Modal Forms
  *******************************/
 
-export default function UserForm(props) {
+export default function UForm(props) {
   return (
     <CustomModal
       {...props}

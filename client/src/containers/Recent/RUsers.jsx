@@ -6,10 +6,10 @@
 
 import { lazy, Suspense, useState } from 'react';
 import { Fallback, Loader } from '../../components/common/Loader';
-import UserHeader from '../../components/Users/UserHeader';
+import Header from '../../components/Users/table/Header';
 import { UsersApi } from '../../api/Users';
 
-const UserRow = lazy(() => import('../../components/Users/UserRow'));
+const UserRow = lazy(() => import('../../components/Users/table/Row'));
 const UserModals = lazy(() => import('../Users/Modals'));
 
 export default function RUsers() {
@@ -41,7 +41,7 @@ export default function RUsers() {
     <>
       <Modals />
       {data && true ? (
-        <UserHeader
+        <Header
           data={
             // Reverse & limit result to 10 | prioritize new entries
             data &&

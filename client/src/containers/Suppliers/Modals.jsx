@@ -6,14 +6,14 @@
 
 import Button from 'react-bootstrap/Button';
 import CustomModal from '../../components/common/CustomModal';
-import SupplierForm from '../../components/Suppliers/SupplierForm';
+import SForm from '../../components/Suppliers/SForm';
 
 // TODO: API Communication
 
 export default function Modals(props) {
   return (
     <>
-      <SupplierForm
+      <SForm
         header="Add supplier"
         show={props.addModal}
         onHide={props.addHide}
@@ -21,7 +21,7 @@ export default function Modals(props) {
         submit={props.addSubmit}
         cancel={props.addCancel}
       />
-      <SupplierForm
+      <SForm
         header="Edit supplier"
         show={props.editModal}
         onHide={props.editHide}

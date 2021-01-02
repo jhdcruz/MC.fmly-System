@@ -5,11 +5,11 @@
  */
 import { lazy, Suspense, useState } from 'react';
 import { Fallback, Loader } from '../../components/common/Loader';
-import TransactionHeader from '../../components/Transactions/TransactionHeader';
+import Header from '../../components/Transactions/table/Header';
 import { TransactionsApi } from '../../api/Transactions';
 
 const TransactionRow = lazy(() =>
-  import('../../components/Transactions/TransactionRow')
+  import('../../components/Transactions/table/Row')
 );
 const TransactionModals = lazy(() => import('../Transactions/Modals'));
 
@@ -45,7 +45,7 @@ export default function RTransactions() {
     <>
       <Modals />
       {data && true ? (
-        <TransactionHeader
+        <Header
           data={
             data &&
             data

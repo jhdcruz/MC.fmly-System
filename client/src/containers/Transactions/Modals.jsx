@@ -6,12 +6,12 @@
 
 import Button from 'react-bootstrap/Button';
 import CustomModal from '../../components/common/CustomModal';
-import TransactionForm from '../../components/Transactions/TransactionForm';
+import TForm from '../../components/Transactions/TForm';
 
 export default function Modals(props) {
   return (
     <>
-      <TransactionForm
+      <TForm
         header="Add transaction"
         show={props.addModal}
         onHide={props.addHide}
@@ -19,7 +19,7 @@ export default function Modals(props) {
         submit={props.addSubmit}
         cancel={props.addCancel}
       />
-      <TransactionForm
+      <TForm
         header="Edit transaction"
         show={props.editModal}
         onHide={props.editHide}

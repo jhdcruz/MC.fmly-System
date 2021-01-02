@@ -9,8 +9,8 @@ import Nav from 'react-bootstrap/Nav';
 import Tab from 'react-bootstrap/Tab';
 import Categories from '../../components/Sidebar/Categories';
 import SearchControls from '../../components/common/SearchControls';
-import TransactionHeader from '../../components/Transactions/TransactionHeader';
-import TransactionRow from '../../components/Transactions/TransactionRow';
+import Header from '../../components/Transactions/table/Header';
+import Row from '../../components/Transactions/table/Row';
 import { Fallback } from '../../components/common/Loader';
 import { TransactionsApi } from '../../api/Transactions';
 import { transactionPayment, transactionStatus } from './Filters';
@@ -56,13 +56,13 @@ export default function ListView(props) {
         {data &&
           transactionStatus(data).map((transaction) => (
             <Tab.Pane key={transaction.status} eventKey={transaction.status}>
-              <TransactionHeader
+              <Header
                 data={
                   data &&
                   data
                     .filter((pane) => pane.status === transaction.status)
                     .map((transactionByStatus) =>
-                      TransactionRow(
+                      Row(
                         transactionByStatus,
                         () => showEditModal(true),
                         () => showDeleteModal(true),
@@ -84,12 +84,12 @@ export default function ListView(props) {
         {data &&
           transactionPayment(data).map((transaction) => (
             <Tab.Pane key={transaction.payment} eventKey={transaction.payment}>
-              <TransactionHeader
+              <Header
                 _id={data && data._id}
                 data={data
                   .filter((pane) => pane.payment === transaction.payment)
                   .map((transactionByPayment) =>
-                    TransactionRow(
+                    Row(
                       transactionByPayment,
                       () => showEditModal(true),
                       () => showDeleteModal(true),
@@ -116,11 +116,11 @@ export default function ListView(props) {
         {data && true ? (
           <>
             <Tab.Pane eventKey="default">
-              <TransactionHeader
+              <Header
                 data={
                   data &&
                   data.map((transaction) =>
-                    TransactionRow(
+                    Row(
                       transaction,
                       () => showEditModal(true),
                       () => showDeleteModal(true),

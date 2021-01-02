@@ -16,7 +16,7 @@ import { ModalForm, Required } from '../common/modules/Forms';
  * * Product Modal Form
  *******************************/
 
-export default function ProductForm(props) {
+export default function PForm(props) {
   return (
     <CustomModal
       {...props}

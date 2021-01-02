@@ -6,10 +6,10 @@
 
 import { lazy, Suspense, useState } from 'react';
 import { Fallback, Loader } from '../../components/common/Loader';
-import ProductHeader from '../../components/Products/ProductHeader';
+import Header from '../../components/Products/table/Header';
 import { ProductsApi } from '../../api/Products';
 
-const ProductRow = lazy(() => import('../../components/Products/ProductRow'));
+const ProductRow = lazy(() => import('../../components/Products/table/Row'));
 const ProductModals = lazy(() => import('../Inventory/Modals'));
 
 export default function RProducts() {
@@ -41,7 +41,7 @@ export default function RProducts() {
     <>
       <Modals />
       {data && true ? (
-        <ProductHeader
+        <Header
           data={
             // Reverse & limit result to 10 | prioritize new entries
             data &&

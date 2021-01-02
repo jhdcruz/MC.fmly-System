@@ -15,7 +15,7 @@ import { FormControl, InputGroup } from 'react-bootstrap';
  * * Transactions Modal Form
  *******************************/
 
-export default function TransactionForm(props) {
+export default function TForm(props) {
   return (
     <CustomModal
       {...props}

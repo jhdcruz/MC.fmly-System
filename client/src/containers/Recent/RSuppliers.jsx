@@ -6,11 +6,11 @@
 
 import { lazy, Suspense, useState } from 'react';
 import { Fallback, Loader } from '../../components/common/Loader';
-import SupplierHeader from '../../components/Suppliers/SupplierHeader';
+import Header from '../../components/Suppliers/table/Header';
 import { SuppliersApi } from '../../api/Suppliers';
 
 const SupplierRow = lazy(() =>
-  import('../../components/Suppliers/SupplierRow')
+  import('../../components/Suppliers/table/Row')
 );
 const SupplierModals = lazy(() => import('../Suppliers/Modals'));
 
@@ -42,7 +42,7 @@ export default function RSuppliers() {
     <>
       <Modals />
       {data && true ? (
-        <SupplierHeader
+        <Header
           data={
             // Reverse & limit result to 10 | prioritize new entries
             data &&
