@@ -4,6 +4,7 @@
  *     Licensed under GNU General Public License 3.0 or later
  */
 
+import { lazy } from 'react';
 import styled from 'styled-components';
 import Card from 'react-bootstrap/Card';
 import Image from 'react-bootstrap/Image';
@@ -11,12 +12,16 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import ListGroupItem from 'react-bootstrap/ListGroupItem';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
+  faCalendarAlt,
   faGlobe,
+  faHistory,
   faMapMarkerAlt,
   faPhone
 } from '@fortawesome/free-solid-svg-icons';
 import EntryActions from '../common/EntryActions';
 import Tag from '../common/Tag';
+
+const FormatDate = lazy(() => import('../../utils/formatDate'));
 
 const CardBlock = styled(Card)`
   display: inline-block;
@@ -34,7 +39,9 @@ const CardBlock = styled(Card)`
   vertical-align: top;
   z-index: 1;
 
-  :hover {
+  :hover,
+  :active,
+  :focus {
     background-color: #161518;
     border: 3px ridge #e6a195;
     border-radius: 0.3rem;
@@ -64,11 +71,12 @@ const CardBlock = styled(Card)`
     button {
       float: right !important;
       border: none;
-      visibility: hidden;
     }
 
-    :hover {
-      background-color: #121416;
+    :hover,
+    :active,
+    :focus {
+      background-color: transparent;
 
       button {
         visibility: visible;
@@ -87,6 +95,7 @@ const CardBlock = styled(Card)`
       display: flex;
       overflow: auto;
       vertical-align: middle;
+      padding: 0.5rem 0 0;
     }
 
     hr {
@@ -112,15 +121,15 @@ const CardLink = styled(Card.Link)`
   }
 `;
 
-export default function Poster(props, edit, del) {
+export default function Poster(supplier, edit, del) {
   return (
-    <CardBlock>
+    <CardBlock tabIndex={0}>
       <Card.Body>
         <Card.Title>
-          <Image src={props.icon} width={40} height={40} />
-          <strong>{props.name} </strong>
-          {props.website ? (
-            <CardLink href={props.website} target="_blank" rel="noreferrer">
+          <Image src={supplier.icon} width={40} height={40} />
+          <strong>{supplier.name} </strong>
+          {supplier.website ? (
+            <CardLink href={supplier.website} target="_blank" rel="noreferrer">
               <FontAwesomeIcon icon={faGlobe} />
             </CardLink>
           ) : (
@@ -131,22 +140,36 @@ export default function Poster(props, edit, del) {
         </Card.Title>
       </Card.Body>
       <ListGroup className="list-group-flush">
-        <ListGroupItem>{props.description}</ListGroupItem>
+        <ListGroupItem>
+          <CardLink
+            href={`https://www.google.com/maps/place/${supplier.address}`}
+          >
+            <FontAwesomeIcon icon={faMapMarkerAlt} /> {supplier.address}
+          </CardLink>
+          <CardLink className="float-right text-muted">
+            <FontAwesomeIcon icon={faPhone} /> {supplier.contact}
+          </CardLink>
+        </ListGroupItem>
+        <ListGroupItem>{supplier.description}</ListGroupItem>
         <hr />
         <ListGroupItem id="tags">
           <span className="text-muted pt-1 pr-1">Tags: </span>
-          {props.category.map((category) => (
+          {supplier.category.map((category) => (
             <Tag variant="dark" index={category} content={category} />
           ))}
         </ListGroupItem>
       </ListGroup>
       <Card.Footer>
-        <CardLink href={`https://www.google.com/maps/place/${props.address}`}>
-          <FontAwesomeIcon icon={faMapMarkerAlt} /> {props.address}
-        </CardLink>
-        <CardLink className="float-right text-muted">
-          <FontAwesomeIcon icon={faPhone} /> {props.contact}
-        </CardLink>
+        <FontAwesomeIcon icon={faCalendarAlt} />{' '}
+        <FormatDate
+          format="D MMM YYYY"
+          fromNow={true}
+          date={supplier.updatedAt}
+        />
+        <span style={{ float: 'right' }}>
+          <FontAwesomeIcon icon={faHistory} />{' '}
+          <FormatDate fromNow={true} date={supplier.updatedAt} />
+        </span>
       </Card.Footer>
     </CardBlock>
   );
