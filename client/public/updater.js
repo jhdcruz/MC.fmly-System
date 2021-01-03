@@ -9,7 +9,7 @@ const isDev = require('electron-is-dev');
 
 if (!isDev) {
   const upstream = 'https://github.com/jhdcruz/MC.fmly-System/releases';
-  const url = `${upstream}/download/${app.getVersion()}`;
+  const url = `${upstream}/download/mcfmly-ims-${app.getVersion()}`;
 
   autoUpdater.setFeedURL({ url });
 
