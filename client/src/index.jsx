@@ -19,7 +19,7 @@
 import { StrictMode } from 'react';
 import { QueryClientProvider } from 'react-query';
 import ReactDOM from 'react-dom';
-import Login from './pages/Login';
+import Login from './pages/login';
 import { queryClient } from './utils/queryClient';
 import 'global.scss';
 
