@@ -15,7 +15,7 @@ import { faBars, faPlus, faThLarge } from '@fortawesome/free-solid-svg-icons';
 
 const ControlSection = styled.div`
   display: inline-flex;
-  width: 92vw;
+  width: min-content;
   height: max-content;
   margin: 0 1rem 0.5rem 0;
   padding: 0.3rem 0.5rem 0.5rem 0;
