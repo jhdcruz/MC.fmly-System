@@ -1,3 +1,5 @@
+## Prerequisites
+
 - [`Node.js v14.15.0+`](https://nodejs.org/en/) - Package manager
 - [`yarn v1.22+`](https://yarnpkg.com/getting-started/install) - Package & Project manager
 - [`MongoDB Cluster`](https://mongodb.com/) - MongoDB Cluster URI
@@ -44,16 +46,31 @@ brew install rpm
 
 ## Environment Variables
 
-Create a file called `.env` in `server/` derived from a template located in `./server/.env.template`.
+Create `.env` files for both projects.
 
-**Required:**
+**Server** `./server/.env`
 
-- **`MONGO_ADMIN`** - **Required**
+- **`MONGO_URL`** - **Required** _(Production)_
+- **`MONGO_ADMIN`** - **Required** _(Admin)_
+- **`ROLLBAR_TOKEN`** - _Rollbar Error Tracking (Server)_
+- **`INGESTION_KEY`** - _LogDNA Log Management_
 
-Add your environment variables inside `./server/.env`.
+**Client** `./client/.env`
+
+- **`REACT_APP_API`** - **Required** _Server deployment URL_
+- **`REACT_APP_GITHUB_URL`** - **Required** _GitHub Repo (GitHub API)_
+- **`REACT_APP_ROLLBAR_TOKEN`** - _Rollbar Error Tracking (Client)_
+
+See `.env` pre-configured templates:
+
+- [`./server/.env.template`](./server/.env.template) - **Server**
+
+- [`./client/.env.template`](./client/.env.template) - **Client**
+
+**Example:**
 
 ```dotenv
-MONGO_ADMIN=[Your URI Here]
+MONGO_URL=Your URI Here
 ```
 
 > Do not add quotation marks between values!

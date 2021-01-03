@@ -1,13 +1,3 @@
-<div align="center">
-
-![](https://github.com/jhdcruz/MC.fmly-System/blob/main/docs/diagram.svg)
-
-<i>Computer-generated diagram by <a href="https://arkit.pro">Arkit.pro</a>.</i>
-
-</div>
-
-<br />
-
 This project uses yarn's [`workspaces`](https://classic.yarnpkg.com/en/docs/workspaces/) to seperate the **Front-End**
 and the **Back-End** and run `scripts` without navigating back & forth to project folders.
 
@@ -35,16 +25,34 @@ yarn start
 
 ### Web App:
 
-You need to have a web provider that supports **`functions`**. Such as [**Vercel**](https://vercel.com), it can also be
-other provider such as DigitalOcean, AWS, etc...
+This project uses [**Vercel**](https://vercel.com) as its front-end provider, and [**Heroku**](https://heroku.com) as
+its back-end provider to bypass _Vercel's_ 12 API endpoint limit.
 
-> This project uses [**Vercel**](https://vercel.com) as its front-end provider, and [**Heroku**](https://heroku.com) as its back-end provider to bypass _Vercel's_ 12 API endpoint limit.
+#### Client
 
 ```shell
 yarn build
 ```
 
 Output in `./client/build` directory. Ready to deploy to hosting.
+
+#### Server
+
+Start `./server/server.js`
+
+```shell
+cross-env NODE_ENV=production node server.js
+```
+
+or
+
+```shell
+yarn workspace server start
+```
+
+See [Procfile](./Procfile).
+
+> You can also use other provider such as DigitalOcean, AWS, etc...
 
 ### Desktop:
 
@@ -72,4 +80,4 @@ Packaging the desktop app depends on the current system you have.
 Running `linux` or `mac` on a `win` system will throw an error due to missing required tools.
 
 Packaging the desktop app for `linux` can be made in `win` system inside `WSL` with
-fulfilled [prerequisites](./Prerequisites).
+fulfilled [prerequisites](#prerequisites).
