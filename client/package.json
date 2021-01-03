@@ -13,7 +13,7 @@
   "proxy": "http://localhost:5000",
   "main": "./build/electron.js",
   "scripts": {
-    "analyze": "source-map-explorer './build/static/js/*.js'",
+    "analyze": "source-map-explorer './build/static/js/*.js' --html ./tmp/sourcemap.html && source-map-explorer './build/static/js/*.js' --html ./tmp/sourcemap-gzip.html --gzip",
     "start": "concurrently \"cross-env BROWSER=none node ./scripts/start.js\" \"wait-on http://localhost:3000 && electron .\" --kill-others-on-fail",
     "web": "node ./scripts/start.js",
     "build": "node ./scripts/build.js",
