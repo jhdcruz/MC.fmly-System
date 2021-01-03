@@ -4,7 +4,7 @@
  *     Licensed under GNU General Public License 3.0 or later
  */
 import { lazy, Suspense, useState } from 'react';
-import { Fallback, Loader } from '../../components/common/Loader';
+import { Fallback, Loader } from '../../components/common/Loaders';
 import Header from '../../components/Transactions/table/Header';
 import { TransactionsApi } from '../../api/Transactions';
 

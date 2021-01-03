@@ -4,6 +4,7 @@
  *     Licensed under GNU General Public License 3.0 or later
  */
 
+import { memo } from 'react';
 import Spinner from 'react-bootstrap/Spinner';
 import styled from 'styled-components';
 import logoGif from '../../assets/img/logo.gif';
@@ -33,14 +34,12 @@ const ImgLoader = styled.div`
   }
 `;
 
-export const Loader = () => {
-  return <Loading variant="primary" animation="border" role="status" />;
-};
+export const Loader = memo(() => (
+  <Loading variant="primary" animation="border" role="status" />
+));
 
-export const Fallback = () => {
-  return (
-    <ImgLoader>
-      <img src={logoGif} alt="Loading..." width={200} height={200} />
-    </ImgLoader>
-  );
-};
+export const Fallback = memo(() => (
+  <ImgLoader>
+    <img src={logoGif} alt="Loading..." width={200} height={200} />
+  </ImgLoader>
+));

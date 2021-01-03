@@ -7,7 +7,7 @@
 import { lazy, Suspense, useCallback, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import ApiStatus from './ApiStatus';
-import { Fallback } from 'components/common/Loader';
+import { Fallback } from 'components/common/Loaders';
 import { AuthApi } from '../api/Auth';
 
 // * Lazy import views

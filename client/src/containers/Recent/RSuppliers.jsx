@@ -5,7 +5,7 @@
  */
 
 import { lazy, Suspense, useState } from 'react';
-import { Fallback, Loader } from '../../components/common/Loader';
+import { Fallback, Loader } from '../../components/common/Loaders';
 import Header from '../../components/Suppliers/table/Header';
 import { SuppliersApi } from '../../api/Suppliers';
 

@@ -9,7 +9,7 @@ import Nav from 'react-bootstrap/Nav';
 import Tab from 'react-bootstrap/Tab';
 import SearchControls from '../../components/common/SearchControls';
 import Categories from '../../components/Sidebar/Categories';
-import { Fallback } from '../../components/common/Loader';
+import { Fallback } from '../../components/common/Loaders';
 import Notification from '../../components/common/Notification';
 import { ProductCard } from '../../components/Products/Card';
 import { ProductsApi } from '../../api/Products';

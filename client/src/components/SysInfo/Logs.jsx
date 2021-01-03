@@ -5,7 +5,7 @@
  */
 
 import styled from 'styled-components';
-import { Loader } from '../common/Loader';
+import { Loader } from '../common/Loaders';
 
 /*****************************************************
  * * Embed API Logs (LogDNA)

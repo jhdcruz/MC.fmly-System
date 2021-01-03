@@ -5,7 +5,7 @@
  */
 
 import { lazy, Suspense, useState } from 'react';
-import { Fallback } from '../../components/common/Loader';
+import { Fallback } from '../../components/common/Loaders';
 import Tab from 'react-bootstrap/Tab';
 import Nav from 'react-bootstrap/Nav';
 import Tooltip from 'react-bootstrap/Tooltip';

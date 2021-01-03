@@ -6,7 +6,7 @@
 
 import { ListGroup } from 'react-bootstrap';
 import Commit from '../../components/SysInfo/Commit';
-import { Loader } from '../../components/common/Loader';
+import { Loader } from '../../components/common/Loaders';
 import { ListContainer } from '../../components/SysInfo/modules/SysInfo';
 import { CommitsApi } from '../../api/github/Commits';
 

@@ -5,7 +5,7 @@
  */
 
 import { lazy, Suspense, useState } from 'react';
-import { Loader } from '../../components/common/Loader';
+import { Loader } from '../../components/common/Loaders';
 import Checkout from '../../components/Pos/Checkout';
 
 const PosModals = lazy(() => import('./Modals'));

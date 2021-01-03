@@ -11,7 +11,7 @@ import Header from '../../components/Users/table/Header';
 import Row from '../../components/Users/table/Row';
 import SearchControls from '../../components/common/SearchControls';
 import Categories from '../../components/Sidebar/Categories';
-import { Fallback } from '../../components/common/Loader';
+import { Fallback } from '../../components/common/Loaders';
 import { userPermissions, userRoles } from './Filters';
 import { UsersApi } from '../../api/Users';
 

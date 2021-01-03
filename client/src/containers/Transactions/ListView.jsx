@@ -11,7 +11,7 @@ import Categories from '../../components/Sidebar/Categories';
 import SearchControls from '../../components/common/SearchControls';
 import Header from '../../components/Transactions/table/Header';
 import Row from '../../components/Transactions/table/Row';
-import { Fallback } from '../../components/common/Loader';
+import { Fallback } from '../../components/common/Loaders';
 import { TransactionsApi } from '../../api/Transactions';
 import { transactionPayment, transactionStatus } from './Filters';
 

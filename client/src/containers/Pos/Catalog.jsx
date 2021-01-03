@@ -8,7 +8,7 @@ import Nav from 'react-bootstrap/Nav';
 import Tab from 'react-bootstrap/Tab';
 import SearchBar from '../../components/common/SearchBar';
 import Categories from '../../components/Sidebar/Categories';
-import { Fallback } from '../../components/common/Loader';
+import { Fallback } from '../../components/common/Loaders';
 import Display from './Display';
 import { PosCard } from '../../components/Pos/Card';
 import { ProductsApi } from '../../api/Products';

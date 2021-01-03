@@ -9,7 +9,7 @@ import Nav from 'react-bootstrap/Nav';
 import Tab from 'react-bootstrap/Tab';
 import Categories from '../../components/Sidebar/Categories';
 import SearchControls from '../../components/common/SearchControls';
-import { Fallback } from '../../components/common/Loader';
+import { Fallback } from '../../components/common/Loaders';
 import Notification from '../../components/common/Notification';
 import { UsersApi } from '../../api/Users';
 import { userPermissions, userRoles } from './Filters';

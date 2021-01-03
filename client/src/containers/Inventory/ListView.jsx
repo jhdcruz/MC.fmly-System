@@ -11,7 +11,7 @@ import Categories from '../../components/Sidebar/Categories';
 import Header from '../../components/Products/table/Header';
 import Row from '../../components/Products/table/Row';
 import SearchControls from '../../components/common/SearchControls';
-import { Fallback } from '../../components/common/Loader';
+import { Fallback } from '../../components/common/Loaders';
 import { ProductsApi } from '../../api/Products';
 import { productCategories, productTypes } from './Filters';
 
