@@ -119,7 +119,7 @@
     "workbox-webpack-plugin": "6.0.2"
   },
   "build": {
-    "appId": "com.jhdcruz.mcfmly",
+    "appId": "com.mcfmly.ims",
     "productName": "MC.fmly Inventory System",
     "files": [
       "build/**/**"
