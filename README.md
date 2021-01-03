@@ -8,7 +8,7 @@
 
 **Status:**
 
-[![CircleCI](https://circleci.com/gh/jhdcruz/MC.fmly-System.svg?style=svg&circle-token=4025b123b9ce80ae60a05556c04c74e50ceea7fd)](https://app.circleci.com/pipelines/github/jhdcruz/MC.fmly-System) ![CI](https://github.com/jhdcruz/MC.fmly-System/workflows/CI/badge.svg) [![Build Status](https://travis-ci.com/jhdcruz/MC.fmly-System.svg?token=fiiouVpFksoACZRN1N2B&branch=main)](https://travis-ci.com/jhdcruz/MC.fmly-System)
+[![CircleCI](https://circleci.com/gh/jhdcruz/MC.fmly-System.svg?style=svg&circle-token=4025b123b9ce80ae60a05556c04c74e50ceea7fd)](https://app.circleci.com/pipelines/github/jhdcruz/MC.fmly-System) ![CI](https://github.com/jhdcruz/MC.fmly-System/workflows/CI/badge.svg)
 
 **Source Code:**
 
@@ -97,8 +97,6 @@
 
 > See `package.json` in both workspace for complete dependency list.
 
----
-
 ## Prerequisites
 
 - [`Node.js v14.15.0+`](https://nodejs.org/en/) - Package manager
@@ -147,26 +145,36 @@ brew install rpm
 
 ## Environment Variables
 
-- **`MONGO_URL`** - **Required** _(Production User)_
-- `ROLLBAR_ID` - _Application Monitoring_
+Create `.env` files for both projects.
 
-> Add your environment variables inside `/.env`.
+**Server** `./server/.env`
+
+- **`MONGO_URL`** - **Required** _(Production)_
+- **`MONGO_ADMIN`** - **Required** _(Admin)_
+- **`ROLLBAR_TOKEN`** - _Rollbar Error Tracking (Server)_
+- **`INGESTION_KEY`** - _LogDNA Log Management_
+
+**Client** `./client/.env`
+
+- **`REACT_APP_API`** - **Required** _Server deployment URL_
+- **`REACT_APP_GITHUB_URL`** - **Required** _GitHub Repo (GitHub API)_
+- **`REACT_APP_ROLLBAR_TOKEN`** - _Rollbar Error Tracking (Client)_
+
+See `.env` pre-configured templates:
+
+- [`./server/.env.template`](./server/.env.template) - **Server**
+
+- [`./client/.env.template`](./client/.env.template) - **Client**
+
+**Example:**
 
 ```dotenv
-MONGO_URL=[Your URI Here]
+MONGO_URL=Your URI Here
 ```
 
 > Do not add quotation marks between values!
 
 ## Development
-
-<div align="center">
-
-![](docs/diagram.svg)
-
-<i>Computer-generated diagram by <a href="https://arkit.pro">Arkit.pro</a>.</i>
-
-</div>
 
 This project uses yarn's [`workspaces`](https://classic.yarnpkg.com/en/docs/workspaces/) to seperate the **Front-End**
 and the **Back-End** and run `scripts` without navigating back & forth to project folders.
@@ -195,16 +203,34 @@ yarn start
 
 ### Web App:
 
-You need to have a web provider that supports **`functions`**. Such as [**Vercel**](https://vercel.com), it can also be
-other provider such as DigitalOcean, AWS, etc...
+This project uses [**Vercel**](https://vercel.com) as its front-end provider, and [**Heroku**](https://heroku.com) as
+its back-end provider to bypass _Vercel's_ 12 API endpoint limit.
 
-> This project uses [**Vercel**](https://vercel.com) as its front-end provider, and [**Heroku**](https://heroku.com) as its back-end provider to bypass _Vercel's_ 12 API endpoint limit.
+#### Client
 
 ```shell
 yarn build
 ```
 
 Output in `./client/build` directory. Ready to deploy to hosting.
+
+#### Server
+
+Start `./server/server.js`
+
+```shell
+cross-env NODE_ENV=production node server.js
+```
+
+or
+
+```shell
+yarn workspace server start
+```
+
+See [Procfile](./Procfile).
+
+> You can also use other provider such as DigitalOcean, AWS, etc...
 
 ### Desktop:
 
@@ -234,7 +260,7 @@ Running `linux` or `mac` on a `win` system will throw an error due to missing re
 Packaging the desktop app for `linux` can be made in `win` system inside `WSL` with
 fulfilled [prerequisites](#prerequisites).
 
-### Testing
+## Testing
 
 **Unit tests is planned**
 
