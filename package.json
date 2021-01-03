@@ -19,11 +19,9 @@
     "web": "concurrently \"yarn workspace server serve\" \"yarn workspace client web\" --kill-others-on-fail",
     "server": "yarn workspace server start",
     "build": "yarn workspace client build",
-    "lint": "concurrently \"yarn workspace server lint\" \"yarn workspace client lint\"",
-    "visualize": "arkit -c ./arkit.json"
+    "lint": "concurrently \"yarn workspace server lint\" \"yarn workspace client lint\""
   },
   "devDependencies": {
-    "arkit": "1.6.4",
     "concurrently": "5.3.0",
     "prettier": "2.2.1"
   }
