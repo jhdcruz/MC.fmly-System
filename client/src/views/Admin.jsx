@@ -4,7 +4,7 @@
  *     Licensed under GNU General Public License 3.0 or later
  */
 
-import { Fragment } from 'react';
+import { Fragment, lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Sidebar from '../components/Sidebar/Sidebar';
@@ -23,16 +23,17 @@ import {
   faTruck,
   faUsers
 } from '@fortawesome/free-solid-svg-icons';
-// Routes
-import Dashboard from '../pages/Dashboard';
-import Recent from '../pages/Recent';
-import Inventory from '../pages/Inventory';
-import Transactions from '../pages/Transactions';
-import Suppliers from '../pages/Suppliers';
-import Pos from '../pages/Pos';
-import Users from '../pages/Users';
-import SysInfo from '../pages/SysInfo';
+import { Fallback } from '../components/common/Loaders';
 import ApiStatus from '../containers/ApiStatus';
+
+const Dashboard = lazy(() => import('../pages/dashboard'));
+const Recent = lazy(() => import('../pages/recent'));
+const Inventory = lazy(() => import('../pages/inventory'));
+const Transactions = lazy(() => import('../pages/transactions'));
+const Suppliers = lazy(() => import('../pages/suppliers'));
+const Pos = lazy(() => import('../pages/pos'));
+const Users = lazy(() => import('../pages/users'));
+const SysInfo = lazy(() => import('../pages/sysinfo'));
 
 /*********************************
  * * Admin Permission Access
@@ -109,7 +110,7 @@ export default function Admin() {
               view="/dashboard"
               // * View routes
               children={
-                <>
+                <Suspense fallback={<Fallback />}>
                   <Route path={routes.DASHBOARD} component={Dashboard} />
                   <Route path={routes.SYSINFO} component={SysInfo} />
                   <Route path={routes.RECENT} component={Recent} />
@@ -118,7 +119,7 @@ export default function Admin() {
                   <Route path={routes.SUPPLIERS} component={Suppliers} />
                   <Route path={routes.POS} component={Pos} />
                   <Route path={routes.USERS} component={Users} />
-                </>
+                </Suspense>
               }
             />
           </div>

@@ -4,7 +4,7 @@
  *     Licensed under GNU General Public License 3.0 or later
  */
 
-import { Fragment } from 'react';
+import { Fragment, lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Sidebar from '../components/Sidebar/Sidebar';
@@ -13,9 +13,10 @@ import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import RouteTransition from '../components/common/RouteTransition';
 import routes from '../constants/routes';
 import '../global.scss';
-// Routes
-import Pos from '../pages/Pos';
 import ApiStatus from '../containers/ApiStatus';
+import { Fallback } from '../components/common/Loaders';
+
+const Pos = lazy(() => import('../pages/pos'));
 
 /*********************************
  * * Cashier Permission Access
@@ -46,9 +47,9 @@ export default function Cashier() {
               view="/pos"
               // * View routes
               children={
-                <>
+                <Suspense fallback={<Fallback />}>
                   <Route path={routes.POS} component={Pos} />
-                </>
+                </Suspense>
               }
             />
           </div>

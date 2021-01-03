@@ -4,10 +4,11 @@
  *     Licensed under GNU General Public License 3.0 or later
  */
 
-import { Fragment } from 'react';
+import { Fragment, lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Sidebar from '../components/Sidebar/Sidebar';
+import TabItem from '../components/Sidebar/TabItem';
 import routes from '../constants/routes';
 import '../global.scss';
 import RouteTransition from '../components/common/RouteTransition';
@@ -17,13 +18,13 @@ import {
   faHistory,
   faTruck
 } from '@fortawesome/free-solid-svg-icons';
-// Views
-import Recent from '../pages/Recent';
-import TabItem from '../components/Sidebar/TabItem';
-import Inventory from '../pages/Inventory';
-import Suppliers from '../pages/Suppliers';
-import Transactions from '../pages/Transactions';
 import ApiStatus from '../containers/ApiStatus';
+import { Fallback } from '../components/common/Loaders';
+
+const Recent = lazy(() => import('../pages/recent'));
+const Inventory = lazy(() => import('../pages/inventory'));
+const Transactions = lazy(() => import('../pages/transactions'));
+const Suppliers = lazy(() => import('../pages/suppliers'));
 
 /*********************************
  * * Inventory Permission Access
@@ -73,7 +74,7 @@ export default function InventoryClerk() {
                 view="/recent"
                 // * View routes
                 children={
-                  <>
+                  <Suspense fallback={<Fallback />}>
                     <Route path={routes.RECENT} component={Recent} />
                     <Route path={routes.INVENTORY} component={Inventory} />
                     <Route
@@ -81,7 +82,7 @@ export default function InventoryClerk() {
                       component={Transactions}
                     />
                     <Route path={routes.SUPPLIERS} component={Suppliers} />
-                  </>
+                  </Suspense>
                 }
               />
             </div>

@@ -4,10 +4,11 @@
  *     Licensed under GNU General Public License 3.0 or later
  */
 
-import { Fragment } from 'react';
+import { Fragment, lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Sidebar from '../components/Sidebar/Sidebar';
+import TabItem from '../components/Sidebar/TabItem';
 import routes from '../constants/routes';
 import '../global.scss';
 import RouteTransition from '../components/common/RouteTransition';
@@ -16,12 +17,12 @@ import {
   faServer,
   faUsers
 } from '@fortawesome/free-solid-svg-icons';
-// Routes
-import Dashboard from '../pages/Dashboard';
-import SysInfo from '../pages/SysInfo';
-import TabItem from '../components/Sidebar/TabItem';
-import Users from '../pages/Users';
+import { Fallback } from '../components/common/Loaders';
 import ApiStatus from '../containers/ApiStatus';
+
+const Dashboard = lazy(() => import('../pages/dashboard'));
+const Users = lazy(() => import('../pages/users'));
+const SysInfo = lazy(() => import('../pages/sysinfo'));
 
 /*********************************
  * * Cashier Permission Access
@@ -68,11 +69,11 @@ export default function SysAdmin() {
               view="/sysinfo"
               // * View routes
               children={
-                <>
+                <Suspense fallback={<Fallback />}>
                   <Route exact path={routes.DASHBOARD} component={Dashboard} />
                   <Route path={routes.SYSINFO} component={SysInfo} />
                   <Route path={routes.USERS} component={Users} />
-                </>
+                </Suspense>
               }
             />
           </div>
