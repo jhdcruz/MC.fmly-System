@@ -4,13 +4,13 @@
  *     Licensed under GNU General Public License 3.0 or later
  */
 
-import { lazy, Suspense } from 'react';
+import { lazy } from 'react';
 import { ExpandedCard } from '../common/ItemCard';
 import Tag from '../common/Tag';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarAlt, faHistory } from '@fortawesome/free-solid-svg-icons';
 
-const Moment = lazy(() => import('react-moment'));
+const FormatDate = lazy(() => import('../../utils/formatDate'));
 
 export const UserCard = (user, edit) => {
   return (
@@ -39,14 +39,14 @@ export const UserCard = (user, edit) => {
       date={
         <>
           <FontAwesomeIcon icon={faCalendarAlt} />{' '}
-          <Suspense fallback="—">
-            <Moment format="D MMM YYYY" date={user.createdAt} fromNow />
-          </Suspense>
+          <FormatDate
+            format="D MMM YYYY"
+            date={user.createdAt}
+            fromNow={true}
+          />
           {' | '}
           <FontAwesomeIcon icon={faHistory} />{' '}
-          <Suspense fallback="—">
-            <Moment fromNow date={user.updatedAt} />
-          </Suspense>
+          <FormatDate fromNow={true} date={user.updatedAt} />
         </>
       }
     />

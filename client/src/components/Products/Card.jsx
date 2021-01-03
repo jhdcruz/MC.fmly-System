@@ -4,13 +4,13 @@
  *     Licensed under GNU General Public License 3.0 or later
  */
 
-import { lazy, Suspense } from 'react';
+import { lazy } from 'react';
 import { ExpandedCard } from '../common/ItemCard';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarAlt, faHistory } from '@fortawesome/free-solid-svg-icons';
 import Tag from '../common/Tag';
 
-const Moment = lazy(() => import('react-moment'));
+const FormatDate = lazy(() => import('../../utils/formatDate'));
 
 export const ProductCard = (product, modal) => {
   return (
@@ -57,14 +57,14 @@ export const ProductCard = (product, modal) => {
       date={
         <>
           <FontAwesomeIcon icon={faCalendarAlt} />{' '}
-          <Suspense fallback="—">
-            <Moment format="D MMM YYYY" date={product.createdAt} fromNow />
-          </Suspense>
+          <FormatDate
+            format="D MMM YYYY"
+            fromNow={true}
+            date={product.updatedAt}
+          />
           {' | '}
           <FontAwesomeIcon icon={faHistory} />{' '}
-          <Suspense fallback="—">
-            <Moment fromNow date={product.updatedAt} />
-          </Suspense>
+          <FormatDate fromNow={true} date={product.updatedAt} />
         </>
       }
     />
