@@ -18,8 +18,8 @@
 # production
 **/build
 **/release
-functions/
 **/.env
+**/tmp
 
 # misc
 **/.vercel
