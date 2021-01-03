@@ -13,12 +13,13 @@ const Chip = styled(Badge)`
   margin: 0.35rem 0.5rem 0.35rem 0;
   border-radius: 0.3rem;
   box-shadow: 1px 2px 5px #1b1b1b;
+  cursor: pointer;
 `;
 
-export default function Tag({ index, variant, content }) {
+export default function Tag(props) {
   return (
-    <Chip variant={variant} key={index}>
-      {content}
+    <Chip variant={props.variant} key={props.index} onClick={props.action}>
+      {props.content}
     </Chip>
   );
 }
