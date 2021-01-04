@@ -65,7 +65,7 @@ const CategoryList = styled(Col)`
 `;
 
 const CategoryContent = styled(Col)`
-  width: max-content;
+  width: 100%;
   height: 100vh;
   padding: 3rem 0 1rem 1.5rem;
   margin: 0 0 0 13.5rem;
