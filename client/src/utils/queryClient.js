@@ -9,8 +9,7 @@ import { QueryClient } from 'react-query';
 const queryOpts = {
   defaultOptions: {
     queries: {
-      cacheTime: 300000,
-      staleTime: 30000
+      cacheTime: 5
     }
   }
 };
