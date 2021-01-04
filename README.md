@@ -151,7 +151,7 @@ Create `.env` files for both projects.
 
 - **`MONGO_URL`** - **Required** _(Production)_
 - **`MONGO_ADMIN`** - **Required** _(Admin)_
-- **`ROLLBAR_TOKEN`** - _Rollbar Error Tracking (Server)_
+- **`ROLLBAR_ID`** - _Rollbar Error Tracking (Server)_
 - **`INGESTION_KEY`** - _LogDNA Log Management_
 
 **Client** `./client/.env`
