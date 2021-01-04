@@ -14,7 +14,6 @@ const Users = mongoose.model('users');
 // * GET | All users
 exports.get = async (req, res) => {
   try {
-    logger.log(`GET | Users data request`);
     const users = await Users.find();
     return res.status(200).send(users);
   } catch (err) {

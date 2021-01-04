@@ -57,7 +57,7 @@ exports.login = async (req, res) => {
       // Dehash password and compare
       const cmp = await argon2.verify(user.password, req.body.password);
       if (cmp) {
-        logger.log(`${user.username} logged in.`);
+        logger.log(`${user.username} was logged in. at: ${req.ip}`);
         res.status(200).send(user.permission);
       } else {
         logger.warn(`Invalid credentials submitted for: ${req.body.username}`);

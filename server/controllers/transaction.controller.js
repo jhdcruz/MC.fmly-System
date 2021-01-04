@@ -13,7 +13,6 @@ const Transactions = mongoose.model('transactions');
 // * GET | All Transactions
 exports.get = async (req, res) => {
   try {
-    logger.log(`GET | Transactions data request`);
     const transactions = await Transactions.find();
     return res.status(200).send(transactions);
   } catch (err) {

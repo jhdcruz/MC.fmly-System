@@ -13,8 +13,7 @@ const Products = mongoose.model('products');
 // * GET | All Product
 exports.get = async (req, res) => {
   try {
-    logger.log('GET | Product data request');
-    const products = await Products.find();
+    const products = await Products.find({});
     return res.status(200).send(products);
   } catch (err) {
     rollbar.error(err);
