@@ -22,33 +22,6 @@ exports.status = async (req, res) => {
   }
 };
 
-// * POST | User Registration
-exports.register = async (req, res) => {
-  try {
-    // Hash password on register
-    const hashedPwd = await argon2.hash(req.body.password, {
-      type: argon2.argon2id
-    });
-    const insertResult = await Users.create({
-      username: req.body.username,
-      password: hashedPwd,
-      name: req.body.name,
-      role: req.body.role,
-      permission: req.body.permission,
-      date: req.body.date
-    });
-    res.status(201).send(insertResult);
-    logger.log(`New user registered: ${insertResult}`);
-  } catch (err) {
-    rollbar.error(err);
-    logger.error('User registration error', {
-      indexMeta: true,
-      meta: { err }
-    });
-    res.status(500).send('Internal Server error occured');
-  }
-};
-
 // * POST | User Authentication
 exports.login = async (req, res) => {
   try {
