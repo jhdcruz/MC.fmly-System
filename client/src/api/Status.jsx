@@ -17,7 +17,6 @@ export const StatusApi = () => {
       return data;
     },
     {
-      refetchInterval: 60000,
       refetchIntervalInBackground: true,
       refetchOnWindowFocus: false
     }
