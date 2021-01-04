@@ -5,12 +5,16 @@
  */
 
 import { Fragment, lazy, Suspense } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Redirect,
+  Route,
+  Switch
+} from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Sidebar from '../components/Sidebar/Sidebar';
 import TabItem from '../components/Sidebar/TabItem';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
-import RouteTransition from '../components/common/RouteTransition';
 import routes from '../constants/routes';
 import '../global.scss';
 import ApiStatus from '../containers/ApiStatus';
@@ -42,16 +46,14 @@ export default function Cashier() {
             bottom={<ApiStatus placement="right" left="0.8rem" />}
           />
           <div id="pageRoutes" className="routerContainer">
-            <RouteTransition
-              // * Default role view
-              view="/pos"
-              // * View routes
-              children={
-                <Suspense fallback={<Fallback />}>
-                  <Route path={routes.POS} component={Pos} />
-                </Suspense>
-              }
-            />
+            <Switch>
+              <Suspense fallback={<Fallback />}>
+                <Route exact path="/">
+                  <Redirect from="/" to="/pos" />
+                </Route>
+                <Route path={routes.POS} component={Pos} />
+              </Suspense>
+            </Switch>
           </div>
         </Container>
       </Router>

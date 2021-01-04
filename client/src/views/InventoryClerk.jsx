@@ -5,13 +5,17 @@
  */
 
 import { Fragment, lazy, Suspense } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Redirect,
+  Route,
+  Switch
+} from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Sidebar from '../components/Sidebar/Sidebar';
 import TabItem from '../components/Sidebar/TabItem';
 import routes from '../constants/routes';
 import '../global.scss';
-import RouteTransition from '../components/common/RouteTransition';
 import {
   faBoxes,
   faFileInvoice,
@@ -69,22 +73,17 @@ export default function InventoryClerk() {
               bottom={<ApiStatus placement="right" left="0.8rem" />}
             />
             <div id="pageRoutes" className="routerContainer">
-              <RouteTransition
-                // * Default role view
-                view="/recent"
-                // * View routes
-                children={
-                  <Suspense fallback={<Fallback />}>
-                    <Route path={routes.RECENT} component={Recent} />
-                    <Route path={routes.INVENTORY} component={Inventory} />
-                    <Route
-                      path={routes.TRANSACTIONS}
-                      component={Transactions}
-                    />
-                    <Route path={routes.SUPPLIERS} component={Suppliers} />
-                  </Suspense>
-                }
-              />
+              <Switch>
+                <Route exact path="/">
+                  <Redirect from="/" to="/recent" />
+                </Route>
+                <Suspense fallback={<Fallback />}>
+                  <Route path={routes.RECENT} component={Recent} />
+                  <Route path={routes.INVENTORY} component={Inventory} />
+                  <Route path={routes.TRANSACTIONS} component={Transactions} />
+                  <Route path={routes.SUPPLIERS} component={Suppliers} />
+                </Suspense>
+              </Switch>
             </div>
           </Container>
         </Router>

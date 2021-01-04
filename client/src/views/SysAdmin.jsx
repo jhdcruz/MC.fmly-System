@@ -5,13 +5,17 @@
  */
 
 import { Fragment, lazy, Suspense } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Redirect,
+  Route,
+  Switch
+} from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Sidebar from '../components/Sidebar/Sidebar';
 import TabItem from '../components/Sidebar/TabItem';
 import routes from '../constants/routes';
 import '../global.scss';
-import RouteTransition from '../components/common/RouteTransition';
 import {
   faChartBar,
   faServer,
@@ -64,18 +68,16 @@ export default function SysAdmin() {
             }
           />
           <div id="pageRoutes" className="routerContainer">
-            <RouteTransition
-              // * Default role view
-              view="/sysinfo"
-              // * View routes
-              children={
-                <Suspense fallback={<Fallback />}>
-                  <Route exact path={routes.DASHBOARD} component={Dashboard} />
-                  <Route path={routes.SYSINFO} component={SysInfo} />
-                  <Route path={routes.USERS} component={Users} />
-                </Suspense>
-              }
-            />
+            <Switch>
+              <Suspense fallback={<Fallback />}>
+                <Route exact path="/">
+                  <Redirect from="/" to="/sysinfo" />
+                </Route>
+                <Route exact path={routes.DASHBOARD} component={Dashboard} />
+                <Route path={routes.SYSINFO} component={SysInfo} />
+                <Route path={routes.USERS} component={Users} />
+              </Suspense>
+            </Switch>
           </div>
         </Container>
       </Router>

@@ -5,11 +5,15 @@
  */
 
 import { Fragment, lazy, Suspense } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Redirect,
+  Route,
+  Switch
+} from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Sidebar from '../components/Sidebar/Sidebar';
 import TabItem from '../components/Sidebar/TabItem';
-import RouteTransition from '../components/common/RouteTransition';
 // Assets
 import routes from '../constants/routes';
 import '../global.scss';
@@ -105,23 +109,21 @@ export default function Admin() {
             }
           />
           <div id="pageRoutes" className="routerContainer">
-            <RouteTransition
-              // * Default role view
-              view="/dashboard"
-              // * View routes
-              children={
-                <Suspense fallback={<Fallback />}>
-                  <Route path={routes.DASHBOARD} component={Dashboard} />
-                  <Route path={routes.SYSINFO} component={SysInfo} />
-                  <Route path={routes.RECENT} component={Recent} />
-                  <Route path={routes.INVENTORY} component={Inventory} />
-                  <Route path={routes.TRANSACTIONS} component={Transactions} />
-                  <Route path={routes.SUPPLIERS} component={Suppliers} />
-                  <Route path={routes.POS} component={Pos} />
-                  <Route path={routes.USERS} component={Users} />
-                </Suspense>
-              }
-            />
+            <Switch>
+              <Suspense fallback={<Fallback />}>
+                <Route exact path="/">
+                  <Redirect from="/" to="/dashboard" />
+                </Route>
+                <Route path={routes.DASHBOARD} component={Dashboard} />
+                <Route path={routes.SYSINFO} component={SysInfo} />
+                <Route path={routes.RECENT} component={Recent} />
+                <Route path={routes.INVENTORY} component={Inventory} />
+                <Route path={routes.TRANSACTIONS} component={Transactions} />
+                <Route path={routes.SUPPLIERS} component={Suppliers} />
+                <Route path={routes.POS} component={Pos} />
+                <Route path={routes.USERS} component={Users} />
+              </Suspense>
+            </Switch>
           </div>
         </Container>
       </Router>

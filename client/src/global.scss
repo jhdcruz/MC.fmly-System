@@ -59,9 +59,11 @@ img {
 
 // Id-level
 #pageRoutes {
-  display: inline;
+  display: flex;
   width: 100% !important;
-  height: 100vh;
+  height: 100%;
+  margin: 0;
+  padding: 0;
   overflow: auto;
   -webkit-user-drag: none;
   -khtml-user-drag: none;
@@ -73,7 +75,7 @@ img {
 // Class-level
 .container-after-titlebar {
   overflow-y: hidden !important;
-  position: initial !important;
+  position: static !important;
 }
 
 .container-fluid {
@@ -82,16 +84,7 @@ img {
   padding: 0 !important;
 }
 
-.routerContent {
-  position: relative !important;
-  display: flex;
-  margin: 0 !important;
-  padding: 0 !important;
-}
-
 .routerContent > div {
-  position: absolute !important;
-  display: flex;
   width: 100%;
   margin: 0 !important;
   padding: 0 !important;
