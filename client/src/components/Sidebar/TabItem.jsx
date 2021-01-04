@@ -19,7 +19,7 @@ const ActiveNav = createGlobalStyle`
   a.active {
     border-left: 3px outset #eccec9;
     background-color: #303030 !important;
-    box-shadow: 2px 5px 7px #222222;
+    box-shadow: 2px 5px 7px #202020;
   }
 `;
 
