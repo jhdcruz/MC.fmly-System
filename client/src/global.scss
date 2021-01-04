@@ -14,6 +14,21 @@
 * {
   margin: 0;
   padding: 0;
+
+  ::-webkit-scrollbar {
+    background: transparent;
+    width: 9px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #e6a195;
+    border: 2px solid #222126;
+    border-radius: 5px;
+  }
 }
 
 html,
@@ -26,24 +41,9 @@ body {
   font-size: 1rem;
   padding: 0;
   margin: 0;
-  overflow: auto;
+  overflow: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
-  ::-webkit-scrollbar {
-    background: transparent;
-    width: 8px;
-  }
-
-  ::-webkit-scrollbar-track {
-    background: transparent;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background-color: #e6a195;
-    border: 3px solid #222126;
-    border-radius: 5px;
-  }
 }
 
 // Prevents dragging of links
@@ -65,10 +65,6 @@ img {
   margin: 0;
   padding: 0;
   overflow: auto;
-  -webkit-user-drag: none;
-  -khtml-user-drag: none;
-  -moz-user-drag: none;
-  -o-user-drag: none;
   user-drag: none;
 }
 
