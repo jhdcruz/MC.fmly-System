@@ -50,10 +50,6 @@ body {
 a,
 img {
   text-decoration: none !important;
-  -webkit-user-drag: none;
-  -khtml-user-drag: none;
-  -moz-user-drag: none;
-  -o-user-drag: none;
   user-drag: none;
 }
 
@@ -64,7 +60,7 @@ img {
   height: 100%;
   margin: 0;
   padding: 0;
-  overflow: auto;
+  overflow: hidden;
   user-drag: none;
 }
 
@@ -84,5 +80,4 @@ img {
   width: 100%;
   margin: 0 !important;
   padding: 0 !important;
-  overflow: hidden;
 }
