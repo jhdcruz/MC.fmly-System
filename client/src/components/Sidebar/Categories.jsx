@@ -21,7 +21,7 @@ const CategoryList = styled(Col)`
   color: whitesmoke;
   background-color: #222126;
   width: 13rem;
-  max-width: 13rem;
+  min-width: 13rem;
   height: 100vh;
   margin: 0 0 0 1rem;
   padding: 3rem 0.8rem 1rem 1.2rem;
@@ -29,7 +29,6 @@ const CategoryList = styled(Col)`
   box-shadow: -1px 0 6px #232323;
   text-overflow: ellipsis;
   text-transform: capitalize;
-  position: absolute;
   white-space: nowrap;
   overflow-y: auto;
   overflow-x: hidden;
@@ -67,8 +66,8 @@ const CategoryList = styled(Col)`
 const CategoryContent = styled(Col)`
   width: 100%;
   height: 100vh;
-  padding: 3rem 0 1rem 1.5rem;
-  margin: 0 0 0 13.5rem;
+  padding: 3rem 0 1rem 0.75rem;
+  margin: 0;
   overflow: auto !important;
 `;
 
