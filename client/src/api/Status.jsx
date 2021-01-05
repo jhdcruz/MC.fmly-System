@@ -6,14 +6,15 @@
 
 import axios from 'axios';
 import { useQuery } from 'react-query';
+import ApiRoute from '../utils/apiRoute';
 
 export const StatusApi = () => {
+  const url = ApiRoute();
+
   return useQuery(
     'status',
     async () => {
-      const { data } = await axios.get(
-        `${process.env.REACT_APP_API}/auth/status`
-      );
+      const { data } = await axios.get(`${url}/auth/status`);
       return data;
     },
     {
