@@ -13,9 +13,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 const ControlButton = styled(Button)`
   color: #c4c4c4;
   width: max-content;
-  height: max-content;
   background-color: #222126;
-  margin: 0.3rem;
+  margin: 0 0.3rem;
   border-radius: 0.3rem;
   border: none;
   box-shadow: 1px 2px 5px #1b1b1b;

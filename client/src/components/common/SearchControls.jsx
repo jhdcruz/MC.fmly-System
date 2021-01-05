@@ -17,8 +17,7 @@ const ControlSection = styled.div`
   display: inline-flex;
   width: min-content;
   height: max-content;
-  margin: 0 1rem 0.5rem 0;
-  padding: 0.3rem 0.5rem 0.5rem 0;
+  padding: 0.5rem 0.75rem;
   overflow: hidden;
 `;
 
