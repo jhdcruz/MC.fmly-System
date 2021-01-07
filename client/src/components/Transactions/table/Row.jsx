@@ -72,7 +72,11 @@ export default function Row(transaction, edit, del, invoice) {
         <TableData className="date">
           {/* Parse date to human-friendly format */}
           <Suspense fallback="—">
-            <FormatDate format="D MMM YYYY" date={transaction.date} withTitle={true} />
+            <FormatDate
+              format="D MMM YYYY"
+              date={transaction.date}
+              withTitle={true}
+            />
           </Suspense>
         </TableData>
         <TableData className="createdAt">
