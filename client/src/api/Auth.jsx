@@ -5,10 +5,10 @@
  */
 
 import axios from 'axios';
-import ApiRoute from '../utils/apiRoute';
+import { tempRoute } from '../utils/apiRoute';
 
 export const AuthApi = async ({ username, password }) => {
-  const url = ApiRoute();
+  const url = tempRoute();
 
   return await axios.post(`${url}/auth/login`, username, password);
 };
