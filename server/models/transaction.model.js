@@ -48,6 +48,11 @@ const transactionSchema = new Schema(
       type: String,
       lowercase: true
     },
+    category: {
+      type: String,
+      lowercase: true,
+      trim: true
+    },
     date: {
       type: Date,
       required: true
