@@ -13,6 +13,13 @@ const userSchema = new Schema(
       type: String,
       default: 'https://i.imgur.com/mgrAQIn.png'
     },
+
+    id: {
+      type: Schema.Types.ObjectId,
+      unique: true,
+      required: true,
+      minLength: 4
+    },
     username: {
       type: String,
       unique: true,
