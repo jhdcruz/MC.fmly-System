@@ -11,7 +11,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFile } from '@fortawesome/free-solid-svg-icons';
 import EntryActions from '../../common/EntryActions';
 
-const Moment = lazy(() => import('react-moment'));
+const FormatDate = lazy(() => import('../../../utils/formatDate'));
 
 /*********************************
  * * Transaction Table Row
@@ -72,13 +72,13 @@ export default function Row(transaction, edit, del, invoice) {
         <TableData className="date">
           {/* Parse date to human-friendly format */}
           <Suspense fallback="—">
-            <Moment format="D MMM YYYY" date={transaction.date} withTitle />
+            <FormatDate format="D MMM YYYY" date={transaction.date} withTitle={true} />
           </Suspense>
         </TableData>
         <TableData className="createdAt">
           {/* Parse date to human-friendly format */}
           <Suspense fallback="—">
-            <Moment fromNow date={transaction.createdAt} />
+            <FormatDate fromNow={true} date={transaction.createdAt} />
           </Suspense>
         </TableData>
       </TableRow>

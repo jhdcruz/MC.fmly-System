@@ -11,7 +11,7 @@ import { faGlobe } from '@fortawesome/free-solid-svg-icons';
 import Button from 'react-bootstrap/Button';
 import EntryActions from '../../common/EntryActions';
 
-const Moment = lazy(() => import('react-moment'));
+const FormatDate = lazy(() => import('../../../utils/formatDate'));
 
 /*********************************
  * * Supplier Table Row
@@ -45,16 +45,16 @@ export default function Row(supplier, edit, del) {
         <TableData className="updatedAt">
           {/* Parse date to human-friendly format */}
           <Suspense fallback="—">
-            <Moment fromNow date={supplier.updatedAt} />
+            <FormatDate fromNow={true} date={supplier.updatedAt} />
           </Suspense>
         </TableData>
         <TableData className="createdAt">
           {/* Parse date to human-friendly format */}
           <Suspense fallback="—">
-            <Moment
+            <FormatDate
               format="D MMM YYYY | HH:mm"
               date={supplier.createdAt}
-              withTitle
+              withTitle={true}
             />
           </Suspense>
         </TableData>

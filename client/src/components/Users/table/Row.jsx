@@ -8,7 +8,7 @@ import { lazy, Suspense } from 'react';
 import { TableData, TableRow, Tag } from '../../common/modules/Tables';
 import EntryActions from '../../common/EntryActions';
 
-const Moment = lazy(() => import('react-moment'));
+const FormatDate = lazy(() => import('../../../utils/formatDate'));
 
 /*********************************
  * * User Table Row
@@ -44,16 +44,16 @@ export default function Row(user, edit, del) {
         <TableData className="updatedAt">
           {/* Parse date to human-friendly format */}
           <Suspense fallback="—">
-            <Moment fromNow date={user.updatedAt} />
+            <FormatDate fromNow={true} date={user.updatedAt} />
           </Suspense>
         </TableData>
         <TableData className="createdAt">
           {/* Parse date to human-friendly format */}
           <Suspense fallback="—">
-            <Moment
+            <FormatDate
               format="D MMM YYYY | HH:mm"
               date={user.createdAt}
-              withTitle
+              withTitle={true}
             />
           </Suspense>
         </TableData>
