@@ -57,8 +57,8 @@ export default function InventoryClerk() {
                     icon={faBoxes}
                   />
                   <TabItem
-                    tab="Invoices"
-                    overlay="Invoices"
+                    tab="Transactions"
+                    overlay="Transactions"
                     route={routes.TRANSACTIONS}
                     icon={faFileInvoice}
                   />
