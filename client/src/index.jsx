@@ -29,5 +29,6 @@ ReactDOM.render(
       <Login />
     </QueryClientProvider>
   </StrictMode>,
+
   document.getElementById('root')
 );
