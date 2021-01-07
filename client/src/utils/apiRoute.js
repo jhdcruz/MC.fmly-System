@@ -8,7 +8,7 @@ import { useMemo } from 'react';
 
 const ApiRoute = () => {
   return useMemo(() => {
-    return process.env.NODE_ENV === 'production'
+    return process.env.REACT_APP_API_ENV === 'production'
       ? process.env.REACT_APP_API
       : process.env.REACT_APP_LOCAL_API;
   }, []);
