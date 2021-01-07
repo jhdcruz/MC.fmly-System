@@ -7,7 +7,7 @@
 import { useMemo } from 'react';
 
 export const tempRoute = () => {
-  return process.env.REACT_APP_API_ENV === 'production'
+  return process.env.NODE_ENV === 'production'
     ? process.env.REACT_APP_API
     : process.env.REACT_APP_LOCAL_API;
 };
@@ -17,7 +17,7 @@ export const tempRoute = () => {
 // ! because of 'Rules of Hooks'
 const ApiRoute = () => {
   return useMemo(() => {
-    return process.env.REACT_APP_API_ENV === 'production'
+    return process.env.NODE_ENV === 'production'
       ? process.env.REACT_APP_API
       : process.env.REACT_APP_LOCAL_API;
   }, []);
