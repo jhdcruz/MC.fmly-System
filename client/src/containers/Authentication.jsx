@@ -24,10 +24,7 @@ export default function Authentication() {
   // * Authentication Handler
   const userVerify = useCallback((username, password) => {
     try {
-      AuthApi({
-        username,
-        password
-      })
+      AuthApi(username, password)
         .then((res) => setAuth(res.data))
         .catch(() => {
           alert('Invalid username or password...');

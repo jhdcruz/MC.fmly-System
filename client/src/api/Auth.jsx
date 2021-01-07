@@ -7,7 +7,7 @@
 import axios from 'axios';
 import ApiRoute from '../utils/apiRoute';
 
-export const AuthApi = async ({ username, password }) => {
+export const AuthApi = async (username, password) => {
   const url = ApiRoute();
 
   return await axios.post(`${url}/auth/login`, username, password);
