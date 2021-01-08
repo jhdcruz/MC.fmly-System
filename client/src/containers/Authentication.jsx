@@ -9,9 +9,9 @@ import { useForm } from 'react-hook-form';
 import ApiStatus from './ApiStatus';
 import { Fallback } from 'components/common/Loaders';
 import { AuthApi } from '../api/Auth';
+import LForm from '../components/Login/LForm';
 
 // * Lazy import views
-const LoginForm = lazy(() => import('../components/Login/LoginForm'));
 const Admin = lazy(() => import('../views/Admin'));
 const Cashier = lazy(() => import('../views/Cashier'));
 const SysAdmin = lazy(() => import('../views/SysAdmin'));
@@ -23,18 +23,20 @@ export default function Authentication() {
 
   // * Authentication Handler
   const userVerify = useCallback((username, password) => {
-    try {
-      AuthApi({
-        username,
-        password
+    AuthApi({
+      username,
+      password
+    })
+      .then((res) => {
+        setAuth(res);
       })
-        .then((res) => setAuth(res.data))
-        .catch(() => {
-          alert('Invalid username or password...');
-        });
-    } catch (err) {
-      alert(`${err}\nPlease inform the system admin.`);
-    }
+      .catch((err) => {
+        if (err.response.status === 401) {
+          alert('Invalid username or password.');
+        } else {
+          alert('Server is currently down.');
+        }
+      });
   }, []);
 
   // * Forgot Credentials/Password Alert
@@ -76,14 +78,14 @@ export default function Authentication() {
   }
 
   return (
-    <Suspense fallback={<Fallback />}>
-      <LoginForm
+    <>
+      <LForm
         username={register}
         password={register}
         submit={handleSubmit(userVerify)}
         forgotten={forgotCreds}
       />
       <ApiStatus placement="left" />
-    </Suspense>
+    </>
   );
 }
