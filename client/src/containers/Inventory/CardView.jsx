@@ -65,10 +65,10 @@ export default function CardView(props) {
                 )}
             </Tab.Pane>
           ))}
-        )}
       </>
     );
   };
+
   // * Filter products by types
   const TypeFilter = () => {
     return (
