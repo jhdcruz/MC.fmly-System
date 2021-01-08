@@ -54,7 +54,7 @@ const LoginContainer = styled(Container)`
   }
 `;
 
-const LForm = styled(Form)`
+const LoginForm = styled(Form)`
   width: 500px;
   height: 100vh;
   margin: 0;
@@ -117,13 +117,13 @@ const LoginControl = styled.div`
   }
 `;
 
-export default function LoginForm(props) {
+export default function LForm(props) {
   return (
     <LoginContainer fluid>
       <Img src={Brand} alt="Company Logo" rounded width={500} height={500} />
 
       {/* Login Form */}
-      <LForm autoComplete="off" autoSave="off" onSubmit={props.submit}>
+      <LoginForm autoComplete="off" autoSave="off" onSubmit={props.submit}>
         <Image
           id="Logo"
           src={Brand}
@@ -195,7 +195,7 @@ export default function LoginForm(props) {
             Login
           </Button>
         </LoginControl>
-      </LForm>
+      </LoginForm>
     </LoginContainer>
   );
 }
