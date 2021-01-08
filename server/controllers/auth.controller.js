@@ -37,7 +37,9 @@ exports.login = async (req, res) => {
         res.sendStatus(401);
       }
     } else {
-      logger.warn(`User ${req.body.username} doesn't exist.`);
+      logger.warn(
+        `Login attempt for non-existent user: '${req.body.username}'`
+      );
       res.sendStatus(401);
     }
   } catch (err) {
