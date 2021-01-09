@@ -25,13 +25,10 @@ export default function Display() {
           checkoutCard={() => showCheckout(false)}
           checkoutCash={() => showCheckout(false)}
           checkoutHide={() => showCheckout(false)}
-          checkoutCancel={() => showCheckout(false)}
           receiptHide={() => showReceipt(false)}
           receiptPrint={() => showReceipt(false)}
-          receiptCancel={() => showReceipt(false)}
           clearHide={() => clearItems(false)}
           clearSubmit={() => clearItems(false)}
-          clearCancel={() => clearItems(false)}
         />
       </Suspense>
     );
