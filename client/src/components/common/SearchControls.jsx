@@ -52,7 +52,7 @@ export default function SearchControls(props) {
       <Toolbar>
         <TooltipControl
           placement="bottom"
-          tooltip={props.add}
+          tooltip="Add"
           action={props.addModal}
           icon={faPlus}
         />
