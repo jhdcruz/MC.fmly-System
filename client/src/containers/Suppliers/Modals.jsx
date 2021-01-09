@@ -18,7 +18,7 @@ export default function Modals(props) {
         onHide={props.addHide}
         // TODO: POST entry
         submit={props.addSubmit}
-        cancel={props.addCancel}
+        cancel={props.addHide}
       />
       <SForm
         header="Edit supplier"
@@ -26,7 +26,7 @@ export default function Modals(props) {
         onHide={props.editHide}
         // TODO: PATCH entry
         submit={props.editSubmit}
-        cancel={props.editCancel}
+        cancel={props.editHide}
       />
       <ConfirmModal
         className="text-center"

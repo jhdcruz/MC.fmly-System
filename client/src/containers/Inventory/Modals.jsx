@@ -22,7 +22,7 @@ export default function Modals(props) {
         show={props.editModal}
         onHide={props.editHide}
         submit={props.editSubmit}
-        cancel={props.editCancel}
+        cancel={props.editHide}
       />
       <ConfirmModal
         className="text-center"

@@ -16,14 +16,14 @@ export default function Modals(props) {
         show={props.addModal}
         onHide={props.addHide}
         submit={props.addSubmit}
-        cancel={props.addCancel}
+        cancel={props.addHide}
       />
       <TForm
         header="Edit transaction"
         show={props.editModal}
         onHide={props.editHide}
         submit={props.editSubmit}
-        cancel={props.editCancel}
+        cancel={props.editHide}
       />
       <ConfirmModal
         className="text-center"
