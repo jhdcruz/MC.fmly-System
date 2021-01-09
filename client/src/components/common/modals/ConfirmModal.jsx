@@ -4,7 +4,13 @@
  *     Licensed under GNU General Public License 3.0 or later
  */
 
-import { ModalBody, ModalFooter, ModalHeader, ModalTitle, ModalView } from '../modules/Modals';
+import {
+  ModalBody,
+  ModalFooter,
+  ModalHeader,
+  ModalTitle,
+  ModalView
+} from '../modules/Modals';
 import Button from 'react-bootstrap/Button';
 
 export default function ConfirmModal(props) {
