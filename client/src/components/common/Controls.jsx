@@ -19,11 +19,21 @@ const ControlButton = styled(Button)`
   border-radius: 0.3rem;
   border: none;
 
-  :hover,
-  :active,
   :focus {
+    color: #c4c4c4;
+    width: max-content;
+    background-color: #222126;
+    box-shadow: none;
+    margin: 0;
+    padding: 0.55rem 0.9rem;
+    border-radius: 0.3rem;
+    border: none;
+  }
+
+  :hover {
     color: #e6a195 !important;
     background-color: #121416 !important;
+    box-shadow: none !important;
   }
 `;
 
@@ -32,6 +42,7 @@ const LargeButton = styled(ControlButton)`
   height: 10vh;
   font-size: 1.3vw;
   padding: 0.5rem 1rem;
+  margin: 0 0.2rem;
 `;
 
 // * Button w/ Tooltip
@@ -40,8 +51,8 @@ export const TooltipControl = (props) => {
     <OverlayTrigger
       placement={props.placement}
       delay={{
-        show: 250,
-        hide: 400
+        show: 10,
+        hide: 10
       }}
       overlay={
         <Tooltip id="button-tooltip" {...props}>
