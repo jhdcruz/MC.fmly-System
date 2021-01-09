@@ -14,10 +14,10 @@ const ControlButton = styled(Button)`
   color: #c4c4c4;
   width: max-content;
   background-color: #222126;
-  margin: 0 0.3rem;
+  margin: 0;
+  padding: 0.55rem 0.9rem;
   border-radius: 0.3rem;
   border: none;
-  box-shadow: 1px 2px 5px #1b1b1b;
 
   :hover,
   :active,

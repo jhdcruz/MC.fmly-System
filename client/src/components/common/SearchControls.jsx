@@ -7,7 +7,14 @@
 import styled from 'styled-components';
 import { TooltipControl } from './Controls';
 import SearchBar from './SearchBar';
-import { faBars, faPlus, faThLarge } from '@fortawesome/free-solid-svg-icons';
+import {
+  faBars,
+  faCloudUploadAlt,
+  faDownload,
+  faPlus,
+  faThLarge,
+  faTrash
+} from '@fortawesome/free-solid-svg-icons';
 
 /**************************************
  * * Searchbar w/ Default Controls
@@ -21,32 +28,74 @@ const ControlSection = styled.div`
   overflow: hidden;
 `;
 
+const Toolbar = styled(ControlSection)`
+  background-color: #222126;
+  margin: 0;
+  padding: 0;
+  vertical-align: middle;
+  border-radius: 0.25rem;
+  box-shadow: 1px 2px 5px #1b1b1b;
+`;
+
+const Divider = styled.div`
+  border: none;
+  border-right: 2px solid #e6a195;
+  margin: 0;
+  padding: 0;
+`;
+
 export default function SearchControls(props) {
   return (
     <ControlSection>
       <SearchBar />
 
-      {/* Add Entry Modal */}
-      <TooltipControl
-        placement="bottom"
-        tooltip={props.add}
-        action={props.modal}
-        icon={faPlus}
-      />
+      <Toolbar>
+        <TooltipControl
+          placement="bottom"
+          tooltip={props.add}
+          action={props.addModal}
+          icon={faPlus}
+        />
+        <TooltipControl
+          placement="bottom"
+          tooltip="Bulk Delete"
+          action={props.bulkDelete}
+          icon={faTrash}
+        />
 
-      {/* Views Types */}
-      <TooltipControl
-        placement="bottom"
-        tooltip="List View"
-        action={props.listView}
-        icon={faBars}
-      />
-      <TooltipControl
-        placement="bottom"
-        tooltip="Card View"
-        action={props.cardView}
-        icon={faThLarge}
-      />
+        <Divider />
+
+        {/* Views Types */}
+        <TooltipControl
+          placement="bottom"
+          tooltip="List View"
+          action={props.listView}
+          icon={faBars}
+        />
+        <TooltipControl
+          placement="bottom"
+          tooltip="Card View"
+          action={props.cardView}
+          icon={faThLarge}
+        />
+
+        <Divider />
+
+        {/* Additional Controls */}
+        <TooltipControl
+          placement="bottom"
+          tooltip="Import"
+          action={props.import}
+          icon={faCloudUploadAlt}
+        />
+
+        <TooltipControl
+          placement="bottom"
+          tooltip="Export"
+          action={props.export}
+          icon={faDownload}
+        />
+      </Toolbar>
     </ControlSection>
   );
 }
