@@ -4,17 +4,21 @@
  *     Licensed under GNU General Public License 3.0 or later
  */
 
-import CustomModal from '../../components/common/CustomModal';
-import Button from 'react-bootstrap/Button';
 import { LargeControl } from '../../components/common/Controls';
 import { faCreditCard, faWallet } from '@fortawesome/free-solid-svg-icons';
+import ConfirmModal from '../../components/common/modals/ConfirmModal';
+import AlertModal from '../../components/common/modals/AlertModal';
 
 export default function Modals(props) {
   return (
     <>
-      <CustomModal
+      <AlertModal
         className="text-center"
         size="sm"
+        show={props.checkoutModal}
+        onHide={props.checkoutHide}
+        close={props.checkoutHide}
+        buttonVariant="outline-danger"
         header="Checkout"
         content={
           <>
@@ -31,51 +35,32 @@ export default function Modals(props) {
             />
           </>
         }
-        show={props.checkoutModal}
-        onHide={props.checkoutHide}
-        footer={
-          <>
-            <Button variant="outline-danger" onClick={props.checkoutCancel}>
-              Close
-            </Button>
-          </>
-        }
       />
-      <CustomModal
+
+      <ConfirmModal
         className="text-center"
         size="sm"
         header="Checkout"
         content="Print Receipt?"
         show={props.receiptModal}
         onHide={props.receiptHide}
-        footer={
-          <>
-            <Button variant="outline-primary" onClick={props.receiptPrint}>
-              Print
-            </Button>
-            <Button variant="outline-danger" onClick={props.receiptCancel}>
-              Close
-            </Button>
-          </>
-        }
+        submit={props.receiptPrint}
+        submitText="Print"
+        cancel={props.receiptHide}
+        cancelText="Close"
       />
-      <CustomModal
+
+      <ConfirmModal
         className="text-center"
         size="sm"
         header="Clear Items"
         content="Clear listed items?"
         show={props.clearModal}
         onHide={props.clearHide}
-        footer={
-          <>
-            <Button variant="outline-danger" onClick={props.clearSubmit}>
-              Clear
-            </Button>
-            <Button variant="outline-primary" onClick={props.clearCancel}>
-              Cancel
-            </Button>
-          </>
-        }
+        submit={props.clearSubmit}
+        submitText="Clear"
+        cancel={props.clearHide}
+        cancelText="Cancel"
       />
     </>
   );

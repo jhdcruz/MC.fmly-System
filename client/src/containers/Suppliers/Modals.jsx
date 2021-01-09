@@ -4,9 +4,8 @@
  *     Licensed under GNU General Public License 3.0 or later
  */
 
-import Button from 'react-bootstrap/Button';
-import CustomModal from '../../components/common/CustomModal';
 import SForm from '../../components/Suppliers/SForm';
+import ConfirmModal from '../../components/common/modals/ConfirmModal';
 
 // TODO: API Communication
 
@@ -29,24 +28,25 @@ export default function Modals(props) {
         submit={props.editSubmit}
         cancel={props.editCancel}
       />
-      <CustomModal
+      <ConfirmModal
         className="text-center"
         size="sm"
         header="Remove supplier"
         content="Are you sure?"
         show={props.deleteModal}
         onHide={props.deleteHide}
-        footer={
-          <>
-            {/* TODO: DELETE entry */}
-            <Button variant="outline-danger" onClick={props.deleteSubmit}>
-              Yes
-            </Button>
-            <Button variant="outline-primary" onClick={props.deleteCancel}>
-              No
-            </Button>
-          </>
-        }
+        submit={props.deleteSubmit}
+        cancel={props.deleteHide}
+      />
+      <ConfirmModal
+        className="text-center"
+        size="sm"
+        header="Bulk Delete"
+        content="Delete selected item/s?"
+        show={props.bDeleteModal}
+        onHide={props.bDeleteHide}
+        submit={props.bDeleteSubmit}
+        cancel={props.bDeleteHide}
       />
     </>
   );

@@ -4,9 +4,8 @@
  *     Licensed under GNU General Public License 3.0 or later
  */
 
-import Button from 'react-bootstrap/Button';
 import UForm from '../../components/Users/UForm';
-import CustomModal from '../../components/common/CustomModal';
+import ConfirmModal from '../../components/common/modals/ConfirmModal';
 
 export default function Modals(props) {
   return (
@@ -15,7 +14,6 @@ export default function Modals(props) {
         header="Add user"
         show={props.addModal}
         onHide={props.addHide}
-        // TODO: POST entry
         submit={props.addSubmit}
         cancel={props.addCancel}
       />
@@ -23,28 +21,28 @@ export default function Modals(props) {
         header="Edit user"
         show={props.editModal}
         onHide={props.editHide}
-        // TODO: PATCH entry
         submit={props.editSubmit}
         cancel={props.editCancel}
       />
-      <CustomModal
+      <ConfirmModal
         className="text-center"
         size="sm"
         header="Remove user"
         content="Are you sure?"
         show={props.deleteModal}
         onHide={props.deleteHide}
-        footer={
-          <>
-            {/* TODO: DELETE entry */}
-            <Button variant="outline-danger" onClick={props.deleteSubmit}>
-              Yes
-            </Button>
-            <Button variant="outline-primary" onClick={props.deleteCancel}>
-              No
-            </Button>
-          </>
-        }
+        submit={props.deleteSubmit}
+        cancel={props.deleteHide}
+      />
+      <ConfirmModal
+        className="text-center"
+        size="sm"
+        header="Bulk Delete"
+        content="Delete selected item/s?"
+        show={props.bDeleteModal}
+        onHide={props.bDeleteHide}
+        submit={props.bDeleteSubmit}
+        cancel={props.bDeleteHide}
       />
     </>
   );
