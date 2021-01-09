@@ -7,7 +7,7 @@
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import CustomModal from '../common/CustomModal';
+import CustomModal from '../common/modals/CustomModal';
 import { ModalForm, Required } from '../common/modules/Forms';
 
 /*******************************

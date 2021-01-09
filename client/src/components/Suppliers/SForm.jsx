@@ -9,7 +9,7 @@ import Form from 'react-bootstrap/Form';
 import FormControl from 'react-bootstrap/FormControl';
 import Button from 'react-bootstrap/Button';
 import InputGroup from 'react-bootstrap/InputGroup';
-import CustomModal from '../common/CustomModal';
+import CustomModal from '../common/modals/CustomModal';
 import { ModalForm, Required } from '../common/modules/Forms';
 
 /*******************************
