@@ -4,13 +4,13 @@
  *     Licensed under GNU General Public License 3.0 or later
  */
 
-import ProductCatalog from '../containers/Pos/Catalog';
+import View from '../containers/Pos/View';
 import ErrorBoundary from '../components/common/ErrorBoundary';
 
 export default function Pos() {
   return (
     <ErrorBoundary>
-      <ProductCatalog />
+      <View />
     </ErrorBoundary>
   );
 }

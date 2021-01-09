@@ -6,9 +6,11 @@
 
 import Nav from 'react-bootstrap/Nav';
 import Tab from 'react-bootstrap/Tab';
+import { Fallback } from '../../components/common/Loaders';
 import SearchBar from '../../components/common/SearchBar';
 import Categories from '../../components/Sidebar/Categories';
-import { Fallback } from '../../components/common/Loaders';
+import ViewCategory from './ViewCategory';
+import ViewType from './ViewType';
 import Display from './Display';
 import { PosCard } from '../../components/Pos/Card';
 import { ProductsApi } from '../../api/Products';
@@ -18,56 +20,24 @@ import { productCategories, productTypes } from '../Inventory/Filters';
  * * Product List, No Actions | POS
  ************************************/
 
-export default function Catalog() {
+export default function View() {
   const { data } = ProductsApi();
 
-  // * Filter products by category
-  const CategoryFilter = () => {
-    return (
-      data &&
-      productCategories(data).map((categories) => (
-        <Tab.Pane key={categories.category} eventKey={categories.category}>
-          {data
-            .filter((pane) => pane.category === categories.category)
-            .map((product) => PosCard(product))}
-        </Tab.Pane>
-      ))
-    );
-  };
-
-  // * Filter products by types
-  const TypeFilter = () => {
-    return (
-      data &&
-      productTypes(data).map((types) => (
-        <Tab.Pane key={types.type} eventKey={types.type}>
-          {data
-            .filter((pane) => pane.type === types.type)
-            .map((product) => PosCard(product))}
-        </Tab.Pane>
-      ))
-    );
-  };
-
-  // * Display cards based on clicked product category/type
-  const CardPanes = () => {
+  const PosView = () => {
     return (
       <>
-        <div
-          style={{
-            margin: '0 0 1rem'
-          }}
-        >
+        <div className="mb-3">
           <SearchBar />
         </div>
 
         {data && true ? (
           <>
+            {/* Display card based on clicked product category/type */}
             <Tab.Pane eventKey="default">
               {data && data.map((product) => PosCard(product))}
             </Tab.Pane>
-            <CategoryFilter />
-            <TypeFilter />
+            <ViewCategory data={data && data} />
+            <ViewType data={data && data} />
           </>
         ) : (
           <Fallback />
@@ -98,7 +68,7 @@ export default function Catalog() {
             </Nav.Item>
           ))
         }
-        content={<CardPanes />}
+        content={<PosView />}
       />
       <Display />
     </>

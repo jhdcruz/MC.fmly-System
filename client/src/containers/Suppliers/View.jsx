@@ -6,25 +6,26 @@
 
 import { lazy, Suspense, useState } from 'react';
 import { Fallback } from '../../components/common/Loaders';
-import Tab from 'react-bootstrap/Tab';
 import Nav from 'react-bootstrap/Nav';
-import Tooltip from 'react-bootstrap/Tooltip';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
+import Tooltip from 'react-bootstrap/Tooltip';
 import Categories from '../../components/Sidebar/Categories';
-import Poster from '../../components/Suppliers/Poster';
 import SearchControls from '../../components/common/SearchControls';
-import { supplierCategories } from './Filters';
 import { SuppliersApi } from '../../api/Suppliers';
+import { supplierCategories } from './Filters';
+import ViewAll from './ViewAll';
 
 const SupplierModals = lazy(() => import('./Modals'));
 
-export default function CardView(props) {
+export default function View(props) {
   const { data } = SuppliersApi();
+  const [view, setView] = useState('card');
 
   // * Modal State Handlers | Until API's done
   const [addModal, showAddModal] = useState(false);
   const [editModal, showEditModal] = useState(false);
   const [deleteModal, showDeleteModal] = useState(false);
+  const [bDeleteModal, showBDeleteModal] = useState(false);
 
   // * Modals
   const Modals = () => {
@@ -34,73 +35,38 @@ export default function CardView(props) {
           addModal={addModal}
           editModal={editModal}
           deleteModal={deleteModal}
+          bDeleteModal={bDeleteModal}
           addHide={() => showAddModal(false)}
           addSubmit={() => showAddModal(false)}
-          addCancel={() => showAddModal(false)}
           editHide={() => showEditModal(false)}
           editSubmit={() => showEditModal(false)}
-          editCancel={() => showEditModal(false)}
           deleteHide={() => showDeleteModal(false)}
           deleteSubmit={() => showDeleteModal(false)}
-          deleteCancel={() => showDeleteModal(false)}
+          bDeleteHide={() => showBDeleteModal(false)}
+          bDeleteSubmit={() => showBDeleteModal(false)}
         />
       </Suspense>
     );
   };
 
-  // * Filter suppliers by category
-  const CategoryFilter = () => {
-    return (
-      <>
-        {data &&
-          supplierCategories(data).map((supplier) => (
-            <>
-              {supplier.category.map((category) => (
-                <Tab.Pane key={category} eventKey={category}>
-                  {data
-                    .filter((pane) => pane === category)
-                    .map((suppliers) =>
-                      Poster(
-                        suppliers,
-                        () => showEditModal(true),
-                        () => showDeleteModal(true)
-                      )
-                    )
-                    .reverse()}
-                </Tab.Pane>
-              ))}
-            </>
-          ))}
-      </>
-    );
-  };
-
-  const SupplierCard = () => {
+  const SuppliersView = () => {
     return (
       <>
         <Modals />
         <SearchControls
-          add="Add Supplier"
-          listView={props.view}
-          modal={() => showAddModal(true)}
+          listView={() => setView('list')}
+          cardView={() => setView('card')}
+          addModal={() => showAddModal(true)}
+          bulkDelete={() => showBDeleteModal(true)}
         />
 
         {data && true ? (
-          <>
-            <Tab.Pane eventKey="default">
-              {data &&
-                data
-                  .map((supplier) =>
-                    Poster(
-                      supplier,
-                      () => showEditModal(true),
-                      () => showDeleteModal(true)
-                    )
-                  )
-                  .reverse()}
-            </Tab.Pane>
-            <CategoryFilter />
-          </>
+          <ViewAll
+            data={data && data}
+            view={view}
+            edit={() => showEditModal(true)}
+            del={() => showDeleteModal(true)}
+          />
         ) : (
           <Fallback />
         )}
@@ -120,7 +86,7 @@ export default function CardView(props) {
                 placement="right"
                 delay={{
                   show: 500,
-                  hide: 250
+                  hide: 150
                 }}
                 overlay={
                   <Tooltip id="button-tooltip" {...props}>
@@ -136,7 +102,7 @@ export default function CardView(props) {
           </>
         ))
       }
-      content={<SupplierCard />}
+      content={<SuppliersView />}
     />
   );
 }
