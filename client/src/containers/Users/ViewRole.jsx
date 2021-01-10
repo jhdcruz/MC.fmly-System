@@ -20,7 +20,7 @@ export default function ViewRole({ data, view, edit, del }) {
             <Header
               data={data
                 .filter((pane) => pane.role === user.role)
-                .map((user) => Row(user, edit, del))}
+                .map((employee) => Row(employee, edit, del))}
             />
           ) : (
             UserCard(user, edit)
