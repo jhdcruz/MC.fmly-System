@@ -9,6 +9,7 @@ import Header from '../../components/Products/table/Header';
 import Row from '../../components/Products/table/Row';
 import { ProductCard } from '../../components/Products/Card';
 import { productCategories } from './Filters';
+import Container from 'react-bootstrap/Container';
 
 /**********************************
  * * Filter products by category
@@ -26,7 +27,17 @@ export default function ViewCategory({ data, view, edit, del }) {
                 .map((product) => Row(product, edit, del))}
             />
           ) : (
-            ProductCard(types, edit)
+            <Container
+              style={{
+                overflow: 'auto',
+                padding: '0 0 8rem',
+                margin: 0,
+                width: '98.6%',
+                height: '100vh'
+              }}
+            >
+              {ProductCard(types, edit)}
+            </Container>
           )}
         </Tab.Pane>
       ))}

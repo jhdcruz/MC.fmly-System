@@ -20,11 +20,7 @@ export default function Release() {
 
   return (
     <ListContainer>
-      <ListGroup
-        style={{
-          paddingBottom: '4.3rem'
-        }}
-      >
+      <ListGroup>
         {data && true ? (
           data && data.map((release) => Updates(release))
         ) : (

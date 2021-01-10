@@ -9,6 +9,7 @@ import Header from '../../components/Transactions/table/Header';
 import Row from '../../components/Transactions/table/Row';
 import { TransactionCard } from '../../components/Transactions/Card';
 import { transactionPayment } from './Filters';
+import Container from 'react-bootstrap/Container';
 
 // * Filter transactions to payment
 export default function ViewPayment({ data, view, edit, del, invoice }) {
@@ -23,7 +24,17 @@ export default function ViewPayment({ data, view, edit, del, invoice }) {
                 .map((payment) => Row(payment, edit, del, invoice))}
             />
           ) : (
-            TransactionCard(transaction, edit, del, invoice)
+            <Container
+              style={{
+                overflow: 'auto',
+                padding: '0 0 8rem',
+                margin: 0,
+                width: '98.6%',
+                height: '100vh'
+              }}
+            >
+              {TransactionCard(transaction, edit, del, invoice)}
+            </Container>
           )}
         </Tab.Pane>
       ))}

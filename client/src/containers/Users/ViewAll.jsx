@@ -8,6 +8,7 @@ import Tab from 'react-bootstrap/Tab';
 import Header from '../../components/Users/table/Header';
 import Row from '../../components/Users/table/Row';
 import { UserCard } from '../../components/Users/Card';
+import Container from 'react-bootstrap/Container';
 
 // * View all users
 export default function ViewAll({ data, view, edit, del }) {
@@ -16,7 +17,17 @@ export default function ViewAll({ data, view, edit, del }) {
       {view === 'list' ? (
         <Header data={data.map((user) => Row(user, edit, del))} />
       ) : (
-        data.map((user) => UserCard(user, edit))
+        <Container
+          style={{
+            overflow: 'auto',
+            padding: '0 0 8rem',
+            margin: 0,
+            width: '98.6%',
+            height: '100vh'
+          }}
+        >
+          {data.map((user) => UserCard(user, edit))}
+        </Container>
       )}
     </Tab.Pane>
   );

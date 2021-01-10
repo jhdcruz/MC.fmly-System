@@ -15,6 +15,7 @@ import Display from './Display';
 import { PosCard } from '../../components/Pos/Card';
 import { ProductsApi } from '../../api/Products';
 import { productCategories, productTypes } from '../Inventory/Filters';
+import Container from 'react-bootstrap/Container';
 
 /************************************
  * * Product List, No Actions | POS
@@ -34,7 +35,17 @@ export default function View() {
           <>
             {/* Display card based on clicked product category/type */}
             <Tab.Pane eventKey="default">
-              {data.map((product) => PosCard(product))}
+              <Container
+                style={{
+                  overflow: 'auto',
+                  padding: '0 0 8rem',
+                  margin: 0,
+                  width: '98.6%',
+                  height: '100vh'
+                }}
+              >
+                {data.map((product) => PosCard(product))}
+              </Container>
             </Tab.Pane>
             <ViewCategory data={data} />
             <ViewType data={data} />

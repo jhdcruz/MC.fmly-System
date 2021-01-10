@@ -15,20 +15,15 @@ import Badge from 'react-bootstrap/Badge';
 export const TableModule = createGlobalStyle`
   div.table-responsive {
     display: inline-flex !important;
-    width: max-content;
-    height: max-content;
+    width: 98.6%;
+    height: 100vh;
     padding: 0;
     overflow: auto !important;
 
     table {
-      display: inline-table;
-      height: max-content;
-      padding: 0 1rem 0.25rem !important;
+      padding: 0 0 6rem !important;
       margin: 0;
-      overflow: auto !important;
       background-color: transparent;
-
-      // * Table Data Margins / Seperators
       border-collapse: separate;
       border-spacing: 0 1rem;
     }
@@ -43,6 +38,7 @@ export const TableModule = createGlobalStyle`
 export const TableHeader = styled.th`
   font-size: 1.3vw;
   color: #c3c3c3;
+  white-space: nowrap;
   border: none !important;
   width: max-content !important;
   vertical-align: middle !important;

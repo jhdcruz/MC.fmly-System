@@ -10,8 +10,8 @@ import Tabs from 'react-bootstrap/Tabs';
 export const TabContainer = styled.div`
   width: 100%;
   height: 100vh;
-  overflow: auto;
   display: inline-block;
+  overflow: overlay;
 
   // Only allow scroll inside tabs
   .tab-pane,
@@ -25,6 +25,9 @@ export const NavTabs = styled(Tabs)`
   padding-top: 1.9rem;
   background-color: #1e1e1e;
   border: none;
+  position: sticky;
+  top: 0;
+  z-index: 3;
 
   a {
     color: #e6a195 !important;

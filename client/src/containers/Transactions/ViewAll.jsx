@@ -8,6 +8,7 @@ import Tab from 'react-bootstrap/Tab';
 import Header from '../../components/Transactions/table/Header';
 import Row from '../../components/Transactions/table/Row';
 import { TransactionCard } from '../../components/Transactions/Card';
+import Container from 'react-bootstrap/Container';
 
 // * View all transactions
 export default function ViewAll({ data, view, edit, del, invoice }) {
@@ -18,7 +19,19 @@ export default function ViewAll({ data, view, edit, del, invoice }) {
           data={data.map((transaction) => Row(transaction, edit, del, invoice))}
         />
       ) : (
-        data.map((transaction) => TransactionCard(transaction, edit, invoice))
+        <Container
+          style={{
+            overflow: 'auto',
+            padding: '0 0 8rem',
+            margin: 0,
+            width: '98.6%',
+            height: '100vh'
+          }}
+        >
+          {data.map((transaction) =>
+            TransactionCard(transaction, edit, invoice)
+          )}
+        </Container>
       )}
     </Tab.Pane>
   );

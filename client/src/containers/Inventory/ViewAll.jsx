@@ -8,6 +8,7 @@ import Tab from 'react-bootstrap/Tab';
 import Header from '../../components/Products/table/Header';
 import Row from '../../components/Products/table/Row';
 import { ProductCard } from '../../components/Products/Card';
+import Container from 'react-bootstrap/Container';
 
 // * View all products
 export default function ViewAll({ data, view, edit, del }) {
@@ -16,7 +17,17 @@ export default function ViewAll({ data, view, edit, del }) {
       {view === 'list' ? (
         <Header data={data.map((product) => Row(product, edit, del))} />
       ) : (
-        data.map((product) => ProductCard(product, edit, del))
+        <Container
+          style={{
+            overflow: 'auto',
+            padding: '0 0 8rem',
+            margin: 0,
+            width: '98.6%',
+            height: '100vh'
+          }}
+        >
+          {data.map((product) => ProductCard(product, edit, del))}
+        </Container>
       )}
     </Tab.Pane>
   );

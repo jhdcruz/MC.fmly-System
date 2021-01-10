@@ -5,6 +5,7 @@
  */
 
 import Tab from 'react-bootstrap/Tab';
+import Container from 'react-bootstrap/Container';
 import Header from '../../components/Transactions/table/Header';
 import Row from '../../components/Transactions/table/Row';
 import { TransactionCard } from '../../components/Transactions/Card';
@@ -25,7 +26,17 @@ export default function ViewStatus({ data, view, edit, del, invoice }) {
                 )}
             />
           ) : (
-            TransactionCard(transaction, edit, del, invoice)
+            <Container
+              style={{
+                overflow: 'auto',
+                padding: '0 0 8rem',
+                margin: 0,
+                width: '98.6%',
+                height: '100vh'
+              }}
+            >
+              {TransactionCard(transaction, edit, del, invoice)}
+            </Container>
           )}
         </Tab.Pane>
       ))}

@@ -17,9 +17,8 @@ export const ListContainer = styled.div`
   color: #e6a195;
   padding: 0.5rem 0.5rem;
   width: 100%;
-  height: 100vh;
+  height: max-content;
   overflow: auto !important;
-  position: absolute;
   left: 0;
 `;
 
@@ -27,7 +26,7 @@ export const ListGroupItem = styled(ListGroup.Item)`
   color: #e6a195;
   background-color: transparent;
   border: none;
-  border-bottom: 2px solid #e6a195;
+  border-bottom: 3px ridge #e6a195;
   vertical-align: middle;
 
   div {
