@@ -62,7 +62,7 @@ export default function View(props) {
 
         {data && true ? (
           <ViewAll
-            data={data && data}
+            data={data}
             view={view}
             edit={() => showEditModal(true)}
             del={() => showDeleteModal(true)}

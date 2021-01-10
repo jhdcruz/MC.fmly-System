@@ -68,19 +68,19 @@ export default function View() {
           <>
             {/* Display table based on clicked product category/type */}
             <ViewAll
-              data={data && data}
+              data={data}
               view={view}
               edit={() => showEditModal(true)}
               del={() => showDeleteModal(true)}
             />
             <ViewCategory
-              data={data && data}
+              data={data}
               view={view}
               edit={() => showEditModal(true)}
               del={() => showDeleteModal(true)}
             />
             <ViewType
-              data={data && data}
+              data={data}
               view={view}
               edit={() => showEditModal(true)}
               del={() => showDeleteModal(true)}

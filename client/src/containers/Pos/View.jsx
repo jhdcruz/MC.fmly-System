@@ -34,10 +34,10 @@ export default function View() {
           <>
             {/* Display card based on clicked product category/type */}
             <Tab.Pane eventKey="default">
-              {data && data.map((product) => PosCard(product))}
+              {data.map((product) => PosCard(product))}
             </Tab.Pane>
-            <ViewCategory data={data && data} />
-            <ViewType data={data && data} />
+            <ViewCategory data={data} />
+            <ViewType data={data} />
           </>
         ) : (
           <Fallback />

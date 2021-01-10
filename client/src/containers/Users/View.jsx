@@ -64,19 +64,19 @@ export default function View() {
           <>
             {/* Display table based on clicked user permissions/roles */}
             <ViewAll
-              data={data && data}
+              data={data}
               view={view}
               edit={() => showEditModal(true)}
               del={() => showDeleteModal(true)}
             />
             <ViewPermission
-              data={data && data}
+              data={data}
               view={view}
               edit={() => showEditModal(true)}
               del={() => showDeleteModal(true)}
             />
             <ViewRole
-              data={data && data}
+              data={data}
               view={view}
               edit={() => showEditModal(true)}
               del={() => showDeleteModal(true)}

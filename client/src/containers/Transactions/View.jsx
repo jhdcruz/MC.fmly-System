@@ -66,21 +66,21 @@ export default function View() {
           <>
             {/* Display table based on clicked transaction status/payment */}
             <ViewAll
-              data={data && data}
+              data={data}
               view={view}
               edit={() => showEditModal(true)}
               del={() => showDeleteModal(true)}
               invoice={() => showInvoiceModal(true)}
             />
             <ViewStatus
-              data={data && data}
+              data={data}
               view={view}
               edit={() => showEditModal(true)}
               del={() => showDeleteModal(true)}
               invoice={() => showInvoiceModal(true)}
             />
             <ViewPayment
-              data={data && data}
+              data={data}
               view={view}
               edit={() => showEditModal(true)}
               del={() => showDeleteModal(true)}
