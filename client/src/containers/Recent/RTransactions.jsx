@@ -7,6 +7,7 @@ import { lazy, Suspense, useState } from 'react';
 import { Fallback, Loader } from '../../components/common/Loaders';
 import Header from '../../components/Transactions/table/Header';
 import { TransactionsApi } from '../../api/Transactions';
+import Row from '../../components/Transactions/table/Row';
 
 const TransactionRow = lazy(() =>
   import('../../components/Transactions/table/Row')
@@ -31,11 +32,9 @@ export default function RTransactions() {
           invoiceModal={invoiceModal}
           editHide={() => showEditModal(false)}
           editSubmit={() => showEditModal(false)}
-          editCancel={() => showEditModal(false)}
           deleteHide={() => showDeleteModal(false)}
           deleteSubmit={() => showDeleteModal(false)}
-          deleteCancel={() => showDeleteModal(false)}
-          invoiceClose={() => showInvoiceModal(false)}
+          invoiceHide={() => showInvoiceModal(false)}
         />
       </Suspense>
     );
@@ -45,42 +44,18 @@ export default function RTransactions() {
     <>
       <Modals />
       {data && true ? (
-        <Header
-          data={
-            data &&
-            data
-              .slice(Math.max(data.length - 10, 0))
-              .reverse()
-              .map((transaction) => (
-                <Suspense fallback={<Loader />}>
-                  <TransactionRow
-                    edit={() => showEditModal(true)}
-                    delete={() => showDeleteModal(true)}
-                    id={transaction.id}
-                    order_id={transaction.order_id}
-                    name={transaction.name}
-                    status={transaction.status}
-                    total={transaction.total}
-                    payment={transaction.payment}
-                    date={transaction.date}
-                    createdAt={transaction.createdAt}
-                    receipt={
-                      transaction.receipt && true ? (
-                        // eslint-disable-next-line jsx-a11y/anchor-has-content
-                        <a
-                          href={transaction.receipt}
-                          target="_blank"
-                          rel="noreferrer"
-                        />
-                      ) : (
-                        () => showInvoiceModal(true)
-                      )
-                    }
-                  />
-                </Suspense>
-              ))
-          }
-        />
+        <Suspense fallback={<Loader />}>
+          <Header
+            data={data.map((transaction) =>
+              Row(
+                transaction,
+                () => showEditModal(false),
+                () => showDeleteModal(true),
+                () => showInvoiceModal(true)
+              )
+            )}
+          />
+        </Suspense>
       ) : (
         <Fallback />
       )}

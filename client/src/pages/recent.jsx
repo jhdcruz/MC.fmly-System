@@ -15,7 +15,7 @@ import ErrorBoundary from '../components/common/ErrorBoundary';
 
 export default function Recent() {
   return (
-    <TabContainer>
+    <TabContainer className="overflow-hidden">
       <NavTabs defaultActiveKey="products" id="Navigation Tabs" justify>
         <Tab eventKey="products" title="Products">
           <ErrorBoundary>
