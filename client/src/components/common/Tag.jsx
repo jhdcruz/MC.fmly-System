@@ -11,6 +11,7 @@ import Badge from 'react-bootstrap/Badge';
 const Chip = styled(Badge)`
   font-size: 1rem;
   margin: 0.35rem 0.5rem 0.35rem 0;
+  padding: 0.35rem 0.5rem;
   border-radius: 0.3rem;
   box-shadow: 1px 2px 5px #1b1b1b;
   cursor: pointer;

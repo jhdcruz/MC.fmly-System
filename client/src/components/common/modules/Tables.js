@@ -5,7 +5,6 @@
  */
 
 import styled, { createGlobalStyle } from 'styled-components';
-import Badge from 'react-bootstrap/Badge';
 
 /****************************************
  * * Shared Styles between `tables`
@@ -14,11 +13,11 @@ import Badge from 'react-bootstrap/Badge';
 // * Tables
 export const TableModule = createGlobalStyle`
   div.table-responsive {
-    display: inline-flex !important;
-    width: 98.6%;
+    display: flex !important;
+    width: 100%;
     height: 100vh;
-    padding: 0;
-    overflow: auto !important;
+    padding: 0 0.75rem 0 0.5rem;
+    overflow: overlay !important;
 
     table {
       padding: 0 0 6rem !important;
@@ -99,7 +98,6 @@ export const TableRow = styled.tr`
 // * Table Data Cell
 export const TableData = styled.td`
   color: white;
-  text-indent: 0.6rem;
   font-size: 1rem;
   width: max-content !important;
   padding: 1.2rem 1rem 1.2rem 0 !important;
@@ -117,17 +115,6 @@ export const TableData = styled.td`
     margin: 0;
     padding: 0 10px 0 0;
   }
-`;
-
-// * Color Badges
-// ! Different from <Tag /> component
-// ! because of width/padding bug in tables
-export const Tag = styled(Badge)`
-  font-size: 1rem;
-  padding: 6px 10px 6px 0;
-  margin: 0 0.35rem 0 0;
-  border-radius: 0.3rem;
-  box-shadow: 1px 2px 5px #1b1b1b;
 `;
 
 // * When there are no items in table

@@ -5,8 +5,9 @@
  */
 
 import { lazy, Suspense } from 'react';
+import { TableData, TableRow } from '../../common/modules/Tables';
+import Tag from '../../common/Tag';
 import EntryActions from '../../common/EntryActions';
-import { TableData, TableRow, Tag } from '../../common/modules/Tables';
 
 const FormatDate = lazy(() => import('../../../utils/formatDate'));
 
@@ -25,25 +26,25 @@ export default function Row(product, edit, del) {
         </TableData>
         <TableData className="name">{product.name}</TableData>
         <TableData className="variant">
-          <Tag variant="dark">{product.variant}</Tag>
+          <Tag variant="dark" content={product.variant} />
         </TableData>
         <TableData className="type">
-          <Tag variant="primary">{product.type}</Tag>
+          <Tag variant="primary" content={product.type} />
         </TableData>
         <TableData className="category">
-          <Tag variant="info">{product.category}</Tag>
+          <Tag variant="info" content={product.category} />
         </TableData>
         <TableData className="stock">
           {/* Quantity Color Indicator */}
           {(() => {
             if (product.quantity <= 10) {
-              return <Tag variant="danger">{product.quantity}</Tag>;
+              return <Tag variant="danger" content={product.quantity} />;
             } else if (product.quantity <= 20) {
-              return <Tag variant="warning">{product.quantity}</Tag>;
+              return <Tag variant="warning" content={product.quantity} />;
             } else if (product.quantity <= 300) {
-              return <Tag variant="success">{product.quantity}</Tag>;
+              return <Tag variant="success" content={product.quantity} />;
             } else {
-              return <Tag variant="dark">{product.quantity}</Tag>;
+              return <Tag variant="dark" content={product.quantity} />;
             }
           })()}
         </TableData>
@@ -65,7 +66,7 @@ export default function Row(product, edit, del) {
         </TableData>
         <TableData className="price">
           <Suspense fallback="—">
-            <Tag variant="dark">₱{product.price}</Tag>
+            <Tag variant="dark" content={<>₱{product.price}</>} />
           </Suspense>
         </TableData>
       </TableRow>

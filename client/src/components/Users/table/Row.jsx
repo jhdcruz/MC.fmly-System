@@ -5,8 +5,9 @@
  */
 
 import { lazy, Suspense } from 'react';
-import { TableData, TableRow, Tag } from '../../common/modules/Tables';
+import { TableData, TableRow } from '../../common/modules/Tables';
 import EntryActions from '../../common/EntryActions';
+import Tag from '../../common/Tag';
 
 const FormatDate = lazy(() => import('../../../utils/formatDate'));
 
@@ -21,23 +22,23 @@ export default function Row(user, edit, del) {
       <TableRow className="product" key={user._id} tabIndex={0}>
         <TableData>
           <EntryActions edit={edit} delete={del} />
-          <Tag variant="dark">{user.username}</Tag>
+          <Tag variant="dark" content={user.username} />
         </TableData>
         <TableData className="name">{user.name}</TableData>
         <TableData className="role">
-          <Tag variant="primary">{user.role}</Tag>
+          <Tag variant="primary" content={user.role} />
         </TableData>
         <TableData className="permission">
           {/* Permission Color Indicator */}
           {(() => {
             if (user.permission === 'admin') {
-              return <Tag variant="warning">{user.permission}</Tag>;
+              return <Tag variant="warning" content={user.permission} />;
             } else if (user.permission === 'sysadmin') {
-              return <Tag variant="danger">{user.permission}</Tag>;
+              return <Tag variant="danger" content={user.permission} />;
             } else if (user.permission === 'inventory') {
-              return <Tag variant="success">{user.permission}</Tag>;
+              return <Tag variant="success" content={user.permission} />;
             } else {
-              return <Tag variant="info">{user.permission}</Tag>;
+              return <Tag variant="info" content={user.permission} />;
             }
           })()}
         </TableData>

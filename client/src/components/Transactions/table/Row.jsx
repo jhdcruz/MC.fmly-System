@@ -6,10 +6,11 @@
 
 import { lazy, Suspense } from 'react';
 import Button from 'react-bootstrap/Button';
-import { TableData, TableRow, Tag } from '../../common/modules/Tables';
+import { TableData, TableRow } from '../../common/modules/Tables';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFile } from '@fortawesome/free-solid-svg-icons';
 import EntryActions from '../../common/EntryActions';
+import Tag from '../../common/Tag';
 
 const FormatDate = lazy(() => import('../../../utils/formatDate'));
 
@@ -24,26 +25,26 @@ export default function Row(transaction, edit, del, invoice) {
       <TableRow className="transaction" key={transaction._id} tabIndex={0}>
         <TableData className="order_id">
           <EntryActions edit={edit} delete={del} />
-          <Tag variant="dark">{transaction.order_id}</Tag>
+          <Tag variant="dark" content={transaction.order_id} />
         </TableData>
         <TableData className="name">{transaction.name}</TableData>
         <TableData className="status">
           {/* Quantity Color Indicator */}
           {(() => {
             if (transaction.status === 'Completed') {
-              return <Tag variant="success">{transaction.status}</Tag>;
+              return <Tag variant="success" content={transaction.status} />;
             } else if (transaction.status === 'Pending') {
-              return <Tag variant="danger">{transaction.status}</Tag>;
+              return <Tag variant="danger" content={transaction.status} />;
             } else {
-              return <Tag variant="dark">{transaction.status}</Tag>;
+              return <Tag variant="dark" content={transaction.status} />;
             }
           })()}
         </TableData>
         <TableData className="total">
-          <Tag variant="warning">₱{transaction.total}</Tag>
+          <Tag variant="warning" content={<>₱{transaction.total}</>} />
         </TableData>
         <TableData className="payment">
-          <Tag variant="info">{transaction.payment}</Tag>
+          <Tag variant="info" content={transaction.payment} />
         </TableData>
         <TableData className="receipt">
           <Button

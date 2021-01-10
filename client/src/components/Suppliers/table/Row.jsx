@@ -5,11 +5,12 @@
  */
 
 import { lazy, Suspense } from 'react';
-import { TableData, TableRow, Tag } from '../../common/modules/Tables';
+import { TableData, TableRow } from '../../common/modules/Tables';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGlobe } from '@fortawesome/free-solid-svg-icons';
 import Button from 'react-bootstrap/Button';
 import EntryActions from '../../common/EntryActions';
+import Tag from '../../common/Tag';
 
 const FormatDate = lazy(() => import('../../../utils/formatDate'));
 
@@ -24,18 +25,16 @@ export default function Row(supplier, edit, del) {
       <TableRow className="supplier" key={supplier._id} tabIndex={0}>
         <TableData className="name">
           <EntryActions edit={edit} delete={del} />
-          <Tag variant="warning">{supplier.name}</Tag>
+          <Tag variant="warning" content={supplier.name} />
         </TableData>
         <TableData className="description">{supplier.description}</TableData>
         <TableData className="tags">
           {supplier.category.map((tags) => (
-            <Tag variant="dark" key={tags}>
-              {tags}
-            </Tag>
+            <Tag variant="dark" index={tags} content={tags} />
           ))}
         </TableData>
         <TableData className="contact">
-          <Tag variant="info">{supplier.contact}</Tag>
+          <Tag variant="info" content={supplier.contact} />
         </TableData>
         <TableData className="website">
           <Button href={supplier.website} target="_blank" rel="noreferrer">
