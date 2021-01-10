@@ -28,7 +28,7 @@ export default function Authentication() {
       password
     })
       .then((res) => {
-        setAuth(res);
+        setAuth(res.data);
       })
       .catch((err) => {
         if (err.response.status === 401) {
