@@ -4,7 +4,6 @@
  *     Licensed under GNU General Public License 3.0 or later
  */
 
-import styled from 'styled-components';
 import Table from 'react-bootstrap/Table';
 import { TableHeader, TableModule } from '../../common/modules/Tables';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -14,16 +13,11 @@ import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
  * * Users Table Header
  *********************************/
 
-const UsersTable = styled(Table)`
-  width: 93vw !important;
-  padding: 0 1rem 1rem !important;
-`;
-
 export default function Header(props) {
   return (
     <>
       <TableModule />
-      <UsersTable hover responsive>
+      <Table hover responsive>
         <thead>
           <tr>
             <TableHeader id="UserName" className="actions">
@@ -48,7 +42,7 @@ export default function Header(props) {
         </thead>
         {/* Pass dynamic data as props */}
         <tbody>{props.data}</tbody>
-      </UsersTable>
+      </Table>
     </>
   );
 }

@@ -19,10 +19,8 @@ export default function Row(product, edit, del) {
     <>
       {/* Product | Table Row */}
       <TableRow className="product" key={product._id} tabIndex={0}>
-        <TableData style={{ padding: '0.75rem 0' }}>
-          <EntryActions edit={edit} delete={del} />
-        </TableData>
         <TableData className="code" colSpan={1}>
+          <EntryActions edit={edit} delete={del} />
           {product.code}
         </TableData>
         <TableData className="name">{product.name}</TableData>

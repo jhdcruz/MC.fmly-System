@@ -4,7 +4,6 @@
  *     Licensed under GNU General Public License 3.0 or later
  */
 
-import styled from 'styled-components';
 import { TableHeader, TableModule } from '../../common/modules/Tables';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
@@ -14,20 +13,14 @@ import Table from 'react-bootstrap/Table';
  * * Product Table Header
  *********************************/
 
-const ProductsTable = styled(Table)`
-  padding: 0 1rem 1rem !important;
-  height: max-content !important;
-`;
-
 export default function Header(props) {
   return (
     <>
       <TableModule />
-      <ProductsTable hover responsive>
+      <Table hover responsive>
         <thead>
           <tr>
-            <TableHeader className="actions" />
-            <TableHeader id="ItemCode">
+            <TableHeader id="ItemCode" className="actions">
               SKU <FontAwesomeIcon icon={faCaretDown} />
             </TableHeader>
             <TableHeader id="ProductName">
@@ -58,7 +51,7 @@ export default function Header(props) {
         </thead>
         {/* Pass dynamic data as props */}
         <tbody>{props.data}</tbody>
-      </ProductsTable>
+      </Table>
     </>
   );
 }
