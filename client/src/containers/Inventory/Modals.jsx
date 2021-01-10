@@ -15,7 +15,7 @@ export default function Modals(props) {
         show={props.addModal}
         onHide={props.addHide}
         submit={props.addSubmit}
-        cancel={props.addCancel}
+        cancel={props.addHide}
       />
       <PForm
         header="Edit product"
