@@ -9,7 +9,7 @@ import { Fallback, Loader } from '../../components/common/Loaders';
 import Header from '../../components/Suppliers/table/Header';
 import { SuppliersApi } from '../../api/Suppliers';
 
-const SupplierRow = lazy(() => import('../../components/Suppliers/table/Row'));
+const Row = lazy(() => import('../../components/Suppliers/table/Row'));
 const SupplierModals = lazy(() => import('../Suppliers/Modals'));
 
 export default function RSuppliers() {
@@ -49,18 +49,11 @@ export default function RSuppliers() {
               .reverse()
               .map((supplier) => (
                 <Suspense fallback={<Loader />}>
-                  <SupplierRow
-                    delete={() => showDeleteModal(true)}
-                    edit={() => showEditModal(true)}
-                    key={supplier._id}
-                    icon={supplier.icon}
-                    name={supplier.name}
-                    description={supplier.description}
-                    category={supplier.category}
-                    address={supplier.address}
-                    website={supplier.website}
-                    contact={supplier.contact}
-                  />
+                  {Row(
+                    supplier,
+                    () => showEditModal(true),
+                    () => showDeleteModal(true)
+                  )}
                 </Suspense>
               ))
           }

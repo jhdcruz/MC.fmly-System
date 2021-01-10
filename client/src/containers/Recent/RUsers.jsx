@@ -9,7 +9,7 @@ import { Fallback, Loader } from '../../components/common/Loaders';
 import Header from '../../components/Users/table/Header';
 import { UsersApi } from '../../api/Users';
 
-const UserRow = lazy(() => import('../../components/Users/table/Row'));
+const Row = lazy(() => import('../../components/Users/table/Row'));
 const UserModals = lazy(() => import('../Users/Modals'));
 
 export default function RUsers() {
@@ -50,17 +50,11 @@ export default function RUsers() {
               .reverse()
               .map((user) => (
                 <Suspense fallback={<Loader />}>
-                  <UserRow
-                    delete={() => showDeleteModal(true)}
-                    edit={() => showEditModal(true)}
-                    _id={user._id}
-                    username={user.username}
-                    name={user.name}
-                    role={user.role}
-                    permission={user.permission}
-                    updatedAt={user.updatedAt}
-                    createdAt={user.createdAt}
-                  />
+                  {Row(
+                    user,
+                    () => showEditModal(true),
+                    () => showDeleteModal(true)
+                  )}
                 </Suspense>
               ))
           }

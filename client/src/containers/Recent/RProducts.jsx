@@ -9,7 +9,7 @@ import { Fallback, Loader } from '../../components/common/Loaders';
 import Header from '../../components/Products/table/Header';
 import { ProductsApi } from '../../api/Products';
 
-const ProductRow = lazy(() => import('../../components/Products/table/Row'));
+const Row = lazy(() => import('../../components/Products/table/Row'));
 const ProductModals = lazy(() => import('../Inventory/Modals'));
 
 export default function RProducts() {
@@ -50,20 +50,11 @@ export default function RProducts() {
               .reverse()
               .map((product) => (
                 <Suspense fallback={<Loader />}>
-                  <ProductRow
-                    delete={() => showDeleteModal(true)}
-                    edit={() => showEditModal(true)}
-                    _id={product._id}
-                    code={product.code}
-                    name={product.name}
-                    variant={product.variant}
-                    type={product.type}
-                    category={product.category}
-                    quantity={product.quantity}
-                    updatedAt={product.updatedAt}
-                    createdAt={product.createdAt}
-                    price={product.price}
-                  />
+                  {Row(
+                    product,
+                    () => showEditModal(true),
+                    () => showDeleteModal(true)
+                  )}
                 </Suspense>
               ))
           }

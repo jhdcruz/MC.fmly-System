@@ -7,11 +7,8 @@ import { lazy, Suspense, useState } from 'react';
 import { Fallback, Loader } from '../../components/common/Loaders';
 import Header from '../../components/Transactions/table/Header';
 import { TransactionsApi } from '../../api/Transactions';
-import Row from '../../components/Transactions/table/Row';
 
-const TransactionRow = lazy(() =>
-  import('../../components/Transactions/table/Row')
-);
+const Row = lazy(() => import('../../components/Transactions/table/Row'));
 const TransactionModals = lazy(() => import('../Transactions/Modals'));
 
 export default function RTransactions() {
