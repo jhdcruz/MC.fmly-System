@@ -25,7 +25,7 @@ const EntryControl = styled(Button)`
   visibility: hidden;
   padding: 5px 10px;
   margin: 0 3px;
-  font-size: 1.1vw;
+  font-size: 0.9rem;
   border: none;
 `;
 
@@ -34,7 +34,7 @@ export default function EntryActions(props) {
     <span className="actions">
       <EntryButtons>
         {/* Modal Action Icons */}
-        <span className="mr-2">
+        <span className="pl-2">
           <EntryControl variant="outline-danger" onClick={props.delete}>
             <FontAwesomeIcon icon={faTimes} />
           </EntryControl>

@@ -12,7 +12,8 @@ import Tab from 'react-bootstrap/Tab';
 
 // * Styled Components
 const CatalogGrid = styled(Row)`
-  display: flex;
+  display: contents;
+  width: 100%;
   height: 100%;
   overflow: hidden !important;
 `;
@@ -22,8 +23,8 @@ const CategoryList = styled(Col)`
   background-color: #222126;
   width: 13rem;
   min-width: 13rem;
+  max-width: 15rem;
   height: 100vh;
-  margin: 0 0 0 1rem;
   padding: 3rem 0.8rem 1rem 1.2rem;
   border-right: 3px ridge #e6a195;
   box-shadow: -1px 0 6px #232323;

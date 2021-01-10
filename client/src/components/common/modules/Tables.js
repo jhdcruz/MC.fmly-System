@@ -16,12 +16,12 @@ export const TableModule = createGlobalStyle`
     display: flex !important;
     width: 100%;
     height: 100vh;
-    padding: 0 0.75rem 0 0.5rem;
+    padding: 0 0 0 0.5rem;
     overflow: overlay !important;
 
     table {
-      padding: 0 0 6rem !important;
       margin: 0;
+      padding: 0 1rem 6rem 0 !important;
       background-color: transparent;
       border-collapse: separate;
       border-spacing: 0 1rem;
