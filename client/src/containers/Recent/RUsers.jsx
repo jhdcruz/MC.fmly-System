@@ -5,11 +5,11 @@
  */
 
 import { lazy, Suspense, useState } from 'react';
-import { Fallback, Loader } from '../../components/common/Loaders';
+import { Fallback } from '../../components/common/Loaders';
 import Header from '../../components/Users/table/Header';
+import Row from '../../components/Users/table/Row';
 import { UsersApi } from '../../api/Users';
 
-const Row = lazy(() => import('../../components/Users/table/Row'));
 const UserModals = lazy(() => import('../Users/Modals'));
 
 export default function RUsers() {
@@ -22,7 +22,7 @@ export default function RUsers() {
   // * Modals
   const Modals = () => {
     return (
-      <Suspense fallback={<Loader />}>
+      <Suspense fallback="">
         <UserModals
           editModal={editModal}
           deleteModal={deleteModal}
@@ -43,20 +43,18 @@ export default function RUsers() {
       {data && true ? (
         <Header
           data={
-            // Reverse & limit result to 10 | prioritize new entries
             data &&
             data
-              .slice(Math.max(data.length - 10, 0))
+              // Reverse & limit result to 10 | prioritize new entries
               .reverse()
-              .map((user) => (
-                <Suspense fallback={<Loader />}>
-                  {Row(
-                    user,
-                    () => showEditModal(true),
-                    () => showDeleteModal(true)
-                  )}
-                </Suspense>
-              ))
+              .slice(Math.max(data.length - 10, 0))
+              .map((user) =>
+                Row(
+                  user,
+                  () => showEditModal(true),
+                  () => showDeleteModal(true)
+                )
+              )
           }
         />
       ) : (

@@ -5,11 +5,11 @@
  */
 
 import { lazy, Suspense, useState } from 'react';
-import { Fallback, Loader } from '../../components/common/Loaders';
+import { Fallback } from '../../components/common/Loaders';
 import Header from '../../components/Products/table/Header';
+import Row from '../../components/Products/table/Row';
 import { ProductsApi } from '../../api/Products';
 
-const Row = lazy(() => import('../../components/Products/table/Row'));
 const ProductModals = lazy(() => import('../Inventory/Modals'));
 
 export default function RProducts() {
@@ -22,7 +22,7 @@ export default function RProducts() {
   // * Modals
   const Modals = () => {
     return (
-      <Suspense fallback={<Loader />}>
+      <Suspense fallback="">
         <ProductModals
           editModal={editModal}
           deleteModal={deleteModal}
@@ -43,20 +43,18 @@ export default function RProducts() {
       {data && true ? (
         <Header
           data={
-            // Reverse & limit result to 10 | prioritize new entries
             data &&
             data
-              .slice(Math.max(data.length - 10, 0))
+              // Reverse & limit result to 10 | prioritize new entries
               .reverse()
-              .map((product) => (
-                <Suspense fallback={<Loader />}>
-                  {Row(
-                    product,
-                    () => showEditModal(true),
-                    () => showDeleteModal(true)
-                  )}
-                </Suspense>
-              ))
+              .slice(Math.max(data.length - 10, 0))
+              .map((product) =>
+                Row(
+                  product,
+                  () => showEditModal(true),
+                  () => showDeleteModal(true)
+                )
+              )
           }
         />
       ) : (

@@ -4,11 +4,11 @@
  *     Licensed under GNU General Public License 3.0 or later
  */
 import { lazy, Suspense, useState } from 'react';
-import { Fallback, Loader } from '../../components/common/Loaders';
+import { Fallback } from '../../components/common/Loaders';
 import Header from '../../components/Transactions/table/Header';
+import Row from '../../components/Transactions/table/Row';
 import { TransactionsApi } from '../../api/Transactions';
 
-const Row = lazy(() => import('../../components/Transactions/table/Row'));
 const TransactionModals = lazy(() => import('../Transactions/Modals'));
 
 export default function RTransactions() {
@@ -22,7 +22,7 @@ export default function RTransactions() {
   // * Modals
   const Modals = () => {
     return (
-      <Suspense fallback={<Loader />}>
+      <Suspense fallback="">
         <TransactionModals
           editModal={editModal}
           deleteModal={deleteModal}
@@ -41,18 +41,23 @@ export default function RTransactions() {
     <>
       <Modals />
       {data && true ? (
-        <Suspense fallback={<Loader />}>
-          <Header
-            data={data.map((transaction) =>
-              Row(
-                transaction,
-                () => showEditModal(false),
-                () => showDeleteModal(true),
-                () => showInvoiceModal(true)
+        <Header
+          data={
+            data &&
+            data
+              // Reverse & limit result to 10 | prioritize new entries
+              .reverse()
+              .slice(Math.max(data.length - 10, 0))
+              .map((transaction) =>
+                Row(
+                  transaction,
+                  () => showEditModal(false),
+                  () => showDeleteModal(true),
+                  () => showInvoiceModal(true)
+                )
               )
-            )}
-          />
-        </Suspense>
+          }
+        />
       ) : (
         <Fallback />
       )}

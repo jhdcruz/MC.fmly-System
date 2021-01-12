@@ -5,11 +5,11 @@
  */
 
 import { lazy, Suspense, useState } from 'react';
-import { Fallback, Loader } from '../../components/common/Loaders';
+import { Fallback } from '../../components/common/Loaders';
 import Header from '../../components/Suppliers/table/Header';
+import Row from '../../components/Suppliers/table/Row';
 import { SuppliersApi } from '../../api/Suppliers';
 
-const Row = lazy(() => import('../../components/Suppliers/table/Row'));
 const SupplierModals = lazy(() => import('../Suppliers/Modals'));
 
 export default function RSuppliers() {
@@ -22,7 +22,7 @@ export default function RSuppliers() {
   // * Modals
   const Modals = () => {
     return (
-      <Suspense fallback={<Loader />}>
+      <Suspense fallback="">
         <SupplierModals
           editModal={editModal}
           deleteModal={deleteModal}
@@ -42,20 +42,18 @@ export default function RSuppliers() {
       {data && true ? (
         <Header
           data={
-            // Reverse & limit result to 10 | prioritize new entries
             data &&
             data
-              .slice(Math.max(data.length - 10, 0))
+              // Reverse & limit result to 10 | prioritize new entries
               .reverse()
-              .map((supplier) => (
-                <Suspense fallback={<Loader />}>
-                  {Row(
-                    supplier,
-                    () => showEditModal(true),
-                    () => showDeleteModal(true)
-                  )}
-                </Suspense>
-              ))
+              .slice(Math.max(data.length - 10, 0))
+              .map((supplier) =>
+                Row(
+                  supplier,
+                  () => showEditModal(true),
+                  () => showDeleteModal(true)
+                )
+              )
           }
         />
       ) : (
