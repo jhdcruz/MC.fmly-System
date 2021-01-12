@@ -4,10 +4,11 @@
  *     Licensed under GNU General Public License 3.0 or later
  */
 
+import { memo } from 'react';
 import UForm from '../../components/Users/UForm';
 import ConfirmModal from '../../components/common/modals/ConfirmModal';
 
-export default function Modals(props) {
+const Modals = memo((props) => {
   return (
     <>
       <UForm
@@ -46,4 +47,6 @@ export default function Modals(props) {
       />
     </>
   );
-}
+});
+
+export default Modals;

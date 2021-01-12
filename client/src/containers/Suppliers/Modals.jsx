@@ -4,12 +4,11 @@
  *     Licensed under GNU General Public License 3.0 or later
  */
 
+import { memo } from 'react';
 import SForm from '../../components/Suppliers/SForm';
 import ConfirmModal from '../../components/common/modals/ConfirmModal';
 
-// TODO: API Communication
-
-export default function Modals(props) {
+const Modals = memo((props) => {
   return (
     <>
       <SForm
@@ -50,4 +49,6 @@ export default function Modals(props) {
       />
     </>
   );
-}
+});
+
+export default Modals;

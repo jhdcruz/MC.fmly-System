@@ -4,11 +4,12 @@
  *     Licensed under GNU General Public License 3.0 or later
  */
 
+import { memo } from 'react';
 import TForm from '../../components/Transactions/TForm';
 import ConfirmModal from '../../components/common/modals/ConfirmModal';
 import AlertModal from '../../components/common/modals/AlertModal';
 
-export default function Modals(props) {
+const Modals = memo((props) => {
   return (
     <>
       <TForm
@@ -56,4 +57,6 @@ export default function Modals(props) {
       />
     </>
   );
-}
+});
+
+export default Modals;
