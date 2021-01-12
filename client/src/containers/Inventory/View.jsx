@@ -9,6 +9,7 @@ import Nav from 'react-bootstrap/Nav';
 import { Fallback } from '../../components/common/Loaders';
 import Categories from '../../components/Sidebar/Categories';
 import SearchControls from '../../components/common/SearchControls';
+import Notification from '../../components/common/Notification';
 import ViewAll from './ViewAll';
 import ViewCategory from './ViewCategory';
 import ViewType from './ViewType';
@@ -94,26 +95,40 @@ export default function View() {
   };
 
   return (
-    <Categories
-      main="Categories"
-      mainTabs={
-        data &&
-        productCategories(data).map((product) => (
-          <Nav.Item key={product.category}>
-            <Nav.Link eventKey={product.category}>{product.category}</Nav.Link>
-          </Nav.Item>
-        ))
-      }
-      secondary="Types"
-      secondaryTabs={
-        data &&
-        productTypes(data).map((product) => (
-          <Nav.Item key={product.type}>
-            <Nav.Link eventKey={product.type}>{product.type}</Nav.Link>
-          </Nav.Item>
-        ))
-      }
-      content={<InventoryView />}
-    />
+    <>
+      <Categories
+        main="Categories"
+        mainTabs={
+          data &&
+          productCategories(data).map((product) => (
+            <Nav.Item key={product.category}>
+              <Nav.Link eventKey={product.category}>
+                {product.category}
+              </Nav.Link>
+            </Nav.Item>
+          ))
+        }
+        secondary="Types"
+        secondaryTabs={
+          data &&
+          productTypes(data).map((product) => (
+            <Nav.Item key={product.type}>
+              <Nav.Link eventKey={product.type}>{product.type}</Nav.Link>
+            </Nav.Item>
+          ))
+        }
+        content={<InventoryView />}
+      />
+      <Notification
+        delay={10000}
+        title="Guide"
+        message={
+          <p>
+            Scroll horizontally using <kbd>Shift</kbd> + <kbd>Scroll</kbd>,
+            middle-mouse button, or arrow keys.
+          </p>
+        }
+      />
+    </>
   );
 }

@@ -9,6 +9,7 @@ import Nav from 'react-bootstrap/Nav';
 import { Fallback } from '../../components/common/Loaders';
 import SearchControls from '../../components/common/SearchControls';
 import Categories from '../../components/Sidebar/Categories';
+import Notification from '../../components/common/Notification';
 import ViewAll from './ViewAll';
 import ViewPermission from './ViewPermission';
 import ViewRole from './ViewRole';
@@ -90,26 +91,38 @@ export default function View() {
   };
 
   return (
-    <Categories
-      main="Permissions"
-      mainTabs={
-        data &&
-        userPermissions(data).map((user) => (
-          <Nav.Item key={user.permission}>
-            <Nav.Link eventKey={user.permission}>{user.permission}</Nav.Link>
-          </Nav.Item>
-        ))
-      }
-      secondary="Roles"
-      secondaryTabs={
-        data &&
-        userRoles(data).map((user) => (
-          <Nav.Item key={user.role}>
-            <Nav.Link eventKey={user.role}>{user.role}</Nav.Link>
-          </Nav.Item>
-        ))
-      }
-      content={<UsersView />}
-    />
+    <>
+      <Categories
+        main="Permissions"
+        mainTabs={
+          data &&
+          userPermissions(data).map((user) => (
+            <Nav.Item key={user.permission}>
+              <Nav.Link eventKey={user.permission}>{user.permission}</Nav.Link>
+            </Nav.Item>
+          ))
+        }
+        secondary="Roles"
+        secondaryTabs={
+          data &&
+          userRoles(data).map((user) => (
+            <Nav.Item key={user.role}>
+              <Nav.Link eventKey={user.role}>{user.role}</Nav.Link>
+            </Nav.Item>
+          ))
+        }
+        content={<UsersView />}
+      />
+      <Notification
+        delay={10000}
+        title="Guide"
+        message={
+          <p>
+            Scroll horizontally using <kbd>Shift</kbd> + <kbd>Scroll</kbd>,
+            middle-mouse button, or arrow keys.
+          </p>
+        }
+      />
+    </>
   );
 }

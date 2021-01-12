@@ -9,6 +9,7 @@ import Nav from 'react-bootstrap/Nav';
 import { Fallback } from '../../components/common/Loaders';
 import Categories from '../../components/Sidebar/Categories';
 import SearchControls from '../../components/common/SearchControls';
+import Notification from '../../components/common/Notification';
 import ViewAll from './ViewAll';
 import ViewStatus from './ViewStatus';
 import ViewPayment from './ViewPayment';
@@ -95,30 +96,42 @@ export default function View() {
   };
 
   return (
-    <Categories
-      main="Status"
-      mainTabs={
-        data &&
-        transactionStatus(data).map((transaction) => (
-          <Nav.Item key={transaction.status}>
-            <Nav.Link eventKey={transaction.status}>
-              {transaction.status}
-            </Nav.Link>
-          </Nav.Item>
-        ))
-      }
-      secondary="Payment"
-      secondaryTabs={
-        data &&
-        transactionPayment(data).map((transaction) => (
-          <Nav.Item key={transaction.payment}>
-            <Nav.Link eventKey={transaction.payment}>
-              {transaction.payment}
-            </Nav.Link>
-          </Nav.Item>
-        ))
-      }
-      content={<TransactionsView />}
-    />
+    <>
+      <Categories
+        main="Status"
+        mainTabs={
+          data &&
+          transactionStatus(data).map((transaction) => (
+            <Nav.Item key={transaction.status}>
+              <Nav.Link eventKey={transaction.status}>
+                {transaction.status}
+              </Nav.Link>
+            </Nav.Item>
+          ))
+        }
+        secondary="Payment"
+        secondaryTabs={
+          data &&
+          transactionPayment(data).map((transaction) => (
+            <Nav.Item key={transaction.payment}>
+              <Nav.Link eventKey={transaction.payment}>
+                {transaction.payment}
+              </Nav.Link>
+            </Nav.Item>
+          ))
+        }
+        content={<TransactionsView />}
+      />
+      <Notification
+        delay={10000}
+        title="Guide"
+        message={
+          <p>
+            Scroll horizontally using <kbd>Shift</kbd> + <kbd>Scroll</kbd>,
+            middle-mouse button, or arrow keys.
+          </p>
+        }
+      />
+    </>
   );
 }
