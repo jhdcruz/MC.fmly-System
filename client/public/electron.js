@@ -39,7 +39,7 @@ function createWindow() {
   });
   // Main App
   const win = new BrowserWindow({
-    width: 1265,
+    width: 1280,
     height: 700,
     show: false,
     minWidth: 1200,
