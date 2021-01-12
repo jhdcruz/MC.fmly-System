@@ -5,10 +5,10 @@
  */
 
 import Tab from 'react-bootstrap/Tab';
+import Container from 'react-bootstrap/Container';
 import Header from '../../components/Users/table/Header';
 import Row from '../../components/Users/table/Row';
 import { UserCard } from '../../components/Users/Card';
-import Container from 'react-bootstrap/Container';
 
 // * View all users
 export default function ViewAll({ data, view, edit, del }) {

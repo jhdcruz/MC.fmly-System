@@ -5,11 +5,11 @@
  */
 
 import Tab from 'react-bootstrap/Tab';
+import Container from 'react-bootstrap/Container';
 import Header from '../../components/Transactions/table/Header';
 import Row from '../../components/Transactions/table/Row';
 import { TransactionCard } from '../../components/Transactions/Card';
 import { transactionPayment } from './Filters';
-import Container from 'react-bootstrap/Container';
 
 // * Filter transactions to payment
 export default function ViewPayment({ data, view, edit, del, invoice }) {

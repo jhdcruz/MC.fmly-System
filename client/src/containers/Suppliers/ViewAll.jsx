@@ -5,10 +5,10 @@
  */
 
 import Tab from 'react-bootstrap/Tab';
+import Container from 'react-bootstrap/Container';
 import Header from '../../components/Suppliers/table/Header';
 import Row from '../../components/Suppliers/table/Row';
 import Poster from '../../components/Suppliers/Poster';
-import Container from 'react-bootstrap/Container';
 
 // * View all suppliers
 export default function ViewAll({ data, view, edit, del }) {

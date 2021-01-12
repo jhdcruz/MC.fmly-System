@@ -5,11 +5,11 @@
  */
 
 import Tab from 'react-bootstrap/Tab';
+import Container from 'react-bootstrap/Container';
 import Header from '../../components/Products/table/Header';
 import Row from '../../components/Products/table/Row';
 import { ProductCard } from '../../components/Products/Card';
 import { productCategories } from './Filters';
-import Container from 'react-bootstrap/Container';
 
 /**********************************
  * * Filter products by category

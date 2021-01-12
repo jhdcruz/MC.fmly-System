@@ -5,10 +5,10 @@
  */
 
 import Tab from 'react-bootstrap/Tab';
+import Container from 'react-bootstrap/Container';
 import Header from '../../components/Products/table/Header';
 import Row from '../../components/Products/table/Row';
 import { ProductCard } from '../../components/Products/Card';
-import Container from 'react-bootstrap/Container';
 
 // * View all products
 export default function ViewAll({ data, view, edit, del }) {

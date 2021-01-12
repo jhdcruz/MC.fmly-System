@@ -5,11 +5,11 @@
  */
 
 import Tab from 'react-bootstrap/Tab';
+import Container from 'react-bootstrap/Container';
 import Header from '../../components/Users/table/Header';
 import Row from '../../components/Users/table/Row';
 import { UserCard } from '../../components/Users/Card';
 import { userPermissions } from './Filters';
-import Container from 'react-bootstrap/Container';
 
 // * Filter users to permissions
 export default function ViewPermission({ data, view, edit, del }) {

@@ -5,10 +5,10 @@
  */
 
 import Tab from 'react-bootstrap/Tab';
+import Container from 'react-bootstrap/Container';
 import Header from '../../components/Transactions/table/Header';
 import Row from '../../components/Transactions/table/Row';
 import { TransactionCard } from '../../components/Transactions/Card';
-import Container from 'react-bootstrap/Container';
 
 // * View all transactions
 export default function ViewAll({ data, view, edit, del, invoice }) {
