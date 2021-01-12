@@ -5,7 +5,6 @@
  */
 
 import { lazy, Suspense, useState } from 'react';
-import { Loader } from '../../components/common/Loaders';
 import Checkout from '../../components/Pos/Checkout';
 
 const PosModals = lazy(() => import('./Modals'));
@@ -17,7 +16,7 @@ export default function Display() {
 
   const Modals = () => {
     return (
-      <Suspense fallback={<Loader />}>
+      <Suspense fallback="">
         <PosModals
           checkoutModal={checkout}
           receiptModal={receipt}

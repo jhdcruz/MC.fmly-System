@@ -5,12 +5,14 @@
  */
 
 import View from '../containers/Pos/View';
+import Display from '../containers/Pos/Display';
 import ErrorBoundary from '../components/common/ErrorBoundary';
 
 export default function Pos() {
   return (
     <ErrorBoundary>
       <View />
+      <Display />
     </ErrorBoundary>
   );
 }

@@ -11,7 +11,6 @@ import SearchBar from '../../components/common/SearchBar';
 import Categories from '../../components/Sidebar/Categories';
 import ViewCategory from './ViewCategory';
 import ViewType from './ViewType';
-import Display from './Display';
 import { PosCard } from '../../components/Pos/Card';
 import { ProductsApi } from '../../api/Products';
 import { productCategories, productTypes } from '../Inventory/Filters';
@@ -57,31 +56,26 @@ export default function View() {
     );
   };
   return (
-    <>
-      <Categories
-        main="Categories"
-        mainTabs={
-          data &&
-          productCategories(data).map((product) => (
-            <Nav.Item key={product.category}>
-              <Nav.Link eventKey={product.category}>
-                {product.category}
-              </Nav.Link>
-            </Nav.Item>
-          ))
-        }
-        secondary="Types"
-        secondaryTabs={
-          data &&
-          productTypes(data).map((product) => (
-            <Nav.Item key={product.type}>
-              <Nav.Link eventKey={product.type}>{product.type}</Nav.Link>
-            </Nav.Item>
-          ))
-        }
-        content={<PosView />}
-      />
-      <Display />
-    </>
+    <Categories
+      main="Categories"
+      mainTabs={
+        data &&
+        productCategories(data).map((product) => (
+          <Nav.Item key={product.category}>
+            <Nav.Link eventKey={product.category}>{product.category}</Nav.Link>
+          </Nav.Item>
+        ))
+      }
+      secondary="Types"
+      secondaryTabs={
+        data &&
+        productTypes(data).map((product) => (
+          <Nav.Item key={product.type}>
+            <Nav.Link eventKey={product.type}>{product.type}</Nav.Link>
+          </Nav.Item>
+        ))
+      }
+      content={<PosView />}
+    />
   );
 }
