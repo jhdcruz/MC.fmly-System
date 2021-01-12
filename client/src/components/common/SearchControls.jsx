@@ -4,9 +4,10 @@
  *     Licensed under GNU General Public License 3.0 or later
  */
 
+import { memo } from 'react';
 import styled from 'styled-components';
-import { TooltipControl } from './Controls';
 import SearchBar from './SearchBar';
+import { TooltipControl } from './Controls';
 import {
   faBars,
   faCloudUploadAlt,
@@ -44,7 +45,7 @@ const Divider = styled.div`
   padding: 0;
 `;
 
-export default function SearchControls(props) {
+const SearchControls = memo((props) => {
   return (
     <ControlSection>
       <SearchBar />
@@ -98,4 +99,6 @@ export default function SearchControls(props) {
       </Toolbar>
     </ControlSection>
   );
-}
+});
+
+export default SearchControls;

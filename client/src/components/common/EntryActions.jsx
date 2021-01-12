@@ -4,6 +4,7 @@
  *     Licensed under GNU General Public License 3.0 or later
  */
 
+import { memo } from 'react';
 import styled from 'styled-components';
 import Button from 'react-bootstrap/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -29,7 +30,7 @@ const EntryControl = styled(Button)`
   border: none;
 `;
 
-export default function EntryActions(props) {
+const EntryActions = memo((props) => {
   return (
     <span className="actions">
       <EntryButtons>
@@ -45,4 +46,6 @@ export default function EntryActions(props) {
       </EntryButtons>
     </span>
   );
-}
+});
+
+export default EntryActions;

@@ -4,6 +4,7 @@
  *     Licensed under GNU General Public License 3.0 or later
  */
 
+import { memo } from 'react';
 import styled from 'styled-components';
 import FormControl from 'react-bootstrap/FormControl';
 import InputGroup from 'react-bootstrap/InputGroup';
@@ -65,7 +66,7 @@ input {
   }
 `;
 
-export default function SearchBar() {
+const SearchBar = memo(() => {
   return (
     <Search>
       <InputGroup>
@@ -78,4 +79,5 @@ export default function SearchBar() {
       </InputGroup>
     </Search>
   );
-}
+});
+export default SearchBar;

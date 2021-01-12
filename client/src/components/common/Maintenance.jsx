@@ -4,6 +4,7 @@
  *     Licensed under GNU General Public License 3.0 or later
  */
 
+import { memo } from 'react';
 import styled from 'styled-components';
 
 /************************
@@ -19,10 +20,12 @@ const Notice = styled.h2`
   z-index: 99;
 `;
 
-export default function Maintenance() {
+const Maintenance = memo(() => {
   return (
     <Notice>
       <strong>This feature is currently under maintenance</strong>
     </Notice>
   );
-}
+});
+
+export default Maintenance;

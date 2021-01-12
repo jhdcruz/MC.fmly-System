@@ -4,6 +4,7 @@
  *     Licensed under GNU General Public License 3.0 or later
  */
 
+import { memo } from 'react';
 import Button from 'react-bootstrap/Button';
 import Tooltip from 'react-bootstrap/Tooltip';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
@@ -15,7 +16,7 @@ import { StatusApi } from '../api/Status';
  * * Server Status Display Icon
  *********************************/
 
-export default function ApiStatus(props) {
+const ApiStatus = memo((props) => {
   const { data } = StatusApi();
 
   // * Display Status Icon based on response
@@ -76,4 +77,6 @@ export default function ApiStatus(props) {
       </OverlayTrigger>
     </div>
   );
-}
+});
+
+export default ApiStatus;
