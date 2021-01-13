@@ -21,7 +21,7 @@ export const TableModule = createGlobalStyle`
 
     table {
       margin: 0;
-      padding: 0 1rem 6rem 0 !important;
+      padding: 0 1rem 8rem 0 !important;
       background-color: transparent;
       border-collapse: separate;
       border-spacing: 0 1rem;
