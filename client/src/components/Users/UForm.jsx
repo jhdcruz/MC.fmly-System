@@ -38,7 +38,7 @@ export default function UForm(props) {
             {/* User desired name */}
             <Form.Group as={Col} controlId="formGridName">
               <Form.Label>
-                Name <Required>*</Required>
+                Full Name <Required>*</Required>
               </Form.Label>
               <Form.Control
                 className="input-box"
@@ -86,11 +86,11 @@ export default function UForm(props) {
             {/* User Role | Human Readable role */}
             <Form.Group as={Col} controlId="formGridCategory">
               <Form.Label>
-                Role <Required>*</Required>
+                Position <Required>*</Required>
               </Form.Label>
               <Form.Control
                 className="input-box"
-                placeholder="Inventory Clerk"
+                placeholder="ex. Owner, Accounting"
                 autoComplete="new-text"
                 autoSave="off"
                 required
@@ -108,10 +108,10 @@ export default function UForm(props) {
                 defaultValue="Choose..."
                 required
               >
-                <option>Admin</option>
-                <option>Sysadmin</option>
-                <option>Inventory</option>
-                <option>Cashier</option>
+                <option value="admin">Admin</option>
+                <option value="sysadmin">Sysadmin</option>
+                <option value="inventory">Inventory</option>
+                <option value="cashier">Cashier</option>
               </Form.Control>
             </Form.Group>
           </Form.Row>
