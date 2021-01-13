@@ -45,7 +45,6 @@ export default function RSuppliers() {
             data &&
             data
               // Reverse & limit result to 10 | prioritize new entries
-              .reverse()
               .slice(Math.max(data.length - 10, 0))
               .map((supplier) =>
                 Row(
@@ -54,6 +53,7 @@ export default function RSuppliers() {
                   () => showDeleteModal(true)
                 )
               )
+              .reverse()
           }
         />
       ) : (

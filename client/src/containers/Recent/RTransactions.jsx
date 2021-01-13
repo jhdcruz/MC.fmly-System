@@ -46,7 +46,6 @@ export default function RTransactions() {
             data &&
             data
               // Reverse & limit result to 10 | prioritize new entries
-              .reverse()
               .slice(Math.max(data.length - 10, 0))
               .map((transaction) =>
                 Row(
@@ -56,6 +55,7 @@ export default function RTransactions() {
                   () => showInvoiceModal(true)
                 )
               )
+              .reverse()
           }
         />
       ) : (

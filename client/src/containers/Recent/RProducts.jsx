@@ -49,7 +49,6 @@ export default function RProducts() {
             products &&
             products
               // Reverse & limit result to 10 | prioritize new entries
-              .reverse()
               .slice(Math.max(products.length - 10, 0))
               .map((product) =>
                 Row(
@@ -58,6 +57,7 @@ export default function RProducts() {
                   () => showDeleteModal(true)
                 )
               )
+              .reverse()
           }
         />
       ) : (

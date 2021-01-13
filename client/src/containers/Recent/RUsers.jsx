@@ -46,7 +46,6 @@ export default function RUsers() {
             data &&
             data
               // Reverse & limit result to 10 | prioritize new entries
-              .reverse()
               .slice(Math.max(data.length - 10, 0))
               .map((user) =>
                 Row(
@@ -55,6 +54,7 @@ export default function RUsers() {
                   () => showDeleteModal(true)
                 )
               )
+              .reverse()
           }
         />
       ) : (
