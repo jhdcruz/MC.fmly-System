@@ -9,11 +9,13 @@ import { Fallback } from '../../components/common/Loaders';
 import Header from '../../components/Products/table/Header';
 import Row from '../../components/Products/table/Row';
 import { ProductsApi } from '../../api/Products';
+import { SuppliersApi } from '../../api/Suppliers';
 
 const ProductModals = lazy(() => import('../Inventory/Modals'));
 
 export default function RProducts() {
-  const { data } = ProductsApi();
+  const { data: products } = ProductsApi();
+  const { data: suppliers } = SuppliersApi();
 
   // * Modal State Handlers | Until API's done
   const [editModal, showEditModal] = useState(false);
@@ -24,6 +26,7 @@ export default function RProducts() {
     return (
       <Suspense fallback="">
         <ProductModals
+          suppliers={suppliers}
           editModal={editModal}
           deleteModal={deleteModal}
           editHide={() => showEditModal(false)}
@@ -40,14 +43,14 @@ export default function RProducts() {
   return (
     <>
       <Modals />
-      {data && true ? (
+      {products && true ? (
         <Header
           data={
-            data &&
-            data
+            products &&
+            products
               // Reverse & limit result to 10 | prioritize new entries
               .reverse()
-              .slice(Math.max(data.length - 10, 0))
+              .slice(Math.max(products.length - 10, 0))
               .map((product) =>
                 Row(
                   product,

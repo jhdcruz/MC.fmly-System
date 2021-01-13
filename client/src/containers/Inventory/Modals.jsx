@@ -17,6 +17,7 @@ const Modals = memo((props) => {
         onHide={props.addHide}
         submit={props.addSubmit}
         cancel={props.addHide}
+        supplier={props.suppliers}
       />
       <PForm
         header="Edit product"
@@ -24,6 +25,7 @@ const Modals = memo((props) => {
         onHide={props.editHide}
         submit={props.editSubmit}
         cancel={props.editHide}
+        supplier={props.suppliers}
       />
       <ConfirmModal
         className="text-center"

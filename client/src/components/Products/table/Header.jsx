@@ -47,6 +47,9 @@ export default function Header(props) {
             <TableHeader id="Price">
               Price <FontAwesomeIcon icon={faCaretDown} />
             </TableHeader>
+            <TableHeader id="Supplier">
+              Supplier <FontAwesomeIcon icon={faCaretDown} />
+            </TableHeader>
           </tr>
         </thead>
         {/* Pass dynamic data as props */}

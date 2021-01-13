@@ -66,8 +66,12 @@ export default function Row(product, edit, del) {
         </TableData>
         <TableData className="price">
           <Suspense fallback="—">
-            <Tag variant="dark" content={<>₱{product.price}</>} />
+            <Tag variant="warning" content={<>₱{product.price}</>} />
           </Suspense>
+        </TableData>
+
+        <TableData className="supplier">
+          <Tag variant="dark" content={product.supplier} />
         </TableData>
       </TableRow>
     </>

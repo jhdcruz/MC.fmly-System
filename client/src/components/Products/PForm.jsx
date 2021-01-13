@@ -16,6 +16,24 @@ import { ModalForm, Required } from '../common/modules/Forms';
  * * Product Modal Form
  *******************************/
 
+const PSupplier = ({ suppliers }) => (
+  <Form.Group as={Col} controlId="formGridStatus">
+    <Form.Label>Supplier</Form.Label>
+    <Form.Control
+      className="input-box"
+      as="select"
+      defaultValue="none"
+      required
+    >
+      <option value="none">None</option>
+      {suppliers &&
+        suppliers.map((supplier) => (
+          <option value={supplier.name}>{supplier.name}</option>
+        ))}
+    </Form.Control>
+  </Form.Group>
+);
+
 export default function PForm(props) {
   return (
     <CustomModal
@@ -82,9 +100,7 @@ export default function PForm(props) {
                 required
               />
             </Form.Group>
-          </Form.Row>
 
-          <Form.Row>
             {/* Product Category */}
             <Form.Group as={Col} controlId="formGridCategory">
               <Form.Label>
@@ -98,7 +114,9 @@ export default function PForm(props) {
                 required
               />
             </Form.Group>
+          </Form.Row>
 
+          <Form.Row>
             {/* Product Quantity */}
             <Form.Group as={Col} controlId="formGridQuantity">
               <Form.Label>
@@ -129,6 +147,9 @@ export default function PForm(props) {
                 />
               </InputGroup>
             </Form.Group>
+
+            {/* Product's Supplier */}
+            <PSupplier suppliers={props.supplier} />
           </Form.Row>
 
           {/* Modal Actions */}

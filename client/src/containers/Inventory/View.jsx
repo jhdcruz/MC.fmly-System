@@ -15,6 +15,7 @@ import ViewCategory from './ViewCategory';
 import ViewType from './ViewType';
 import { ProductsApi } from '../../api/Products';
 import { productCategories, productTypes } from './Filters';
+import { SuppliersApi } from '../../api/Suppliers';
 
 const ProductModals = lazy(() => import('./Modals'));
 
@@ -23,10 +24,10 @@ const ProductModals = lazy(() => import('./Modals'));
  ******************************************/
 
 export default function View() {
-  const { data } = ProductsApi();
-  const [view, setView] = useState('list');
+  const { data: products } = ProductsApi();
+  const { data: suppliers } = SuppliersApi();
 
-  // * Modal State Handlers | Until API's done
+  const [view, setView] = useState('list');
   const [addModal, showAddModal] = useState(false);
   const [editModal, showEditModal] = useState(false);
   const [deleteModal, showDeleteModal] = useState(false);
@@ -36,6 +37,7 @@ export default function View() {
     return (
       <Suspense fallback="">
         <ProductModals
+          suppliers={suppliers}
           addModal={addModal}
           editModal={editModal}
           deleteModal={deleteModal}
@@ -65,23 +67,23 @@ export default function View() {
           bulkDelete={() => showBDeleteModal(true)}
         />
 
-        {data && true ? (
+        {products && true ? (
           <>
             {/* Display table based on clicked product category/type */}
             <ViewAll
-              data={data}
+              data={products}
               view={view}
               edit={() => showEditModal(true)}
               del={() => showDeleteModal(true)}
             />
             <ViewCategory
-              data={data}
+              data={products}
               view={view}
               edit={() => showEditModal(true)}
               del={() => showDeleteModal(true)}
             />
             <ViewType
-              data={data}
+              data={products}
               view={view}
               edit={() => showEditModal(true)}
               del={() => showDeleteModal(true)}
@@ -99,8 +101,8 @@ export default function View() {
       <Categories
         main="Categories"
         mainTabs={
-          data &&
-          productCategories(data).map((product) => (
+          products &&
+          productCategories(products).map((product) => (
             <Nav.Item key={product.category}>
               <Nav.Link eventKey={product.category}>
                 {product.category}
@@ -110,8 +112,8 @@ export default function View() {
         }
         secondary="Types"
         secondaryTabs={
-          data &&
-          productTypes(data).map((product) => (
+          products &&
+          productTypes(products).map((product) => (
             <Nav.Item key={product.type}>
               <Nav.Link eventKey={product.type}>{product.type}</Nav.Link>
             </Nav.Item>

@@ -52,6 +52,13 @@ export const ProductCard = (product, modal) => {
         <>
           <Tag variant="dark" content={product.category} />{' '}
           <Tag variant="dark" content={product.type} />
+          <hr
+            style={{
+              margin: '0.35rem 0',
+              border: '1px solid #e6a195'
+            }}
+          />
+          Supplier: <Tag variant="warning" content={product.supplier} />
         </>
       }
       date={
