@@ -9,13 +9,11 @@ import { Fallback } from '../../components/common/Loaders';
 import Header from '../../components/Products/table/Header';
 import Row from '../../components/Products/table/Row';
 import { ProductsApi } from '../../api/Products';
-import { SuppliersApi } from '../../api/Suppliers';
 
 const ProductModals = lazy(() => import('../Inventory/Modals'));
 
 export default function RProducts() {
   const { data: products } = ProductsApi();
-  const { data: suppliers } = SuppliersApi();
 
   // * Modal State Handlers | Until API's done
   const [editModal, showEditModal] = useState(false);
@@ -26,7 +24,6 @@ export default function RProducts() {
     return (
       <Suspense fallback="">
         <ProductModals
-          suppliers={suppliers}
           editModal={editModal}
           deleteModal={deleteModal}
           editHide={() => showEditModal(false)}

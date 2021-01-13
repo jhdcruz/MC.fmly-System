@@ -15,7 +15,6 @@ import ViewCategory from './ViewCategory';
 import ViewType from './ViewType';
 import { ProductsApi } from '../../api/Products';
 import { productCategories, productTypes } from './Filters';
-import { SuppliersApi } from '../../api/Suppliers';
 
 const ProductModals = lazy(() => import('./Modals'));
 
@@ -25,7 +24,6 @@ const ProductModals = lazy(() => import('./Modals'));
 
 export default function View() {
   const { data: products } = ProductsApi();
-  const { data: suppliers } = SuppliersApi();
 
   const [view, setView] = useState('list');
   const [addModal, showAddModal] = useState(false);
@@ -37,7 +35,6 @@ export default function View() {
     return (
       <Suspense fallback="">
         <ProductModals
-          suppliers={suppliers}
           addModal={addModal}
           editModal={editModal}
           deleteModal={deleteModal}

@@ -7,8 +7,11 @@
 import { memo } from 'react';
 import PForm from '../../components/Products/PForm';
 import ConfirmModal from '../../components/common/modals/ConfirmModal';
+import { SuppliersApi } from '../../api/Suppliers';
 
 const Modals = memo((props) => {
+  const { data: suppliers } = SuppliersApi();
+
   return (
     <>
       <PForm
@@ -17,7 +20,7 @@ const Modals = memo((props) => {
         onHide={props.addHide}
         submit={props.addSubmit}
         cancel={props.addHide}
-        supplier={props.suppliers}
+        supplier={suppliers}
       />
       <PForm
         header="Edit product"
@@ -25,7 +28,7 @@ const Modals = memo((props) => {
         onHide={props.editHide}
         submit={props.editSubmit}
         cancel={props.editHide}
-        supplier={props.suppliers}
+        supplier={suppliers}
       />
       <ConfirmModal
         className="text-center"
