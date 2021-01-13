@@ -41,6 +41,12 @@ const productSchema = new Schema(
     price: {
       type: Number,
       min: 0
+    },
+    supplier: {
+      type: [String],
+      default: 'N/A',
+      trim: true,
+      unique: false
     }
   },
   { timestamps: true }
