@@ -16,15 +16,10 @@ import Sidebar from '../components/Sidebar/Sidebar';
 import TabItem from '../components/Sidebar/TabItem';
 import routes from '../constants/routes';
 import '../global.scss';
-import {
-  faChartBar,
-  faServer,
-  faUsers
-} from '@fortawesome/free-solid-svg-icons';
+import { faServer, faUsers } from '@fortawesome/free-solid-svg-icons';
 import { Fallback } from '../components/common/Loaders';
 import ApiStatus from '../containers/ApiStatus';
 
-const Dashboard = lazy(() => import('../pages/dashboard'));
 const Users = lazy(() => import('../pages/users'));
 const SysInfo = lazy(() => import('../pages/sysinfo'));
 
@@ -47,12 +42,6 @@ export default function SysAdmin() {
                   route={routes.SYSINFO}
                   icon={faServer}
                 />
-                <TabItem
-                  tab="Dashboard"
-                  overlay="Dashboard"
-                  route={routes.DASHBOARD}
-                  icon={faChartBar}
-                />
               </>
             }
             bottom={
@@ -73,7 +62,6 @@ export default function SysAdmin() {
                 <Route exact path="/">
                   <Redirect from="/" to="/sysinfo" />
                 </Route>
-                <Route exact path={routes.DASHBOARD} component={Dashboard} />
                 <Route path={routes.SYSINFO} component={SysInfo} />
                 <Route path={routes.USERS} component={Users} />
               </Suspense>
