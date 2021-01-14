@@ -6,7 +6,7 @@
 
 import { lazy, Suspense, useCallback, useState } from 'react';
 import { useForm } from 'react-hook-form';
-  import { Fallback } from 'components/common/Loaders';
+import { Fallback } from 'components/common/Loaders';
 import ApiStatus from './ApiStatus';
 import LForm from '../components/Login/LForm';
 import { AuthApi } from '../api/Auth';
