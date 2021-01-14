@@ -62,33 +62,30 @@ export default function SForm(props) {
             />
           </Form.Group>
 
-          <Form.Row>
-            <Form.Group as={Col} controlId="formGridCategory">
-              <Form.Label>Address</Form.Label>
-              <Form.Control
-                className="input-box"
-                as="textarea"
-                placeholder="Supplier physical address... (drag on the lower right to expand)"
-                autoComplete="new-text"
-                autoSave="off"
-              />
-            </Form.Group>
+          <Form.Group controlId="formGridCategory">
+            <Form.Label>Address</Form.Label>
+            <Form.Control
+              className="input-box"
+              as="textarea"
+              placeholder="Supplier physical address... (drag on the lower right to expand)"
+              autoComplete="new-text"
+              autoSave="off"
+            />
+          </Form.Group>
 
+          <Form.Row>
             <Form.Group as={Col} controlId="formGridType">
               <Form.Label>
-                Type <Required>*</Required>
+                Category <Required>*</Required>
               </Form.Label>
               <Form.Control
                 className="input-box"
-                as="textarea"
-                placeholder="It supplies... (drag on the lower right to expand)"
+                placeholder="Dye, Photopapers (seperate by comma)"
                 autoComplete="new-text"
                 autoSave="off"
               />
             </Form.Group>
-          </Form.Row>
 
-          <Form.Row>
             <Form.Group as={Col} controlId="formGridWebite">
               <Form.Label>Website</Form.Label>
               <InputGroup>
@@ -103,15 +100,30 @@ export default function SForm(props) {
                 />
               </InputGroup>
             </Form.Group>
+          </Form.Row>
 
+          <Form.Row>
+            <Form.Group as={Col} controlId="formGridName">
+              <Form.Label>
+                Contact Person<Required>*</Required>
+              </Form.Label>
+              <Form.Control
+                className="input-box"
+                type="text"
+                placeholder="John Doe"
+                autoComplete="new-text"
+                autoSave="off"
+                required
+              />
+            </Form.Group>
             <Form.Group as={Col} controlId="formGridContact">
-              <Form.Label>Contact</Form.Label>
+              <Form.Label>Contact #</Form.Label>
               <FormControl
                 className="input-box"
                 type="tel"
                 name="phone"
-                pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
-                placeholder="ex: 123-45-678"
+                pattern="[0-9]{12}"
+                placeholder="Max. 12 Digit Number"
                 autoComplete="new-text"
                 autoSave="off"
               />

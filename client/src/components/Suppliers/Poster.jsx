@@ -15,8 +15,9 @@ import {
   faCalendarAlt,
   faGlobe,
   faHistory,
-  faMapMarkerAlt,
-  faPhone
+  faUser,
+  faPhone,
+  faMapMarkerAlt
 } from '@fortawesome/free-solid-svg-icons';
 import EntryActions from '../common/EntryActions';
 import Tag from '../common/Tag';
@@ -141,16 +142,17 @@ export default function Poster(supplier, edit, del) {
       </Card.Body>
       <ListGroup className="list-group-flush">
         <ListGroupItem>
-          <CardLink
-            href={`https://www.google.com/maps/place/${supplier.address}`}
-          >
-            <FontAwesomeIcon icon={faMapMarkerAlt} /> {supplier.address}
-          </CardLink>
+          <FontAwesomeIcon icon={faUser} /> {supplier.contact_person}
           <CardLink className="float-right text-muted">
             <FontAwesomeIcon icon={faPhone} /> {supplier.contact}
           </CardLink>
         </ListGroupItem>
         <ListGroupItem>{supplier.description}</ListGroupItem>
+        <ListGroupItem>
+          <CardLink href={`https://google.com/maps/place/${supplier.address}`}>
+            <FontAwesomeIcon icon={faMapMarkerAlt} /> {supplier.address}
+          </CardLink>
+        </ListGroupItem>
         <hr />
         <ListGroupItem id="tags">
           <span className="text-muted pt-1 pr-1">Tags: </span>

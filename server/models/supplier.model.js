@@ -49,6 +49,12 @@ const supplierSchema = new Schema(
       trim: true,
       unique: false
     },
+    contact_person: {
+      type: String,
+      default: 'N/A',
+      trim: true,
+      unique: false
+    },
     contact: {
       type: String,
       default: 'N/A',
