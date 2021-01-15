@@ -34,7 +34,11 @@ export const TransactionCard = (transaction, edit) => {
       variant="dark"
       content={
         <>
-          <Tag variant="info" content={transaction.order_id} />{' '}
+          <Tag
+            variant="info"
+            textCase="uppercase"
+            content={transaction.order_id}
+          />{' '}
           <Tag variant="warning" content={<>₱{transaction.total}</>} />{' '}
         </>
       }

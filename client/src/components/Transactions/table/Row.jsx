@@ -25,7 +25,11 @@ export default function Row(transaction, edit, del, invoice) {
       <TableRow className="transaction" key={transaction._id} tabIndex={0}>
         <TableData className="order_id">
           <EntryActions edit={edit} delete={del} />
-          <Tag variant="dark" content={transaction.order_id} />
+          <Tag
+            variant="dark"
+            textCase="uppercase"
+            content={transaction.order_id}
+          />
         </TableData>
         <TableData className="name">{transaction.name}</TableData>
         <TableData className="status">

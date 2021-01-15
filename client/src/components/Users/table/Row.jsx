@@ -22,7 +22,7 @@ export default function Row(user, edit, del) {
       <TableRow className="product" key={user._id} tabIndex={0}>
         <TableData>
           <EntryActions edit={edit} delete={del} />
-          <Tag variant="dark" content={user.username} />
+          <Tag variant="dark" textCase="initial" content={user.username} />
         </TableData>
         <TableData className="name">{user.name}</TableData>
         <TableData className="role">

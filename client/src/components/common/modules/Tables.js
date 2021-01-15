@@ -56,11 +56,6 @@ export const TableRow = styled.tr`
   width: 100vw !important;
   box-shadow: 1px 2px 5px #1b1b1b;
 
-  .permission,
-  .payment {
-    text-transform: capitalize;
-  }
-
   :hover {
     background-color: #161518 !important;
     border-radius: 0.3rem;

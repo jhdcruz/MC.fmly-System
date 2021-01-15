@@ -21,8 +21,8 @@ export const UserCard = (user, edit) => {
       variant="dark"
       content={
         <>
-          <Tag variant="primary" content={user.username} />{' '}
-          <Tag variant="dark" content={user.role} />
+          <Tag variant="dark" textCase="initial" content={user.username} />{' '}
+          <Tag variant="primary" content={user.role} />
         </>
       }
       footer={(() => {

@@ -15,11 +15,17 @@ const Chip = styled(Badge)`
   border-radius: 0.3rem;
   box-shadow: 1px 2px 5px #1b1b1b;
   cursor: pointer;
+  text-transform: ${(props) => props.case || 'capitalize'};
 `;
 
 export default function Tag(props) {
   return (
-    <Chip variant={props.variant} key={props.index} onClick={props.action}>
+    <Chip
+      variant={props.variant}
+      key={props.index}
+      onClick={props.action}
+      case={props.textCase || false}
+    >
       {props.content}
     </Chip>
   );
