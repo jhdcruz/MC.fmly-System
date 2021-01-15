@@ -9,7 +9,7 @@ import Card from 'react-bootstrap/Card';
 import placeholder from '../../assets/img/logo.svg';
 
 const CardContainer = styled(Card)`
-  width: 25.5rem;
+  width: 24.5rem;
   min-height: 9rem;
   height: max-content !important;
   color: #eccec9;

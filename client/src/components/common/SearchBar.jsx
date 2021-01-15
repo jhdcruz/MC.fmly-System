@@ -16,7 +16,7 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
  ***************/
 
 const Search = styled.div`
-  width: 23rem;
+  width: 24.5rem;
   min-width: 10rem;
   height: max-content;
   margin: 0 0.5rem 0 0;
