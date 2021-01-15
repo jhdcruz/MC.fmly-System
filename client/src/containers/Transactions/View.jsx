@@ -127,8 +127,8 @@ export default function View() {
         title="Guide"
         message={
           <p>
-            Scroll horizontally using <kbd>Shift</kbd> + <kbd>Scroll</kbd>,
-            middle-mouse button, or arrow keys.
+            Scroll horizontally using <kbd>Shift</kbd> + <kbd>Scroll</kbd> or
+            middle-mouse button and hover to a direction.
           </p>
         }
       />
