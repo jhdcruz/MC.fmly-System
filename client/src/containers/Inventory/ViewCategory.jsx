@@ -18,12 +18,12 @@ import { productCategories } from './Filters';
 export default function ViewCategory({ data, view, edit, del }) {
   return (
     <>
-      {productCategories(data).map((types) => (
-        <Tab.Pane key={types.category} eventKey={types.category}>
+      {productCategories(data).map((fProduct) => (
+        <Tab.Pane key={fProduct.category} eventKey={fProduct.category}>
           {view === 'list' ? (
             <Header
               data={data
-                .filter((pane) => pane.category === types.category)
+                .filter((pane) => pane.category === fProduct.category)
                 .map((product) => Row(product, edit, del))}
             />
           ) : (
@@ -36,7 +36,9 @@ export default function ViewCategory({ data, view, edit, del }) {
                 height: '100vh'
               }}
             >
-              {ProductCard(types, edit)}
+              {data
+                .filter((pane) => pane.category === fProduct.category)
+                .map((product) => ProductCard(product, edit))}
             </Container>
           )}
         </Tab.Pane>

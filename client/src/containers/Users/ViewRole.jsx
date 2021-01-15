@@ -15,12 +15,12 @@ import { userRoles } from './Filters';
 export default function ViewRole({ data, view, edit, del }) {
   return (
     <>
-      {userRoles(data).map((user) => (
-        <Tab.Pane key={user.role} eventKey={user.role}>
+      {userRoles(data).map((fUser) => (
+        <Tab.Pane key={fUser.role} eventKey={fUser.role}>
           {view === 'list' ? (
             <Header
               data={data
-                .filter((pane) => pane.role === user.role)
+                .filter((pane) => pane.role === fUser.role)
                 .map((employee) => Row(employee, edit, del))}
             />
           ) : (
@@ -33,7 +33,9 @@ export default function ViewRole({ data, view, edit, del }) {
                 height: '100vh'
               }}
             >
-              {UserCard(user, edit)}
+              {data
+                .filter((pane) => pane.permission === fUser.permission)
+                .map((user) => UserCard(user, edit))}
             </Container>
           )}
         </Tab.Pane>

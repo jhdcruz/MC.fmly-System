@@ -15,12 +15,12 @@ import { transactionStatus } from './Filters';
 export default function ViewStatus({ data, view, edit, del, invoice }) {
   return (
     <>
-      {transactionStatus(data).map((transaction) => (
-        <Tab.Pane key={transaction.status} eventKey={transaction.status}>
+      {transactionStatus(data).map((fTransaction) => (
+        <Tab.Pane key={fTransaction.status} eventKey={fTransaction.status}>
           {view === 'list' ? (
             <Header
               data={data
-                .filter((pane) => pane.status === transaction.status)
+                .filter((pane) => pane.status === fTransaction.status)
                 .map((transactionByPayment) =>
                   Row(transactionByPayment, edit, del, invoice)
                 )}
@@ -35,7 +35,11 @@ export default function ViewStatus({ data, view, edit, del, invoice }) {
                 height: '100vh'
               }}
             >
-              {TransactionCard(transaction, edit, del, invoice)}
+              {data
+                .filter((pane) => pane.payment === fTransaction.payment)
+                .map((transaction) =>
+                  TransactionCard(transaction, edit, del, invoice)
+                )}
             </Container>
           )}
         </Tab.Pane>

@@ -15,13 +15,13 @@ import { userPermissions } from './Filters';
 export default function ViewPermission({ data, view, edit, del }) {
   return (
     <>
-      {userPermissions(data).map((user) => (
-        <Tab.Pane key={user.permission} eventKey={user.permission}>
+      {userPermissions(data).map((fUser) => (
+        <Tab.Pane key={fUser.permission} eventKey={fUser.permission}>
           {view === 'list' ? (
             <Header
               data={data
-                .filter((pane) => pane.permission === user.permission)
-                .map((employee) => Row(employee, edit, del))}
+                .filter((pane) => pane.permission === fUser.permission)
+                .map((user) => Row(user, edit, del))}
             />
           ) : (
             <Container
@@ -33,7 +33,9 @@ export default function ViewPermission({ data, view, edit, del }) {
                 height: '100vh'
               }}
             >
-              {UserCard(user, edit)}
+              {data
+                .filter((pane) => pane.permission === fUser.permission)
+                .map((user) => UserCard(user, edit))}
             </Container>
           )}
         </Tab.Pane>

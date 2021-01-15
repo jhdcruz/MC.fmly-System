@@ -15,13 +15,13 @@ import { transactionPayment } from './Filters';
 export default function ViewPayment({ data, view, edit, del, invoice }) {
   return (
     <>
-      {transactionPayment(data).map((transaction) => (
-        <Tab.Pane key={transaction.payment} eventKey={transaction.payment}>
+      {transactionPayment(data).map((fTransaction) => (
+        <Tab.Pane key={fTransaction.payment} eventKey={fTransaction.payment}>
           {view === 'list' ? (
             <Header
               data={data
-                .filter((pane) => pane.payment === transaction.payment)
-                .map((payment) => Row(payment, edit, del, invoice))}
+                .filter((pane) => pane.payment === fTransaction.payment)
+                .map((transaction) => Row(transaction, edit, del, invoice))}
             />
           ) : (
             <Container
@@ -33,7 +33,11 @@ export default function ViewPayment({ data, view, edit, del, invoice }) {
                 height: '100vh'
               }}
             >
-              {TransactionCard(transaction, edit, del, invoice)}
+              {data
+                .filter((pane) => pane.payment === fTransaction.payment)
+                .map((transaction) =>
+                  TransactionCard(transaction, edit, del, invoice)
+                )}
             </Container>
           )}
         </Tab.Pane>

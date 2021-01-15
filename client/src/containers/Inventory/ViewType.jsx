@@ -18,12 +18,12 @@ import { productTypes } from './Filters';
 export default function ViewType({ data, view, edit, del }) {
   return (
     <>
-      {productTypes(data).map((types) => (
-        <Tab.Pane key={types.type} eventKey={types.type}>
+      {productTypes(data).map((fProduct) => (
+        <Tab.Pane key={fProduct.type} eventKey={fProduct.type}>
           {view === 'list' ? (
             <Header
               data={data
-                .filter((pane) => pane.type === types.type)
+                .filter((pane) => pane.type === fProduct.type)
                 .map((product) => Row(product, edit, del))}
             />
           ) : (
@@ -36,7 +36,10 @@ export default function ViewType({ data, view, edit, del }) {
                 height: '100vh'
               }}
             >
-              {ProductCard(types, edit)}
+              {data
+                .filter((pane) => pane.category === fProduct.category)
+                .map((product) => ProductCard(product, edit))}
+              }
             </Container>
           )}
         </Tab.Pane>
