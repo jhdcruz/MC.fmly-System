@@ -19,14 +19,12 @@ export const ProductCard = (product, modal) => {
       key={product._id}
       title={
         <>
-          {product.name}{' '}
-          <Tag variant="primary" content={<>₱{product.price}</>} />
+          {product.name} <Tag variant="dark" content={product.variant} />
         </>
       }
       variant="dark"
       content={
         <>
-          <Tag variant="info" content={product.variant} />{' '}
           {(() => {
             if (product.quantity <= 10) {
               return (
@@ -46,19 +44,20 @@ export const ProductCard = (product, modal) => {
               );
             }
           })()}
+          <Tag variant="warning" content={<> ₱{product.price}</>} />
         </>
       }
       footer={
         <>
-          <Tag variant="dark" content={product.category} />{' '}
-          <Tag variant="dark" content={product.type} />
+          <Tag variant="info" content={product.category} />{' '}
+          <Tag variant="primary" content={product.type} />
           <hr
             style={{
               margin: '0.35rem 0',
               border: '1px solid #e6a195'
             }}
           />
-          Supplier: <Tag variant="warning" content={product.supplier} />
+          Supplier: <Tag variant="dark" content={product.supplier} />
         </>
       }
       date={
