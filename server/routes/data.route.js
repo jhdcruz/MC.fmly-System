@@ -8,8 +8,8 @@ const DataController = require('../controllers/data.controller');
 
 module.exports = (api) => {
   api.get('/export', DataController.exportData);
-  api.post('/import/login', DataController.importProducts);
-  api.post('/import/login', DataController.importSuppliers);
-  api.post('/import/login', DataController.importTransactions);
-  api.post('/import/login', DataController.importUsers);
+  api.post('/import/products', DataController.importProducts);
+  api.post('/import/suppliers', DataController.importSuppliers);
+  api.post('/import/transactions', DataController.importTransactions);
+  api.post('/import/users', DataController.importUsers);
 };
