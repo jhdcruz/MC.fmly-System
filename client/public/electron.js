@@ -44,7 +44,7 @@ function createWindow() {
     show: false,
     minWidth: 1200,
     minHeight: 675,
-    icon: path.join(__dirname, 'logo192.ico'),
+    icon: path.join(__dirname, 'logo192.png'),
     backgroundColor: '#222126',
     autoHideMenuBar: true,
     frame: process.platform === 'darwin',
