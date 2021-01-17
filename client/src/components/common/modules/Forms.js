@@ -20,18 +20,22 @@ export const ModalForm = styled(Form)`
   .input-group-append span {
     margin: 0;
     padding: 0 15px;
-    font-size: 1.3vw;
+    font-size: 1.1rem;
     background-color: #141414;
     color: #999999;
     border: 2px inset #d7b9b4;
     border-radius: 0.5rem;
   }
 
+  .profile {
+    align-self: center;
+  }
+
   // File Input
   .form-control-file {
     margin: 0;
     padding: 5px 15px;
-    font-size: 1.3vw;
+    font-size: 1.1rem;
     color: #d2d2d2;
     vertical-align: middle;
     cursor: pointer;
@@ -41,7 +45,7 @@ export const ModalForm = styled(Form)`
   .input-box {
     margin: 0;
     padding: 5px 15px;
-    font-size: 1.3vw;
+    font-size: 1.1rem;
     background-color: #222126;
     color: whitesmoke;
     border: 2px ridge #d7b9b4;
@@ -50,7 +54,7 @@ export const ModalForm = styled(Form)`
 
     ::placeholder {
       color: #c4c4c4;
-      font-size: 1.2vw;
+      font-size: 1rem;
     }
 
     :active,
