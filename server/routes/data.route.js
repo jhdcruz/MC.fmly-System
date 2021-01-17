@@ -7,9 +7,10 @@
 const DataController = require('../controllers/data.controller');
 
 module.exports = (api) => {
-  api.get('/export', DataController.exportData);
-  api.post('/import/products', DataController.importProducts);
-  api.post('/import/suppliers', DataController.importSuppliers);
-  api.post('/import/transactions', DataController.importTransactions);
-  api.post('/import/users', DataController.importUsers);
+  api.get('/export', DataController.exportAll);
+  api.get('/export/:data', DataController.exportData);
+  api.put('/import/products', DataController.importProducts);
+  api.put('/import/suppliers', DataController.importSuppliers);
+  api.put('/import/transactions', DataController.importTransactions);
+  api.put('/import/users', DataController.importUsers);
 };

@@ -14,13 +14,37 @@ const Transactions = mongoose.model('transactions');
 const Users = mongoose.model('users');
 const Suppliers = mongoose.model('suppliers');
 
+// * GET | Export all data
+exports.exportAll = async (req, res) => {
+  try {
+    logger.log(`All data exported at ${req.ip}`);
+    return await res
+      .download(`/products`, `mcfmly-products-${Date.now()}}.json`)
+      .download(`/suppliers`, `mcfmly-suppliers-${Date.now()}}.json`)
+      .download(`/users`, `mcfmly-users-${Date.now()}}.json`)
+      .download(`/transactions`, `mcfmly-transactions-${Date.now()}}.json`)
+      .sendStatus(200);
+  } catch (err) {
+    res.sendStatus(500);
+    rollbar.error(err);
+    logger.error('Products fetch error', {
+      indexMeta: true,
+      meta: { err }
+    });
+  }
+};
+
+// * POST | Export route data
 exports.exportData = async (req, res) => {
   try {
     logger.log(`Data exported at ${req.ip}`);
     return (
       res
         // Currently supports JSON-only
-        .download(`/${req.params[0]}`, `${req.params[0]}-${Date.now()}}.json`)
+        .download(
+          `/${req.params[0]}`,
+          `mcfmly-${req.params[0]}-${Date.now()}}.json`
+        )
         .sendStatus(200)
     );
   } catch (err) {
@@ -33,6 +57,7 @@ exports.exportData = async (req, res) => {
   }
 };
 
+// * PUT | Import/Append Data
 exports.importProducts = async (req, res) => {
   try {
     logger.log(`Data imported at ${req.ip}`);
