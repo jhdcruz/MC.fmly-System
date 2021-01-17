@@ -2,12 +2,15 @@ name: CI
 
 on: push
 
+env:
+  GH_TOKEN: ${{ secrets.GH_TOKEN }}
+
 jobs:
   build:
     strategy:
       matrix:
-        platform: [ ubuntu-latest, windows-latest, macos-latest ]
-        node-version: [ 14.x, 15.x ]
+        platform: [ubuntu-latest, windows-latest, macos-latest]
+        node-version: [14.x, 15.x]
     runs-on: ${{ matrix.platform }}
     steps:
       - uses: actions/checkout@v2
@@ -29,7 +32,25 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
-      - run: yarn
+      - run: yarn --link-duplicates --pure-lockfile
+      - run: yarn lint
+      - run: yarn build
+      - uses: toko-bifrost/ms-teams-deploy-card@master
+        if: always()
+        with:
+          github-token: ${{ secrets.GH_ACTION }}
+          webhook-uri: ${{ secrets.MS_TEAMS_WEBHOOK_URI }}
+
+  release:
+    needs: [build]
+    if: github.ref == 'refs/heads/master'
+    strategy:
+      matrix:
+        platform: [ubuntu-latest, windows-latest, macos-latest]
+        node-version: [14.x, 15.x]
+    runs-on: ${{ matrix.platform }}
+    steps:
+      - run: yarn --link-duplicates --pure-lockfile
       - run: yarn lint
       - run: yarn workspace client package-ci
       - uses: toko-bifrost/ms-teams-deploy-card@master
@@ -37,8 +58,3 @@ jobs:
         with:
           github-token: ${{ secrets.GH_ACTION }}
           webhook-uri: ${{ secrets.MS_TEAMS_WEBHOOK_URI }}
-      # - name: Archive production artifacts
-      #   uses: actions/upload-artifact@v2.2.1
-      #   with:
-      #     name: binary releases
-      #     path: release/*
