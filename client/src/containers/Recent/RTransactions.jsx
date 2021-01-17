@@ -50,7 +50,7 @@ export default function RTransactions() {
               .map((transaction) =>
                 Row(
                   transaction,
-                  () => showEditModal(false),
+                  () => showEditModal(true),
                   () => showDeleteModal(true),
                   () => showInvoiceModal(true)
                 )
