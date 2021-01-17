@@ -169,7 +169,7 @@
     "publish": {
       "provider": "github",
       "owner": "jhdcruz",
-      "repo": "https://github.com/jhdcruz/MC.fmly-System"
+      "repo": "MC.fmly-System"
     }
   },
   "babel": {
