@@ -27,7 +27,7 @@ exports.exportAll = async (req, res) => {
   } catch (err) {
     res.sendStatus(500);
     rollbar.error(err);
-    logger.error('Products fetch error', {
+    logger.error('Data export error', {
       indexMeta: true,
       meta: { err }
     });
@@ -50,7 +50,7 @@ exports.exportData = async (req, res) => {
   } catch (err) {
     res.sendStatus(500);
     rollbar.error(err);
-    logger.error('Products fetch error', {
+    logger.error('Data export error', {
       indexMeta: true,
       meta: { err }
     });
