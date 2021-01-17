@@ -8,7 +8,7 @@
 
 **Status:**
 
-[![CircleCI](https://circleci.com/gh/jhdcruz/MC.fmly-System.svg?style=svg&circle-token=4025b123b9ce80ae60a05556c04c74e50ceea7fd)](https://app.circleci.com/pipelines/github/jhdcruz/MC.fmly-System) ![CI](https://github.com/jhdcruz/MC.fmly-System/workflows/CI/badge.svg)
+![CI](https://github.com/jhdcruz/MC.fmly-System/workflows/CI/badge.svg)
 
 **Source Code:**
 
