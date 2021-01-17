@@ -19,17 +19,17 @@
 const { app, BrowserWindow } = require('electron');
 const isDev = require('electron-is-dev');
 const path = require('path');
+const updater = require('./updater');
 
-// Garbage collection protection
-const singleInstance = app.requestSingleInstanceLock();
 const isWindows = process.platform === 'win32';
+const singleInstance = app.requestSingleInstanceLock();
 
-// Window focus fix
+// * Window focus fix
 let needsFocusFix = false;
 let triggeringProgrammaticBlur = false;
 
 function createWindow() {
-  // Splashscreen
+  // * Splashscreen
   const splash = new BrowserWindow({
     width: 405,
     height: 405,
@@ -37,14 +37,14 @@ function createWindow() {
     frame: false,
     alwaysOnTop: true
   });
-  // Main App
+  // * Main App
   const win = new BrowserWindow({
     width: 1280,
     height: 700,
     show: false,
     minWidth: 1200,
     minHeight: 675,
-    icon: 'logo192.ico',
+    icon: path.join(__dirname, 'logo192.ico'),
     backgroundColor: '#222126',
     autoHideMenuBar: true,
     frame: process.platform === 'darwin',
@@ -55,15 +55,17 @@ function createWindow() {
     }
   });
 
+  // * Splashscreen Window
   splash.loadURL(`file://${__dirname}/splash.html`).catch((err) => {
     console.error(err);
   });
 
-  // Resorted to web app due to seperate database connection integration
+  //  * Main App Window
   win
     .loadURL(isDev ? 'http://localhost:3000' : 'https://deuz.systems')
     .catch((err) => {
       console.error(err);
+      alert(`Error initializing system:\n ${err}`);
     });
 
   if (isDev) {
@@ -75,7 +77,7 @@ function createWindow() {
     win.show();
   });
 
-  // Fixes `window.alert()` focus bug
+  // ? Fixes `window.alert()` focus bug
   win.on('blur', () => {
     if (!triggeringProgrammaticBlur) {
       needsFocusFix = true;
@@ -102,6 +104,7 @@ function createWindow() {
 app
   .whenReady()
   .then(createWindow)
+  .then(updater)
   .catch((err) => {
     console.error(err);
   });
