@@ -43,7 +43,7 @@ export const TableHeader = styled.th`
   vertical-align: middle !important;
 
   :hover {
-    color: #2549cb;
+    color: #e6a195;
     cursor: pointer;
   }
 `;
