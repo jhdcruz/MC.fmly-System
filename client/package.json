@@ -20,7 +20,7 @@
     "lint": "prettier \"./src/**/**.{html,scss,js,jsx,ts,tsx}\" --write && eslint \"./src/**/**/*.{js,jsx,ts,tsx}\" && stylelint \"./src/**/**/*.{js,ts,tsx,css,scss,sass}\"",
     "package-test": "yarn build && electron-builder build --dir",
     "package-all": "yarn build && electron-builder build -mwl --publish never",
-    "package-ci": "yarn build && electron-builder build --publish never",
+    "package-ci": "yarn build && electron-builder build",
     "package-linux": "yarn build && electron-builder build --linux --publish never",
     "package-mac": "yarn build && electron-builder build --mac --publish never",
     "package-win": "yarn build && electron-builder build --win --publish never"
@@ -35,6 +35,7 @@
     "axios": "0.21.1",
     "custom-electron-titlebar": "3.2.6",
     "electron-is-dev": "1.2.0",
+    "electron-updater": "4.3.5",
     "moment": "2.29.1",
     "react": "17.0.1",
     "react-bootstrap": "1.4.3",
@@ -167,9 +168,8 @@
     ],
     "publish": {
       "provider": "github",
-      "owner": "Jhdcruz",
-      "repo": "https://github.com/jhdcruz/MC.fmly-System",
-      "publish": false
+      "owner": "jhdcruz",
+      "repo": "https://github.com/jhdcruz/MC.fmly-System"
     }
   },
   "babel": {

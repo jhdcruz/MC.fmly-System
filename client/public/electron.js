@@ -17,9 +17,9 @@
  */
 
 const { app, BrowserWindow } = require('electron');
+const { autoUpdater } = require('electron-updater');
 const isDev = require('electron-is-dev');
 const path = require('path');
-const updater = require('./updater');
 
 const isWindows = process.platform === 'win32';
 const singleInstance = app.requestSingleInstanceLock();
@@ -104,7 +104,7 @@ function createWindow() {
 app
   .whenReady()
   .then(createWindow)
-  .then(updater)
+  .then(autoUpdater.checkForUpdatesAndNotify())
   .catch((err) => {
     console.error(err);
   });
