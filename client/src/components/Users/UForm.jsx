@@ -85,9 +85,7 @@ export default function UForm(props) {
           <Form.Row>
             {/* User Role | Human Readable role */}
             <Form.Group as={Col} controlId="formGridCategory">
-              <Form.Label>
-                Position <Required>*</Required>
-              </Form.Label>
+              <Form.Label>Position</Form.Label>
               <Form.Control
                 className="input-box"
                 placeholder="ex. Owner, Accounting"
@@ -106,7 +104,6 @@ export default function UForm(props) {
                 className="input-box"
                 as="select"
                 defaultValue="Choose..."
-                required
               >
                 <option value="admin">Admin</option>
                 <option value="sysadmin">Sysadmin</option>
