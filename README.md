@@ -156,7 +156,8 @@ Create `.env` files for both projects.
 
 **Client** `./client/.env`
 
-- **`REACT_APP_API`** - **Required** _Server deployment URL_
+- **`REACT_APP_API`** - **Required** _Server deployment URL (Production)_
+- **`REACT_APP_LOCAL_API`** - **Required** _Local server deployment URL (Development)_
 - **`REACT_APP_GITHUB_URL`** - **Required** _GitHub Repo (GitHub API)_
 - **`REACT_APP_ROLLBAR_TOKEN`** - _Rollbar Error Tracking (Client)_
 
