@@ -25,56 +25,81 @@ export default function UForm(props) {
         <ModalForm autoComplete="new-text" autoSave="off">
           <Form.Row>
             {/* User Icon */}
-            <Form.Group controlId="formGridName">
+            <Form.Group className="profile" controlId="formGridName">
               <Form.Label>Profile Picture</Form.Label>
               <Form.File
                 type="file"
                 name="image"
                 id="inputFileControl"
-                accept="image/*"
+                accept="image/png,image/jpeg"
               />
             </Form.Group>
 
+            <Col>
+              <Form.Group controlId="formGridUsername">
+                <Form.Label>
+                  User ID <Required>*</Required>
+                </Form.Label>
+                <Form.Control
+                  className="input-box"
+                  type="username"
+                  placeholder="jdoe"
+                  autoComplete="new-text"
+                  autoSave="off"
+                  required
+                />
+              </Form.Group>
+
+              {/* User Password | Auto-rehash on submit */}
+              <Form.Group controlId="formGridPassword">
+                <Form.Label>
+                  Password <Required>*</Required>
+                </Form.Label>
+                <Form.Control
+                  className="input-box"
+                  type="password"
+                  placeholder="***********"
+                  autoComplete="new-text"
+                  autoSave="off"
+                  required
+                />
+              </Form.Group>
+            </Col>
+          </Form.Row>
+
+          <Form.Row>
             {/* User desired name */}
-            <Form.Group as={Col} controlId="formGridName">
+            <Form.Group as={Col} controlId="formGridFName">
               <Form.Label>
-                Full Name <Required>*</Required>
+                First Name <Required>*</Required>
               </Form.Label>
               <Form.Control
                 className="input-box"
                 type="text"
-                placeholder="John Doe"
+                placeholder="John"
                 autoComplete="new-text"
                 autoSave="off"
                 required
               />
             </Form.Group>
-          </Form.Row>
-
-          <Form.Row>
-            <Form.Group as={Col} controlId="formGridUsername">
-              <Form.Label>
-                Username <Required>*</Required>
-              </Form.Label>
+            <Form.Group as={Col} controlId="formGridMName">
+              <Form.Label>Middle Name</Form.Label>
               <Form.Control
                 className="input-box"
-                type="username"
-                placeholder="jdoe"
+                type="text"
+                placeholder="Lark"
                 autoComplete="new-text"
                 autoSave="off"
-                required
               />
             </Form.Group>
-
-            {/* User Password | Auto-rehash on submit */}
-            <Form.Group as={Col} controlId="formGridDescription">
+            <Form.Group as={Col} controlId="formGridLName">
               <Form.Label>
-                Password <Required>*</Required>
+                Last Name <Required>*</Required>
               </Form.Label>
               <Form.Control
                 className="input-box"
-                type="password"
-                placeholder="***********"
+                type="text"
+                placeholder="Doe"
                 autoComplete="new-text"
                 autoSave="off"
                 required
@@ -84,7 +109,7 @@ export default function UForm(props) {
 
           <Form.Row>
             {/* User Role | Human Readable role */}
-            <Form.Group as={Col} controlId="formGridCategory">
+            <Form.Group as={Col} controlId="formGridPosition">
               <Form.Label>Position</Form.Label>
               <Form.Control
                 className="input-box"
@@ -96,7 +121,7 @@ export default function UForm(props) {
             </Form.Group>
 
             {/* User Permission | User-level authority */}
-            <Form.Group as={Col} controlId="formGridState">
+            <Form.Group as={Col} controlId="formGridPerm">
               <Form.Label>
                 Permission <Required>*</Required>
               </Form.Label>

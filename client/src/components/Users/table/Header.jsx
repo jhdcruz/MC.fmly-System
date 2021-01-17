@@ -21,7 +21,7 @@ export default function Header(props) {
         <thead>
           <tr>
             <TableHeader id="UserName" className="actions">
-              Username <FontAwesomeIcon icon={faCaretDown} />
+              User ID <FontAwesomeIcon icon={faCaretDown} />
             </TableHeader>
             <TableHeader id="Name">
               Name <FontAwesomeIcon icon={faCaretDown} />
