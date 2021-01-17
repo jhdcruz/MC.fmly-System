@@ -28,10 +28,8 @@ export default function RUsers() {
           deleteModal={deleteModal}
           editHide={() => showEditModal(false)}
           editSubmit={() => showEditModal(false)}
-          editCancel={() => showEditModal(false)}
           deleteHide={() => showDeleteModal(false)}
           deleteSubmit={() => showDeleteModal(false)}
-          deleteCancel={() => showDeleteModal(false)}
         />
       </Suspense>
     );
