@@ -7,7 +7,7 @@
 const { app, autoUpdater, dialog } = require('electron');
 const isDev = require('electron-is-dev');
 
-export default function updater() {
+function updater() {
   // ! Disable auto-update on development
   if (!isDev) {
     const upstream = 'https://github.com/jhdcruz/MC.fmly-System/releases';
