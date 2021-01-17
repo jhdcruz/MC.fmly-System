@@ -32,7 +32,7 @@ export default function TForm(props) {
             </Form.Group>
 
             <Form.Group as={Col} controlId="formGridPrice">
-              <Form.Label>Order ID</Form.Label>
+              <Form.Label>Order ID</Form.Label> <Required>*</Required>
               <InputGroup className="mb-3">
                 <InputGroup.Prepend>
                   <InputGroup.Text>#</InputGroup.Text>
@@ -76,6 +76,7 @@ export default function TForm(props) {
                 <option>Pending</option>
                 <option>Completed</option>
                 <option>Cancelled</option>
+                <option>Refunded</option>
               </Form.Control>
             </Form.Group>
           </Form.Row>
@@ -83,7 +84,7 @@ export default function TForm(props) {
           <Form.Row>
             {/* Transaction Type */}
             <Form.Group as={Col} controlId="formGridPrice">
-              <Form.Label>Total Amount</Form.Label>
+              <Form.Label>Total Amount</Form.Label> <Required>*</Required>
               <InputGroup className="mb-3">
                 <InputGroup.Prepend>
                   <InputGroup.Text>₱</InputGroup.Text>
@@ -110,7 +111,7 @@ export default function TForm(props) {
                 required
               >
                 <option>Cash</option>
-                <option>Card</option>
+                <option>Credit/Debit Card</option>
               </Form.Control>
             </Form.Group>
 
