@@ -51,7 +51,6 @@ jobs:
     runs-on: ${{ matrix.platform }}
     steps:
       - run: yarn --link-duplicates --pure-lockfile
-      - run: yarn lint
       - run: yarn workspace client package-ci
       - uses: toko-bifrost/ms-teams-deploy-card@master
         if: always()
