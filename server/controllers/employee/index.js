@@ -10,20 +10,22 @@ const generateId = require('./generateId');
 const rollbar = require('../../middlewares/rollbar');
 const logger = require('../../middlewares/logdna');
 
-const Users = mongoose.model('users');
+const Employees = mongoose.model('employee');
 
-// * GET | All users
+// TODO: Update sort/filter keys
+
+// * GET | All employee
 exports.get = async (req, res) => {
   try {
-    const users = await Users.find();
-    return res.status(200).send(users);
+    const employee = await Employees.find();
+    return res.status(200).send(employee);
   } catch (err) {
     rollbar.error(err);
-    logger.error('Error fetching users list', {
+    logger.error('Error fetching employee list', {
       indexMeta: true,
       meta: { err }
     });
-    res.status(500).send('Error fetching users');
+    res.status(500).send('Error fetching employees');
   }
 };
 
@@ -31,16 +33,16 @@ exports.get = async (req, res) => {
 exports.getNames = async (req, res) => {
   const name = req.params.name;
   try {
-    const users = await Users.find({
+    const employee = await Employees.find({
       name: {
         $regex: name,
         $options: 'i'
       }
     });
-    return res.status(200).send(users);
+    return res.status(200).send(employee);
   } catch (err) {
     rollbar.error(err);
-    res.status(500).send(`Cannot find user: ${name}`);
+    res.status(500).send(`Cannot find employee: ${name}`);
   }
 };
 
@@ -48,11 +50,11 @@ exports.getNames = async (req, res) => {
 exports.getRoles = async (req, res) => {
   const role = req.params.role;
   try {
-    const users = await Users.find({ role: role });
-    return res.status(200).send(users);
+    const employee = await Employees.find({ role: role });
+    return res.status(200).send(employee);
   } catch (err) {
     rollbar.error(err);
-    res.status(500).send(`Cannot find ${role} users`);
+    res.status(500).send(`Cannot find ${role} employee`);
   }
 };
 
@@ -60,13 +62,13 @@ exports.getRoles = async (req, res) => {
 exports.findByUserName = async (req, res) => {
   const username = req.params.username;
   try {
-    const users = await Users.find({
+    const employee = await Employees.find({
       username: {
         $regex: username,
         $options: 'i'
       }
     });
-    return res.status(200).send(users);
+    return res.status(200).send(employee);
   } catch (err) {
     rollbar.error(err);
     res.status(500).send(`Cannot find ${username}`);
@@ -81,8 +83,8 @@ exports.register = async (req, res) => {
       type: argon2.argon2id
     });
     const employeeId = await generateId(req.body.permission);
-    const users = await Users.create({
-      user_id: employeeId,
+    const employee = await Employees.create({
+      employee_id: employeeId,
       username: req.body.username,
       password: hashedPwd,
       name: {
@@ -93,8 +95,8 @@ exports.register = async (req, res) => {
       position: req.body.position,
       permission: req.body.permission
     });
-    res.status(201).send(users);
-    logger.log(`New user registered: ${users}`);
+    res.status(201).send(employee);
+    logger.log(`New user registered: ${employee}`);
   } catch (err) {
     rollbar.error(err);
     console.error(err);
@@ -106,15 +108,15 @@ exports.register = async (req, res) => {
   }
 };
 
-// * PATCH | Update current user
-exports.patch = async (req, res) => {
+// * PUT | Update current user
+exports.put = async (req, res) => {
   const { id } = req.query;
   try {
     // * Rehash password when changing
     const hashedPwd = await argon2.hash(req.body.password, {
       type: argon2.argon2id
     });
-    const users = await Users.findByIdAndUpdate(id, {
+    const employee = await Employees.findByIdAndUpdate(id, {
       username: req.body.username,
       password: hashedPwd,
       name: {
@@ -125,8 +127,8 @@ exports.patch = async (req, res) => {
       position: req.body.position,
       permission: req.body.permission
     });
-    logger.log(`User credentials updated: ${users}`);
-    return res.status(202).send(users);
+    logger.log(`User credentials updated: ${employee}`);
+    return res.status(202).send(employee);
   } catch (err) {
     rollbar.error(err);
     logger.error('Error updating user credentials', {
@@ -141,9 +143,9 @@ exports.patch = async (req, res) => {
 exports.delete = async (req, res) => {
   const { id } = req.query;
   try {
-    const users = await Users.findByIdAndDelete(id);
+    const employee = await Employees.findByIdAndDelete(id);
     logger.log(`User deleted with id: ${id}`);
-    res.status(202).send(users);
+    res.status(202).send(employee);
   } catch (err) {
     rollbar.error(err);
     logger.error(`Error deleting user: ${id}`, {
