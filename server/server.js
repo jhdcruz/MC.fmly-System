@@ -65,17 +65,10 @@ mongoose
   });
 
 // * Model Imports
-require('./models/user.model');
+require('./models/employee.model');
 require('./models/product.model');
 require('./models/supplier.model');
 require('./models/transaction.model');
-
-// * Routes Imports
-require('./routes/auth.route')(api);
-require('./routes/user.route')(api);
-require('./routes/product.route')(api);
-require('./routes/supplier.route')(api);
-require('./routes/transaction.route')(api);
 
 // * Serve static files
 api.use(express.static(path.join(__dirname, '/public')));
@@ -94,6 +87,13 @@ api.all('/', (req, res) => {
   );
   res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With');
 });
+
+// * Routes Imports
+require('./routes/auth.route')(api);
+require('./routes/employee.route')(api);
+require('./routes/product.route')(api);
+require('./routes/supplier.route')(api);
+require('./routes/transaction.route')(api);
 
 // * Rollbar error handler
 api.use(rollbar.errorHandler());
