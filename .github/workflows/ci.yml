@@ -1,4 +1,4 @@
-name: CI
+name: CI/CD
 
 on: push
 
@@ -9,8 +9,8 @@ jobs:
   build:
     strategy:
       matrix:
-        platform: [ubuntu-latest, windows-latest, macos-latest]
-        node-version: [14.x, 15.x]
+        platform: [ ubuntu-latest, windows-latest, macos-latest ]
+        node-version: [ 14.x, 15.x ]
     runs-on: ${{ matrix.platform }}
     steps:
       - uses: actions/checkout@v2
@@ -42,12 +42,12 @@ jobs:
           webhook-uri: ${{ secrets.MS_TEAMS_WEBHOOK_URI }}
 
   release:
-    needs: [build]
     if: github.ref == 'refs/heads/main'
+    needs: [ build ]
     strategy:
       matrix:
-        platform: [ubuntu-latest, windows-latest, macos-latest]
-        node-version: [14.x, 15.x]
+        platform: [ ubuntu-latest, windows-latest, macos-latest ]
+        node-version: [ 14.x, 15.x ]
     runs-on: ${{ matrix.platform }}
     steps:
       - uses: actions/checkout@v2
