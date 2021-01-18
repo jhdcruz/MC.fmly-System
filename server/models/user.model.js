@@ -13,12 +13,11 @@ const userSchema = new Schema(
       type: String,
       default: 'https://i.imgur.com/mgrAQIn.png'
     },
-
     id: {
       type: Schema.Types.ObjectId,
       unique: true,
       required: true,
-      minLength: 4
+      maxlength: 6
     },
     username: {
       type: String,
@@ -34,10 +33,20 @@ const userSchema = new Schema(
       minLength: 6
     },
     name: {
-      type: String,
-      trim: true
+      first: {
+        type: String,
+        trim: true
+      },
+      middle: {
+        type: String,
+        trim: true
+      },
+      last: {
+        type: String,
+        trim: true
+      }
     },
-    role: {
+    position: {
       type: String,
       trim: true
     },
