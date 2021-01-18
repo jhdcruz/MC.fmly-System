@@ -23,6 +23,7 @@ const path = require('path');
 
 const isWindows = process.platform === 'win32';
 const singleInstance = app.requestSingleInstanceLock();
+const updater = autoUpdater.checkForUpdatesAndNotify();
 
 // * Window focus fix
 let needsFocusFix = false;
@@ -104,7 +105,7 @@ function createWindow() {
 app
   .whenReady()
   .then(createWindow)
-  .then(autoUpdater.checkForUpdatesAndNotify())
+  .then(() => updater)
   .catch((err) => {
     console.error(err);
   });
@@ -123,7 +124,6 @@ app.on('activate', () => {
   // dock icon is clicked and there are no other windows open.
   if (BrowserWindow.getAllWindows().length === 0) {
     createWindow();
-    require('updater');
   } else {
     app.quit();
   }
