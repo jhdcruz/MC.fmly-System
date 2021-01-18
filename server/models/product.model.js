@@ -36,7 +36,7 @@ const productSchema = new Schema(
     },
     quantity: {
       type: Number,
-      min: 1
+      min: 0
     },
     price: {
       type: Number,
