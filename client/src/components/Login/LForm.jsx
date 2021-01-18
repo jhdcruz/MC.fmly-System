@@ -134,7 +134,7 @@ export default function LForm(props) {
 
         {/* Login Fields */}
         <Form.Group>
-          <FormLabel htmlFor="username">Username:</FormLabel>
+          <FormLabel htmlFor="username">User ID:</FormLabel>
           <InputGroup>
             <InputIcon>
               <InputGroup.Text>
