@@ -35,14 +35,7 @@ const transactionSchema = new Schema(
       type: [String],
       default: 'No order record',
       trim: true,
-      unique: false,
-      index: {
-        unique: true,
-        collation: {
-          locale: 'en',
-          strength: 2
-        }
-      }
+      unique: false
     },
     payment: {
       type: String,

@@ -27,20 +27,14 @@ const supplierSchema = new Schema(
     },
     category: {
       type: [String],
-      default: '',
+      default: 'N/A',
       trim: true,
-      unique: false,
-      index: {
-        unique: true,
-        collation: {
-          locale: 'en',
-          strength: 2
-        }
-      }
+      lowercase: true,
+      unique: false
     },
     address: {
       type: String,
-      default: '',
+      default: 'N/A',
       unique: false
     },
     website: {
@@ -49,17 +43,19 @@ const supplierSchema = new Schema(
       trim: true,
       unique: false
     },
-    contact_person: {
-      type: String,
-      default: 'N/A',
-      trim: true,
-      unique: false
-    },
     contact: {
-      type: String,
-      default: 'N/A',
-      trim: true,
-      unique: false
+      person: {
+        type: String,
+        default: 'N/A',
+        trim: true,
+        unique: false
+      },
+      tel: {
+        type: String,
+        default: 'N/A',
+        trim: true,
+        unique: false
+      }
     }
   },
   { timestamps: true }
