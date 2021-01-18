@@ -4,13 +4,24 @@
  *     Licensed under GNU General Public License 3.0 or later
  */
 
-import Authentication from '../containers/Authentication';
 import ErrorBoundary from '../components/common/ErrorBoundary';
+import Authentication from '../containers/Authentication';
+import Overview from '../components/Login/Overview';
 
 export default function Login() {
   return (
     <ErrorBoundary>
-      <Authentication />
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          width: '100%',
+          heigh: '100%'
+        }}
+      >
+        <Overview />
+        <Authentication />
+      </div>
     </ErrorBoundary>
   );
 }

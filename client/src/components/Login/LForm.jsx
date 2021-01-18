@@ -17,24 +17,11 @@ import Brand from '../../assets/img/logo.svg';
 /****************************
  * * Login Form UI
  ****************************/
-
-const Img = styled(Image)`
-  width: 75vh;
-  height: auto;
-  margin: auto 7vw;
-  user-select: none;
-  -webkit-user-drag: none;
-`;
-
 const LoginContainer = styled(Container)`
-  display: flex;
-  width: 100%;
+  display: block;
+  width: 45%;
   height: 100vh;
   margin: 0;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  overflow: hidden !important;
   z-index: 1;
 
   #Logo {
@@ -55,17 +42,14 @@ const LoginContainer = styled(Container)`
 `;
 
 const LoginForm = styled(Form)`
-  width: 500px;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   margin: 0;
-  padding: 5rem 7rem;
+  padding: 5rem;
   color: whitesmoke;
   background-color: #222126;
   border-left: 4px ridge #e6a195;
-  box-shadow: rgba(230, 161, 149, 0.2) -1px 0px 8px;
-  overflow: hidden !important;
-  position: fixed;
-  right: 0;
+  box-shadow: #e6a195 -1px 0px 10px;
 
   img {
     margin: 0 auto 2vh auto;
@@ -120,8 +104,6 @@ const LoginControl = styled.div`
 export default function LForm(props) {
   return (
     <LoginContainer fluid>
-      <Img src={Brand} alt="Company Logo" rounded width={500} height={500} />
-
       {/* Login Form */}
       <LoginForm autoComplete="off" autoSave="off" onSubmit={props.submit}>
         <Image
