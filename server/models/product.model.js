@@ -44,7 +44,7 @@ const productSchema = new Schema(
     },
     supplier: {
       type: [String],
-      default: 'N/A',
+      default: 'MC.fmly',
       trim: true,
       unique: false
     }
