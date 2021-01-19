@@ -4084,7 +4084,7 @@ confusing-browser-globals@^1.0.10:
   resolved "https://registry.yarnpkg.com/confusing-browser-globals/-/confusing-browser-globals-1.0.10.tgz#30d1e7f3d1b882b25ec4933d1d1adac353d20a59"
   integrity sha512-gNld/3lySHwuhaVluJUKLePYirM3QNCKzVxqAdhJII9/WXKVX5PURzMVJspS1jTslSqjeuG4KMVTSouit5YPHA==
 
-connect-datadog@^0.0.9:
+connect-datadog@0.0.9:
   version "0.0.9"
   resolved "https://registry.yarnpkg.com/connect-datadog/-/connect-datadog-0.0.9.tgz#1d974f61df77689517c1b2899c58b66c658ab3df"
   integrity sha512-CThcRgy6AAStdBRsrNdneeJkEuH0/2G1QanYFfl0F+ZkbQaRMMM9/apvZ1R3SMD9iAST/Xa78Q0jC51KCB/4LQ==
