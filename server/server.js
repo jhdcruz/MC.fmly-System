@@ -37,11 +37,11 @@ const api = express();
 const PORT = process.env.PORT || 5000;
 mongoose.Promise = global.Promise;
 
-// * Model Imports
-require('./models/employee.model');
-require('./models/product.model');
-require('./models/supplier.model');
-require('./models/transaction.model');
+// * HTTP Headers
+api.use(cors());
+api.use(helmet());
+api.use(bodyParser.urlencoded({ extended: false }));
+api.use(bodyParser.json());
 
 // * Connect to the Database || MongoDB Atlas
 mongoose
@@ -65,14 +65,14 @@ mongoose
     console.error(err);
   });
 
-// * HTTP Headers
-api.use(cors());
-api.use(helmet());
-api.use(bodyParser.urlencoded({ extended: false }));
-api.use(bodyParser.json());
-
 // * Custom middlewares
 api.use(ddConnect);
+
+// * Model Imports
+require('./models/employee.model');
+require('./models/product.model');
+require('./models/supplier.model');
+require('./models/transaction.model');
 
 // * Serve static files
 api.use(express.static(path.join(__dirname, '/public')));
