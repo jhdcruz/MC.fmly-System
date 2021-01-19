@@ -36,15 +36,13 @@ exports.exportAll = async (req, res) => {
 
 // * POST | Export route data
 exports.exportData = async (req, res) => {
+  const { data } = req.params.data;
   try {
     logger.log(`Data exported at ${req.ip}`);
     return (
       res
         // Currently supports JSON-only
-        .download(
-          `/${req.params[0]}`,
-          `mcfmly-${req.params[0]}-${Date.now()}}.json`
-        )
+        .download(`/${data}`, `mcfmly-${data}-${Date.now()}}.json`)
         .sendStatus(200)
     );
   } catch (err) {

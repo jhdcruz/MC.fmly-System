@@ -25,6 +25,7 @@
     "@logdna/logger": "2.1.3",
     "argon2": "0.27.1",
     "body-parser": "1.19.0",
+    "connect-datadog": "^0.0.9",
     "cors": "2.8.5",
     "cross-env": "7.0.3",
     "dotenv": "8.2.0",

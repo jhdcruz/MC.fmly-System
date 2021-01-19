@@ -26,6 +26,7 @@ const dotenv = require('dotenv');
 const dotenvExpand = require('dotenv-expand');
 const rollbar = require('./middlewares/rollbar');
 const logger = require('./middlewares/logdna');
+const ddConnect = require('./middlewares/datadog');
 
 // set .env
 const env = dotenv.config();
@@ -36,11 +37,11 @@ const api = express();
 const PORT = process.env.PORT || 5000;
 mongoose.Promise = global.Promise;
 
-// * HTTP Headers
-api.use(cors());
-api.use(helmet());
-api.use(bodyParser.urlencoded({ extended: false }));
-api.use(bodyParser.json());
+// * Model Imports
+require('./models/employee.model');
+require('./models/product.model');
+require('./models/supplier.model');
+require('./models/transaction.model');
 
 // * Connect to the Database || MongoDB Atlas
 mongoose
@@ -64,11 +65,14 @@ mongoose
     console.error(err);
   });
 
-// * Model Imports
-require('./models/employee.model');
-require('./models/product.model');
-require('./models/supplier.model');
-require('./models/transaction.model');
+// * HTTP Headers
+api.use(cors());
+api.use(helmet());
+api.use(bodyParser.urlencoded({ extended: false }));
+api.use(bodyParser.json());
+
+// * Custom middlewares
+api.use(ddConnect);
 
 // * Serve static files
 api.use(express.static(path.join(__dirname, '/public')));
