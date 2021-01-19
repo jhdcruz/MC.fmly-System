@@ -7,6 +7,11 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
+/*
+ ! Updating the model requires changes in employee controllers
+ ! for inserting and updating data.
+*/
+
 const employeeSchema = new Schema(
   {
     image: {
