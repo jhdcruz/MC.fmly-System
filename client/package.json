@@ -63,7 +63,7 @@
     "babel-loader": "8.2.2",
     "babel-plugin-named-asset-import": "0.3.7",
     "babel-preset-react-app": "10.0.0",
-    "bootstrap": "4.5.3",
+    "bootstrap": "4.6.0",
     "camelcase": "6.2.0",
     "case-sensitive-paths-webpack-plugin": "2.3.0",
     "concurrently": "5.3.0",
