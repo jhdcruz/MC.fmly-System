@@ -8,12 +8,12 @@ import { lazy, Suspense, useState } from 'react';
 import { Fallback } from '../../components/common/Loaders';
 import Header from '../../components/Users/table/Header';
 import Row from '../../components/Users/table/Row';
-import { UsersApi } from '../../api/Users';
+import { EmployeesApi } from '../../api/Employees';
 
-const UserModals = lazy(() => import('../Users/Modals'));
+const UserModals = lazy(() => import('../Employees/Modals'));
 
 export default function RUsers() {
-  const { data } = UsersApi();
+  const { data } = EmployeesApi();
 
   // * Modal State Handlers | Until API's done
   const [editModal, showEditModal] = useState(false);

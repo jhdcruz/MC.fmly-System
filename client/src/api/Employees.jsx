@@ -8,13 +8,13 @@ import axios from 'axios';
 import { useQuery } from 'react-query';
 import ApiRoute from '../utils/apiRoute';
 
-export const UsersApi = () => {
+export const EmployeesApi = () => {
   const url = ApiRoute();
 
   return useQuery(
-    'users',
+    'employees',
     async () => {
-      const { data } = await axios.get(`${url}/users`);
+      const { data } = await axios.get(`${url}/employees`);
       return data;
     },
     {

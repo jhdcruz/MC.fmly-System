@@ -13,13 +13,13 @@ import Notification from '../../components/common/Notification';
 import ViewAll from './ViewAll';
 import ViewPermission from './ViewPermission';
 import ViewRole from './ViewRole';
-import { UsersApi } from '../../api/Users';
+import { EmployeesApi } from '../../api/Employees';
 import { userPermissions, userRoles } from './Filters';
 
 const UserModals = lazy(() => import('./Modals'));
 
 export default function View() {
-  const { data } = UsersApi();
+  const { data } = EmployeesApi();
   const [view, setView] = useState('list');
 
   // * Modal State Handlers

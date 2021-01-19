@@ -36,7 +36,7 @@ const Inventory = lazy(() => import('../pages/inventory'));
 const Transactions = lazy(() => import('../pages/transactions'));
 const Suppliers = lazy(() => import('../pages/suppliers'));
 const Pos = lazy(() => import('../pages/pos'));
-const Users = lazy(() => import('../pages/users'));
+const Users = lazy(() => import('../pages/employees'));
 const SysInfo = lazy(() => import('../pages/sysinfo'));
 
 /*********************************
@@ -71,8 +71,8 @@ export default function Admin() {
                   icon={faBoxes}
                 />
                 <TabItem
-                  tab="Transactions"
-                  overlay="Transactions"
+                  tab="Transactions / Invoices"
+                  overlay="Transactions / Invoices"
                   route={routes.TRANSACTIONS}
                   icon={faFileInvoice}
                 />
@@ -93,9 +93,9 @@ export default function Admin() {
             bottom={
               <>
                 <TabItem
-                  tab="Users Management"
-                  overlay="Users Management"
-                  route={routes.USERS}
+                  tab="Employee Management"
+                  overlay="Employee Management"
+                  route={routes.EMPLOYEES}
                   icon={faUsers}
                 />
                 <TabItem
@@ -121,7 +121,7 @@ export default function Admin() {
                 <Route path={routes.TRANSACTIONS} component={Transactions} />
                 <Route path={routes.SUPPLIERS} component={Suppliers} />
                 <Route path={routes.POS} component={Pos} />
-                <Route path={routes.USERS} component={Users} />
+                <Route path={routes.EMPLOYEES} component={Users} />
               </Suspense>
             </Switch>
           </div>

@@ -20,7 +20,7 @@ import { faServer, faUsers } from '@fortawesome/free-solid-svg-icons';
 import { Fallback } from '../components/common/Loaders';
 import ApiStatus from '../containers/ApiStatus';
 
-const Users = lazy(() => import('../pages/users'));
+const Users = lazy(() => import('../pages/employees'));
 const SysInfo = lazy(() => import('../pages/sysinfo'));
 
 /*********************************
@@ -47,9 +47,9 @@ export default function SysAdmin() {
             bottom={
               <>
                 <TabItem
-                  tab="Users Management"
-                  overlay="Users Management"
-                  route={routes.USERS}
+                  tab="Employee Management"
+                  overlay="Employee Management"
+                  route={routes.EMPLOYEES}
                   icon={faUsers}
                 />
                 <ApiStatus placement="right" left="0.8rem" />
@@ -63,7 +63,7 @@ export default function SysAdmin() {
                   <Redirect from="/" to="/sysinfo" />
                 </Route>
                 <Route path={routes.SYSINFO} component={SysInfo} />
-                <Route path={routes.USERS} component={Users} />
+                <Route path={routes.EMPLOYEES} component={Users} />
               </Suspense>
             </Switch>
           </div>

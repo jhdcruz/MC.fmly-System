@@ -4,10 +4,10 @@
  *     Licensed under GNU General Public License 3.0 or later
  */
 
-import View from '../containers/Users/View';
+import View from '../containers/Employees/View';
 import ErrorBoundary from '../components/common/ErrorBoundary';
 
-export default function Users() {
+export default function Employees() {
   return (
     <ErrorBoundary>
       <View />
