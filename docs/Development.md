@@ -1,3 +1,37 @@
+## Environment Variables
+
+Create `.env` files for both projects.
+
+**Server** `./server/.env`
+
+- **`MONGO_URL`** - **Required** _(Production)_
+- **`MONGO_ADMIN`** - **Required** _(Admin)_
+- **`ROLLBAR_ID`** - _Rollbar Error Tracking (Server)_
+- **`INGESTION_KEY`** - _LogDNA Log Management_
+
+**Client** `./client/.env`
+
+- **`REACT_APP_API`** - **Required** _Server deployment URL (Production)_
+- **`REACT_APP_LOCAL_API`** - **Required** _Local server deployment URL (Development)_
+- **`REACT_APP_GITHUB_URL`** - **Required** _GitHub Repo (GitHub API)_
+- **`REACT_APP_ROLLBAR_TOKEN`** - _Rollbar Error Tracking (Client)_
+
+See `.env` pre-configured templates:
+
+- [`./server/.env.template`](./server/.env.template) - **Server**
+
+- [`./client/.env.template`](./client/.env.template) - **Client**
+
+**Example:**
+
+```dotenv
+MONGO_URL=Your URI Here
+```
+
+> Do not add quotation marks between values!
+
+## Development
+
 This project uses yarn's [`workspaces`](https://classic.yarnpkg.com/en/docs/workspaces/) to seperate the **Front-End**
 and the **Back-End** and run `scripts` without navigating back & forth to project folders.
 
@@ -21,7 +55,7 @@ yarn web
 yarn start
 ```
 
-## Production
+## Deployment
 
 ### Web App:
 
