@@ -1683,10 +1683,10 @@
     "@types/yargs" "^15.0.0"
     chalk "^4.0.0"
 
-"@logdna/logger@2.1.3":
-  version "2.1.3"
-  resolved "https://registry.yarnpkg.com/@logdna/logger/-/logger-2.1.3.tgz#da0eb0f55cbd0b56c6a797728289d98171f4a298"
-  integrity sha512-CWhqLr6CJcJ6At3oYG1SmT8+HoLOtlUCa1RdyDgaZr/aVoVLn9RqoFL0rwGYhE7DYz54yjW3JuwNGDxjwrFpLQ==
+"@logdna/logger@2.2.0":
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/@logdna/logger/-/logger-2.2.0.tgz#3505a1818ccecc8260b627ff2f39447d3a4b9fe5"
+  integrity sha512-l/DdkPAnkgzHQNuUL9OoWUSGzA7E4TrKy8KYA/Iw+GdcuiE87hBiFFjmwNqYYEaQHqyVYU84lMoMjkZKtBIGPQ==
   dependencies:
     agentkeepalive "^4.1.3"
     axios "^0.21.1"
